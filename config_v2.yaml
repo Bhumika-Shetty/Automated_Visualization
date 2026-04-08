@@ -3,8 +3,9 @@ models:
   - gpt-4o-mini
   - claude-opus-4-5
   - claude-sonnet-4-5
-  - qwen2.5-coder:32b
-  - llama3.1:8b
+  - deepseek-chat
+  - qwen-qwq-32b
+  - llama-3.1-8b-instant
   - gemini-2.5-flash
   - gemini-2.5-pro
 

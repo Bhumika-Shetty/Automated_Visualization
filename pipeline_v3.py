@@ -28,9 +28,14 @@ DEFAULT_MODELS = [
     "gpt-4o-mini",
     "claude-opus-4-5",
     "claude-sonnet-4-5",
+    "deepseek-chat",
+    "qwen-qwq-32b",
+    "llama-3.1-8b-instant",
+    "gemini-2.5-flash",
+    "gemini-2.5-pro",
 ]
 
-DEFAULT_DATASETS = ["dogs_zurich", "cameras", "coffee_sales"]
+DEFAULT_DATASETS = ["titanic", "iris", "sleep_health", "customer_segments", "credit_fraud", "dogs_zurich", "cameras", "coffee_sales"]
 PROMPT_TYPES = ["rich", "poor"]
 
 

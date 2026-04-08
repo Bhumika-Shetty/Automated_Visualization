@@ -122,6 +122,69 @@ def call_google(model: str, user_prompt: str) -> Tuple[str, float, float]:
     return text, latency, cost
 
 
+def call_groq(model: str, user_prompt: str) -> Tuple[str, float, float]:
+    """
+    Call Groq API (free tier). Supports Llama, Qwen, DeepSeek, Gemma.
+    Returns (response_text, latency_seconds, cost=0).
+    """
+    import openai
+
+    client = openai.OpenAI(
+        api_key=os.environ["GROQ_API_KEY"],
+        base_url="https://api.groq.com/openai/v1",
+    )
+
+    start = time.time()
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ],
+        temperature=0.7,
+        max_tokens=2048,
+    )
+    latency = time.time() - start
+
+    text = response.choices[0].message.content
+    return text, latency, 0.0  # Free tier
+
+
+def call_deepseek(model: str, user_prompt: str) -> Tuple[str, float, float]:
+    """
+    Call DeepSeek API. Very cheap ($0.14/1M tokens input).
+    Returns (response_text, latency_seconds, estimated_cost).
+    """
+    import openai
+
+    cost_per_1k_input = {"deepseek-chat": 0.00014, "deepseek-coder": 0.00014}
+    cost_per_1k_output = {"deepseek-chat": 0.00028, "deepseek-coder": 0.00028}
+
+    client = openai.OpenAI(
+        api_key=os.environ["DEEPSEEK_API_KEY"],
+        base_url="https://api.deepseek.com/v1",
+    )
+
+    start = time.time()
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ],
+        temperature=0.7,
+        max_tokens=2048,
+    )
+    latency = time.time() - start
+
+    text = response.choices[0].message.content
+    input_tokens = response.usage.prompt_tokens
+    output_tokens = response.usage.completion_tokens
+    key = model if model in cost_per_1k_input else "deepseek-chat"
+    cost = (input_tokens / 1000) * cost_per_1k_input[key] + (output_tokens / 1000) * cost_per_1k_output[key]
+    return text, latency, cost
+
+
 def call_ollama(model: str, user_prompt: str) -> Tuple[str, float, float]:
     """
     Call local Ollama API. Returns (response_text, latency_seconds, cost=0).
@@ -162,7 +225,11 @@ def call_model(model: str, user_prompt: str, max_retries: int = 3) -> Tuple[str,
                 return call_anthropic(model, user_prompt)
             elif model.startswith("gemini"):
                 return call_google(model, user_prompt)
-            elif model.startswith("qwen") or model.startswith("llama"):
+            elif model.startswith("deepseek"):
+                return call_deepseek(model, user_prompt)
+            elif any(model.startswith(p) for p in ["llama", "qwen", "mixtral", "gemma"]):
+                return call_groq(model, user_prompt)
+            elif ":" in model:  # Ollama format e.g. qwen2.5-coder:32b
                 return call_ollama(model, user_prompt)
             else:
                 raise ValueError(f"Unknown model: {model}")
