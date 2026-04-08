@@ -1,0 +1,1001 @@
+brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type
+Leica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact
+Fuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless
+Pentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless
+Olympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless
+Leica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR
+Sigma,2016,12.5,102400,907,4956.39,1-inch,0,MFT,Bridge
+Sony,2008,55.4,6400,1079,441.16,APS-C,1,E,Mirrorless
+Leica,2020,18.2,6400,242,3089.15,1-inch,0,RF,Bridge
+Pentax,2008,25.1,6400,388,4198.0,Full Frame,1,NX,DSLR
+Olympus,2009,20.0,12800,354,1663.41,Medium Format,1,RF,DSLR
+Fuji,2009,26.8,3200,709,1985.07,Full Frame,0,Z,Compact
+Pentax,2012,11.7,25600,394,3759.1,Medium Format,1,SA,Mirrorless
+Pentax,2014,35.5,3200,981,5408.02,Medium Format,0,EF,DSLR
+Sony,2021,11.6,3200,1074,4897.56,1-inch,1,L,DSLR
+Panasonic,2013,50.4,3200,444,3582.16,Full Frame,0,EF,Compact
+Olympus,2023,20.4,6400,789,4435.29,Full Frame,1,NX,Mirrorless
+Nikon,2018,36.6,51200,1005,2315.97,APS-C,0,EF,Mirrorless
+Pentax,2012,54.6,6400,166,3917.6,Full Frame,0,X,Mirrorless
+Panasonic,2013,42.5,6400,220,2903.85,APS-C,1,L,Mirrorless
+Nikon,2015,36.2,102400,454,1301.63,Micro 4/3,1,Z,Bridge
+Olympus,2005,25.2,102400,1180,4270.08,Micro 4/3,1,NX,DSLR
+Canon,2018,25.6,3200,966,3427.49,Micro 4/3,1,K,Mirrorless
+Sigma,2009,43.5,6400,970,2280.01,Full Frame,0,Z,Compact
+Panasonic,2018,60.7,3200,342,5485.77,Full Frame,0,X,DSLR
+Samsung,2008,43.1,102400,678,321.42,APS-C,1,L,Mirrorless
+Canon,2005,37.6,51200,320,2031.48,Medium Format,0,E,Mirrorless
+Sigma,2023,46.7,25600,400,529.91,APS-C,0,X,Mirrorless
+Sony,2012,32.7,3200,690,4645.86,Micro 4/3,1,Z,Mirrorless
+Leica,2019,11.2,51200,565,4272.22,APS-C,0,NX,Mirrorless
+Fuji,2019,37.8,25600,943,2121.84,Medium Format,0,SA,Mirrorless
+Samsung,2013,58.8,12800,174,4118.84,Full Frame,1,NX,Mirrorless
+Sony,2013,17.3,3200,817,2496.44,APS-C,1,L,Mirrorless
+Olympus,2014,44.6,3200,781,4586.27,Micro 4/3,1,SA,DSLR
+Sony,2024,18.6,12800,654,2834.27,Micro 4/3,0,RF,Mirrorless
+Leica,2013,36.4,12800,485,2591.22,Full Frame,0,L,Bridge
+Olympus,2007,13.1,3200,574,5621.43,APS-C,0,L,Mirrorless
+Samsung,2024,31.9,12800,648,1655.1,Medium Format,1,X,Compact
+Leica,2015,48.1,6400,1096,898.59,Full Frame,1,NX,Mirrorless
+Nikon,2010,26.4,25600,779,3590.35,APS-C,1,Z,Compact
+Fuji,2006,43.2,25600,867,5822.07,1-inch,1,E,Bridge
+Samsung,2011,50.2,25600,488,2391.47,Micro 4/3,0,EF,DSLR
+Nikon,2022,57.1,6400,808,559.81,Medium Format,0,MFT,Mirrorless
+Sigma,2006,20.4,12800,1111,2167.97,Medium Format,0,E,Mirrorless
+Samsung,2021,29.2,51200,578,3134.4,Medium Format,0,EF,Mirrorless
+Sigma,2015,16.1,12800,1048,1139.15,Micro 4/3,1,RF,DSLR
+Olympus,2016,60.6,3200,288,4016.99,APS-C,1,Z,Compact
+Nikon,2023,57.1,102400,1091,5986.95,Full Frame,1,NX,DSLR
+Fuji,2011,36.6,25600,691,2820.09,APS-C,0,K,Mirrorless
+Leica,2024,52.6,12800,206,2257.43,Full Frame,0,L,Mirrorless
+Pentax,2010,35.6,51200,807,2524.08,Medium Format,1,E,DSLR
+Sony,2005,41.1,3200,584,867.85,APS-C,1,EF,Bridge
+Canon,2021,12.7,6400,533,5322.99,Medium Format,1,K,Compact
+Fuji,2015,48.0,6400,709,2605.99,1-inch,1,E,Mirrorless
+Nikon,2022,14.8,51200,343,2446.19,Medium Format,1,Z,Mirrorless
+Pentax,2021,51.8,3200,683,4026.2,Medium Format,1,NX,DSLR
+Fuji,2011,49.4,25600,667,2763.79,Full Frame,1,SA,Compact
+Nikon,2021,45.6,12800,865,3959.75,1-inch,0,E,DSLR
+Panasonic,2024,9.9,3200,900,556.39,Medium Format,1,E,Mirrorless
+Panasonic,2013,24.1,6400,334,4919.6,Medium Format,1,NX,Compact
+Sigma,2021,21.9,51200,441,5654.92,1-inch,1,RF,DSLR
+Fuji,2024,27.1,51200,881,3962.84,1-inch,1,X,Compact
+Panasonic,2012,12.6,12800,265,5736.48,APS-C,1,E,DSLR
+Nikon,2021,57.7,51200,974,1078.31,Full Frame,1,NX,Bridge
+Sigma,2011,37.4,51200,834,2969.01,1-inch,1,X,DSLR
+Nikon,2005,24.2,3200,231,3690.48,1-inch,1,NX,Mirrorless
+Sigma,2017,29.0,25600,983,3574.07,Micro 4/3,0,NX,DSLR
+Fuji,2023,31.7,12800,482,2528.48,1-inch,1,RF,Compact
+Pentax,2023,39.8,3200,706,2160.89,Full Frame,0,NX,Mirrorless
+Leica,2021,35.3,25600,484,935.58,Medium Format,1,Z,DSLR
+Samsung,2017,56.7,3200,681,2472.11,Medium Format,1,E,Mirrorless
+Pentax,2020,34.3,102400,370,1143.43,Medium Format,1,EF,Mirrorless
+Olympus,2012,60.6,3200,784,4459.32,Medium Format,1,EF,Mirrorless
+Nikon,2023,53.1,51200,472,1411.22,Micro 4/3,0,EF,Compact
+Olympus,2022,19.1,25600,152,539.68,1-inch,0,NX,Mirrorless
+Pentax,2005,57.3,12800,355,3403.72,Medium Format,0,K,DSLR
+Sigma,2018,14.2,12800,189,3652.33,APS-C,0,X,DSLR
+Samsung,2023,51.3,25600,208,5257.1,Medium Format,0,X,Mirrorless
+Samsung,2019,28.2,51200,1100,3546.49,1-inch,1,NX,Mirrorless
+Canon,2022,54.5,6400,723,2203.79,Medium Format,1,Z,Mirrorless
+Samsung,2006,54.0,3200,793,4857.47,Micro 4/3,0,Z,DSLR
+Leica,2021,50.7,51200,992,3333.62,Full Frame,0,L,Mirrorless
+Samsung,2022,49.9,102400,768,659.83,Full Frame,1,NX,Bridge
+Pentax,2010,24.1,25600,245,3481.93,1-inch,0,MFT,DSLR
+Canon,2023,12.3,3200,1047,5466.51,Full Frame,1,RF,Mirrorless
+Pentax,2008,29.4,12800,710,2498.61,Full Frame,1,EF,Compact
+Pentax,2005,17.2,6400,1054,1918.69,APS-C,1,RF,Compact
+Sony,2012,44.8,102400,497,1032.12,1-inch,0,EF,Mirrorless
+Canon,2011,26.3,12800,820,1078.38,1-inch,0,SA,Mirrorless
+Pentax,2007,59.7,25600,466,2710.07,Full Frame,1,SA,Compact
+Sony,2014,42.0,3200,868,3654.94,Full Frame,1,NX,DSLR
+Sony,2014,51.6,25600,399,667.57,Full Frame,1,SA,Mirrorless
+Canon,2023,15.0,3200,463,5649.5,Micro 4/3,0,K,DSLR
+Olympus,2018,53.7,51200,956,4579.77,Medium Format,1,L,Mirrorless
+Sigma,2006,56.9,6400,634,3602.42,Micro 4/3,1,Z,Mirrorless
+Leica,2005,33.8,51200,193,5004.94,1-inch,1,K,Compact
+Sigma,2022,40.1,51200,720,665.08,APS-C,1,RF,DSLR
+Samsung,2011,48.5,25600,732,2965.67,Medium Format,1,RF,Mirrorless
+Leica,2012,17.3,6400,1044,3854.54,APS-C,0,SA,Mirrorless
+Samsung,2005,34.6,3200,369,5006.19,1-inch,1,Z,Mirrorless
+Pentax,2007,29.1,3200,1074,4744.12,1-inch,0,L,Compact
+Nikon,2012,15.8,102400,550,1807.0,APS-C,1,EF,Mirrorless
+Canon,2019,27.5,12800,876,5657.1,APS-C,1,K,Bridge
+Leica,2009,11.6,102400,1140,921.21,APS-C,1,L,Mirrorless
+Leica,2007,9.4,102400,1048,5275.77,1-inch,0,E,Mirrorless
+Pentax,2023,15.2,3200,1007,5831.45,Full Frame,0,X,Compact
+Olympus,2005,59.0,25600,953,1227.49,APS-C,0,SA,DSLR
+Sony,2019,37.1,51200,639,4387.98,Medium Format,1,EF,DSLR
+Pentax,2012,59.2,51200,1087,433.66,1-inch,1,E,Compact
+Panasonic,2006,30.9,51200,993,2551.45,Micro 4/3,0,EF,Mirrorless
+Sony,2007,24.5,6400,416,3194.44,Micro 4/3,0,EF,Compact
+Canon,2018,34.8,3200,203,3567.74,Medium Format,1,SA,Bridge
+Sony,2018,31.3,25600,677,5628.44,Full Frame,0,EF,Mirrorless
+Olympus,2015,13.6,6400,765,4099.05,APS-C,1,L,Mirrorless
+Sony,2020,42.0,12800,1104,2991.41,1-inch,1,L,Mirrorless
+Canon,2008,19.5,25600,535,4896.12,APS-C,1,E,Mirrorless
+Olympus,2024,40.8,102400,883,5713.09,1-inch,1,RF,Compact
+Sigma,2009,42.5,25600,865,327.98,Micro 4/3,1,Z,Compact
+Leica,2018,16.1,25600,799,5898.62,APS-C,1,K,Mirrorless
+Leica,2020,11.3,51200,449,699.57,Medium Format,1,K,DSLR
+Samsung,2022,49.4,25600,544,4923.44,Full Frame,1,MFT,Mirrorless
+Sigma,2011,32.4,102400,742,1825.94,Medium Format,1,SA,DSLR
+Sigma,2014,11.1,102400,663,966.64,Full Frame,0,NX,Compact
+Sony,2011,60.7,3200,545,2751.16,APS-C,1,NX,DSLR
+Leica,2005,11.1,25600,520,3934.95,APS-C,1,E,Compact
+Canon,2023,44.8,51200,1007,2409.52,Full Frame,1,EF,Mirrorless
+Fuji,2020,60.1,25600,940,516.48,Micro 4/3,0,EF,Compact
+Fuji,2023,20.7,12800,807,3676.87,1-inch,1,SA,Mirrorless
+Olympus,2008,15.5,12800,885,5433.94,Medium Format,1,X,Mirrorless
+Leica,2022,14.4,51200,533,2422.65,Medium Format,1,RF,Mirrorless
+Leica,2006,24.1,3200,211,1454.73,Medium Format,0,MFT,Compact
+Fuji,2005,13.4,3200,654,2766.95,APS-C,1,L,Mirrorless
+Leica,2019,44.7,102400,388,480.5,Medium Format,1,EF,Mirrorless
+Sony,2009,11.3,102400,344,4958.83,1-inch,1,MFT,Mirrorless
+Panasonic,2024,35.0,6400,827,4992.78,1-inch,1,K,DSLR
+Nikon,2015,60.8,51200,210,3610.4,Full Frame,0,X,Mirrorless
+Sigma,2014,51.1,25600,1139,2248.0,APS-C,0,L,Bridge
+Samsung,2006,40.6,51200,834,4838.74,1-inch,0,SA,DSLR
+Olympus,2007,24.2,6400,305,3417.18,Micro 4/3,0,MFT,Mirrorless
+Panasonic,2016,41.1,102400,1072,4990.41,APS-C,1,E,Mirrorless
+Fuji,2024,35.9,51200,1017,3862.46,APS-C,1,L,Mirrorless
+Sigma,2009,30.6,51200,1052,4749.55,1-inch,0,SA,DSLR
+Leica,2009,14.9,102400,1148,3671.67,Micro 4/3,1,NX,Mirrorless
+Samsung,2010,55.0,6400,1124,2602.02,Full Frame,0,SA,DSLR
+Leica,2013,31.8,102400,537,5756.09,1-inch,1,SA,DSLR
+Canon,2006,18.3,3200,1036,3338.46,Micro 4/3,1,L,Compact
+Canon,2016,27.5,25600,987,3709.52,APS-C,0,X,Mirrorless
+Samsung,2007,29.9,102400,489,1478.83,Micro 4/3,0,L,Bridge
+Samsung,2024,51.9,6400,353,3828.77,APS-C,0,Z,DSLR
+Fuji,2016,46.9,12800,310,3515.32,1-inch,1,RF,Mirrorless
+Samsung,2021,48.8,3200,541,1272.06,1-inch,0,X,DSLR
+Sony,2014,8.6,12800,918,545.61,Medium Format,1,E,Mirrorless
+Leica,2018,30.1,102400,724,3705.28,Medium Format,1,X,Bridge
+Panasonic,2021,33.5,3200,683,4629.42,Medium Format,0,K,Compact
+Pentax,2022,9.0,25600,1042,3235.73,1-inch,0,E,DSLR
+Samsung,2023,21.8,102400,554,1515.28,Full Frame,1,NX,Mirrorless
+Olympus,2021,48.3,25600,757,4065.83,1-inch,0,L,Mirrorless
+Canon,2018,15.3,51200,977,664.61,Micro 4/3,1,SA,DSLR
+Sony,2013,36.4,12800,839,2762.64,1-inch,1,L,DSLR
+Sigma,2012,19.4,3200,1051,1147.53,1-inch,1,K,Bridge
+Pentax,2006,8.6,25600,205,1269.86,APS-C,0,MFT,Bridge
+Panasonic,2017,20.8,6400,515,1373.3,APS-C,1,K,Bridge
+Pentax,2011,59.7,25600,604,2442.9,APS-C,0,Z,Compact
+Samsung,2013,50.5,6400,253,496.67,1-inch,1,SA,Mirrorless
+Fuji,2015,58.9,102400,226,2507.2,Full Frame,0,SA,Mirrorless
+Canon,2018,33.9,3200,379,3167.9,Micro 4/3,1,EF,DSLR
+Canon,2008,13.8,25600,480,3003.11,Micro 4/3,0,MFT,DSLR
+Sigma,2017,37.0,25600,1042,2420.15,Full Frame,1,EF,Mirrorless
+Fuji,2006,32.1,3200,837,5067.05,Full Frame,0,NX,Compact
+Leica,2009,52.8,25600,176,1042.89,Micro 4/3,0,RF,Compact
+Nikon,2015,13.2,6400,448,3133.04,Medium Format,0,RF,Bridge
+Sony,2010,33.9,25600,1106,559.84,APS-C,1,L,Compact
+Canon,2022,16.0,12800,948,612.7,APS-C,0,RF,Bridge
+Olympus,2014,25.2,102400,629,3528.42,Micro 4/3,1,SA,DSLR
+Canon,2008,47.1,51200,722,3482.91,Full Frame,0,K,Compact
+Pentax,2013,33.2,6400,607,5292.59,Medium Format,0,MFT,Mirrorless
+Canon,2010,27.9,12800,514,3435.67,Micro 4/3,1,L,DSLR
+Canon,2006,28.9,102400,1008,5766.79,APS-C,1,L,Bridge
+Nikon,2021,32.4,3200,500,482.43,1-inch,1,MFT,Compact
+Nikon,2009,49.6,6400,402,768.44,Full Frame,1,SA,DSLR
+Panasonic,2010,55.3,51200,930,455.58,1-inch,0,NX,DSLR
+Leica,2016,58.6,102400,952,1274.61,Micro 4/3,1,NX,Mirrorless
+Olympus,2014,49.7,51200,1161,3339.37,APS-C,1,L,Mirrorless
+Canon,2010,24.7,3200,608,3944.32,Medium Format,1,NX,Bridge
+Canon,2012,44.5,3200,1066,464.39,1-inch,1,SA,DSLR
+Sony,2006,31.2,6400,648,5686.63,Medium Format,1,Z,DSLR
+Nikon,2016,21.5,25600,1099,5084.56,APS-C,0,Z,DSLR
+Olympus,2017,52.6,3200,657,1920.35,1-inch,1,EF,DSLR
+Sigma,2011,10.0,102400,650,647.69,Medium Format,0,X,DSLR
+Panasonic,2014,55.8,25600,952,1185.35,Medium Format,1,E,Bridge
+Leica,2017,32.5,12800,747,936.28,1-inch,1,RF,Mirrorless
+Fuji,2021,41.8,51200,315,915.05,APS-C,0,NX,Mirrorless
+Leica,2018,42.9,25600,611,3207.66,Medium Format,1,Z,DSLR
+Pentax,2006,55.4,51200,1069,1625.92,Micro 4/3,1,K,DSLR
+Canon,2015,41.7,25600,263,2277.21,1-inch,1,MFT,Compact
+Panasonic,2005,40.5,12800,1141,5939.13,Full Frame,1,X,Mirrorless
+Pentax,2023,11.5,3200,356,4169.02,Full Frame,1,EF,Compact
+Olympus,2008,35.5,12800,664,5704.09,APS-C,1,E,Mirrorless
+Fuji,2023,16.0,3200,858,1026.83,Micro 4/3,1,Z,Mirrorless
+Nikon,2015,47.1,3200,287,2416.41,Medium Format,1,EF,Mirrorless
+Panasonic,2012,35.1,51200,488,3417.44,Full Frame,1,X,Mirrorless
+Panasonic,2015,44.1,102400,686,645.2,APS-C,1,MFT,Compact
+Canon,2008,10.2,12800,217,224.29,Micro 4/3,1,RF,DSLR
+Samsung,2021,12.5,25600,532,4088.52,Micro 4/3,1,Z,Mirrorless
+Panasonic,2011,46.0,12800,168,3922.55,APS-C,0,MFT,DSLR
+Sony,2012,11.8,51200,832,2582.58,APS-C,1,E,Mirrorless
+Fuji,2007,11.8,3200,223,3039.94,Medium Format,0,NX,Bridge
+Fuji,2006,8.6,51200,722,2609.57,APS-C,1,X,Mirrorless
+Sony,2019,58.7,6400,1088,339.23,Medium Format,0,E,Mirrorless
+Sigma,2009,47.1,6400,360,2145.16,Medium Format,1,RF,Bridge
+Sony,2005,26.7,25600,1004,1227.08,1-inch,0,MFT,Mirrorless
+Sony,2008,23.7,51200,800,770.86,Micro 4/3,0,SA,DSLR
+Fuji,2019,26.5,25600,1143,5748.98,Micro 4/3,1,RF,DSLR
+Leica,2024,49.1,25600,844,3676.29,Micro 4/3,0,L,Compact
+Fuji,2023,43.1,6400,689,4426.21,1-inch,1,Z,Compact
+Samsung,2007,17.8,25600,1050,2029.11,Medium Format,1,NX,Mirrorless
+Canon,2024,17.2,6400,929,2480.25,Medium Format,0,X,Mirrorless
+Pentax,2015,13.2,3200,319,1574.16,APS-C,0,K,Bridge
+Leica,2021,43.0,51200,1187,762.4,1-inch,1,MFT,DSLR
+Nikon,2017,48.5,25600,437,1238.38,APS-C,1,SA,Mirrorless
+Pentax,2015,22.0,6400,338,4825.58,1-inch,0,K,DSLR
+Canon,2006,9.1,12800,1063,4129.77,APS-C,0,Z,Compact
+Samsung,2013,12.4,25600,843,3372.19,Full Frame,0,Z,DSLR
+Samsung,2006,59.3,102400,1037,2955.52,Micro 4/3,0,X,Mirrorless
+Nikon,2013,23.7,3200,620,5550.12,Micro 4/3,1,SA,DSLR
+Leica,2013,48.8,3200,426,621.86,Medium Format,0,Z,Mirrorless
+Sigma,2012,41.1,12800,1089,1827.48,Full Frame,1,K,Compact
+Sony,2021,28.2,6400,720,2229.64,Micro 4/3,1,SA,Mirrorless
+Leica,2005,18.9,25600,1006,4738.07,Medium Format,1,K,Mirrorless
+Sigma,2015,14.4,6400,1150,5956.58,Full Frame,1,RF,Mirrorless
+Samsung,2012,40.6,3200,607,1595.89,Micro 4/3,1,E,Mirrorless
+Fuji,2014,49.1,6400,1067,5270.98,APS-C,0,SA,Compact
+Canon,2011,42.1,3200,982,5017.61,1-inch,1,EF,DSLR
+Nikon,2007,36.1,6400,988,1503.01,Full Frame,1,E,Compact
+Canon,2007,10.2,12800,342,2516.13,Medium Format,0,E,DSLR
+Olympus,2022,59.3,51200,765,2576.1,Full Frame,1,SA,DSLR
+Olympus,2009,50.3,12800,555,5873.68,Medium Format,1,NX,Mirrorless
+Leica,2016,23.5,12800,1092,1249.17,Full Frame,1,Z,Mirrorless
+Samsung,2016,59.9,51200,870,4835.12,Medium Format,0,RF,Mirrorless
+Samsung,2023,39.9,51200,242,2138.32,Micro 4/3,1,NX,Compact
+Sony,2010,38.9,25600,579,4439.05,APS-C,1,NX,DSLR
+Sony,2006,47.6,25600,803,2636.06,Micro 4/3,1,EF,DSLR
+Sony,2016,51.0,12800,583,3554.49,APS-C,1,MFT,Compact
+Fuji,2023,42.8,12800,524,5029.15,Micro 4/3,1,SA,Compact
+Pentax,2009,14.8,3200,356,4864.16,Micro 4/3,1,K,DSLR
+Panasonic,2016,25.9,3200,929,5225.25,Full Frame,1,Z,Mirrorless
+Pentax,2021,57.2,25600,681,545.78,1-inch,0,NX,Mirrorless
+Canon,2021,19.9,102400,315,4213.89,Medium Format,1,RF,Compact
+Pentax,2014,27.7,102400,792,1011.93,Medium Format,1,MFT,Compact
+Fuji,2021,30.9,25600,239,2611.75,Medium Format,1,EF,Compact
+Canon,2019,31.3,3200,162,3381.81,APS-C,1,L,Compact
+Pentax,2016,40.5,3200,1122,2535.89,Medium Format,0,Z,DSLR
+Fuji,2020,58.0,102400,954,3213.75,Medium Format,1,L,Compact
+Panasonic,2023,20.8,6400,1094,5979.85,Full Frame,1,E,Mirrorless
+Pentax,2012,14.4,6400,891,984.26,Micro 4/3,0,NX,DSLR
+Fuji,2021,18.5,3200,1025,4117.65,Medium Format,1,X,Mirrorless
+Sony,2009,55.0,6400,809,2496.81,1-inch,1,Z,Bridge
+Samsung,2020,42.2,51200,1181,971.46,Medium Format,1,K,Compact
+Sony,2010,23.2,25600,445,1120.67,APS-C,1,MFT,DSLR
+Samsung,2012,51.2,25600,1135,5705.78,APS-C,1,RF,Compact
+Nikon,2022,53.7,3200,1075,5301.69,APS-C,1,Z,Compact
+Nikon,2016,52.9,12800,789,5460.84,Medium Format,1,K,DSLR
+Nikon,2019,56.7,102400,489,5950.89,Full Frame,0,SA,Mirrorless
+Panasonic,2013,21.4,3200,777,1408.23,1-inch,1,L,Compact
+Sony,2017,48.0,6400,588,2261.55,Medium Format,1,SA,Mirrorless
+Samsung,2019,32.4,102400,1091,4081.47,Full Frame,1,MFT,DSLR
+Fuji,2014,52.6,12800,979,3006.05,Full Frame,1,EF,Compact
+Canon,2020,46.6,6400,668,2626.66,Medium Format,1,NX,Bridge
+Fuji,2011,49.2,51200,1125,2275.31,Medium Format,0,Z,Mirrorless
+Canon,2021,42.8,6400,1104,3643.93,Full Frame,0,X,Compact
+Olympus,2011,17.4,51200,1101,3538.44,Full Frame,0,L,Mirrorless
+Fuji,2018,36.9,102400,1093,1136.46,Full Frame,0,L,DSLR
+Pentax,2019,60.2,51200,304,2936.09,Medium Format,1,Z,Mirrorless
+Pentax,2011,57.7,102400,237,3410.14,Full Frame,1,E,Mirrorless
+Leica,2013,10.3,102400,1080,3507.66,APS-C,1,SA,Compact
+Sony,2023,16.7,102400,328,1418.62,Medium Format,1,L,DSLR
+Canon,2020,15.0,102400,361,4505.17,APS-C,0,K,Mirrorless
+Canon,2012,46.5,102400,614,346.15,Micro 4/3,1,RF,Mirrorless
+Sony,2022,51.3,6400,780,2258.02,Medium Format,0,NX,Bridge
+Panasonic,2022,19.3,102400,974,4725.23,Micro 4/3,1,L,DSLR
+Leica,2024,34.8,6400,756,3470.58,Full Frame,0,K,DSLR
+Panasonic,2011,52.6,102400,1034,1714.74,Full Frame,0,MFT,DSLR
+Panasonic,2007,46.8,51200,515,4230.73,1-inch,0,MFT,Compact
+Panasonic,2022,36.7,102400,425,3490.87,Full Frame,0,NX,DSLR
+Sony,2014,39.3,12800,529,4818.21,Micro 4/3,1,E,DSLR
+Panasonic,2011,34.9,102400,1094,4463.15,Full Frame,0,X,DSLR
+Pentax,2021,23.8,102400,959,3738.63,Medium Format,0,NX,Compact
+Nikon,2018,37.9,51200,1074,3031.43,Full Frame,0,EF,DSLR
+Olympus,2007,44.5,25600,643,972.46,1-inch,0,E,Mirrorless
+Canon,2016,54.3,51200,513,1715.73,Full Frame,0,L,DSLR
+Canon,2017,41.7,12800,719,2630.78,Micro 4/3,0,NX,Mirrorless
+Olympus,2006,48.3,25600,912,3675.94,Micro 4/3,1,SA,Compact
+Sony,2007,16.5,3200,425,3179.51,Full Frame,0,MFT,Mirrorless
+Fuji,2009,32.5,3200,199,1871.47,Micro 4/3,1,K,Bridge
+Sony,2015,8.5,12800,877,237.49,Micro 4/3,1,NX,Bridge
+Canon,2012,21.1,51200,1055,3078.19,1-inch,1,SA,Mirrorless
+Canon,2016,46.5,6400,1077,1856.63,Medium Format,1,E,Compact
+Olympus,2011,60.6,12800,713,4460.73,1-inch,1,EF,Compact
+Panasonic,2019,13.3,25600,932,338.89,APS-C,1,K,Compact
+Sony,2021,29.3,25600,634,3592.0,1-inch,1,RF,Mirrorless
+Samsung,2008,50.4,102400,733,5660.55,Full Frame,1,EF,Mirrorless
+Olympus,2017,18.8,3200,385,1211.57,Medium Format,1,L,Mirrorless
+Pentax,2022,37.4,25600,205,2935.57,Full Frame,0,SA,Compact
+Canon,2005,46.9,12800,509,730.25,APS-C,0,NX,DSLR
+Olympus,2020,40.6,25600,259,3828.96,Medium Format,0,NX,DSLR
+Sony,2017,18.0,12800,341,3393.08,Micro 4/3,0,Z,Mirrorless
+Canon,2014,26.8,6400,1053,2562.72,1-inch,0,MFT,DSLR
+Fuji,2016,49.5,102400,1011,3223.99,Full Frame,1,L,Mirrorless
+Olympus,2006,37.4,3200,717,5400.13,APS-C,0,SA,DSLR
+Leica,2007,8.3,25600,799,1338.51,Micro 4/3,0,NX,Mirrorless
+Canon,2014,48.3,12800,188,330.87,1-inch,1,RF,Bridge
+Sony,2006,9.9,51200,786,5197.66,Micro 4/3,1,K,Mirrorless
+Nikon,2017,47.5,3200,1186,3547.28,1-inch,0,L,Compact
+Samsung,2017,18.7,6400,185,5365.82,Medium Format,1,E,DSLR
+Sigma,2022,58.8,12800,250,3662.28,Micro 4/3,0,RF,DSLR
+Panasonic,2007,27.5,102400,315,4898.93,Micro 4/3,1,K,Compact
+Sigma,2011,25.3,102400,532,2692.11,Micro 4/3,1,X,Compact
+Sony,2018,15.9,6400,939,4549.19,Medium Format,1,MFT,Mirrorless
+Pentax,2024,24.2,6400,180,5495.64,APS-C,1,L,Bridge
+Pentax,2021,54.5,102400,160,3518.31,1-inch,1,SA,Bridge
+Nikon,2016,60.8,25600,245,1248.55,Micro 4/3,0,EF,Bridge
+Panasonic,2020,27.5,25600,602,1759.03,Medium Format,0,K,Mirrorless
+Leica,2016,31.8,12800,341,1352.14,APS-C,0,E,DSLR
+Nikon,2019,46.3,51200,635,1631.77,1-inch,1,NX,Mirrorless
+Sigma,2014,55.0,12800,387,1977.21,Medium Format,0,EF,Mirrorless
+Nikon,2011,39.4,51200,884,3419.78,1-inch,1,RF,DSLR
+Sigma,2024,28.8,6400,1140,3610.35,Micro 4/3,1,MFT,Compact
+Canon,2009,29.9,3200,974,2673.7,APS-C,1,SA,DSLR
+Pentax,2005,44.9,12800,255,3769.44,Medium Format,1,EF,Mirrorless
+Canon,2021,8.2,12800,330,673.13,APS-C,1,E,Mirrorless
+Samsung,2007,40.8,51200,333,709.17,Micro 4/3,1,K,Compact
+Panasonic,2017,26.8,6400,375,1196.61,APS-C,0,SA,Mirrorless
+Leica,2018,50.1,6400,926,3204.85,APS-C,0,X,Compact
+Sigma,2022,12.9,51200,939,1441.17,Full Frame,1,NX,Mirrorless
+Leica,2008,39.2,6400,837,1843.05,APS-C,1,MFT,Compact
+Sigma,2022,33.5,102400,679,2521.81,1-inch,1,EF,Bridge
+Sony,2009,42.0,25600,1121,4908.82,Medium Format,1,MFT,Mirrorless
+Nikon,2020,11.4,102400,1085,280.4,Full Frame,0,MFT,Bridge
+Samsung,2005,38.7,3200,255,3966.4,Medium Format,1,MFT,DSLR
+Pentax,2018,37.8,12800,980,4079.48,Medium Format,0,K,Mirrorless
+Sigma,2019,37.7,3200,828,4832.2,Micro 4/3,0,MFT,DSLR
+Leica,2013,40.0,12800,998,5609.97,Micro 4/3,1,X,DSLR
+Samsung,2019,43.9,25600,542,316.8,Full Frame,0,RF,Compact
+Fuji,2021,50.7,6400,189,1091.95,Micro 4/3,1,E,DSLR
+Fuji,2008,22.3,102400,809,5339.79,Micro 4/3,1,SA,Mirrorless
+Canon,2016,51.7,51200,1130,2859.41,Micro 4/3,1,X,Mirrorless
+Pentax,2009,34.4,102400,994,3474.63,Medium Format,1,SA,Mirrorless
+Sony,2009,12.1,25600,350,4045.56,Full Frame,1,E,Mirrorless
+Leica,2015,11.1,3200,596,4138.59,Medium Format,1,RF,Compact
+Nikon,2010,25.7,51200,593,5604.09,1-inch,0,L,DSLR
+Nikon,2011,49.6,6400,910,5982.31,Medium Format,0,SA,Mirrorless
+Leica,2018,45.5,25600,376,4376.91,1-inch,0,SA,Mirrorless
+Panasonic,2015,49.8,51200,197,1865.88,APS-C,1,RF,Mirrorless
+Sony,2017,35.4,25600,1191,5302.56,APS-C,0,EF,Mirrorless
+Samsung,2006,31.3,25600,1061,485.48,1-inch,0,X,Compact
+Sigma,2011,15.8,6400,336,1540.27,1-inch,0,EF,Mirrorless
+Panasonic,2024,25.4,12800,494,5404.84,Medium Format,0,EF,Mirrorless
+Sigma,2008,31.0,51200,373,1685.91,1-inch,0,EF,DSLR
+Sigma,2012,12.7,6400,979,1479.78,Full Frame,1,MFT,Mirrorless
+Panasonic,2024,19.7,25600,637,1001.13,APS-C,0,NX,Compact
+Canon,2023,39.7,6400,1026,5182.85,APS-C,1,SA,DSLR
+Fuji,2017,47.0,12800,998,3100.34,1-inch,0,EF,Mirrorless
+Sigma,2018,60.9,102400,1128,4114.38,Micro 4/3,1,X,Compact
+Panasonic,2014,57.5,51200,1166,1586.59,Micro 4/3,1,NX,Mirrorless
+Panasonic,2015,42.1,12800,337,4596.63,1-inch,1,NX,DSLR
+Olympus,2006,30.3,3200,419,4608.03,Full Frame,0,EF,Mirrorless
+Canon,2013,41.7,51200,459,2013.07,Micro 4/3,1,K,DSLR
+Pentax,2021,49.6,12800,994,2581.96,1-inch,1,EF,Compact
+Olympus,2007,14.3,25600,635,1416.2,Full Frame,0,K,DSLR
+Olympus,2010,29.7,51200,269,5864.05,Full Frame,0,EF,Compact
+Leica,2009,52.5,51200,369,3944.49,Medium Format,1,X,Mirrorless
+Fuji,2009,28.3,6400,202,5620.35,Full Frame,1,K,Compact
+Panasonic,2019,38.3,25600,907,1959.64,Micro 4/3,0,MFT,DSLR
+Fuji,2021,39.2,3200,887,4734.97,Micro 4/3,0,NX,Mirrorless
+Sony,2013,17.8,102400,869,4641.98,1-inch,1,EF,Mirrorless
+Leica,2007,27.2,12800,555,4211.6,1-inch,0,NX,Mirrorless
+Pentax,2024,25.7,6400,757,5800.71,Full Frame,1,EF,Mirrorless
+Fuji,2021,9.4,12800,1170,2482.62,APS-C,0,SA,Compact
+Nikon,2014,9.3,3200,571,958.16,Medium Format,0,SA,Bridge
+Sigma,2007,52.1,3200,861,4095.91,APS-C,1,Z,DSLR
+Sony,2022,22.5,51200,396,4430.0,Full Frame,1,EF,DSLR
+Canon,2022,35.5,3200,221,3535.35,Full Frame,0,Z,Compact
+Pentax,2021,23.8,12800,334,1399.54,APS-C,0,RF,DSLR
+Sony,2007,57.9,25600,155,3125.84,Medium Format,1,RF,Bridge
+Sigma,2007,21.7,25600,1055,2010.7,APS-C,0,NX,Mirrorless
+Leica,2010,30.8,51200,536,2679.31,1-inch,0,K,Mirrorless
+Sigma,2017,54.3,102400,848,3942.27,Micro 4/3,1,EF,DSLR
+Olympus,2019,52.6,12800,976,4522.25,1-inch,0,E,DSLR
+Sigma,2013,17.9,12800,498,1546.9,Micro 4/3,1,EF,Mirrorless
+Olympus,2008,50.5,3200,457,2550.89,Full Frame,0,EF,Bridge
+Leica,2018,32.3,12800,436,1761.14,Medium Format,1,E,Bridge
+Samsung,2009,33.6,6400,915,1352.06,APS-C,1,RF,DSLR
+Olympus,2006,15.1,102400,874,4743.65,Medium Format,1,Z,DSLR
+Canon,2015,12.3,3200,911,5473.67,APS-C,0,NX,DSLR
+Sigma,2013,46.6,6400,532,2347.35,1-inch,0,RF,Compact
+Sigma,2007,34.3,51200,537,4557.42,1-inch,0,E,DSLR
+Canon,2013,31.2,25600,674,5402.57,APS-C,0,EF,DSLR
+Nikon,2007,46.7,51200,788,5107.52,Medium Format,1,RF,DSLR
+Panasonic,2006,48.6,25600,1087,1260.32,APS-C,0,X,Mirrorless
+Samsung,2016,16.4,51200,425,5746.49,Full Frame,1,SA,Bridge
+Pentax,2014,40.3,12800,649,2384.72,1-inch,0,EF,Mirrorless
+Olympus,2013,15.2,6400,866,2167.6,Full Frame,1,L,DSLR
+Canon,2019,47.8,25600,486,562.1,1-inch,0,E,Mirrorless
+Leica,2012,42.8,3200,1081,3019.81,1-inch,0,MFT,Mirrorless
+Olympus,2009,58.7,6400,630,832.28,Micro 4/3,0,K,DSLR
+Panasonic,2015,11.7,3200,1060,1641.53,Full Frame,1,MFT,DSLR
+Leica,2006,11.0,6400,258,2038.27,Full Frame,1,RF,Mirrorless
+Sony,2019,23.0,6400,477,4891.19,Micro 4/3,1,EF,DSLR
+Sigma,2010,21.9,51200,464,5277.83,Medium Format,0,K,DSLR
+Sony,2012,21.1,25600,848,1954.3,Full Frame,1,K,Mirrorless
+Olympus,2009,56.0,25600,930,5180.45,APS-C,0,NX,Compact
+Panasonic,2020,21.2,6400,305,5171.94,Micro 4/3,1,MFT,Mirrorless
+Samsung,2022,22.4,12800,1036,4634.98,Full Frame,1,EF,Mirrorless
+Olympus,2010,48.2,12800,1175,1050.83,Medium Format,0,NX,Mirrorless
+Canon,2009,31.8,3200,907,4203.87,Full Frame,1,Z,Mirrorless
+Fuji,2020,49.2,3200,871,5681.14,1-inch,0,MFT,DSLR
+Olympus,2017,11.5,51200,1062,4158.73,APS-C,0,SA,Bridge
+Sigma,2009,33.8,6400,1020,2123.38,Micro 4/3,1,SA,DSLR
+Sigma,2017,9.8,3200,162,3103.36,1-inch,1,NX,Mirrorless
+Olympus,2021,11.3,3200,757,3945.21,Medium Format,1,Z,Compact
+Leica,2022,56.0,102400,647,3161.31,1-inch,1,X,Mirrorless
+Fuji,2012,15.4,6400,387,895.73,1-inch,0,X,Bridge
+Canon,2017,36.2,51200,930,2009.97,Medium Format,1,SA,Mirrorless
+Olympus,2023,29.8,3200,755,4853.9,1-inch,1,L,Compact
+Leica,2007,26.4,51200,810,5196.22,Micro 4/3,1,E,Compact
+Sigma,2012,55.7,25600,998,996.34,Full Frame,1,E,Bridge
+Sigma,2006,9.2,51200,1085,5723.84,1-inch,1,L,Bridge
+Panasonic,2012,43.2,12800,777,2107.17,Micro 4/3,0,NX,Compact
+Olympus,2017,59.1,12800,292,4041.42,Full Frame,0,E,Compact
+Fuji,2017,37.7,51200,863,4560.59,Full Frame,0,E,Mirrorless
+Nikon,2005,57.7,12800,628,4909.29,1-inch,0,MFT,DSLR
+Fuji,2010,10.8,25600,714,5685.35,Micro 4/3,1,MFT,Mirrorless
+Sigma,2023,30.2,6400,620,2014.93,1-inch,0,L,Bridge
+Sigma,2020,21.8,12800,533,5179.34,Medium Format,1,EF,Compact
+Sony,2012,46.7,12800,1075,963.78,Full Frame,1,Z,Bridge
+Sigma,2005,60.0,51200,566,4289.24,1-inch,1,NX,Compact
+Canon,2020,21.6,25600,457,4503.47,Full Frame,1,MFT,DSLR
+Pentax,2013,42.7,6400,798,4130.79,Micro 4/3,0,MFT,DSLR
+Olympus,2017,18.5,51200,1174,1663.43,APS-C,1,X,Mirrorless
+Fuji,2015,38.0,51200,888,5263.65,1-inch,0,Z,DSLR
+Pentax,2017,32.6,102400,289,1179.38,1-inch,1,X,Mirrorless
+Leica,2014,59.5,25600,1123,511.08,Full Frame,1,EF,Bridge
+Nikon,2008,40.3,6400,1166,4361.3,Micro 4/3,0,Z,Compact
+Canon,2010,26.5,25600,1102,2957.76,Medium Format,1,E,Mirrorless
+Fuji,2011,14.0,6400,1053,5124.77,Micro 4/3,1,X,DSLR
+Pentax,2009,16.0,25600,221,2423.7,1-inch,1,SA,Mirrorless
+Nikon,2015,19.9,51200,256,1176.02,Medium Format,0,NX,Mirrorless
+Sony,2017,21.3,51200,1032,5051.36,Micro 4/3,0,E,Mirrorless
+Canon,2023,53.1,3200,288,3383.68,APS-C,1,Z,DSLR
+Canon,2014,37.7,12800,764,1297.34,Full Frame,0,SA,Mirrorless
+Sony,2014,35.7,102400,1012,4378.23,Micro 4/3,0,EF,DSLR
+Olympus,2015,14.1,25600,422,3164.46,Micro 4/3,0,SA,Bridge
+Sony,2011,53.6,102400,565,3705.02,APS-C,0,MFT,DSLR
+Canon,2022,46.3,3200,655,2873.21,1-inch,1,L,DSLR
+Canon,2008,11.6,12800,882,5006.51,Full Frame,0,SA,DSLR
+Pentax,2006,45.5,25600,573,5011.46,Micro 4/3,1,K,Mirrorless
+Sigma,2018,36.8,6400,539,4314.46,Medium Format,1,EF,Mirrorless
+Nikon,2017,12.3,12800,491,811.33,Micro 4/3,0,E,Compact
+Sony,2016,32.3,51200,1095,5065.35,Full Frame,0,X,Mirrorless
+Nikon,2011,33.7,3200,763,4091.88,Micro 4/3,1,RF,Mirrorless
+Sony,2006,16.8,12800,642,4242.74,APS-C,1,EF,Mirrorless
+Leica,2017,58.1,12800,341,2305.3,Micro 4/3,0,K,Mirrorless
+Canon,2018,53.0,51200,648,5299.82,Micro 4/3,1,MFT,DSLR
+Sigma,2021,43.5,25600,971,4407.16,Medium Format,1,X,Mirrorless
+Pentax,2013,32.5,6400,376,853.02,APS-C,1,NX,Compact
+Sigma,2021,29.8,51200,288,2565.11,APS-C,1,RF,Compact
+Sigma,2012,42.5,6400,1005,5341.01,Micro 4/3,0,SA,Compact
+Sigma,2006,36.9,25600,966,473.74,Medium Format,1,K,DSLR
+Nikon,2017,11.3,12800,253,5776.22,Micro 4/3,0,SA,DSLR
+Sony,2007,35.2,6400,1020,4139.14,Micro 4/3,1,NX,Bridge
+Samsung,2020,50.7,3200,817,3861.98,Full Frame,0,EF,DSLR
+Leica,2010,32.3,3200,422,1769.24,Full Frame,0,L,DSLR
+Fuji,2023,10.8,51200,1179,1642.99,Medium Format,0,K,DSLR
+Sigma,2011,49.7,25600,333,5663.94,1-inch,0,Z,Mirrorless
+Olympus,2014,18.7,51200,442,1929.98,Full Frame,0,E,DSLR
+Nikon,2013,21.7,51200,326,4697.93,1-inch,1,Z,Mirrorless
+Pentax,2006,16.7,102400,207,2480.11,APS-C,0,L,Mirrorless
+Fuji,2019,25.5,51200,457,1007.67,Full Frame,0,NX,Bridge
+Samsung,2009,48.1,102400,1126,262.15,Full Frame,1,Z,DSLR
+Olympus,2008,35.5,3200,849,3356.69,Medium Format,1,MFT,Mirrorless
+Samsung,2024,18.9,3200,232,5859.52,1-inch,0,K,Mirrorless
+Fuji,2008,54.5,51200,401,2340.99,Full Frame,0,MFT,Mirrorless
+Sigma,2022,54.6,3200,945,2271.72,Full Frame,1,RF,Mirrorless
+Olympus,2008,54.1,25600,1046,2195.73,Medium Format,1,L,Compact
+Samsung,2021,20.7,102400,359,3219.15,Medium Format,0,RF,DSLR
+Pentax,2016,31.9,102400,965,2755.86,1-inch,1,RF,Compact
+Sony,2021,60.2,51200,758,5303.5,APS-C,0,RF,Mirrorless
+Canon,2014,48.9,3200,596,3132.02,APS-C,0,EF,DSLR
+Sony,2005,9.4,6400,609,3145.0,Micro 4/3,0,EF,Compact
+Fuji,2022,11.5,102400,1117,1002.56,Full Frame,1,L,Mirrorless
+Nikon,2022,32.6,51200,621,5899.89,1-inch,0,X,DSLR
+Canon,2018,56.2,51200,519,1649.84,Full Frame,0,Z,DSLR
+Leica,2019,36.6,25600,1049,625.51,1-inch,0,EF,DSLR
+Pentax,2016,34.4,12800,1072,4046.25,1-inch,1,SA,Mirrorless
+Leica,2008,13.6,12800,286,3653.12,1-inch,1,MFT,DSLR
+Olympus,2007,42.8,102400,516,2607.84,Full Frame,0,EF,DSLR
+Canon,2024,51.6,25600,1061,2648.71,Medium Format,1,NX,DSLR
+Leica,2016,28.2,25600,333,4753.37,Full Frame,1,RF,Compact
+Leica,2011,49.1,25600,621,1335.13,1-inch,1,EF,Compact
+Samsung,2015,59.1,102400,803,4957.47,Micro 4/3,0,L,Compact
+Sony,2005,18.8,12800,898,3962.73,APS-C,1,MFT,DSLR
+Samsung,2010,35.7,25600,686,2630.02,1-inch,1,MFT,Bridge
+Canon,2019,23.2,3200,951,2856.57,Micro 4/3,1,X,Mirrorless
+Canon,2019,50.0,51200,1069,1688.55,Medium Format,0,E,Compact
+Fuji,2023,38.6,51200,659,4562.26,1-inch,1,E,Mirrorless
+Samsung,2015,41.6,6400,779,3174.67,Micro 4/3,1,Z,Mirrorless
+Panasonic,2006,50.3,6400,1151,2060.96,1-inch,1,SA,Compact
+Sony,2018,29.0,102400,1065,3657.09,Full Frame,0,K,DSLR
+Canon,2006,56.5,102400,1183,5975.26,Micro 4/3,1,L,Mirrorless
+Fuji,2008,36.3,51200,301,2724.52,Full Frame,1,NX,Compact
+Samsung,2021,16.4,3200,1178,5540.01,Full Frame,1,EF,Compact
+Sony,2007,44.9,12800,613,2201.1,Micro 4/3,0,L,Bridge
+Samsung,2017,50.0,12800,420,517.45,APS-C,0,SA,Mirrorless
+Leica,2013,24.8,102400,609,1384.6,Micro 4/3,0,E,DSLR
+Fuji,2011,53.4,3200,254,2628.43,APS-C,0,L,DSLR
+Sony,2019,56.0,102400,311,1473.88,1-inch,1,EF,Mirrorless
+Sigma,2015,22.7,12800,500,201.32,1-inch,0,X,Mirrorless
+Olympus,2024,60.1,102400,583,5507.01,Micro 4/3,1,Z,DSLR
+Olympus,2006,15.5,25600,1001,5094.5,1-inch,1,X,DSLR
+Sony,2019,18.7,102400,289,4505.29,Medium Format,1,E,Mirrorless
+Samsung,2018,17.8,51200,236,1173.32,Full Frame,1,RF,Compact
+Fuji,2024,55.4,102400,332,898.11,Full Frame,0,E,Bridge
+Olympus,2015,42.7,51200,517,592.11,APS-C,1,Z,Compact
+Fuji,2007,16.1,3200,278,4399.37,1-inch,0,EF,Compact
+Olympus,2021,31.3,12800,819,5587.09,APS-C,1,SA,Mirrorless
+Leica,2016,40.6,6400,298,2697.11,Full Frame,1,K,Bridge
+Samsung,2019,12.4,6400,1134,891.02,Full Frame,0,X,Mirrorless
+Leica,2020,54.8,12800,1001,3171.88,1-inch,0,E,Compact
+Olympus,2009,50.6,6400,777,2223.23,Medium Format,0,SA,Bridge
+Sigma,2024,34.8,102400,595,2373.98,Medium Format,1,X,Bridge
+Sigma,2010,59.3,3200,1033,3803.72,1-inch,1,E,Mirrorless
+Leica,2023,30.1,3200,443,4368.57,1-inch,0,Z,DSLR
+Sigma,2009,60.2,12800,399,841.5,APS-C,0,X,DSLR
+Olympus,2007,43.4,6400,1027,406.42,1-inch,1,E,DSLR
+Sony,2005,41.6,102400,1097,5967.12,Medium Format,0,EF,DSLR
+Leica,2010,16.8,3200,1124,1549.82,1-inch,0,Z,DSLR
+Nikon,2019,54.7,3200,1198,512.22,APS-C,0,SA,Mirrorless
+Samsung,2006,30.7,25600,938,1301.28,APS-C,0,SA,Mirrorless
+Sigma,2007,16.6,25600,1133,425.96,APS-C,0,K,Compact
+Sigma,2021,8.7,3200,1038,2472.5,APS-C,1,L,DSLR
+Canon,2016,37.7,12800,1039,4853.93,Micro 4/3,1,RF,Mirrorless
+Panasonic,2022,36.0,51200,219,2179.22,1-inch,0,EF,Compact
+Leica,2019,46.1,51200,774,2776.26,Full Frame,1,Z,Mirrorless
+Pentax,2016,55.2,102400,1024,4118.4,1-inch,1,X,Bridge
+Sigma,2020,12.2,3200,620,3151.59,Micro 4/3,1,SA,DSLR
+Samsung,2012,46.8,3200,240,5196.38,APS-C,1,EF,DSLR
+Nikon,2018,17.9,3200,679,5223.01,Micro 4/3,0,Z,Mirrorless
+Sigma,2021,53.5,12800,810,257.48,Medium Format,0,Z,DSLR
+Nikon,2012,51.4,25600,888,4712.67,Medium Format,1,X,Mirrorless
+Olympus,2019,36.7,3200,875,2872.25,1-inch,1,Z,Mirrorless
+Olympus,2018,45.6,3200,1021,5935.28,1-inch,0,NX,DSLR
+Panasonic,2022,24.7,6400,341,3002.75,Full Frame,0,EF,DSLR
+Sony,2024,33.0,12800,287,5924.0,Full Frame,0,E,Mirrorless
+Pentax,2011,51.5,102400,494,4576.5,Medium Format,1,SA,Mirrorless
+Canon,2007,32.3,3200,1158,1641.91,APS-C,1,SA,Mirrorless
+Panasonic,2016,27.0,6400,652,3322.69,Micro 4/3,1,E,DSLR
+Fuji,2007,34.2,51200,352,5954.39,Full Frame,0,EF,DSLR
+Canon,2024,51.9,102400,722,5173.68,Full Frame,0,RF,DSLR
+Leica,2018,25.8,3200,341,764.73,APS-C,0,EF,DSLR
+Samsung,2019,17.2,3200,154,4296.96,APS-C,1,MFT,Compact
+Fuji,2018,45.7,6400,460,2204.36,1-inch,0,Z,DSLR
+Fuji,2011,51.8,12800,698,240.5,Micro 4/3,0,L,Compact
+Panasonic,2021,13.3,3200,205,2540.19,APS-C,1,X,Compact
+Sony,2016,20.7,51200,592,1561.58,Full Frame,1,NX,DSLR
+Panasonic,2024,15.5,3200,1019,4949.44,Full Frame,1,L,Mirrorless
+Leica,2008,26.4,51200,734,2156.52,Medium Format,1,E,Bridge
+Sigma,2013,31.9,102400,901,4999.64,APS-C,1,X,Compact
+Sigma,2010,47.7,102400,509,203.47,1-inch,1,X,Mirrorless
+Sony,2020,42.5,25600,968,1985.35,Micro 4/3,1,X,Compact
+Leica,2006,40.9,25600,179,1598.76,1-inch,1,SA,Compact
+Sony,2012,26.7,51200,257,1554.69,Full Frame,1,NX,Mirrorless
+Nikon,2015,52.6,12800,993,595.48,1-inch,0,SA,Compact
+Sigma,2017,33.0,3200,866,1285.32,Full Frame,1,Z,Mirrorless
+Fuji,2021,59.9,3200,1040,3422.19,Full Frame,0,MFT,Mirrorless
+Pentax,2012,41.6,25600,1109,1889.89,Full Frame,1,K,Bridge
+Samsung,2022,14.7,51200,1042,2620.89,Full Frame,0,NX,Compact
+Leica,2022,43.8,3200,881,2385.83,Full Frame,1,L,Mirrorless
+Canon,2018,25.2,3200,755,5280.25,Medium Format,0,Z,DSLR
+Sony,2019,44.4,12800,606,5450.73,1-inch,1,EF,Mirrorless
+Samsung,2010,11.7,6400,764,3059.15,Medium Format,0,E,Compact
+Canon,2015,17.3,25600,847,2114.9,Medium Format,1,MFT,Mirrorless
+Samsung,2017,53.4,25600,823,819.44,APS-C,0,Z,Bridge
+Pentax,2005,20.0,6400,692,5729.74,APS-C,1,EF,Compact
+Canon,2010,52.4,3200,1006,549.32,APS-C,1,MFT,Mirrorless
+Panasonic,2013,22.8,12800,1046,1926.37,Micro 4/3,1,EF,DSLR
+Olympus,2012,42.1,12800,427,1928.78,APS-C,0,NX,Mirrorless
+Panasonic,2015,44.8,25600,701,2058.33,1-inch,0,EF,Mirrorless
+Sigma,2023,35.2,12800,260,1152.86,Medium Format,0,MFT,Mirrorless
+Olympus,2013,24.2,102400,534,4742.34,1-inch,1,EF,Mirrorless
+Panasonic,2021,19.3,6400,910,910.49,APS-C,1,L,Mirrorless
+Olympus,2016,9.8,3200,843,3882.46,Micro 4/3,0,Z,DSLR
+Olympus,2018,24.1,102400,554,918.31,Micro 4/3,1,MFT,DSLR
+Fuji,2019,42.6,6400,171,609.11,Medium Format,0,L,Mirrorless
+Sony,2020,57.7,51200,827,5474.69,1-inch,0,EF,DSLR
+Sony,2024,54.2,25600,760,1302.75,Full Frame,0,EF,Mirrorless
+Fuji,2005,48.6,12800,157,4963.25,1-inch,1,X,Mirrorless
+Samsung,2014,49.8,51200,851,3358.86,APS-C,1,MFT,Mirrorless
+Nikon,2012,43.2,12800,678,651.57,Full Frame,1,NX,DSLR
+Samsung,2022,21.8,102400,751,5741.6,Micro 4/3,0,EF,Compact
+Canon,2005,56.1,3200,806,1632.37,Medium Format,1,E,Mirrorless
+Canon,2006,43.5,3200,315,5185.94,Medium Format,1,SA,Mirrorless
+Olympus,2005,37.7,3200,998,1179.1,Micro 4/3,1,K,Compact
+Panasonic,2005,13.9,12800,645,5152.87,APS-C,1,SA,DSLR
+Panasonic,2013,31.7,51200,739,276.73,Micro 4/3,0,NX,Mirrorless
+Sony,2017,32.4,3200,578,3168.33,APS-C,0,Z,Bridge
+Leica,2005,53.8,51200,923,4662.77,Full Frame,1,RF,Compact
+Samsung,2017,37.0,12800,312,5621.81,Micro 4/3,1,E,Bridge
+Sigma,2024,28.2,102400,515,5473.37,APS-C,0,RF,Compact
+Pentax,2011,59.8,51200,221,4953.82,Full Frame,1,EF,DSLR
+Panasonic,2006,13.9,102400,804,5351.51,Micro 4/3,0,Z,DSLR
+Pentax,2010,30.4,12800,418,1355.47,Medium Format,0,L,Mirrorless
+Olympus,2011,10.2,12800,564,1848.27,Micro 4/3,1,EF,Mirrorless
+Pentax,2018,47.2,25600,1165,1876.02,1-inch,1,RF,DSLR
+Sigma,2022,56.7,12800,824,2386.91,Micro 4/3,0,EF,Compact
+Fuji,2019,22.8,12800,155,2481.26,1-inch,1,K,Mirrorless
+Sigma,2006,53.5,6400,1131,3358.42,Full Frame,1,X,Mirrorless
+Pentax,2014,23.5,3200,719,1127.3,Micro 4/3,1,K,Compact
+Sigma,2016,56.3,25600,556,4209.23,Full Frame,1,Z,Compact
+Nikon,2021,48.0,25600,175,1171.89,Full Frame,0,L,Mirrorless
+Olympus,2012,50.7,25600,1178,1999.79,APS-C,0,K,Compact
+Samsung,2015,9.0,6400,1135,3119.4,Full Frame,0,MFT,Compact
+Fuji,2007,59.0,102400,539,4819.36,Full Frame,1,L,Mirrorless
+Panasonic,2010,46.5,12800,859,4488.92,Micro 4/3,1,RF,DSLR
+Canon,2013,24.2,3200,720,3944.1,Micro 4/3,0,K,DSLR
+Samsung,2010,52.0,51200,903,1103.48,Medium Format,1,X,Mirrorless
+Canon,2013,22.9,102400,295,3372.86,APS-C,0,L,Mirrorless
+Olympus,2011,54.3,12800,934,707.19,Full Frame,1,EF,Bridge
+Fuji,2013,14.0,6400,675,2388.71,APS-C,0,X,Compact
+Sony,2022,45.3,12800,162,2598.4,1-inch,1,EF,Compact
+Panasonic,2016,36.7,12800,1052,430.91,Full Frame,1,K,Bridge
+Nikon,2012,13.1,6400,533,1789.13,APS-C,1,E,Compact
+Sony,2012,20.8,25600,705,5742.77,Medium Format,1,E,Mirrorless
+Olympus,2022,8.7,25600,1036,5731.07,Medium Format,1,RF,DSLR
+Samsung,2024,32.8,3200,168,2243.5,Full Frame,0,X,Compact
+Nikon,2019,24.0,3200,724,449.98,1-inch,0,EF,Mirrorless
+Sigma,2011,39.7,25600,900,1238.75,Medium Format,0,NX,Mirrorless
+Pentax,2015,23.8,102400,1153,2474.86,Medium Format,0,X,Mirrorless
+Nikon,2024,23.9,51200,568,5697.12,1-inch,1,MFT,Bridge
+Olympus,2020,47.4,12800,568,1018.95,APS-C,1,RF,Mirrorless
+Leica,2008,10.6,51200,271,4628.39,Medium Format,1,SA,Compact
+Pentax,2010,55.9,12800,581,830.36,Micro 4/3,0,SA,DSLR
+Canon,2007,53.2,25600,193,5891.29,Medium Format,1,EF,Mirrorless
+Panasonic,2013,43.4,3200,530,2413.38,APS-C,0,E,DSLR
+Canon,2014,39.4,102400,294,4696.36,APS-C,1,L,Compact
+Nikon,2018,55.3,3200,512,2187.03,Full Frame,0,MFT,DSLR
+Canon,2015,17.8,51200,504,3840.48,Micro 4/3,0,SA,Compact
+Olympus,2022,12.2,3200,949,1313.69,APS-C,1,EF,DSLR
+Sigma,2016,20.7,25600,975,1046.92,1-inch,1,EF,DSLR
+Samsung,2016,50.1,102400,547,5640.77,Micro 4/3,0,K,Mirrorless
+Panasonic,2017,9.8,51200,1029,5522.35,Micro 4/3,1,E,Mirrorless
+Canon,2017,38.9,102400,612,5347.32,1-inch,1,X,DSLR
+Canon,2023,60.8,12800,957,3827.51,Medium Format,0,L,Mirrorless
+Nikon,2023,53.4,3200,336,4887.96,1-inch,1,K,Compact
+Samsung,2018,35.6,102400,881,600.41,1-inch,0,SA,Mirrorless
+Sony,2008,11.4,6400,578,2141.78,Medium Format,0,L,DSLR
+Canon,2017,52.1,3200,1007,2019.48,Medium Format,1,RF,Compact
+Olympus,2012,39.7,12800,386,3886.74,Medium Format,1,E,DSLR
+Leica,2023,14.1,102400,920,2264.56,Medium Format,1,SA,Mirrorless
+Panasonic,2016,13.0,51200,907,1061.34,Medium Format,0,EF,DSLR
+Canon,2022,56.2,12800,285,3659.51,1-inch,1,SA,Mirrorless
+Olympus,2010,43.5,6400,941,4923.43,Full Frame,0,NX,DSLR
+Olympus,2022,52.0,102400,320,2416.32,Full Frame,1,Z,Bridge
+Panasonic,2023,54.6,25600,308,967.16,APS-C,1,Z,Mirrorless
+Sony,2009,38.3,3200,350,1340.79,Full Frame,1,SA,DSLR
+Olympus,2013,35.4,51200,1111,1577.4,Full Frame,1,NX,DSLR
+Leica,2007,30.8,25600,732,1939.41,1-inch,1,SA,Compact
+Olympus,2014,24.8,102400,1025,3928.21,Medium Format,1,Z,Mirrorless
+Olympus,2023,31.0,102400,520,3685.48,Medium Format,1,K,Compact
+Olympus,2007,49.0,12800,252,4237.26,1-inch,1,RF,Bridge
+Sigma,2019,39.9,102400,1151,2302.51,Full Frame,1,Z,Bridge
+Sigma,2005,55.3,51200,1125,4979.19,1-inch,0,RF,Compact
+Sony,2011,31.5,25600,947,1383.71,APS-C,1,EF,DSLR
+Canon,2016,40.2,51200,807,2920.44,Medium Format,1,RF,Compact
+Olympus,2021,41.5,6400,1031,4845.44,Micro 4/3,0,K,DSLR
+Samsung,2024,39.4,6400,882,1244.92,APS-C,1,NX,Compact
+Canon,2009,45.2,3200,572,837.21,APS-C,0,RF,Mirrorless
+Sony,2008,20.6,3200,721,5325.37,1-inch,1,L,Compact
+Fuji,2016,35.2,6400,320,2188.99,Full Frame,1,X,Mirrorless
+Canon,2024,13.5,102400,322,4166.45,Medium Format,0,Z,Mirrorless
+Canon,2022,28.4,51200,812,347.02,Micro 4/3,1,NX,Bridge
+Pentax,2021,33.8,6400,602,4202.27,APS-C,0,MFT,DSLR
+Nikon,2023,42.6,3200,499,2033.39,Micro 4/3,1,EF,Mirrorless
+Pentax,2013,58.4,6400,643,523.3,Full Frame,0,X,Mirrorless
+Leica,2008,39.8,102400,769,3736.91,Full Frame,0,L,Bridge
+Sigma,2006,47.4,6400,1177,1596.66,Micro 4/3,1,E,DSLR
+Sigma,2008,34.8,51200,1068,2443.48,Medium Format,0,K,DSLR
+Nikon,2006,41.6,25600,155,667.37,Full Frame,1,SA,DSLR
+Panasonic,2019,11.8,102400,437,1053.55,Micro 4/3,0,X,DSLR
+Panasonic,2006,21.5,3200,757,1928.27,APS-C,1,NX,Bridge
+Sony,2008,27.2,51200,606,720.61,Micro 4/3,0,NX,Compact
+Nikon,2010,33.0,6400,1179,5482.79,Micro 4/3,1,NX,Mirrorless
+Canon,2011,10.4,6400,773,235.07,1-inch,1,EF,Mirrorless
+Panasonic,2014,15.4,25600,525,3006.39,Full Frame,0,RF,Compact
+Olympus,2023,22.7,3200,596,914.84,Medium Format,0,Z,DSLR
+Samsung,2023,59.5,3200,984,1984.54,Medium Format,1,E,Mirrorless
+Canon,2016,25.6,12800,960,5571.15,1-inch,1,SA,Mirrorless
+Leica,2007,33.5,3200,1108,1137.83,Medium Format,1,NX,DSLR
+Olympus,2017,18.4,25600,998,5801.83,Micro 4/3,1,SA,Mirrorless
+Olympus,2022,40.4,12800,958,1393.61,1-inch,1,MFT,Mirrorless
+Nikon,2012,22.9,12800,1128,4501.08,APS-C,0,EF,DSLR
+Sony,2019,19.0,6400,565,3370.73,Full Frame,1,NX,DSLR
+Leica,2005,35.4,6400,875,5329.98,Full Frame,0,MFT,Compact
+Panasonic,2007,8.3,3200,603,3413.16,Full Frame,0,E,DSLR
+Nikon,2012,8.4,12800,299,3300.44,Micro 4/3,1,E,Bridge
+Panasonic,2008,19.6,6400,908,1333.66,APS-C,1,Z,DSLR
+Nikon,2020,9.9,25600,928,1164.13,1-inch,1,L,Compact
+Nikon,2014,13.7,6400,1122,5515.64,1-inch,1,Z,Compact
+Nikon,2016,26.0,102400,912,2101.46,Full Frame,0,RF,Bridge
+Sony,2018,50.5,102400,1151,2358.08,APS-C,1,SA,Compact
+Nikon,2018,38.3,6400,225,4606.98,APS-C,0,K,DSLR
+Fuji,2006,35.2,12800,748,2165.18,APS-C,1,E,Mirrorless
+Samsung,2009,23.6,12800,374,5721.96,Medium Format,1,K,Mirrorless
+Panasonic,2009,57.4,51200,262,4479.98,Medium Format,1,EF,DSLR
+Canon,2010,29.0,102400,400,3665.09,Full Frame,1,X,DSLR
+Pentax,2017,12.6,25600,990,5309.19,APS-C,1,NX,Compact
+Leica,2013,40.7,12800,863,487.71,APS-C,1,EF,Mirrorless
+Sigma,2019,14.0,3200,274,1690.96,1-inch,0,E,Mirrorless
+Sony,2018,26.3,102400,1033,2897.21,1-inch,0,MFT,Bridge
+Canon,2011,34.9,25600,179,1516.48,Full Frame,1,SA,Mirrorless
+Olympus,2024,54.3,25600,430,4514.65,APS-C,1,K,Mirrorless
+Fuji,2006,34.2,12800,1073,5531.41,Full Frame,1,Z,Compact
+Sigma,2011,45.2,25600,517,2657.87,1-inch,1,X,DSLR
+Pentax,2010,60.6,12800,644,2184.37,1-inch,1,L,Mirrorless
+Canon,2021,15.0,6400,1198,5776.99,Medium Format,1,EF,Bridge
+Sigma,2006,22.6,102400,867,2780.14,Full Frame,1,L,Bridge
+Canon,2007,28.9,51200,1166,3036.48,Full Frame,1,K,Compact
+Fuji,2009,30.4,6400,755,2239.57,APS-C,1,K,Mirrorless
+Pentax,2009,29.8,102400,524,5475.38,APS-C,1,NX,Compact
+Olympus,2005,56.1,12800,788,3499.94,Medium Format,0,MFT,DSLR
+Nikon,2012,45.8,102400,1198,4620.61,Micro 4/3,1,MFT,DSLR
+Panasonic,2016,40.2,12800,265,4908.48,Micro 4/3,1,RF,Mirrorless
+Olympus,2008,24.4,6400,197,2182.72,Micro 4/3,1,Z,Mirrorless
+Nikon,2017,51.7,3200,248,2715.43,Full Frame,0,E,DSLR
+Sony,2019,58.6,3200,554,5121.14,Full Frame,0,E,Mirrorless
+Samsung,2015,51.5,102400,834,2306.88,1-inch,0,K,DSLR
+Leica,2014,8.1,3200,1052,4804.82,Full Frame,1,EF,Mirrorless
+Leica,2007,41.7,12800,652,5657.76,Full Frame,1,SA,Compact
+Panasonic,2018,10.7,25600,1043,3814.62,Full Frame,0,E,Mirrorless
+Pentax,2020,21.7,12800,407,4501.44,Medium Format,1,E,DSLR
+Fuji,2014,11.2,25600,993,4869.56,Full Frame,1,EF,Mirrorless
+Pentax,2014,40.0,6400,270,5101.23,APS-C,0,Z,Mirrorless
+Fuji,2016,44.4,51200,959,2491.31,APS-C,1,X,Mirrorless
+Pentax,2013,14.1,25600,1127,497.33,1-inch,1,MFT,Mirrorless
+Samsung,2005,28.3,3200,203,2530.88,Medium Format,1,NX,Mirrorless
+Sony,2009,32.2,12800,1168,4107.79,APS-C,1,NX,Bridge
+Sony,2024,27.6,6400,933,2812.03,Medium Format,1,NX,DSLR
+Nikon,2012,14.4,3200,390,4543.99,Medium Format,0,EF,Mirrorless
+Sigma,2015,30.2,6400,632,2270.5,1-inch,0,NX,Mirrorless
+Sony,2016,47.8,51200,1162,3881.52,Medium Format,1,K,Mirrorless
+Sony,2005,11.8,12800,336,1281.23,Full Frame,0,RF,DSLR
+Olympus,2024,12.2,102400,805,4546.34,Medium Format,1,EF,DSLR
+Olympus,2015,26.8,12800,411,3365.04,1-inch,1,EF,DSLR
+Nikon,2009,57.9,51200,1102,1383.57,1-inch,0,MFT,Bridge
+Sigma,2019,43.4,12800,640,1893.08,1-inch,0,NX,Compact
+Panasonic,2009,44.0,102400,580,4541.93,APS-C,0,L,Mirrorless
+Olympus,2016,27.2,25600,388,2999.09,Full Frame,0,X,Compact
+Panasonic,2009,39.5,6400,453,1452.98,APS-C,0,RF,DSLR
+Canon,2021,8.5,102400,447,5810.17,Micro 4/3,0,EF,Compact
+Olympus,2021,41.7,3200,225,4347.73,Full Frame,1,RF,Mirrorless
+Samsung,2016,56.4,51200,1148,5751.38,Medium Format,0,EF,Mirrorless
+Sigma,2019,40.5,25600,791,2677.21,1-inch,0,Z,Compact
+Nikon,2019,54.3,3200,976,2955.58,Micro 4/3,0,MFT,Compact
+Canon,2010,46.4,3200,432,5408.14,Full Frame,1,K,Compact
+Sigma,2016,14.4,51200,740,3245.29,APS-C,1,Z,DSLR
+Samsung,2024,55.8,25600,221,4302.22,1-inch,1,SA,Bridge
+Sigma,2022,11.5,3200,852,1662.6,APS-C,1,NX,Bridge
+Samsung,2018,36.3,3200,724,2791.01,Full Frame,0,SA,Mirrorless
+Samsung,2006,15.5,25600,1149,916.01,Full Frame,1,X,DSLR
+Panasonic,2013,8.6,12800,1041,1394.68,Micro 4/3,1,L,DSLR
+Pentax,2009,30.4,3200,161,205.47,Medium Format,0,K,Bridge
+Canon,2024,23.6,6400,290,427.74,APS-C,1,Z,Mirrorless
+Sigma,2005,33.8,25600,166,5868.25,Micro 4/3,1,RF,Mirrorless
+Fuji,2007,38.6,3200,402,1605.65,1-inch,1,RF,DSLR
+Canon,2010,10.3,51200,614,4047.2,Medium Format,0,X,DSLR
+Pentax,2009,14.5,102400,525,5066.78,Micro 4/3,1,EF,Mirrorless
+Canon,2009,37.6,6400,1130,3393.83,APS-C,0,RF,Mirrorless
+Sony,2005,26.2,102400,669,1088.24,Full Frame,1,NX,Bridge
+Fuji,2021,46.6,102400,239,4423.08,1-inch,1,L,Mirrorless
+Pentax,2023,42.6,3200,869,3681.46,APS-C,1,MFT,Compact
+Panasonic,2018,52.8,6400,953,4441.25,Medium Format,0,NX,DSLR
+Sigma,2016,44.7,6400,945,4664.53,Medium Format,1,L,DSLR
+Leica,2014,30.8,12800,779,5857.38,Full Frame,1,X,Mirrorless
+Pentax,2024,43.7,102400,225,3526.67,Full Frame,1,NX,Mirrorless
+Nikon,2022,22.6,6400,1075,2181.52,1-inch,0,MFT,DSLR
+Sigma,2015,24.2,12800,549,3961.09,1-inch,1,MFT,Bridge
+Pentax,2006,49.8,25600,1119,596.96,Full Frame,0,E,Mirrorless
+Sony,2022,31.7,12800,946,5404.9,Full Frame,0,EF,DSLR
+Leica,2011,50.3,51200,344,892.41,Medium Format,1,X,DSLR
+Sony,2019,51.6,3200,377,2101.49,Full Frame,1,NX,DSLR
+Leica,2015,53.5,25600,610,4931.32,Micro 4/3,1,K,Bridge
+Nikon,2022,56.6,25600,767,3664.41,APS-C,1,K,DSLR
+Sigma,2016,30.8,51200,1194,2483.09,Full Frame,1,X,Mirrorless
+Panasonic,2010,24.9,12800,213,2945.93,1-inch,1,NX,Mirrorless
+Sony,2024,38.9,3200,314,5156.37,Micro 4/3,1,Z,DSLR
+Sony,2017,27.7,12800,176,2172.03,1-inch,1,Z,DSLR
+Samsung,2024,39.9,6400,1161,5243.97,Micro 4/3,1,EF,DSLR
+Leica,2020,45.4,12800,434,711.18,Full Frame,1,NX,Mirrorless
+Olympus,2022,44.5,25600,430,4705.43,APS-C,0,MFT,DSLR
+Sigma,2014,27.9,3200,987,5115.78,1-inch,0,RF,DSLR
+Leica,2012,16.8,12800,980,1254.54,Micro 4/3,0,K,Compact
+Samsung,2022,30.8,3200,1067,2696.01,Medium Format,1,NX,DSLR
+Canon,2005,15.6,3200,373,1159.9,Full Frame,1,NX,Compact
+Leica,2012,55.2,6400,933,4298.3,APS-C,1,RF,Compact
+Panasonic,2010,26.3,6400,1114,3305.02,Full Frame,1,RF,Mirrorless
+Sigma,2009,16.2,25600,1099,3884.88,Medium Format,1,L,Mirrorless
+Samsung,2019,9.3,51200,194,1339.62,APS-C,0,E,DSLR
+Canon,2019,42.2,3200,620,1428.13,Medium Format,1,EF,Compact
+Fuji,2006,41.8,51200,183,440.68,Full Frame,1,K,Mirrorless
+Samsung,2005,26.1,25600,802,2067.99,Micro 4/3,0,RF,Mirrorless
+Fuji,2015,11.8,3200,979,3446.52,Full Frame,1,Z,DSLR
+Sigma,2014,29.7,3200,370,5176.02,Full Frame,1,X,Bridge
+Sony,2022,24.5,102400,683,4068.18,Full Frame,1,Z,DSLR
+Samsung,2022,43.9,51200,841,2725.3,1-inch,1,L,Mirrorless
+Nikon,2021,40.1,12800,1081,5728.1,Medium Format,0,L,Mirrorless
+Fuji,2012,27.3,6400,990,4371.62,Medium Format,1,RF,DSLR
+Panasonic,2019,19.5,12800,1160,5594.96,Medium Format,1,L,Mirrorless
+Nikon,2012,60.4,51200,731,3260.01,1-inch,0,MFT,Compact
+Pentax,2021,32.1,6400,388,1701.64,Micro 4/3,0,SA,Compact
+Pentax,2016,44.5,12800,590,506.39,Full Frame,0,NX,Compact
+Canon,2012,15.4,102400,297,4411.29,Micro 4/3,0,NX,Mirrorless
+Sony,2018,33.7,6400,1182,903.56,1-inch,1,RF,Mirrorless
+Sigma,2008,9.5,3200,537,1956.1,Medium Format,1,L,DSLR
+Samsung,2005,34.8,12800,1065,3288.33,Full Frame,1,X,Mirrorless
+Olympus,2005,59.1,6400,787,3473.62,APS-C,1,MFT,DSLR
+Panasonic,2023,28.4,102400,427,3683.38,APS-C,0,EF,Mirrorless
+Fuji,2020,10.1,6400,1138,1164.28,Micro 4/3,0,L,Mirrorless
+Sigma,2018,9.6,6400,738,2402.48,Medium Format,1,MFT,Mirrorless
+Nikon,2020,28.6,102400,798,3779.73,APS-C,1,E,Mirrorless
+Pentax,2009,16.5,12800,767,5824.95,Micro 4/3,1,EF,Bridge
+Panasonic,2013,9.2,25600,284,4420.26,1-inch,0,NX,Mirrorless
+Olympus,2006,48.1,12800,729,5551.1,Micro 4/3,1,E,Bridge
+Samsung,2022,32.3,51200,639,4620.83,Micro 4/3,0,RF,Compact
+Canon,2010,23.3,102400,627,3631.96,Micro 4/3,0,K,Mirrorless
+Olympus,2013,55.7,12800,533,1313.74,Full Frame,0,RF,Mirrorless
+Panasonic,2005,14.2,6400,312,4066.78,Micro 4/3,0,X,DSLR
+Olympus,2013,58.7,102400,590,3815.6,Micro 4/3,0,MFT,Compact
+Panasonic,2020,24.6,3200,564,3694.32,Full Frame,1,K,Mirrorless
+Panasonic,2017,55.1,12800,437,3040.76,Full Frame,1,EF,Bridge
+Leica,2013,40.0,102400,336,3266.21,1-inch,1,EF,Mirrorless
+Fuji,2017,51.8,12800,279,2139.77,Medium Format,1,E,Compact
+Pentax,2013,60.2,102400,343,3212.01,APS-C,0,X,Compact
+Leica,2015,23.3,6400,465,1345.82,APS-C,1,NX,Mirrorless
+Samsung,2008,58.9,3200,293,4870.01,Micro 4/3,0,L,DSLR
+Leica,2006,28.6,3200,165,1277.51,1-inch,1,L,Mirrorless
+Sony,2010,28.4,51200,572,692.8,Micro 4/3,1,K,Mirrorless
+Sony,2018,26.0,102400,394,2730.23,APS-C,0,X,DSLR
+Pentax,2008,36.7,12800,1076,4018.18,Full Frame,1,X,Compact
+Olympus,2010,16.2,3200,278,2738.76,Medium Format,1,EF,Mirrorless
+Fuji,2023,37.3,3200,1056,1805.17,1-inch,1,NX,Bridge
+Pentax,2010,36.7,25600,1036,3437.39,Full Frame,0,MFT,Compact
+Panasonic,2006,48.4,25600,490,2212.61,Medium Format,1,NX,Mirrorless
+Nikon,2022,52.2,3200,153,5610.63,1-inch,1,Z,Bridge
+Fuji,2017,31.3,102400,455,5551.34,1-inch,1,X,Mirrorless
+Fuji,2013,24.0,51200,1057,3113.76,APS-C,0,RF,Compact
+Panasonic,2023,21.7,3200,756,2101.73,Full Frame,0,SA,Mirrorless
+Panasonic,2017,18.3,6400,1141,4475.37,1-inch,1,X,Mirrorless
+Canon,2015,11.1,12800,470,412.94,1-inch,1,K,Mirrorless
+Pentax,2005,26.1,51200,708,2953.66,Medium Format,0,RF,Mirrorless
+Panasonic,2011,22.3,6400,767,2150.68,APS-C,1,K,Mirrorless
+Sony,2019,59.2,51200,860,5539.11,Micro 4/3,1,E,Mirrorless
+Samsung,2005,37.6,6400,680,269.62,APS-C,1,SA,Mirrorless
+Nikon,2016,26.4,12800,559,3406.33,Micro 4/3,0,SA,Bridge
+Pentax,2011,38.8,12800,967,4495.85,Full Frame,1,EF,Mirrorless
+Sigma,2019,15.4,25600,642,3013.1,Full Frame,1,X,Mirrorless
+Sony,2023,31.5,102400,161,695.34,1-inch,0,EF,Mirrorless
+Olympus,2005,41.2,6400,344,5840.28,Full Frame,0,L,Compact
+Panasonic,2021,33.9,25600,639,3204.46,1-inch,1,K,Bridge
+Sigma,2021,29.3,6400,944,3762.28,APS-C,1,Z,Mirrorless
+Panasonic,2007,60.7,25600,1030,1572.34,Full Frame,0,Z,DSLR
+Fuji,2016,54.7,12800,331,3004.29,APS-C,0,L,Mirrorless
+Sony,2010,41.0,51200,1111,2689.07,APS-C,0,E,Mirrorless
+Fuji,2015,38.2,25600,805,634.4,Full Frame,1,Z,Compact
+Canon,2007,40.9,6400,843,815.73,APS-C,1,K,Mirrorless
+Fuji,2012,18.7,6400,179,5057.34,Full Frame,0,Z,Bridge
+Canon,2018,28.9,102400,927,1590.96,Full Frame,0,L,Mirrorless
+Canon,2018,10.1,12800,593,1330.76,Full Frame,1,RF,Bridge
+Sigma,2014,33.2,6400,447,3128.49,Micro 4/3,1,EF,DSLR
+Panasonic,2006,36.8,3200,957,4658.73,APS-C,0,MFT,Compact
+Olympus,2018,20.1,51200,994,559.29,Medium Format,1,K,Bridge
+Fuji,2013,59.1,25600,1165,3545.49,Full Frame,1,EF,Bridge
+Sony,2007,56.2,102400,703,891.42,APS-C,1,SA,DSLR
+Canon,2012,46.3,51200,452,411.47,1-inch,1,NX,DSLR
+Panasonic,2020,36.3,12800,570,505.91,Full Frame,1,Z,Mirrorless
+Nikon,2006,54.1,102400,334,5038.15,Full Frame,0,Z,DSLR
+Pentax,2010,14.9,25600,617,884.24,Medium Format,1,E,DSLR
+Sigma,2016,49.9,25600,903,461.88,Micro 4/3,1,EF,DSLR
+Olympus,2009,14.6,3200,512,2739.82,Micro 4/3,1,NX,Mirrorless
+Leica,2006,50.1,12800,485,5095.16,Full Frame,1,Z,Mirrorless
+Sigma,2020,22.6,102400,311,1721.97,APS-C,1,SA,DSLR
+Nikon,2009,54.5,102400,161,2645.93,1-inch,1,E,DSLR
+Pentax,2019,58.0,6400,737,431.55,1-inch,0,EF,Mirrorless
+Nikon,2016,15.9,3200,350,2804.66,APS-C,1,E,Mirrorless
+Fuji,2008,32.5,3200,671,3550.16,Full Frame,1,EF,DSLR
+Canon,2019,60.0,102400,654,3511.26,1-inch,1,X,Mirrorless
+Olympus,2015,33.6,102400,937,2128.07,Micro 4/3,1,X,Bridge
+Samsung,2020,53.8,51200,209,2030.09,APS-C,0,L,Bridge
+Canon,2010,39.2,51200,727,818.42,Medium Format,1,K,Bridge
+Samsung,2018,27.9,51200,470,2327.43,Full Frame,0,E,Compact
+Pentax,2022,23.1,3200,1072,777.07,APS-C,1,L,Mirrorless
+Panasonic,2016,18.8,6400,718,4646.26,1-inch,0,E,Mirrorless
+Leica,2015,48.4,25600,676,5804.39,Full Frame,1,Z,Mirrorless
+Sony,2017,28.5,51200,673,5826.43,Micro 4/3,0,MFT,Mirrorless
+Canon,2015,35.1,6400,762,5217.41,Full Frame,1,E,Mirrorless
+Olympus,2020,34.1,12800,274,3684.59,Full Frame,1,Z,Mirrorless
+Nikon,2019,38.6,51200,1020,4265.02,Micro 4/3,0,NX,Mirrorless
+Olympus,2019,53.9,25600,429,1854.19,Micro 4/3,0,X,DSLR
+Pentax,2008,60.0,12800,1066,3858.47,Full Frame,1,L,Compact
+Samsung,2015,29.6,12800,771,2842.77,Micro 4/3,1,MFT,DSLR
+Nikon,2023,51.9,25600,995,2995.7,APS-C,1,SA,DSLR
+Sony,2019,48.5,51200,823,4595.1,Micro 4/3,0,X,DSLR
+Sony,2008,38.4,3200,463,1835.13,Micro 4/3,1,L,Mirrorless
+Canon,2017,58.7,25600,481,2044.63,Full Frame,1,MFT,DSLR
+Pentax,2023,18.6,25600,185,5562.92,APS-C,0,SA,Bridge
+Panasonic,2006,13.8,25600,1195,526.1,Medium Format,0,RF,Mirrorless
+Pentax,2018,53.3,12800,355,3016.68,Medium Format,0,Z,Mirrorless
+Samsung,2008,31.3,6400,788,5494.24,1-inch,0,RF,Mirrorless
+Olympus,2020,52.9,3200,997,3740.11,Micro 4/3,0,Z,Mirrorless
+Sony,2024,55.3,51200,589,3369.16,Micro 4/3,1,EF,Compact
+Olympus,2018,11.3,51200,878,1648.52,APS-C,1,K,Mirrorless
+Olympus,2019,54.8,6400,1090,2191.0,Medium Format,0,MFT,Compact
+Olympus,2007,31.8,25600,313,5141.88,1-inch,1,RF,Bridge
+Sony,2012,35.1,3200,297,3443.47,APS-C,0,K,Compact
+Sigma,2020,41.2,51200,443,3185.5,Micro 4/3,1,MFT,Mirrorless
+Fuji,2014,57.1,102400,344,777.56,Medium Format,1,L,DSLR
+Samsung,2008,9.0,51200,812,292.96,1-inch,0,EF,Mirrorless
+Sigma,2022,33.3,25600,629,5789.37,Full Frame,0,L,Mirrorless
+Samsung,2006,44.4,102400,272,2386.52,Medium Format,1,Z,Compact
+Nikon,2021,46.3,6400,848,3698.64,1-inch,0,K,Compact
+Pentax,2017,44.7,3200,1114,662.35,APS-C,0,MFT,Compact
+Pentax,2008,15.1,6400,810,4162.06,Full Frame,1,E,Compact
+Leica,2015,23.9,6400,859,5608.89,1-inch,1,K,DSLR
+Pentax,2011,27.0,3200,545,3538.86,1-inch,0,NX,DSLR
+Sony,2016,50.6,3200,1061,931.47,Micro 4/3,0,SA,DSLR
+Panasonic,2014,22.8,51200,1154,3573.98,Medium Format,1,RF,Bridge
+Canon,2011,19.2,51200,466,4644.81,Micro 4/3,0,MFT,Compact
+Leica,2017,58.7,3200,830,2557.22,Full Frame,0,X,Mirrorless
+Canon,2011,8.5,102400,644,5303.06,1-inch,1,X,Compact
+Samsung,2021,60.9,12800,705,3962.36,Micro 4/3,0,SA,Compact
+Canon,2014,43.9,51200,759,5415.64,Medium Format,1,Z,Bridge
+Canon,2014,51.9,12800,258,3816.33,Full Frame,1,K,Compact
+Leica,2008,23.6,102400,521,961.47,APS-C,0,K,Mirrorless
+Nikon,2024,8.8,3200,1004,1996.21,Micro 4/3,0,X,Mirrorless
+Olympus,2008,47.1,102400,765,1370.41,Full Frame,0,K,DSLR
+Pentax,2011,52.2,51200,917,5471.19,APS-C,1,SA,Mirrorless
+Pentax,2005,47.2,6400,355,4610.32,Micro 4/3,1,K,Mirrorless
+Sony,2016,15.6,3200,996,4123.11,Full Frame,1,Z,DSLR
+Leica,2017,47.9,25600,192,1945.6,Full Frame,1,RF,Compact
+Sony,2014,48.8,12800,1014,1267.46,Micro 4/3,1,NX,Mirrorless
+Panasonic,2019,42.9,102400,934,4587.42,Full Frame,1,RF,Bridge
+Panasonic,2017,48.6,3200,625,2950.12,1-inch,1,NX,DSLR
+Sony,2013,52.8,102400,232,1509.58,Micro 4/3,0,E,Mirrorless
+Leica,2013,40.5,3200,339,3776.41,Full Frame,1,RF,Mirrorless
+Sony,2019,12.7,51200,949,433.94,APS-C,1,SA,DSLR
+Pentax,2014,33.8,51200,1085,2091.79,APS-C,1,EF,Mirrorless
+Sigma,2014,12.1,51200,400,2917.63,1-inch,1,E,DSLR
+Fuji,2012,29.6,102400,440,1058.16,Micro 4/3,1,NX,DSLR
+Canon,2020,29.6,25600,475,5911.0,Full Frame,1,NX,DSLR
+Fuji,2021,11.5,51200,986,1412.76,Full Frame,0,E,DSLR
+Leica,2009,26.5,3200,657,956.05,APS-C,1,NX,Compact
+Fuji,2008,13.9,51200,880,1380.5,1-inch,0,MFT,DSLR
+Panasonic,2022,50.8,6400,221,4660.55,APS-C,0,EF,Mirrorless
+Samsung,2023,58.2,51200,790,2667.93,APS-C,0,SA,Compact
+Canon,2008,11.8,102400,1089,3479.41,1-inch,1,MFT,Mirrorless
+Olympus,2011,58.6,25600,757,321.85,Micro 4/3,0,NX,Bridge
+Leica,2014,35.7,6400,715,399.7,Full Frame,1,RF,Compact
+Canon,2022,23.9,102400,203,2785.79,Micro 4/3,1,MFT,Compact
+Fuji,2023,12.1,102400,677,4936.6,Medium Format,0,RF,DSLR
+Panasonic,2008,34.5,102400,760,5334.39,Medium Format,0,E,Compact
+Nikon,2014,50.1,3200,342,702.9,Medium Format,1,K,Compact
+Sigma,2005,45.5,102400,207,3322.51,1-inch,1,L,Mirrorless
+Olympus,2022,10.7,3200,278,5496.73,APS-C,1,NX,DSLR
+Sigma,2009,11.9,102400,855,2450.24,Micro 4/3,1,L,Mirrorless
+Canon,2019,29.4,12800,1001,5011.48,Full Frame,1,EF,Compact
+Panasonic,2021,23.7,6400,157,975.43,Medium Format,0,RF,Mirrorless
+Panasonic,2007,20.3,12800,178,5625.29,Micro 4/3,0,MFT,Compact
+Fuji,2016,22.9,102400,1096,4558.26,Medium Format,0,L,DSLR
+Pentax,2006,50.6,6400,280,5659.74,Medium Format,1,Z,Compact
+Fuji,2005,57.2,6400,337,4124.38,Full Frame,0,NX,DSLR
+Pentax,2021,29.5,25600,858,2307.74,1-inch,0,L,DSLR
+Pentax,2020,56.0,12800,361,5641.45,APS-C,0,MFT,Mirrorless
+Olympus,2009,25.0,25600,425,1798.29,1-inch,1,MFT,DSLR
+Fuji,2019,33.3,6400,392,2126.6,Micro 4/3,1,EF,DSLR
+Nikon,2007,20.0,3200,1136,4264.69,1-inch,1,X,DSLR
+Sony,2011,41.9,6400,834,4638.83,Micro 4/3,1,SA,Mirrorless
+Sony,2015,59.9,25600,320,5590.54,Micro 4/3,0,Z,Bridge
+Fuji,2014,40.0,12800,802,1387.85,APS-C,0,L,Compact
+Fuji,2013,27.0,102400,337,4828.39,Full Frame,1,SA,Mirrorless
+Sigma,2018,42.3,102400,201,4483.57,APS-C,1,Z,DSLR
+Olympus,2017,14.5,12800,260,570.01,1-inch,1,X,Mirrorless
+Fuji,2006,55.1,102400,1026,2445.89,Micro 4/3,1,L,Compact
+Sigma,2007,34.7,102400,360,1840.04,Medium Format,1,Z,Mirrorless
+Pentax,2011,31.8,25600,1007,1966.04,Medium Format,0,SA,DSLR
+Panasonic,2022,39.1,12800,776,5901.09,Micro 4/3,1,RF,DSLR
+Panasonic,2007,41.1,51200,1199,3928.11,APS-C,0,MFT,Compact
+Pentax,2014,11.8,3200,448,4362.52,Full Frame,1,K,Mirrorless
+Leica,2011,44.2,3200,1073,5864.38,APS-C,1,E,Compact
+Sigma,2013,20.8,102400,286,2387.77,Micro 4/3,1,NX,Mirrorless
+Sigma,2021,45.8,3200,1193,4850.67,Micro 4/3,0,K,DSLR
+Pentax,2015,51.6,12800,589,2720.28,Full Frame,1,L,Mirrorless
+Nikon,2011,50.6,12800,360,5243.3,1-inch,0,L,Mirrorless
+Samsung,2018,37.3,6400,901,1247.81,1-inch,1,Z,DSLR

@@ -1,0 +1,2001 @@
+date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total
+2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36
+2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03
+2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22
+2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74
+2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21
+2024-01-01,10:00,Macchiato,Large,4.68,1,Cash,25-34,1,4.68
+2024-01-01,12:00,Tea,Large,5.76,3,Mobile Pay,18-24,0,17.28
+2024-01-01,14:00,Latte,Small,4.58,1,Credit Card,18-24,0,4.58
+2024-01-01,16:00,Espresso,Medium,4.81,1,Credit Card,25-34,1,4.81
+2024-01-01,18:00,Latte,Large,3.75,1,Cash,45-54,1,3.75
+2024-01-01,20:00,Macchiato,Large,6.56,1,Credit Card,55+,1,6.56
+2024-01-01,22:00,Espresso,Large,6.1,1,Mobile Pay,35-44,1,6.1
+2024-01-02,00:00,Espresso,Medium,5.88,3,Mobile Pay,25-34,1,17.64
+2024-01-02,02:00,Macchiato,Small,5.76,1,Credit Card,55+,1,5.76
+2024-01-02,04:00,Americano,Small,6.21,2,Cash,25-34,0,12.42
+2024-01-02,06:00,Mocha,Small,6.96,1,Mobile Pay,55+,1,6.96
+2024-01-02,08:00,Espresso,Medium,6.93,3,Mobile Pay,35-44,0,20.79
+2024-01-02,10:00,Espresso,Medium,6.65,1,Mobile Pay,55+,1,6.65
+2024-01-02,12:00,Mocha,Medium,7.08,2,Cash,25-34,0,14.16
+2024-01-02,14:00,Latte,Medium,3.36,3,Credit Card,25-34,0,10.08
+2024-01-02,16:00,Hot Chocolate,Medium,7.39,2,Credit Card,25-34,1,14.78
+2024-01-02,18:00,Americano,Small,3.61,3,Credit Card,25-34,1,10.83
+2024-01-02,20:00,Cappuccino,Large,4.52,2,Credit Card,25-34,0,9.04
+2024-01-02,22:00,Mocha,Large,7.15,3,Mobile Pay,55+,0,21.45
+2024-01-03,00:00,Hot Chocolate,Large,3.18,2,Credit Card,45-54,1,6.36
+2024-01-03,02:00,Cappuccino,Small,5.62,1,Mobile Pay,18-24,0,5.62
+2024-01-03,04:00,Mocha,Large,6.75,3,Mobile Pay,18-24,0,20.25
+2024-01-03,06:00,Frappe,Large,6.44,2,Cash,45-54,1,12.88
+2024-01-03,08:00,Espresso,Medium,5.65,3,Mobile Pay,18-24,0,16.95
+2024-01-03,10:00,Hot Chocolate,Medium,2.51,3,Mobile Pay,35-44,0,7.53
+2024-01-03,12:00,Macchiato,Large,4.08,2,Credit Card,18-24,1,8.16
+2024-01-03,14:00,Americano,Small,4.61,3,Credit Card,25-34,0,13.83
+2024-01-03,16:00,Mocha,Medium,4.22,1,Credit Card,25-34,1,4.22
+2024-01-03,18:00,Tea,Medium,2.95,2,Credit Card,45-54,1,5.9
+2024-01-03,20:00,Latte,Medium,5.22,2,Credit Card,45-54,0,10.44
+2024-01-03,22:00,Cold Brew,Small,4.0,3,Credit Card,18-24,0,12.0
+2024-01-04,00:00,Tea,Medium,3.17,3,Credit Card,25-34,1,9.51
+2024-01-04,02:00,Cappuccino,Large,7.02,3,Cash,55+,1,21.06
+2024-01-04,04:00,Latte,Medium,3.41,2,Mobile Pay,25-34,1,6.82
+2024-01-04,06:00,Frappe,Large,6.62,3,Credit Card,35-44,1,19.86
+2024-01-04,08:00,Americano,Small,6.24,1,Credit Card,18-24,1,6.24
+2024-01-04,10:00,Cold Brew,Small,6.95,2,Credit Card,45-54,1,13.9
+2024-01-04,12:00,Espresso,Medium,4.76,2,Cash,25-34,0,9.52
+2024-01-04,14:00,Cappuccino,Medium,2.89,3,Credit Card,35-44,1,8.67
+2024-01-04,16:00,Tea,Medium,2.67,1,Credit Card,25-34,1,2.67
+2024-01-04,18:00,Cappuccino,Medium,4.38,1,Credit Card,45-54,1,4.38
+2024-01-04,20:00,Mocha,Large,5.83,1,Credit Card,55+,0,5.83
+2024-01-04,22:00,Mocha,Small,7.26,3,Credit Card,55+,0,21.78
+2024-01-05,00:00,Tea,Medium,2.64,3,Mobile Pay,25-34,1,7.92
+2024-01-05,02:00,Americano,Large,7.35,2,Mobile Pay,35-44,0,14.7
+2024-01-05,04:00,Espresso,Small,3.19,2,Credit Card,25-34,0,6.38
+2024-01-05,06:00,Tea,Medium,2.54,2,Credit Card,45-54,1,5.08
+2024-01-05,08:00,Mocha,Large,5.88,3,Credit Card,45-54,0,17.64
+2024-01-05,10:00,Hot Chocolate,Medium,3.93,2,Cash,45-54,0,7.86
+2024-01-05,12:00,Tea,Large,5.35,2,Cash,55+,1,10.7
+2024-01-05,14:00,Hot Chocolate,Medium,6.43,1,Cash,18-24,0,6.43
+2024-01-05,16:00,Latte,Small,4.6,1,Credit Card,55+,0,4.6
+2024-01-05,18:00,Cold Brew,Medium,5.14,3,Credit Card,55+,1,15.42
+2024-01-05,20:00,Hot Chocolate,Large,3.94,2,Credit Card,25-34,0,7.88
+2024-01-05,22:00,Macchiato,Large,7.35,1,Credit Card,55+,0,7.35
+2024-01-06,00:00,Cappuccino,Large,5.37,3,Credit Card,55+,1,16.11
+2024-01-06,02:00,Mocha,Small,4.48,3,Credit Card,35-44,1,13.44
+2024-01-06,04:00,Frappe,Medium,3.58,1,Credit Card,55+,1,3.58
+2024-01-06,06:00,Latte,Large,2.67,3,Credit Card,55+,0,8.01
+2024-01-06,08:00,Cappuccino,Small,5.26,3,Cash,55+,1,15.78
+2024-01-06,10:00,Latte,Medium,4.74,3,Credit Card,18-24,0,14.22
+2024-01-06,12:00,Latte,Large,5.49,3,Mobile Pay,18-24,0,16.47
+2024-01-06,14:00,Americano,Small,5.89,1,Mobile Pay,35-44,1,5.89
+2024-01-06,16:00,Cold Brew,Medium,6.54,2,Credit Card,18-24,1,13.08
+2024-01-06,18:00,Macchiato,Small,3.95,2,Credit Card,55+,1,7.9
+2024-01-06,20:00,Espresso,Large,3.66,3,Mobile Pay,18-24,1,10.98
+2024-01-06,22:00,Frappe,Small,6.6,1,Mobile Pay,45-54,0,6.6
+2024-01-07,00:00,Latte,Small,3.72,3,Mobile Pay,18-24,0,11.16
+2024-01-07,02:00,Tea,Small,6.75,1,Credit Card,45-54,1,6.75
+2024-01-07,04:00,Americano,Medium,4.09,3,Credit Card,45-54,0,12.27
+2024-01-07,06:00,Americano,Large,5.66,3,Credit Card,35-44,0,16.98
+2024-01-07,08:00,Cold Brew,Small,3.69,2,Mobile Pay,25-34,0,7.38
+2024-01-07,10:00,Macchiato,Large,5.97,1,Credit Card,45-54,1,5.97
+2024-01-07,12:00,Hot Chocolate,Large,4.6,1,Credit Card,45-54,1,4.6
+2024-01-07,14:00,Macchiato,Small,6.81,2,Mobile Pay,25-34,0,13.62
+2024-01-07,16:00,Cappuccino,Large,6.94,2,Cash,18-24,0,13.88
+2024-01-07,18:00,Americano,Large,5.31,1,Mobile Pay,45-54,0,5.31
+2024-01-07,20:00,Americano,Large,5.92,1,Mobile Pay,35-44,1,5.92
+2024-01-07,22:00,Americano,Medium,6.95,2,Mobile Pay,45-54,1,13.9
+2024-01-08,00:00,Frappe,Medium,7.19,3,Credit Card,35-44,0,21.57
+2024-01-08,02:00,Tea,Small,2.6,1,Credit Card,55+,0,2.6
+2024-01-08,04:00,Macchiato,Medium,7.3,3,Mobile Pay,35-44,0,21.9
+2024-01-08,06:00,Hot Chocolate,Small,5.1,1,Credit Card,45-54,0,5.1
+2024-01-08,08:00,Tea,Small,3.27,3,Mobile Pay,25-34,1,9.81
+2024-01-08,10:00,Americano,Medium,5.98,2,Credit Card,35-44,1,11.96
+2024-01-08,12:00,Macchiato,Medium,5.7,2,Mobile Pay,35-44,1,11.4
+2024-01-08,14:00,Tea,Medium,6.69,1,Mobile Pay,18-24,1,6.69
+2024-01-08,16:00,Tea,Medium,4.92,3,Credit Card,18-24,1,14.76
+2024-01-08,18:00,Tea,Small,7.15,1,Credit Card,55+,1,7.15
+2024-01-08,20:00,Latte,Medium,2.88,2,Credit Card,35-44,1,5.76
+2024-01-08,22:00,Americano,Medium,5.02,2,Mobile Pay,25-34,0,10.04
+2024-01-09,00:00,Mocha,Medium,4.07,3,Credit Card,18-24,1,12.21
+2024-01-09,02:00,Americano,Medium,4.3,1,Credit Card,35-44,1,4.3
+2024-01-09,04:00,Latte,Medium,6.68,2,Credit Card,35-44,1,13.36
+2024-01-09,06:00,Espresso,Medium,6.58,3,Mobile Pay,35-44,0,19.74
+2024-01-09,08:00,Cold Brew,Large,4.05,1,Credit Card,25-34,0,4.05
+2024-01-09,10:00,Frappe,Small,4.14,2,Credit Card,35-44,1,8.28
+2024-01-09,12:00,Tea,Large,4.31,3,Mobile Pay,35-44,1,12.93
+2024-01-09,14:00,Frappe,Medium,5.95,3,Credit Card,55+,0,17.85
+2024-01-09,16:00,Macchiato,Large,4.18,3,Credit Card,55+,0,12.54
+2024-01-09,18:00,Latte,Small,4.9,2,Credit Card,18-24,1,9.8
+2024-01-09,20:00,Espresso,Large,2.75,1,Mobile Pay,55+,1,2.75
+2024-01-09,22:00,Americano,Small,6.67,2,Cash,45-54,0,13.34
+2024-01-10,00:00,Latte,Large,7.5,1,Credit Card,55+,1,7.5
+2024-01-10,02:00,Americano,Large,5.43,3,Credit Card,35-44,1,16.29
+2024-01-10,04:00,Mocha,Small,6.3,3,Mobile Pay,45-54,1,18.9
+2024-01-10,06:00,Hot Chocolate,Large,4.68,2,Mobile Pay,35-44,1,9.36
+2024-01-10,08:00,Tea,Small,6.82,3,Mobile Pay,25-34,0,20.46
+2024-01-10,10:00,Latte,Medium,2.74,2,Cash,55+,1,5.48
+2024-01-10,12:00,Mocha,Large,4.09,1,Mobile Pay,55+,0,4.09
+2024-01-10,14:00,Americano,Large,5.41,1,Credit Card,35-44,1,5.41
+2024-01-10,16:00,Americano,Small,3.99,3,Cash,35-44,1,11.97
+2024-01-10,18:00,Hot Chocolate,Small,5.03,2,Credit Card,45-54,1,10.06
+2024-01-10,20:00,Tea,Medium,5.41,3,Cash,55+,0,16.23
+2024-01-10,22:00,Frappe,Medium,5.75,3,Credit Card,45-54,1,17.25
+2024-01-11,00:00,Tea,Medium,7.37,2,Credit Card,35-44,1,14.74
+2024-01-11,02:00,Mocha,Large,6.73,1,Mobile Pay,55+,1,6.73
+2024-01-11,04:00,Mocha,Small,6.09,1,Credit Card,45-54,1,6.09
+2024-01-11,06:00,Hot Chocolate,Small,3.84,3,Credit Card,18-24,0,11.52
+2024-01-11,08:00,Espresso,Medium,3.08,3,Credit Card,35-44,1,9.24
+2024-01-11,10:00,Espresso,Medium,2.98,2,Credit Card,55+,1,5.96
+2024-01-11,12:00,Macchiato,Large,5.82,1,Credit Card,35-44,1,5.82
+2024-01-11,14:00,Frappe,Large,5.39,2,Credit Card,45-54,0,10.78
+2024-01-11,16:00,Frappe,Small,4.13,2,Credit Card,25-34,1,8.26
+2024-01-11,18:00,Mocha,Large,3.69,3,Cash,35-44,1,11.07
+2024-01-11,20:00,Frappe,Medium,5.84,3,Cash,35-44,0,17.52
+2024-01-11,22:00,Tea,Small,5.86,2,Credit Card,35-44,1,11.72
+2024-01-12,00:00,Latte,Medium,5.24,2,Cash,18-24,1,10.48
+2024-01-12,02:00,Tea,Large,4.73,2,Mobile Pay,55+,0,9.46
+2024-01-12,04:00,Frappe,Medium,3.37,2,Mobile Pay,55+,1,6.74
+2024-01-12,06:00,Hot Chocolate,Medium,2.85,3,Credit Card,25-34,0,8.55
+2024-01-12,08:00,Macchiato,Medium,4.91,2,Credit Card,45-54,0,9.82
+2024-01-12,10:00,Latte,Medium,3.79,3,Mobile Pay,18-24,0,11.37
+2024-01-12,12:00,Hot Chocolate,Medium,6.29,2,Credit Card,55+,0,12.58
+2024-01-12,14:00,Latte,Large,5.17,3,Cash,45-54,0,15.51
+2024-01-12,16:00,Hot Chocolate,Large,2.75,1,Mobile Pay,55+,1,2.75
+2024-01-12,18:00,Macchiato,Large,6.07,1,Credit Card,45-54,1,6.07
+2024-01-12,20:00,Frappe,Large,5.9,1,Credit Card,18-24,1,5.9
+2024-01-12,22:00,Hot Chocolate,Small,7.02,2,Mobile Pay,45-54,1,14.04
+2024-01-13,00:00,Latte,Small,3.56,2,Mobile Pay,25-34,1,7.12
+2024-01-13,02:00,Americano,Large,6.6,1,Mobile Pay,18-24,1,6.6
+2024-01-13,04:00,Latte,Small,7.15,1,Credit Card,55+,0,7.15
+2024-01-13,06:00,Frappe,Large,5.56,3,Credit Card,18-24,1,16.68
+2024-01-13,08:00,Hot Chocolate,Small,6.19,1,Credit Card,55+,1,6.19
+2024-01-13,10:00,Cold Brew,Small,2.79,2,Cash,45-54,1,5.58
+2024-01-13,12:00,Latte,Medium,3.1,3,Mobile Pay,18-24,0,9.3
+2024-01-13,14:00,Cappuccino,Large,2.86,2,Credit Card,25-34,1,5.72
+2024-01-13,16:00,Cold Brew,Medium,6.36,2,Cash,55+,0,12.72
+2024-01-13,18:00,Cappuccino,Small,4.98,3,Mobile Pay,55+,1,14.94
+2024-01-13,20:00,Cappuccino,Small,2.59,1,Credit Card,18-24,0,2.59
+2024-01-13,22:00,Macchiato,Medium,6.52,2,Mobile Pay,25-34,0,13.04
+2024-01-14,00:00,Americano,Large,4.87,3,Credit Card,55+,1,14.61
+2024-01-14,02:00,Cappuccino,Small,5.69,3,Credit Card,45-54,0,17.07
+2024-01-14,04:00,Tea,Large,3.6,3,Cash,18-24,0,10.8
+2024-01-14,06:00,Hot Chocolate,Medium,4.66,2,Credit Card,55+,1,9.32
+2024-01-14,08:00,Macchiato,Small,4.26,3,Mobile Pay,55+,1,12.78
+2024-01-14,10:00,Latte,Medium,3.93,3,Mobile Pay,45-54,0,11.79
+2024-01-14,12:00,Americano,Medium,7.49,3,Credit Card,25-34,0,22.47
+2024-01-14,14:00,Frappe,Medium,4.44,1,Mobile Pay,45-54,0,4.44
+2024-01-14,16:00,Americano,Large,4.21,2,Credit Card,25-34,0,8.42
+2024-01-14,18:00,Hot Chocolate,Medium,5.57,3,Credit Card,18-24,0,16.71
+2024-01-14,20:00,Macchiato,Medium,4.01,3,Mobile Pay,55+,1,12.03
+2024-01-14,22:00,Macchiato,Medium,2.74,3,Mobile Pay,35-44,1,8.22
+2024-01-15,00:00,Americano,Medium,3.52,2,Credit Card,35-44,0,7.04
+2024-01-15,02:00,Americano,Medium,5.18,2,Cash,55+,0,10.36
+2024-01-15,04:00,Cold Brew,Medium,4.82,2,Mobile Pay,18-24,0,9.64
+2024-01-15,06:00,Tea,Medium,5.11,3,Credit Card,35-44,0,15.33
+2024-01-15,08:00,Espresso,Medium,5.95,2,Credit Card,25-34,1,11.9
+2024-01-15,10:00,Frappe,Small,2.69,2,Mobile Pay,55+,1,5.38
+2024-01-15,12:00,Hot Chocolate,Large,6.28,2,Cash,55+,1,12.56
+2024-01-15,14:00,Hot Chocolate,Large,3.42,1,Credit Card,55+,0,3.42
+2024-01-15,16:00,Mocha,Medium,6.27,3,Credit Card,45-54,1,18.81
+2024-01-15,18:00,Mocha,Large,2.62,1,Credit Card,25-34,1,2.62
+2024-01-15,20:00,Cold Brew,Medium,5.94,1,Credit Card,18-24,1,5.94
+2024-01-15,22:00,Espresso,Large,5.4,3,Cash,18-24,0,16.2
+2024-01-16,00:00,Frappe,Small,7.1,3,Credit Card,35-44,1,21.3
+2024-01-16,02:00,Macchiato,Large,5.43,2,Mobile Pay,55+,1,10.86
+2024-01-16,04:00,Cappuccino,Medium,3.81,2,Credit Card,55+,1,7.62
+2024-01-16,06:00,Cold Brew,Medium,4.02,1,Credit Card,35-44,0,4.02
+2024-01-16,08:00,Latte,Small,4.9,3,Credit Card,55+,1,14.7
+2024-01-16,10:00,Cold Brew,Medium,5.68,3,Credit Card,25-34,0,17.04
+2024-01-16,12:00,Macchiato,Small,6.95,1,Credit Card,55+,0,6.95
+2024-01-16,14:00,Cappuccino,Large,5.94,1,Credit Card,18-24,0,5.94
+2024-01-16,16:00,Mocha,Large,7.41,1,Credit Card,35-44,0,7.41
+2024-01-16,18:00,Americano,Small,2.55,3,Cash,35-44,0,7.65
+2024-01-16,20:00,Espresso,Medium,4.83,3,Credit Card,55+,1,14.49
+2024-01-16,22:00,Americano,Large,4.31,2,Mobile Pay,25-34,1,8.62
+2024-01-17,00:00,Hot Chocolate,Medium,3.39,2,Mobile Pay,45-54,1,6.78
+2024-01-17,02:00,Hot Chocolate,Medium,3.67,2,Cash,18-24,1,7.34
+2024-01-17,04:00,Cappuccino,Small,3.64,1,Cash,25-34,1,3.64
+2024-01-17,06:00,Cold Brew,Medium,6.61,2,Cash,55+,1,13.22
+2024-01-17,08:00,Latte,Medium,5.42,1,Mobile Pay,35-44,1,5.42
+2024-01-17,10:00,Hot Chocolate,Large,4.51,2,Mobile Pay,18-24,1,9.02
+2024-01-17,12:00,Cold Brew,Small,5.09,2,Mobile Pay,18-24,0,10.18
+2024-01-17,14:00,Macchiato,Large,6.74,1,Mobile Pay,18-24,1,6.74
+2024-01-17,16:00,Latte,Small,5.12,3,Credit Card,45-54,1,15.36
+2024-01-17,18:00,Cappuccino,Large,2.99,2,Credit Card,45-54,0,5.98
+2024-01-17,20:00,Frappe,Small,5.73,2,Mobile Pay,55+,0,11.46
+2024-01-17,22:00,Cold Brew,Large,5.77,2,Credit Card,25-34,0,11.54
+2024-01-18,00:00,Espresso,Large,5.62,1,Credit Card,18-24,0,5.62
+2024-01-18,02:00,Macchiato,Small,7.11,2,Cash,45-54,1,14.22
+2024-01-18,04:00,Americano,Medium,3.56,3,Credit Card,45-54,1,10.68
+2024-01-18,06:00,Americano,Medium,7.49,1,Credit Card,45-54,0,7.49
+2024-01-18,08:00,Americano,Medium,2.84,3,Credit Card,18-24,1,8.52
+2024-01-18,10:00,Latte,Large,6.4,1,Cash,18-24,1,6.4
+2024-01-18,12:00,Hot Chocolate,Medium,5.57,3,Mobile Pay,25-34,1,16.71
+2024-01-18,14:00,Tea,Medium,6.46,1,Credit Card,25-34,1,6.46
+2024-01-18,16:00,Americano,Medium,4.27,2,Credit Card,25-34,1,8.54
+2024-01-18,18:00,Latte,Large,7.49,3,Credit Card,55+,1,22.47
+2024-01-18,20:00,Hot Chocolate,Large,3.13,3,Cash,45-54,1,9.39
+2024-01-18,22:00,Cappuccino,Large,5.69,1,Cash,55+,1,5.69
+2024-01-19,00:00,Tea,Large,7.32,2,Mobile Pay,18-24,0,14.64
+2024-01-19,02:00,Cold Brew,Large,5.65,3,Credit Card,18-24,0,16.95
+2024-01-19,04:00,Macchiato,Large,5.24,3,Mobile Pay,35-44,0,15.72
+2024-01-19,06:00,Frappe,Large,4.63,1,Mobile Pay,18-24,1,4.63
+2024-01-19,08:00,Macchiato,Medium,5.87,3,Mobile Pay,45-54,0,17.61
+2024-01-19,10:00,Mocha,Small,6.57,1,Credit Card,55+,0,6.57
+2024-01-19,12:00,Hot Chocolate,Medium,4.61,2,Cash,45-54,0,9.22
+2024-01-19,14:00,Frappe,Large,7.45,3,Credit Card,25-34,1,22.35
+2024-01-19,16:00,Cold Brew,Large,4.78,1,Credit Card,35-44,1,4.78
+2024-01-19,18:00,Macchiato,Large,3.92,2,Credit Card,45-54,0,7.84
+2024-01-19,20:00,Cappuccino,Small,5.49,3,Credit Card,35-44,0,16.47
+2024-01-19,22:00,Mocha,Large,2.84,2,Cash,35-44,1,5.68
+2024-01-20,00:00,Americano,Small,3.49,3,Credit Card,35-44,1,10.47
+2024-01-20,02:00,Americano,Large,4.11,2,Cash,55+,1,8.22
+2024-01-20,04:00,Latte,Medium,6.46,1,Credit Card,18-24,0,6.46
+2024-01-20,06:00,Hot Chocolate,Small,3.43,3,Credit Card,35-44,0,10.29
+2024-01-20,08:00,Frappe,Small,5.57,1,Credit Card,25-34,0,5.57
+2024-01-20,10:00,Cold Brew,Small,7.41,2,Credit Card,35-44,1,14.82
+2024-01-20,12:00,Hot Chocolate,Large,6.25,2,Cash,35-44,1,12.5
+2024-01-20,14:00,Hot Chocolate,Medium,4.88,3,Credit Card,35-44,0,14.64
+2024-01-20,16:00,Hot Chocolate,Medium,6.56,2,Cash,55+,1,13.12
+2024-01-20,18:00,Cold Brew,Small,3.1,1,Credit Card,55+,0,3.1
+2024-01-20,20:00,Espresso,Medium,5.44,3,Mobile Pay,35-44,0,16.32
+2024-01-20,22:00,Espresso,Large,4.4,2,Credit Card,45-54,0,8.8
+2024-01-21,00:00,Frappe,Small,7.04,3,Credit Card,18-24,0,21.12
+2024-01-21,02:00,Latte,Medium,4.05,1,Credit Card,35-44,1,4.05
+2024-01-21,04:00,Espresso,Medium,5.94,2,Credit Card,25-34,1,11.88
+2024-01-21,06:00,Mocha,Large,3.66,3,Credit Card,25-34,1,10.98
+2024-01-21,08:00,Cold Brew,Medium,6.27,2,Mobile Pay,25-34,0,12.54
+2024-01-21,10:00,Mocha,Medium,7.39,2,Credit Card,55+,0,14.78
+2024-01-21,12:00,Cold Brew,Medium,4.82,2,Mobile Pay,25-34,1,9.64
+2024-01-21,14:00,Espresso,Small,6.94,2,Mobile Pay,45-54,0,13.88
+2024-01-21,16:00,Hot Chocolate,Small,4.25,1,Cash,18-24,0,4.25
+2024-01-21,18:00,Latte,Medium,4.42,2,Credit Card,25-34,0,8.84
+2024-01-21,20:00,Cappuccino,Medium,3.07,2,Mobile Pay,35-44,1,6.14
+2024-01-21,22:00,Cappuccino,Small,7.2,3,Mobile Pay,35-44,1,21.6
+2024-01-22,00:00,Hot Chocolate,Medium,5.09,1,Credit Card,35-44,0,5.09
+2024-01-22,02:00,Hot Chocolate,Medium,4.67,1,Mobile Pay,45-54,1,4.67
+2024-01-22,04:00,Americano,Large,2.84,1,Credit Card,45-54,0,2.84
+2024-01-22,06:00,Tea,Medium,2.87,2,Credit Card,18-24,1,5.74
+2024-01-22,08:00,Latte,Large,3.94,1,Cash,55+,1,3.94
+2024-01-22,10:00,Frappe,Medium,6.77,1,Credit Card,45-54,0,6.77
+2024-01-22,12:00,Mocha,Small,7.21,1,Credit Card,35-44,1,7.21
+2024-01-22,14:00,Latte,Large,6.06,3,Credit Card,35-44,1,18.18
+2024-01-22,16:00,Tea,Medium,6.83,1,Mobile Pay,45-54,1,6.83
+2024-01-22,18:00,Cold Brew,Large,6.51,1,Credit Card,55+,1,6.51
+2024-01-22,20:00,Macchiato,Small,7.38,2,Mobile Pay,45-54,1,14.76
+2024-01-22,22:00,Espresso,Large,4.49,1,Credit Card,18-24,1,4.49
+2024-01-23,00:00,Americano,Medium,6.65,3,Cash,18-24,1,19.95
+2024-01-23,02:00,Latte,Large,7.08,1,Mobile Pay,45-54,0,7.08
+2024-01-23,04:00,Americano,Medium,6.54,1,Mobile Pay,55+,1,6.54
+2024-01-23,06:00,Hot Chocolate,Small,6.81,3,Cash,45-54,0,20.43
+2024-01-23,08:00,Hot Chocolate,Large,2.51,1,Credit Card,18-24,1,2.51
+2024-01-23,10:00,Hot Chocolate,Medium,6.06,1,Cash,25-34,0,6.06
+2024-01-23,12:00,Cold Brew,Medium,4.64,1,Mobile Pay,35-44,1,4.64
+2024-01-23,14:00,Americano,Medium,3.62,1,Cash,45-54,1,3.62
+2024-01-23,16:00,Tea,Medium,6.87,1,Cash,45-54,0,6.87
+2024-01-23,18:00,Americano,Medium,4.94,1,Mobile Pay,55+,0,4.94
+2024-01-23,20:00,Cold Brew,Large,2.54,3,Cash,55+,1,7.62
+2024-01-23,22:00,Latte,Small,3.39,2,Cash,18-24,1,6.78
+2024-01-24,00:00,Cold Brew,Medium,3.15,3,Mobile Pay,35-44,0,9.45
+2024-01-24,02:00,Macchiato,Medium,7.02,1,Credit Card,35-44,0,7.02
+2024-01-24,04:00,Latte,Large,6.11,3,Mobile Pay,25-34,1,18.33
+2024-01-24,06:00,Americano,Large,4.74,3,Cash,55+,0,14.22
+2024-01-24,08:00,Macchiato,Medium,4.21,1,Mobile Pay,25-34,0,4.21
+2024-01-24,10:00,Latte,Large,2.53,3,Credit Card,18-24,1,7.59
+2024-01-24,12:00,Cold Brew,Medium,3.93,2,Credit Card,55+,1,7.86
+2024-01-24,14:00,Tea,Medium,5.81,3,Mobile Pay,55+,0,17.43
+2024-01-24,16:00,Latte,Large,6.02,1,Cash,35-44,0,6.02
+2024-01-24,18:00,Cold Brew,Small,6.56,2,Mobile Pay,35-44,1,13.12
+2024-01-24,20:00,Espresso,Large,4.63,3,Mobile Pay,45-54,1,13.89
+2024-01-24,22:00,Hot Chocolate,Large,6.46,1,Credit Card,18-24,0,6.46
+2024-01-25,00:00,Espresso,Small,6.89,2,Cash,35-44,0,13.78
+2024-01-25,02:00,Americano,Large,2.88,3,Mobile Pay,35-44,0,8.64
+2024-01-25,04:00,Espresso,Medium,2.83,1,Credit Card,45-54,0,2.83
+2024-01-25,06:00,Tea,Small,7.18,3,Cash,55+,1,21.54
+2024-01-25,08:00,Cappuccino,Large,3.81,2,Credit Card,55+,1,7.62
+2024-01-25,10:00,Hot Chocolate,Large,4.96,2,Cash,45-54,1,9.92
+2024-01-25,12:00,Cold Brew,Small,2.6,3,Cash,55+,1,7.8
+2024-01-25,14:00,Latte,Large,4.19,1,Credit Card,35-44,0,4.19
+2024-01-25,16:00,Espresso,Medium,4.84,2,Cash,35-44,0,9.68
+2024-01-25,18:00,Espresso,Small,4.38,3,Credit Card,55+,1,13.14
+2024-01-25,20:00,Cappuccino,Medium,2.75,3,Mobile Pay,55+,1,8.25
+2024-01-25,22:00,Tea,Medium,5.95,3,Mobile Pay,35-44,1,17.85
+2024-01-26,00:00,Cold Brew,Medium,6.26,3,Cash,35-44,1,18.78
+2024-01-26,02:00,Macchiato,Medium,7.24,1,Cash,18-24,1,7.24
+2024-01-26,04:00,Latte,Medium,5.12,1,Mobile Pay,35-44,1,5.12
+2024-01-26,06:00,Cold Brew,Medium,2.7,3,Mobile Pay,45-54,1,8.1
+2024-01-26,08:00,Americano,Medium,3.14,3,Credit Card,55+,0,9.42
+2024-01-26,10:00,Tea,Small,6.95,1,Mobile Pay,45-54,0,6.95
+2024-01-26,12:00,Mocha,Large,6.89,3,Credit Card,35-44,1,20.67
+2024-01-26,14:00,Hot Chocolate,Medium,6.83,2,Mobile Pay,35-44,1,13.66
+2024-01-26,16:00,Latte,Medium,3.65,2,Credit Card,18-24,1,7.3
+2024-01-26,18:00,Tea,Large,2.86,2,Credit Card,25-34,1,5.72
+2024-01-26,20:00,Espresso,Medium,3.3,1,Credit Card,55+,1,3.3
+2024-01-26,22:00,Americano,Small,4.41,1,Mobile Pay,25-34,0,4.41
+2024-01-27,00:00,Latte,Small,5.94,1,Credit Card,55+,1,5.94
+2024-01-27,02:00,Americano,Medium,5.88,1,Credit Card,25-34,1,5.88
+2024-01-27,04:00,Espresso,Small,5.96,3,Mobile Pay,55+,1,17.88
+2024-01-27,06:00,Frappe,Medium,4.59,1,Cash,55+,1,4.59
+2024-01-27,08:00,Cold Brew,Small,4.01,3,Credit Card,35-44,0,12.03
+2024-01-27,10:00,Latte,Small,5.86,3,Credit Card,35-44,0,17.58
+2024-01-27,12:00,Mocha,Medium,7.28,1,Cash,35-44,0,7.28
+2024-01-27,14:00,Americano,Large,5.89,1,Credit Card,35-44,0,5.89
+2024-01-27,16:00,Cappuccino,Large,5.55,1,Credit Card,25-34,1,5.55
+2024-01-27,18:00,Cappuccino,Medium,5.07,1,Mobile Pay,55+,1,5.07
+2024-01-27,20:00,Espresso,Large,6.45,3,Mobile Pay,35-44,1,19.35
+2024-01-27,22:00,Cappuccino,Medium,6.36,3,Credit Card,35-44,0,19.08
+2024-01-28,00:00,Espresso,Large,5.32,1,Credit Card,25-34,0,5.32
+2024-01-28,02:00,Cappuccino,Small,2.96,1,Cash,25-34,0,2.96
+2024-01-28,04:00,Hot Chocolate,Small,4.91,3,Mobile Pay,45-54,1,14.73
+2024-01-28,06:00,Macchiato,Small,5.97,3,Cash,35-44,1,17.91
+2024-01-28,08:00,Espresso,Large,2.67,2,Mobile Pay,25-34,0,5.34
+2024-01-28,10:00,Americano,Medium,4.48,1,Cash,25-34,0,4.48
+2024-01-28,12:00,Macchiato,Large,2.96,2,Credit Card,55+,0,5.92
+2024-01-28,14:00,Hot Chocolate,Large,3.11,2,Mobile Pay,55+,1,6.22
+2024-01-28,16:00,Espresso,Medium,6.56,1,Credit Card,55+,1,6.56
+2024-01-28,18:00,Cold Brew,Medium,5.96,3,Credit Card,55+,0,17.88
+2024-01-28,20:00,Mocha,Large,5.85,2,Credit Card,18-24,1,11.7
+2024-01-28,22:00,Tea,Medium,7.28,3,Credit Card,45-54,1,21.84
+2024-01-29,00:00,Espresso,Medium,5.58,2,Credit Card,55+,1,11.16
+2024-01-29,02:00,Hot Chocolate,Large,6.74,1,Credit Card,25-34,1,6.74
+2024-01-29,04:00,Frappe,Small,4.39,3,Mobile Pay,45-54,0,13.17
+2024-01-29,06:00,Frappe,Small,3.35,3,Credit Card,35-44,0,10.05
+2024-01-29,08:00,Latte,Medium,5.68,1,Mobile Pay,18-24,0,5.68
+2024-01-29,10:00,Espresso,Medium,6.52,2,Mobile Pay,25-34,1,13.04
+2024-01-29,12:00,Latte,Medium,3.25,3,Credit Card,45-54,1,9.75
+2024-01-29,14:00,Hot Chocolate,Small,3.99,1,Credit Card,18-24,0,3.99
+2024-01-29,16:00,Cold Brew,Medium,4.18,2,Mobile Pay,55+,1,8.36
+2024-01-29,18:00,Americano,Medium,6.68,1,Mobile Pay,35-44,1,6.68
+2024-01-29,20:00,Espresso,Medium,2.62,2,Mobile Pay,18-24,1,5.24
+2024-01-29,22:00,Mocha,Small,6.39,3,Credit Card,25-34,0,19.17
+2024-01-30,00:00,Frappe,Large,3.93,1,Cash,18-24,1,3.93
+2024-01-30,02:00,Mocha,Medium,3.68,1,Credit Card,18-24,1,3.68
+2024-01-30,04:00,Macchiato,Large,5.2,3,Credit Card,55+,1,15.6
+2024-01-30,06:00,Americano,Medium,4.02,1,Credit Card,55+,0,4.02
+2024-01-30,08:00,Cold Brew,Medium,6.38,1,Cash,35-44,0,6.38
+2024-01-30,10:00,Latte,Medium,6.35,1,Cash,35-44,0,6.35
+2024-01-30,12:00,Frappe,Small,4.3,2,Credit Card,55+,1,8.6
+2024-01-30,14:00,Espresso,Medium,6.24,2,Credit Card,25-34,1,12.48
+2024-01-30,16:00,Macchiato,Medium,3.88,3,Credit Card,35-44,0,11.64
+2024-01-30,18:00,Latte,Small,4.82,2,Mobile Pay,45-54,0,9.64
+2024-01-30,20:00,Cold Brew,Medium,6.65,3,Credit Card,35-44,1,19.95
+2024-01-30,22:00,Frappe,Medium,4.03,2,Credit Card,55+,1,8.06
+2024-01-31,00:00,Frappe,Medium,3.15,1,Cash,25-34,1,3.15
+2024-01-31,02:00,Mocha,Small,3.2,1,Mobile Pay,25-34,0,3.2
+2024-01-31,04:00,Tea,Large,3.32,2,Mobile Pay,25-34,1,6.64
+2024-01-31,06:00,Frappe,Small,4.54,3,Credit Card,18-24,0,13.62
+2024-01-31,08:00,Hot Chocolate,Large,5.14,3,Cash,25-34,1,15.42
+2024-01-31,10:00,Macchiato,Large,6.23,2,Cash,18-24,1,12.46
+2024-01-31,12:00,Cappuccino,Small,3.18,3,Credit Card,45-54,0,9.54
+2024-01-31,14:00,Espresso,Medium,6.97,1,Credit Card,18-24,1,6.97
+2024-01-31,16:00,Espresso,Medium,7.12,2,Mobile Pay,18-24,0,14.24
+2024-01-31,18:00,Macchiato,Medium,6.3,3,Cash,18-24,1,18.9
+2024-01-31,20:00,Macchiato,Medium,4.03,2,Credit Card,55+,0,8.06
+2024-01-31,22:00,Cold Brew,Small,3.7,1,Cash,18-24,1,3.7
+2024-02-01,00:00,Americano,Large,4.12,2,Mobile Pay,18-24,1,8.24
+2024-02-01,02:00,Cold Brew,Medium,6.27,2,Mobile Pay,45-54,0,12.54
+2024-02-01,04:00,Cold Brew,Large,4.93,1,Credit Card,25-34,1,4.93
+2024-02-01,06:00,Cappuccino,Medium,6.74,3,Mobile Pay,25-34,0,20.22
+2024-02-01,08:00,Cappuccino,Medium,2.91,1,Credit Card,45-54,0,2.91
+2024-02-01,10:00,Hot Chocolate,Large,7.03,3,Credit Card,18-24,0,21.09
+2024-02-01,12:00,Americano,Medium,4.27,3,Credit Card,35-44,1,12.81
+2024-02-01,14:00,Latte,Medium,5.57,1,Mobile Pay,45-54,1,5.57
+2024-02-01,16:00,Americano,Medium,3.43,1,Cash,18-24,0,3.43
+2024-02-01,18:00,Macchiato,Small,2.69,1,Credit Card,25-34,1,2.69
+2024-02-01,20:00,Americano,Large,3.57,1,Credit Card,18-24,0,3.57
+2024-02-01,22:00,Tea,Large,4.58,1,Cash,25-34,1,4.58
+2024-02-02,00:00,Cappuccino,Large,2.57,3,Credit Card,35-44,0,7.71
+2024-02-02,02:00,Americano,Medium,7.41,3,Credit Card,45-54,1,22.23
+2024-02-02,04:00,Latte,Small,3.45,1,Credit Card,35-44,0,3.45
+2024-02-02,06:00,Macchiato,Medium,6.85,2,Cash,25-34,0,13.7
+2024-02-02,08:00,Frappe,Large,6.11,1,Credit Card,35-44,0,6.11
+2024-02-02,10:00,Espresso,Medium,6.28,3,Mobile Pay,45-54,0,18.84
+2024-02-02,12:00,Cappuccino,Small,5.53,2,Cash,18-24,1,11.06
+2024-02-02,14:00,Americano,Medium,6.91,2,Credit Card,18-24,1,13.82
+2024-02-02,16:00,Hot Chocolate,Medium,5.65,2,Credit Card,55+,1,11.3
+2024-02-02,18:00,Macchiato,Large,3.69,2,Credit Card,45-54,1,7.38
+2024-02-02,20:00,Cappuccino,Small,2.77,3,Credit Card,55+,1,8.31
+2024-02-02,22:00,Hot Chocolate,Small,7.24,1,Mobile Pay,18-24,0,7.24
+2024-02-03,00:00,Macchiato,Medium,5.65,2,Cash,55+,1,11.3
+2024-02-03,02:00,Hot Chocolate,Large,3.38,1,Mobile Pay,25-34,0,3.38
+2024-02-03,04:00,Latte,Medium,2.55,3,Cash,18-24,0,7.65
+2024-02-03,06:00,Mocha,Medium,4.07,2,Mobile Pay,25-34,0,8.14
+2024-02-03,08:00,Hot Chocolate,Medium,5.3,3,Cash,25-34,1,15.9
+2024-02-03,10:00,Mocha,Large,4.03,3,Credit Card,35-44,0,12.09
+2024-02-03,12:00,Hot Chocolate,Medium,4.9,3,Mobile Pay,55+,0,14.7
+2024-02-03,14:00,Frappe,Small,2.64,2,Credit Card,45-54,0,5.28
+2024-02-03,16:00,Espresso,Medium,5.2,2,Mobile Pay,55+,1,10.4
+2024-02-03,18:00,Cappuccino,Large,5.24,3,Mobile Pay,45-54,1,15.72
+2024-02-03,20:00,Hot Chocolate,Small,6.3,1,Credit Card,45-54,1,6.3
+2024-02-03,22:00,Mocha,Medium,6.87,1,Credit Card,55+,0,6.87
+2024-02-04,00:00,Americano,Large,3.85,2,Mobile Pay,18-24,1,7.7
+2024-02-04,02:00,Hot Chocolate,Medium,7.35,1,Credit Card,55+,1,7.35
+2024-02-04,04:00,Americano,Large,3.39,2,Credit Card,45-54,1,6.78
+2024-02-04,06:00,Hot Chocolate,Large,4.89,2,Mobile Pay,18-24,1,9.78
+2024-02-04,08:00,Espresso,Large,6.4,2,Credit Card,45-54,1,12.8
+2024-02-04,10:00,Hot Chocolate,Medium,6.87,1,Credit Card,18-24,0,6.87
+2024-02-04,12:00,Tea,Medium,3.04,2,Credit Card,18-24,1,6.08
+2024-02-04,14:00,Frappe,Medium,2.71,2,Cash,35-44,0,5.42
+2024-02-04,16:00,Tea,Medium,7.13,2,Mobile Pay,18-24,0,14.26
+2024-02-04,18:00,Frappe,Small,5.76,3,Mobile Pay,18-24,1,17.28
+2024-02-04,20:00,Espresso,Medium,6.68,2,Credit Card,55+,1,13.36
+2024-02-04,22:00,Cold Brew,Large,6.23,1,Mobile Pay,18-24,1,6.23
+2024-02-05,00:00,Americano,Large,6.13,1,Cash,45-54,1,6.13
+2024-02-05,02:00,Cappuccino,Large,4.61,1,Credit Card,18-24,0,4.61
+2024-02-05,04:00,Mocha,Large,6.02,2,Cash,35-44,0,12.04
+2024-02-05,06:00,Americano,Small,3.12,2,Mobile Pay,25-34,0,6.24
+2024-02-05,08:00,Americano,Small,4.44,1,Mobile Pay,45-54,0,4.44
+2024-02-05,10:00,Macchiato,Medium,6.18,3,Credit Card,55+,1,18.54
+2024-02-05,12:00,Hot Chocolate,Medium,4.62,1,Cash,18-24,0,4.62
+2024-02-05,14:00,Latte,Medium,7.43,3,Mobile Pay,18-24,1,22.29
+2024-02-05,16:00,Frappe,Small,7.12,1,Credit Card,18-24,0,7.12
+2024-02-05,18:00,Espresso,Small,3.89,3,Mobile Pay,45-54,0,11.67
+2024-02-05,20:00,Latte,Large,6.91,1,Mobile Pay,25-34,0,6.91
+2024-02-05,22:00,Mocha,Medium,6.62,2,Mobile Pay,35-44,1,13.24
+2024-02-06,00:00,Hot Chocolate,Medium,4.85,1,Cash,35-44,1,4.85
+2024-02-06,02:00,Cappuccino,Small,4.6,1,Mobile Pay,35-44,0,4.6
+2024-02-06,04:00,Mocha,Medium,3.68,3,Credit Card,35-44,0,11.04
+2024-02-06,06:00,Frappe,Medium,5.51,1,Credit Card,45-54,0,5.51
+2024-02-06,08:00,Americano,Small,5.42,3,Mobile Pay,18-24,0,16.26
+2024-02-06,10:00,Mocha,Small,4.16,3,Mobile Pay,55+,1,12.48
+2024-02-06,12:00,Macchiato,Large,5.66,3,Mobile Pay,35-44,1,16.98
+2024-02-06,14:00,Tea,Medium,5.81,3,Cash,25-34,1,17.43
+2024-02-06,16:00,Cappuccino,Small,5.02,2,Credit Card,35-44,0,10.04
+2024-02-06,18:00,Hot Chocolate,Small,6.91,3,Credit Card,25-34,1,20.73
+2024-02-06,20:00,Hot Chocolate,Small,6.44,2,Credit Card,35-44,0,12.88
+2024-02-06,22:00,Hot Chocolate,Medium,2.83,3,Credit Card,55+,0,8.49
+2024-02-07,00:00,Mocha,Small,4.81,1,Mobile Pay,35-44,1,4.81
+2024-02-07,02:00,Hot Chocolate,Medium,3.56,3,Mobile Pay,18-24,0,10.68
+2024-02-07,04:00,Frappe,Large,5.22,3,Mobile Pay,18-24,0,15.66
+2024-02-07,06:00,Mocha,Small,3.57,2,Credit Card,45-54,0,7.14
+2024-02-07,08:00,Espresso,Medium,6.96,2,Credit Card,55+,1,13.92
+2024-02-07,10:00,Hot Chocolate,Medium,2.76,1,Cash,45-54,0,2.76
+2024-02-07,12:00,Tea,Medium,6.66,3,Mobile Pay,35-44,0,19.98
+2024-02-07,14:00,Americano,Medium,4.55,3,Cash,25-34,0,13.65
+2024-02-07,16:00,Mocha,Large,5.53,1,Credit Card,25-34,1,5.53
+2024-02-07,18:00,Latte,Medium,3.8,2,Mobile Pay,35-44,1,7.6
+2024-02-07,20:00,Latte,Small,5.51,3,Credit Card,55+,1,16.53
+2024-02-07,22:00,Hot Chocolate,Small,3.43,1,Credit Card,25-34,1,3.43
+2024-02-08,00:00,Cappuccino,Small,6.53,2,Credit Card,25-34,1,13.06
+2024-02-08,02:00,Hot Chocolate,Medium,5.48,1,Credit Card,35-44,1,5.48
+2024-02-08,04:00,Frappe,Small,5.74,1,Credit Card,55+,1,5.74
+2024-02-08,06:00,Macchiato,Large,3.82,3,Cash,25-34,0,11.46
+2024-02-08,08:00,Mocha,Medium,3.34,2,Mobile Pay,55+,1,6.68
+2024-02-08,10:00,Mocha,Medium,2.68,3,Credit Card,18-24,1,8.04
+2024-02-08,12:00,Mocha,Medium,3.33,2,Credit Card,18-24,1,6.66
+2024-02-08,14:00,Hot Chocolate,Medium,4.33,2,Credit Card,35-44,1,8.66
+2024-02-08,16:00,Hot Chocolate,Small,7.04,3,Mobile Pay,35-44,0,21.12
+2024-02-08,18:00,Macchiato,Medium,6.41,1,Credit Card,35-44,0,6.41
+2024-02-08,20:00,Macchiato,Large,3.62,1,Credit Card,18-24,1,3.62
+2024-02-08,22:00,Mocha,Large,2.6,2,Credit Card,35-44,1,5.2
+2024-02-09,00:00,Latte,Medium,3.67,3,Credit Card,25-34,1,11.01
+2024-02-09,02:00,Cold Brew,Medium,7.01,1,Credit Card,45-54,1,7.01
+2024-02-09,04:00,Cold Brew,Small,4.12,2,Credit Card,35-44,1,8.24
+2024-02-09,06:00,Frappe,Large,5.31,2,Credit Card,18-24,0,10.62
+2024-02-09,08:00,Macchiato,Small,4.88,3,Cash,55+,1,14.64
+2024-02-09,10:00,Cold Brew,Small,5.19,3,Credit Card,35-44,1,15.57
+2024-02-09,12:00,Latte,Small,6.97,1,Credit Card,25-34,1,6.97
+2024-02-09,14:00,Espresso,Large,4.1,2,Mobile Pay,25-34,1,8.2
+2024-02-09,16:00,Tea,Small,5.28,2,Mobile Pay,35-44,0,10.56
+2024-02-09,18:00,Espresso,Large,4.91,2,Mobile Pay,18-24,1,9.82
+2024-02-09,20:00,Macchiato,Large,5.68,3,Cash,35-44,1,17.04
+2024-02-09,22:00,Mocha,Large,6.4,1,Credit Card,45-54,0,6.4
+2024-02-10,00:00,Tea,Large,3.88,1,Mobile Pay,35-44,0,3.88
+2024-02-10,02:00,Mocha,Medium,4.6,3,Credit Card,18-24,1,13.8
+2024-02-10,04:00,Cold Brew,Small,3.38,3,Credit Card,55+,1,10.14
+2024-02-10,06:00,Americano,Medium,2.65,1,Credit Card,45-54,1,2.65
+2024-02-10,08:00,Mocha,Large,4.22,1,Credit Card,25-34,0,4.22
+2024-02-10,10:00,Tea,Small,4.02,1,Mobile Pay,35-44,0,4.02
+2024-02-10,12:00,Cappuccino,Large,7.32,1,Cash,55+,1,7.32
+2024-02-10,14:00,Cold Brew,Small,6.97,1,Cash,55+,1,6.97
+2024-02-10,16:00,Cappuccino,Large,3.73,3,Credit Card,25-34,0,11.19
+2024-02-10,18:00,Mocha,Medium,3.04,3,Credit Card,45-54,1,9.12
+2024-02-10,20:00,Americano,Large,7.27,1,Credit Card,55+,1,7.27
+2024-02-10,22:00,Cappuccino,Medium,4.67,1,Credit Card,45-54,1,4.67
+2024-02-11,00:00,Mocha,Medium,3.46,2,Credit Card,45-54,0,6.92
+2024-02-11,02:00,Frappe,Medium,6.71,3,Credit Card,45-54,0,20.13
+2024-02-11,04:00,Espresso,Medium,6.73,3,Cash,35-44,0,20.19
+2024-02-11,06:00,Tea,Medium,5.29,2,Cash,25-34,1,10.58
+2024-02-11,08:00,Frappe,Large,3.04,1,Mobile Pay,18-24,0,3.04
+2024-02-11,10:00,Frappe,Medium,7.41,3,Mobile Pay,35-44,1,22.23
+2024-02-11,12:00,Cold Brew,Large,2.53,2,Mobile Pay,35-44,1,5.06
+2024-02-11,14:00,Tea,Medium,6.58,3,Credit Card,25-34,1,19.74
+2024-02-11,16:00,Cold Brew,Large,4.42,3,Credit Card,25-34,1,13.26
+2024-02-11,18:00,Tea,Medium,7.27,2,Cash,45-54,0,14.54
+2024-02-11,20:00,Espresso,Large,7.31,1,Credit Card,18-24,1,7.31
+2024-02-11,22:00,Mocha,Medium,6.36,1,Cash,45-54,1,6.36
+2024-02-12,00:00,Macchiato,Medium,3.93,3,Credit Card,18-24,1,11.79
+2024-02-12,02:00,Espresso,Medium,2.62,3,Mobile Pay,55+,1,7.86
+2024-02-12,04:00,Frappe,Large,7.45,1,Mobile Pay,55+,1,7.45
+2024-02-12,06:00,Espresso,Medium,7.04,3,Credit Card,18-24,0,21.12
+2024-02-12,08:00,Cold Brew,Medium,4.86,3,Credit Card,18-24,1,14.58
+2024-02-12,10:00,Tea,Medium,6.53,1,Credit Card,45-54,0,6.53
+2024-02-12,12:00,Tea,Large,4.65,2,Credit Card,18-24,1,9.3
+2024-02-12,14:00,Frappe,Large,5.08,2,Credit Card,55+,1,10.16
+2024-02-12,16:00,Frappe,Large,5.01,2,Credit Card,18-24,0,10.02
+2024-02-12,18:00,Mocha,Medium,3.38,2,Credit Card,25-34,0,6.76
+2024-02-12,20:00,Mocha,Medium,4.84,2,Cash,35-44,0,9.68
+2024-02-12,22:00,Espresso,Small,4.84,1,Mobile Pay,45-54,0,4.84
+2024-02-13,00:00,Latte,Medium,7.02,3,Cash,45-54,0,21.06
+2024-02-13,02:00,Macchiato,Small,5.88,2,Mobile Pay,25-34,1,11.76
+2024-02-13,04:00,Espresso,Large,5.61,2,Cash,35-44,0,11.22
+2024-02-13,06:00,Hot Chocolate,Medium,5.87,2,Credit Card,45-54,0,11.74
+2024-02-13,08:00,Cold Brew,Large,5.51,2,Cash,55+,1,11.02
+2024-02-13,10:00,Mocha,Large,3.58,2,Mobile Pay,45-54,1,7.16
+2024-02-13,12:00,Hot Chocolate,Small,3.08,2,Credit Card,45-54,0,6.16
+2024-02-13,14:00,Cappuccino,Large,7.1,3,Credit Card,45-54,1,21.3
+2024-02-13,16:00,Americano,Small,6.34,3,Credit Card,35-44,1,19.02
+2024-02-13,18:00,Cold Brew,Large,3.73,2,Cash,55+,0,7.46
+2024-02-13,20:00,Cold Brew,Medium,6.26,2,Credit Card,25-34,1,12.52
+2024-02-13,22:00,Mocha,Small,3.39,2,Credit Card,25-34,0,6.78
+2024-02-14,00:00,Cappuccino,Medium,6.19,2,Mobile Pay,45-54,0,12.38
+2024-02-14,02:00,Tea,Medium,4.46,2,Mobile Pay,35-44,0,8.92
+2024-02-14,04:00,Macchiato,Medium,2.54,1,Credit Card,18-24,1,2.54
+2024-02-14,06:00,Hot Chocolate,Small,2.85,2,Credit Card,35-44,0,5.7
+2024-02-14,08:00,Macchiato,Medium,4.86,1,Credit Card,25-34,1,4.86
+2024-02-14,10:00,Mocha,Small,2.66,1,Credit Card,35-44,0,2.66
+2024-02-14,12:00,Macchiato,Medium,4.47,1,Credit Card,18-24,0,4.47
+2024-02-14,14:00,Tea,Medium,4.04,1,Credit Card,45-54,1,4.04
+2024-02-14,16:00,Cold Brew,Large,3.03,1,Credit Card,45-54,1,3.03
+2024-02-14,18:00,Hot Chocolate,Small,4.79,1,Credit Card,25-34,1,4.79
+2024-02-14,20:00,Americano,Small,3.08,3,Credit Card,35-44,1,9.24
+2024-02-14,22:00,Macchiato,Medium,3.43,2,Mobile Pay,18-24,1,6.86
+2024-02-15,00:00,Latte,Large,7.13,1,Mobile Pay,18-24,1,7.13
+2024-02-15,02:00,Americano,Medium,4.71,1,Mobile Pay,35-44,0,4.71
+2024-02-15,04:00,Macchiato,Small,5.93,3,Mobile Pay,25-34,1,17.79
+2024-02-15,06:00,Americano,Large,7.33,1,Credit Card,45-54,0,7.33
+2024-02-15,08:00,Frappe,Medium,3.19,3,Credit Card,55+,0,9.57
+2024-02-15,10:00,Americano,Medium,4.32,3,Credit Card,35-44,0,12.96
+2024-02-15,12:00,Cold Brew,Medium,6.73,3,Credit Card,45-54,1,20.19
+2024-02-15,14:00,Tea,Medium,3.02,3,Cash,35-44,0,9.06
+2024-02-15,16:00,Hot Chocolate,Medium,5.7,2,Mobile Pay,45-54,1,11.4
+2024-02-15,18:00,Tea,Large,6.66,2,Mobile Pay,35-44,0,13.32
+2024-02-15,20:00,Cold Brew,Large,3.04,1,Cash,55+,1,3.04
+2024-02-15,22:00,Hot Chocolate,Small,6.8,2,Cash,35-44,0,13.6
+2024-02-16,00:00,Latte,Medium,6.2,2,Cash,35-44,0,12.4
+2024-02-16,02:00,Latte,Medium,5.04,2,Cash,45-54,0,10.08
+2024-02-16,04:00,Tea,Small,7.3,3,Mobile Pay,45-54,0,21.9
+2024-02-16,06:00,Tea,Large,5.02,1,Cash,25-34,1,5.02
+2024-02-16,08:00,Mocha,Medium,6.26,2,Credit Card,45-54,0,12.52
+2024-02-16,10:00,Macchiato,Large,7.22,3,Mobile Pay,18-24,0,21.66
+2024-02-16,12:00,Espresso,Large,2.93,2,Cash,45-54,1,5.86
+2024-02-16,14:00,Macchiato,Large,3.49,1,Credit Card,35-44,0,3.49
+2024-02-16,16:00,Americano,Large,7.08,1,Credit Card,35-44,1,7.08
+2024-02-16,18:00,Frappe,Medium,7.2,2,Cash,35-44,1,14.4
+2024-02-16,20:00,Cold Brew,Large,4.1,1,Mobile Pay,55+,1,4.1
+2024-02-16,22:00,Americano,Medium,7.31,1,Credit Card,35-44,1,7.31
+2024-02-17,00:00,Americano,Large,4.67,3,Mobile Pay,55+,1,14.01
+2024-02-17,02:00,Frappe,Large,3.07,1,Mobile Pay,18-24,1,3.07
+2024-02-17,04:00,Hot Chocolate,Large,4.1,2,Mobile Pay,45-54,1,8.2
+2024-02-17,06:00,Espresso,Medium,4.23,3,Credit Card,35-44,0,12.69
+2024-02-17,08:00,Latte,Large,4.98,3,Credit Card,18-24,1,14.94
+2024-02-17,10:00,Hot Chocolate,Medium,3.57,2,Credit Card,55+,0,7.14
+2024-02-17,12:00,Cappuccino,Medium,3.29,3,Mobile Pay,25-34,0,9.87
+2024-02-17,14:00,Americano,Small,3.81,2,Cash,25-34,1,7.62
+2024-02-17,16:00,Cold Brew,Large,6.92,2,Credit Card,35-44,0,13.84
+2024-02-17,18:00,Cold Brew,Medium,2.83,2,Mobile Pay,55+,0,5.66
+2024-02-17,20:00,Espresso,Medium,5.22,2,Credit Card,25-34,1,10.44
+2024-02-17,22:00,Cappuccino,Medium,4.28,1,Mobile Pay,55+,1,4.28
+2024-02-18,00:00,Cold Brew,Large,4.69,2,Mobile Pay,35-44,0,9.38
+2024-02-18,02:00,Frappe,Small,6.11,1,Credit Card,25-34,1,6.11
+2024-02-18,04:00,Macchiato,Large,7.34,3,Mobile Pay,45-54,0,22.02
+2024-02-18,06:00,Hot Chocolate,Large,7.25,1,Mobile Pay,18-24,0,7.25
+2024-02-18,08:00,Macchiato,Medium,6.25,3,Mobile Pay,55+,1,18.75
+2024-02-18,10:00,Hot Chocolate,Large,3.56,3,Credit Card,45-54,0,10.68
+2024-02-18,12:00,Mocha,Medium,3.51,2,Cash,18-24,0,7.02
+2024-02-18,14:00,Cold Brew,Medium,3.88,2,Cash,45-54,1,7.76
+2024-02-18,16:00,Latte,Large,6.24,1,Credit Card,25-34,0,6.24
+2024-02-18,18:00,Frappe,Medium,4.28,1,Mobile Pay,18-24,0,4.28
+2024-02-18,20:00,Tea,Medium,3.81,2,Credit Card,35-44,0,7.62
+2024-02-18,22:00,Frappe,Medium,4.65,3,Cash,35-44,0,13.95
+2024-02-19,00:00,Mocha,Medium,2.57,3,Cash,35-44,1,7.71
+2024-02-19,02:00,Cappuccino,Medium,5.53,3,Credit Card,18-24,1,16.59
+2024-02-19,04:00,Hot Chocolate,Large,4.84,3,Credit Card,35-44,1,14.52
+2024-02-19,06:00,Latte,Small,7.11,2,Credit Card,55+,0,14.22
+2024-02-19,08:00,Tea,Small,4.32,1,Credit Card,55+,0,4.32
+2024-02-19,10:00,Cappuccino,Large,2.64,1,Credit Card,45-54,1,2.64
+2024-02-19,12:00,Tea,Large,6.12,2,Cash,45-54,1,12.24
+2024-02-19,14:00,Cold Brew,Large,5.54,2,Credit Card,35-44,0,11.08
+2024-02-19,16:00,Tea,Small,4.8,3,Credit Card,25-34,1,14.4
+2024-02-19,18:00,Espresso,Small,7.13,1,Mobile Pay,55+,0,7.13
+2024-02-19,20:00,Americano,Medium,5.11,2,Mobile Pay,55+,0,10.22
+2024-02-19,22:00,Cappuccino,Small,3.81,3,Mobile Pay,45-54,0,11.43
+2024-02-20,00:00,Cappuccino,Large,7.02,3,Credit Card,55+,0,21.06
+2024-02-20,02:00,Macchiato,Small,4.82,1,Cash,18-24,1,4.82
+2024-02-20,04:00,Hot Chocolate,Large,6.15,1,Credit Card,35-44,1,6.15
+2024-02-20,06:00,Cold Brew,Medium,4.84,2,Credit Card,18-24,0,9.68
+2024-02-20,08:00,Cold Brew,Medium,4.37,1,Mobile Pay,25-34,1,4.37
+2024-02-20,10:00,Espresso,Small,2.63,1,Mobile Pay,18-24,1,2.63
+2024-02-20,12:00,Espresso,Medium,6.5,2,Credit Card,25-34,0,13.0
+2024-02-20,14:00,Macchiato,Large,6.01,2,Credit Card,18-24,0,12.02
+2024-02-20,16:00,Americano,Medium,3.06,1,Cash,18-24,1,3.06
+2024-02-20,18:00,Hot Chocolate,Small,5.0,3,Mobile Pay,55+,0,15.0
+2024-02-20,20:00,Latte,Large,5.78,1,Credit Card,55+,1,5.78
+2024-02-20,22:00,Frappe,Medium,4.91,3,Mobile Pay,45-54,0,14.73
+2024-02-21,00:00,Cappuccino,Small,7.08,1,Credit Card,45-54,1,7.08
+2024-02-21,02:00,Cold Brew,Small,6.1,3,Credit Card,18-24,1,18.3
+2024-02-21,04:00,Espresso,Medium,2.97,2,Credit Card,18-24,1,5.94
+2024-02-21,06:00,Latte,Large,6.82,1,Mobile Pay,45-54,1,6.82
+2024-02-21,08:00,Espresso,Small,5.06,3,Mobile Pay,35-44,1,15.18
+2024-02-21,10:00,Hot Chocolate,Medium,6.96,3,Mobile Pay,45-54,1,20.88
+2024-02-21,12:00,Hot Chocolate,Medium,6.7,1,Cash,35-44,1,6.7
+2024-02-21,14:00,Cold Brew,Large,7.1,2,Credit Card,25-34,1,14.2
+2024-02-21,16:00,Frappe,Medium,7.25,1,Credit Card,45-54,0,7.25
+2024-02-21,18:00,Latte,Medium,6.43,1,Cash,25-34,1,6.43
+2024-02-21,20:00,Cold Brew,Medium,6.16,2,Mobile Pay,55+,0,12.32
+2024-02-21,22:00,Tea,Medium,4.95,1,Credit Card,18-24,1,4.95
+2024-02-22,00:00,Hot Chocolate,Large,7.44,1,Mobile Pay,55+,1,7.44
+2024-02-22,02:00,Espresso,Small,4.92,1,Mobile Pay,45-54,1,4.92
+2024-02-22,04:00,Tea,Large,6.0,3,Mobile Pay,35-44,1,18.0
+2024-02-22,06:00,Mocha,Small,6.62,1,Mobile Pay,45-54,0,6.62
+2024-02-22,08:00,Latte,Small,3.69,1,Credit Card,18-24,1,3.69
+2024-02-22,10:00,Mocha,Small,5.89,2,Credit Card,55+,1,11.78
+2024-02-22,12:00,Cappuccino,Large,5.08,3,Credit Card,35-44,0,15.24
+2024-02-22,14:00,Cappuccino,Large,6.6,1,Cash,35-44,0,6.6
+2024-02-22,16:00,Latte,Large,4.88,1,Credit Card,45-54,0,4.88
+2024-02-22,18:00,Espresso,Medium,6.49,3,Mobile Pay,35-44,1,19.47
+2024-02-22,20:00,Macchiato,Small,3.55,2,Credit Card,18-24,0,7.1
+2024-02-22,22:00,Latte,Small,4.61,2,Credit Card,45-54,0,9.22
+2024-02-23,00:00,Latte,Small,3.05,3,Mobile Pay,25-34,0,9.15
+2024-02-23,02:00,Tea,Medium,3.66,2,Mobile Pay,45-54,1,7.32
+2024-02-23,04:00,Tea,Small,3.24,2,Credit Card,18-24,1,6.48
+2024-02-23,06:00,Americano,Large,6.54,1,Cash,35-44,1,6.54
+2024-02-23,08:00,Macchiato,Large,5.21,1,Cash,35-44,0,5.21
+2024-02-23,10:00,Tea,Small,6.18,2,Mobile Pay,55+,1,12.36
+2024-02-23,12:00,Hot Chocolate,Medium,6.22,3,Credit Card,55+,0,18.66
+2024-02-23,14:00,Hot Chocolate,Large,3.9,2,Mobile Pay,45-54,0,7.8
+2024-02-23,16:00,Tea,Large,5.54,3,Mobile Pay,35-44,0,16.62
+2024-02-23,18:00,Latte,Medium,5.35,2,Credit Card,18-24,1,10.7
+2024-02-23,20:00,Macchiato,Small,4.95,2,Credit Card,35-44,1,9.9
+2024-02-23,22:00,Americano,Large,2.83,1,Credit Card,45-54,1,2.83
+2024-02-24,00:00,Hot Chocolate,Medium,4.3,3,Credit Card,25-34,0,12.9
+2024-02-24,02:00,Cappuccino,Large,5.87,1,Mobile Pay,25-34,0,5.87
+2024-02-24,04:00,Americano,Medium,3.37,1,Mobile Pay,35-44,1,3.37
+2024-02-24,06:00,Frappe,Medium,2.77,2,Credit Card,35-44,0,5.54
+2024-02-24,08:00,Espresso,Large,4.38,1,Mobile Pay,25-34,0,4.38
+2024-02-24,10:00,Americano,Medium,2.87,3,Credit Card,25-34,1,8.61
+2024-02-24,12:00,Americano,Medium,6.37,2,Cash,25-34,1,12.74
+2024-02-24,14:00,Macchiato,Large,6.68,2,Credit Card,55+,0,13.36
+2024-02-24,16:00,Frappe,Small,6.13,2,Mobile Pay,45-54,0,12.26
+2024-02-24,18:00,Tea,Large,4.12,1,Credit Card,18-24,0,4.12
+2024-02-24,20:00,Americano,Small,6.87,1,Credit Card,45-54,0,6.87
+2024-02-24,22:00,Hot Chocolate,Medium,2.69,3,Credit Card,45-54,0,8.07
+2024-02-25,00:00,Cold Brew,Large,4.15,1,Credit Card,35-44,1,4.15
+2024-02-25,02:00,Frappe,Medium,3.24,2,Credit Card,35-44,1,6.48
+2024-02-25,04:00,Mocha,Medium,6.36,1,Cash,18-24,1,6.36
+2024-02-25,06:00,Frappe,Large,6.89,3,Credit Card,55+,0,20.67
+2024-02-25,08:00,Cold Brew,Medium,5.7,1,Mobile Pay,45-54,0,5.7
+2024-02-25,10:00,Latte,Medium,6.36,2,Mobile Pay,18-24,0,12.72
+2024-02-25,12:00,Hot Chocolate,Medium,4.08,2,Credit Card,18-24,0,8.16
+2024-02-25,14:00,Cappuccino,Large,4.93,3,Credit Card,18-24,0,14.79
+2024-02-25,16:00,Hot Chocolate,Medium,4.66,2,Cash,25-34,0,9.32
+2024-02-25,18:00,Frappe,Small,3.57,2,Credit Card,45-54,0,7.14
+2024-02-25,20:00,Latte,Large,6.76,1,Credit Card,35-44,1,6.76
+2024-02-25,22:00,Hot Chocolate,Medium,5.19,1,Cash,55+,1,5.19
+2024-02-26,00:00,Latte,Small,2.68,3,Mobile Pay,25-34,1,8.04
+2024-02-26,02:00,Frappe,Medium,3.85,2,Cash,55+,0,7.7
+2024-02-26,04:00,Latte,Small,3.13,2,Mobile Pay,35-44,1,6.26
+2024-02-26,06:00,Macchiato,Medium,3.26,3,Credit Card,18-24,1,9.78
+2024-02-26,08:00,Cappuccino,Small,5.51,2,Credit Card,45-54,1,11.02
+2024-02-26,10:00,Americano,Large,2.8,2,Mobile Pay,55+,1,5.6
+2024-02-26,12:00,Mocha,Large,2.51,1,Cash,55+,0,2.51
+2024-02-26,14:00,Cappuccino,Medium,6.8,1,Credit Card,18-24,0,6.8
+2024-02-26,16:00,Espresso,Small,3.95,1,Credit Card,55+,0,3.95
+2024-02-26,18:00,Hot Chocolate,Medium,6.1,2,Credit Card,25-34,0,12.2
+2024-02-26,20:00,Cold Brew,Medium,5.98,1,Credit Card,25-34,1,5.98
+2024-02-26,22:00,Macchiato,Medium,4.62,1,Cash,55+,1,4.62
+2024-02-27,00:00,Frappe,Small,5.18,1,Credit Card,45-54,0,5.18
+2024-02-27,02:00,Cold Brew,Medium,4.49,3,Credit Card,35-44,1,13.47
+2024-02-27,04:00,Espresso,Medium,3.13,3,Cash,55+,1,9.39
+2024-02-27,06:00,Cold Brew,Small,6.73,1,Mobile Pay,55+,1,6.73
+2024-02-27,08:00,Cold Brew,Medium,5.78,1,Credit Card,55+,0,5.78
+2024-02-27,10:00,Latte,Large,3.67,3,Cash,45-54,0,11.01
+2024-02-27,12:00,Americano,Medium,7.31,3,Credit Card,45-54,0,21.93
+2024-02-27,14:00,Frappe,Small,3.3,1,Credit Card,55+,1,3.3
+2024-02-27,16:00,Espresso,Large,5.86,3,Credit Card,45-54,1,17.58
+2024-02-27,18:00,Frappe,Small,2.98,3,Mobile Pay,18-24,1,8.94
+2024-02-27,20:00,Espresso,Medium,6.34,3,Credit Card,18-24,0,19.02
+2024-02-27,22:00,Espresso,Small,3.5,1,Cash,55+,0,3.5
+2024-02-28,00:00,Macchiato,Medium,2.94,2,Mobile Pay,45-54,0,5.88
+2024-02-28,02:00,Cappuccino,Medium,3.98,2,Credit Card,18-24,1,7.96
+2024-02-28,04:00,Cold Brew,Large,2.88,2,Mobile Pay,25-34,0,5.76
+2024-02-28,06:00,Latte,Small,6.52,2,Credit Card,55+,0,13.04
+2024-02-28,08:00,Cappuccino,Large,6.44,2,Credit Card,55+,1,12.88
+2024-02-28,10:00,Americano,Medium,6.98,3,Credit Card,18-24,1,20.94
+2024-02-28,12:00,Espresso,Small,6.95,3,Credit Card,55+,1,20.85
+2024-02-28,14:00,Tea,Large,6.63,3,Credit Card,18-24,0,19.89
+2024-02-28,16:00,Hot Chocolate,Medium,4.1,1,Credit Card,45-54,1,4.1
+2024-02-28,18:00,Americano,Large,6.7,1,Mobile Pay,45-54,1,6.7
+2024-02-28,20:00,Macchiato,Large,4.16,1,Credit Card,55+,0,4.16
+2024-02-28,22:00,Hot Chocolate,Medium,3.04,3,Mobile Pay,18-24,1,9.12
+2024-02-29,00:00,Macchiato,Medium,6.72,2,Credit Card,35-44,0,13.44
+2024-02-29,02:00,Mocha,Medium,4.31,2,Cash,55+,0,8.62
+2024-02-29,04:00,Frappe,Small,4.28,3,Credit Card,55+,1,12.84
+2024-02-29,06:00,Espresso,Large,5.85,2,Credit Card,35-44,1,11.7
+2024-02-29,08:00,Macchiato,Small,4.16,1,Credit Card,35-44,0,4.16
+2024-02-29,10:00,Hot Chocolate,Small,4.01,1,Cash,55+,0,4.01
+2024-02-29,12:00,Espresso,Medium,4.63,3,Credit Card,45-54,0,13.89
+2024-02-29,14:00,Espresso,Small,5.4,3,Mobile Pay,35-44,1,16.2
+2024-02-29,16:00,Cappuccino,Large,3.61,1,Mobile Pay,25-34,0,3.61
+2024-02-29,18:00,Mocha,Medium,6.76,1,Credit Card,45-54,1,6.76
+2024-02-29,20:00,Macchiato,Large,7.34,3,Credit Card,18-24,0,22.02
+2024-02-29,22:00,Latte,Large,4.15,1,Credit Card,18-24,0,4.15
+2024-03-01,00:00,Macchiato,Medium,5.38,2,Credit Card,25-34,0,10.76
+2024-03-01,02:00,Cold Brew,Medium,7.37,3,Credit Card,35-44,0,22.11
+2024-03-01,04:00,Frappe,Medium,6.66,3,Mobile Pay,35-44,0,19.98
+2024-03-01,06:00,Cold Brew,Medium,5.89,3,Mobile Pay,35-44,0,17.67
+2024-03-01,08:00,Tea,Medium,3.8,3,Cash,25-34,0,11.4
+2024-03-01,10:00,Frappe,Large,5.31,2,Mobile Pay,45-54,1,10.62
+2024-03-01,12:00,Mocha,Large,2.85,3,Mobile Pay,18-24,0,8.55
+2024-03-01,14:00,Frappe,Large,3.46,2,Credit Card,55+,1,6.92
+2024-03-01,16:00,Mocha,Small,2.55,2,Credit Card,35-44,1,5.1
+2024-03-01,18:00,Latte,Medium,6.82,1,Credit Card,55+,0,6.82
+2024-03-01,20:00,Americano,Small,3.88,2,Mobile Pay,35-44,0,7.76
+2024-03-01,22:00,Cappuccino,Large,3.64,1,Credit Card,25-34,1,3.64
+2024-03-02,00:00,Hot Chocolate,Large,7.02,3,Credit Card,55+,0,21.06
+2024-03-02,02:00,Espresso,Medium,4.89,1,Mobile Pay,35-44,0,4.89
+2024-03-02,04:00,Tea,Medium,3.99,2,Credit Card,35-44,1,7.98
+2024-03-02,06:00,Cappuccino,Large,2.76,3,Credit Card,45-54,0,8.28
+2024-03-02,08:00,Hot Chocolate,Medium,2.62,3,Credit Card,18-24,1,7.86
+2024-03-02,10:00,Americano,Medium,2.6,3,Credit Card,18-24,1,7.8
+2024-03-02,12:00,Tea,Large,5.6,2,Mobile Pay,25-34,1,11.2
+2024-03-02,14:00,Mocha,Small,6.85,2,Credit Card,55+,1,13.7
+2024-03-02,16:00,Cappuccino,Large,5.77,3,Cash,25-34,1,17.31
+2024-03-02,18:00,Tea,Medium,4.65,3,Mobile Pay,45-54,1,13.95
+2024-03-02,20:00,Macchiato,Large,5.95,1,Mobile Pay,55+,1,5.95
+2024-03-02,22:00,Macchiato,Large,4.88,3,Mobile Pay,55+,0,14.64
+2024-03-03,00:00,Mocha,Large,3.07,3,Credit Card,18-24,1,9.21
+2024-03-03,02:00,Hot Chocolate,Large,4.47,3,Cash,55+,1,13.41
+2024-03-03,04:00,Espresso,Large,3.76,2,Credit Card,55+,1,7.52
+2024-03-03,06:00,Americano,Large,4.5,2,Mobile Pay,45-54,0,9.0
+2024-03-03,08:00,Americano,Medium,6.52,1,Credit Card,45-54,1,6.52
+2024-03-03,10:00,Latte,Small,5.05,1,Credit Card,55+,0,5.05
+2024-03-03,12:00,Cappuccino,Small,3.58,1,Mobile Pay,55+,0,3.58
+2024-03-03,14:00,Latte,Medium,5.14,2,Mobile Pay,25-34,0,10.28
+2024-03-03,16:00,Americano,Small,5.13,2,Credit Card,35-44,1,10.26
+2024-03-03,18:00,Espresso,Large,4.93,1,Cash,35-44,1,4.93
+2024-03-03,20:00,Mocha,Medium,4.33,3,Credit Card,18-24,0,12.99
+2024-03-03,22:00,Hot Chocolate,Medium,5.4,1,Cash,18-24,0,5.4
+2024-03-04,00:00,Mocha,Medium,3.38,1,Mobile Pay,25-34,0,3.38
+2024-03-04,02:00,Mocha,Small,5.32,2,Mobile Pay,55+,0,10.64
+2024-03-04,04:00,Hot Chocolate,Large,2.92,1,Credit Card,55+,1,2.92
+2024-03-04,06:00,Tea,Medium,5.92,1,Cash,35-44,1,5.92
+2024-03-04,08:00,Americano,Medium,3.17,1,Credit Card,18-24,1,3.17
+2024-03-04,10:00,Americano,Medium,7.25,1,Cash,45-54,0,7.25
+2024-03-04,12:00,Macchiato,Medium,6.56,1,Mobile Pay,25-34,1,6.56
+2024-03-04,14:00,Tea,Medium,4.68,1,Mobile Pay,18-24,0,4.68
+2024-03-04,16:00,Hot Chocolate,Small,3.24,3,Cash,45-54,0,9.72
+2024-03-04,18:00,Mocha,Medium,7.16,2,Cash,45-54,0,14.32
+2024-03-04,20:00,Macchiato,Small,4.93,3,Credit Card,25-34,1,14.79
+2024-03-04,22:00,Latte,Large,2.61,1,Cash,35-44,1,2.61
+2024-03-05,00:00,Hot Chocolate,Large,3.12,3,Mobile Pay,55+,0,9.36
+2024-03-05,02:00,Mocha,Medium,5.03,1,Mobile Pay,25-34,0,5.03
+2024-03-05,04:00,Espresso,Large,4.76,3,Credit Card,45-54,1,14.28
+2024-03-05,06:00,Latte,Medium,6.81,1,Credit Card,25-34,1,6.81
+2024-03-05,08:00,Cappuccino,Medium,6.85,2,Cash,45-54,1,13.7
+2024-03-05,10:00,Americano,Small,7.26,1,Credit Card,18-24,0,7.26
+2024-03-05,12:00,Macchiato,Large,4.88,1,Credit Card,25-34,0,4.88
+2024-03-05,14:00,Espresso,Small,7.28,1,Credit Card,45-54,0,7.28
+2024-03-05,16:00,Tea,Large,4.03,1,Cash,18-24,1,4.03
+2024-03-05,18:00,Frappe,Small,2.81,2,Credit Card,25-34,0,5.62
+2024-03-05,20:00,Cappuccino,Medium,5.2,3,Cash,45-54,0,15.6
+2024-03-05,22:00,Mocha,Medium,3.61,2,Cash,45-54,0,7.22
+2024-03-06,00:00,Latte,Medium,7.28,1,Credit Card,25-34,0,7.28
+2024-03-06,02:00,Macchiato,Medium,4.86,1,Mobile Pay,35-44,1,4.86
+2024-03-06,04:00,Tea,Medium,3.47,1,Credit Card,45-54,1,3.47
+2024-03-06,06:00,Espresso,Medium,3.43,2,Cash,35-44,0,6.86
+2024-03-06,08:00,Americano,Medium,3.48,1,Credit Card,45-54,1,3.48
+2024-03-06,10:00,Cold Brew,Large,2.93,3,Cash,25-34,1,8.79
+2024-03-06,12:00,Cappuccino,Large,4.42,1,Mobile Pay,55+,1,4.42
+2024-03-06,14:00,Macchiato,Medium,4.23,3,Credit Card,18-24,0,12.69
+2024-03-06,16:00,Tea,Medium,4.66,2,Credit Card,35-44,1,9.32
+2024-03-06,18:00,Hot Chocolate,Medium,5.63,1,Credit Card,55+,1,5.63
+2024-03-06,20:00,Macchiato,Large,5.05,1,Credit Card,18-24,1,5.05
+2024-03-06,22:00,Cold Brew,Large,4.9,1,Credit Card,45-54,1,4.9
+2024-03-07,00:00,Hot Chocolate,Large,6.79,2,Mobile Pay,25-34,1,13.58
+2024-03-07,02:00,Cold Brew,Medium,3.64,2,Credit Card,45-54,1,7.28
+2024-03-07,04:00,Mocha,Large,4.12,3,Cash,55+,1,12.36
+2024-03-07,06:00,Mocha,Small,5.68,3,Credit Card,18-24,1,17.04
+2024-03-07,08:00,Hot Chocolate,Small,3.04,1,Mobile Pay,18-24,1,3.04
+2024-03-07,10:00,Frappe,Small,6.52,1,Mobile Pay,25-34,0,6.52
+2024-03-07,12:00,Espresso,Medium,6.57,2,Mobile Pay,55+,0,13.14
+2024-03-07,14:00,Cappuccino,Large,3.9,1,Mobile Pay,35-44,0,3.9
+2024-03-07,16:00,Cappuccino,Medium,3.83,3,Credit Card,45-54,1,11.49
+2024-03-07,18:00,Espresso,Medium,3.55,1,Mobile Pay,55+,1,3.55
+2024-03-07,20:00,Hot Chocolate,Small,4.08,3,Cash,25-34,0,12.24
+2024-03-07,22:00,Latte,Large,5.57,2,Mobile Pay,25-34,1,11.14
+2024-03-08,00:00,Latte,Large,4.77,2,Credit Card,35-44,0,9.54
+2024-03-08,02:00,Espresso,Small,3.81,2,Credit Card,35-44,0,7.62
+2024-03-08,04:00,Cappuccino,Small,7.42,1,Mobile Pay,55+,1,7.42
+2024-03-08,06:00,Hot Chocolate,Medium,4.5,2,Credit Card,45-54,1,9.0
+2024-03-08,08:00,Cold Brew,Medium,4.05,1,Credit Card,18-24,1,4.05
+2024-03-08,10:00,Macchiato,Medium,7.17,2,Credit Card,18-24,0,14.34
+2024-03-08,12:00,Americano,Medium,6.16,1,Credit Card,55+,1,6.16
+2024-03-08,14:00,Americano,Medium,2.82,1,Cash,45-54,0,2.82
+2024-03-08,16:00,Tea,Large,3.32,1,Credit Card,18-24,1,3.32
+2024-03-08,18:00,Cold Brew,Large,6.43,2,Mobile Pay,35-44,1,12.86
+2024-03-08,20:00,Mocha,Large,4.57,1,Mobile Pay,25-34,1,4.57
+2024-03-08,22:00,Frappe,Small,3.01,3,Credit Card,45-54,0,9.03
+2024-03-09,00:00,Macchiato,Large,4.14,3,Credit Card,55+,1,12.42
+2024-03-09,02:00,Tea,Small,5.68,2,Cash,35-44,0,11.36
+2024-03-09,04:00,Mocha,Medium,5.65,3,Credit Card,25-34,1,16.95
+2024-03-09,06:00,Frappe,Small,3.39,2,Credit Card,45-54,1,6.78
+2024-03-09,08:00,Espresso,Medium,6.24,2,Mobile Pay,25-34,1,12.48
+2024-03-09,10:00,Tea,Small,4.44,1,Credit Card,55+,1,4.44
+2024-03-09,12:00,Mocha,Medium,6.22,1,Mobile Pay,55+,0,6.22
+2024-03-09,14:00,Macchiato,Large,5.67,1,Cash,45-54,1,5.67
+2024-03-09,16:00,Espresso,Medium,2.88,3,Mobile Pay,25-34,1,8.64
+2024-03-09,18:00,Espresso,Medium,3.28,3,Mobile Pay,45-54,0,9.84
+2024-03-09,20:00,Cold Brew,Small,6.22,3,Credit Card,55+,1,18.66
+2024-03-09,22:00,Frappe,Small,3.03,1,Mobile Pay,45-54,1,3.03
+2024-03-10,00:00,Espresso,Large,3.51,3,Credit Card,55+,0,10.53
+2024-03-10,02:00,Frappe,Medium,6.81,3,Mobile Pay,35-44,0,20.43
+2024-03-10,04:00,Latte,Medium,7.32,1,Credit Card,25-34,0,7.32
+2024-03-10,06:00,Tea,Large,3.55,1,Credit Card,55+,1,3.55
+2024-03-10,08:00,Mocha,Small,3.56,1,Mobile Pay,55+,0,3.56
+2024-03-10,10:00,Hot Chocolate,Small,4.89,3,Cash,35-44,0,14.67
+2024-03-10,12:00,Cappuccino,Large,3.37,2,Mobile Pay,35-44,1,6.74
+2024-03-10,14:00,Cold Brew,Medium,5.61,1,Credit Card,45-54,0,5.61
+2024-03-10,16:00,Mocha,Small,6.21,3,Mobile Pay,55+,0,18.63
+2024-03-10,18:00,Tea,Large,6.28,3,Credit Card,25-34,1,18.84
+2024-03-10,20:00,Americano,Large,6.99,2,Cash,25-34,0,13.98
+2024-03-10,22:00,Espresso,Medium,3.72,1,Credit Card,25-34,0,3.72
+2024-03-11,00:00,Mocha,Medium,7.31,3,Credit Card,35-44,1,21.93
+2024-03-11,02:00,Macchiato,Medium,2.59,1,Cash,18-24,0,2.59
+2024-03-11,04:00,Macchiato,Medium,7.5,1,Cash,45-54,0,7.5
+2024-03-11,06:00,Espresso,Medium,5.42,2,Credit Card,18-24,1,10.84
+2024-03-11,08:00,Cappuccino,Medium,5.9,2,Cash,25-34,0,11.8
+2024-03-11,10:00,Hot Chocolate,Medium,3.26,2,Credit Card,45-54,0,6.52
+2024-03-11,12:00,Tea,Large,3.11,3,Credit Card,45-54,1,9.33
+2024-03-11,14:00,Espresso,Medium,3.92,2,Mobile Pay,25-34,0,7.84
+2024-03-11,16:00,Americano,Medium,5.34,2,Mobile Pay,25-34,1,10.68
+2024-03-11,18:00,Tea,Medium,3.13,3,Mobile Pay,25-34,0,9.39
+2024-03-11,20:00,Mocha,Large,7.17,1,Cash,35-44,0,7.17
+2024-03-11,22:00,Latte,Large,6.35,2,Credit Card,35-44,1,12.7
+2024-03-12,00:00,Cold Brew,Large,4.11,1,Credit Card,18-24,1,4.11
+2024-03-12,02:00,Americano,Small,7.42,1,Credit Card,55+,0,7.42
+2024-03-12,04:00,Frappe,Large,7.4,3,Mobile Pay,25-34,1,22.2
+2024-03-12,06:00,Macchiato,Small,4.11,2,Credit Card,18-24,1,8.22
+2024-03-12,08:00,Espresso,Medium,6.31,2,Credit Card,55+,0,12.62
+2024-03-12,10:00,Frappe,Large,3.64,3,Credit Card,35-44,0,10.92
+2024-03-12,12:00,Macchiato,Medium,3.13,3,Mobile Pay,45-54,1,9.39
+2024-03-12,14:00,Hot Chocolate,Medium,6.43,1,Mobile Pay,55+,0,6.43
+2024-03-12,16:00,Cappuccino,Large,5.36,2,Mobile Pay,55+,1,10.72
+2024-03-12,18:00,Mocha,Medium,4.94,2,Credit Card,55+,0,9.88
+2024-03-12,20:00,Espresso,Medium,4.95,3,Credit Card,25-34,1,14.85
+2024-03-12,22:00,Frappe,Medium,7.5,2,Mobile Pay,18-24,0,15.0
+2024-03-13,00:00,Americano,Large,5.69,2,Credit Card,55+,1,11.38
+2024-03-13,02:00,Cappuccino,Medium,6.33,3,Credit Card,35-44,0,18.99
+2024-03-13,04:00,Americano,Medium,2.69,3,Credit Card,18-24,0,8.07
+2024-03-13,06:00,Tea,Large,6.44,1,Credit Card,25-34,1,6.44
+2024-03-13,08:00,Cappuccino,Large,2.84,2,Credit Card,45-54,0,5.68
+2024-03-13,10:00,Frappe,Small,2.6,3,Credit Card,55+,0,7.8
+2024-03-13,12:00,Cold Brew,Small,5.26,3,Mobile Pay,55+,1,15.78
+2024-03-13,14:00,Mocha,Small,6.35,2,Credit Card,25-34,0,12.7
+2024-03-13,16:00,Mocha,Medium,4.83,3,Credit Card,45-54,0,14.49
+2024-03-13,18:00,Espresso,Medium,2.55,3,Credit Card,55+,0,7.65
+2024-03-13,20:00,Espresso,Small,4.86,1,Credit Card,55+,0,4.86
+2024-03-13,22:00,Americano,Medium,5.73,2,Mobile Pay,55+,1,11.46
+2024-03-14,00:00,Frappe,Medium,3.52,1,Cash,45-54,1,3.52
+2024-03-14,02:00,Cold Brew,Large,4.79,2,Credit Card,55+,1,9.58
+2024-03-14,04:00,Mocha,Medium,7.27,1,Credit Card,35-44,0,7.27
+2024-03-14,06:00,Latte,Medium,4.67,2,Credit Card,45-54,0,9.34
+2024-03-14,08:00,Mocha,Medium,5.05,3,Cash,35-44,0,15.15
+2024-03-14,10:00,Cappuccino,Medium,5.03,3,Cash,55+,1,15.09
+2024-03-14,12:00,Latte,Small,6.31,1,Cash,35-44,0,6.31
+2024-03-14,14:00,Mocha,Medium,7.45,1,Credit Card,35-44,0,7.45
+2024-03-14,16:00,Latte,Small,2.96,1,Credit Card,25-34,1,2.96
+2024-03-14,18:00,Frappe,Small,3.03,3,Credit Card,45-54,1,9.09
+2024-03-14,20:00,Latte,Small,5.37,1,Credit Card,25-34,0,5.37
+2024-03-14,22:00,Latte,Medium,7.35,2,Credit Card,55+,1,14.7
+2024-03-15,00:00,Hot Chocolate,Medium,3.27,1,Mobile Pay,25-34,1,3.27
+2024-03-15,02:00,Cappuccino,Small,6.96,2,Credit Card,35-44,1,13.92
+2024-03-15,04:00,Frappe,Large,4.47,1,Credit Card,18-24,1,4.47
+2024-03-15,06:00,Macchiato,Large,4.79,3,Credit Card,25-34,0,14.37
+2024-03-15,08:00,Frappe,Large,5.72,1,Cash,45-54,0,5.72
+2024-03-15,10:00,Americano,Medium,6.0,3,Mobile Pay,55+,0,18.0
+2024-03-15,12:00,Americano,Large,3.79,3,Cash,18-24,1,11.37
+2024-03-15,14:00,Mocha,Large,4.12,2,Cash,35-44,0,8.24
+2024-03-15,16:00,Americano,Medium,3.88,2,Credit Card,55+,0,7.76
+2024-03-15,18:00,Americano,Large,6.96,3,Credit Card,35-44,1,20.88
+2024-03-15,20:00,Tea,Small,5.93,3,Mobile Pay,35-44,1,17.79
+2024-03-15,22:00,Latte,Small,3.99,1,Cash,35-44,0,3.99
+2024-03-16,00:00,Tea,Medium,3.03,1,Mobile Pay,35-44,0,3.03
+2024-03-16,02:00,Cappuccino,Small,2.6,2,Credit Card,25-34,1,5.2
+2024-03-16,04:00,Hot Chocolate,Medium,6.84,1,Credit Card,25-34,1,6.84
+2024-03-16,06:00,Hot Chocolate,Medium,3.58,2,Credit Card,45-54,0,7.16
+2024-03-16,08:00,Espresso,Large,3.29,1,Credit Card,45-54,1,3.29
+2024-03-16,10:00,Cold Brew,Large,7.44,1,Mobile Pay,45-54,1,7.44
+2024-03-16,12:00,Mocha,Large,3.31,2,Credit Card,18-24,0,6.62
+2024-03-16,14:00,Tea,Small,5.78,2,Mobile Pay,45-54,0,11.56
+2024-03-16,16:00,Latte,Small,3.59,2,Credit Card,25-34,1,7.18
+2024-03-16,18:00,Latte,Large,5.58,1,Mobile Pay,55+,1,5.58
+2024-03-16,20:00,Mocha,Medium,5.86,3,Credit Card,45-54,0,17.58
+2024-03-16,22:00,Espresso,Medium,6.83,3,Cash,25-34,1,20.49
+2024-03-17,00:00,Hot Chocolate,Medium,5.09,2,Credit Card,35-44,1,10.18
+2024-03-17,02:00,Tea,Small,6.68,2,Credit Card,18-24,1,13.36
+2024-03-17,04:00,Frappe,Small,3.02,3,Credit Card,25-34,1,9.06
+2024-03-17,06:00,Hot Chocolate,Large,4.28,3,Cash,18-24,1,12.84
+2024-03-17,08:00,Tea,Large,2.56,3,Credit Card,25-34,1,7.68
+2024-03-17,10:00,Frappe,Large,4.35,1,Cash,55+,1,4.35
+2024-03-17,12:00,Cappuccino,Large,2.7,2,Credit Card,35-44,0,5.4
+2024-03-17,14:00,Tea,Medium,7.35,1,Mobile Pay,35-44,1,7.35
+2024-03-17,16:00,Mocha,Large,5.49,3,Credit Card,25-34,1,16.47
+2024-03-17,18:00,Espresso,Small,4.52,1,Credit Card,25-34,0,4.52
+2024-03-17,20:00,Cold Brew,Small,5.43,1,Credit Card,25-34,0,5.43
+2024-03-17,22:00,Frappe,Small,4.4,1,Credit Card,25-34,1,4.4
+2024-03-18,00:00,Tea,Medium,2.74,2,Credit Card,45-54,1,5.48
+2024-03-18,02:00,Mocha,Medium,6.52,3,Cash,55+,0,19.56
+2024-03-18,04:00,Cappuccino,Medium,3.25,3,Cash,35-44,1,9.75
+2024-03-18,06:00,Mocha,Medium,5.47,2,Credit Card,25-34,0,10.94
+2024-03-18,08:00,Espresso,Medium,2.85,2,Cash,45-54,0,5.7
+2024-03-18,10:00,Espresso,Large,5.75,3,Mobile Pay,55+,1,17.25
+2024-03-18,12:00,Cold Brew,Medium,3.72,2,Cash,25-34,1,7.44
+2024-03-18,14:00,Macchiato,Large,6.48,2,Credit Card,25-34,0,12.96
+2024-03-18,16:00,Espresso,Medium,6.9,3,Mobile Pay,18-24,1,20.7
+2024-03-18,18:00,Macchiato,Medium,4.15,3,Cash,18-24,0,12.45
+2024-03-18,20:00,Frappe,Small,5.25,1,Credit Card,55+,1,5.25
+2024-03-18,22:00,Tea,Small,6.55,1,Credit Card,18-24,1,6.55
+2024-03-19,00:00,Cold Brew,Medium,4.59,3,Credit Card,35-44,0,13.77
+2024-03-19,02:00,Cold Brew,Large,3.58,2,Credit Card,25-34,1,7.16
+2024-03-19,04:00,Americano,Large,2.61,3,Cash,45-54,1,7.83
+2024-03-19,06:00,Frappe,Large,5.89,2,Credit Card,18-24,1,11.78
+2024-03-19,08:00,Latte,Small,5.75,1,Cash,25-34,1,5.75
+2024-03-19,10:00,Frappe,Large,3.3,3,Cash,55+,1,9.9
+2024-03-19,12:00,Americano,Medium,5.67,3,Credit Card,25-34,1,17.01
+2024-03-19,14:00,Hot Chocolate,Large,5.18,2,Credit Card,18-24,1,10.36
+2024-03-19,16:00,Frappe,Small,3.25,1,Credit Card,55+,0,3.25
+2024-03-19,18:00,Cold Brew,Medium,3.55,1,Credit Card,35-44,1,3.55
+2024-03-19,20:00,Macchiato,Large,4.86,3,Mobile Pay,55+,1,14.58
+2024-03-19,22:00,Latte,Large,5.49,3,Credit Card,35-44,0,16.47
+2024-03-20,00:00,Mocha,Large,6.01,3,Credit Card,18-24,1,18.03
+2024-03-20,02:00,Macchiato,Medium,3.04,3,Cash,35-44,1,9.12
+2024-03-20,04:00,Americano,Medium,4.0,1,Credit Card,45-54,1,4.0
+2024-03-20,06:00,Mocha,Medium,7.35,1,Credit Card,55+,0,7.35
+2024-03-20,08:00,Mocha,Small,6.86,2,Credit Card,45-54,1,13.72
+2024-03-20,10:00,Mocha,Large,7.24,3,Credit Card,18-24,0,21.72
+2024-03-20,12:00,Espresso,Small,4.25,2,Credit Card,18-24,1,8.5
+2024-03-20,14:00,Espresso,Medium,5.59,1,Mobile Pay,18-24,0,5.59
+2024-03-20,16:00,Tea,Medium,6.89,1,Mobile Pay,18-24,1,6.89
+2024-03-20,18:00,Frappe,Small,3.16,1,Mobile Pay,35-44,0,3.16
+2024-03-20,20:00,Mocha,Medium,2.78,2,Credit Card,45-54,0,5.56
+2024-03-20,22:00,Frappe,Small,5.56,3,Mobile Pay,18-24,0,16.68
+2024-03-21,00:00,Espresso,Medium,5.29,2,Credit Card,35-44,1,10.58
+2024-03-21,02:00,Latte,Medium,6.29,3,Mobile Pay,18-24,1,18.87
+2024-03-21,04:00,Hot Chocolate,Small,3.35,1,Cash,18-24,1,3.35
+2024-03-21,06:00,Tea,Medium,6.48,3,Credit Card,45-54,1,19.44
+2024-03-21,08:00,Cappuccino,Small,6.62,2,Credit Card,55+,1,13.24
+2024-03-21,10:00,Tea,Medium,3.48,1,Credit Card,35-44,1,3.48
+2024-03-21,12:00,Mocha,Large,4.38,3,Mobile Pay,25-34,1,13.14
+2024-03-21,14:00,Cappuccino,Medium,4.55,1,Mobile Pay,25-34,0,4.55
+2024-03-21,16:00,Mocha,Large,3.38,2,Credit Card,18-24,0,6.76
+2024-03-21,18:00,Hot Chocolate,Large,3.94,2,Mobile Pay,35-44,0,7.88
+2024-03-21,20:00,Cold Brew,Medium,3.42,3,Mobile Pay,45-54,0,10.26
+2024-03-21,22:00,Frappe,Large,6.38,1,Mobile Pay,25-34,0,6.38
+2024-03-22,00:00,Latte,Small,4.91,3,Credit Card,35-44,1,14.73
+2024-03-22,02:00,Americano,Small,6.09,2,Mobile Pay,25-34,1,12.18
+2024-03-22,04:00,Americano,Medium,6.8,1,Cash,55+,1,6.8
+2024-03-22,06:00,Macchiato,Medium,6.99,2,Credit Card,45-54,1,13.98
+2024-03-22,08:00,Latte,Medium,2.66,3,Mobile Pay,25-34,0,7.98
+2024-03-22,10:00,Cold Brew,Medium,5.28,2,Mobile Pay,35-44,1,10.56
+2024-03-22,12:00,Cold Brew,Small,7.29,1,Cash,45-54,1,7.29
+2024-03-22,14:00,Cappuccino,Large,6.69,1,Cash,35-44,0,6.69
+2024-03-22,16:00,Mocha,Small,6.86,2,Cash,35-44,0,13.72
+2024-03-22,18:00,Tea,Medium,4.32,1,Mobile Pay,18-24,0,4.32
+2024-03-22,20:00,Macchiato,Large,6.04,2,Mobile Pay,18-24,1,12.08
+2024-03-22,22:00,Espresso,Medium,4.91,2,Mobile Pay,25-34,1,9.82
+2024-03-23,00:00,Macchiato,Medium,5.5,1,Mobile Pay,25-34,1,5.5
+2024-03-23,02:00,Cold Brew,Large,5.98,1,Mobile Pay,25-34,0,5.98
+2024-03-23,04:00,Americano,Medium,5.61,2,Credit Card,35-44,1,11.22
+2024-03-23,06:00,Latte,Large,5.97,1,Credit Card,25-34,1,5.97
+2024-03-23,08:00,Hot Chocolate,Medium,5.33,3,Credit Card,35-44,0,15.99
+2024-03-23,10:00,Tea,Medium,4.77,1,Credit Card,55+,1,4.77
+2024-03-23,12:00,Cold Brew,Medium,3.94,3,Mobile Pay,25-34,1,11.82
+2024-03-23,14:00,Tea,Medium,5.74,1,Mobile Pay,25-34,0,5.74
+2024-03-23,16:00,Cappuccino,Medium,4.32,2,Credit Card,55+,1,8.64
+2024-03-23,18:00,Frappe,Small,6.56,1,Credit Card,18-24,1,6.56
+2024-03-23,20:00,Latte,Large,6.13,1,Credit Card,25-34,1,6.13
+2024-03-23,22:00,Cappuccino,Large,4.23,3,Credit Card,45-54,1,12.69
+2024-03-24,00:00,Mocha,Medium,5.08,2,Cash,55+,0,10.16
+2024-03-24,02:00,Hot Chocolate,Small,3.67,2,Credit Card,18-24,0,7.34
+2024-03-24,04:00,Macchiato,Small,7.12,2,Credit Card,18-24,1,14.24
+2024-03-24,06:00,Cold Brew,Small,3.99,2,Cash,45-54,0,7.98
+2024-03-24,08:00,Cappuccino,Medium,7.1,3,Mobile Pay,55+,1,21.3
+2024-03-24,10:00,Latte,Large,2.79,3,Mobile Pay,25-34,1,8.37
+2024-03-24,12:00,Tea,Medium,3.4,1,Cash,55+,0,3.4
+2024-03-24,14:00,Cold Brew,Large,5.67,3,Mobile Pay,25-34,0,17.01
+2024-03-24,16:00,Americano,Medium,5.2,2,Cash,18-24,1,10.4
+2024-03-24,18:00,Latte,Large,6.78,1,Cash,35-44,0,6.78
+2024-03-24,20:00,Cold Brew,Medium,6.51,3,Credit Card,25-34,1,19.53
+2024-03-24,22:00,Frappe,Large,2.91,1,Mobile Pay,25-34,0,2.91
+2024-03-25,00:00,Frappe,Medium,3.93,3,Credit Card,45-54,1,11.79
+2024-03-25,02:00,Cold Brew,Medium,5.31,1,Credit Card,55+,1,5.31
+2024-03-25,04:00,Cold Brew,Large,3.6,3,Credit Card,18-24,0,10.8
+2024-03-25,06:00,Mocha,Medium,6.59,2,Mobile Pay,35-44,0,13.18
+2024-03-25,08:00,Macchiato,Medium,6.48,3,Credit Card,35-44,1,19.44
+2024-03-25,10:00,Americano,Small,4.16,1,Credit Card,18-24,1,4.16
+2024-03-25,12:00,Americano,Medium,7.12,2,Cash,18-24,1,14.24
+2024-03-25,14:00,Mocha,Medium,5.88,2,Credit Card,55+,1,11.76
+2024-03-25,16:00,Latte,Large,3.9,1,Credit Card,18-24,1,3.9
+2024-03-25,18:00,Macchiato,Large,5.76,1,Mobile Pay,18-24,1,5.76
+2024-03-25,20:00,Cold Brew,Small,4.62,3,Cash,45-54,1,13.86
+2024-03-25,22:00,Macchiato,Medium,2.54,2,Mobile Pay,18-24,1,5.08
+2024-03-26,00:00,Hot Chocolate,Large,5.5,1,Credit Card,18-24,1,5.5
+2024-03-26,02:00,Frappe,Large,3.07,3,Mobile Pay,18-24,1,9.21
+2024-03-26,04:00,Cappuccino,Small,3.61,2,Credit Card,45-54,1,7.22
+2024-03-26,06:00,Frappe,Medium,6.21,3,Cash,55+,0,18.63
+2024-03-26,08:00,Latte,Small,6.07,1,Mobile Pay,35-44,1,6.07
+2024-03-26,10:00,Tea,Medium,2.57,2,Mobile Pay,55+,1,5.14
+2024-03-26,12:00,Espresso,Large,4.45,3,Credit Card,35-44,0,13.35
+2024-03-26,14:00,Cappuccino,Medium,4.59,1,Mobile Pay,35-44,0,4.59
+2024-03-26,16:00,Mocha,Medium,4.28,2,Mobile Pay,18-24,1,8.56
+2024-03-26,18:00,Cold Brew,Large,5.49,3,Credit Card,35-44,1,16.47
+2024-03-26,20:00,Frappe,Small,4.41,3,Credit Card,45-54,1,13.23
+2024-03-26,22:00,Mocha,Medium,2.64,2,Credit Card,25-34,0,5.28
+2024-03-27,00:00,Cold Brew,Small,6.49,2,Cash,25-34,1,12.98
+2024-03-27,02:00,Espresso,Medium,5.2,1,Cash,25-34,1,5.2
+2024-03-27,04:00,Americano,Large,2.77,1,Credit Card,55+,0,2.77
+2024-03-27,06:00,Hot Chocolate,Medium,4.48,2,Credit Card,18-24,1,8.96
+2024-03-27,08:00,Cappuccino,Medium,6.81,3,Credit Card,55+,0,20.43
+2024-03-27,10:00,Cold Brew,Small,5.13,2,Credit Card,18-24,1,10.26
+2024-03-27,12:00,Espresso,Small,6.1,2,Credit Card,25-34,0,12.2
+2024-03-27,14:00,Espresso,Small,5.47,3,Cash,45-54,1,16.41
+2024-03-27,16:00,Cappuccino,Medium,5.26,1,Credit Card,35-44,0,5.26
+2024-03-27,18:00,Cappuccino,Medium,6.33,2,Credit Card,55+,1,12.66
+2024-03-27,20:00,Cappuccino,Medium,5.8,3,Credit Card,55+,0,17.4
+2024-03-27,22:00,Hot Chocolate,Small,3.21,2,Credit Card,55+,0,6.42
+2024-03-28,00:00,Frappe,Small,7.18,3,Credit Card,55+,0,21.54
+2024-03-28,02:00,Latte,Large,6.5,2,Cash,35-44,1,13.0
+2024-03-28,04:00,Espresso,Medium,6.59,2,Mobile Pay,35-44,1,13.18
+2024-03-28,06:00,Macchiato,Medium,5.84,3,Credit Card,55+,0,17.52
+2024-03-28,08:00,Hot Chocolate,Large,5.85,1,Mobile Pay,18-24,0,5.85
+2024-03-28,10:00,Cold Brew,Large,3.01,3,Credit Card,25-34,0,9.03
+2024-03-28,12:00,Frappe,Large,4.83,1,Credit Card,25-34,1,4.83
+2024-03-28,14:00,Espresso,Medium,6.83,3,Mobile Pay,55+,1,20.49
+2024-03-28,16:00,Cappuccino,Medium,4.41,1,Mobile Pay,35-44,1,4.41
+2024-03-28,18:00,Cold Brew,Small,4.56,3,Mobile Pay,45-54,1,13.68
+2024-03-28,20:00,Macchiato,Small,3.33,2,Credit Card,35-44,1,6.66
+2024-03-28,22:00,Mocha,Large,3.06,3,Credit Card,25-34,1,9.18
+2024-03-29,00:00,Mocha,Medium,4.34,2,Cash,55+,0,8.68
+2024-03-29,02:00,Latte,Small,6.92,2,Credit Card,18-24,0,13.84
+2024-03-29,04:00,Americano,Large,3.32,2,Mobile Pay,55+,1,6.64
+2024-03-29,06:00,Cold Brew,Medium,5.58,1,Credit Card,45-54,0,5.58
+2024-03-29,08:00,Frappe,Large,2.91,1,Credit Card,25-34,0,2.91
+2024-03-29,10:00,Mocha,Large,3.48,3,Credit Card,18-24,0,10.44
+2024-03-29,12:00,Cappuccino,Small,5.86,3,Credit Card,18-24,0,17.58
+2024-03-29,14:00,Frappe,Medium,5.79,1,Credit Card,55+,0,5.79
+2024-03-29,16:00,Macchiato,Medium,7.03,3,Credit Card,55+,1,21.09
+2024-03-29,18:00,Americano,Medium,3.26,2,Credit Card,25-34,1,6.52
+2024-03-29,20:00,Tea,Medium,5.98,1,Credit Card,35-44,0,5.98
+2024-03-29,22:00,Cappuccino,Large,7.07,3,Credit Card,55+,1,21.21
+2024-03-30,00:00,Macchiato,Large,5.62,1,Credit Card,55+,0,5.62
+2024-03-30,02:00,Frappe,Medium,5.47,1,Credit Card,45-54,1,5.47
+2024-03-30,04:00,Espresso,Small,3.27,2,Cash,45-54,1,6.54
+2024-03-30,06:00,Cold Brew,Large,3.59,2,Credit Card,25-34,1,7.18
+2024-03-30,08:00,Espresso,Medium,5.36,3,Cash,35-44,0,16.08
+2024-03-30,10:00,Hot Chocolate,Medium,2.79,1,Credit Card,45-54,0,2.79
+2024-03-30,12:00,Latte,Medium,7.02,2,Mobile Pay,55+,1,14.04
+2024-03-30,14:00,Tea,Medium,4.59,3,Cash,18-24,0,13.77
+2024-03-30,16:00,Latte,Large,5.8,1,Credit Card,35-44,0,5.8
+2024-03-30,18:00,Tea,Medium,4.79,1,Mobile Pay,55+,0,4.79
+2024-03-30,20:00,Frappe,Large,6.44,1,Mobile Pay,45-54,0,6.44
+2024-03-30,22:00,Espresso,Medium,5.59,3,Credit Card,18-24,1,16.77
+2024-03-31,00:00,Frappe,Medium,5.5,2,Cash,45-54,1,11.0
+2024-03-31,02:00,Hot Chocolate,Medium,3.86,1,Cash,35-44,0,3.86
+2024-03-31,04:00,Espresso,Small,6.25,3,Credit Card,35-44,1,18.75
+2024-03-31,06:00,Espresso,Large,4.01,2,Credit Card,45-54,0,8.02
+2024-03-31,08:00,Frappe,Small,7.14,1,Credit Card,25-34,0,7.14
+2024-03-31,10:00,Cappuccino,Small,5.52,2,Credit Card,18-24,1,11.04
+2024-03-31,12:00,Cold Brew,Small,6.79,2,Credit Card,25-34,1,13.58
+2024-03-31,14:00,Frappe,Small,5.64,3,Credit Card,35-44,0,16.92
+2024-03-31,16:00,Macchiato,Medium,5.91,3,Cash,45-54,1,17.73
+2024-03-31,18:00,Frappe,Large,2.52,2,Mobile Pay,55+,0,5.04
+2024-03-31,20:00,Mocha,Small,7.09,1,Cash,18-24,0,7.09
+2024-03-31,22:00,Americano,Medium,6.77,2,Mobile Pay,25-34,0,13.54
+2024-04-01,00:00,Tea,Medium,7.14,3,Cash,45-54,0,21.42
+2024-04-01,02:00,Latte,Large,2.99,1,Mobile Pay,45-54,1,2.99
+2024-04-01,04:00,Cold Brew,Small,3.12,2,Credit Card,35-44,1,6.24
+2024-04-01,06:00,Espresso,Small,4.38,3,Mobile Pay,45-54,0,13.14
+2024-04-01,08:00,Frappe,Medium,3.16,1,Credit Card,25-34,0,3.16
+2024-04-01,10:00,Mocha,Large,4.91,2,Mobile Pay,55+,0,9.82
+2024-04-01,12:00,Cappuccino,Large,7.36,3,Mobile Pay,45-54,0,22.08
+2024-04-01,14:00,Cappuccino,Small,5.62,1,Cash,18-24,1,5.62
+2024-04-01,16:00,Cappuccino,Medium,7.33,3,Mobile Pay,35-44,1,21.99
+2024-04-01,18:00,Hot Chocolate,Medium,4.54,1,Credit Card,55+,0,4.54
+2024-04-01,20:00,Cold Brew,Small,4.03,3,Cash,35-44,1,12.09
+2024-04-01,22:00,Mocha,Medium,3.37,2,Cash,18-24,0,6.74
+2024-04-02,00:00,Mocha,Medium,4.95,1,Mobile Pay,55+,0,4.95
+2024-04-02,02:00,Espresso,Medium,2.54,3,Cash,45-54,1,7.62
+2024-04-02,04:00,Tea,Medium,3.74,3,Cash,45-54,1,11.22
+2024-04-02,06:00,Mocha,Medium,6.16,2,Credit Card,45-54,1,12.32
+2024-04-02,08:00,Hot Chocolate,Small,6.04,3,Credit Card,55+,1,18.12
+2024-04-02,10:00,Frappe,Large,4.73,3,Credit Card,45-54,1,14.19
+2024-04-02,12:00,Mocha,Large,2.63,2,Credit Card,35-44,0,5.26
+2024-04-02,14:00,Hot Chocolate,Large,6.49,1,Credit Card,45-54,1,6.49
+2024-04-02,16:00,Latte,Large,6.28,1,Credit Card,45-54,0,6.28
+2024-04-02,18:00,Cappuccino,Large,4.28,1,Cash,35-44,1,4.28
+2024-04-02,20:00,Macchiato,Large,6.32,3,Cash,18-24,1,18.96
+2024-04-02,22:00,Americano,Medium,7.16,2,Credit Card,35-44,0,14.32
+2024-04-03,00:00,Latte,Medium,7.18,1,Credit Card,45-54,1,7.18
+2024-04-03,02:00,Cappuccino,Small,6.23,3,Cash,45-54,0,18.69
+2024-04-03,04:00,Tea,Medium,5.89,3,Cash,18-24,0,17.67
+2024-04-03,06:00,Mocha,Large,5.24,1,Cash,25-34,1,5.24
+2024-04-03,08:00,Cappuccino,Small,2.93,3,Cash,55+,1,8.79
+2024-04-03,10:00,Frappe,Small,3.28,2,Credit Card,18-24,0,6.56
+2024-04-03,12:00,Frappe,Medium,4.27,1,Credit Card,35-44,0,4.27
+2024-04-03,14:00,Americano,Medium,5.45,2,Credit Card,25-34,0,10.9
+2024-04-03,16:00,Americano,Small,5.25,3,Mobile Pay,45-54,0,15.75
+2024-04-03,18:00,Hot Chocolate,Small,6.21,1,Mobile Pay,18-24,0,6.21
+2024-04-03,20:00,Macchiato,Large,4.13,1,Cash,18-24,1,4.13
+2024-04-03,22:00,Macchiato,Large,4.22,2,Cash,18-24,0,8.44
+2024-04-04,00:00,Macchiato,Medium,5.82,3,Cash,35-44,0,17.46
+2024-04-04,02:00,Macchiato,Medium,3.2,3,Credit Card,25-34,0,9.6
+2024-04-04,04:00,Americano,Small,5.15,3,Mobile Pay,55+,0,15.45
+2024-04-04,06:00,Macchiato,Large,4.6,3,Credit Card,18-24,0,13.8
+2024-04-04,08:00,Espresso,Medium,4.25,2,Mobile Pay,35-44,1,8.5
+2024-04-04,10:00,Frappe,Small,5.09,3,Mobile Pay,45-54,0,15.27
+2024-04-04,12:00,Hot Chocolate,Large,3.89,1,Credit Card,45-54,0,3.89
+2024-04-04,14:00,Frappe,Small,4.1,3,Cash,35-44,1,12.3
+2024-04-04,16:00,Macchiato,Medium,2.52,1,Cash,55+,0,2.52
+2024-04-04,18:00,Tea,Large,4.26,1,Cash,55+,1,4.26
+2024-04-04,20:00,Hot Chocolate,Medium,2.51,3,Credit Card,55+,1,7.53
+2024-04-04,22:00,Cappuccino,Medium,3.77,2,Mobile Pay,55+,0,7.54
+2024-04-05,00:00,Cold Brew,Large,4.82,3,Credit Card,45-54,1,14.46
+2024-04-05,02:00,Mocha,Large,4.26,2,Cash,45-54,0,8.52
+2024-04-05,04:00,Cappuccino,Small,5.14,3,Credit Card,45-54,0,15.42
+2024-04-05,06:00,Hot Chocolate,Medium,6.47,2,Credit Card,45-54,1,12.94
+2024-04-05,08:00,Cold Brew,Large,7.15,3,Credit Card,55+,0,21.45
+2024-04-05,10:00,Americano,Medium,4.17,1,Cash,45-54,0,4.17
+2024-04-05,12:00,Latte,Medium,6.19,2,Credit Card,55+,0,12.38
+2024-04-05,14:00,Cold Brew,Medium,5.87,2,Credit Card,35-44,1,11.74
+2024-04-05,16:00,Latte,Large,4.02,2,Mobile Pay,35-44,1,8.04
+2024-04-05,18:00,Mocha,Small,5.61,1,Credit Card,55+,1,5.61
+2024-04-05,20:00,Tea,Large,3.18,3,Credit Card,45-54,0,9.54
+2024-04-05,22:00,Cappuccino,Medium,6.92,1,Credit Card,18-24,1,6.92
+2024-04-06,00:00,Cappuccino,Large,7.11,1,Credit Card,18-24,1,7.11
+2024-04-06,02:00,Mocha,Medium,5.79,1,Credit Card,45-54,0,5.79
+2024-04-06,04:00,Mocha,Medium,3.57,3,Mobile Pay,45-54,1,10.71
+2024-04-06,06:00,Macchiato,Small,5.55,1,Credit Card,55+,1,5.55
+2024-04-06,08:00,Mocha,Medium,6.45,2,Credit Card,18-24,1,12.9
+2024-04-06,10:00,Tea,Large,4.26,1,Cash,55+,0,4.26
+2024-04-06,12:00,Cold Brew,Small,5.03,3,Credit Card,18-24,1,15.09
+2024-04-06,14:00,Tea,Large,5.99,3,Cash,35-44,1,17.97
+2024-04-06,16:00,Tea,Large,6.48,1,Cash,35-44,1,6.48
+2024-04-06,18:00,Macchiato,Small,4.7,1,Credit Card,25-34,0,4.7
+2024-04-06,20:00,Cold Brew,Medium,7.07,1,Credit Card,35-44,1,7.07
+2024-04-06,22:00,Cappuccino,Medium,7.25,1,Credit Card,18-24,1,7.25
+2024-04-07,00:00,Mocha,Medium,6.08,2,Credit Card,35-44,0,12.16
+2024-04-07,02:00,Cold Brew,Large,2.99,1,Credit Card,45-54,1,2.99
+2024-04-07,04:00,Americano,Small,5.37,3,Mobile Pay,25-34,1,16.11
+2024-04-07,06:00,Mocha,Small,2.97,3,Cash,35-44,0,8.91
+2024-04-07,08:00,Hot Chocolate,Medium,4.41,3,Mobile Pay,35-44,1,13.23
+2024-04-07,10:00,Latte,Small,6.45,1,Mobile Pay,35-44,1,6.45
+2024-04-07,12:00,Latte,Large,6.09,2,Credit Card,45-54,1,12.18
+2024-04-07,14:00,Hot Chocolate,Medium,5.29,3,Mobile Pay,18-24,1,15.87
+2024-04-07,16:00,Frappe,Large,6.95,1,Credit Card,55+,0,6.95
+2024-04-07,18:00,Frappe,Large,7.28,1,Credit Card,18-24,1,7.28
+2024-04-07,20:00,Espresso,Small,7.16,3,Credit Card,25-34,0,21.48
+2024-04-07,22:00,Macchiato,Small,7.46,2,Mobile Pay,45-54,0,14.92
+2024-04-08,00:00,Cappuccino,Medium,4.39,2,Mobile Pay,18-24,0,8.78
+2024-04-08,02:00,Cold Brew,Large,4.66,3,Mobile Pay,18-24,1,13.98
+2024-04-08,04:00,Frappe,Medium,5.74,1,Cash,18-24,1,5.74
+2024-04-08,06:00,Hot Chocolate,Large,4.02,2,Cash,45-54,1,8.04
+2024-04-08,08:00,Hot Chocolate,Large,7.2,1,Credit Card,35-44,1,7.2
+2024-04-08,10:00,Macchiato,Medium,3.41,1,Mobile Pay,35-44,1,3.41
+2024-04-08,12:00,Latte,Medium,4.81,1,Mobile Pay,45-54,1,4.81
+2024-04-08,14:00,Macchiato,Medium,5.01,2,Credit Card,35-44,1,10.02
+2024-04-08,16:00,Tea,Small,3.02,2,Cash,35-44,0,6.04
+2024-04-08,18:00,Cold Brew,Medium,6.35,2,Mobile Pay,25-34,1,12.7
+2024-04-08,20:00,Frappe,Medium,6.57,2,Mobile Pay,18-24,1,13.14
+2024-04-08,22:00,Frappe,Medium,5.81,1,Mobile Pay,45-54,0,5.81
+2024-04-09,00:00,Mocha,Medium,3.5,3,Cash,35-44,1,10.5
+2024-04-09,02:00,Espresso,Large,7.46,2,Credit Card,25-34,0,14.92
+2024-04-09,04:00,Latte,Large,2.92,3,Cash,35-44,0,8.76
+2024-04-09,06:00,Mocha,Small,5.71,3,Cash,35-44,1,17.13
+2024-04-09,08:00,Latte,Medium,4.2,3,Credit Card,25-34,1,12.6
+2024-04-09,10:00,Americano,Medium,3.37,2,Credit Card,18-24,1,6.74
+2024-04-09,12:00,Hot Chocolate,Medium,3.9,3,Cash,25-34,1,11.7
+2024-04-09,14:00,Americano,Small,3.47,3,Mobile Pay,18-24,0,10.41
+2024-04-09,16:00,Mocha,Small,2.81,3,Credit Card,25-34,1,8.43
+2024-04-09,18:00,Frappe,Large,6.73,3,Credit Card,45-54,1,20.19
+2024-04-09,20:00,Macchiato,Large,7.42,1,Mobile Pay,25-34,0,7.42
+2024-04-09,22:00,Tea,Large,6.62,3,Credit Card,55+,1,19.86
+2024-04-10,00:00,Cold Brew,Small,3.75,2,Credit Card,18-24,1,7.5
+2024-04-10,02:00,Hot Chocolate,Medium,5.71,1,Credit Card,55+,1,5.71
+2024-04-10,04:00,Mocha,Medium,3.95,1,Credit Card,18-24,1,3.95
+2024-04-10,06:00,Frappe,Small,6.2,1,Mobile Pay,25-34,0,6.2
+2024-04-10,08:00,Frappe,Medium,4.57,1,Credit Card,18-24,0,4.57
+2024-04-10,10:00,Americano,Small,5.22,1,Credit Card,18-24,1,5.22
+2024-04-10,12:00,Mocha,Large,2.55,1,Credit Card,25-34,1,2.55
+2024-04-10,14:00,Cold Brew,Small,3.23,1,Mobile Pay,25-34,1,3.23
+2024-04-10,16:00,Tea,Large,5.11,1,Credit Card,45-54,0,5.11
+2024-04-10,18:00,Mocha,Small,4.58,3,Credit Card,35-44,1,13.74
+2024-04-10,20:00,Espresso,Medium,3.75,2,Mobile Pay,45-54,1,7.5
+2024-04-10,22:00,Espresso,Small,5.49,1,Credit Card,25-34,0,5.49
+2024-04-11,00:00,Macchiato,Large,6.6,2,Credit Card,18-24,1,13.2
+2024-04-11,02:00,Espresso,Medium,7.18,3,Credit Card,45-54,0,21.54
+2024-04-11,04:00,Espresso,Medium,5.93,1,Credit Card,45-54,1,5.93
+2024-04-11,06:00,Latte,Small,4.11,2,Credit Card,18-24,1,8.22
+2024-04-11,08:00,Mocha,Medium,4.86,2,Cash,25-34,1,9.72
+2024-04-11,10:00,Hot Chocolate,Medium,3.37,3,Credit Card,25-34,1,10.11
+2024-04-11,12:00,Espresso,Medium,3.86,2,Credit Card,25-34,1,7.72
+2024-04-11,14:00,Latte,Medium,6.37,1,Credit Card,45-54,1,6.37
+2024-04-11,16:00,Cappuccino,Large,7.34,3,Mobile Pay,35-44,1,22.02
+2024-04-11,18:00,Macchiato,Medium,6.02,1,Mobile Pay,25-34,0,6.02
+2024-04-11,20:00,Macchiato,Medium,4.01,3,Credit Card,45-54,1,12.03
+2024-04-11,22:00,Hot Chocolate,Large,5.61,3,Cash,35-44,1,16.83
+2024-04-12,00:00,Cappuccino,Medium,7.05,2,Credit Card,55+,1,14.1
+2024-04-12,02:00,Frappe,Small,3.53,3,Cash,25-34,1,10.59
+2024-04-12,04:00,Americano,Medium,7.42,1,Credit Card,35-44,0,7.42
+2024-04-12,06:00,Mocha,Small,6.9,1,Mobile Pay,45-54,0,6.9
+2024-04-12,08:00,Mocha,Large,6.35,1,Credit Card,35-44,0,6.35
+2024-04-12,10:00,Mocha,Medium,3.44,1,Credit Card,18-24,1,3.44
+2024-04-12,12:00,Cold Brew,Small,3.66,3,Cash,25-34,1,10.98
+2024-04-12,14:00,Cold Brew,Medium,5.93,2,Mobile Pay,45-54,1,11.86
+2024-04-12,16:00,Cappuccino,Large,3.55,2,Cash,55+,1,7.1
+2024-04-12,18:00,Mocha,Medium,5.57,1,Credit Card,45-54,1,5.57
+2024-04-12,20:00,Espresso,Small,4.81,1,Mobile Pay,18-24,1,4.81
+2024-04-12,22:00,Macchiato,Medium,4.48,3,Mobile Pay,25-34,0,13.44
+2024-04-13,00:00,Espresso,Small,3.9,3,Credit Card,18-24,1,11.7
+2024-04-13,02:00,Americano,Medium,3.93,2,Credit Card,25-34,0,7.86
+2024-04-13,04:00,Tea,Medium,6.68,2,Credit Card,45-54,1,13.36
+2024-04-13,06:00,Hot Chocolate,Medium,3.68,2,Mobile Pay,45-54,0,7.36
+2024-04-13,08:00,Hot Chocolate,Small,6.9,2,Credit Card,25-34,0,13.8
+2024-04-13,10:00,Hot Chocolate,Medium,4.33,1,Credit Card,25-34,0,4.33
+2024-04-13,12:00,Macchiato,Medium,5.35,2,Credit Card,55+,1,10.7
+2024-04-13,14:00,Cappuccino,Medium,6.04,3,Credit Card,18-24,1,18.12
+2024-04-13,16:00,Latte,Small,3.27,2,Credit Card,45-54,1,6.54
+2024-04-13,18:00,Cold Brew,Small,7.3,3,Cash,18-24,1,21.9
+2024-04-13,20:00,Americano,Large,6.34,3,Mobile Pay,45-54,1,19.02
+2024-04-13,22:00,Espresso,Medium,6.03,2,Mobile Pay,55+,0,12.06
+2024-04-14,00:00,Espresso,Medium,7.1,2,Mobile Pay,25-34,0,14.2
+2024-04-14,02:00,Espresso,Medium,3.45,2,Mobile Pay,35-44,1,6.9
+2024-04-14,04:00,Hot Chocolate,Large,5.93,3,Mobile Pay,25-34,1,17.79
+2024-04-14,06:00,Latte,Small,4.13,2,Credit Card,35-44,0,8.26
+2024-04-14,08:00,Americano,Large,5.39,3,Mobile Pay,25-34,0,16.17
+2024-04-14,10:00,Americano,Large,6.91,3,Mobile Pay,25-34,0,20.73
+2024-04-14,12:00,Tea,Small,7.42,1,Cash,45-54,1,7.42
+2024-04-14,14:00,Espresso,Large,4.9,3,Mobile Pay,18-24,0,14.7
+2024-04-14,16:00,Frappe,Medium,4.65,2,Credit Card,25-34,1,9.3
+2024-04-14,18:00,Espresso,Large,2.97,1,Mobile Pay,25-34,0,2.97
+2024-04-14,20:00,Frappe,Small,2.63,1,Credit Card,18-24,1,2.63
+2024-04-14,22:00,Macchiato,Medium,3.15,3,Mobile Pay,25-34,1,9.45
+2024-04-15,00:00,Espresso,Medium,2.67,1,Credit Card,55+,0,2.67
+2024-04-15,02:00,Americano,Large,6.46,3,Mobile Pay,25-34,1,19.38
+2024-04-15,04:00,Hot Chocolate,Medium,3.87,1,Credit Card,55+,1,3.87
+2024-04-15,06:00,Latte,Medium,6.56,1,Mobile Pay,55+,1,6.56
+2024-04-15,08:00,Macchiato,Large,5.81,3,Credit Card,25-34,0,17.43
+2024-04-15,10:00,Cold Brew,Medium,7.46,3,Credit Card,35-44,1,22.38
+2024-04-15,12:00,Tea,Large,2.97,3,Cash,45-54,1,8.91
+2024-04-15,14:00,Espresso,Large,7.26,3,Credit Card,45-54,0,21.78
+2024-04-15,16:00,Americano,Medium,6.59,2,Credit Card,45-54,0,13.18
+2024-04-15,18:00,Tea,Medium,2.54,2,Credit Card,18-24,1,5.08
+2024-04-15,20:00,Macchiato,Large,5.04,2,Mobile Pay,45-54,1,10.08
+2024-04-15,22:00,Macchiato,Medium,2.91,3,Credit Card,35-44,0,8.73
+2024-04-16,00:00,Espresso,Large,3.24,1,Credit Card,25-34,1,3.24
+2024-04-16,02:00,Cold Brew,Small,4.64,1,Mobile Pay,45-54,0,4.64
+2024-04-16,04:00,Tea,Small,3.4,2,Mobile Pay,18-24,1,6.8
+2024-04-16,06:00,Frappe,Medium,6.98,3,Credit Card,55+,1,20.94
+2024-04-16,08:00,Hot Chocolate,Large,3.0,1,Credit Card,25-34,0,3.0
+2024-04-16,10:00,Latte,Small,5.44,3,Credit Card,45-54,1,16.32
+2024-04-16,12:00,Americano,Large,3.29,3,Mobile Pay,55+,0,9.87
+2024-04-16,14:00,Latte,Medium,5.49,3,Cash,35-44,1,16.47
+2024-04-16,16:00,Macchiato,Large,5.66,1,Cash,55+,0,5.66
+2024-04-16,18:00,Latte,Large,3.75,1,Credit Card,45-54,1,3.75
+2024-04-16,20:00,Tea,Large,6.97,2,Cash,45-54,0,13.94
+2024-04-16,22:00,Macchiato,Medium,6.42,2,Credit Card,25-34,0,12.84
+2024-04-17,00:00,Latte,Medium,4.96,3,Credit Card,18-24,0,14.88
+2024-04-17,02:00,Cappuccino,Small,6.66,2,Credit Card,55+,1,13.32
+2024-04-17,04:00,Tea,Large,3.66,2,Credit Card,25-34,0,7.32
+2024-04-17,06:00,Americano,Medium,5.61,1,Credit Card,55+,1,5.61
+2024-04-17,08:00,Tea,Small,2.97,1,Credit Card,18-24,1,2.97
+2024-04-17,10:00,Cappuccino,Small,5.07,2,Credit Card,18-24,0,10.14
+2024-04-17,12:00,Latte,Medium,4.21,2,Cash,35-44,1,8.42
+2024-04-17,14:00,Mocha,Medium,3.93,1,Credit Card,45-54,1,3.93
+2024-04-17,16:00,Tea,Large,6.07,2,Mobile Pay,25-34,1,12.14
+2024-04-17,18:00,Latte,Medium,5.17,1,Cash,35-44,1,5.17
+2024-04-17,20:00,Americano,Medium,3.36,1,Mobile Pay,45-54,0,3.36
+2024-04-17,22:00,Hot Chocolate,Medium,6.54,2,Mobile Pay,45-54,0,13.08
+2024-04-18,00:00,Americano,Medium,5.1,2,Credit Card,35-44,1,10.2
+2024-04-18,02:00,Cold Brew,Large,6.07,1,Credit Card,18-24,0,6.07
+2024-04-18,04:00,Hot Chocolate,Large,2.55,2,Mobile Pay,45-54,0,5.1
+2024-04-18,06:00,Latte,Small,6.07,1,Cash,45-54,1,6.07
+2024-04-18,08:00,Hot Chocolate,Large,6.77,3,Cash,55+,1,20.31
+2024-04-18,10:00,Espresso,Large,3.88,1,Credit Card,25-34,1,3.88
+2024-04-18,12:00,Americano,Medium,2.82,1,Cash,35-44,0,2.82
+2024-04-18,14:00,Cold Brew,Medium,3.55,1,Mobile Pay,18-24,0,3.55
+2024-04-18,16:00,Latte,Small,6.0,1,Cash,18-24,1,6.0
+2024-04-18,18:00,Hot Chocolate,Medium,5.01,1,Credit Card,25-34,0,5.01
+2024-04-18,20:00,Macchiato,Large,3.84,2,Credit Card,18-24,0,7.68
+2024-04-18,22:00,Latte,Medium,6.45,1,Credit Card,18-24,1,6.45
+2024-04-19,00:00,Mocha,Large,4.08,1,Cash,25-34,0,4.08
+2024-04-19,02:00,Macchiato,Small,3.54,2,Cash,35-44,1,7.08
+2024-04-19,04:00,Macchiato,Medium,2.96,2,Credit Card,18-24,1,5.92
+2024-04-19,06:00,Tea,Medium,7.38,1,Credit Card,25-34,0,7.38
+2024-04-19,08:00,Hot Chocolate,Large,5.43,3,Cash,35-44,1,16.29
+2024-04-19,10:00,Cappuccino,Medium,3.64,2,Mobile Pay,18-24,1,7.28
+2024-04-19,12:00,Americano,Medium,4.97,2,Mobile Pay,18-24,1,9.94
+2024-04-19,14:00,Americano,Large,2.59,1,Credit Card,55+,0,2.59
+2024-04-19,16:00,Latte,Medium,5.28,3,Mobile Pay,45-54,1,15.84
+2024-04-19,18:00,Macchiato,Large,6.9,1,Cash,55+,1,6.9
+2024-04-19,20:00,Cold Brew,Small,6.08,1,Mobile Pay,18-24,0,6.08
+2024-04-19,22:00,Espresso,Medium,7.39,2,Cash,45-54,1,14.78
+2024-04-20,00:00,Tea,Medium,5.4,2,Cash,25-34,1,10.8
+2024-04-20,02:00,Americano,Medium,2.71,3,Mobile Pay,35-44,1,8.13
+2024-04-20,04:00,Hot Chocolate,Small,6.71,3,Mobile Pay,45-54,0,20.13
+2024-04-20,06:00,Americano,Medium,2.69,3,Mobile Pay,45-54,0,8.07
+2024-04-20,08:00,Tea,Large,3.68,1,Mobile Pay,55+,1,3.68
+2024-04-20,10:00,Espresso,Medium,5.25,1,Credit Card,18-24,1,5.25
+2024-04-20,12:00,Cappuccino,Large,5.78,2,Credit Card,35-44,1,11.56
+2024-04-20,14:00,Latte,Small,7.49,2,Credit Card,55+,1,14.98
+2024-04-20,16:00,Mocha,Medium,6.57,3,Mobile Pay,35-44,1,19.71
+2024-04-20,18:00,Mocha,Medium,3.17,2,Credit Card,35-44,0,6.34
+2024-04-20,20:00,Cappuccino,Large,5.82,1,Credit Card,35-44,1,5.82
+2024-04-20,22:00,Frappe,Medium,2.95,1,Cash,45-54,1,2.95
+2024-04-21,00:00,Mocha,Medium,5.52,3,Mobile Pay,45-54,1,16.56
+2024-04-21,02:00,Macchiato,Medium,5.14,1,Credit Card,45-54,0,5.14
+2024-04-21,04:00,Cold Brew,Medium,3.53,1,Credit Card,18-24,1,3.53
+2024-04-21,06:00,Cappuccino,Medium,7.05,1,Credit Card,25-34,1,7.05
+2024-04-21,08:00,Latte,Small,4.5,1,Credit Card,45-54,1,4.5
+2024-04-21,10:00,Tea,Medium,5.73,1,Cash,55+,1,5.73
+2024-04-21,12:00,Macchiato,Medium,6.61,1,Credit Card,35-44,1,6.61
+2024-04-21,14:00,Cappuccino,Small,5.94,2,Cash,55+,0,11.88
+2024-04-21,16:00,Frappe,Large,5.2,3,Credit Card,25-34,1,15.6
+2024-04-21,18:00,Mocha,Medium,7.25,2,Credit Card,45-54,0,14.5
+2024-04-21,20:00,Espresso,Medium,4.14,1,Credit Card,55+,1,4.14
+2024-04-21,22:00,Latte,Medium,3.18,3,Credit Card,18-24,0,9.54
+2024-04-22,00:00,Mocha,Medium,6.61,3,Mobile Pay,25-34,1,19.83
+2024-04-22,02:00,Mocha,Large,5.29,3,Cash,18-24,1,15.87
+2024-04-22,04:00,Mocha,Medium,7.4,2,Cash,35-44,1,14.8
+2024-04-22,06:00,Latte,Small,5.25,1,Cash,35-44,1,5.25
+2024-04-22,08:00,Latte,Medium,5.93,3,Credit Card,55+,1,17.79
+2024-04-22,10:00,Macchiato,Medium,3.23,2,Mobile Pay,25-34,1,6.46
+2024-04-22,12:00,Mocha,Medium,3.23,2,Mobile Pay,25-34,1,6.46
+2024-04-22,14:00,Macchiato,Medium,4.64,2,Credit Card,35-44,0,9.28
+2024-04-22,16:00,Tea,Small,3.77,3,Credit Card,45-54,0,11.31
+2024-04-22,18:00,Latte,Large,7.26,2,Cash,18-24,0,14.52
+2024-04-22,20:00,Tea,Small,4.64,3,Mobile Pay,35-44,0,13.92
+2024-04-22,22:00,Hot Chocolate,Medium,7.15,3,Mobile Pay,45-54,0,21.45
+2024-04-23,00:00,Cappuccino,Medium,3.15,3,Mobile Pay,35-44,1,9.45
+2024-04-23,02:00,Mocha,Large,7.47,1,Mobile Pay,35-44,0,7.47
+2024-04-23,04:00,Macchiato,Medium,3.99,1,Cash,55+,0,3.99
+2024-04-23,06:00,Cappuccino,Large,5.61,2,Cash,55+,0,11.22
+2024-04-23,08:00,Macchiato,Large,5.42,2,Cash,55+,0,10.84
+2024-04-23,10:00,Frappe,Medium,7.48,1,Mobile Pay,18-24,1,7.48
+2024-04-23,12:00,Mocha,Medium,6.68,3,Credit Card,25-34,1,20.04
+2024-04-23,14:00,Hot Chocolate,Medium,3.49,1,Credit Card,45-54,0,3.49
+2024-04-23,16:00,Americano,Medium,5.28,2,Mobile Pay,55+,1,10.56
+2024-04-23,18:00,Espresso,Large,3.52,1,Mobile Pay,18-24,0,3.52
+2024-04-23,20:00,Americano,Medium,4.82,3,Mobile Pay,18-24,1,14.46
+2024-04-23,22:00,Tea,Medium,3.49,1,Mobile Pay,18-24,0,3.49
+2024-04-24,00:00,Hot Chocolate,Small,5.43,3,Credit Card,25-34,1,16.29
+2024-04-24,02:00,Latte,Medium,6.59,3,Mobile Pay,35-44,1,19.77
+2024-04-24,04:00,Americano,Small,2.69,2,Credit Card,45-54,1,5.38
+2024-04-24,06:00,Mocha,Large,6.59,3,Mobile Pay,55+,0,19.77
+2024-04-24,08:00,Tea,Large,3.28,3,Mobile Pay,45-54,1,9.84
+2024-04-24,10:00,Espresso,Small,6.14,2,Credit Card,25-34,1,12.28
+2024-04-24,12:00,Macchiato,Large,7.15,3,Mobile Pay,35-44,0,21.45
+2024-04-24,14:00,Cappuccino,Medium,4.85,2,Credit Card,18-24,0,9.7
+2024-04-24,16:00,Tea,Medium,3.17,3,Mobile Pay,35-44,1,9.51
+2024-04-24,18:00,Americano,Medium,5.63,2,Mobile Pay,55+,1,11.26
+2024-04-24,20:00,Hot Chocolate,Small,2.76,3,Mobile Pay,55+,0,8.28
+2024-04-24,22:00,Macchiato,Small,6.69,3,Mobile Pay,25-34,0,20.07
+2024-04-25,00:00,Macchiato,Small,2.8,3,Credit Card,18-24,0,8.4
+2024-04-25,02:00,Tea,Large,2.7,1,Credit Card,25-34,1,2.7
+2024-04-25,04:00,Espresso,Medium,2.93,2,Credit Card,35-44,1,5.86
+2024-04-25,06:00,Frappe,Medium,6.36,2,Credit Card,25-34,0,12.72
+2024-04-25,08:00,Latte,Medium,7.0,3,Mobile Pay,45-54,1,21.0
+2024-04-25,10:00,Macchiato,Large,6.7,1,Cash,45-54,1,6.7
+2024-04-25,12:00,Americano,Medium,3.84,1,Credit Card,25-34,1,3.84
+2024-04-25,14:00,Tea,Large,3.57,1,Cash,25-34,0,3.57
+2024-04-25,16:00,Mocha,Medium,7.31,3,Credit Card,35-44,0,21.93
+2024-04-25,18:00,Cold Brew,Large,4.98,2,Credit Card,25-34,1,9.96
+2024-04-25,20:00,Latte,Small,7.07,2,Cash,25-34,0,14.14
+2024-04-25,22:00,Frappe,Small,6.58,1,Mobile Pay,35-44,0,6.58
+2024-04-26,00:00,Cold Brew,Large,6.31,2,Credit Card,45-54,0,12.62
+2024-04-26,02:00,Tea,Medium,6.96,2,Credit Card,25-34,1,13.92
+2024-04-26,04:00,Cappuccino,Large,5.02,3,Cash,18-24,1,15.06
+2024-04-26,06:00,Mocha,Small,6.43,3,Credit Card,35-44,1,19.29
+2024-04-26,08:00,Tea,Large,3.32,3,Credit Card,45-54,1,9.96
+2024-04-26,10:00,Frappe,Small,2.91,3,Cash,25-34,1,8.73
+2024-04-26,12:00,Latte,Medium,6.61,3,Mobile Pay,55+,0,19.83
+2024-04-26,14:00,Hot Chocolate,Large,4.92,3,Mobile Pay,25-34,0,14.76
+2024-04-26,16:00,Mocha,Medium,5.93,3,Credit Card,45-54,0,17.79
+2024-04-26,18:00,Macchiato,Small,2.9,2,Credit Card,18-24,1,5.8
+2024-04-26,20:00,Macchiato,Large,4.92,2,Credit Card,45-54,1,9.84
+2024-04-26,22:00,Cappuccino,Small,7.02,3,Mobile Pay,18-24,0,21.06
+2024-04-27,00:00,Espresso,Small,6.44,2,Credit Card,55+,0,12.88
+2024-04-27,02:00,Espresso,Large,4.66,2,Cash,25-34,0,9.32
+2024-04-27,04:00,Americano,Large,4.35,1,Mobile Pay,35-44,1,4.35
+2024-04-27,06:00,Mocha,Medium,3.74,2,Credit Card,18-24,1,7.48
+2024-04-27,08:00,Macchiato,Small,4.72,2,Credit Card,25-34,0,9.44
+2024-04-27,10:00,Mocha,Large,6.97,1,Credit Card,35-44,1,6.97
+2024-04-27,12:00,Cappuccino,Small,4.35,1,Cash,35-44,1,4.35
+2024-04-27,14:00,Latte,Medium,6.3,2,Mobile Pay,55+,0,12.6
+2024-04-27,16:00,Frappe,Large,5.03,1,Credit Card,35-44,1,5.03
+2024-04-27,18:00,Cappuccino,Medium,3.12,3,Credit Card,18-24,1,9.36
+2024-04-27,20:00,Tea,Large,7.2,3,Credit Card,35-44,0,21.6
+2024-04-27,22:00,Mocha,Medium,4.38,3,Credit Card,25-34,0,13.14
+2024-04-28,00:00,Macchiato,Small,4.74,3,Credit Card,45-54,0,14.22
+2024-04-28,02:00,Mocha,Medium,4.31,2,Credit Card,18-24,0,8.62
+2024-04-28,04:00,Tea,Small,3.08,1,Mobile Pay,45-54,1,3.08
+2024-04-28,06:00,Macchiato,Large,4.77,3,Credit Card,25-34,1,14.31
+2024-04-28,08:00,Hot Chocolate,Medium,6.77,2,Mobile Pay,45-54,1,13.54
+2024-04-28,10:00,Espresso,Large,6.78,2,Credit Card,25-34,1,13.56
+2024-04-28,12:00,Hot Chocolate,Large,3.65,3,Credit Card,55+,1,10.95
+2024-04-28,14:00,Cappuccino,Medium,3.28,1,Credit Card,18-24,1,3.28
+2024-04-28,16:00,Tea,Small,6.08,2,Credit Card,35-44,0,12.16
+2024-04-28,18:00,Cappuccino,Large,6.87,1,Cash,45-54,0,6.87
+2024-04-28,20:00,Latte,Medium,4.77,1,Credit Card,25-34,1,4.77
+2024-04-28,22:00,Cappuccino,Medium,2.68,1,Credit Card,18-24,1,2.68
+2024-04-29,00:00,Tea,Medium,3.94,2,Cash,18-24,1,7.88
+2024-04-29,02:00,Latte,Small,6.86,3,Cash,35-44,1,20.58
+2024-04-29,04:00,Macchiato,Small,4.75,1,Mobile Pay,45-54,1,4.75
+2024-04-29,06:00,Frappe,Medium,6.17,1,Credit Card,18-24,1,6.17
+2024-04-29,08:00,Macchiato,Medium,4.62,2,Credit Card,45-54,0,9.24
+2024-04-29,10:00,Espresso,Medium,5.2,1,Credit Card,25-34,0,5.2
+2024-04-29,12:00,Latte,Small,5.55,1,Mobile Pay,45-54,1,5.55
+2024-04-29,14:00,Cold Brew,Small,6.84,1,Credit Card,55+,1,6.84
+2024-04-29,16:00,Mocha,Medium,5.29,2,Credit Card,25-34,0,10.58
+2024-04-29,18:00,Tea,Medium,2.8,2,Cash,25-34,0,5.6
+2024-04-29,20:00,Americano,Small,5.11,2,Mobile Pay,18-24,0,10.22
+2024-04-29,22:00,Frappe,Medium,6.99,3,Credit Card,55+,0,20.97
+2024-04-30,00:00,Hot Chocolate,Large,4.27,1,Mobile Pay,45-54,1,4.27
+2024-04-30,02:00,Cappuccino,Medium,2.92,1,Credit Card,55+,1,2.92
+2024-04-30,04:00,Espresso,Medium,7.22,2,Cash,55+,1,14.44
+2024-04-30,06:00,Latte,Small,4.36,1,Cash,35-44,0,4.36
+2024-04-30,08:00,Mocha,Medium,5.43,2,Credit Card,18-24,0,10.86
+2024-04-30,10:00,Espresso,Large,3.87,1,Cash,35-44,0,3.87
+2024-04-30,12:00,Tea,Small,7.03,3,Mobile Pay,45-54,1,21.09
+2024-04-30,14:00,Frappe,Medium,3.08,1,Cash,55+,0,3.08
+2024-04-30,16:00,Frappe,Medium,6.29,1,Cash,45-54,1,6.29
+2024-04-30,18:00,Hot Chocolate,Large,3.5,2,Credit Card,18-24,0,7.0
+2024-04-30,20:00,Espresso,Medium,4.98,2,Credit Card,55+,1,9.96
+2024-04-30,22:00,Latte,Small,6.8,1,Mobile Pay,25-34,0,6.8
+2024-05-01,00:00,Cold Brew,Small,7.29,3,Credit Card,35-44,1,21.87
+2024-05-01,02:00,Cold Brew,Small,4.27,1,Credit Card,25-34,0,4.27
+2024-05-01,04:00,Cappuccino,Medium,6.37,3,Credit Card,35-44,1,19.11
+2024-05-01,06:00,Latte,Large,4.76,3,Credit Card,35-44,1,14.28
+2024-05-01,08:00,Mocha,Large,4.48,1,Cash,45-54,0,4.48
+2024-05-01,10:00,Tea,Medium,3.01,2,Mobile Pay,55+,0,6.02
+2024-05-01,12:00,Macchiato,Medium,3.61,3,Credit Card,55+,1,10.83
+2024-05-01,14:00,Hot Chocolate,Small,3.89,2,Mobile Pay,55+,0,7.78
+2024-05-01,16:00,Latte,Small,4.45,2,Credit Card,55+,1,8.9
+2024-05-01,18:00,Tea,Small,6.91,2,Credit Card,35-44,1,13.82
+2024-05-01,20:00,Americano,Large,5.89,1,Mobile Pay,55+,1,5.89
+2024-05-01,22:00,Tea,Large,3.9,3,Credit Card,55+,0,11.7
+2024-05-02,00:00,Espresso,Large,6.76,1,Cash,55+,1,6.76
+2024-05-02,02:00,Hot Chocolate,Medium,5.91,1,Credit Card,45-54,1,5.91
+2024-05-02,04:00,Tea,Medium,7.15,2,Credit Card,35-44,1,14.3
+2024-05-02,06:00,Tea,Small,3.37,3,Cash,35-44,0,10.11
+2024-05-02,08:00,Espresso,Medium,6.34,2,Credit Card,55+,1,12.68
+2024-05-02,10:00,Americano,Large,4.44,2,Cash,25-34,1,8.88
+2024-05-02,12:00,Cold Brew,Small,4.42,2,Credit Card,55+,0,8.84
+2024-05-02,14:00,Cappuccino,Medium,7.02,2,Credit Card,18-24,1,14.04
+2024-05-02,16:00,Frappe,Large,4.8,1,Mobile Pay,25-34,1,4.8
+2024-05-02,18:00,Espresso,Large,7.21,3,Credit Card,45-54,0,21.63
+2024-05-02,20:00,Americano,Medium,6.6,1,Credit Card,45-54,1,6.6
+2024-05-02,22:00,Frappe,Medium,2.78,1,Mobile Pay,18-24,1,2.78
+2024-05-03,00:00,Tea,Medium,2.59,1,Credit Card,18-24,0,2.59
+2024-05-03,02:00,Hot Chocolate,Medium,7.26,1,Credit Card,45-54,0,7.26
+2024-05-03,04:00,Frappe,Medium,4.47,2,Cash,45-54,0,8.94
+2024-05-03,06:00,Mocha,Small,7.46,1,Credit Card,35-44,1,7.46
+2024-05-03,08:00,Americano,Small,5.56,2,Mobile Pay,45-54,1,11.12
+2024-05-03,10:00,Tea,Medium,6.76,1,Credit Card,55+,0,6.76
+2024-05-03,12:00,Cold Brew,Medium,5.55,1,Credit Card,45-54,1,5.55
+2024-05-03,14:00,Americano,Large,4.15,2,Credit Card,35-44,1,8.3
+2024-05-03,16:00,Latte,Small,2.58,1,Cash,18-24,0,2.58
+2024-05-03,18:00,Frappe,Medium,4.03,3,Mobile Pay,55+,1,12.09
+2024-05-03,20:00,Americano,Medium,4.05,2,Mobile Pay,35-44,1,8.1
+2024-05-03,22:00,Tea,Large,6.86,1,Credit Card,18-24,1,6.86
+2024-05-04,00:00,Cappuccino,Small,2.75,1,Credit Card,35-44,1,2.75
+2024-05-04,02:00,Mocha,Medium,7.02,3,Cash,18-24,1,21.06
+2024-05-04,04:00,Hot Chocolate,Large,6.1,1,Mobile Pay,45-54,0,6.1
+2024-05-04,06:00,Americano,Medium,4.07,1,Cash,18-24,0,4.07
+2024-05-04,08:00,Cold Brew,Medium,5.87,3,Credit Card,45-54,0,17.61
+2024-05-04,10:00,Mocha,Medium,4.64,3,Credit Card,55+,0,13.92
+2024-05-04,12:00,Espresso,Large,7.31,2,Cash,25-34,0,14.62
+2024-05-04,14:00,Frappe,Large,2.64,1,Mobile Pay,18-24,0,2.64
+2024-05-04,16:00,Espresso,Large,3.22,2,Credit Card,55+,1,6.44
+2024-05-04,18:00,Cappuccino,Medium,5.91,1,Mobile Pay,18-24,1,5.91
+2024-05-04,20:00,Latte,Small,7.24,3,Credit Card,18-24,0,21.72
+2024-05-04,22:00,Cold Brew,Small,6.6,2,Mobile Pay,35-44,0,13.2
+2024-05-05,00:00,Cold Brew,Medium,4.24,3,Mobile Pay,35-44,1,12.72
+2024-05-05,02:00,Cold Brew,Medium,4.01,1,Mobile Pay,18-24,1,4.01
+2024-05-05,04:00,Americano,Large,3.21,2,Mobile Pay,18-24,1,6.42
+2024-05-05,06:00,Cold Brew,Medium,4.9,2,Credit Card,55+,0,9.8
+2024-05-05,08:00,Mocha,Large,7.31,2,Mobile Pay,25-34,0,14.62
+2024-05-05,10:00,Cappuccino,Medium,2.91,2,Mobile Pay,45-54,1,5.82
+2024-05-05,12:00,Macchiato,Large,6.87,3,Cash,18-24,0,20.61
+2024-05-05,14:00,Cappuccino,Small,3.61,2,Cash,18-24,0,7.22
+2024-05-05,16:00,Cold Brew,Large,2.67,2,Cash,45-54,0,5.34
+2024-05-05,18:00,Latte,Small,2.51,1,Credit Card,35-44,1,2.51
+2024-05-05,20:00,Frappe,Large,7.08,2,Cash,18-24,0,14.16
+2024-05-05,22:00,Cold Brew,Medium,4.81,2,Mobile Pay,35-44,1,9.62
+2024-05-06,00:00,Frappe,Large,5.51,1,Mobile Pay,18-24,1,5.51
+2024-05-06,02:00,Latte,Large,7.36,1,Credit Card,35-44,1,7.36
+2024-05-06,04:00,Americano,Large,4.82,3,Mobile Pay,25-34,1,14.46
+2024-05-06,06:00,Espresso,Medium,4.36,1,Credit Card,45-54,1,4.36
+2024-05-06,08:00,Mocha,Large,4.54,2,Mobile Pay,25-34,1,9.08
+2024-05-06,10:00,Mocha,Medium,6.39,1,Credit Card,25-34,1,6.39
+2024-05-06,12:00,Frappe,Large,2.98,1,Credit Card,18-24,1,2.98
+2024-05-06,14:00,Cappuccino,Medium,6.2,1,Credit Card,35-44,0,6.2
+2024-05-06,16:00,Mocha,Large,4.76,1,Cash,25-34,0,4.76
+2024-05-06,18:00,Cappuccino,Large,3.24,3,Mobile Pay,45-54,1,9.72
+2024-05-06,20:00,Latte,Medium,3.64,3,Mobile Pay,18-24,0,10.92
+2024-05-06,22:00,Hot Chocolate,Small,4.69,3,Mobile Pay,45-54,0,14.07
+2024-05-07,00:00,Cappuccino,Large,7.25,1,Mobile Pay,55+,1,7.25
+2024-05-07,02:00,Americano,Medium,7.36,2,Credit Card,18-24,0,14.72
+2024-05-07,04:00,Espresso,Medium,4.98,1,Credit Card,55+,1,4.98
+2024-05-07,06:00,Mocha,Medium,3.13,3,Credit Card,55+,0,9.39
+2024-05-07,08:00,Cold Brew,Medium,7.23,2,Credit Card,25-34,0,14.46
+2024-05-07,10:00,Hot Chocolate,Medium,6.18,1,Credit Card,45-54,1,6.18
+2024-05-07,12:00,Espresso,Medium,6.18,2,Credit Card,35-44,1,12.36
+2024-05-07,14:00,Cappuccino,Small,2.67,3,Mobile Pay,45-54,1,8.01
+2024-05-07,16:00,Tea,Large,5.8,1,Credit Card,35-44,1,5.8
+2024-05-07,18:00,Frappe,Small,3.55,3,Credit Card,45-54,0,10.65
+2024-05-07,20:00,Hot Chocolate,Small,7.3,2,Cash,35-44,1,14.6
+2024-05-07,22:00,Cold Brew,Small,2.59,2,Credit Card,25-34,0,5.18
+2024-05-08,00:00,Tea,Large,6.79,2,Credit Card,55+,0,13.58
+2024-05-08,02:00,Hot Chocolate,Small,5.23,2,Credit Card,45-54,1,10.46
+2024-05-08,04:00,Hot Chocolate,Large,5.21,3,Cash,25-34,1,15.63
+2024-05-08,06:00,Cappuccino,Medium,6.97,3,Credit Card,55+,1,20.91
+2024-05-08,08:00,Latte,Small,2.54,3,Cash,18-24,1,7.62
+2024-05-08,10:00,Tea,Small,7.37,3,Mobile Pay,55+,1,22.11
+2024-05-08,12:00,Espresso,Medium,3.44,2,Mobile Pay,18-24,0,6.88
+2024-05-08,14:00,Cold Brew,Small,3.04,3,Credit Card,35-44,1,9.12
+2024-05-08,16:00,Cappuccino,Small,3.89,1,Mobile Pay,18-24,0,3.89
+2024-05-08,18:00,Tea,Small,5.32,3,Credit Card,45-54,0,15.96
+2024-05-08,20:00,Latte,Large,3.39,2,Mobile Pay,25-34,1,6.78
+2024-05-08,22:00,Cold Brew,Medium,3.94,3,Cash,55+,1,11.82
+2024-05-09,00:00,Cappuccino,Medium,5.59,3,Credit Card,45-54,0,16.77
+2024-05-09,02:00,Cold Brew,Large,3.84,3,Mobile Pay,35-44,1,11.52
+2024-05-09,04:00,Tea,Medium,5.29,3,Cash,35-44,0,15.87
+2024-05-09,06:00,Mocha,Medium,3.95,1,Credit Card,18-24,1,3.95
+2024-05-09,08:00,Latte,Medium,4.97,2,Mobile Pay,45-54,0,9.94
+2024-05-09,10:00,Frappe,Large,4.57,1,Credit Card,45-54,1,4.57
+2024-05-09,12:00,Hot Chocolate,Medium,4.15,3,Mobile Pay,18-24,1,12.45
+2024-05-09,14:00,Hot Chocolate,Small,3.5,1,Mobile Pay,45-54,1,3.5
+2024-05-09,16:00,Espresso,Large,4.28,1,Mobile Pay,35-44,1,4.28
+2024-05-09,18:00,Latte,Medium,6.65,2,Mobile Pay,45-54,0,13.3
+2024-05-09,20:00,Hot Chocolate,Large,5.64,2,Mobile Pay,25-34,1,11.28
+2024-05-09,22:00,Mocha,Small,2.89,3,Mobile Pay,25-34,1,8.67
+2024-05-10,00:00,Cold Brew,Large,5.57,1,Credit Card,55+,0,5.57
+2024-05-10,02:00,Cappuccino,Small,3.8,2,Credit Card,35-44,1,7.6
+2024-05-10,04:00,Latte,Small,3.96,2,Mobile Pay,18-24,1,7.92
+2024-05-10,06:00,Espresso,Large,2.53,1,Mobile Pay,45-54,0,2.53
+2024-05-10,08:00,Hot Chocolate,Medium,3.35,1,Credit Card,35-44,1,3.35
+2024-05-10,10:00,Cappuccino,Medium,7.37,3,Credit Card,18-24,1,22.11
+2024-05-10,12:00,Tea,Small,2.7,2,Mobile Pay,25-34,1,5.4
+2024-05-10,14:00,Americano,Medium,3.87,3,Credit Card,35-44,0,11.61
+2024-05-10,16:00,Macchiato,Medium,6.31,2,Cash,55+,1,12.62
+2024-05-10,18:00,Macchiato,Small,5.54,2,Cash,55+,1,11.08
+2024-05-10,20:00,Frappe,Small,5.14,1,Mobile Pay,18-24,0,5.14
+2024-05-10,22:00,Americano,Medium,5.95,3,Mobile Pay,35-44,1,17.85
+2024-05-11,00:00,Macchiato,Medium,6.59,2,Cash,55+,1,13.18
+2024-05-11,02:00,Frappe,Medium,3.13,2,Credit Card,55+,1,6.26
+2024-05-11,04:00,Tea,Large,5.86,3,Credit Card,55+,0,17.58
+2024-05-11,06:00,Macchiato,Small,4.76,1,Mobile Pay,35-44,0,4.76
+2024-05-11,08:00,Latte,Medium,3.33,3,Cash,55+,0,9.99
+2024-05-11,10:00,Espresso,Medium,5.73,2,Mobile Pay,55+,1,11.46
+2024-05-11,12:00,Cold Brew,Large,4.62,3,Cash,35-44,1,13.86
+2024-05-11,14:00,Mocha,Medium,7.04,1,Credit Card,45-54,0,7.04
+2024-05-11,16:00,Cappuccino,Medium,3.54,1,Cash,45-54,1,3.54
+2024-05-11,18:00,Cold Brew,Small,7.47,2,Mobile Pay,18-24,1,14.94
+2024-05-11,20:00,Cappuccino,Medium,2.87,1,Mobile Pay,25-34,0,2.87
+2024-05-11,22:00,Hot Chocolate,Large,6.25,1,Credit Card,45-54,1,6.25
+2024-05-12,00:00,Americano,Small,5.94,2,Mobile Pay,55+,0,11.88
+2024-05-12,02:00,Cold Brew,Large,7.1,3,Mobile Pay,55+,1,21.3
+2024-05-12,04:00,Cold Brew,Large,2.6,3,Cash,35-44,1,7.8
+2024-05-12,06:00,Tea,Large,2.79,3,Mobile Pay,55+,1,8.37
+2024-05-12,08:00,Cappuccino,Medium,5.57,1,Cash,45-54,1,5.57
+2024-05-12,10:00,Frappe,Small,6.04,3,Credit Card,35-44,1,18.12
+2024-05-12,12:00,Tea,Small,5.06,3,Credit Card,35-44,1,15.18
+2024-05-12,14:00,Americano,Medium,3.89,3,Credit Card,18-24,1,11.67
+2024-05-12,16:00,Frappe,Small,6.62,2,Cash,45-54,0,13.24
+2024-05-12,18:00,Latte,Medium,5.54,3,Mobile Pay,18-24,0,16.62
+2024-05-12,20:00,Hot Chocolate,Small,5.49,3,Mobile Pay,25-34,0,16.47
+2024-05-12,22:00,Cold Brew,Large,4.06,3,Cash,18-24,0,12.18
+2024-05-13,00:00,Espresso,Large,6.54,3,Credit Card,18-24,0,19.62
+2024-05-13,02:00,Cappuccino,Large,5.36,2,Credit Card,25-34,1,10.72
+2024-05-13,04:00,Espresso,Large,2.64,3,Credit Card,25-34,1,7.92
+2024-05-13,06:00,Mocha,Medium,6.29,1,Credit Card,45-54,0,6.29
+2024-05-13,08:00,Mocha,Medium,6.27,3,Mobile Pay,35-44,0,18.81
+2024-05-13,10:00,Hot Chocolate,Small,3.85,1,Credit Card,35-44,1,3.85
+2024-05-13,12:00,Tea,Large,2.7,1,Credit Card,25-34,0,2.7
+2024-05-13,14:00,Hot Chocolate,Large,4.73,1,Mobile Pay,25-34,1,4.73
+2024-05-13,16:00,Tea,Medium,4.45,3,Credit Card,35-44,0,13.35
+2024-05-13,18:00,Hot Chocolate,Small,5.48,2,Cash,25-34,0,10.96
+2024-05-13,20:00,Frappe,Large,5.14,2,Cash,55+,0,10.28
+2024-05-13,22:00,Cappuccino,Large,4.21,2,Mobile Pay,18-24,1,8.42
+2024-05-14,00:00,Mocha,Medium,3.45,2,Credit Card,55+,1,6.9
+2024-05-14,02:00,Americano,Large,3.82,3,Mobile Pay,45-54,0,11.46
+2024-05-14,04:00,Mocha,Small,5.05,2,Credit Card,45-54,1,10.1
+2024-05-14,06:00,Mocha,Large,5.84,3,Mobile Pay,45-54,1,17.52
+2024-05-14,08:00,Tea,Large,6.95,2,Credit Card,55+,1,13.9
+2024-05-14,10:00,Cold Brew,Medium,5.97,3,Credit Card,25-34,1,17.91
+2024-05-14,12:00,Tea,Small,4.58,1,Credit Card,18-24,1,4.58
+2024-05-14,14:00,Cold Brew,Medium,7.17,3,Mobile Pay,25-34,1,21.51
+2024-05-14,16:00,Latte,Medium,3.5,2,Credit Card,55+,1,7.0
+2024-05-14,18:00,Frappe,Medium,2.52,1,Credit Card,25-34,1,2.52
+2024-05-14,20:00,Cappuccino,Medium,5.56,1,Mobile Pay,45-54,1,5.56
+2024-05-14,22:00,Cold Brew,Medium,2.78,1,Credit Card,35-44,1,2.78
+2024-05-15,00:00,Cappuccino,Small,6.74,3,Mobile Pay,35-44,1,20.22
+2024-05-15,02:00,Tea,Large,5.48,2,Credit Card,45-54,0,10.96
+2024-05-15,04:00,Latte,Large,5.82,3,Credit Card,35-44,1,17.46
+2024-05-15,06:00,Espresso,Medium,2.7,2,Credit Card,55+,0,5.4
+2024-05-15,08:00,Cold Brew,Medium,7.3,2,Cash,55+,1,14.6
+2024-05-15,10:00,Cappuccino,Small,5.02,1,Cash,45-54,0,5.02
+2024-05-15,12:00,Cappuccino,Medium,3.81,3,Cash,45-54,1,11.43
+2024-05-15,14:00,Mocha,Large,3.79,1,Cash,45-54,1,3.79
+2024-05-15,16:00,Mocha,Small,6.75,2,Cash,25-34,1,13.5
+2024-05-15,18:00,Hot Chocolate,Large,6.5,1,Credit Card,35-44,1,6.5
+2024-05-15,20:00,Tea,Large,4.62,1,Mobile Pay,18-24,0,4.62
+2024-05-15,22:00,Hot Chocolate,Large,5.86,1,Cash,45-54,1,5.86
+2024-05-16,00:00,Americano,Small,6.56,2,Mobile Pay,25-34,0,13.12
+2024-05-16,02:00,Mocha,Large,4.13,3,Mobile Pay,18-24,1,12.39
+2024-05-16,04:00,Espresso,Large,7.18,3,Mobile Pay,35-44,1,21.54
+2024-05-16,06:00,Macchiato,Medium,3.66,3,Credit Card,35-44,0,10.98
+2024-05-16,08:00,Tea,Medium,4.48,1,Mobile Pay,25-34,1,4.48
+2024-05-16,10:00,Hot Chocolate,Small,6.2,3,Credit Card,35-44,1,18.6
+2024-05-16,12:00,Americano,Medium,4.94,2,Credit Card,45-54,0,9.88
+2024-05-16,14:00,Frappe,Small,5.62,3,Credit Card,18-24,1,16.86
+2024-05-16,16:00,Frappe,Medium,6.32,1,Mobile Pay,25-34,0,6.32
+2024-05-16,18:00,Americano,Small,7.02,1,Credit Card,25-34,0,7.02
+2024-05-16,20:00,Macchiato,Medium,4.69,1,Credit Card,45-54,1,4.69
+2024-05-16,22:00,Espresso,Medium,3.27,3,Mobile Pay,35-44,0,9.81
+2024-05-17,00:00,Americano,Medium,3.67,1,Mobile Pay,35-44,1,3.67
+2024-05-17,02:00,Cappuccino,Small,4.36,2,Credit Card,55+,0,8.72
+2024-05-17,04:00,Frappe,Medium,7.34,2,Credit Card,35-44,1,14.68
+2024-05-17,06:00,Espresso,Large,5.23,1,Cash,45-54,0,5.23
+2024-05-17,08:00,Cold Brew,Small,4.02,3,Mobile Pay,35-44,0,12.06
+2024-05-17,10:00,Tea,Small,4.23,1,Cash,25-34,0,4.23
+2024-05-17,12:00,Latte,Large,6.4,2,Credit Card,25-34,1,12.8
+2024-05-17,14:00,Hot Chocolate,Medium,5.87,3,Credit Card,45-54,1,17.61
+2024-05-17,16:00,Latte,Medium,6.61,3,Credit Card,25-34,0,19.83
+2024-05-17,18:00,Americano,Small,7.19,2,Mobile Pay,55+,1,14.38
+2024-05-17,20:00,Cappuccino,Small,2.55,2,Credit Card,55+,0,5.1
+2024-05-17,22:00,Frappe,Large,3.04,1,Mobile Pay,45-54,1,3.04
+2024-05-18,00:00,Frappe,Small,3.11,1,Mobile Pay,25-34,1,3.11
+2024-05-18,02:00,Latte,Small,3.63,3,Credit Card,25-34,1,10.89
+2024-05-18,04:00,Hot Chocolate,Large,3.47,1,Mobile Pay,35-44,1,3.47
+2024-05-18,06:00,Hot Chocolate,Large,6.35,2,Credit Card,45-54,1,12.7
+2024-05-18,08:00,Frappe,Small,4.8,3,Cash,35-44,0,14.4
+2024-05-18,10:00,Tea,Large,7.37,1,Mobile Pay,25-34,0,7.37
+2024-05-18,12:00,Frappe,Medium,6.7,1,Credit Card,55+,0,6.7
+2024-05-18,14:00,Americano,Large,3.35,1,Credit Card,35-44,1,3.35
+2024-05-18,16:00,Mocha,Large,6.94,2,Credit Card,45-54,0,13.88
+2024-05-18,18:00,Tea,Medium,6.94,2,Credit Card,55+,1,13.88
+2024-05-18,20:00,Americano,Large,3.3,1,Cash,45-54,1,3.3
+2024-05-18,22:00,Frappe,Medium,5.97,3,Credit Card,18-24,0,17.91
+2024-05-19,00:00,Americano,Large,7.28,2,Cash,18-24,1,14.56
+2024-05-19,02:00,Frappe,Medium,5.61,1,Mobile Pay,55+,0,5.61
+2024-05-19,04:00,Cappuccino,Medium,5.08,1,Mobile Pay,55+,0,5.08
+2024-05-19,06:00,Tea,Large,3.73,2,Cash,25-34,0,7.46
+2024-05-19,08:00,Macchiato,Medium,5.99,1,Credit Card,55+,1,5.99
+2024-05-19,10:00,Americano,Medium,7.16,3,Cash,55+,0,21.48
+2024-05-19,12:00,Frappe,Small,6.08,3,Credit Card,55+,0,18.24
+2024-05-19,14:00,Espresso,Small,6.8,3,Credit Card,45-54,1,20.4
+2024-05-19,16:00,Espresso,Medium,6.09,3,Credit Card,35-44,1,18.27
+2024-05-19,18:00,Frappe,Medium,7.2,1,Mobile Pay,25-34,0,7.2
+2024-05-19,20:00,Cappuccino,Medium,4.16,2,Credit Card,55+,1,8.32
+2024-05-19,22:00,Cappuccino,Large,6.81,3,Credit Card,45-54,1,20.43
+2024-05-20,00:00,Espresso,Medium,3.91,1,Cash,18-24,0,3.91
+2024-05-20,02:00,Cold Brew,Large,4.23,1,Credit Card,18-24,0,4.23
+2024-05-20,04:00,Macchiato,Medium,6.37,1,Mobile Pay,35-44,1,6.37
+2024-05-20,06:00,Latte,Medium,6.34,1,Credit Card,18-24,1,6.34
+2024-05-20,08:00,Americano,Medium,5.86,1,Mobile Pay,35-44,1,5.86
+2024-05-20,10:00,Latte,Medium,6.43,1,Mobile Pay,55+,1,6.43
+2024-05-20,12:00,Hot Chocolate,Medium,7.1,2,Credit Card,18-24,1,14.2
+2024-05-20,14:00,Americano,Small,5.88,1,Cash,25-34,0,5.88
+2024-05-20,16:00,Americano,Large,4.23,3,Credit Card,55+,1,12.69
+2024-05-20,18:00,Americano,Large,3.09,3,Mobile Pay,55+,1,9.27
+2024-05-20,20:00,Macchiato,Small,6.13,3,Mobile Pay,18-24,1,18.39
+2024-05-20,22:00,Cold Brew,Medium,4.43,2,Cash,25-34,1,8.86
+2024-05-21,00:00,Latte,Large,3.47,3,Credit Card,25-34,1,10.41
+2024-05-21,02:00,Frappe,Small,6.1,1,Credit Card,55+,1,6.1
+2024-05-21,04:00,Cold Brew,Medium,4.64,2,Cash,18-24,1,9.28
+2024-05-21,06:00,Americano,Small,3.02,3,Cash,35-44,0,9.06
+2024-05-21,08:00,Cold Brew,Medium,6.48,2,Credit Card,55+,0,12.96
+2024-05-21,10:00,Cold Brew,Large,3.48,2,Mobile Pay,18-24,1,6.96
+2024-05-21,12:00,Espresso,Large,2.61,2,Mobile Pay,18-24,0,5.22
+2024-05-21,14:00,Mocha,Small,4.09,1,Cash,45-54,1,4.09
+2024-05-21,16:00,Hot Chocolate,Medium,3.29,2,Credit Card,35-44,1,6.58
+2024-05-21,18:00,Macchiato,Large,4.8,2,Credit Card,45-54,0,9.6
+2024-05-21,20:00,Cold Brew,Large,6.19,1,Cash,25-34,1,6.19
+2024-05-21,22:00,Tea,Medium,4.52,1,Cash,35-44,1,4.52
+2024-05-22,00:00,Mocha,Medium,6.3,3,Credit Card,45-54,1,18.9
+2024-05-22,02:00,Cold Brew,Medium,5.84,1,Credit Card,35-44,0,5.84
+2024-05-22,04:00,Macchiato,Small,3.2,2,Credit Card,25-34,1,6.4
+2024-05-22,06:00,Tea,Large,4.6,1,Credit Card,35-44,1,4.6
+2024-05-22,08:00,Americano,Small,5.16,3,Mobile Pay,18-24,0,15.48
+2024-05-22,10:00,Mocha,Large,4.15,3,Cash,45-54,0,12.45
+2024-05-22,12:00,Cappuccino,Small,4.68,1,Mobile Pay,45-54,0,4.68
+2024-05-22,14:00,Hot Chocolate,Medium,6.45,2,Credit Card,35-44,1,12.9
+2024-05-22,16:00,Latte,Medium,7.28,3,Credit Card,18-24,0,21.84
+2024-05-22,18:00,Latte,Small,5.77,2,Mobile Pay,55+,1,11.54
+2024-05-22,20:00,Hot Chocolate,Small,4.9,1,Mobile Pay,45-54,0,4.9
+2024-05-22,22:00,Latte,Small,3.17,2,Mobile Pay,45-54,1,6.34
+2024-05-23,00:00,Cappuccino,Large,3.28,2,Mobile Pay,18-24,1,6.56
+2024-05-23,02:00,Espresso,Small,2.77,2,Mobile Pay,35-44,1,5.54
+2024-05-23,04:00,Hot Chocolate,Large,3.65,3,Mobile Pay,35-44,0,10.95
+2024-05-23,06:00,Mocha,Large,3.67,1,Cash,45-54,1,3.67
+2024-05-23,08:00,Americano,Medium,3.51,2,Mobile Pay,18-24,0,7.02
+2024-05-23,10:00,Cold Brew,Large,7.24,3,Mobile Pay,18-24,1,21.72
+2024-05-23,12:00,Cold Brew,Medium,4.85,2,Cash,35-44,1,9.7
+2024-05-23,14:00,Mocha,Medium,5.73,2,Credit Card,45-54,1,11.46
+2024-05-23,16:00,Macchiato,Medium,3.68,3,Credit Card,45-54,0,11.04
+2024-05-23,18:00,Macchiato,Medium,5.37,3,Mobile Pay,18-24,1,16.11
+2024-05-23,20:00,Hot Chocolate,Medium,6.54,3,Mobile Pay,35-44,0,19.62
+2024-05-23,22:00,Mocha,Medium,3.46,2,Credit Card,18-24,1,6.92
+2024-05-24,00:00,Macchiato,Small,5.98,1,Credit Card,25-34,1,5.98
+2024-05-24,02:00,Frappe,Medium,5.09,1,Mobile Pay,18-24,0,5.09
+2024-05-24,04:00,Macchiato,Medium,4.8,1,Cash,35-44,1,4.8
+2024-05-24,06:00,Latte,Medium,5.14,1,Credit Card,25-34,0,5.14
+2024-05-24,08:00,Cappuccino,Medium,5.85,2,Mobile Pay,55+,0,11.7
+2024-05-24,10:00,Latte,Large,5.69,3,Mobile Pay,25-34,1,17.07
+2024-05-24,12:00,Cappuccino,Medium,6.46,3,Cash,45-54,1,19.38
+2024-05-24,14:00,Cappuccino,Small,2.62,3,Credit Card,45-54,0,7.86
+2024-05-24,16:00,Latte,Small,6.85,3,Mobile Pay,18-24,0,20.55
+2024-05-24,18:00,Cold Brew,Medium,4.62,3,Credit Card,55+,0,13.86
+2024-05-24,20:00,Cold Brew,Large,7.18,1,Credit Card,35-44,1,7.18
+2024-05-24,22:00,Tea,Large,5.99,1,Credit Card,45-54,1,5.99
+2024-05-25,00:00,Cold Brew,Medium,6.47,2,Credit Card,25-34,1,12.94
+2024-05-25,02:00,Espresso,Large,7.43,3,Credit Card,35-44,1,22.29
+2024-05-25,04:00,Americano,Small,3.32,3,Credit Card,25-34,1,9.96
+2024-05-25,06:00,Latte,Medium,4.39,2,Mobile Pay,55+,0,8.78
+2024-05-25,08:00,Tea,Medium,6.42,2,Credit Card,35-44,1,12.84
+2024-05-25,10:00,Espresso,Small,5.77,2,Credit Card,45-54,1,11.54
+2024-05-25,12:00,Frappe,Medium,5.13,2,Mobile Pay,55+,0,10.26
+2024-05-25,14:00,Tea,Medium,6.28,2,Cash,25-34,1,12.56
+2024-05-25,16:00,Cold Brew,Small,6.56,1,Mobile Pay,18-24,0,6.56
+2024-05-25,18:00,Tea,Medium,5.05,2,Mobile Pay,25-34,0,10.1
+2024-05-25,20:00,Hot Chocolate,Medium,6.25,1,Mobile Pay,25-34,0,6.25
+2024-05-25,22:00,Hot Chocolate,Large,5.43,3,Mobile Pay,45-54,0,16.29
+2024-05-26,00:00,Americano,Small,3.62,1,Credit Card,25-34,0,3.62
+2024-05-26,02:00,Americano,Medium,4.44,1,Mobile Pay,35-44,1,4.44
+2024-05-26,04:00,Hot Chocolate,Large,6.17,1,Credit Card,25-34,1,6.17
+2024-05-26,06:00,Americano,Medium,7.2,3,Cash,25-34,1,21.6
+2024-05-26,08:00,Espresso,Small,6.5,2,Mobile Pay,45-54,1,13.0
+2024-05-26,10:00,Cold Brew,Large,4.84,1,Credit Card,18-24,1,4.84
+2024-05-26,12:00,Frappe,Large,2.74,3,Credit Card,55+,0,8.22
+2024-05-26,14:00,Frappe,Medium,2.84,1,Credit Card,25-34,1,2.84
+2024-05-26,16:00,Americano,Large,3.66,1,Credit Card,18-24,0,3.66
+2024-05-26,18:00,Macchiato,Medium,4.71,1,Mobile Pay,55+,0,4.71
+2024-05-26,20:00,Cold Brew,Large,3.69,1,Cash,35-44,0,3.69
+2024-05-26,22:00,Cold Brew,Medium,6.62,3,Mobile Pay,25-34,0,19.86
+2024-05-27,00:00,Macchiato,Large,3.56,1,Mobile Pay,45-54,0,3.56
+2024-05-27,02:00,Americano,Medium,6.96,1,Mobile Pay,45-54,0,6.96
+2024-05-27,04:00,Latte,Small,3.59,2,Credit Card,45-54,0,7.18
+2024-05-27,06:00,Cappuccino,Medium,4.45,1,Credit Card,35-44,1,4.45
+2024-05-27,08:00,Americano,Medium,3.29,1,Mobile Pay,55+,1,3.29
+2024-05-27,10:00,Americano,Small,7.18,2,Mobile Pay,25-34,1,14.36
+2024-05-27,12:00,Hot Chocolate,Small,4.3,3,Credit Card,25-34,0,12.9
+2024-05-27,14:00,Frappe,Small,3.68,2,Mobile Pay,45-54,1,7.36
+2024-05-27,16:00,Cold Brew,Large,5.93,3,Credit Card,25-34,1,17.79
+2024-05-27,18:00,Latte,Large,2.96,1,Mobile Pay,25-34,0,2.96
+2024-05-27,20:00,Espresso,Small,7.1,2,Credit Card,45-54,1,14.2
+2024-05-27,22:00,Mocha,Large,6.51,3,Cash,55+,0,19.53
+2024-05-28,00:00,Mocha,Medium,7.23,1,Credit Card,18-24,1,7.23
+2024-05-28,02:00,Latte,Small,4.5,3,Mobile Pay,35-44,1,13.5
+2024-05-28,04:00,Espresso,Small,4.52,1,Credit Card,45-54,0,4.52
+2024-05-28,06:00,Latte,Medium,4.52,1,Mobile Pay,45-54,1,4.52
+2024-05-28,08:00,Tea,Small,6.79,3,Credit Card,18-24,1,20.37
+2024-05-28,10:00,Cappuccino,Small,5.06,2,Mobile Pay,25-34,0,10.12
+2024-05-28,12:00,Espresso,Large,5.14,1,Mobile Pay,18-24,1,5.14
+2024-05-28,14:00,Frappe,Small,3.34,2,Credit Card,45-54,1,6.68
+2024-05-28,16:00,Macchiato,Medium,5.62,1,Cash,18-24,1,5.62
+2024-05-28,18:00,Frappe,Medium,2.55,1,Cash,35-44,1,2.55
+2024-05-28,20:00,Americano,Medium,2.97,2,Credit Card,45-54,1,5.94
+2024-05-28,22:00,Cold Brew,Small,3.5,3,Cash,45-54,1,10.5
+2024-05-29,00:00,Latte,Medium,4.8,2,Credit Card,25-34,0,9.6
+2024-05-29,02:00,Mocha,Small,4.48,1,Cash,18-24,1,4.48
+2024-05-29,04:00,Latte,Small,2.82,2,Credit Card,55+,0,5.64
+2024-05-29,06:00,Cold Brew,Medium,5.87,1,Mobile Pay,18-24,0,5.87
+2024-05-29,08:00,Cold Brew,Medium,3.24,2,Mobile Pay,45-54,0,6.48
+2024-05-29,10:00,Mocha,Large,3.27,3,Mobile Pay,18-24,0,9.81
+2024-05-29,12:00,Macchiato,Medium,6.78,3,Mobile Pay,55+,1,20.34
+2024-05-29,14:00,Americano,Medium,3.63,2,Credit Card,18-24,0,7.26
+2024-05-29,16:00,Cappuccino,Medium,3.67,2,Mobile Pay,25-34,1,7.34
+2024-05-29,18:00,Americano,Medium,5.17,1,Mobile Pay,55+,0,5.17
+2024-05-29,20:00,Cappuccino,Medium,4.27,3,Mobile Pay,45-54,1,12.81
+2024-05-29,22:00,Hot Chocolate,Medium,6.48,2,Mobile Pay,18-24,1,12.96
+2024-05-30,00:00,Americano,Large,5.75,3,Cash,35-44,0,17.25
+2024-05-30,02:00,Cappuccino,Small,5.39,1,Mobile Pay,35-44,0,5.39
+2024-05-30,04:00,Cold Brew,Large,6.48,1,Credit Card,25-34,0,6.48
+2024-05-30,06:00,Cappuccino,Small,5.71,3,Credit Card,35-44,1,17.13
+2024-05-30,08:00,Latte,Small,6.23,3,Cash,35-44,0,18.69
+2024-05-30,10:00,Frappe,Medium,4.47,2,Cash,45-54,0,8.94
+2024-05-30,12:00,Latte,Small,5.37,2,Mobile Pay,18-24,0,10.74
+2024-05-30,14:00,Hot Chocolate,Medium,5.41,1,Cash,25-34,0,5.41
+2024-05-30,16:00,Frappe,Small,2.66,3,Mobile Pay,45-54,1,7.98
+2024-05-30,18:00,Americano,Medium,4.37,3,Credit Card,55+,0,13.11
+2024-05-30,20:00,Latte,Large,4.51,2,Cash,55+,1,9.02
+2024-05-30,22:00,Cappuccino,Large,7.36,1,Credit Card,18-24,0,7.36
+2024-05-31,00:00,Cold Brew,Medium,3.89,3,Mobile Pay,45-54,1,11.67
+2024-05-31,02:00,Latte,Medium,4.04,3,Mobile Pay,18-24,1,12.12
+2024-05-31,04:00,Mocha,Large,5.18,3,Mobile Pay,45-54,1,15.54
+2024-05-31,06:00,Espresso,Medium,2.69,3,Cash,25-34,1,8.07
+2024-05-31,08:00,Macchiato,Large,7.25,2,Credit Card,55+,0,14.5
+2024-05-31,10:00,Mocha,Large,5.18,1,Credit Card,18-24,1,5.18
+2024-05-31,12:00,Frappe,Small,6.53,3,Credit Card,55+,1,19.59
+2024-05-31,14:00,Americano,Large,6.01,2,Mobile Pay,18-24,1,12.02
+2024-05-31,16:00,Tea,Large,3.02,3,Credit Card,55+,1,9.06
+2024-05-31,18:00,Latte,Large,5.29,3,Mobile Pay,55+,0,15.87
+2024-05-31,20:00,Tea,Large,5.17,2,Credit Card,35-44,1,10.34
+2024-05-31,22:00,Hot Chocolate,Medium,3.86,2,Credit Card,45-54,0,7.72
+2024-06-01,00:00,Cappuccino,Medium,4.11,1,Mobile Pay,18-24,1,4.11
+2024-06-01,02:00,Mocha,Large,7.11,2,Credit Card,45-54,0,14.22
+2024-06-01,04:00,Tea,Large,7.16,2,Credit Card,25-34,1,14.32
+2024-06-01,06:00,Tea,Large,6.87,3,Credit Card,25-34,1,20.61
+2024-06-01,08:00,Hot Chocolate,Medium,6.44,1,Cash,45-54,0,6.44
+2024-06-01,10:00,Cold Brew,Small,4.58,3,Mobile Pay,55+,1,13.74
+2024-06-01,12:00,Tea,Medium,3.29,3,Credit Card,55+,1,9.87
+2024-06-01,14:00,Americano,Medium,7.42,3,Cash,25-34,0,22.26
+2024-06-01,16:00,Americano,Small,4.16,2,Credit Card,25-34,0,8.32
+2024-06-01,18:00,Americano,Medium,2.76,3,Credit Card,55+,0,8.28
+2024-06-01,20:00,Cold Brew,Large,5.41,1,Credit Card,18-24,0,5.41
+2024-06-01,22:00,Espresso,Medium,4.57,1,Credit Card,25-34,0,4.57
+2024-06-02,00:00,Frappe,Small,5.57,3,Credit Card,25-34,0,16.71
+2024-06-02,02:00,Espresso,Medium,6.0,2,Cash,55+,0,12.0
+2024-06-02,04:00,Americano,Large,4.78,1,Credit Card,45-54,0,4.78
+2024-06-02,06:00,Tea,Medium,4.96,2,Mobile Pay,45-54,1,9.92
+2024-06-02,08:00,Latte,Medium,3.72,2,Cash,25-34,1,7.44
+2024-06-02,10:00,Cappuccino,Medium,5.76,1,Mobile Pay,35-44,0,5.76
+2024-06-02,12:00,Espresso,Small,4.82,3,Credit Card,55+,1,14.46
+2024-06-02,14:00,Tea,Medium,6.4,3,Mobile Pay,45-54,0,19.2
+2024-06-02,16:00,Frappe,Small,6.99,2,Mobile Pay,25-34,0,13.98
+2024-06-02,18:00,Frappe,Large,5.43,1,Cash,45-54,0,5.43
+2024-06-02,20:00,Tea,Large,7.46,2,Mobile Pay,25-34,1,14.92
+2024-06-02,22:00,Espresso,Small,3.02,3,Credit Card,18-24,1,9.06
+2024-06-03,00:00,Macchiato,Large,5.42,2,Mobile Pay,25-34,0,10.84
+2024-06-03,02:00,Latte,Large,3.24,3,Cash,45-54,1,9.72
+2024-06-03,04:00,Mocha,Medium,3.24,3,Credit Card,25-34,1,9.72
+2024-06-03,06:00,Cappuccino,Large,5.05,2,Cash,25-34,0,10.1
+2024-06-03,08:00,Frappe,Medium,6.11,1,Credit Card,35-44,0,6.11
+2024-06-03,10:00,Frappe,Medium,3.85,1,Credit Card,18-24,1,3.85
+2024-06-03,12:00,Americano,Large,5.59,1,Credit Card,55+,0,5.59
+2024-06-03,14:00,Macchiato,Medium,6.3,3,Cash,55+,0,18.9
+2024-06-03,16:00,Macchiato,Medium,4.09,2,Mobile Pay,55+,1,8.18
+2024-06-03,18:00,Hot Chocolate,Large,3.3,1,Mobile Pay,35-44,1,3.3
+2024-06-03,20:00,Tea,Medium,6.51,3,Mobile Pay,25-34,1,19.53
+2024-06-03,22:00,Latte,Large,3.49,1,Mobile Pay,55+,0,3.49
+2024-06-04,00:00,Frappe,Small,2.68,2,Cash,45-54,0,5.36
+2024-06-04,02:00,Cappuccino,Small,3.26,3,Mobile Pay,35-44,0,9.78
+2024-06-04,04:00,Macchiato,Small,6.18,3,Mobile Pay,55+,1,18.54
+2024-06-04,06:00,Espresso,Medium,3.25,2,Credit Card,45-54,0,6.5
+2024-06-04,08:00,Mocha,Small,5.83,1,Credit Card,55+,0,5.83
+2024-06-04,10:00,Frappe,Medium,6.69,3,Credit Card,18-24,0,20.07
+2024-06-04,12:00,Mocha,Large,4.72,1,Credit Card,18-24,1,4.72
+2024-06-04,14:00,Cold Brew,Large,2.86,2,Credit Card,25-34,0,5.72
+2024-06-04,16:00,Americano,Medium,5.55,1,Cash,18-24,0,5.55
+2024-06-04,18:00,Frappe,Large,5.09,1,Credit Card,55+,0,5.09
+2024-06-04,20:00,Tea,Small,5.72,3,Mobile Pay,55+,1,17.16
+2024-06-04,22:00,Hot Chocolate,Medium,7.37,1,Mobile Pay,45-54,1,7.37
+2024-06-05,00:00,Americano,Small,7.5,3,Cash,25-34,1,22.5
+2024-06-05,02:00,Mocha,Small,6.64,1,Credit Card,55+,1,6.64
+2024-06-05,04:00,Espresso,Medium,5.42,3,Mobile Pay,45-54,0,16.26
+2024-06-05,06:00,Hot Chocolate,Large,5.27,2,Mobile Pay,55+,0,10.54
+2024-06-05,08:00,Espresso,Medium,4.7,2,Credit Card,25-34,1,9.4
+2024-06-05,10:00,Cold Brew,Medium,5.25,1,Cash,25-34,0,5.25
+2024-06-05,12:00,Mocha,Large,6.52,1,Credit Card,45-54,1,6.52
+2024-06-05,14:00,Latte,Medium,6.9,3,Credit Card,35-44,1,20.7
+2024-06-05,16:00,Hot Chocolate,Medium,3.54,3,Credit Card,18-24,0,10.62
+2024-06-05,18:00,Mocha,Large,4.56,2,Credit Card,55+,0,9.12
+2024-06-05,20:00,Cappuccino,Medium,6.55,3,Credit Card,35-44,1,19.65
+2024-06-05,22:00,Cappuccino,Small,4.65,1,Credit Card,35-44,1,4.65
+2024-06-06,00:00,Cold Brew,Large,2.88,2,Credit Card,45-54,0,5.76
+2024-06-06,02:00,Tea,Medium,5.68,3,Mobile Pay,55+,1,17.04
+2024-06-06,04:00,Latte,Large,5.95,1,Mobile Pay,18-24,1,5.95
+2024-06-06,06:00,Tea,Medium,3.76,3,Credit Card,25-34,1,11.28
+2024-06-06,08:00,Latte,Medium,6.64,2,Mobile Pay,35-44,1,13.28
+2024-06-06,10:00,Frappe,Medium,4.5,2,Cash,25-34,1,9.0
+2024-06-06,12:00,Cold Brew,Large,2.51,1,Cash,55+,0,2.51
+2024-06-06,14:00,Americano,Small,4.04,2,Credit Card,55+,1,8.08
+2024-06-06,16:00,Mocha,Medium,3.25,2,Credit Card,35-44,1,6.5
+2024-06-06,18:00,Macchiato,Medium,4.93,1,Credit Card,18-24,1,4.93
+2024-06-06,20:00,Macchiato,Large,6.48,3,Cash,35-44,1,19.44
+2024-06-06,22:00,Latte,Large,6.24,1,Credit Card,18-24,1,6.24
+2024-06-07,00:00,Tea,Large,3.62,2,Mobile Pay,45-54,1,7.24
+2024-06-07,02:00,Macchiato,Large,3.16,1,Credit Card,25-34,0,3.16
+2024-06-07,04:00,Espresso,Small,2.9,3,Credit Card,35-44,1,8.7
+2024-06-07,06:00,Espresso,Small,6.97,3,Mobile Pay,55+,1,20.91
+2024-06-07,08:00,Cold Brew,Large,5.91,2,Cash,35-44,0,11.82
+2024-06-07,10:00,Americano,Large,5.65,2,Cash,25-34,0,11.3
+2024-06-07,12:00,Tea,Small,6.95,2,Credit Card,55+,1,13.9
+2024-06-07,14:00,Espresso,Small,7.2,3,Mobile Pay,55+,0,21.6
+2024-06-07,16:00,Americano,Large,3.42,3,Mobile Pay,45-54,1,10.26
+2024-06-07,18:00,Americano,Large,5.37,3,Credit Card,18-24,0,16.11
+2024-06-07,20:00,Mocha,Small,3.69,1,Credit Card,25-34,0,3.69
+2024-06-07,22:00,Espresso,Medium,2.78,3,Credit Card,45-54,1,8.34
+2024-06-08,00:00,Mocha,Small,4.66,2,Credit Card,45-54,0,9.32
+2024-06-08,02:00,Frappe,Medium,6.87,2,Credit Card,35-44,1,13.74
+2024-06-08,04:00,Macchiato,Large,2.8,1,Credit Card,25-34,1,2.8
+2024-06-08,06:00,Macchiato,Medium,5.51,3,Credit Card,35-44,1,16.53
+2024-06-08,08:00,Hot Chocolate,Medium,4.77,2,Credit Card,45-54,0,9.54
+2024-06-08,10:00,Frappe,Small,2.59,2,Credit Card,25-34,1,5.18
+2024-06-08,12:00,Mocha,Medium,2.95,1,Credit Card,45-54,0,2.95
+2024-06-08,14:00,Mocha,Medium,4.34,3,Cash,25-34,1,13.02
+2024-06-08,16:00,Cold Brew,Medium,4.48,3,Mobile Pay,35-44,0,13.44
+2024-06-08,18:00,Macchiato,Medium,3.58,1,Credit Card,45-54,1,3.58
+2024-06-08,20:00,Tea,Small,4.63,2,Credit Card,18-24,1,9.26
+2024-06-08,22:00,Mocha,Medium,4.79,2,Mobile Pay,25-34,0,9.58
+2024-06-09,00:00,Espresso,Small,5.44,3,Credit Card,25-34,1,16.32
+2024-06-09,02:00,Mocha,Small,4.63,3,Credit Card,25-34,0,13.89
+2024-06-09,04:00,Macchiato,Small,4.62,2,Credit Card,18-24,0,9.24
+2024-06-09,06:00,Frappe,Large,4.91,3,Credit Card,25-34,1,14.73
+2024-06-09,08:00,Cold Brew,Medium,4.13,3,Cash,55+,1,12.39
+2024-06-09,10:00,Espresso,Small,4.7,1,Credit Card,25-34,1,4.7
+2024-06-09,12:00,Mocha,Large,2.64,2,Credit Card,45-54,1,5.28
+2024-06-09,14:00,Cold Brew,Medium,3.8,1,Credit Card,18-24,0,3.8
+2024-06-09,16:00,Cappuccino,Small,5.76,2,Mobile Pay,55+,1,11.52
+2024-06-09,18:00,Frappe,Medium,6.18,3,Mobile Pay,25-34,1,18.54
+2024-06-09,20:00,Espresso,Medium,3.92,2,Mobile Pay,25-34,1,7.84
+2024-06-09,22:00,Latte,Medium,4.29,3,Credit Card,18-24,1,12.87
+2024-06-10,00:00,Americano,Small,2.93,1,Credit Card,45-54,0,2.93
+2024-06-10,02:00,Latte,Medium,2.8,3,Cash,25-34,0,8.4
+2024-06-10,04:00,Hot Chocolate,Medium,5.74,3,Credit Card,55+,0,17.22
+2024-06-10,06:00,Latte,Large,6.78,3,Credit Card,18-24,1,20.34
+2024-06-10,08:00,Macchiato,Small,4.94,1,Mobile Pay,45-54,1,4.94
+2024-06-10,10:00,Latte,Medium,4.5,3,Mobile Pay,45-54,0,13.5
+2024-06-10,12:00,Mocha,Medium,6.27,3,Cash,45-54,1,18.81
+2024-06-10,14:00,Frappe,Small,3.96,1,Credit Card,25-34,0,3.96
+2024-06-10,16:00,Cappuccino,Medium,4.87,1,Mobile Pay,18-24,1,4.87
+2024-06-10,18:00,Espresso,Large,6.75,2,Credit Card,35-44,0,13.5
+2024-06-10,20:00,Cappuccino,Large,4.78,1,Mobile Pay,55+,1,4.78
+2024-06-10,22:00,Frappe,Medium,7.05,1,Credit Card,45-54,1,7.05
+2024-06-11,00:00,Hot Chocolate,Large,6.97,3,Credit Card,18-24,0,20.91
+2024-06-11,02:00,Espresso,Large,2.56,2,Mobile Pay,35-44,1,5.12
+2024-06-11,04:00,Americano,Medium,5.66,2,Mobile Pay,35-44,0,11.32
+2024-06-11,06:00,Americano,Medium,4.48,1,Mobile Pay,55+,0,4.48
+2024-06-11,08:00,Mocha,Medium,6.23,3,Credit Card,25-34,1,18.69
+2024-06-11,10:00,Cold Brew,Medium,5.27,2,Credit Card,35-44,1,10.54
+2024-06-11,12:00,Macchiato,Large,5.22,3,Credit Card,45-54,0,15.66
+2024-06-11,14:00,Frappe,Medium,3.17,1,Credit Card,25-34,0,3.17
+2024-06-11,16:00,Macchiato,Large,4.04,2,Cash,55+,1,8.08
+2024-06-11,18:00,Tea,Large,4.42,1,Credit Card,25-34,1,4.42
+2024-06-11,20:00,Cold Brew,Medium,5.02,2,Mobile Pay,55+,0,10.04
+2024-06-11,22:00,Hot Chocolate,Large,5.8,1,Cash,18-24,0,5.8
+2024-06-12,00:00,Tea,Small,4.83,2,Cash,25-34,1,9.66
+2024-06-12,02:00,Cappuccino,Large,5.7,3,Cash,45-54,1,17.1
+2024-06-12,04:00,Latte,Medium,6.31,3,Credit Card,18-24,0,18.93
+2024-06-12,06:00,Espresso,Medium,5.89,2,Cash,18-24,0,11.78
+2024-06-12,08:00,Americano,Medium,2.69,3,Credit Card,45-54,1,8.07
+2024-06-12,10:00,Latte,Medium,7.36,1,Mobile Pay,25-34,1,7.36
+2024-06-12,12:00,Mocha,Medium,2.75,2,Mobile Pay,25-34,0,5.5
+2024-06-12,14:00,Tea,Medium,3.75,1,Mobile Pay,45-54,1,3.75
+2024-06-12,16:00,Tea,Medium,6.91,2,Mobile Pay,55+,1,13.82
+2024-06-12,18:00,Frappe,Medium,5.91,1,Mobile Pay,25-34,0,5.91
+2024-06-12,20:00,Mocha,Medium,3.32,1,Credit Card,35-44,0,3.32
+2024-06-12,22:00,Cappuccino,Medium,7.13,3,Credit Card,18-24,0,21.39
+2024-06-13,00:00,Tea,Small,6.1,3,Credit Card,55+,1,18.3
+2024-06-13,02:00,Frappe,Medium,5.63,1,Cash,18-24,1,5.63
+2024-06-13,04:00,Mocha,Large,5.34,1,Mobile Pay,18-24,1,5.34
+2024-06-13,06:00,Cold Brew,Large,6.79,3,Mobile Pay,25-34,1,20.37
+2024-06-13,08:00,Tea,Large,6.46,2,Credit Card,18-24,1,12.92
+2024-06-13,10:00,Mocha,Small,5.87,2,Mobile Pay,18-24,0,11.74
+2024-06-13,12:00,Hot Chocolate,Small,4.8,1,Mobile Pay,55+,0,4.8
+2024-06-13,14:00,Tea,Medium,4.68,3,Mobile Pay,55+,0,14.04
+2024-06-13,16:00,Espresso,Large,4.14,3,Cash,45-54,1,12.42
+2024-06-13,18:00,Tea,Medium,6.1,1,Mobile Pay,25-34,1,6.1
+2024-06-13,20:00,Espresso,Medium,6.24,3,Credit Card,18-24,0,18.72
+2024-06-13,22:00,Mocha,Medium,6.84,2,Cash,45-54,0,13.68
+2024-06-14,00:00,Macchiato,Small,3.03,1,Credit Card,45-54,0,3.03
+2024-06-14,02:00,Latte,Large,3.14,1,Credit Card,18-24,0,3.14
+2024-06-14,04:00,Americano,Small,3.18,2,Credit Card,25-34,0,6.36
+2024-06-14,06:00,Tea,Small,2.71,3,Credit Card,25-34,0,8.13
+2024-06-14,08:00,Espresso,Medium,3.78,1,Credit Card,25-34,0,3.78
+2024-06-14,10:00,Macchiato,Medium,3.02,2,Mobile Pay,45-54,0,6.04
+2024-06-14,12:00,Mocha,Medium,4.33,1,Credit Card,55+,0,4.33
+2024-06-14,14:00,Latte,Medium,5.33,3,Cash,55+,0,15.99
+2024-06-14,16:00,Mocha,Medium,3.45,2,Credit Card,55+,0,6.9
+2024-06-14,18:00,Tea,Medium,4.07,2,Cash,55+,0,8.14
+2024-06-14,20:00,Frappe,Medium,4.6,2,Credit Card,55+,0,9.2
+2024-06-14,22:00,Hot Chocolate,Large,5.66,1,Mobile Pay,45-54,0,5.66
+2024-06-15,00:00,Frappe,Medium,5.57,3,Mobile Pay,18-24,0,16.71
+2024-06-15,02:00,Cold Brew,Large,7.27,2,Mobile Pay,25-34,1,14.54
+2024-06-15,04:00,Frappe,Medium,7.42,1,Credit Card,25-34,1,7.42
+2024-06-15,06:00,Frappe,Small,6.49,2,Credit Card,18-24,1,12.98
+2024-06-15,08:00,Hot Chocolate,Large,4.29,2,Credit Card,55+,1,8.58
+2024-06-15,10:00,Tea,Large,7.23,1,Credit Card,25-34,1,7.23
+2024-06-15,12:00,Latte,Large,3.88,2,Cash,18-24,1,7.76
+2024-06-15,14:00,Frappe,Medium,3.04,1,Credit Card,55+,1,3.04

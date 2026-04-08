@@ -28,8 +28,10 @@ DEFAULT_MODELS = [
     "gpt-4o-mini",
     "claude-opus-4-5",
     "claude-sonnet-4-5",
-    "gemini-2.5-pro-preview-03-25",
-    "gemini-2.5-flash-preview-04-17",
+    "gemini-2.5-pro",
+    "gemini-2.5-flash",
+    "qwen2.5-coder:32b",
+    "llama3.3:8b",
 ]
 
 DEFAULT_DATASETS = ["titanic", "iris", "sleep_health", "customer_segments", "credit_fraud"]
@@ -219,9 +221,16 @@ class Pipeline:
                     for run_id in range(1, self.num_runs + 1):
                         rpath = self.result_path(model, dataset, prompt_type, run_id)
                         if rpath.exists():
-                            skipped += 1
-                            done += 1
-                            continue
+                            # Only skip if the run was successful (not an error)
+                            try:
+                                existing = json.loads(rpath.read_text())
+                                if existing.get("error") is None and existing.get("metrics") is not None:
+                                    skipped += 1
+                                    done += 1
+                                    continue
+                                # else: re-run failed/errored runs
+                            except Exception:
+                                pass  # corrupt file, re-run
 
                         label = f"[{done+1}/{total}] {model} | {dataset} | {prompt_type} | run {run_id}"
                         print(f"  {label} ...", end=" ", flush=True)

@@ -90,12 +90,51 @@ def load_credit_fraud() -> tuple:
     return df, meta
 
 
+def load_dogs_zurich() -> tuple:
+    df = pd.read_csv(DATA_DIR / "dogs_zurich.csv")
+    meta = {
+        "name": "dogs_zurich",
+        "description": "Dog registration data from the city of Zurich, Switzerland. Includes breed, age, gender, district, and owner demographics.",
+        "columns": list(df.columns),
+        "dtypes": {col: str(df[col].dtype) for col in df.columns},
+        "shape": df.shape,
+    }
+    return df, meta
+
+
+def load_cameras() -> tuple:
+    df = pd.read_csv(DATA_DIR / "cameras.csv")
+    meta = {
+        "name": "cameras",
+        "description": "Specifications of 1000 digital cameras including brand, megapixels, sensor type, price, weight, and video capabilities.",
+        "columns": list(df.columns),
+        "dtypes": {col: str(df[col].dtype) for col in df.columns},
+        "shape": df.shape,
+    }
+    return df, meta
+
+
+def load_coffee_sales() -> tuple:
+    df = pd.read_csv(DATA_DIR / "coffee_sales.csv")
+    meta = {
+        "name": "coffee_sales",
+        "description": "Transaction-level sales data from a coffee shop including product, size, price, payment method, customer demographics, and takeaway status.",
+        "columns": list(df.columns),
+        "dtypes": {col: str(df[col].dtype) for col in df.columns},
+        "shape": df.shape,
+    }
+    return df, meta
+
+
 DATASET_LOADERS = {
     "titanic": load_titanic,
     "iris": load_iris,
     "sleep_health": load_sleep_health,
     "customer_segments": load_customer_segments,
     "credit_fraud": load_credit_fraud,
+    "dogs_zurich": load_dogs_zurich,
+    "cameras": load_cameras,
+    "coffee_sales": load_coffee_sales,
 }
 
 

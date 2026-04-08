@@ -122,13 +122,53 @@ def call_google(model: str, user_prompt: str) -> Tuple[str, float, float]:
     return text, latency, cost
 
 
-def call_model(model: str, user_prompt: str) -> Tuple[str, float, float]:
-    """Route to correct provider based on model name."""
-    if model.startswith("gpt"):
-        return call_openai(model, user_prompt)
-    elif model.startswith("claude"):
-        return call_anthropic(model, user_prompt)
-    elif model.startswith("gemini"):
-        return call_google(model, user_prompt)
-    else:
-        raise ValueError(f"Unknown model: {model}")
+def call_ollama(model: str, user_prompt: str) -> Tuple[str, float, float]:
+    """
+    Call local Ollama API. Returns (response_text, latency_seconds, cost=0).
+    """
+    import requests
+
+    start = time.time()
+    response = requests.post(
+        "http://localhost:11434/api/chat",
+        json={
+            "model": model,
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+            "stream": False,
+            "options": {"temperature": 0.7},
+        },
+        timeout=300,
+    )
+    latency = time.time() - start
+
+    response.raise_for_status()
+    text = response.json()["message"]["content"]
+    return text, latency, 0.0  # Local model = $0
+
+
+def call_model(model: str, user_prompt: str, max_retries: int = 3) -> Tuple[str, float, float]:
+    """Route to correct provider based on model name. Retries on 503/rate-limit errors."""
+    for attempt in range(max_retries):
+        try:
+            if model.startswith("gpt"):
+                return call_openai(model, user_prompt)
+            elif model.startswith("claude"):
+                return call_anthropic(model, user_prompt)
+            elif model.startswith("gemini"):
+                return call_google(model, user_prompt)
+            elif model.startswith("qwen") or model.startswith("llama"):
+                return call_ollama(model, user_prompt)
+            else:
+                raise ValueError(f"Unknown model: {model}")
+        except Exception as e:
+            err = str(e)
+            if ("503" in err or "UNAVAILABLE" in err or "overloaded" in err.lower() or "rate" in err.lower()) and attempt < max_retries - 1:
+                wait = (attempt + 1) * 10  # 10s, 20s, 30s
+                import sys
+                print(f" [retry in {wait}s: {err[:80]}]", end="", flush=True, file=sys.stderr)
+                time.sleep(wait)
+                continue
+            raise
