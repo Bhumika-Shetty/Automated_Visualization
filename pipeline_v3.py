@@ -31,8 +31,8 @@ DEFAULT_MODELS = [
     "deepseek-chat",
     "qwen/qwen3-32b",
     "llama-3.1-8b-instant",
-    "gemini-2.5-flash",
-    "gemini-2.5-pro",
+    "gemini-2.5-flash",  # runs last
+    "gemini-2.5-pro",   # runs last
 ]
 
 DEFAULT_DATASETS = ["titanic", "iris", "sleep_health", "customer_segments", "credit_fraud", "dogs_zurich", "cameras", "coffee_sales"]
