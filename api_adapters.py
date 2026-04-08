@@ -1,1 +1,134 @@
-# This file will contain API adapters for different LLM providers (OpenAI, Anthropic, Google).
+"""
+api_adapters.py - Stateless API adapters for OpenAI, Anthropic, Google
+Every call creates a fresh client with no history.
+"""
+
+import os
+import time
+from typing import Tuple
+
+SYSTEM_PROMPT = (
+    "You are an expert data visualization specialist. "
+    "Generate Python code using matplotlib/seaborn to create a clear, insightful visualization. "
+    "Return ONLY the Python code block, no explanation, no markdown text outside the code block."
+)
+
+
+def _estimate_tokens(text: str) -> int:
+    return len(text) // 4
+
+
+def call_openai(model: str, user_prompt: str) -> Tuple[str, float, float]:
+    """
+    Call OpenAI API. Returns (response_text, latency_seconds, estimated_cost).
+    """
+    import openai
+
+    cost_per_1k_input = {"gpt-4o": 0.0025, "gpt-4o-mini": 0.00015}
+    cost_per_1k_output = {"gpt-4o": 0.010, "gpt-4o-mini": 0.0006}
+
+    client = openai.OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+    start = time.time()
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ],
+        temperature=0.7,
+    )
+    latency = time.time() - start
+
+    text = response.choices[0].message.content
+    input_tokens = response.usage.prompt_tokens
+    output_tokens = response.usage.completion_tokens
+    key = model if model in cost_per_1k_input else "gpt-4o-mini"
+    cost = (input_tokens / 1000) * cost_per_1k_input[key] + (output_tokens / 1000) * cost_per_1k_output[key]
+
+    return text, latency, cost
+
+
+def call_anthropic(model: str, user_prompt: str) -> Tuple[str, float, float]:
+    """
+    Call Anthropic API. Returns (response_text, latency_seconds, estimated_cost).
+    """
+    import anthropic
+
+    cost_per_1k_input = {"claude-opus-4-5": 0.015, "claude-sonnet-4-5": 0.003}
+    cost_per_1k_output = {"claude-opus-4-5": 0.075, "claude-sonnet-4-5": 0.015}
+
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    start = time.time()
+    response = client.messages.create(
+        model=model,
+        max_tokens=2048,
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": user_prompt}],
+    )
+    latency = time.time() - start
+
+    text = response.content[0].text
+    input_tokens = response.usage.input_tokens
+    output_tokens = response.usage.output_tokens
+    key = model if model in cost_per_1k_input else "claude-sonnet-4-5"
+    cost = (input_tokens / 1000) * cost_per_1k_input[key] + (output_tokens / 1000) * cost_per_1k_output[key]
+
+    return text, latency, cost
+
+
+def call_google(model: str, user_prompt: str) -> Tuple[str, float, float]:
+    """
+    Call Google Gemini API via google.genai. Returns (response_text, latency_seconds, estimated_cost).
+    """
+    import google.genai as genai
+    from google.genai import types
+
+    cost_per_1k_input = {
+        "models/gemini-2.5-flash": 0.000075,
+        "models/gemini-2.5-pro": 0.00125,
+        "models/gemini-2.0-flash": 0.0001,
+    }
+    cost_per_1k_output = {
+        "models/gemini-2.5-flash": 0.0003,
+        "models/gemini-2.5-pro": 0.010,
+        "models/gemini-2.0-flash": 0.0004,
+    }
+
+    # Normalize model name — add 'models/' prefix if missing
+    if not model.startswith("models/"):
+        model = f"models/{model}"
+
+    client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
+
+    start = time.time()
+    response = client.models.generate_content(
+        model=model,
+        contents=user_prompt,
+        config=types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT,
+            temperature=0.7,
+        ),
+    )
+    latency = time.time() - start
+
+    text = response.text
+    input_tokens = _estimate_tokens(user_prompt)
+    output_tokens = _estimate_tokens(text)
+    key = model if model in cost_per_1k_input else "models/gemini-2.5-flash"
+    cost = (input_tokens / 1000) * cost_per_1k_input[key] + (output_tokens / 1000) * cost_per_1k_output[key]
+
+    return text, latency, cost
+
+
+def call_model(model: str, user_prompt: str) -> Tuple[str, float, float]:
+    """Route to correct provider based on model name."""
+    if model.startswith("gpt"):
+        return call_openai(model, user_prompt)
+    elif model.startswith("claude"):
+        return call_anthropic(model, user_prompt)
+    elif model.startswith("gemini"):
+        return call_google(model, user_prompt)
+    else:
+        raise ValueError(f"Unknown model: {model}")

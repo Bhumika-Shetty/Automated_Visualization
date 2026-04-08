@@ -1,0 +1,14 @@
+openai>=1.0.0
+anthropic>=0.20.0
+google-genai>=0.1.0
+pandas
+matplotlib
+seaborn
+scikit-image
+streamlit
+plotly
+pyyaml
+python-dotenv
+numpy
+scikit-learn
+radon
