@@ -138,9 +138,12 @@ def call_ollama(model: str, user_prompt: str) -> Tuple[str, float, float]:
                 {"role": "user", "content": user_prompt},
             ],
             "stream": False,
-            "options": {"temperature": 0.7},
+            "options": {
+                "temperature": 0.7,
+                "num_ctx": 2048,  # Limit context to reduce memory pressure
+            },
         },
-        timeout=300,
+        timeout=600,
     )
     latency = time.time() - start
 
@@ -165,10 +168,18 @@ def call_model(model: str, user_prompt: str, max_retries: int = 3) -> Tuple[str,
                 raise ValueError(f"Unknown model: {model}")
         except Exception as e:
             err = str(e)
-            if ("503" in err or "UNAVAILABLE" in err or "overloaded" in err.lower() or "rate" in err.lower()) and attempt < max_retries - 1:
-                wait = (attempt + 1) * 10  # 10s, 20s, 30s
+            retryable = (
+                "503" in err or
+                "500" in err or
+                "UNAVAILABLE" in err or
+                "overloaded" in err.lower() or
+                "rate" in err.lower() or
+                "internal server error" in err.lower()
+            )
+            if retryable and attempt < max_retries - 1:
+                wait = (attempt + 1) * 15  # 15s, 30s, 45s
                 import sys
-                print(f" [retry in {wait}s: {err[:80]}]", end="", flush=True, file=sys.stderr)
+                print(f" [retry {attempt+1}/{max_retries} in {wait}s]", end="", flush=True, file=sys.stderr)
                 time.sleep(wait)
                 continue
             raise
