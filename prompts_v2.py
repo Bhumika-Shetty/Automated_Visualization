@@ -1,0 +1,1 @@
+# This file will define the rich and poor prompt templates for visualization generation.

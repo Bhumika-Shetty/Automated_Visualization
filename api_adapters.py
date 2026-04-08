@@ -1,0 +1,1 @@
+# This file will contain API adapters for different LLM providers (OpenAI, Anthropic, Google).
