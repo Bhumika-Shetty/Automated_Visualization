@@ -28,10 +28,10 @@ DEFAULT_MODELS = [
     "gpt-4o-mini",
     "claude-opus-4-5",
     "claude-sonnet-4-5",
-    "gemini-2.5-pro",
-    "gemini-2.5-flash",
     "qwen2.5-coder:32b",
     "llama3.1:8b",
+    "gemini-2.5-flash",
+    "gemini-2.5-pro",
 ]
 
 DEFAULT_DATASETS = ["titanic", "iris", "sleep_health", "customer_segments", "credit_fraud"]
