@@ -28,13 +28,9 @@ DEFAULT_MODELS = [
     "gpt-4o-mini",
     "claude-opus-4-5",
     "claude-sonnet-4-5",
-    "qwen2.5-coder:32b",
-    "llama3.1:8b",
-    "gemini-2.5-flash",
-    "gemini-2.5-pro",
 ]
 
-DEFAULT_DATASETS = ["titanic", "iris", "sleep_health", "customer_segments", "credit_fraud"]
+DEFAULT_DATASETS = ["dogs_zurich", "cameras", "coffee_sales"]
 PROMPT_TYPES = ["rich", "poor"]
 
 
