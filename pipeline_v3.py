@@ -28,6 +28,7 @@ DEFAULT_MODELS = [
     "gpt-4o-mini",
     "claude-opus-4-5",
     "claude-sonnet-4-5",
+    "deepseek-chat",
     "qwen/qwen3-32b",
     "llama-3.1-8b-instant",
     "gemini-2.5-flash",
