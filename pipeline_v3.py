@@ -31,7 +31,7 @@ DEFAULT_MODELS = [
     "gemini-2.5-pro",
     "gemini-2.5-flash",
     "qwen2.5-coder:32b",
-    "llama3.3:8b",
+    "llama3.1:8b",
 ]
 
 DEFAULT_DATASETS = ["titanic", "iris", "sleep_health", "customer_segments", "credit_fraud"]
