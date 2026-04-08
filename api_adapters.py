@@ -227,7 +227,7 @@ def call_model(model: str, user_prompt: str, max_retries: int = 3) -> Tuple[str,
                 return call_google(model, user_prompt)
             elif model.startswith("deepseek"):
                 return call_deepseek(model, user_prompt)
-            elif any(model.startswith(p) for p in ["llama", "qwen", "mixtral", "gemma"]):
+            elif any(model.startswith(p) for p in ["llama", "qwen", "mixtral", "gemma", "qwen/"]):
                 return call_groq(model, user_prompt)
             elif ":" in model:  # Ollama format e.g. qwen2.5-coder:32b
                 return call_ollama(model, user_prompt)
