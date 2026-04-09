@@ -29,10 +29,10 @@ DEFAULT_MODELS = [
     "claude-opus-4-5",
     "claude-sonnet-4-5",
     "deepseek-chat",
-    "qwen/qwen3-8b",
-    "llama-3.1-8b-instant",
-    "gemini-2.5-flash",  # runs last
-    "gemini-2.5-pro",   # runs last
+    "gemini-2.5-flash",  # running now while Groq resets
+    "gemini-2.5-pro",   # running now while Groq resets
+    "qwen/qwen3-8b",    # after Groq resets
+    "llama-3.1-8b-instant",  # after Groq resets
 ]
 
 DEFAULT_DATASETS = ["titanic", "iris", "sleep_health", "customer_segments", "credit_fraud", "dogs_zurich", "cameras", "coffee_sales"]
