@@ -29,7 +29,7 @@ DEFAULT_MODELS = [
     "claude-opus-4-5",
     "claude-sonnet-4-5",
     "deepseek-chat",
-    "qwen/qwen3-32b",
+    "qwen/qwen3-8b",
     "llama-3.1-8b-instant",
     "gemini-2.5-flash",  # runs last
     "gemini-2.5-pro",   # runs last
