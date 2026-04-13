@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-08T19:13:39.050953",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 8))\n\n# Create a pairplot with hue for species\ng = sns.pairplot(df, hue='species', palette='Set2', height=2.5, aspect=1.2)\n\n# Add a main title\ng.fig.suptitle('Iris Dataset: Feature Relationships by Species', y=1.02, fontsize=16, fontweight='bold')\n\n# Adjust layout and save\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 8))\n\n# Create a pairplot with hue for species\ng = sns.pairplot(df, hue='species', palette='Set2', height=2.5, aspect=1.2)\n\n# Add a main title\ng.fig.suptitle('Iris Dataset: Feature Relationships by Species', y=1.02, fontsize=16, fontweight='bold')\n\n# Adjust layout and save\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 1.1194,
+    "visual_entropy": 1.288,
+    "labeling_completeness": 0.25,
+    "code_complexity": 2,
+    "generation_latency": 4.468,
+    "cost_per_run": 8.9e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

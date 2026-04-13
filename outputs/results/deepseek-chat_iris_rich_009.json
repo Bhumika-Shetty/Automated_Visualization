@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-08T19:15:08.817223",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 10))\n\n# Create a pairplot with species differentiation\ng = sns.pairplot(df, hue='species', palette='husl', \n                  plot_kws={'alpha': 0.8, 's': 60, 'edgecolor': 'k'},\n                  diag_kws={'alpha': 0.8, 'edgecolor': 'k'})\n\n# Adjust title and layout\ng.fig.suptitle('Iris Dataset: Pairwise Feature Relationships by Species', \n               y=1.02, fontsize=16, fontweight='bold')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 10))\n\n# Create a pairplot with species differentiation\ng = sns.pairplot(df, hue='species', palette='husl', \n                  plot_kws={'alpha': 0.8, 's': 60, 'edgecolor': 'k'},\n                  diag_kws={'alpha': 0.8, 'edgecolor': 'k'})\n\n# Adjust title and layout\ng.fig.suptitle('Iris Dataset: Pairwise Feature Relationships by Species', \n               y=1.02, fontsize=16, fontweight='bold')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 2.3691,
+    "visual_entropy": 1.7213,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 5.297,
+    "cost_per_run": 9.8e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 2,
+  "timestamp": "2026-04-08T20:49:08.055526",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(14, 10))\n\n# Create subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\n\n# 1. Transaction amount distribution\naxes[0, 0].bar(range(len(df)), df['amount'], color='skyblue', edgecolor='black')\naxes[0, 0].set_xlabel('Transaction Index')\naxes[0, 0].set_ylabel('Amount ($)')\naxes[0, 0].set_title('Transaction Amounts')\naxes[0, 0].set_xticks(range(len(df)))\n\n# 2. Transaction types distribution\ntransaction_counts = df['transaction_type'].value_counts()\ncolors = ['lightcoral', 'lightgreen', 'lightblue']\naxes[0, 1].pie(transaction_counts.values, labels=transaction_counts.index, \n               autopct='%1.1f%%', colors=colors[:len(transaction_counts)], startangle=90)\naxes[0, 1].set_title('Transaction Types Distribution')\n\n# 3. Hour of day distribution\nhour_counts = df['hour_of_day'].value_counts().sort_index()\naxes[1, 0].bar(hour_counts.index, hour_counts.values, color='lightseagreen', edgecolor='black')\naxes[1, 0].set_xlabel('Hour of Day')\naxes[1, 0].set_ylabel('Number of Transactions')\naxes[1, 0].set_title('Transactions by Hour of Day')\naxes[1, 0].set_xticks(range(0, 24, 3))\n\n# 4. Amount vs Hour scatter plot\nscatter = axes[1, 1].scatter(df['hour_of_day'], df['amount'], \n                             c=df['amount'], cmap='viridis', s=100, edgecolor='black')\naxes[1, 1].set_xlabel('Hour of Day')\naxes[1, 1].set_ylabel('Amount ($)')\naxes[1, 1].set_title('Transaction Amount vs Hour of Day')\naxes[1, 1].set_xticks(range(0, 24, 3))\nplt.colorbar(scatter, ax=axes[1, 1], label='Amount ($)')\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(14, 10))\n\n# Create subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\n\n# 1. Transaction amount distribution\naxes[0, 0].bar(range(len(df)), df['amount'], color='skyblue', edgecolor='black')\naxes[0, 0].set_xlabel('Transaction Index')\naxes[0, 0].set_ylabel('Amount ($)')\naxes[0, 0].set_title('Transaction Amounts')\naxes[0, 0].set_xticks(range(len(df)))\n\n# 2. Transaction types distribution\ntransaction_counts = df['transaction_type'].value_counts()\ncolors = ['lightcoral', 'lightgreen', 'lightblue']\naxes[0, 1].pie(transaction_counts.values, labels=transaction_counts.index, \n               autopct='%1.1f%%', colors=colors[:len(transaction_counts)], startangle=90)\naxes[0, 1].set_title('Transaction Types Distribution')\n\n# 3. Hour of day distribution\nhour_counts = df['hour_of_day'].value_counts().sort_index()\naxes[1, 0].bar(hour_counts.index, hour_counts.values, color='lightseagreen', edgecolor='black')\naxes[1, 0].set_xlabel('Hour of Day')\naxes[1, 0].set_ylabel('Number of Transactions')\naxes[1, 0].set_title('Transactions by Hour of Day')\naxes[1, 0].set_xticks(range(0, 24, 3))\n\n# 4. Amount vs Hour scatter plot\nscatter = axes[1, 1].scatter(df['hour_of_day'], df['amount'], \n                             c=df['amount'], cmap='viridis', s=100, edgecolor='black')\naxes[1, 1].set_xlabel('Hour of Day')\naxes[1, 1].set_ylabel('Amount ($)')\naxes[1, 1].set_title('Transaction Amount vs Hour of Day')\naxes[1, 1].set_xticks(range(0, 24, 3))\nplt.colorbar(scatter, ax=axes[1, 1], label='Amount ($)')\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7059,
+    "color_delta_e": 0.4468,
+    "visual_entropy": 1.2413,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 12.864,
+    "cost_per_run": 0.000205,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

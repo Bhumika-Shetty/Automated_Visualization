@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T19:13:31.372917",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 10))\n\n# Create a pairplot with species differentiation\npairplot = sns.pairplot(df, hue='species', \n                        palette={'setosa': '#1f77b4', \n                                 'versicolor': '#ff7f0e', \n                                 'virginica': '#2ca02c'},\n                        plot_kws={'alpha': 0.8, 's': 60, 'edgecolor': 'black'},\n                        diag_kws={'alpha': 0.8, 'edgecolor': 'black'})\n\n# Adjust title and layout\npairplot.fig.suptitle('Iris Dataset: Pairwise Feature Relationships by Species', \n                      fontsize=16, y=1.02, fontweight='bold')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 10))\n\n# Create a pairplot with species differentiation\npairplot = sns.pairplot(df, hue='species', \n                        palette={'setosa': '#1f77b4', \n                                 'versicolor': '#ff7f0e', \n                                 'virginica': '#2ca02c'},\n                        plot_kws={'alpha': 0.8, 's': 60, 'edgecolor': 'black'},\n                        diag_kws={'alpha': 0.8, 'edgecolor': 'black'})\n\n# Adjust title and layout\npairplot.fig.suptitle('Iris Dataset: Pairwise Feature Relationships by Species', \n                      fontsize=16, y=1.02, fontweight='bold')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.8571,
+    "color_delta_e": 2.399,
+    "visual_entropy": 1.7125,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 5.83,
+    "cost_per_run": 0.000109,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

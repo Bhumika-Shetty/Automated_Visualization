@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-08T19:16:34.254669",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 10))\n\n# Create a pairplot with species differentiation\ng = sns.pairplot(df, hue='species', palette='Set2', height=2.5, corner=False)\ng.fig.suptitle('Iris Dataset: Feature Relationships by Species', y=1.02, fontsize=16, fontweight='bold')\n\n# Add axis labels to the outer plots\nfor i in range(4):\n    for j in range(4):\n        ax = g.axes[i, j]\n        if i == 3:  # bottom row\n            ax.set_xlabel(['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width'][j], fontsize=10)\n        if j == 0:  # left column\n            ax.set_ylabel(['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width'][i], fontsize=10)\n\n# Adjust layout and save\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 10))\n\n# Create a pairplot with species differentiation\ng = sns.pairplot(df, hue='species', palette='Set2', height=2.5, corner=False)\ng.fig.suptitle('Iris Dataset: Feature Relationships by Species', y=1.02, fontsize=16, fontweight='bold')\n\n# Add axis labels to the outer plots\nfor i in range(4):\n    for j in range(4):\n        ax = g.axes[i, j]\n        if i == 3:  # bottom row\n            ax.set_xlabel(['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width'][j], fontsize=10)\n        if j == 0:  # left column\n            ax.set_ylabel(['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width'][i], fontsize=10)\n\n# Adjust layout and save\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.9231,
+    "color_delta_e": 1.2082,
+    "visual_entropy": 1.3375,
+    "labeling_completeness": 0.75,
+    "code_complexity": 5,
+    "generation_latency": 10.673,
+    "cost_per_run": 0.00012,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

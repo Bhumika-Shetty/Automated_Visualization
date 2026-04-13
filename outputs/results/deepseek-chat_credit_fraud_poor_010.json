@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 10,
+  "timestamp": "2026-04-08T20:51:37.726565",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set style\nplt.style.use('seaborn-v0_8-darkgrid')\nsns.set_palette(\"husl\")\n\n# Create figure with subplots\nfig = plt.figure(figsize=(15, 10))\n\n# 1. Transaction amount distribution by type\nax1 = plt.subplot(2, 2, 1)\nsns.boxplot(data=df, x='transaction_type', y='amount', ax=ax1)\nax1.set_title('Transaction Amount Distribution by Type')\nax1.set_xlabel('Transaction Type')\nax1.set_ylabel('Amount ($)')\nax1.tick_params(axis='x', rotation=45)\n\n# 2. Transaction count by hour\nax2 = plt.subplot(2, 2, 2)\nhour_counts = df['hour_of_day'].value_counts().sort_index()\nsns.barplot(x=hour_counts.index, y=hour_counts.values, ax=ax2, color='steelblue')\nax2.set_title('Transaction Count by Hour of Day')\nax2.set_xlabel('Hour of Day')\nax2.set_ylabel('Number of Transactions')\nax2.set_xticks(range(0, 24, 3))\n\n# 3. Transaction type distribution\nax3 = plt.subplot(2, 2, 3)\ntype_counts = df['transaction_type'].value_counts()\ncolors = plt.cm.Set3(np.linspace(0, 1, len(type_counts)))\nwedges, texts, autotexts = ax3.pie(type_counts.values, labels=type_counts.index, \n                                   autopct='%1.1f%%', colors=colors, startangle=90)\nax3.set_title('Transaction Type Distribution')\nfor autotext in autotexts:\n    autotext.set_color('white')\n    autotext.set_fontweight('bold')\n\n# 4. Amount vs Hour scatter plot\nax4 = plt.subplot(2, 2, 4)\nscatter = ax4.scatter(df['hour_of_day'], df['amount'], \n                     c=df['hour_of_day'], cmap='viridis', s=100, alpha=0.7)\nax4.set_title('Transaction Amount vs Hour of Day')\nax4.set_xlabel('Hour of Day')\nax4.set_ylabel('Amount ($)')\nax4.set_xticks(range(0, 24, 3))\nplt.colorbar(scatter, ax=ax4, label='Hour of Day')\n\n# Adjust layout\nplt.suptitle('Transaction Analysis Dashboard', fontsize=16, fontweight='bold', y=1.02)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set style\nplt.style.use('seaborn-v0_8-darkgrid')\nsns.set_palette(\"husl\")\n\n# Create figure with subplots\nfig = plt.figure(figsize=(15, 10))\n\n# 1. Transaction amount distribution by type\nax1 = plt.subplot(2, 2, 1)\nsns.boxplot(data=df, x='transaction_type', y='amount', ax=ax1)\nax1.set_title('Transaction Amount Distribution by Type')\nax1.set_xlabel('Transaction Type')\nax1.set_ylabel('Amount ($)')\nax1.tick_params(axis='x', rotation=45)\n\n# 2. Transaction count by hour\nax2 = plt.subplot(2, 2, 2)\nhour_counts = df['hour_of_day'].value_counts().sort_index()\nsns.barplot(x=hour_counts.index, y=hour_counts.values, ax=ax2, color='steelblue')\nax2.set_title('Transaction Count by Hour of Day')\nax2.set_xlabel('Hour of Day')\nax2.set_ylabel('Number of Transactions')\nax2.set_xticks(range(0, 24, 3))\n\n# 3. Transaction type distribution\nax3 = plt.subplot(2, 2, 3)\ntype_counts = df['transaction_type'].value_counts()\ncolors = plt.cm.Set3(np.linspace(0, 1, len(type_counts)))\nwedges, texts, autotexts = ax3.pie(type_counts.values, labels=type_counts.index, \n                                   autopct='%1.1f%%', colors=colors, startangle=90)\nax3.set_title('Transaction Type Distribution')\nfor autotext in autotexts:\n    autotext.set_color('white')\n    autotext.set_fontweight('bold')\n\n# 4. Amount vs Hour scatter plot\nax4 = plt.subplot(2, 2, 4)\nscatter = ax4.scatter(df['hour_of_day'], df['amount'], \n                     c=df['hour_of_day'], cmap='viridis', s=100, alpha=0.7)\nax4.set_title('Transaction Amount vs Hour of Day')\nax4.set_xlabel('Hour of Day')\nax4.set_ylabel('Amount ($)')\nax4.set_xticks(range(0, 24, 3))\nplt.colorbar(scatter, ax=ax4, label='Hour of Day')\n\n# Adjust layout\nplt.suptitle('Transaction Analysis Dashboard', fontsize=16, fontweight='bold', y=1.02)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6471,
+    "color_delta_e": 0.2558,
+    "visual_entropy": 1.726,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 15.596,
+    "cost_per_run": 0.000219,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

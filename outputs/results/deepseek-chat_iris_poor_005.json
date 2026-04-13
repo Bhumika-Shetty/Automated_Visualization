@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 5,
+  "timestamp": "2026-04-08T19:22:35.613882",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\nfig.suptitle('Iris Dataset Visualization (Setosa Samples)', fontsize=16, fontweight='bold')\n\nsns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', \n                palette='Set2', s=100, ax=axes[0,0])\naxes[0,0].set_title('Sepal Length vs Sepal Width')\naxes[0,0].set_xlabel('Sepal Length (cm)')\naxes[0,0].set_ylabel('Sepal Width (cm)')\n\nsns.scatterplot(data=df, x='petal_length', y='petal_width', hue='species',\n                palette='Set2', s=100, ax=axes[0,1])\naxes[0,1].set_title('Petal Length vs Petal Width')\naxes[0,1].set_xlabel('Petal Length (cm)')\naxes[0,1].set_ylabel('Petal Width (cm)')\n\nsns.boxplot(data=df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']], \n            palette='Set2', ax=axes[1,0])\naxes[1,0].set_title('Feature Distributions')\naxes[1,0].set_ylabel('Measurement (cm)')\naxes[1,0].tick_params(axis='x', rotation=45)\n\nsns.heatmap(df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']].corr(),\n            annot=True, cmap='coolwarm', center=0, ax=axes[1,1])\naxes[1,1].set_title('Feature Correlation Heatmap')\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\nfig.suptitle('Iris Dataset Visualization (Setosa Samples)', fontsize=16, fontweight='bold')\n\nsns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', \n                palette='Set2', s=100, ax=axes[0,0])\naxes[0,0].set_title('Sepal Length vs Sepal Width')\naxes[0,0].set_xlabel('Sepal Length (cm)')\naxes[0,0].set_ylabel('Sepal Width (cm)')\n\nsns.scatterplot(data=df, x='petal_length', y='petal_width', hue='species',\n                palette='Set2', s=100, ax=axes[0,1])\naxes[0,1].set_title('Petal Length vs Petal Width')\naxes[0,1].set_xlabel('Petal Length (cm)')\naxes[0,1].set_ylabel('Petal Width (cm)')\n\nsns.boxplot(data=df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']], \n            palette='Set2', ax=axes[1,0])\naxes[1,0].set_title('Feature Distributions')\naxes[1,0].set_ylabel('Measurement (cm)')\naxes[1,0].tick_params(axis='x', rotation=45)\n\nsns.heatmap(df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']].corr(),\n            annot=True, cmap='coolwarm', center=0, ax=axes[1,1])\naxes[1,1].set_title('Feature Correlation Heatmap')\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.5547,
+    "visual_entropy": 0.9315,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 13.339,
+    "cost_per_run": 0.000192,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

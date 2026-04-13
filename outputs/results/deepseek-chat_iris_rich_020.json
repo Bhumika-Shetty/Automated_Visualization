@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-08T19:17:57.683968",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 8))\n\n# Create a pairplot with species differentiation\npair_plot = sns.pairplot(df, hue='species', palette='Set2', \n                         plot_kws={'alpha': 0.8, 's': 40, 'edgecolor': 'k'},\n                         diag_kws={'alpha': 0.8, 'edgecolor': 'k'})\n\n# Adjust the title\npair_plot.fig.suptitle('Iris Dataset: Pairwise Relationships by Species', \n                       fontsize=16, y=1.02, fontweight='bold')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/iris.csv')\n\n# Set style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 8))\n\n# Create a pairplot with species differentiation\npair_plot = sns.pairplot(df, hue='species', palette='Set2', \n                         plot_kws={'alpha': 0.8, 's': 40, 'edgecolor': 'k'},\n                         diag_kws={'alpha': 0.8, 'edgecolor': 'k'})\n\n# Adjust the title\npair_plot.fig.suptitle('Iris Dataset: Pairwise Relationships by Species', \n                       fontsize=16, y=1.02, fontweight='bold')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 2.0865,
+    "visual_entropy": 1.5349,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 5.249,
+    "cost_per_run": 9.9e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

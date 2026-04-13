@@ -1,0 +1,26 @@
+{
+  "model": "deepseek-chat",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 29,
+  "timestamp": "2026-04-08T19:29:40.865761",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\nfig.suptitle('Iris Dataset Visualization (Setosa Samples)', fontsize=16, fontweight='bold')\n\nsns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', \n                palette='Set2', s=100, ax=axes[0,0])\naxes[0,0].set_title('Sepal Length vs Sepal Width')\naxes[0,0].set_xlabel('Sepal Length (cm)')\naxes[0,0].set_ylabel('Sepal Width (cm)')\n\nsns.scatterplot(data=df, x='petal_length', y='petal_width', hue='species',\n                palette='Set2', s=100, ax=axes[0,1])\naxes[0,1].set_title('Petal Length vs Petal Width')\naxes[0,1].set_xlabel('Petal Length (cm)')\naxes[0,1].set_ylabel('Petal Width (cm)')\n\nsns.boxplot(data=df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']], \n            palette='Set2', ax=axes[1,0])\naxes[1,0].set_title('Feature Distributions')\naxes[1,0].set_ylabel('Measurement (cm)')\naxes[1,0].tick_params(axis='x', rotation=45)\n\nfeature_means = df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']].mean()\nsns.barplot(x=feature_means.index, y=feature_means.values, palette='Set2', ax=axes[1,1])\naxes[1,1].set_title('Mean Feature Values')\naxes[1,1].set_ylabel('Mean Measurement (cm)')\naxes[1,1].set_xlabel('Feature')\naxes[1,1].tick_params(axis='x', rotation=45)\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\nfig.suptitle('Iris Dataset Visualization (Setosa Samples)', fontsize=16, fontweight='bold')\n\nsns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', \n                palette='Set2', s=100, ax=axes[0,0])\naxes[0,0].set_title('Sepal Length vs Sepal Width')\naxes[0,0].set_xlabel('Sepal Length (cm)')\naxes[0,0].set_ylabel('Sepal Width (cm)')\n\nsns.scatterplot(data=df, x='petal_length', y='petal_width', hue='species',\n                palette='Set2', s=100, ax=axes[0,1])\naxes[0,1].set_title('Petal Length vs Petal Width')\naxes[0,1].set_xlabel('Petal Length (cm)')\naxes[0,1].set_ylabel('Petal Width (cm)')\n\nsns.boxplot(data=df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']], \n            palette='Set2', ax=axes[1,0])\naxes[1,0].set_title('Feature Distributions')\naxes[1,0].set_ylabel('Measurement (cm)')\naxes[1,0].tick_params(axis='x', rotation=45)\n\nfeature_means = df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']].mean()\nsns.barplot(x=feature_means.index, y=feature_means.values, palette='Set2', ax=axes[1,1])\naxes[1,1].set_title('Mean Feature Values')\naxes[1,1].set_ylabel('Mean Measurement (cm)')\naxes[1,1].set_xlabel('Feature')\naxes[1,1].tick_params(axis='x', rotation=45)\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmph2f1q_8u/viz_script.py:36: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=feature_means.index, y=feature_means.values, palette='Set2', ax=axes[1,1])\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4324,
+    "color_delta_e": 0.56,
+    "visual_entropy": 0.7607,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 13.412,
+    "cost_per_run": 0.000206,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}
