@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 24,
+  "timestamp": "2026-04-10T16:07:13.717355",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n0,3,male,,0,0,8.4583,Q,Third,man,True,,Queenstown,no,True\n1,1,male,54.0,0,0,51.8625,S,First,man,True,E,Southampton,yes,True\n0,3,male,2.0,3,1,21.075,S,Third,child,False,,Southampton,no,False\n1,3,female,27.0,0,2,11.1333,S,Third,woman,False,,Southampton,yes,False\n1,2,female,14.0,1,0,30.0708,C,Second,child,False,,Cherbourg,yes,False\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\nsns.set_theme(style=\"whitegrid\")\n\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\nsns.barplot(x='pclass', y='survived', hue='sex', data=df, ax=axes[0], palette='viridis')\naxes[0].set_title('Survival Rate by Passenger Class and Sex')\naxes[0].set_ylabel('Survival Rate')\naxes[0].set_xlabel('Passenger Class')\naxes[0].set_xticks([0, 1, 2])\naxes[0].set_xticklabels(['First', 'Second', 'Third'])\naxes[0].legend(title='Sex')\n\nsns.kdeplot(data=df, x='age', hue='survived', fill=True, common_norm=False, ax=axes[1], palette='magma')\naxes[1].set_title('Age Distribution by Survival Status')\naxes[1].set_xlabel('Age')\naxes[1].set_ylabel('Density')\nhandles, labels = axes[1].get_legend_handles_labels()\naxes[1].legend(handles=handles, labels=['Not Survived', 'Survived'], title='Survived')\n\nplt.tight_layout()\n\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n0,3,male,,0,0,8.4583,Q,Third,man,True,,Queenstown,no,True\n1,1,male,54.0,0,0,51.8625,S,First,man,True,E,Southampton,yes,True\n0,3,male,2.0,3,1,21.075,S,Third,child,False,,Southampton,no,False\n1,3,female,27.0,0,2,11.1333,S,Third,woman,False,,Southampton,yes,False\n1,2,female,14.0,1,0,30.0708,C,Second,child,False,,Cherbourg,yes,False\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\nsns.set_theme(style=\"whitegrid\")\n\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\nsns.barplot(x='pclass', y='survived', hue='sex', data=df, ax=axes[0], palette='viridis')\naxes[0].set_title('Survival Rate by Passenger Class and Sex')\naxes[0].set_ylabel('Survival Rate')\naxes[0].set_xlabel('Passenger Class')\naxes[0].set_xticks([0, 1, 2])\naxes[0].set_xticklabels(['First', 'Second', 'Third'])\naxes[0].legend(title='Sex')\n\nsns.kdeplot(data=df, x='age', hue='survived', fill=True, common_norm=False, ax=axes[1], palette='magma')\naxes[1].set_title('Age Distribution by Survival Status')\naxes[1].set_xlabel('Age')\naxes[1].set_ylabel('Density')\nhandles, labels = axes[1].get_legend_handles_labels()\naxes[1].legend(handles=handles, labels=['Not Survived', 'Survived'], title='Survived')\n\nplt.tight_layout()\n\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmplizqgeyw/viz_script.py:38: UserWarning: Mismatched number of handles and labels: len(handles) = 0 len(labels) = 2\n  axes[1].legend(handles=handles, labels=['Not Survived', 'Survived'], title='Survived')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmplizqgeyw/viz_script.py:38: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  axes[1].legend(handles=handles, labels=['Not Survived', 'Survived'], title='Survived')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 1.2448,
+    "visual_entropy": 2.0721,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 16.317,
+    "cost_per_run": 0.00014,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

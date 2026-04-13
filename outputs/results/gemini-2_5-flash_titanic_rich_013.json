@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-10T15:50:37.918132",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\nplt.figure(figsize=(10, 6))\nsns.barplot(data=df, x='pclass', y='survived', hue='sex', palette='viridis', errorbar=None)\n\n# Add titles and labels\nplt.title('Survival Rate by Passenger Class and Sex on the Titanic', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(ticks=[0, 1, 2], labels=['First Class', 'Second Class', 'Third Class'])\nplt.legend(title='Sex')\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\nplt.figure(figsize=(10, 6))\nsns.barplot(data=df, x='pclass', y='survived', hue='sex', palette='viridis', errorbar=None)\n\n# Add titles and labels\nplt.title('Survival Rate by Passenger Class and Sex on the Titanic', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(ticks=[0, 1, 2], labels=['First Class', 'Second Class', 'Third Class'])\nplt.legend(title='Sex')\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6154,
+    "color_delta_e": 1.0523,
+    "visual_entropy": 1.4648,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 3.398,
+    "cost_per_run": 7.8e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

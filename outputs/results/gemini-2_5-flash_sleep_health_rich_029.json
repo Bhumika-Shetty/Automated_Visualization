@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-10T16:45:04.241206",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Physical Activity Level',\n    sizes=(50, 600), # Adjust min/max size for better visual distinction\n    palette='viridis', # Perceptually uniform colormap for sequential data\n    alpha=0.7,\n    edgecolor='w', # Add white edges to points for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Relationship Between Sleep Duration, Quality, Stress, and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Customize ticks for better readability\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Place the legend outside the plot area to prevent overlap\nplt.legend(title='Stress Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0,\n           frameon=True, shadow=True, fancybox=True)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout(rect=[0, 0, 0.95, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Physical Activity Level',\n    sizes=(50, 600), # Adjust min/max size for better visual distinction\n    palette='viridis', # Perceptually uniform colormap for sequential data\n    alpha=0.7,\n    edgecolor='w', # Add white edges to points for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Relationship Between Sleep Duration, Quality, Stress, and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Customize ticks for better readability\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Place the legend outside the plot area to prevent overlap\nplt.legend(title='Stress Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0,\n           frameon=True, shadow=True, fancybox=True)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout(rect=[0, 0, 0.95, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 0.7601,
+    "visual_entropy": 0.8244,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 10.819,
+    "cost_per_run": 0.000136,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

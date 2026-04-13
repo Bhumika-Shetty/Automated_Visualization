@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-10T18:11:08.367958",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Determine the latest year in the dataset\nlatest_year = df['StichtagDatJahr'].max()\n\n# Filter the dataset for the latest year to get the most current distribution\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year]\n\n# Count the occurrences of each primary dog breed (Rasse1Text)\n# Assuming each row represents one dog registration.\nbreed_counts = df_latest_year['Rasse1Text'].value_counts()\n\n# Select the top 15 breeds for visualization\ntop_n = 15\ntop_breeds = breed_counts.nlargest(top_n)\n\n# Set up the plot style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a horizontal bar plot\nsns.barplot(x=top_breeds.values, y=top_breeds.index, palette='viridis')\n\n# Add labels and title\nplt.title(f'Top {top_n} Dog Breeds Registered in Zurich ({latest_year})', fontsize=16)\nplt.xlabel('Number of Registered Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\n\n# Improve layout\nplt.grid(axis='x', linestyle='--', alpha=0.7)\nplt.xticks(rotation=0) # Ensure x-axis labels are horizontal\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Determine the latest year in the dataset\nlatest_year = df['StichtagDatJahr'].max()\n\n# Filter the dataset for the latest year to get the most current distribution\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year]\n\n# Count the occurrences of each primary dog breed (Rasse1Text)\n# Assuming each row represents one dog registration.\nbreed_counts = df_latest_year['Rasse1Text'].value_counts()\n\n# Select the top 15 breeds for visualization\ntop_n = 15\ntop_breeds = breed_counts.nlargest(top_n)\n\n# Set up the plot style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a horizontal bar plot\nsns.barplot(x=top_breeds.values, y=top_breeds.index, palette='viridis')\n\n# Add labels and title\nplt.title(f'Top {top_n} Dog Breeds Registered in Zurich ({latest_year})', fontsize=16)\nplt.xlabel('Number of Registered Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\n\n# Improve layout\nplt.grid(axis='x', linestyle='--', alpha=0.7)\nplt.xticks(rotation=0) # Ensure x-axis labels are horizontal\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8nwqnkem/viz_script.py:29: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=top_breeds.values, y=top_breeds.index, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.7178,
+    "visual_entropy": 1.4292,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 15.423,
+    "cost_per_run": 0.000157,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

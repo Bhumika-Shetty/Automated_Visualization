@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-09T02:11:43.796006",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv', index_col=False)\n\n# Convert adult_male to boolean\ndf['adult_male'] = df['adult_male'].map({True: 'Yes', False: 'No'})\n\n# Create a count plot of survived by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv', index_col=False)\n\n# Convert adult_male to boolean\ndf['adult_male'] = df['adult_male'].map({True: 'Yes', False: 'No'})\n\n# Create a count plot of survived by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.6554,
+    "visual_entropy": 1.2844,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 22.784,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

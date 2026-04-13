@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 18,
+  "timestamp": "2026-04-09T02:31:33.753603",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"sepal_length\": [5.1, 4.9, 4.7, 4.6, 5.0],\n    \"sepal_width\": [3.5, 3.0, 3.2, 3.1, 3.6],\n    \"petal_length\": [1.4, 1.4, 1.3, 1.5, 1.4],\n    \"petal_width\": [0.2, 0.2, 0.2, 0.2, 0.2],\n    \"species\": [\"setosa\"] * 5\n}\ndf = pd.DataFrame(data)\n\n# Create a boxplot\nplt.figure(figsize=(8, 6))\nsns.boxplot(data=df, palette=\"viridis\", hue=\"species\")\nplt.title(\"Boxplot of Sepal and Petal Length\")\nplt.xlabel(\"Species\")\nplt.ylabel(\"Length\")\nplt.legend(title=\"Species\")\nplt.savefig(\"output.png\")\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"sepal_length\": [5.1, 4.9, 4.7, 4.6, 5.0],\n    \"sepal_width\": [3.5, 3.0, 3.2, 3.1, 3.6],\n    \"petal_length\": [1.4, 1.4, 1.3, 1.5, 1.4],\n    \"petal_width\": [0.2, 0.2, 0.2, 0.2, 0.2],\n    \"species\": [\"setosa\"] * 5\n}\ndf = pd.DataFrame(data)\n\n# Create a boxplot\nplt.figure(figsize=(8, 6))\nsns.boxplot(data=df, palette=\"viridis\", hue=\"species\")\nplt.title(\"Boxplot of Sepal and Petal Length\")\nplt.xlabel(\"Species\")\nplt.ylabel(\"Length\")\nplt.legend(title=\"Species\")\nplt.savefig(\"output.png\")\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp2duxifb7/viz_script.py\", line 17, in <module>\n    sns.boxplot(data=df, palette=\"viridis\", hue=\"species\")\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 1597, in boxplot\n    p = _CategoricalPlotter(\n        data=data,\n    ...<4 lines>...\n        legend=legend,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 67, in __init__\n    super().__init__(data=data, variables=variables)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 634, in __init__\n    self.assign_variables(data, variables)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 673, in assign_variables\n    frame, names = self._assign_variables_wideform(data, **variables)\n                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 723, in _assign_variables_wideform\n    raise ValueError(err)\nValueError: The following variable cannot be assigned with wide-form data: `hue`\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.437,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-12T04:47:25.270858",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Group by product and size, then sum the 'total' revenue\n# Use .unstack() to pivot 'size' into columns, filling NaN with 0 for missing combinations\nproduct_size_revenue = df.groupby(['product', 'size'])['total'].sum().unstack(fill_value=0)\n\n# Define a consistent order for sizes to ensure consistent color mapping and legend\n# Check unique sizes in the dataset to ensure all are covered\n# Example from sample: 'Large', 'Medium', 'Small'\n# A logical order for visualization would be Small -> Medium -> Large\nsize_order = ['Small', 'Medium', 'Large']\n\n# Reorder columns (sizes) in the DataFrame if they exist\n# This ensures sizes appear in a consistent order in the stacked bars and legend\nproduct_size_revenue = product_size_revenue[\n    [s for s in size_order if s in product_size_revenue.columns] +\n    [s for s in product_size_revenue.columns if s not in size_order]\n]\n\n# Sort products by their total revenue (sum across all sizes) to make the chart more organized\nproduct_order = product_size_revenue.sum(axis=1).sort_values(ascending=False).index\nproduct_size_revenue = product_size_revenue.loc[product_order]\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a stacked bar plot\n# We use .plot() directly on the DataFrame for convenience with stacked bars\nproduct_size_revenue.plot(kind='bar', stacked=True, colormap='viridis', ax=plt.gca())\n\n# Add labels and title for clarity\nplt.title('Total Revenue by Product and Size', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Revenue ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend outside the plot area to avoid overlapping with bars\nplt.legend(title='Size', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels and legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.9, 1]) # Adjust rect to make space for the legend\n\n# Save the figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Group by product and size, then sum the 'total' revenue\n# Use .unstack() to pivot 'size' into columns, filling NaN with 0 for missing combinations\nproduct_size_revenue = df.groupby(['product', 'size'])['total'].sum().unstack(fill_value=0)\n\n# Define a consistent order for sizes to ensure consistent color mapping and legend\n# Check unique sizes in the dataset to ensure all are covered\n# Example from sample: 'Large', 'Medium', 'Small'\n# A logical order for visualization would be Small -> Medium -> Large\nsize_order = ['Small', 'Medium', 'Large']\n\n# Reorder columns (sizes) in the DataFrame if they exist\n# This ensures sizes appear in a consistent order in the stacked bars and legend\nproduct_size_revenue = product_size_revenue[\n    [s for s in size_order if s in product_size_revenue.columns] +\n    [s for s in product_size_revenue.columns if s not in size_order]\n]\n\n# Sort products by their total revenue (sum across all sizes) to make the chart more organized\nproduct_order = product_size_revenue.sum(axis=1).sort_values(ascending=False).index\nproduct_size_revenue = product_size_revenue.loc[product_order]\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a stacked bar plot\n# We use .plot() directly on the DataFrame for convenience with stacked bars\nproduct_size_revenue.plot(kind='bar', stacked=True, colormap='viridis', ax=plt.gca())\n\n# Add labels and title for clarity\nplt.title('Total Revenue by Product and Size', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Revenue ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend outside the plot area to avoid overlapping with bars\nplt.legend(title='Size', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels and legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.9, 1]) # Adjust rect to make space for the legend\n\n# Save the figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.8832,
+    "visual_entropy": 1.5846,
+    "labeling_completeness": 1.0,
+    "code_complexity": 17,
+    "generation_latency": 11.384,
+    "cost_per_run": 0.000196,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

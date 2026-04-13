@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-10T15:54:12.400154",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a categorical plot to visualize survival probability by passenger class and sex.\n# 'survived' column contains 0s and 1s, so the mean directly represents the survival probability.\ng = sns.catplot(\n    x='pclass',\n    y='survived',\n    hue='sex',\n    data=df,\n    kind='bar',\n    palette='viridis', # Choose a color palette for better visual distinction\n    height=6,          # Height of the plot (in inches)\n    aspect=1.2,        # Aspect ratio of the plot\n    errorbar='sd'      # Show standard deviation as error bars\n)\n\n# Set the overall title for the figure\ng.fig.suptitle('Survival Probability on the Titanic by Passenger Class and Sex', y=1.03, fontsize=16)\n\n# Set axis labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Probability\")\n\n# Adjust x-tick labels to be more descriptive for passenger classes\ng.set_xticklabels(['First Class', 'Second Class', 'Third Class'])\n\n# Set the legend title\ng._legend.set_title(\"Gender\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a categorical plot to visualize survival probability by passenger class and sex.\n# 'survived' column contains 0s and 1s, so the mean directly represents the survival probability.\ng = sns.catplot(\n    x='pclass',\n    y='survived',\n    hue='sex',\n    data=df,\n    kind='bar',\n    palette='viridis', # Choose a color palette for better visual distinction\n    height=6,          # Height of the plot (in inches)\n    aspect=1.2,        # Aspect ratio of the plot\n    errorbar='sd'      # Show standard deviation as error bars\n)\n\n# Set the overall title for the figure\ng.fig.suptitle('Survival Probability on the Titanic by Passenger Class and Sex', y=1.03, fontsize=16)\n\n# Set axis labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Probability\")\n\n# Adjust x-tick labels to be more descriptive for passenger classes\ng.set_xticklabels(['First Class', 'Second Class', 'Third Class'])\n\n# Set the legend title\ng._legend.set_title(\"Gender\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.7333,
+    "color_delta_e": 1.1006,
+    "visual_entropy": 1.0983,
+    "labeling_completeness": 0.5,
+    "code_complexity": 4,
+    "generation_latency": 10.43,
+    "cost_per_run": 0.000112,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

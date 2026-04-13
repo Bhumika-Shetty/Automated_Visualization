@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-09T02:53:36.315483",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Check if the data is numeric\nnumeric_cols = customer_segments.select_dtypes(include=['int64', 'float64']).columns\n\n# Plotting the top 5 numeric columns\nplt.figure(figsize=(10, 6))\nsns.boxplot(data=customer_segments[numeric_cols[:5]], \n            palette=sns.color_palette('Blues', 5), \n            labels=numeric_cols[:5])\n\n# Add title and labels\nplt.title('Distribution of Top 5 Numeric Columns')\nplt.xlabel('Column Names')\nplt.ylabel('Values')\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=90)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Check if the data is numeric\nnumeric_cols = customer_segments.select_dtypes(include=['int64', 'float64']).columns\n\n# Plotting the top 5 numeric columns\nplt.figure(figsize=(10, 6))\nsns.boxplot(data=customer_segments[numeric_cols[:5]], \n            palette=sns.color_palette('Blues', 5), \n            labels=numeric_cols[:5])\n\n# Add title and labels\nplt.title('Distribution of Top 5 Numeric Columns')\nplt.xlabel('Column Names')\nplt.ylabel('Values')\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=90)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp1e9cf4a6/viz_script.py\", line 13, in <module>\n    sns.boxplot(data=customer_segments[numeric_cols[:5]],\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                palette=sns.color_palette('Blues', 5),\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                labels=numeric_cols[:5])\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 1634, in boxplot\n    p.plot_boxes(\n    ~~~~~~~~~~~~^\n        width=width,\n        ^^^^^^^^^^^^\n    ...<8 lines>...\n        plot_kws=kwargs,\n        ^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 700, in plot_boxes\n    artists = ax.bxp(**boxplot_kws)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/_api/deprecation.py\", line 453, in wrapper\n    return func(*args, **kwargs)\nTypeError: Axes.bxp() got an unexpected keyword argument 'labels'. Did you mean 'label'?\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 0.0,
+    "hallucination_rate": 1.0,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 12.299,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-09T03:47:19.423446",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Plot the total sales by product using a bar chart\nsns.set()\nplt.figure(figsize=(12, 6))\nsns.barplot(x='product', y='total', data=coffee_sales, hue='size', dodge=True)\nplt.title('Total Sales by Product and Size')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.legend(title='Size')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Plot the total sales by product using a bar chart\nsns.set()\nplt.figure(figsize=(12, 6))\nsns.barplot(x='product', y='total', data=coffee_sales, hue='size', dodge=True)\nplt.title('Total Sales by Product and Size')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.legend(title='Size')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 1.6523,
+    "visual_entropy": 2.6185,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 9.574,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

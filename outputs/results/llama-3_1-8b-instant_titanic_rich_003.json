@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-09T02:11:42.227213",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/titanic.csv')\n\n# Check for missing values in each column\nprint(data.isnull().sum())\n\n# Create a count plot to show the distribution of survived passengers by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survived Passengers by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/titanic.csv')\n\n# Check for missing values in each column\nprint(data.isnull().sum())\n\n# Create a count plot to show the distribution of survived passengers by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survived Passengers by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "survived         0\npclass           0\nsex              0\nage            177\nsibsp            0\nparch            0\nfare             0\nembarked         2\nclass            0\nwho              0\nadult_male       0\ndeck           688\nembark_town      2\nalive            0\nalone            0\ndtype: int64\n",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 13.33,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.6796,
+    "visual_entropy": 1.2935,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 0.391,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

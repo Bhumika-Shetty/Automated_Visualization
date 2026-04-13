@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-09T03:35:09.652152",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a histogram of megapixels and a boxplot of price_usd grouped by sensor_type\nplt.figure(figsize=(10, 6))\nsns.histplot(x='megapixels', data=cameras, kde=True, bins=10, ax=plt.subplot(1, 2, 1))\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.subplot(1, 2, 2)\nsns.boxplot(x='sensor_type', y='price_usd', data=cameras)\nplt.title('Price Distribution by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Price (USD)')\n\n# Save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a histogram of megapixels and a boxplot of price_usd grouped by sensor_type\nplt.figure(figsize=(10, 6))\nsns.histplot(x='megapixels', data=cameras, kde=True, bins=10, ax=plt.subplot(1, 2, 1))\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.subplot(1, 2, 2)\nsns.boxplot(x='sensor_type', y='price_usd', data=cameras)\nplt.title('Price Distribution by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Price (USD)')\n\n# Save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 2.41,
+    "visual_entropy": 1.9247,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 6.709,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

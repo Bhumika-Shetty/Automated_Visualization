@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-12T05:39:38.109004",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset from the specified path\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/iris.csv' not found. Please ensure the dataset is in the correct directory.\")\n    # As a fallback for execution, create a dummy dataframe if the file is missing\n    from sklearn.datasets import load_iris\n    iris_data = load_iris()\n    df = pd.DataFrame(data=iris_data.data, columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n    df['species'] = pd.Categorical.from_codes(iris_data.target, iris_data.target_names)\n\n# --- Visualization ---\n\n# Set a professional and clean style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# A pairplot is an excellent choice for this dataset. It shows pairwise relationships\n# between variables and the distribution of each variable, all colored by species.\n# This makes it easy to see which features are best for separating the species.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimate for diagonal plots\n    markers=[\"o\", \"s\", \"D\"],  # Use different markers for each species for accessibility\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'fill': True} # Style diagonal plots\n)\n\n# Add a clear, descriptive title above the plot\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Features by Species',\n    y=1.03,  # Adjust title position to prevent overlap\n    fontsize=18,\n    fontweight='bold'\n)\n\n# Enhance the legend\ng._legend.set_title(\"Species\")\nfor t in g._legend.texts:\n    t.set_text(t.get_text().capitalize()) # Capitalize species names in legend\n\n# Save the final figure as specified\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset from the specified path\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/iris.csv' not found. Please ensure the dataset is in the correct directory.\")\n    # As a fallback for execution, create a dummy dataframe if the file is missing\n    from sklearn.datasets import load_iris\n    iris_data = load_iris()\n    df = pd.DataFrame(data=iris_data.data, columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n    df['species'] = pd.Categorical.from_codes(iris_data.target, iris_data.target_names)\n\n# --- Visualization ---\n\n# Set a professional and clean style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# A pairplot is an excellent choice for this dataset. It shows pairwise relationships\n# between variables and the distribution of each variable, all colored by species.\n# This makes it easy to see which features are best for separating the species.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimate for diagonal plots\n    markers=[\"o\", \"s\", \"D\"],  # Use different markers for each species for accessibility\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'fill': True} # Style diagonal plots\n)\n\n# Add a clear, descriptive title above the plot\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Features by Species',\n    y=1.03,  # Adjust title position to prevent overlap\n    fontsize=18,\n    fontweight='bold'\n)\n\n# Enhance the legend\ng._legend.set_title(\"Species\")\nfor t in g._legend.texts:\n    t.set_text(t.get_text().capitalize()) # Capitalize species names in legend\n\n# Save the final figure as specified\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 2.1286,
+    "visual_entropy": 1.9375,
+    "labeling_completeness": 0.5,
+    "code_complexity": 10,
+    "generation_latency": 19.48,
+    "cost_per_run": 0.004883,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

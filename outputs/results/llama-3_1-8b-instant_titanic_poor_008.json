@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 8,
+  "timestamp": "2026-04-09T02:17:05.861026",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a pandas DataFrame from the given dataset\ndata = {\n    \"survived\": [0, 1, 1, 1, 0],\n    \"pclass\": [3, 1, 3, 1, 3],\n    \"sex\": [\"male\", \"female\", \"female\", \"female\", \"male\"],\n    \"age\": [22.0, 38.0, 26.0, 35.0, 35.0],\n    \"sibsp\": [1, 1, 0, 1, 0],\n    \"parch\": [0, 0, 0, 0, 0],\n    \"fare\": [7.25, 71.2833, 7.925, 53.1, 8.05],\n    \"embarked\": [\"S\", \"C\", \"S\", \"S\", \"S\"],\n    \"class\": [\"Third\", \"First\", \"Third\", \"First\", \"Third\"],\n    \"who\": [\"man\", \"woman\", \"woman\", \"woman\", \"man\"],\n    \"adult_male\": [True, False, False, False, True],\n    \"deck\": [\"\", \"C\", \"\", \"S\", \"\"],\n    \"embark_town\": [\"Southampton\", \"Cherbourg\", \"Southampton\", \"Southampton\", \"Southampton\"],\n    \"alive\": [\"no\", \"yes\", \"yes\", \"yes\", \"no\"],\n    \"alone\": [False, False, True, False, True]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical variables to numerical\ndf['sex'] = df['sex'].map({'male': 0, 'female': 1})\ndf['embarked'] = df['embarked'].map({'S': 0, 'C': 1})\ndf['class'] = df['class'].map({'Third': 0, 'First': 1})\ndf['who'] = df['who'].map({'man': 0, 'woman': 1})\n\n# Visualize the dataset\nplt.figure(figsize=(10, 6))\nsns.set_style(\"whitegrid\")\nsns.barplot(x=\"class\", y=\"fare\", data=df)\nplt.title(\"Fare Distribution by Class\")\nplt.xlabel(\"Class\")\nplt.ylabel(\"Fare\")\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a pandas DataFrame from the given dataset\ndata = {\n    \"survived\": [0, 1, 1, 1, 0],\n    \"pclass\": [3, 1, 3, 1, 3],\n    \"sex\": [\"male\", \"female\", \"female\", \"female\", \"male\"],\n    \"age\": [22.0, 38.0, 26.0, 35.0, 35.0],\n    \"sibsp\": [1, 1, 0, 1, 0],\n    \"parch\": [0, 0, 0, 0, 0],\n    \"fare\": [7.25, 71.2833, 7.925, 53.1, 8.05],\n    \"embarked\": [\"S\", \"C\", \"S\", \"S\", \"S\"],\n    \"class\": [\"Third\", \"First\", \"Third\", \"First\", \"Third\"],\n    \"who\": [\"man\", \"woman\", \"woman\", \"woman\", \"man\"],\n    \"adult_male\": [True, False, False, False, True],\n    \"deck\": [\"\", \"C\", \"\", \"S\", \"\"],\n    \"embark_town\": [\"Southampton\", \"Cherbourg\", \"Southampton\", \"Southampton\", \"Southampton\"],\n    \"alive\": [\"no\", \"yes\", \"yes\", \"yes\", \"no\"],\n    \"alone\": [False, False, True, False, True]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical variables to numerical\ndf['sex'] = df['sex'].map({'male': 0, 'female': 1})\ndf['embarked'] = df['embarked'].map({'S': 0, 'C': 1})\ndf['class'] = df['class'].map({'Third': 0, 'First': 1})\ndf['who'] = df['who'].map({'man': 0, 'woman': 1})\n\n# Visualize the dataset\nplt.figure(figsize=(10, 6))\nsns.set_style(\"whitegrid\")\nsns.barplot(x=\"class\", y=\"fare\", data=df)\nplt.title(\"Fare Distribution by Class\")\nplt.xlabel(\"Class\")\nplt.ylabel(\"Fare\")\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4783,
+    "color_delta_e": 0.3426,
+    "visual_entropy": 1.0719,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.857,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

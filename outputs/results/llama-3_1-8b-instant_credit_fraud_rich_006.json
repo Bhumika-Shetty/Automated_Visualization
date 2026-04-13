@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-09T03:02:28.803863",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Create a bar chart to compare transaction types for fraudulent and non-fraudulent transactions\nplt.figure(figsize=(10,6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=credit_fraud)\nplt.title('Transaction Type Distribution for Fraudulent and Non-Fraudulent Transactions')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Is Fraud')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Create a bar chart to compare transaction types for fraudulent and non-fraudulent transactions\nplt.figure(figsize=(10,6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=credit_fraud)\nplt.title('Transaction Type Distribution for Fraudulent and Non-Fraudulent Transactions')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Is Fraud')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.9321,
+    "visual_entropy": 1.2395,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 4.534,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

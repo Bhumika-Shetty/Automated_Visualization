@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 2,
+  "timestamp": "2026-04-09T02:43:59.272673",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    'Person ID': [1, 2, 3, 4, 5],\n    'Gender': ['Male', 'Male', 'Male', 'Male', 'Male'],\n    'Age': [27, 28, 28, 28, 28],\n    'Occupation': ['Software Engineer', 'Doctor', 'Doctor', 'Sales Representative', 'Sales Representative'],\n    'Sleep Duration': [6.1, 6.2, 6.2, 5.9, 5.9],\n    'Quality of Sleep': [6, 6, 6, 4, 4],\n    'Physical Activity Level': [42, 60, 60, 30, 30],\n    'Stress Level': [6, 8, 8, 8, 8],\n    'BMI Category': ['Overweight', 'Normal', 'Normal', 'Obese', 'Obese'],\n    'Blood Pressure': ['126/83', '125/80', '125/80', '140/90', '140/90'],\n    'Heart Rate': [77, 75, 75, 85, 85],\n    'Daily Steps': [4200, 10000, 10000, 3000, 3000],\n    'Sleep Disorder': ['', '', '', 'Sleep Apnea', 'Sleep Apnea']\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical columns to string type\ndf['Occupation'] = df['Occupation'].astype(str)\ndf['BMI Category'] = df['BMI Category'].astype(str)\ndf['Sleep Disorder'] = df['Sleep Disorder'].astype(str)\n\n# Create a figure and axis object\nfig, ax = plt.subplots(2, 3, figsize=(15, 8))\n\n# Plot scatter plots\nsns.scatterplot(x='Age', y='Heart Rate', data=df, ax=ax[0, 0])\nsns.scatterplot(x='Physical Activity Level', y='Daily Steps', data=df, ax=ax[0, 1])\nsns.scatterplot(x='Stress Level', y='Blood Pressure', data=df, ax=ax[0, 2])\n\n# Plot bar plots\nsns.countplot(x='Gender', data=df, ax=ax[1, 0])\nsns.countplot(x='Occupation', data=df, ax=ax[1, 1])\nsns.countplot(x='BMI Category', data=df, ax=ax[1, 2])\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    'Person ID': [1, 2, 3, 4, 5],\n    'Gender': ['Male', 'Male', 'Male', 'Male', 'Male'],\n    'Age': [27, 28, 28, 28, 28],\n    'Occupation': ['Software Engineer', 'Doctor', 'Doctor', 'Sales Representative', 'Sales Representative'],\n    'Sleep Duration': [6.1, 6.2, 6.2, 5.9, 5.9],\n    'Quality of Sleep': [6, 6, 6, 4, 4],\n    'Physical Activity Level': [42, 60, 60, 30, 30],\n    'Stress Level': [6, 8, 8, 8, 8],\n    'BMI Category': ['Overweight', 'Normal', 'Normal', 'Obese', 'Obese'],\n    'Blood Pressure': ['126/83', '125/80', '125/80', '140/90', '140/90'],\n    'Heart Rate': [77, 75, 75, 85, 85],\n    'Daily Steps': [4200, 10000, 10000, 3000, 3000],\n    'Sleep Disorder': ['', '', '', 'Sleep Apnea', 'Sleep Apnea']\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical columns to string type\ndf['Occupation'] = df['Occupation'].astype(str)\ndf['BMI Category'] = df['BMI Category'].astype(str)\ndf['Sleep Disorder'] = df['Sleep Disorder'].astype(str)\n\n# Create a figure and axis object\nfig, ax = plt.subplots(2, 3, figsize=(15, 8))\n\n# Plot scatter plots\nsns.scatterplot(x='Age', y='Heart Rate', data=df, ax=ax[0, 0])\nsns.scatterplot(x='Physical Activity Level', y='Daily Steps', data=df, ax=ax[0, 1])\nsns.scatterplot(x='Stress Level', y='Blood Pressure', data=df, ax=ax[0, 2])\n\n# Plot bar plots\nsns.countplot(x='Gender', data=df, ax=ax[1, 0])\nsns.countplot(x='Occupation', data=df, ax=ax[1, 1])\nsns.countplot(x='BMI Category', data=df, ax=ax[1, 2])\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3778,
+    "color_delta_e": 1.5906,
+    "visual_entropy": 1.1572,
+    "labeling_completeness": 0.0,
+    "code_complexity": 0,
+    "generation_latency": 0.898,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

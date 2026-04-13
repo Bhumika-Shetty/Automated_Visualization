@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-09T02:26:18.124279",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from iris.csv\niris = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map species to numerical values for plotting\nspecies_map = {'setosa': 0, 'versicolor': 1, 'virginica': 2}\niris['species'] = iris['species'].map(species_map)\n\n# Create a scatter plot of petal length vs petal width for each species\nplt.figure(figsize=(10, 8))\nsns.scatterplot(x='petal_length', y='petal_width', hue='species', data=iris)\n\n# Add title and axis labels\nplt.title('Petal Length vs Petal Width by Species')\nplt.xlabel('Petal Length (cm)')\nplt.ylabel('Petal Width (cm)')\n\n# Add legend and save the figure\nplt.legend(title='Species')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from iris.csv\niris = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map species to numerical values for plotting\nspecies_map = {'setosa': 0, 'versicolor': 1, 'virginica': 2}\niris['species'] = iris['species'].map(species_map)\n\n# Create a scatter plot of petal length vs petal width for each species\nplt.figure(figsize=(10, 8))\nsns.scatterplot(x='petal_length', y='petal_width', hue='species', data=iris)\n\n# Add title and axis labels\nplt.title('Petal Length vs Petal Width by Species')\nplt.xlabel('Petal Length (cm)')\nplt.ylabel('Petal Width (cm)')\n\n# Add legend and save the figure\nplt.legend(title='Species')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3125,
+    "color_delta_e": 0.977,
+    "visual_entropy": 0.3866,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 4.681,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

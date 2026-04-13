@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-11T02:16:06.532471",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to indicate another dimension, larger points for heavier cameras\n    sizes=(20, 400), # Range of marker sizes\n    alpha=0.7,\n    palette='viridis', # Choose a color palette\n    legend='full'\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type (Weight Indicated by Size)', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend title for 'weight_grams'\nhandles, labels = plt.gca().get_legend_handles_labels()\n# Find the handle and label for 'weight_grams' and rename the label\nfor i, label in enumerate(labels):\n    if label.replace('.', '', 1).isdigit(): # Check if label is a number (from size legend)\n        labels[i] = f'{float(label):.0f}g' # Format to show grams\n# For the hue legend, ensure it's clear\nhue_legend_title_index = labels.index('sensor_type')\nlabels[hue_legend_title_index] = 'Sensor Type' # Set a proper title for hue legend\n\n# Recreate legend with updated labels\nplt.legend(handles=handles, labels=labels, title='Legend', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to indicate another dimension, larger points for heavier cameras\n    sizes=(20, 400), # Range of marker sizes\n    alpha=0.7,\n    palette='viridis', # Choose a color palette\n    legend='full'\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type (Weight Indicated by Size)', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend title for 'weight_grams'\nhandles, labels = plt.gca().get_legend_handles_labels()\n# Find the handle and label for 'weight_grams' and rename the label\nfor i, label in enumerate(labels):\n    if label.replace('.', '', 1).isdigit(): # Check if label is a number (from size legend)\n        labels[i] = f'{float(label):.0f}g' # Format to show grams\n# For the hue legend, ensure it's clear\nhue_legend_title_index = labels.index('sensor_type')\nlabels[hue_legend_title_index] = 'Sensor Type' # Set a proper title for hue legend\n\n# Recreate legend with updated labels\nplt.legend(handles=handles, labels=labels, title='Legend', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpdeg4xx4c/viz_script.py:44: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.\n  plt.tight_layout()\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4667,
+    "color_delta_e": 0.4678,
+    "visual_entropy": 0.4762,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 6.036,
+    "cost_per_run": 0.000146,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

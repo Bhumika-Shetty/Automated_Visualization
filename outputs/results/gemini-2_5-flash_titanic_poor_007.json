@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 7,
+  "timestamp": "2026-04-10T15:59:27.270751",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Load the dataset from the provided string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a categorical plot to show survival rate by passenger class and sex\n# 'survived' (0/1) as y will automatically calculate the mean (survival rate) for 'kind=\"bar\"'\ng = sns.catplot(\n    data=df,\n    x=\"pclass\",\n    y=\"survived\",\n    hue=\"sex\",\n    kind=\"bar\",\n    palette=\"viridis\", # Choose a color palette\n    height=5,            # Height of the plot\n    aspect=1.2           # Aspect ratio of the plot\n)\n\n# Set descriptive titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.fig.suptitle(\"Titanic Survival Rates by Passenger Class and Sex\", y=1.03) # Main title\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Load the dataset from the provided string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a categorical plot to show survival rate by passenger class and sex\n# 'survived' (0/1) as y will automatically calculate the mean (survival rate) for 'kind=\"bar\"'\ng = sns.catplot(\n    data=df,\n    x=\"pclass\",\n    y=\"survived\",\n    hue=\"sex\",\n    kind=\"bar\",\n    palette=\"viridis\", # Choose a color palette\n    height=5,            # Height of the plot\n    aspect=1.2           # Aspect ratio of the plot\n)\n\n# Set descriptive titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.fig.suptitle(\"Titanic Survival Rates by Passenger Class and Sex\", y=1.03) # Main title\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.8492,
+    "visual_entropy": 1.0321,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 16.168,
+    "cost_per_run": 0.00011,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

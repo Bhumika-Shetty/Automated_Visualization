@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-09T02:54:19.757483",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.dates as mdates\nimport matplotlib.ticker as ticker\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns\ncolumns_to_plot = [\n    'Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', \n    'MntSweetProducts', 'MntGoldProds', 'NumDealsPurchases', 'NumWebPurchases', \n    'NumCatalogPurchases', 'NumStorePurchases', 'NumWebVisitsMonth'\n]\n\n# Create a violin plot\nplt.figure(figsize=(10, 6))\nsns.violinplot(data=customer_segments[columns_to_plot], inner='quartile')\n\n# Set labels and title\nplt.title('Customer Spending Behavior Distribution')\nplt.xlabel('Category')\nplt.xticks(rotation=90)\nplt.ylabel('Value')\n\n# Add a legend\nplt.legend(title='Category')\n\n# Format the y-axis to display numbers\nplt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ',')))\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.dates as mdates\nimport matplotlib.ticker as ticker\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns\ncolumns_to_plot = [\n    'Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', \n    'MntSweetProducts', 'MntGoldProds', 'NumDealsPurchases', 'NumWebPurchases', \n    'NumCatalogPurchases', 'NumStorePurchases', 'NumWebVisitsMonth'\n]\n\n# Create a violin plot\nplt.figure(figsize=(10, 6))\nsns.violinplot(data=customer_segments[columns_to_plot], inner='quartile')\n\n# Set labels and title\nplt.title('Customer Spending Behavior Distribution')\nplt.xlabel('Category')\nplt.xticks(rotation=90)\nplt.ylabel('Value')\n\n# Add a legend\nplt.legend(title='Category')\n\n# Format the y-axis to display numbers\nplt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ',')))\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp547q_ues/viz_script.py:28: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Category')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 41.38,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 0.9722,
+    "visual_entropy": 0.3803,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 11.758,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

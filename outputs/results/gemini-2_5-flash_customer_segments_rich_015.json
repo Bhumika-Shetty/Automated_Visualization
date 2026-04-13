@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-10T17:15:22.022184",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/customer_segments.csv')\nexcept FileNotFoundError:\n    print(\"Error: customer_segments.csv not found. Please ensure the file is in the 'data/' directory.\")\n    exit()\n\n# Calculate total spending on products\nmnt_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['TotalMnt'] = df[mnt_cols].sum(axis=1)\n\n# Drop rows with missing Income for this analysis, as it's a key variable\ndf_cleaned = df.dropna(subset=['Income']).copy()\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot of Income vs TotalMnt, colored by Education level\n# Use lmplot for scatter plots with regression lines and faceting capabilities\n# This allows us to see the trend of spending with income for each education group\ng = sns.lmplot(\n    data=df_cleaned,\n    x='Income',\n    y='TotalMnt',\n    hue='Education',\n    height=6,\n    aspect=1.5,\n    palette='viridis',\n    scatter_kws={'alpha': 0.6},\n    line_kws={'lw': 2}\n)\n\n# Set title and labels\ng.set_axis_labels(\"Annual Income\", \"Total Spending on Products\")\ng.set(title='Total Spending vs. Income by Education Level')\n\n# Adjust legend position if needed\nplt.legend(title='Education', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/customer_segments.csv')\nexcept FileNotFoundError:\n    print(\"Error: customer_segments.csv not found. Please ensure the file is in the 'data/' directory.\")\n    exit()\n\n# Calculate total spending on products\nmnt_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['TotalMnt'] = df[mnt_cols].sum(axis=1)\n\n# Drop rows with missing Income for this analysis, as it's a key variable\ndf_cleaned = df.dropna(subset=['Income']).copy()\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot of Income vs TotalMnt, colored by Education level\n# Use lmplot for scatter plots with regression lines and faceting capabilities\n# This allows us to see the trend of spending with income for each education group\ng = sns.lmplot(\n    data=df_cleaned,\n    x='Income',\n    y='TotalMnt',\n    hue='Education',\n    height=6,\n    aspect=1.5,\n    palette='viridis',\n    scatter_kws={'alpha': 0.6},\n    line_kws={'lw': 2}\n)\n\n# Set title and labels\ng.set_axis_labels(\"Annual Income\", \"Total Spending on Products\")\ng.set(title='Total Spending vs. Income by Education Level')\n\n# Adjust legend position if needed\nplt.legend(title='Education', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.7333,
+    "color_delta_e": 0.8721,
+    "visual_entropy": 1.1497,
+    "labeling_completeness": 0.5,
+    "code_complexity": 11,
+    "generation_latency": 8.556,
+    "cost_per_run": 0.000167,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

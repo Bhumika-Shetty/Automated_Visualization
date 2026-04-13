@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-12T20:07:51.076363",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# --- Data Preprocessing ---\n# Fill NaN in 'Sleep Disorder' with 'None' for clarity in visualization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Create a more descriptive 'Sleep Disorder' label for the legend\ndf['Sleep Disorder Status'] = df['Sleep Disorder'].replace({\n    'None': 'No Disorder',\n    'Sleep Apnea': 'Sleep Apnea',\n    'Insomnia': 'Insomnia'\n})\n\n# Define a logical order for BMI Category for faceting\nbmi_order = ['Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"muted\")\n\n# Create a faceted scatter plot (relplot) to explore relationships\ng = sns.relplot(\n    data=df,\n    x=\"Physical Activity Level\",\n    y=\"Sleep Duration\",\n    hue=\"Sleep Disorder Status\",\n    size=\"Stress Level\",\n    col=\"BMI Category\",\n    kind=\"scatter\",\n    sizes=(30, 250),\n    alpha=0.75,\n    height=6,\n    aspect=0.8,\n    palette={'No Disorder': '#3498db', 'Insomnia': '#e74c3c', 'Sleep Apnea': '#f1c40f'},\n    legend=\"full\"\n)\n\n# --- Customization and Labeling ---\n# Set a comprehensive title for the entire figure\ng.fig.suptitle(\n    'Sleep Duration vs. Physical Activity by Health Profile',\n    fontsize=20,\n    fontweight='bold',\n    y=1.05\n)\n\n# Improve axis labels\ng.set_axis_labels(\"Physical Activity Level (minutes/day)\", \"Sleep Duration (hours)\", fontsize=12)\n\n# Adjust subplot titles\ng.set_titles(\"BMI: {col_name}\", fontsize=14)\n\n# Adjust layout to prevent title overlap\ng.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Customize the legend\nplt.setp(g._legend.get_title(), fontsize=12)\nfor text in g._legend.get_texts():\n    text.set_fontsize(11)\n\n# --- Save the Figure ---\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# --- Data Preprocessing ---\n# Fill NaN in 'Sleep Disorder' with 'None' for clarity in visualization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Create a more descriptive 'Sleep Disorder' label for the legend\ndf['Sleep Disorder Status'] = df['Sleep Disorder'].replace({\n    'None': 'No Disorder',\n    'Sleep Apnea': 'Sleep Apnea',\n    'Insomnia': 'Insomnia'\n})\n\n# Define a logical order for BMI Category for faceting\nbmi_order = ['Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"muted\")\n\n# Create a faceted scatter plot (relplot) to explore relationships\ng = sns.relplot(\n    data=df,\n    x=\"Physical Activity Level\",\n    y=\"Sleep Duration\",\n    hue=\"Sleep Disorder Status\",\n    size=\"Stress Level\",\n    col=\"BMI Category\",\n    kind=\"scatter\",\n    sizes=(30, 250),\n    alpha=0.75,\n    height=6,\n    aspect=0.8,\n    palette={'No Disorder': '#3498db', 'Insomnia': '#e74c3c', 'Sleep Apnea': '#f1c40f'},\n    legend=\"full\"\n)\n\n# --- Customization and Labeling ---\n# Set a comprehensive title for the entire figure\ng.fig.suptitle(\n    'Sleep Duration vs. Physical Activity by Health Profile',\n    fontsize=20,\n    fontweight='bold',\n    y=1.05\n)\n\n# Improve axis labels\ng.set_axis_labels(\"Physical Activity Level (minutes/day)\", \"Sleep Duration (hours)\", fontsize=12)\n\n# Adjust subplot titles\ng.set_titles(\"BMI: {col_name}\", fontsize=14)\n\n# Adjust layout to prevent title overlap\ng.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Customize the legend\nplt.setp(g._legend.get_title(), fontsize=12)\nfor text in g._legend.get_texts():\n    text.set_fontsize(11)\n\n# --- Save the Figure ---\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpd0q8sdsh/viz_script.py:21: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  df['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.8555,
+    "visual_entropy": 0.7083,
+    "labeling_completeness": 0.5,
+    "code_complexity": 7,
+    "generation_latency": 20.36,
+    "cost_per_run": 0.005448,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

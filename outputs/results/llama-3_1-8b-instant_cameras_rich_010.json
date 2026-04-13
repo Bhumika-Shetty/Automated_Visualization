@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-09T03:33:15.005950",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv',\n                   index_col=False,\n                   dtype={'model_year': 'int64',\n                          'megapixels': 'float64',\n                          'max_iso': 'int64',\n                          'weight_grams': 'int64',\n                          'price_usd': 'float64',\n                          'has_video_4k': 'int64'})\n\n# Plot a bar chart to compare the number of cameras with different sensor types\nplt.figure(figsize=(10,6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Number of Cameras by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a scatter plot to show the relationship between megapixels and price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a histogram to show the distribution of camera weights\nplt.figure(figsize=(10,6))\nsns.histplot(data['weight_grams'], kde=True)\nplt.title('Distribution of Camera Weights')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a bar chart to compare the number of cameras with and without 4K video capabilities\nplt.figure(figsize=(10,6))\nsns.countplot(x='has_video_4k', data=data)\nplt.title('Number of Cameras with 4K Video Capabilities')\nplt.xlabel('4K Video Capabilities')\nplt.ylabel('Count')\nplt.legend(title='4K Video Capabilities')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv',\n                   index_col=False,\n                   dtype={'model_year': 'int64',\n                          'megapixels': 'float64',\n                          'max_iso': 'int64',\n                          'weight_grams': 'int64',\n                          'price_usd': 'float64',\n                          'has_video_4k': 'int64'})\n\n# Plot a bar chart to compare the number of cameras with different sensor types\nplt.figure(figsize=(10,6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Number of Cameras by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a scatter plot to show the relationship between megapixels and price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a histogram to show the distribution of camera weights\nplt.figure(figsize=(10,6))\nsns.histplot(data['weight_grams'], kde=True)\nplt.title('Distribution of Camera Weights')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a bar chart to compare the number of cameras with and without 4K video capabilities\nplt.figure(figsize=(10,6))\nsns.countplot(x='has_video_4k', data=data)\nplt.title('Number of Cameras with 4K Video Capabilities')\nplt.xlabel('4K Video Capabilities')\nplt.ylabel('Count')\nplt.legend(title='4K Video Capabilities')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpyb4xiqhr/viz_script.py:48: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='4K Video Capabilities')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 70.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.6576,
+    "visual_entropy": 1.1696,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 8.086,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

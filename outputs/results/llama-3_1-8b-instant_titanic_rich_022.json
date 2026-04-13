@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-09T02:13:51.726178",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a bar chart to compare survival rates by gender\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rates by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a histogram to show the distribution of ages\nplt.figure(figsize=(8, 6))\nsns.histplot(df['age'], kde=True)\nplt.title('Distribution of Ages')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot to show the relationship between fare and survival\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='fare', y='survived', data=df)\nplt.title('Relationship between Fare and Survival')\nplt.xlabel('Fare')\nplt.ylabel('Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a bar chart to compare survival rates by gender\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rates by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a histogram to show the distribution of ages\nplt.figure(figsize=(8, 6))\nsns.histplot(df['age'], kde=True)\nplt.title('Distribution of Ages')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot to show the relationship between fare and survival\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='fare', y='survived', data=df)\nplt.title('Relationship between Fare and Survival')\nplt.xlabel('Fare')\nplt.ylabel('Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.7843,
+    "visual_entropy": 0.2838,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 17.658,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

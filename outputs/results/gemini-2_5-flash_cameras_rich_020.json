@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-10T19:17:26.667684",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# colored by sensor type, with marker size representing weight, and marker style\n# indicating 4K video capability.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(50, 800), # Adjust size range for better visibility\n    style='has_video_4k',\n    palette='viridis', # Choose a color palette\n    alpha=0.7 # Add some transparency\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type, Weight, and 4K Video', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend for clarity\n# The default legend for hue, size, and style can be complex.\n# Let's ensure the legend is placed outside to not obstruct data.\nplt.legend(title='Features', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels/legends from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# colored by sensor type, with marker size representing weight, and marker style\n# indicating 4K video capability.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(50, 800), # Adjust size range for better visibility\n    style='has_video_4k',\n    palette='viridis', # Choose a color palette\n    alpha=0.7 # Add some transparency\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type, Weight, and 4K Video', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend for clarity\n# The default legend for hue, size, and style can be complex.\n# Let's ensure the legend is placed outside to not obstruct data.\nplt.legend(title='Features', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels/legends from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 2.4998,
+    "visual_entropy": 3.5417,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 7.351,
+    "cost_per_run": 0.000127,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

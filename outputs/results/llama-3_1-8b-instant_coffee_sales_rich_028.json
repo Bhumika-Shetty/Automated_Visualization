@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-09T03:49:16.638817",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Create a bar chart for the top 5 most popular products\ntop_products = coffee_sales['product'].value_counts().head(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.xlabel('Product')\nplt.ylabel('Frequency')\nplt.title('Top 5 Most Popular Products')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart for the payment methods\npayment_methods = coffee_sales['payment_method'].value_counts()\nplt.figure(figsize=(8,8))\nplt.pie(payment_methods.values, labels=payment_methods.index, autopct='%1.1f%%')\nplt.title('Payment Methods')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot for the price distribution by product\nprice_boxplot = coffee_sales.groupby('product')['price'].boxplot(by='product')\nplt.figure(figsize=(12,8))\nplt.title('Price Distribution by Product')\nplt.xlabel('Product')\nplt.ylabel('Price')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart for the sales by customer age group\nsales_by_age_group = coffee_sales.groupby('customer_age_group')['total'].sum()\nplt.figure(figsize=(10,6))\nsns.barplot(x=sales_by_age_group.index, y=sales_by_age_group.values)\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Sales')\nplt.title('Sales by Customer Age Group')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Create a bar chart for the top 5 most popular products\ntop_products = coffee_sales['product'].value_counts().head(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.xlabel('Product')\nplt.ylabel('Frequency')\nplt.title('Top 5 Most Popular Products')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart for the payment methods\npayment_methods = coffee_sales['payment_method'].value_counts()\nplt.figure(figsize=(8,8))\nplt.pie(payment_methods.values, labels=payment_methods.index, autopct='%1.1f%%')\nplt.title('Payment Methods')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot for the price distribution by product\nprice_boxplot = coffee_sales.groupby('product')['price'].boxplot(by='product')\nplt.figure(figsize=(12,8))\nplt.title('Price Distribution by Product')\nplt.xlabel('Product')\nplt.ylabel('Price')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart for the sales by customer age group\nsales_by_age_group = coffee_sales.groupby('customer_age_group')['total'].sum()\nplt.figure(figsize=(10,6))\nsns.barplot(x=sales_by_age_group.index, y=sales_by_age_group.values)\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Sales')\nplt.title('Sales by Customer Age Group')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpimsh9dua/viz_script.py\", line 28, in <module>\n    price_boxplot = coffee_sales.groupby('product')['price'].boxplot(by='product')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/groupby/groupby.py\", line 1115, in __getattr__\n    raise AttributeError(\n        f\"'{type(self).__name__}' object has no attribute '{attr}'\"\n    )\nAttributeError: 'SeriesGroupBy' object has no attribute 'boxplot'\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5238,
+    "color_delta_e": 0.3009,
+    "visual_entropy": 1.7769,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 0.635,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

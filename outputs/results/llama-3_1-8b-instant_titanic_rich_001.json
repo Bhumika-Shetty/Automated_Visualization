@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-09T02:11:37.947070",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Melt the data to create a pivot table for seaborn bar plot\ndf_melted = pd.melt(df, id_vars=['sex'], value_vars=['pclass', 'sibsp', 'parch', 'fare'], var_name='Attribute', value_name='Value')\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Attribute', y='Value', hue='sex', data=df_melted)\n\n# Set the title and labels\nplt.title('Average Values of Passenger Attributes by Sex')\nplt.xlabel('Attribute')\nplt.ylabel('Average Value')\nplt.legend(title='Sex')\n\n# Rotate the x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Melt the data to create a pivot table for seaborn bar plot\ndf_melted = pd.melt(df, id_vars=['sex'], value_vars=['pclass', 'sibsp', 'parch', 'fare'], var_name='Attribute', value_name='Value')\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Attribute', y='Value', hue='sex', data=df_melted)\n\n# Set the title and labels\nplt.title('Average Values of Passenger Attributes by Sex')\nplt.xlabel('Attribute')\nplt.ylabel('Average Value')\nplt.legend(title='Sex')\n\n# Rotate the x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.67,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 0.7681,
+    "visual_entropy": 0.8257,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 0.608,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

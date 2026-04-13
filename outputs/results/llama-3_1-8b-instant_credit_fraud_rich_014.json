@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-09T03:03:11.414029",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Plot the distribution of transaction types\ntransaction_type_counts = data['transaction_type'].value_counts()\nplt.figure(figsize=(8, 6))\nsns.barplot(x=transaction_type_counts.index, y=transaction_type_counts.values)\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.title('Distribution of Transaction Types')\nplt.legend(title='Transaction Type')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of hour of day for fraudulent transactions\nfraudulent_transactions = data[data['is_fraud'] == 1]['hour_of_day']\nplt.figure(figsize=(8, 6))\nsns.kdeplot(fraudulent_transactions, shade=True)\nplt.xlabel('Hour of Day')\nplt.ylabel('Density')\nplt.title('Distribution of Hour of Day for Fraudulent Transactions')\nplt.axvline(x=fraudulent_transactions.mean(), color='r', linestyle='--', label='Mean Hour of Day')\nplt.legend()\nplt.tight_layout()\nplt.savefig('output_hour_of_day.png', bbox_inches='tight', dpi=150)\n\n# Plot a scatter plot of amount vs hour of day for non-fraudulent transactions\nnon_fraudulent_transactions = data[data['is_fraud'] == 0][['amount', 'hour_of_day']]\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=non_fraudulent_transactions)\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.title('Amount vs Hour of Day for Non-Fraudulent Transactions')\nplt.tight_layout()\nplt.savefig('output_amount_hour.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Plot the distribution of transaction types\ntransaction_type_counts = data['transaction_type'].value_counts()\nplt.figure(figsize=(8, 6))\nsns.barplot(x=transaction_type_counts.index, y=transaction_type_counts.values)\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.title('Distribution of Transaction Types')\nplt.legend(title='Transaction Type')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of hour of day for fraudulent transactions\nfraudulent_transactions = data[data['is_fraud'] == 1]['hour_of_day']\nplt.figure(figsize=(8, 6))\nsns.kdeplot(fraudulent_transactions, shade=True)\nplt.xlabel('Hour of Day')\nplt.ylabel('Density')\nplt.title('Distribution of Hour of Day for Fraudulent Transactions')\nplt.axvline(x=fraudulent_transactions.mean(), color='r', linestyle='--', label='Mean Hour of Day')\nplt.legend()\nplt.tight_layout()\nplt.savefig('output_hour_of_day.png', bbox_inches='tight', dpi=150)\n\n# Plot a scatter plot of amount vs hour of day for non-fraudulent transactions\nnon_fraudulent_transactions = data[data['is_fraud'] == 0][['amount', 'hour_of_day']]\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=non_fraudulent_transactions)\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.title('Amount vs Hour of Day for Non-Fraudulent Transactions')\nplt.tight_layout()\nplt.savefig('output_amount_hour.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp_k8ekh5t/viz_script.py:15: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Transaction Type')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp_k8ekh5t/viz_script.py:23: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  sns.kdeplot(fraudulent_transactions, shade=True)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 0.8981,
+    "visual_entropy": 1.1923,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 6.079,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

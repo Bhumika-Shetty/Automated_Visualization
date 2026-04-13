@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-10T16:35:01.988203",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Physical Activity Level',\n    sizes=(50, 800), # Adjust marker size range for Physical Activity Level\n    palette='viridis', # Colormap for Stress Level\n    alpha=0.7,\n    edgecolor='w', # Add white edge for better visibility of markers\n    linewidth=0.5\n)\n\n# Add titles and labels\nplt.title('Sleep Duration vs. Quality of Sleep: Impact of Stress and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Move the legend outside the plot area for clarity\nplt.legend(title='Metrics', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Ensure layout adjusts to prevent legend or labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Physical Activity Level',\n    sizes=(50, 800), # Adjust marker size range for Physical Activity Level\n    palette='viridis', # Colormap for Stress Level\n    alpha=0.7,\n    edgecolor='w', # Add white edge for better visibility of markers\n    linewidth=0.5\n)\n\n# Add titles and labels\nplt.title('Sleep Duration vs. Quality of Sleep: Impact of Stress and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Move the legend outside the plot area for clarity\nplt.legend(title='Metrics', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Ensure layout adjusts to prevent legend or labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.6722,
+    "visual_entropy": 0.7237,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 13.935,
+    "cost_per_run": 0.000123,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

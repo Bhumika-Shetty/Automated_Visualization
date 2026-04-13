@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-09T02:13:05.862244",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert embarked and class columns to categorical\ndf['embarked'] = pd.Categorical(df['embarked'])\ndf['class'] = pd.Categorical(df['class'])\n\n# Create a bar plot to show the survival rate by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert embarked and class columns to categorical\ndf['embarked'] = pd.Categorical(df['embarked'])\ndf['class'] = pd.Categorical(df['class'])\n\n# Create a bar plot to show the survival rate by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.2727,
+    "color_delta_e": 0.7607,
+    "visual_entropy": 1.291,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.487,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

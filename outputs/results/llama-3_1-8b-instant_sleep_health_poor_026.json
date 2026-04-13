@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 26,
+  "timestamp": "2026-04-09T02:48:42.862200",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"Person ID\": [1, 2, 3, 4, 5],\n    \"Gender\": [\"Male\", \"Male\", \"Male\", \"Male\", \"Male\"],\n    \"Age\": [27, 28, 28, 28, 28],\n    \"Occupation\": [\"Software Engineer\", \"Doctor\", \"Doctor\", \"Sales Representative\", \"Sales Representative\"],\n    \"Sleep Duration\": [6.1, 6.2, 6.2, 5.9, 5.9],\n    \"Quality of Sleep\": [6, 6, 6, 4, 4],\n    \"Physical Activity Level\": [42, 60, 60, 30, 30],\n    \"Stress Level\": [6, 8, 8, 8, 8],\n    \"BMI Category\": [\"Overweight\", \"Normal\", \"Normal\", \"Obese\", \"Obese\"],\n    \"Blood Pressure\": [\"126/83\", \"125/80\", \"125/80\", \"140/90\", \"140/90\"],\n    \"Heart Rate\": [77, 75, 75, 85, 85],\n    \"Daily Steps\": [4200, 10000, 10000, 3000, 3000],\n    \"Sleep Disorder\": [\"\", \"\", \"Sleep Apnea\", \"Sleep Apnea\", \"Sleep Apnea\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical variables to numerical variables\ndf['Gender'] = df['Gender'].map({'Male': 0, 'Female': 1})\ndf['Occupation'] = df['Occupation'].map({'Software Engineer': 0, 'Doctor': 1, 'Sales Representative': 2})\ndf['BMI Category'] = df['BMI Category'].map({'Underweight': 0, 'Normal': 1, 'Overweight': 2, 'Obese': 3})\ndf['Sleep Disorder'] = df['Sleep Disorder'].map({'' : 0, 'Sleep Apnea': 1})\n\n# Plot a bar chart of the average sleep duration by gender\nplt.figure(figsize=(10,6))\nsns.barplot(x='Gender', y='Sleep Duration', data=df)\nplt.title('Average Sleep Duration by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Average Sleep Duration')\nplt.savefig('output.png')\nplt.show()\n\n# Plot a scatter plot of blood pressure vs heart rate\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Heart Rate', y='Blood Pressure', data=df)\nplt.title('Blood Pressure vs Heart Rate')\nplt.xlabel('Heart Rate')\nplt.ylabel('Blood Pressure')\nplt.savefig('output2.png')\nplt.show()\n\n# Plot a box plot of daily steps by occupation\nplt.figure(figsize=(10,6))\nsns.boxplot(x='Occupation', y='Daily Steps', data=df)\nplt.title('Daily Steps by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Daily Steps')\nplt.savefig('output3.png')\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"Person ID\": [1, 2, 3, 4, 5],\n    \"Gender\": [\"Male\", \"Male\", \"Male\", \"Male\", \"Male\"],\n    \"Age\": [27, 28, 28, 28, 28],\n    \"Occupation\": [\"Software Engineer\", \"Doctor\", \"Doctor\", \"Sales Representative\", \"Sales Representative\"],\n    \"Sleep Duration\": [6.1, 6.2, 6.2, 5.9, 5.9],\n    \"Quality of Sleep\": [6, 6, 6, 4, 4],\n    \"Physical Activity Level\": [42, 60, 60, 30, 30],\n    \"Stress Level\": [6, 8, 8, 8, 8],\n    \"BMI Category\": [\"Overweight\", \"Normal\", \"Normal\", \"Obese\", \"Obese\"],\n    \"Blood Pressure\": [\"126/83\", \"125/80\", \"125/80\", \"140/90\", \"140/90\"],\n    \"Heart Rate\": [77, 75, 75, 85, 85],\n    \"Daily Steps\": [4200, 10000, 10000, 3000, 3000],\n    \"Sleep Disorder\": [\"\", \"\", \"Sleep Apnea\", \"Sleep Apnea\", \"Sleep Apnea\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical variables to numerical variables\ndf['Gender'] = df['Gender'].map({'Male': 0, 'Female': 1})\ndf['Occupation'] = df['Occupation'].map({'Software Engineer': 0, 'Doctor': 1, 'Sales Representative': 2})\ndf['BMI Category'] = df['BMI Category'].map({'Underweight': 0, 'Normal': 1, 'Overweight': 2, 'Obese': 3})\ndf['Sleep Disorder'] = df['Sleep Disorder'].map({'' : 0, 'Sleep Apnea': 1})\n\n# Plot a bar chart of the average sleep duration by gender\nplt.figure(figsize=(10,6))\nsns.barplot(x='Gender', y='Sleep Duration', data=df)\nplt.title('Average Sleep Duration by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Average Sleep Duration')\nplt.savefig('output.png')\nplt.show()\n\n# Plot a scatter plot of blood pressure vs heart rate\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Heart Rate', y='Blood Pressure', data=df)\nplt.title('Blood Pressure vs Heart Rate')\nplt.xlabel('Heart Rate')\nplt.ylabel('Blood Pressure')\nplt.savefig('output2.png')\nplt.show()\n\n# Plot a box plot of daily steps by occupation\nplt.figure(figsize=(10,6))\nsns.boxplot(x='Occupation', y='Daily Steps', data=df)\nplt.title('Daily Steps by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Daily Steps')\nplt.savefig('output3.png')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.984,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

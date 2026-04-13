@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-10T19:15:55.376497",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Order the sensor types by their median price for better readability and insight\n# This helps in quickly identifying which sensor types are generally more expensive\norder = df.groupby('sensor_type')['price_usd'].median().sort_values(ascending=False).index\n\n# Create a violin plot to show the distribution of prices across different sensor types.\n# Violin plots are excellent for visualizing the distribution (density, spread, and central tendency)\n# of a continuous variable across different categories.\nsns.violinplot(\n    data=df,\n    x='sensor_type',\n    y='price_usd',\n    order=order,\n    inner='quartile',  # Shows the quartiles (median, 25th, 75th percentile) inside the violins\n    linewidth=1.0      # Adjust line width for better visual clarity\n)\n\n# Add labels and title for clarity\nplt.xlabel('Sensor Type', fontsize=12, fontweight='bold')\nplt.ylabel('Price (USD)', fontsize=12, fontweight='bold')\nplt.title('Distribution of Camera Prices by Sensor Type', fontsize=16, fontweight='bold')\n\n# Rotate x-axis labels if they are long to prevent overlapping\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a subtle grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Improve layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Order the sensor types by their median price for better readability and insight\n# This helps in quickly identifying which sensor types are generally more expensive\norder = df.groupby('sensor_type')['price_usd'].median().sort_values(ascending=False).index\n\n# Create a violin plot to show the distribution of prices across different sensor types.\n# Violin plots are excellent for visualizing the distribution (density, spread, and central tendency)\n# of a continuous variable across different categories.\nsns.violinplot(\n    data=df,\n    x='sensor_type',\n    y='price_usd',\n    order=order,\n    inner='quartile',  # Shows the quartiles (median, 25th, 75th percentile) inside the violins\n    linewidth=1.0      # Adjust line width for better visual clarity\n)\n\n# Add labels and title for clarity\nplt.xlabel('Sensor Type', fontsize=12, fontweight='bold')\nplt.ylabel('Price (USD)', fontsize=12, fontweight='bold')\nplt.title('Distribution of Camera Prices by Sensor Type', fontsize=16, fontweight='bold')\n\n# Rotate x-axis labels if they are long to prevent overlapping\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a subtle grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Improve layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.8366,
+    "visual_entropy": 1.3986,
+    "labeling_completeness": 0.75,
+    "code_complexity": 6,
+    "generation_latency": 12.584,
+    "cost_per_run": 0.00015,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

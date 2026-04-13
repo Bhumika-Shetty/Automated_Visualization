@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 24,
+  "timestamp": "2026-04-09T02:33:44.573773",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import load_iris\nimport seaborn as sns\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(iris.data, columns=iris.feature_names)\ndf['species'] = iris.target_names[iris.target]\n\n# Create a scatter plot\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='sepal length (cm)', y='sepal width (cm)', hue='species', data=df)\n\n# Set the title and labels\nplt.title('Iris Dataset - Sepal Length vs Width')\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Sepal Width (cm)')\n\n# Save the plot\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import load_iris\nimport seaborn as sns\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(iris.data, columns=iris.feature_names)\ndf['species'] = iris.target_names[iris.target]\n\n# Create a scatter plot\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='sepal length (cm)', y='sepal width (cm)', hue='species', data=df)\n\n# Set the title and labels\nplt.title('Iris Dataset - Sepal Length vs Width')\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Sepal Width (cm)')\n\n# Save the plot\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.0,
+    "color_delta_e": 1.3046,
+    "visual_entropy": 0.5213,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.456,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

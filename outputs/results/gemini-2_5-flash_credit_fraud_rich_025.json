@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-10T17:45:15.480383",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Map 'is_fraud' numerical values to descriptive labels for better readability in plots\ndf['fraud_status'] = df['is_fraud'].map({0: 'Non-Fraud', 1: 'Fraud'})\n\n# Set a professional style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 3, figsize=(20, 6)) # 1 row, 3 columns for subplots\n\n# Plot 1: Distribution of transaction amount by fraud status\nsns.kdeplot(data=df, x='amount', hue='fraud_status', fill=True, common_norm=False, ax=axes[0])\naxes[0].set_title('Distribution of Transaction Amount by Fraud Status')\naxes[0].set_xlabel('Transaction Amount')\naxes[0].set_ylabel('Density')\naxes[0].legend(title='Fraud Status')\n\n# Plot 2: Distribution of transaction hour of day by fraud status\nsns.kdeplot(data=df, x='hour_of_day', hue='fraud_status', fill=True, common_norm=False, ax=axes[1])\naxes[1].set_title('Distribution of Transaction Hour by Fraud Status')\naxes[1].set_xlabel('Hour of Day')\naxes[1].set_ylabel('Density')\naxes[1].set_xticks(range(0, 24, 2)) # Set ticks for every 2 hours for better readability\naxes[1].legend(title='Fraud Status')\n\n# Plot 3: Count of transaction types by fraud status\nsns.countplot(data=df, x='transaction_type', hue='fraud_status', ax=axes[2])\naxes[2].set_title('Transaction Type Counts by Fraud Status')\naxes[2].set_xlabel('Transaction Type')\naxes[2].set_ylabel('Count')\naxes[2].tick_params(axis='x', rotation=15) # Rotate x-axis labels if they overlap\naxes[2].legend(title='Fraud Status')\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Map 'is_fraud' numerical values to descriptive labels for better readability in plots\ndf['fraud_status'] = df['is_fraud'].map({0: 'Non-Fraud', 1: 'Fraud'})\n\n# Set a professional style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 3, figsize=(20, 6)) # 1 row, 3 columns for subplots\n\n# Plot 1: Distribution of transaction amount by fraud status\nsns.kdeplot(data=df, x='amount', hue='fraud_status', fill=True, common_norm=False, ax=axes[0])\naxes[0].set_title('Distribution of Transaction Amount by Fraud Status')\naxes[0].set_xlabel('Transaction Amount')\naxes[0].set_ylabel('Density')\naxes[0].legend(title='Fraud Status')\n\n# Plot 2: Distribution of transaction hour of day by fraud status\nsns.kdeplot(data=df, x='hour_of_day', hue='fraud_status', fill=True, common_norm=False, ax=axes[1])\naxes[1].set_title('Distribution of Transaction Hour by Fraud Status')\naxes[1].set_xlabel('Hour of Day')\naxes[1].set_ylabel('Density')\naxes[1].set_xticks(range(0, 24, 2)) # Set ticks for every 2 hours for better readability\naxes[1].legend(title='Fraud Status')\n\n# Plot 3: Count of transaction types by fraud status\nsns.countplot(data=df, x='transaction_type', hue='fraud_status', ax=axes[2])\naxes[2].set_title('Transaction Type Counts by Fraud Status')\naxes[2].set_xlabel('Transaction Type')\naxes[2].set_ylabel('Count')\naxes[2].tick_params(axis='x', rotation=15) # Rotate x-axis labels if they overlap\naxes[2].legend(title='Fraud Status')\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpcyvwnied/viz_script.py:22: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  axes[0].legend(title='Fraud Status')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpcyvwnied/viz_script.py:30: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  axes[1].legend(title='Fraud Status')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7692,
+    "color_delta_e": 1.1428,
+    "visual_entropy": 1.655,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 13.187,
+    "cost_per_run": 0.000152,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-09T02:13:03.166058",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.preprocessing import LabelEncoder\n\n# Load the data\ndata = pd.read_csv('data/titanic.csv')\n\n# Map categorical variables to numeric for plotting\nle = LabelEncoder()\ndata['sex'] = le.fit_transform(data['sex'])\ndata['class'] = le.fit_transform(data['class'])\ndata['embarked'] = le.fit_transform(data['embarked'])\ndata['alive'] = le.fit_transform(data['alive'])\n\n# Create a violin plot to compare age distribution of survived and not survived passengers\nplt.figure(figsize=(10,6))\nsns.violinplot(x='survived', y='age', data=data)\nplt.title('Age Distribution of Survived and Not Survived Passengers')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.preprocessing import LabelEncoder\n\n# Load the data\ndata = pd.read_csv('data/titanic.csv')\n\n# Map categorical variables to numeric for plotting\nle = LabelEncoder()\ndata['sex'] = le.fit_transform(data['sex'])\ndata['class'] = le.fit_transform(data['class'])\ndata['embarked'] = le.fit_transform(data['embarked'])\ndata['alive'] = le.fit_transform(data['alive'])\n\n# Create a violin plot to compare age distribution of survived and not survived passengers\nplt.figure(figsize=(10,6))\nsns.violinplot(x='survived', y='age', data=data)\nplt.title('Age Distribution of Survived and Not Survived Passengers')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.1429,
+    "color_delta_e": 0.8502,
+    "visual_entropy": 0.9871,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.652,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

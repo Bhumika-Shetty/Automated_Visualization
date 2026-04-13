@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 9,
+  "timestamp": "2026-04-09T03:09:57.775268",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Create a DataFrame from the given data\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Pivot the DataFrame to count transactions by hour of day and transaction type\npivot_df = df.pivot_table(index='hour_of_day', columns='transaction_type', values='amount', aggfunc='count')\n\n# Create a heatmap using seaborn\nplt.figure(figsize=(10, 6))\nsns.heatmap(pivot_df, annot=True, cmap='Blues')\n\n# Set the title and labels\nplt.title('Transaction Count by Hour of Day and Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Hour of Day')\n\n# Show the plot\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Create a DataFrame from the given data\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Pivot the DataFrame to count transactions by hour of day and transaction type\npivot_df = df.pivot_table(index='hour_of_day', columns='transaction_type', values='amount', aggfunc='count')\n\n# Create a heatmap using seaborn\nplt.figure(figsize=(10, 6))\nsns.heatmap(pivot_df, annot=True, cmap='Blues')\n\n# Set the title and labels\nplt.title('Transaction Count by Hour of Day and Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Hour of Day')\n\n# Show the plot\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.5546,
+    "visual_entropy": 1.3038,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.487,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 19,
+  "timestamp": "2026-04-11T01:56:01.063544",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ncsv_data = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the dataset into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Visualize the relationship between 'Sleep Duration' and 'Quality of Sleep',\n# using 'Stress Level' for color and 'Daily Steps' for point size.\n# This helps to understand how these key health metrics interact.\nscatterplot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Daily Steps',\n    sizes=(50, 500), # Define a range for point sizes\n    palette='viridis', # Choose a color palette\n    alpha=0.8,\n    legend='full'\n)\n\n# Add title and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by Stress Level and Daily Steps', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Stress Level', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure layout is tight to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ncsv_data = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the dataset into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Visualize the relationship between 'Sleep Duration' and 'Quality of Sleep',\n# using 'Stress Level' for color and 'Daily Steps' for point size.\n# This helps to understand how these key health metrics interact.\nscatterplot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Daily Steps',\n    sizes=(50, 500), # Define a range for point sizes\n    palette='viridis', # Choose a color palette\n    alpha=0.8,\n    legend='full'\n)\n\n# Add title and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by Stress Level and Daily Steps', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Stress Level', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure layout is tight to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3077,
+    "color_delta_e": 1.121,
+    "visual_entropy": 0.7362,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 11.58,
+    "cost_per_run": 0.000148,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

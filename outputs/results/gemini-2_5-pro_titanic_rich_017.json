@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-12T05:06:26.288740",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure with two subplots\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))\n\n# Main title for the entire figure\nfig.suptitle('Titanic Survival Analysis: The Influence of Class, Age, and Sex', fontsize=20, weight='bold')\n\n# --- Plot 1: Survival Rate by Class and Sex ---\nsns.barplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    order=['First', 'Second', 'Third'],\n    ci=None,\n    ax=ax1,\n    palette={'male': 'skyblue', 'female': 'salmon'}\n)\nax1.set_title('Survival Rate by Passenger Class and Sex', fontsize=14, weight='bold')\nax1.set_xlabel('Passenger Class', fontsize=12)\nax1.set_ylabel('Survival Rate', fontsize=12)\nax1.set_ylim(0, 1)\nax1.legend(title='Sex')\n\n# Add percentage labels to the bars\nfor p in ax1.patches:\n    ax1.annotate(f'{p.get_height():.0%}',\n                 (p.get_x() + p.get_width() / 2., p.get_height()),\n                 ha='center', va='center',\n                 xytext=(0, 9),\n                 textcoords='offset points',\n                 fontsize=10,\n                 color='black')\n\n# --- Plot 2: Age Distribution of Survivors vs. Non-Survivors ---\nsns.kdeplot(\n    data=df,\n    x='age',\n    hue='alive',\n    fill=True,\n    common_norm=False,\n    ax=ax2,\n    palette={'no': 'gray', 'yes': 'green'},\n    alpha=0.6\n)\nax2.set_title('Age Distribution of Survivors vs. Non-Survivors', fontsize=14, weight='bold')\nax2.set_xlabel('Age', fontsize=12)\nax2.set_ylabel('Density', fontsize=12)\nax2.legend(title='Survived', labels=['Yes', 'No'])\n\n# Improve layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.95])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure with two subplots\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))\n\n# Main title for the entire figure\nfig.suptitle('Titanic Survival Analysis: The Influence of Class, Age, and Sex', fontsize=20, weight='bold')\n\n# --- Plot 1: Survival Rate by Class and Sex ---\nsns.barplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    order=['First', 'Second', 'Third'],\n    ci=None,\n    ax=ax1,\n    palette={'male': 'skyblue', 'female': 'salmon'}\n)\nax1.set_title('Survival Rate by Passenger Class and Sex', fontsize=14, weight='bold')\nax1.set_xlabel('Passenger Class', fontsize=12)\nax1.set_ylabel('Survival Rate', fontsize=12)\nax1.set_ylim(0, 1)\nax1.legend(title='Sex')\n\n# Add percentage labels to the bars\nfor p in ax1.patches:\n    ax1.annotate(f'{p.get_height():.0%}',\n                 (p.get_x() + p.get_width() / 2., p.get_height()),\n                 ha='center', va='center',\n                 xytext=(0, 9),\n                 textcoords='offset points',\n                 fontsize=10,\n                 color='black')\n\n# --- Plot 2: Age Distribution of Survivors vs. Non-Survivors ---\nsns.kdeplot(\n    data=df,\n    x='age',\n    hue='alive',\n    fill=True,\n    common_norm=False,\n    ax=ax2,\n    palette={'no': 'gray', 'yes': 'green'},\n    alpha=0.6\n)\nax2.set_title('Age Distribution of Survivors vs. Non-Survivors', fontsize=14, weight='bold')\nax2.set_xlabel('Age', fontsize=12)\nax2.set_ylabel('Density', fontsize=12)\nax2.legend(title='Survived', labels=['Yes', 'No'])\n\n# Improve layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.95])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmplha0wz1p/viz_script.py:19: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.7714,
+    "color_delta_e": 0.7643,
+    "visual_entropy": 1.6191,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 31.114,
+    "cost_per_run": 0.005239,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

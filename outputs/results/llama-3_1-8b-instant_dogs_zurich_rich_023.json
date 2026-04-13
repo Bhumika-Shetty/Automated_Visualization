@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-09T03:19:57.549545",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a countplot of the most common breeds\nplt.figure(figsize=(10,6))\nsns.countplot(x='Rasse1Text', data=data)\nplt.title('Most Common Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of dog ages\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterVHundSort'], bins=20, kde=True)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Count')\nplt.savefig('output_ages.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the most common districts\nplt.figure(figsize=(10,6))\ndata['KreisLang'] = data['KreisLang'].str.lower()\nsns.countplot(x='KreisLang', data=data)\nplt.title('Most Common Districts in Zurich')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_districts.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of dog age vs. owner age\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='AlterV10Sort', y='AlterVHundSort', data=data)\nplt.title('Relationship between Dog Age and Owner Age')\nplt.xlabel('Owner Age')\nplt.ylabel('Dog Age')\nplt.savefig('output_age_relationship.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a countplot of the most common breeds\nplt.figure(figsize=(10,6))\nsns.countplot(x='Rasse1Text', data=data)\nplt.title('Most Common Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of dog ages\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterVHundSort'], bins=20, kde=True)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Count')\nplt.savefig('output_ages.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the most common districts\nplt.figure(figsize=(10,6))\ndata['KreisLang'] = data['KreisLang'].str.lower()\nsns.countplot(x='KreisLang', data=data)\nplt.title('Most Common Districts in Zurich')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_districts.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of dog age vs. owner age\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='AlterV10Sort', y='AlterVHundSort', data=data)\nplt.title('Relationship between Dog Age and Owner Age')\nplt.xlabel('Owner Age')\nplt.ylabel('Dog Age')\nplt.savefig('output_age_relationship.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 6.484,
+    "visual_entropy": 2.2999,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 11.013,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

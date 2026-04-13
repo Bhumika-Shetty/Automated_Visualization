@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-09T03:48:14.900389",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n\n# Pivot data for easier plotting\ncoffee_sales_pivot = coffee_sales.pivot_table(index='date', values='total', aggfunc='sum')\n\n# Create a line plot of total sales over time\nplt.figure(figsize=(10,6))\nsns.lineplot(data=coffee_sales_pivot)\nplt.title('Total Sales Over Time')\nplt.xlabel('Date')\nplt.ylabel('Total Sales ($)')\nplt.grid(True)\nplt.legend(title='Total Sales ($)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n\n# Pivot data for easier plotting\ncoffee_sales_pivot = coffee_sales.pivot_table(index='date', values='total', aggfunc='sum')\n\n# Create a line plot of total sales over time\nplt.figure(figsize=(10,6))\nsns.lineplot(data=coffee_sales_pivot)\nplt.title('Total Sales Over Time')\nplt.xlabel('Date')\nplt.ylabel('Total Sales ($)')\nplt.grid(True)\nplt.legend(title='Total Sales ($)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpobz2o1q8/viz_script.py:10: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  coffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 3.0176,
+    "visual_entropy": 1.0302,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 11.045,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

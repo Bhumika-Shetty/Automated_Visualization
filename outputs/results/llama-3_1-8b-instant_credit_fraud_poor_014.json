@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 14,
+  "timestamp": "2026-04-09T03:12:03.630999",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Create a bar plot to show the distribution of transactions by hour of day\nplt.figure(figsize=(10, 6))\nsns.countplot(x=\"hour_of_day\", data=df, order=df[\"hour_of_day\"].value_counts().index)\n\n# Add title and labels\nplt.title(\"Distribution of Transactions by Hour of Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Count\")\n\n# Save the plot as output.png\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Create a bar plot to show the distribution of transactions by hour of day\nplt.figure(figsize=(10, 6))\nsns.countplot(x=\"hour_of_day\", data=df, order=df[\"hour_of_day\"].value_counts().index)\n\n# Add title and labels\nplt.title(\"Distribution of Transactions by Hour of Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Count\")\n\n# Save the plot as output.png\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.919,
+    "visual_entropy": 1.0695,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.441,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

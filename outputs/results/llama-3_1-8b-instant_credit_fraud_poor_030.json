@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 30,
+  "timestamp": "2026-04-09T03:15:27.305777",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Count the occurrences of each transaction type\ntransaction_counts = df['transaction_type'].value_counts()\n\n# Create a bar plot\nplt.figure(figsize=(10,6))\nsns.barplot(x=transaction_counts.index, y=transaction_counts.values, palette='Blues')\nplt.title('Transaction Type Frequency')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Count the occurrences of each transaction type\ntransaction_counts = df['transaction_type'].value_counts()\n\n# Create a bar plot\nplt.figure(figsize=(10,6))\nsns.barplot(x=transaction_counts.index, y=transaction_counts.values, palette='Blues')\nplt.title('Transaction Type Frequency')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp2r7c2b7x/viz_script.py:19: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=transaction_counts.index, y=transaction_counts.values, palette='Blues')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.7445,
+    "visual_entropy": 1.5418,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.547,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-09T03:32:57.557436",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a violin plot for sensor type distribution\nplt.figure(figsize=(12, 8))\nsns.set_style('whitegrid')\nsns.violinplot(x='sensor_type', y='megapixels', data=cameras, hue='brand', split=True)\nplt.title('Sensor Type Distribution (Megapixels)')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.legend(title='Brand')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a violin plot for sensor type distribution\nplt.figure(figsize=(12, 8))\nsns.set_style('whitegrid')\nsns.violinplot(x='sensor_type', y='megapixels', data=cameras, hue='brand', split=True)\nplt.title('Sensor Type Distribution (Megapixels)')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.legend(title='Brand')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 3.417,
+    "visual_entropy": 1.9216,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 0.448,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-12T05:50:38.600804",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.font_manager\n\ndef create_iris_visualization():\n    \"\"\"\n    Generates and saves a pairplot visualization for the Iris dataset.\n    \"\"\"\n    # Load the dataset\n    try:\n        df = pd.read_csv('data/iris.csv')\n    except FileNotFoundError:\n        print(\"Error: 'data/iris.csv' not found. Please ensure the dataset is in the correct directory.\")\n        # As a fallback for execution, load from seaborn's sample datasets\n        df = sns.load_dataset('iris')\n\n    # Set a professional and clean visual style\n    sns.set_theme(style=\"whitegrid\", context=\"talk\")\n    \n    # Define a color palette for better visual distinction\n    species_palette = {\n        \"setosa\": \"#2a9d8f\",\n        \"versicolor\": \"#e9c46a\",\n        \"virginica\": \"#e76f51\"\n    }\n\n    # Create the pairplot, which is ideal for this dataset\n    # It shows both pairwise relationships and univariate distributions.\n    g = sns.pairplot(\n        df,\n        hue=\"species\",\n        palette=species_palette,\n        diag_kind=\"kde\",  # Use Kernel Density Estimates on the diagonal\n        markers=[\"o\", \"s\", \"D\"],  # Different markers for each species\n        plot_kws={'alpha': 0.85, 's': 80, 'edgecolor': 'k', 'linewidth': 0.5},\n        diag_kws={'fill': True, 'alpha': 0.6}\n    )\n\n    # Add a clear, descriptive title\n    g.fig.suptitle(\n        \"Distribution & Pairwise Relationships of Iris Flower Features\",\n        y=1.03,\n        fontsize=22,\n        fontweight='bold'\n    )\n\n    # Improve legend\n    g._legend.set_title(\"Species\")\n    for t in g._legend.texts:\n        t.set_fontsize(14)\n\n    # Make axis labels more readable\n    for ax in g.axes.flatten():\n        if ax:\n            ax.set_xlabel(ax.get_xlabel(), fontsize=14, fontweight='medium')\n            ax.set_ylabel(ax.get_ylabel(), fontsize=14, fontweight='medium')\n\n    # Save the final figure with specified settings\n    plt.savefig('output.png', bbox_inches='tight', dpi=150)\n    plt.close(g.fig)\n\nif __name__ == '__main__':\n    create_iris_visualization()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.font_manager\n\ndef create_iris_visualization():\n    \"\"\"\n    Generates and saves a pairplot visualization for the Iris dataset.\n    \"\"\"\n    # Load the dataset\n    try:\n        df = pd.read_csv('data/iris.csv')\n    except FileNotFoundError:\n        print(\"Error: 'data/iris.csv' not found. Please ensure the dataset is in the correct directory.\")\n        # As a fallback for execution, load from seaborn's sample datasets\n        df = sns.load_dataset('iris')\n\n    # Set a professional and clean visual style\n    sns.set_theme(style=\"whitegrid\", context=\"talk\")\n    \n    # Define a color palette for better visual distinction\n    species_palette = {\n        \"setosa\": \"#2a9d8f\",\n        \"versicolor\": \"#e9c46a\",\n        \"virginica\": \"#e76f51\"\n    }\n\n    # Create the pairplot, which is ideal for this dataset\n    # It shows both pairwise relationships and univariate distributions.\n    g = sns.pairplot(\n        df,\n        hue=\"species\",\n        palette=species_palette,\n        diag_kind=\"kde\",  # Use Kernel Density Estimates on the diagonal\n        markers=[\"o\", \"s\", \"D\"],  # Different markers for each species\n        plot_kws={'alpha': 0.85, 's': 80, 'edgecolor': 'k', 'linewidth': 0.5},\n        diag_kws={'fill': True, 'alpha': 0.6}\n    )\n\n    # Add a clear, descriptive title\n    g.fig.suptitle(\n        \"Distribution & Pairwise Relationships of Iris Flower Features\",\n        y=1.03,\n        fontsize=22,\n        fontweight='bold'\n    )\n\n    # Improve legend\n    g._legend.set_title(\"Species\")\n    for t in g._legend.texts:\n        t.set_fontsize(14)\n\n    # Make axis labels more readable\n    for ax in g.axes.flatten():\n        if ax:\n            ax.set_xlabel(ax.get_xlabel(), fontsize=14, fontweight='medium')\n            ax.set_ylabel(ax.get_ylabel(), fontsize=14, fontweight='medium')\n\n    # Save the final figure with specified settings\n    plt.savefig('output.png', bbox_inches='tight', dpi=150)\n    plt.close(g.fig)\n\nif __name__ == '__main__':\n    create_iris_visualization()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7083,
+    "color_delta_e": 2.0453,
+    "visual_entropy": 1.9463,
+    "labeling_completeness": 1.0,
+    "code_complexity": 12,
+    "generation_latency": 21.089,
+    "cost_per_run": 0.005533,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

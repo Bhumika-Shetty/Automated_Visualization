@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-09T02:11:40.024176",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/titanic.csv')\n\n# Convert embarked and class to categorical variables\ndata['embarked'] = pd.Categorical(data['embarked'])\ndata['class'] = pd.Categorical(data['class'])\n\n# Create a bar chart to compare survival rates by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survival Rates by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output_sex.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare fare distribution by survived\nplt.figure(figsize=(10,6))\nsns.boxplot(x='survived', y='fare', data=data)\nplt.title('Fare Distribution by Survival')\nplt.xlabel('Survived')\nplt.ylabel('Fare')\nplt.tight_layout()\nplt.savefig('output_fare.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare survival rates by class\nplt.figure(figsize=(10,6))\nsns.countplot(x='class', hue='survived', data=data)\nplt.title('Survival Rates by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output_class.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to show correlation between variables\ncorr = data[['age', 'sibsp', 'parch', 'fare', 'survived']].corr()\nplt.figure(figsize=(8,6))\nsns.heatmap(corr, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation between Variables')\nplt.tight_layout()\nplt.savefig('output_correlation.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/titanic.csv')\n\n# Convert embarked and class to categorical variables\ndata['embarked'] = pd.Categorical(data['embarked'])\ndata['class'] = pd.Categorical(data['class'])\n\n# Create a bar chart to compare survival rates by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survival Rates by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output_sex.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare fare distribution by survived\nplt.figure(figsize=(10,6))\nsns.boxplot(x='survived', y='fare', data=data)\nplt.title('Fare Distribution by Survival')\nplt.xlabel('Survived')\nplt.ylabel('Fare')\nplt.tight_layout()\nplt.savefig('output_fare.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare survival rates by class\nplt.figure(figsize=(10,6))\nsns.countplot(x='class', hue='survived', data=data)\nplt.title('Survival Rates by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output_class.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to show correlation between variables\ncorr = data[['age', 'sibsp', 'parch', 'fare', 'survived']].corr()\nplt.figure(figsize=(8,6))\nsns.heatmap(corr, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation between Variables')\nplt.tight_layout()\nplt.savefig('output_correlation.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 53.33,
+    "hallucination_rate": 0.3438,
+    "color_delta_e": 0.4712,
+    "visual_entropy": 0.459,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.971,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

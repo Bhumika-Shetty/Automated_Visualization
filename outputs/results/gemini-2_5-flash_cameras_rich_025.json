@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-10T19:21:58.931253",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with different sensor types highlighted by color.\n# This helps to see if certain sensor types are associated with higher megapixels or price points.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to add another dimension of insight\n    sizes=(50, 500), # Range for point sizes\n    palette='viridis', # A perceptually uniform colormap\n    alpha=0.7, # Transparency for better visibility of overlapping points\n    edgecolor='w', # White edge around points for better separation\n    linewidth=0.5\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16, fontweight='bold')\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\n# The 'hue' legend (Sensor Type) and 'size' legend (Weight) are handled automatically by seaborn\nplt.legend(title='Camera Characteristics', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Adjust plot layout to prevent elements from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for legend outside\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with different sensor types highlighted by color.\n# This helps to see if certain sensor types are associated with higher megapixels or price points.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to add another dimension of insight\n    sizes=(50, 500), # Range for point sizes\n    palette='viridis', # A perceptually uniform colormap\n    alpha=0.7, # Transparency for better visibility of overlapping points\n    edgecolor='w', # White edge around points for better separation\n    linewidth=0.5\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16, fontweight='bold')\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\n# The 'hue' legend (Sensor Type) and 'size' legend (Weight) are handled automatically by seaborn\nplt.legend(title='Camera Characteristics', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Adjust plot layout to prevent elements from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for legend outside\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 2.2087,
+    "visual_entropy": 3.3004,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 10.443,
+    "cost_per_run": 0.000151,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

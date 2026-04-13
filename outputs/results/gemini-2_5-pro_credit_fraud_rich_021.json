@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-12T07:59:15.570340",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\nsns.set_palette(\"viridis\")\n\n# Create a figure with three subplots arranged in a row\nfig, axes = plt.subplots(1, 3, figsize=(20, 6))\n\n# --- Plot 1: Distribution of Transaction Amounts for Fraudulent vs. Non-Fraudulent ---\nsns.boxplot(x='is_fraud', y='amount', data=df, ax=axes[0])\naxes[0].set_title('Transaction Amount by Fraud Status', fontsize=14, weight='bold')\naxes[0].set_yscale('log')  # Use log scale due to skewed amount data\naxes[0].set_xlabel('Is Fraudulent', fontsize=12)\naxes[0].set_ylabel('Transaction Amount (Log Scale)', fontsize=12)\naxes[0].set_xticklabels(['No', 'Yes'])\n\n# --- Plot 2: Count of Fraudulent Transactions by Hour of Day ---\nsns.countplot(x='hour_of_day', hue='is_fraud', data=df, ax=axes[1])\naxes[1].set_title('Transaction Volume by Hour', fontsize=14, weight='bold')\naxes[1].set_xlabel('Hour of Day', fontsize=12)\naxes[1].set_ylabel('Number of Transactions', fontsize=12)\naxes[1].legend(title='Is Fraud', labels=['No', 'Yes'])\n\n# --- Plot 3: Count of Fraudulent Transactions by Transaction Type ---\nsns.countplot(y='transaction_type', hue='is_fraud', data=df, ax=axes[2], order=df['transaction_type'].value_counts().index)\naxes[2].set_title('Transaction Volume by Type', fontsize=14, weight='bold')\naxes[2].set_xlabel('Number of Transactions', fontsize=12)\naxes[2].set_ylabel('Transaction Type', fontsize=12)\naxes[2].legend(title='Is Fraud', labels=['No', 'Yes'])\n\n# Add a comprehensive main title to the figure\nfig.suptitle('Analysis of Fraudulent Transactions', fontsize=18, weight='bold')\n\n# Adjust layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\nsns.set_palette(\"viridis\")\n\n# Create a figure with three subplots arranged in a row\nfig, axes = plt.subplots(1, 3, figsize=(20, 6))\n\n# --- Plot 1: Distribution of Transaction Amounts for Fraudulent vs. Non-Fraudulent ---\nsns.boxplot(x='is_fraud', y='amount', data=df, ax=axes[0])\naxes[0].set_title('Transaction Amount by Fraud Status', fontsize=14, weight='bold')\naxes[0].set_yscale('log')  # Use log scale due to skewed amount data\naxes[0].set_xlabel('Is Fraudulent', fontsize=12)\naxes[0].set_ylabel('Transaction Amount (Log Scale)', fontsize=12)\naxes[0].set_xticklabels(['No', 'Yes'])\n\n# --- Plot 2: Count of Fraudulent Transactions by Hour of Day ---\nsns.countplot(x='hour_of_day', hue='is_fraud', data=df, ax=axes[1])\naxes[1].set_title('Transaction Volume by Hour', fontsize=14, weight='bold')\naxes[1].set_xlabel('Hour of Day', fontsize=12)\naxes[1].set_ylabel('Number of Transactions', fontsize=12)\naxes[1].legend(title='Is Fraud', labels=['No', 'Yes'])\n\n# --- Plot 3: Count of Fraudulent Transactions by Transaction Type ---\nsns.countplot(y='transaction_type', hue='is_fraud', data=df, ax=axes[2], order=df['transaction_type'].value_counts().index)\naxes[2].set_title('Transaction Volume by Type', fontsize=14, weight='bold')\naxes[2].set_xlabel('Number of Transactions', fontsize=12)\naxes[2].set_ylabel('Transaction Type', fontsize=12)\naxes[2].legend(title='Is Fraud', labels=['No', 'Yes'])\n\n# Add a comprehensive main title to the figure\nfig.suptitle('Analysis of Fraudulent Transactions', fontsize=18, weight='bold')\n\n# Adjust layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmps90s6b6l/viz_script.py:21: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.\n  axes[0].set_xticklabels(['No', 'Yes'])\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7812,
+    "color_delta_e": 1.3663,
+    "visual_entropy": 1.1359,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 23.216,
+    "cost_per_run": 0.00508,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

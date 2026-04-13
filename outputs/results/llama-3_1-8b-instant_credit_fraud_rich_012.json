@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-09T03:02:58.660586",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Convert is_fraud column to categorical variable for plotting\ndata['is_fraud'] = pd.Categorical(data['is_fraud'])\n\n# Create a bar chart of transaction types by number of transactions\nsns.set()\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=data, ax=ax)\nax.set_title('Distribution of Transaction Types by Fraud Status')\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Count')\nax.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Convert is_fraud column to categorical variable for plotting\ndata['is_fraud'] = pd.Categorical(data['is_fraud'])\n\n# Create a bar chart of transaction types by number of transactions\nsns.set()\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=data, ax=ax)\nax.set_title('Distribution of Transaction Types by Fraud Status')\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Count')\nax.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.7567,
+    "visual_entropy": 1.8829,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.697,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

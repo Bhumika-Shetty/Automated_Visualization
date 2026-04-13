@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-09T03:32:59.564292",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Convert categorical variables to categorical type\ndata['brand'] = data['brand'].astype('category')\ndata['sensor_type'] = data['sensor_type'].astype('category')\ndata['lens_mount'] = data['lens_mount'].astype('category')\ndata['body_type'] = data['body_type'].astype('category')\n\n# Create a countplot to visualize the distribution of brands\nplt.figure(figsize=(10, 6))\nsns.countplot(x='brand', data=data)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a scatterplot to visualize the relationship between price and megapixels\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship between Price and Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a barplot to visualize the distribution of sensor types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to visualize the distribution of prices\nplt.figure(figsize=(8, 6))\nsns.histplot(data['price_usd'], kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Count')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Convert categorical variables to categorical type\ndata['brand'] = data['brand'].astype('category')\ndata['sensor_type'] = data['sensor_type'].astype('category')\ndata['lens_mount'] = data['lens_mount'].astype('category')\ndata['body_type'] = data['body_type'].astype('category')\n\n# Create a countplot to visualize the distribution of brands\nplt.figure(figsize=(10, 6))\nsns.countplot(x='brand', data=data)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a scatterplot to visualize the relationship between price and megapixels\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship between Price and Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a barplot to visualize the distribution of sensor types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to visualize the distribution of prices\nplt.figure(figsize=(8, 6))\nsns.histplot(data['price_usd'], kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Count')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5161,
+    "color_delta_e": 0.6489,
+    "visual_entropy": 1.1256,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.711,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

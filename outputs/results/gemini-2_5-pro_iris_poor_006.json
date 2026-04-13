@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-12T05:57:16.156517",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a professional and clean plot style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pair plot to show pairwise relationships and distributions\n# This is an excellent choice for exploring multivariate data like Iris\ng = sns.pairplot(df, hue='species', diag_kind='kde', markers='o',\n                 plot_kws={'alpha': 0.8, 's': 80, 'edgecolor': 'k'},\n                 diag_kws={'linewidth': 2, 'fill': True})\n\n# Add a descriptive title to the entire figure\ng.fig.suptitle(\"Relationships Between Iris Features for Setosa Species\",\n               y=1.03, fontsize=16, fontweight='bold')\n\n# Adjust spacing\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a professional and clean plot style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pair plot to show pairwise relationships and distributions\n# This is an excellent choice for exploring multivariate data like Iris\ng = sns.pairplot(df, hue='species', diag_kind='kde', markers='o',\n                 plot_kws={'alpha': 0.8, 's': 80, 'edgecolor': 'k'},\n                 diag_kws={'linewidth': 2, 'fill': True})\n\n# Add a descriptive title to the entire figure\ng.fig.suptitle(\"Relationships Between Iris Features for Setosa Species\",\n               y=1.03, fontsize=16, fontweight='bold')\n\n# Adjust spacing\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 0.4342,
+    "visual_entropy": 0.9253,
+    "labeling_completeness": 0.25,
+    "code_complexity": 2,
+    "generation_latency": 17.244,
+    "cost_per_run": 0.002982,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-12T05:50:22.730592",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the data is not in a 'data' folder\n    # This is a common way to load example datasets with seaborn\n    df = sns.load_dataset('iris')\n\n# Set the visual style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pairplot to visualize pairwise relationships\n# This is highly effective for the Iris dataset as it shows how different\n# feature pairs contribute to the separation of the species.\ng = sns.pairplot(\n    df,\n    hue='species',\n    markers=[\"o\", \"s\", \"D\"],  # Different markers for each species for clarity\n    diag_kind='kde',          # Kernel density estimate on the diagonal\n    plot_kws={'alpha': 0.8, 's': 80, 'edgecolor': 'k'},\n    diag_kws={'fill': True}\n)\n\n# Add a descriptive title above the plot\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Flower Measurements by Species\",\n    y=1.03,  # Adjust title position\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve axis labels for clarity\nfor ax in g.axes.flatten():\n    ax.set_xlabel(ax.get_xlabel(), fontsize=12)\n    ax.set_ylabel(ax.get_ylabel(), fontsize=12)\n\n# Adjust legend title\ng.legend.set_title(\"Species\", prop={'size': 12, 'weight': 'bold'})\n\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the data is not in a 'data' folder\n    # This is a common way to load example datasets with seaborn\n    df = sns.load_dataset('iris')\n\n# Set the visual style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pairplot to visualize pairwise relationships\n# This is highly effective for the Iris dataset as it shows how different\n# feature pairs contribute to the separation of the species.\ng = sns.pairplot(\n    df,\n    hue='species',\n    markers=[\"o\", \"s\", \"D\"],  # Different markers for each species for clarity\n    diag_kind='kde',          # Kernel density estimate on the diagonal\n    plot_kws={'alpha': 0.8, 's': 80, 'edgecolor': 'k'},\n    diag_kws={'fill': True}\n)\n\n# Add a descriptive title above the plot\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Flower Measurements by Species\",\n    y=1.03,  # Adjust title position\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve axis labels for clarity\nfor ax in g.axes.flatten():\n    ax.set_xlabel(ax.get_xlabel(), fontsize=12)\n    ax.set_ylabel(ax.get_ylabel(), fontsize=12)\n\n# Adjust legend title\ng.legend.set_title(\"Species\", prop={'size': 12, 'weight': 'bold'})\n\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 2.1834,
+    "visual_entropy": 2.119,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 13.585,
+    "cost_per_run": 0.003893,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

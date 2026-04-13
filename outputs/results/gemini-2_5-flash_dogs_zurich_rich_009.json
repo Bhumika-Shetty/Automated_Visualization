@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-11T01:59:41.863236",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare the data\n# We want to visualize the number of dog registrations per year,\n# broken down by the dog's gender.\n# 'StichtagDatJahr' represents the year of registration.\n# 'SexHundLang' represents the dog's gender (m\u00e4nnlich=male, weiblich=female).\n\n# Group by year and dog gender, then count the occurrences\n# The .size() method counts the number of rows in each group.\n# .unstack() pivots the 'SexHundLang' column to create separate columns for each gender,\n# making it suitable for a stacked bar chart.\ndf_plot = df.groupby(['StichtagDatJahr', 'SexHundLang']).size().unstack(fill_value=0)\n\n# Rename columns to English for clarity in the legend\n# Assuming 'm\u00e4nnlich' maps to 'Male' and 'weiblich' maps to 'Female'.\ndf_plot = df_plot.rename(columns={'m\u00e4nnlich': 'Male', 'weiblich': 'Female'})\n\n# Set the style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the stacked bar chart\nplt.figure(figsize=(12, 7))\n\n# Plotting the data as a stacked bar chart\ndf_plot.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add title and labels for clarity\nplt.title('Annual Dog Registrations in Zurich by Dog Gender', fontsize=18, pad=20)\nplt.xlabel('Year of Registration', fontsize=14)\nplt.ylabel('Number of Registered Dogs', fontsize=14)\n\n# Rotate x-axis labels for better readability if years are numerous\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Add a legend outside the plot area to prevent overlap with bars\nplt.legend(title='Dog Gender', title_fontsize='13', fontsize='12',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Improve layout and add a grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout(rect=[0, 0, 0.9, 1]) # Adjust layout to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare the data\n# We want to visualize the number of dog registrations per year,\n# broken down by the dog's gender.\n# 'StichtagDatJahr' represents the year of registration.\n# 'SexHundLang' represents the dog's gender (m\u00e4nnlich=male, weiblich=female).\n\n# Group by year and dog gender, then count the occurrences\n# The .size() method counts the number of rows in each group.\n# .unstack() pivots the 'SexHundLang' column to create separate columns for each gender,\n# making it suitable for a stacked bar chart.\ndf_plot = df.groupby(['StichtagDatJahr', 'SexHundLang']).size().unstack(fill_value=0)\n\n# Rename columns to English for clarity in the legend\n# Assuming 'm\u00e4nnlich' maps to 'Male' and 'weiblich' maps to 'Female'.\ndf_plot = df_plot.rename(columns={'m\u00e4nnlich': 'Male', 'weiblich': 'Female'})\n\n# Set the style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the stacked bar chart\nplt.figure(figsize=(12, 7))\n\n# Plotting the data as a stacked bar chart\ndf_plot.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add title and labels for clarity\nplt.title('Annual Dog Registrations in Zurich by Dog Gender', fontsize=18, pad=20)\nplt.xlabel('Year of Registration', fontsize=14)\nplt.ylabel('Number of Registered Dogs', fontsize=14)\n\n# Rotate x-axis labels for better readability if years are numerous\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Add a legend outside the plot area to prevent overlap with bars\nplt.legend(title='Dog Gender', title_fontsize='13', fontsize='12',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Improve layout and add a grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout(rect=[0, 0, 0.9, 1]) # Adjust layout to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.7273,
+    "color_delta_e": 1.4934,
+    "visual_entropy": 1.4897,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 13.542,
+    "cost_per_run": 0.000212,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

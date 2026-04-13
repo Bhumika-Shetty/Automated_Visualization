@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-12T05:52:42.961019",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset from the specified path\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional and clean style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a pairplot to visualize pairwise relationships and distributions\n# This is an excellent choice for this dataset as it shows the relationships\n# between all numerical variables and how they differ across the categorical 'species'.\n# The diagonal plots show the distribution of each individual variable for each species.\ng = sns.pairplot(\n    df,\n    hue='species',\n    palette='viridis',  # Use a color-blind friendly and vibrant palette\n    diag_kind='kde',    # Use Kernel Density Estimation for diagonal plots\n    markers=[\"o\", \"s\", \"D\"], # Use distinct markers for each species\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'linewidth': 2, 'fill': True}\n)\n\n# Add a descriptive main title to the figure\ng.fig.suptitle(\n    'Relationships Between Sepal and Petal Measurements by Iris Species',\n    y=1.02,  # Adjust title position to avoid overlapping with subplot titles\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Enhance the legend\ng._legend.set_title(\"Species\")\nfor t in g._legend.get_texts():\n    t.set_fontsize(12)\ng._legend.get_title().set_fontsize(12)\n\n\n# Save the final figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset from the specified path\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional and clean style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a pairplot to visualize pairwise relationships and distributions\n# This is an excellent choice for this dataset as it shows the relationships\n# between all numerical variables and how they differ across the categorical 'species'.\n# The diagonal plots show the distribution of each individual variable for each species.\ng = sns.pairplot(\n    df,\n    hue='species',\n    palette='viridis',  # Use a color-blind friendly and vibrant palette\n    diag_kind='kde',    # Use Kernel Density Estimation for diagonal plots\n    markers=[\"o\", \"s\", \"D\"], # Use distinct markers for each species\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'linewidth': 2, 'fill': True}\n)\n\n# Add a descriptive main title to the figure\ng.fig.suptitle(\n    'Relationships Between Sepal and Petal Measurements by Iris Species',\n    y=1.02,  # Adjust title position to avoid overlapping with subplot titles\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Enhance the legend\ng._legend.set_title(\"Species\")\nfor t in g._legend.get_texts():\n    t.set_fontsize(12)\ng._legend.get_title().set_fontsize(12)\n\n\n# Save the final figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 2.1725,
+    "visual_entropy": 1.9569,
+    "labeling_completeness": 0.5,
+    "code_complexity": 7,
+    "generation_latency": 19.843,
+    "cost_per_run": 0.003882,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

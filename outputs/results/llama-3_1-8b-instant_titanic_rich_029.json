@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-09T02:14:54.447799",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert categorical variables to numerical\ndf['sex'] = df['sex'].map({'male': 0, 'female': 1})\ndf['embarked'] = df['embarked'].map({'S': 0, 'C': 1, 'Q': 2})\ndf['class'] = df['class'].map({'Third': 0, 'First': 1, 'Second': 2})\n\n# Create a bar chart to show survival by sex\nsns.set(style='whitegrid')\nplt.figure(figsize=(8,6))\nsns.barplot(x='sex', y='survived', data=df)\nplt.xlabel('Sex')\nplt.ylabel('Survived')\nplt.title('Survival by Sex')\nplt.xticks([0, 1], ['Male', 'Female'])\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show age distribution\nplt.figure(figsize=(8,6))\nsns.histplot(df['age'], kde=True)\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.title('Age Distribution')\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show fare vs age\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='age', y='fare', hue='survived', data=df)\nplt.xlabel('Age')\nplt.ylabel('Fare')\nplt.title('Fare vs Age')\nplt.legend(title='Survived')\nplt.savefig('output_fare_age.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert categorical variables to numerical\ndf['sex'] = df['sex'].map({'male': 0, 'female': 1})\ndf['embarked'] = df['embarked'].map({'S': 0, 'C': 1, 'Q': 2})\ndf['class'] = df['class'].map({'Third': 0, 'First': 1, 'Second': 2})\n\n# Create a bar chart to show survival by sex\nsns.set(style='whitegrid')\nplt.figure(figsize=(8,6))\nsns.barplot(x='sex', y='survived', data=df)\nplt.xlabel('Sex')\nplt.ylabel('Survived')\nplt.title('Survival by Sex')\nplt.xticks([0, 1], ['Male', 'Female'])\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show age distribution\nplt.figure(figsize=(8,6))\nsns.histplot(df['age'], kde=True)\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.title('Age Distribution')\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show fare vs age\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='age', y='fare', hue='survived', data=df)\nplt.xlabel('Age')\nplt.ylabel('Fare')\nplt.title('Fare vs Age')\nplt.legend(title='Survived')\nplt.savefig('output_fare_age.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4167,
+    "color_delta_e": 0.414,
+    "visual_entropy": 1.2797,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 25.161,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

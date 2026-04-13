@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-10T17:10:51.263028",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle missing Income values by dropping rows where Income is NaN\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate 'Total_Spending' by summing all 'Mnt' (amount spent) columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Filter out extreme outliers for better visualization clarity\n# For Income: remove values above the 99th percentile\ndf_filtered = df[df['Income'] < df['Income'].quantile(0.99)]\n# For Total_Spending: remove values above the 99th percentile\ndf_filtered = df_filtered[df_filtered['Total_Spending'] < df_filtered['Total_Spending'].quantile(0.99)]\n\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Total Spending vs. Income, colored by Education level\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis',  # A perceptually uniform colormap\n    alpha=0.7,          # Transparency to help with overplotting\n    s=70                # Marker size\n)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income (\u20ac)', fontsize=12)\nplt.ylabel('Total Spending (\u20ac)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle missing Income values by dropping rows where Income is NaN\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate 'Total_Spending' by summing all 'Mnt' (amount spent) columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Filter out extreme outliers for better visualization clarity\n# For Income: remove values above the 99th percentile\ndf_filtered = df[df['Income'] < df['Income'].quantile(0.99)]\n# For Total_Spending: remove values above the 99th percentile\ndf_filtered = df_filtered[df_filtered['Total_Spending'] < df_filtered['Total_Spending'].quantile(0.99)]\n\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Total Spending vs. Income, colored by Education level\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis',  # A perceptually uniform colormap\n    alpha=0.7,          # Transparency to help with overplotting\n    s=70                # Marker size\n)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income (\u20ac)', fontsize=12)\nplt.ylabel('Total Spending (\u20ac)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.6875,
+    "color_delta_e": 1.647,
+    "visual_entropy": 1.5311,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 10.803,
+    "cost_per_run": 0.000189,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

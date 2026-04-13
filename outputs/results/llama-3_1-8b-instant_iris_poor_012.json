@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 12,
+  "timestamp": "2026-04-09T02:31:23.540829",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import load_iris\nimport seaborn as sns\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target_map[iris.target]\n\n# Map species to their respective names\nspecies_map = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}\ndf['species'] = df['species'].map(species_map)\n\n# Create a subset of the dataset\nsubset_df = df[df['species'] == 'setosa']\n\n# Plot the data\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='sepal_length', y='sepal_width', hue='petal_length', data=subset_df)\nplt.title('Sepal Length vs Sepal Width of Setosa Species')\nplt.xlabel('Sepal Length')\nplt.ylabel('Sepal Width')\nplt.legend(title='Petal Length')\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import load_iris\nimport seaborn as sns\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target_map[iris.target]\n\n# Map species to their respective names\nspecies_map = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}\ndf['species'] = df['species'].map(species_map)\n\n# Create a subset of the dataset\nsubset_df = df[df['species'] == 'setosa']\n\n# Plot the data\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='sepal_length', y='sepal_width', hue='petal_length', data=subset_df)\nplt.title('Sepal Length vs Sepal Width of Setosa Species')\nplt.xlabel('Sepal Length')\nplt.ylabel('Sepal Width')\nplt.legend(title='Petal Length')\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/sklearn/utils/_bunch.py\", line 57, in __getattr__\n    return self[key]\n           ~~~~^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/sklearn/utils/_bunch.py\", line 42, in __getitem__\n    return super().__getitem__(key)\n           ~~~~~~~~~~~~~~~~~~~^^^^^\nKeyError: 'target_map'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp_e35t84r/viz_script.py\", line 9, in <module>\n    df['species'] = iris.target_map[iris.target]\n                    ^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/sklearn/utils/_bunch.py\", line 59, in __getattr__\n    raise AttributeError(key)\nAttributeError: target_map. Did you mean: 'target_names'?\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 80.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.479,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

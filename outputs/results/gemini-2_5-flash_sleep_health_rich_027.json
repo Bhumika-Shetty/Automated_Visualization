@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-10T16:44:18.867097",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' column by filling with 'None'\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Define a logical order for BMI Categories for better visualization\nbmi_order = ['Underweight', 'Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\nsns.violinplot(\n    data=df,\n    x='BMI Category',\n    y='Sleep Duration',\n    hue='Sleep Disorder',\n    palette='viridis',\n    inner='quartile', # Shows quartiles within the violins\n    linewidth=1.2\n)\n\nplt.title('Distribution of Sleep Duration by BMI Category and Sleep Disorder', fontsize=16)\nplt.xlabel('BMI Category', fontsize=12)\nplt.ylabel('Sleep Duration (hours)', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' column by filling with 'None'\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Define a logical order for BMI Categories for better visualization\nbmi_order = ['Underweight', 'Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\nsns.violinplot(\n    data=df,\n    x='BMI Category',\n    y='Sleep Duration',\n    hue='Sleep Disorder',\n    palette='viridis',\n    inner='quartile', # Shows quartiles within the violins\n    linewidth=1.2\n)\n\nplt.title('Distribution of Sleep Duration by BMI Category and Sleep Disorder', fontsize=16)\nplt.xlabel('BMI Category', fontsize=12)\nplt.ylabel('Sleep Duration (hours)', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8jj2o4yb/viz_script.py:13: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  df['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.2567,
+    "visual_entropy": 0.9611,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 12.981,
+    "cost_per_run": 0.000123,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-10T17:13:40.473942",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/customer_segments.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/customer_segments.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Calculate total spending by summing all 'Mnt' columns\nmnt_cols = [col for col in df.columns if 'Mnt' in col]\ndf['Total_Mnt'] = df[mnt_cols].sum(axis=1)\n\n# Drop rows with NaN values in 'Income' as they are crucial for this analysis\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot to visualize Total Spending vs. Income,\n# colored by Education level to reveal potential segments.\n# The size of the points is mapped to Total_Mnt to emphasize higher spenders.\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Mnt',\n    hue='Education',\n    size='Total_Mnt',  # Use Total_Mnt for size to add another dimension of insight\n    sizes=(20, 400),  # Range of sizes for the points\n    alpha=0.7,\n    palette='viridis' # A distinct color palette for education levels\n)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income (USD)', fontsize=12)\nplt.ylabel('Total Amount Spent (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust plot margins to ensure everything fits, especially the legend\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Do not use plt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/customer_segments.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/customer_segments.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Calculate total spending by summing all 'Mnt' columns\nmnt_cols = [col for col in df.columns if 'Mnt' in col]\ndf['Total_Mnt'] = df[mnt_cols].sum(axis=1)\n\n# Drop rows with NaN values in 'Income' as they are crucial for this analysis\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot to visualize Total Spending vs. Income,\n# colored by Education level to reveal potential segments.\n# The size of the points is mapped to Total_Mnt to emphasize higher spenders.\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Mnt',\n    hue='Education',\n    size='Total_Mnt',  # Use Total_Mnt for size to add another dimension of insight\n    sizes=(20, 400),  # Range of sizes for the points\n    alpha=0.7,\n    palette='viridis' # A distinct color palette for education levels\n)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income (USD)', fontsize=12)\nplt.ylabel('Total Amount Spent (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust plot margins to ensure everything fits, especially the legend\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Do not use plt.show()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 0.8951,
+    "visual_entropy": 0.892,
+    "labeling_completeness": 1.0,
+    "code_complexity": 13,
+    "generation_latency": 10.016,
+    "cost_per_run": 0.000191,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

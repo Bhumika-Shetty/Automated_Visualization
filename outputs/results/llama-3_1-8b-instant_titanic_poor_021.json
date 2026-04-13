@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 21,
+  "timestamp": "2026-04-09T02:20:41.479515",
+  "code": "import matplotlib.pyplot as plt\nimport pandas as pd\nimport seaborn as sns\nimport io\n\n# Load the dataset\ndata = \"\"\"\nsurvived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert categorical variables to numerical\ndf['sex'] = df['sex'].map({'male': 1, 'female': 0})\ndf['class'] = df['class'].map({'Third': 1, 'First': 2})\ndf['who'] = df['who'].map({'man': 1, 'woman': 0})\ndf['alive'] = df['alive'].map({'yes': 1, 'no': 0})\n\n# Create a visualization\nplt.figure(figsize=(10,6))\nsns.barplot(x='class', y='fare', hue='alive', data=df)\nplt.title('Fare by Class and Survival')\nplt.xlabel('Class')\nplt.ylabel('Fare')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport pandas as pd\nimport seaborn as sns\nimport io\n\n# Load the dataset\ndata = \"\"\"\nsurvived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert categorical variables to numerical\ndf['sex'] = df['sex'].map({'male': 1, 'female': 0})\ndf['class'] = df['class'].map({'Third': 1, 'First': 2})\ndf['who'] = df['who'].map({'man': 1, 'woman': 0})\ndf['alive'] = df['alive'].map({'yes': 1, 'no': 0})\n\n# Create a visualization\nplt.figure(figsize=(10,6))\nsns.barplot(x='class', y='fare', hue='alive', data=df)\nplt.title('Fare by Class and Survival')\nplt.xlabel('Class')\nplt.ylabel('Fare')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3913,
+    "color_delta_e": 0.7634,
+    "visual_entropy": 0.9398,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.931,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

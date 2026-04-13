@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-10T16:19:15.039971",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set up the matplotlib figure and subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\nfig.suptitle('Iris Flower Measurements by Species', fontsize=16)\n\n# Plot 1: Sepal Length vs. Sepal Width\nsns.scatterplot(\n    ax=axes[0],\n    data=df,\n    x='sepal_length',\n    y='sepal_width',\n    hue='species',\n    s=80, # Marker size\n    alpha=0.8,\n    palette='viridis' # Color palette\n)\naxes[0].set_title('Sepal Dimensions', fontsize=14)\naxes[0].set_xlabel('Sepal Length (cm)', fontsize=12)\naxes[0].set_ylabel('Sepal Width (cm)', fontsize=12)\naxes[0].grid(True, linestyle='--', alpha=0.6)\naxes[0].legend(title='Species')\n\n# Plot 2: Petal Length vs. Petal Width\nsns.scatterplot(\n    ax=axes[1],\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=80, # Marker size\n    alpha=0.8,\n    palette='viridis' # Color palette\n)\naxes[1].set_title('Petal Dimensions', fontsize=14)\naxes[1].set_xlabel('Petal Length (cm)', fontsize=12)\naxes[1].set_ylabel('Petal Width (cm)', fontsize=12)\naxes[1].grid(True, linestyle='--', alpha=0.6)\naxes[1].legend(title='Species')\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout(rect=[0, 0.03, 1, 0.95]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set up the matplotlib figure and subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\nfig.suptitle('Iris Flower Measurements by Species', fontsize=16)\n\n# Plot 1: Sepal Length vs. Sepal Width\nsns.scatterplot(\n    ax=axes[0],\n    data=df,\n    x='sepal_length',\n    y='sepal_width',\n    hue='species',\n    s=80, # Marker size\n    alpha=0.8,\n    palette='viridis' # Color palette\n)\naxes[0].set_title('Sepal Dimensions', fontsize=14)\naxes[0].set_xlabel('Sepal Length (cm)', fontsize=12)\naxes[0].set_ylabel('Sepal Width (cm)', fontsize=12)\naxes[0].grid(True, linestyle='--', alpha=0.6)\naxes[0].legend(title='Species')\n\n# Plot 2: Petal Length vs. Petal Width\nsns.scatterplot(\n    ax=axes[1],\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=80, # Marker size\n    alpha=0.8,\n    palette='viridis' # Color palette\n)\naxes[1].set_title('Petal Dimensions', fontsize=14)\naxes[1].set_xlabel('Petal Length (cm)', fontsize=12)\naxes[1].set_ylabel('Petal Width (cm)', fontsize=12)\naxes[1].grid(True, linestyle='--', alpha=0.6)\naxes[1].legend(title='Species')\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout(rect=[0, 0.03, 1, 0.95]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 1.1878,
+    "visual_entropy": 0.8102,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.246,
+    "cost_per_run": 0.000125,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

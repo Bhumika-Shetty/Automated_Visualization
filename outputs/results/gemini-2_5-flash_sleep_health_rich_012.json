@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-10T16:37:14.063158",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Calculate the average Sleep Duration and Quality of Sleep for each Occupation\noccupation_sleep_metrics = df.groupby('Occupation')[['Sleep Duration', 'Quality of Sleep']].mean().reset_index()\n\n# Melt the DataFrame to long format for easier plotting with seaborn's barplot\n# This allows 'Sleep Duration' and 'Quality of Sleep' to be treated as different categories (hue)\noccupation_sleep_metrics_melted = occupation_sleep_metrics.melt(\n    id_vars='Occupation',\n    var_name='Metric',\n    value_name='Average Value'\n)\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot\nax = sns.barplot(\n    data=occupation_sleep_metrics_melted,\n    x='Occupation',\n    y='Average Value',\n    hue='Metric',\n    palette='viridis', # A colorblind-friendly palette\n    edgecolor='black',\n    linewidth=0.7\n)\n\n# Add labels and title for clarity\nplt.title('Average Sleep Duration and Quality of Sleep by Occupation', fontsize=18, fontweight='bold')\nplt.xlabel('Occupation', fontsize=14)\nplt.ylabel('Average Value', fontsize=14)\n\n# Rotate x-axis labels for better readability, especially if there are many occupations\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Add a legend to distinguish between Sleep Duration and Quality of Sleep\nplt.legend(title='Sleep Metric', title_fontsize='13', fontsize='11', bbox_to_anchor=(1.02, 1), loc='upper left')\n\n# Add value labels on top of the bars for more precise reading\nfor container in ax.containers:\n    ax.bar_label(container, fmt='%.1f', label_type='edge', padding=3, fontsize=10)\n\n# Adjust layout to prevent labels from overlapping and make space for legend\nplt.tight_layout(rect=[0, 0, 0.95, 1]) # Adjust rect to make space for the legend outside\n\n# Save the figure as 'output.png'\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Calculate the average Sleep Duration and Quality of Sleep for each Occupation\noccupation_sleep_metrics = df.groupby('Occupation')[['Sleep Duration', 'Quality of Sleep']].mean().reset_index()\n\n# Melt the DataFrame to long format for easier plotting with seaborn's barplot\n# This allows 'Sleep Duration' and 'Quality of Sleep' to be treated as different categories (hue)\noccupation_sleep_metrics_melted = occupation_sleep_metrics.melt(\n    id_vars='Occupation',\n    var_name='Metric',\n    value_name='Average Value'\n)\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot\nax = sns.barplot(\n    data=occupation_sleep_metrics_melted,\n    x='Occupation',\n    y='Average Value',\n    hue='Metric',\n    palette='viridis', # A colorblind-friendly palette\n    edgecolor='black',\n    linewidth=0.7\n)\n\n# Add labels and title for clarity\nplt.title('Average Sleep Duration and Quality of Sleep by Occupation', fontsize=18, fontweight='bold')\nplt.xlabel('Occupation', fontsize=14)\nplt.ylabel('Average Value', fontsize=14)\n\n# Rotate x-axis labels for better readability, especially if there are many occupations\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Add a legend to distinguish between Sleep Duration and Quality of Sleep\nplt.legend(title='Sleep Metric', title_fontsize='13', fontsize='11', bbox_to_anchor=(1.02, 1), loc='upper left')\n\n# Add value labels on top of the bars for more precise reading\nfor container in ax.containers:\n    ax.bar_label(container, fmt='%.1f', label_type='edge', padding=3, fontsize=10)\n\n# Adjust layout to prevent labels from overlapping and make space for legend\nplt.tight_layout(rect=[0, 0, 0.95, 1]) # Adjust rect to make space for the legend outside\n\n# Save the figure as 'output.png'\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.6522,
+    "color_delta_e": 1.922,
+    "visual_entropy": 1.8555,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 12.763,
+    "cost_per_run": 0.000186,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

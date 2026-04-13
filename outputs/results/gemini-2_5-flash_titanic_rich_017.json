@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-10T15:51:05.212496",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create an insightful visualization: Survival Rate by Passenger Class and Sex\n# Using seaborn.catplot with kind='bar' to show the mean survival rate for each group.\n# The 'class' column provides more descriptive labels ('First', 'Second', 'Third') than 'pclass'.\ng = sns.catplot(\n    data=df,\n    x='class',       # Passenger class as categorical groups on the x-axis\n    y='survived',    # Survival status (will be aggregated to mean survival rate)\n    hue='sex',       # Differentiate bars by 'sex' (male/female)\n    kind='bar',      # Bar plot to show mean and confidence interval\n    palette='viridis', # Color palette for the bars\n    height=6,        # Height of the plot\n    aspect=1.5       # Aspect ratio of the plot\n)\n\n# Set the main title for the entire figure\ng.fig.suptitle(\"Survival Rate on Titanic by Passenger Class and Sex\", y=1.02, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\n\n# Adjust legend title for clarity\ng._legend.set_title(\"Sex\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create an insightful visualization: Survival Rate by Passenger Class and Sex\n# Using seaborn.catplot with kind='bar' to show the mean survival rate for each group.\n# The 'class' column provides more descriptive labels ('First', 'Second', 'Third') than 'pclass'.\ng = sns.catplot(\n    data=df,\n    x='class',       # Passenger class as categorical groups on the x-axis\n    y='survived',    # Survival status (will be aggregated to mean survival rate)\n    hue='sex',       # Differentiate bars by 'sex' (male/female)\n    kind='bar',      # Bar plot to show mean and confidence interval\n    palette='viridis', # Color palette for the bars\n    height=6,        # Height of the plot\n    aspect=1.5       # Aspect ratio of the plot\n)\n\n# Set the main title for the entire figure\ng.fig.suptitle(\"Survival Rate on Titanic by Passenger Class and Sex\", y=1.02, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\n\n# Adjust legend title for clarity\ng._legend.set_title(\"Sex\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 0.6959,
+    "visual_entropy": 1.2313,
+    "labeling_completeness": 0.5,
+    "code_complexity": 5,
+    "generation_latency": 10.213,
+    "cost_per_run": 0.000116,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-10T16:44:33.007116",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Preprocessing: Fill NaN in 'Sleep Disorder' for better visualization\n# Assuming NaN implies no sleep disorder for this context.\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Set a clean seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep,\n# faceted by Sleep Disorder and colored by Stress Level.\n# This allows us to see how these core sleep metrics vary under different conditions.\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    hue=\"Stress Level\",  # Color points based on Stress Level (gradient)\n    size=\"Physical Activity Level\", # Size points based on Physical Activity Level\n    col=\"Sleep Disorder\", # Create separate subplots for each Sleep Disorder category\n    kind=\"scatter\",\n    palette=\"magma\", # A sequential palette for 'Stress Level' is suitable\n    height=4.5,\n    aspect=1.2,\n    s=150, # Base size for markers\n    alpha=0.7, # Transparency for overlapping points\n    col_wrap=2, # Wrap columns after 2 subplots if there are many disorder types\n    legend=\"full\" # Show the full legend for hue and size\n)\n\n# Add a main title to the figure\ng.fig.suptitle(\"Sleep Duration vs. Quality of Sleep by Stress Level, Physical Activity, and Sleep Disorder\", y=1.05, fontsize=16)\n\n# Set axis labels for clarity\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10 scale)\")\n\n# Set titles for individual subplots (facets)\ng.set_titles(col_template=\"{col_name}\")\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout(rect=[0, 0.03, 1, 0.98]) # Adjust rect to make space for the suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Preprocessing: Fill NaN in 'Sleep Disorder' for better visualization\n# Assuming NaN implies no sleep disorder for this context.\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Set a clean seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep,\n# faceted by Sleep Disorder and colored by Stress Level.\n# This allows us to see how these core sleep metrics vary under different conditions.\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    hue=\"Stress Level\",  # Color points based on Stress Level (gradient)\n    size=\"Physical Activity Level\", # Size points based on Physical Activity Level\n    col=\"Sleep Disorder\", # Create separate subplots for each Sleep Disorder category\n    kind=\"scatter\",\n    palette=\"magma\", # A sequential palette for 'Stress Level' is suitable\n    height=4.5,\n    aspect=1.2,\n    s=150, # Base size for markers\n    alpha=0.7, # Transparency for overlapping points\n    col_wrap=2, # Wrap columns after 2 subplots if there are many disorder types\n    legend=\"full\" # Show the full legend for hue and size\n)\n\n# Add a main title to the figure\ng.fig.suptitle(\"Sleep Duration vs. Quality of Sleep by Stress Level, Physical Activity, and Sleep Disorder\", y=1.05, fontsize=16)\n\n# Set axis labels for clarity\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10 scale)\")\n\n# Set titles for individual subplots (facets)\ng.set_titles(col_template=\"{col_name}\")\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout(rect=[0, 0.03, 1, 0.98]) # Adjust rect to make space for the suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 0.6203,
+    "visual_entropy": 0.5498,
+    "labeling_completeness": 0.5,
+    "code_complexity": 11,
+    "generation_latency": 13.356,
+    "cost_per_run": 0.000177,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

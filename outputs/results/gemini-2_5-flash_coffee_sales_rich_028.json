@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-12T04:51:34.029765",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a custom order for age groups to ensure logical plotting\nage_group_order = [\"18-24\", \"25-34\", \"35-44\", \"45-54\", \"55+\"]\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the grouped bar chart\nplt.figure(figsize=(14, 8))\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',\n    errorbar=None  # We are plotting sums, so error bars are not applicable\n)\n\n# Add labels and title for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=18, weight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\nplt.xticks(rotation=45, ha='right', fontsize=12) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=12)\n\n# Place the legend outside the plot to avoid obscuring data\nplt.legend(title='Customer Age Group', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.98, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a custom order for age groups to ensure logical plotting\nage_group_order = [\"18-24\", \"25-34\", \"35-44\", \"45-54\", \"55+\"]\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the grouped bar chart\nplt.figure(figsize=(14, 8))\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',\n    errorbar=None  # We are plotting sums, so error bars are not applicable\n)\n\n# Add labels and title for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=18, weight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\nplt.xticks(rotation=45, ha='right', fontsize=12) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=12)\n\n# Place the legend outside the plot to avoid obscuring data\nplt.legend(title='Customer Age Group', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.98, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": 2.1202,
+    "visual_entropy": 2.0981,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 7.615,
+    "cost_per_run": 0.000146,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

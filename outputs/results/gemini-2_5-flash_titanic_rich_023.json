@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-10T15:52:04.739473",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a categorical plot to show survival rate by gender and passenger class\n# 'survived' is a binary variable (0 or 1), so the mean directly represents the survival rate.\ng = sns.catplot(\n    data=df,\n    x='sex',\n    y='survived',\n    hue='pclass',\n    kind='point',  # Point plot is excellent for displaying means and confidence intervals\n    palette='viridis', # A colorblind-friendly palette\n    errorbar='ci', # Show 95% confidence interval\n    height=6,      # Height of the plot\n    aspect=1.2     # Aspect ratio of the plot\n)\n\n# Set the main title for the figure\ng.fig.suptitle('Survival Rate by Gender and Passenger Class on the Titanic', y=1.03, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels('Gender', 'Survival Rate')\n\n# Improve the legend title for clarity\ng._legend.set_title('Passenger Class')\n\n# Set y-axis limits to clearly represent a rate from 0 to 1\ng.set(ylim=(0, 1))\n\n# Add grid for better readability\ng.ax.grid(True, linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a categorical plot to show survival rate by gender and passenger class\n# 'survived' is a binary variable (0 or 1), so the mean directly represents the survival rate.\ng = sns.catplot(\n    data=df,\n    x='sex',\n    y='survived',\n    hue='pclass',\n    kind='point',  # Point plot is excellent for displaying means and confidence intervals\n    palette='viridis', # A colorblind-friendly palette\n    errorbar='ci', # Show 95% confidence interval\n    height=6,      # Height of the plot\n    aspect=1.2     # Aspect ratio of the plot\n)\n\n# Set the main title for the figure\ng.fig.suptitle('Survival Rate by Gender and Passenger Class on the Titanic', y=1.03, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels('Gender', 'Survival Rate')\n\n# Improve the legend title for clarity\ng._legend.set_title('Passenger Class')\n\n# Set y-axis limits to clearly represent a rate from 0 to 1\ng.set(ylim=(0, 1))\n\n# Add grid for better readability\ng.ax.grid(True, linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.9415,
+    "visual_entropy": 0.4683,
+    "labeling_completeness": 0.5,
+    "code_complexity": 4,
+    "generation_latency": 8.643,
+    "cost_per_run": 0.000114,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

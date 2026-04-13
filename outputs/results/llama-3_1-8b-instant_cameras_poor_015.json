@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-09T03:42:19.348877",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"brand\": [\"Leica\", \"Fuji\", \"Pentax\", \"Olympus\", \"Leica\"],\n    \"model_year\": [2005, 2019, 2012, 2015, 2016],\n    \"megapixels\": [13.5, 46.4, 38.7, 22.5, 12.2],\n    \"max_iso\": [25600, 51200, 12800, 6400, 25600],\n    \"weight_grams\": [324, 1151, 598, 1095, 290],\n    \"price_usd\": [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    \"sensor_type\": [\"Micro 4/3\", \"APS-C\", \"Full Frame\", \"APS-C\", \"Medium Format\"],\n    \"has_video_4k\": [1, 0, 0, 0, 0],\n    \"lens_mount\": [\"E\", \"EF\", \"MFT\", \"Z\", \"MFT\"],\n    \"body_type\": [\"Compact\", \"Mirrorless\", \"Mirrorless\", \"Mirrorless\", \"DSLR\"]\n}\ndf = pd.DataFrame(data)\n\n# Plot the dataset\nplt.figure(figsize=(10,6))\nsns.scatterplot(x=\"price_usd\", y=\"megapixels\", hue=\"sensor_type\", data=df)\nplt.title(\"Relationship Between Price and Megapixels by Sensor Type\")\nplt.xlabel(\"Price (USD)\")\nplt.ylabel(\"Megapixels\")\nplt.legend(title=\"Sensor Type\")\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"brand\": [\"Leica\", \"Fuji\", \"Pentax\", \"Olympus\", \"Leica\"],\n    \"model_year\": [2005, 2019, 2012, 2015, 2016],\n    \"megapixels\": [13.5, 46.4, 38.7, 22.5, 12.2],\n    \"max_iso\": [25600, 51200, 12800, 6400, 25600],\n    \"weight_grams\": [324, 1151, 598, 1095, 290],\n    \"price_usd\": [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    \"sensor_type\": [\"Micro 4/3\", \"APS-C\", \"Full Frame\", \"APS-C\", \"Medium Format\"],\n    \"has_video_4k\": [1, 0, 0, 0, 0],\n    \"lens_mount\": [\"E\", \"EF\", \"MFT\", \"Z\", \"MFT\"],\n    \"body_type\": [\"Compact\", \"Mirrorless\", \"Mirrorless\", \"Mirrorless\", \"DSLR\"]\n}\ndf = pd.DataFrame(data)\n\n# Plot the dataset\nplt.figure(figsize=(10,6))\nsns.scatterplot(x=\"price_usd\", y=\"megapixels\", hue=\"sensor_type\", data=df)\nplt.title(\"Relationship Between Price and Megapixels by Sensor Type\")\nplt.xlabel(\"Price (USD)\")\nplt.ylabel(\"Megapixels\")\nplt.legend(title=\"Sensor Type\")\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5152,
+    "color_delta_e": 1.0269,
+    "visual_entropy": 0.3398,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.61,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

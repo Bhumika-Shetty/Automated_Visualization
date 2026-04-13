@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-12T05:54:50.476041",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # As a fallback for environments without the local file, load from seaborn's repo\n    df = sns.load_dataset('iris')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"ticks\", palette=\"viridis\")\n\n# Create a pair plot to visualize relationships between features, colored by species\n# A pair plot shows bivariate relationships between combinations of variables.\n# The diagonal shows the univariate distribution (KDE plot) of each feature.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'fill': True}\n)\n\n# Add a descriptive title to the overall figure\ng.fig.suptitle('Iris Species Characteristics: Sepal vs. Petal Measurements', y=1.03, fontsize=16, fontweight='bold')\n\n# Adjust legend position and title\ng._legend.set_title(\"Species\")\nsns.move_legend(g, \"upper left\", bbox_to_anchor=(1.02, 1))\n\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # As a fallback for environments without the local file, load from seaborn's repo\n    df = sns.load_dataset('iris')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"ticks\", palette=\"viridis\")\n\n# Create a pair plot to visualize relationships between features, colored by species\n# A pair plot shows bivariate relationships between combinations of variables.\n# The diagonal shows the univariate distribution (KDE plot) of each feature.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'fill': True}\n)\n\n# Add a descriptive title to the overall figure\ng.fig.suptitle('Iris Species Characteristics: Sepal vs. Petal Measurements', y=1.03, fontsize=16, fontweight='bold')\n\n# Adjust legend position and title\ng._legend.set_title(\"Species\")\nsns.move_legend(g, \"upper left\", bbox_to_anchor=(1.02, 1))\n\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 1.8931,
+    "visual_entropy": 1.3655,
+    "labeling_completeness": 0.5,
+    "code_complexity": 3,
+    "generation_latency": 13.62,
+    "cost_per_run": 0.003253,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-10T19:20:56.415569",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create a scatter plot using seaborn.relplot to visualize the relationship\n# between megapixels and price, faceted by body_type, and colored by sensor_type.\n# A log scale is applied to the price_usd axis to better handle its potentially wide range and skewness.\ng = sns.relplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    col='body_type',\n    kind='scatter',\n    height=4,\n    aspect=1.2,\n    s=70,  # Marker size\n    alpha=0.7,  # Transparency for better visibility of overlapping points\n    palette='viridis',  # Color palette for sensor types\n    col_wrap=2,  # Wrap columns after 2 plots to arrange subplots neatly\n    facet_kws={'sharey': False, 'sharex': False} # Allow independent axes for better scaling\n)\n\n# Apply log scale to the y-axis of each subplot and set consistent labels\nfor ax in g.axes.flat:\n    ax.set_yscale('log')\n    ax.set_ylabel('Price (USD, Log Scale)')\n    ax.set_xlabel('Megapixels')\n    # Improve x-axis tick readability if needed (e.g., for very wide ranges)\n    # ax.xaxis.set_major_locator(plt.MaxNLocator(5)) # Example: set max 5 major ticks\n\n# Set an overall title for the plot\ng.fig.suptitle('Camera Price vs. Megapixels by Sensor Type and Body Type', y=1.03, fontsize=16)\n\n# Adjust layout to prevent labels and titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create a scatter plot using seaborn.relplot to visualize the relationship\n# between megapixels and price, faceted by body_type, and colored by sensor_type.\n# A log scale is applied to the price_usd axis to better handle its potentially wide range and skewness.\ng = sns.relplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    col='body_type',\n    kind='scatter',\n    height=4,\n    aspect=1.2,\n    s=70,  # Marker size\n    alpha=0.7,  # Transparency for better visibility of overlapping points\n    palette='viridis',  # Color palette for sensor types\n    col_wrap=2,  # Wrap columns after 2 plots to arrange subplots neatly\n    facet_kws={'sharey': False, 'sharex': False} # Allow independent axes for better scaling\n)\n\n# Apply log scale to the y-axis of each subplot and set consistent labels\nfor ax in g.axes.flat:\n    ax.set_yscale('log')\n    ax.set_ylabel('Price (USD, Log Scale)')\n    ax.set_xlabel('Megapixels')\n    # Improve x-axis tick readability if needed (e.g., for very wide ranges)\n    # ax.xaxis.set_major_locator(plt.MaxNLocator(5)) # Example: set max 5 major ticks\n\n# Set an overall title for the plot\ng.fig.suptitle('Camera Price vs. Megapixels by Sensor Type and Body Type', y=1.03, fontsize=16)\n\n# Adjust layout to prevent labels and titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 1.5487,
+    "visual_entropy": 1.2785,
+    "labeling_completeness": 0.75,
+    "code_complexity": 8,
+    "generation_latency": 12.714,
+    "cost_per_run": 0.000146,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

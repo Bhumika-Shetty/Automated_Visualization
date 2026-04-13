@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-09T02:14:48.510126",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Convert adult_male to categorical for proper visualization\ntitanic['adult_male'] = titanic['adult_male'].astype('category')\n\n# Create a countplot for the survival rates based on sex\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=titanic, ax=ax)\nax.set_title('Survival Rates by Sex')\nax.set_xlabel('Sex')\nax.set_ylabel('Count')\nax.legend(title='Survived')\n\n# Create a bar chart for the average fare by class\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.barplot(x='pclass', y='fare', data=titanic, ax=ax)\nax.set_title('Average Fare by Class')\nax.set_xlabel('Class')\nax.set_ylabel('Average Fare')\n\n# Save the figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Convert adult_male to categorical for proper visualization\ntitanic['adult_male'] = titanic['adult_male'].astype('category')\n\n# Create a countplot for the survival rates based on sex\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=titanic, ax=ax)\nax.set_title('Survival Rates by Sex')\nax.set_xlabel('Sex')\nax.set_ylabel('Count')\nax.legend(title='Survived')\n\n# Create a bar chart for the average fare by class\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.barplot(x='pclass', y='fare', data=titanic, ax=ax)\nax.set_title('Average Fare by Class')\nax.set_xlabel('Class')\nax.set_ylabel('Average Fare')\n\n# Save the figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.67,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 0.6503,
+    "visual_entropy": 0.9567,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 4.879,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

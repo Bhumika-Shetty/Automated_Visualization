@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-09T03:48:42.050740",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert is_takeaway to categorical variable\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].map({0: 'In-Store', 1: 'Takeaway'})\n\n# Create a bar chart to display the distribution of takeaway orders\ntakeaway_orders = coffee_sales['is_takeaway'].value_counts()\nplt.figure(figsize=(8,6))\nsns.barplot(x=takeaway_orders.index, y=takeaway_orders.values, hue=takeaway_orders.index)\nplt.title('Distribution of Takeaway Orders')\nplt.xlabel('Order Type')\nplt.ylabel('Count')\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert is_takeaway to categorical variable\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].map({0: 'In-Store', 1: 'Takeaway'})\n\n# Create a bar chart to display the distribution of takeaway orders\ntakeaway_orders = coffee_sales['is_takeaway'].value_counts()\nplt.figure(figsize=(8,6))\nsns.barplot(x=takeaway_orders.index, y=takeaway_orders.values, hue=takeaway_orders.index)\nplt.title('Distribution of Takeaway Orders')\nplt.xlabel('Order Type')\nplt.ylabel('Count')\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpkb7ut9sx/viz_script.py:17: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7,
+    "color_delta_e": 0.7282,
+    "visual_entropy": 1.5389,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 8.871,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

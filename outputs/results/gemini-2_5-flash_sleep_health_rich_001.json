@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-10T16:29:42.461262",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' by filling with 'No Disorder' for clearer categorization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# and Stress Level, categorized by Sleep Disorder.\n# This plot helps to identify how sleep metrics vary based on the presence of a sleep disorder\n# and how stress might influence these relationships.\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Sleep Disorder',\n    size='Stress Level', # Use Stress Level to vary the marker size, indicating its impact\n    sizes=(50, 400),     # Define the range of marker sizes for better visual distinction\n    alpha=0.7,           # Set transparency to manage overplotting\n    palette='viridis'    # Choose a color palette that is perceptually uniform\n)\n\n# Add informative title and axis labels\nplt.title('Relationship Between Sleep Duration, Quality, Stress, and Sleep Disorders', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (Scale 1-10)', fontsize=12)\n\n# Improve legend placement to prevent overlap with the plot\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)\n\n# Ensure all elements, especially the legend, fit within the figure area\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' by filling with 'No Disorder' for clearer categorization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# and Stress Level, categorized by Sleep Disorder.\n# This plot helps to identify how sleep metrics vary based on the presence of a sleep disorder\n# and how stress might influence these relationships.\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Sleep Disorder',\n    size='Stress Level', # Use Stress Level to vary the marker size, indicating its impact\n    sizes=(50, 400),     # Define the range of marker sizes for better visual distinction\n    alpha=0.7,           # Set transparency to manage overplotting\n    palette='viridis'    # Choose a color palette that is perceptually uniform\n)\n\n# Add informative title and axis labels\nplt.title('Relationship Between Sleep Duration, Quality, Stress, and Sleep Disorders', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (Scale 1-10)', fontsize=12)\n\n# Improve legend placement to prevent overlap with the plot\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)\n\n# Ensure all elements, especially the legend, fit within the figure area\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.6251,
+    "visual_entropy": 0.6606,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 11.278,
+    "cost_per_run": 0.000166,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

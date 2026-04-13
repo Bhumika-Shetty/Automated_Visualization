@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-09T02:14:34.083675",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Create a countplot to visualize the survival rate by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=titanic)\n\n# Set labels and title\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Create a countplot to visualize the survival rate by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=titanic)\n\n# Set labels and title\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 13.33,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.7607,
+    "visual_entropy": 1.291,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.565,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

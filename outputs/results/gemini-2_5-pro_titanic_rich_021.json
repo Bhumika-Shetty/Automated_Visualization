@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-12T05:09:09.684786",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Preprocessing: Fill missing 'embark_town' values with the mode\ndf['embark_town'] = df['embark_town'].fillna(df['embark_town'].mode()[0])\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a FacetGrid to visualize survival rates across different passenger attributes\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='who',\n    col='alone',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=1.1,\n    legend=False,\n    ci=None # Disable confidence intervals for cleaner bars\n)\n\n# --- Customization and Labeling ---\n\n# Add a clear, descriptive main title\ng.fig.suptitle('Titanic Survival Rate: Class, Demographics, and Company', fontsize=20, y=1.05)\n\n# Set axis labels and subplot titles for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Traveling {col_name}\", size=14)\n\n# Format the y-axis to show percentages\nfor ax in g.axes.flat:\n    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\n    ax.margins(y=0.15) # Add padding to the top for data labels\n\n    # Add data labels on top of each bar for precise values\n    for p in ax.patches:\n        height = p.get_height()\n        if height > 0: # Only label bars with a value\n            ax.annotate(f'{height:.0%}',\n                        (p.get_x() + p.get_width() / 2., height),\n                        ha='center', va='center',\n                        fontsize=10,\n                        color='black',\n                        xytext=(0, 9),\n                        textcoords='offset points')\n\n# Adjust legend\nplt.legend(title='Passenger Type', loc='upper right')\n\n# Improve layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Preprocessing: Fill missing 'embark_town' values with the mode\ndf['embark_town'] = df['embark_town'].fillna(df['embark_town'].mode()[0])\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a FacetGrid to visualize survival rates across different passenger attributes\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='who',\n    col='alone',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=1.1,\n    legend=False,\n    ci=None # Disable confidence intervals for cleaner bars\n)\n\n# --- Customization and Labeling ---\n\n# Add a clear, descriptive main title\ng.fig.suptitle('Titanic Survival Rate: Class, Demographics, and Company', fontsize=20, y=1.05)\n\n# Set axis labels and subplot titles for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Traveling {col_name}\", size=14)\n\n# Format the y-axis to show percentages\nfor ax in g.axes.flat:\n    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\n    ax.margins(y=0.15) # Add padding to the top for data labels\n\n    # Add data labels on top of each bar for precise values\n    for p in ax.patches:\n        height = p.get_height()\n        if height > 0: # Only label bars with a value\n            ax.annotate(f'{height:.0%}',\n                        (p.get_x() + p.get_width() / 2., height),\n                        ha='center', va='center',\n                        fontsize=10,\n                        color='black',\n                        xytext=(0, 9),\n                        textcoords='offset points')\n\n# Adjust legend\nplt.legend(title='Passenger Type', loc='upper right')\n\n# Improve layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8higiu0t/viz_script.py:16: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  g = sns.catplot(\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8higiu0t/viz_script.py:57: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Passenger Type', loc='upper right')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.67,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.9019,
+    "visual_entropy": 1.392,
+    "labeling_completeness": 0.5,
+    "code_complexity": 9,
+    "generation_latency": 24.089,
+    "cost_per_run": 0.005379,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-09T02:52:12.714063",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns for the visualization\ndata = customer_segments[['Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds', 'Z_Revenue', 'Response']]\n\n# Create a pairplot to visualize relationships between variables\nplt.figure(figsize=(15, 10))\nsns.pairplot(data, vars=['Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds', 'Z_Revenue'], hue='Response', markers=['o', 'x'])\nplt.title('Customer Segmentation Pairplot')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns for the visualization\ndata = customer_segments[['Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds', 'Z_Revenue', 'Response']]\n\n# Create a pairplot to visualize relationships between variables\nplt.figure(figsize=(15, 10))\nsns.pairplot(data, vars=['Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds', 'Z_Revenue'], hue='Response', markers=['o', 'x'])\nplt.title('Customer Segmentation Pairplot')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpamrz08wn/viz_script.py\", line 13, in <module>\n    sns.pairplot(data, vars=['Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds', 'Z_Revenue'], hue='Response', markers=['o', 'x'])\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 2163, in pairplot\n    plotter(scatterplot, **plot_kws)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1425, in map_offdiag\n    self.map_lower(func, **kwargs)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1395, in map_lower\n    self._map_bivariate(func, indices, **kwargs)\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1574, in _map_bivariate\n    self._plot_bivariate(x_var, y_var, ax, func, **kws)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1615, in _plot_bivariate\n    func(x=x, y=y, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/relational.py\", line 623, in scatterplot\n    p.map_style(markers=markers, order=style_order)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 846, in map_style\n    mapping = StyleMapping(self, markers, dashes, order)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 569, in __init__\n    raise ValueError(err)\nValueError: Filled and line art markers cannot be mixed\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 31.03,
+    "hallucination_rate": 0.0909,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 10.069,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

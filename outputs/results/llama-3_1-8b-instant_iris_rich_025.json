@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-09T02:26:34.617227",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between features\nplt.figure(figsize=(10, 8))\nsns.pairplot(df, hue='species', markers=['o', 's', 'D'], palette=['skyblue', 'lightcoral', 'yellowgreen'])\nplt.title('Iris Flower Species Classification Dataset')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between features\nplt.figure(figsize=(10, 8))\nsns.pairplot(df, hue='species', markers=['o', 's', 'D'], palette=['skyblue', 'lightcoral', 'yellowgreen'])\nplt.title('Iris Flower Species Classification Dataset')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 1.5425,
+    "visual_entropy": 1.1189,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 4.445,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

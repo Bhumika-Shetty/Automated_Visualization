@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-09T03:33:55.410188",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from CSV file\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a violin plot to compare the distribution of megapixels across different sensor types\nplt.figure(figsize=(10,6))\nsns.violinplot(x='sensor_type', y='megapixels', data=data)\nplt.title('Distribution of Megapixels by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.legend(title='Sensor Type')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare the average price of cameras with and without 4K video capabilities\nprice_with_4k = data[data['has_video_4k'] == 1]['price_usd'].mean()\nprice_without_4k = data[data['has_video_4k'] == 0]['price_usd'].mean()\nplt.figure(figsize=(8,6))\nsns.barplot(x=['4K', 'No 4K'], y=[price_with_4k, price_without_4k])\nplt.title('Average Price by 4K Video Capability')\nplt.xlabel('4K Video Capability')\nplt.ylabel('Average Price (USD)')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between weight and price\nplt.figure(figsize=(10,8))\nsns.scatterplot(x='weight_grams', y='price_usd', data=data)\nplt.title('Relationship between Weight and Price')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Price (USD)')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from CSV file\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a violin plot to compare the distribution of megapixels across different sensor types\nplt.figure(figsize=(10,6))\nsns.violinplot(x='sensor_type', y='megapixels', data=data)\nplt.title('Distribution of Megapixels by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.legend(title='Sensor Type')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare the average price of cameras with and without 4K video capabilities\nprice_with_4k = data[data['has_video_4k'] == 1]['price_usd'].mean()\nprice_without_4k = data[data['has_video_4k'] == 0]['price_usd'].mean()\nplt.figure(figsize=(8,6))\nsns.barplot(x=['4K', 'No 4K'], y=[price_with_4k, price_without_4k])\nplt.title('Average Price by 4K Video Capability')\nplt.xlabel('4K Video Capability')\nplt.ylabel('Average Price (USD)')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between weight and price\nplt.figure(figsize=(10,8))\nsns.scatterplot(x='weight_grams', y='price_usd', data=data)\nplt.title('Relationship between Weight and Price')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Price (USD)')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp952c5krz/viz_script.py:14: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Sensor Type')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.5472,
+    "visual_entropy": 1.4912,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 7.164,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

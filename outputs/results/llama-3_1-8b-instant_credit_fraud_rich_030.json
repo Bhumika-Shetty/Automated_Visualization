@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-09T03:04:41.032878",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Map transaction type to a numerical value for plotting\ntransaction_type_map = {'refund': 0, 'payment': 1, 'transfer': 2}\ncredit_fraud['transaction_type'] = credit_fraud['transaction_type'].map(transaction_type_map)\n\n# Create a bar chart to show the distribution of transaction types\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=credit_fraud, ax=ax)\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Count')\nax.set_title('Distribution of Transaction Types by Fraud Status')\nax.legend(title='Fraud Status')\nplt.xticks([0, 1, 2], ['refund', 'payment', 'transfer'])\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Map transaction type to a numerical value for plotting\ntransaction_type_map = {'refund': 0, 'payment': 1, 'transfer': 2}\ncredit_fraud['transaction_type'] = credit_fraud['transaction_type'].map(transaction_type_map)\n\n# Create a bar chart to show the distribution of transaction types\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=credit_fraud, ax=ax)\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Count')\nax.set_title('Distribution of Transaction Types by Fraud Status')\nax.legend(title='Fraud Status')\nplt.xticks([0, 1, 2], ['refund', 'payment', 'transfer'])\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.7333,
+    "color_delta_e": 1.1026,
+    "visual_entropy": 1.2591,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 4.717,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

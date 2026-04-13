@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-09T03:33:05.519880",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncameras = pd.read_csv('data/cameras.csv')\n\n# Convert categorical variables to categorical dtype\ncameras['brand'] = cameras['brand'].astype('category')\ncameras['sensor_type'] = cameras['sensor_type'].astype('category')\ncameras['lens_mount'] = cameras['lens_mount'].astype('category')\ncameras['body_type'] = cameras['body_type'].astype('category')\n\n# Create a bar chart for the distribution of camera brands\nplt.figure(figsize=(10,6))\nsns.countplot(x='brand', data=cameras)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram for the distribution of camera prices\nplt.figure(figsize=(10,6))\nsns.histplot(cameras['price_usd'], kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for the relationship between megapixels and price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=cameras)\nplt.title('Relationship between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot for the distribution of camera weights\nplt.figure(figsize=(10,6))\nsns.boxplot(x='brand', y='weight_grams', data=cameras)\nplt.title('Distribution of Camera Weights by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Weight (grams)')\nplt.tight_layout()\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncameras = pd.read_csv('data/cameras.csv')\n\n# Convert categorical variables to categorical dtype\ncameras['brand'] = cameras['brand'].astype('category')\ncameras['sensor_type'] = cameras['sensor_type'].astype('category')\ncameras['lens_mount'] = cameras['lens_mount'].astype('category')\ncameras['body_type'] = cameras['body_type'].astype('category')\n\n# Create a bar chart for the distribution of camera brands\nplt.figure(figsize=(10,6))\nsns.countplot(x='brand', data=cameras)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram for the distribution of camera prices\nplt.figure(figsize=(10,6))\nsns.histplot(cameras['price_usd'], kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for the relationship between megapixels and price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=cameras)\nplt.title('Relationship between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot for the distribution of camera weights\nplt.figure(figsize=(10,6))\nsns.boxplot(x='brand', y='weight_grams', data=cameras)\nplt.title('Distribution of Camera Weights by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Weight (grams)')\nplt.tight_layout()\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 70.0,
+    "hallucination_rate": 0.4516,
+    "color_delta_e": 1.6185,
+    "visual_entropy": 0.8686,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 0.904,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

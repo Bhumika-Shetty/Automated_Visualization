@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-09T03:46:54.490993",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Convert 'is_takeaway' column to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].apply(lambda x: 'Yes' if x == 1 else 'No')\n\n# Melt the data to create a pivoted table\ncoffee_sales_pivoted = pd.melt(coffee_sales, id_vars=['date', 'payment_method', 'customer_age_group', 'is_takeaway'], \n                               var_name='product', value_name='quantity')\n\n# Create a stacked bar chart for the top 5 products by quantity\ntop_5_products = coffee_sales_pivoted['product'].value_counts().head(5).index\n\n# Filter the data to only include the top 5 products\ntop_5_products_data = coffee_sales_pivoted[coffee_sales_pivoted['product'].isin(top_5_products)]\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=top_5_products_data, x='product', hue='payment_method', ax=plt.gca())\nplt.title('Top 5 Products by Quantity')\nplt.xlabel('Product')\nplt.ylabel('Count')\nplt.legend(title='Payment Method', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.xticks(rotation=90)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Convert 'is_takeaway' column to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].apply(lambda x: 'Yes' if x == 1 else 'No')\n\n# Melt the data to create a pivoted table\ncoffee_sales_pivoted = pd.melt(coffee_sales, id_vars=['date', 'payment_method', 'customer_age_group', 'is_takeaway'], \n                               var_name='product', value_name='quantity')\n\n# Create a stacked bar chart for the top 5 products by quantity\ntop_5_products = coffee_sales_pivoted['product'].value_counts().head(5).index\n\n# Filter the data to only include the top 5 products\ntop_5_products_data = coffee_sales_pivoted[coffee_sales_pivoted['product'].isin(top_5_products)]\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=top_5_products_data, x='product', hue='payment_method', ax=plt.gca())\nplt.title('Top 5 Products by Quantity')\nplt.xlabel('Product')\nplt.ylabel('Count')\nplt.legend(title='Payment Method', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.xticks(rotation=90)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpm515qnrt/viz_script.py\", line 16, in <module>\n    coffee_sales_pivoted = pd.melt(coffee_sales, id_vars=['date', 'payment_method', 'customer_age_group', 'is_takeaway'],\n                                   var_name='product', value_name='quantity')\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/reshape/melt.py\", line 180, in melt\n    raise ValueError(\n    ...<2 lines>...\n    )\nValueError: value_name (quantity) cannot match an element in the DataFrame columns.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 80.0,
+    "hallucination_rate": 0.2917,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 0.778,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": "Auto-fixed column name case mismatch. Original error: Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpm515qnrt/viz_script.py\", line 16, in <module>\n    coffee_sales_pivoted = pd.melt(coffee_sales, id_vars=['"
+}

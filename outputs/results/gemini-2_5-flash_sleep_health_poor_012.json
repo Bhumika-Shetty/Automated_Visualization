@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 12,
+  "timestamp": "2026-04-10T16:56:54.418514",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# and how it varies by BMI Category, Stress Level, and Occupation.\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='BMI Category',          # Color points by BMI Category\n    size='Stress Level',         # Size points by Stress Level\n    sizes=(50, 400),             # Define the range of marker sizes\n    style='Occupation',          # Use different markers for different occupations\n    palette='viridis',           # Choose a color palette\n    alpha=0.8                    # Set transparency for better visibility of overlapping points\n)\n\n# Add title and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by BMI, Stress, and Occupation', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with the plot\nplt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# and how it varies by BMI Category, Stress Level, and Occupation.\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='BMI Category',          # Color points by BMI Category\n    size='Stress Level',         # Size points by Stress Level\n    sizes=(50, 400),             # Define the range of marker sizes\n    style='Occupation',          # Use different markers for different occupations\n    palette='viridis',           # Choose a color palette\n    alpha=0.8                    # Set transparency for better visibility of overlapping points\n)\n\n# Add title and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by BMI, Stress, and Occupation', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with the plot\nplt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 1.1343,
+    "visual_entropy": 0.6937,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 11.483,
+    "cost_per_run": 0.000158,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

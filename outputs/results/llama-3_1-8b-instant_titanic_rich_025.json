@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-09T02:14:14.478407",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert sex and embarked to categorical variables\ndf['sex'] = pd.Categorical(df['sex'])\ndf['embarked'] = pd.Categorical(df['embarked'])\n\n# Create a bar chart to show the survival rate by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the age distribution of survivors and non-survivors\nplt.figure(figsize=(8,6))\nsns.histplot(df[df['survived'] == 1]['age'], label='Survived', bins=10, alpha=0.5)\nsns.histplot(df[df['survived'] == 0]['age'], label='Died', bins=10, alpha=0.5)\nplt.title('Age Distribution of Survivors and Non-Survivors')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.legend(title='Survival Status')\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot to compare the fare distribution of survivors and non-survivors\nplt.figure(figsize=(8,6))\nsns.boxplot(x='survived', y='fare', data=df)\nplt.title('Fare Distribution of Survivors and Non-Survivors')\nplt.xlabel('Survival Status')\nplt.ylabel('Fare')\nplt.savefig('output_fare.png', bbox_inches='tight', dpi=150)\n\n# Create a scatterplot to show the relationship between fare and survival rate\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='fare', y='survived', data=df)\nplt.title('Relationship between Fare and Survival Rate')\nplt.xlabel('Fare')\nplt.ylabel('Survival Rate')\nplt.savefig('output_scatter.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert sex and embarked to categorical variables\ndf['sex'] = pd.Categorical(df['sex'])\ndf['embarked'] = pd.Categorical(df['embarked'])\n\n# Create a bar chart to show the survival rate by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the age distribution of survivors and non-survivors\nplt.figure(figsize=(8,6))\nsns.histplot(df[df['survived'] == 1]['age'], label='Survived', bins=10, alpha=0.5)\nsns.histplot(df[df['survived'] == 0]['age'], label='Died', bins=10, alpha=0.5)\nplt.title('Age Distribution of Survivors and Non-Survivors')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.legend(title='Survival Status')\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot to compare the fare distribution of survivors and non-survivors\nplt.figure(figsize=(8,6))\nsns.boxplot(x='survived', y='fare', data=df)\nplt.title('Fare Distribution of Survivors and Non-Survivors')\nplt.xlabel('Survival Status')\nplt.ylabel('Fare')\nplt.savefig('output_fare.png', bbox_inches='tight', dpi=150)\n\n# Create a scatterplot to show the relationship between fare and survival rate\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='fare', y='survived', data=df)\nplt.title('Relationship between Fare and Survival Rate')\nplt.xlabel('Fare')\nplt.ylabel('Survival Rate')\nplt.savefig('output_scatter.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 0.7607,
+    "visual_entropy": 1.291,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 18.227,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-09T02:39:11.241008",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset from the CSV file\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a figure with two subplots\nfig, axs = plt.subplots(1, 2, figsize=(15, 6))\n\n# Scatter plot of Heart Rate vs Sleep Duration with regression line\nsns.regplot(x='Sleep Duration', y='Heart Rate', data=sleep_health, ax=axs[0])\naxs[0].set_title('Heart Rate vs Sleep Duration')\naxs[0].set_xlabel('Sleep Duration')\naxs[0].set_ylabel('Heart Rate')\n\n# Boxplot of Sleep Duration by Gender\nsns.boxplot(x='Gender', y='Sleep Duration', data=sleep_health, ax=axs[1])\naxs[1].set_title('Sleep Duration by Gender')\naxs[1].set_xlabel('Gender')\naxs[1].set_ylabel('Sleep Duration')\n\n# Layout so plots do not overlap\nfig.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset from the CSV file\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a figure with two subplots\nfig, axs = plt.subplots(1, 2, figsize=(15, 6))\n\n# Scatter plot of Heart Rate vs Sleep Duration with regression line\nsns.regplot(x='Sleep Duration', y='Heart Rate', data=sleep_health, ax=axs[0])\naxs[0].set_title('Heart Rate vs Sleep Duration')\naxs[0].set_xlabel('Sleep Duration')\naxs[0].set_ylabel('Heart Rate')\n\n# Boxplot of Sleep Duration by Gender\nsns.boxplot(x='Gender', y='Sleep Duration', data=sleep_health, ax=axs[1])\naxs[1].set_title('Sleep Duration by Gender')\naxs[1].set_xlabel('Gender')\naxs[1].set_ylabel('Sleep Duration')\n\n# Layout so plots do not overlap\nfig.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.2727,
+    "color_delta_e": 0.7338,
+    "visual_entropy": 1.0567,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 0.487,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

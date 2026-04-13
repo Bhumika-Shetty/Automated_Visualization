@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-09T02:38:02.725409",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a figure and axis object\nfig, ax = plt.subplots(figsize=(10, 8))\n\n# Map the BMI categories to numerical values for better visualization\nbmi_map = {'Normal': 0, 'Overweight': 1, 'Obese': 2}\ndata['BMI Category'] = data['BMI Category'].map(bmi_map)\n\n# Create a violin plot for the Quality of Sleep by Gender\nsns.violinplot(x='Gender', y='Quality of Sleep', data=data, ax=ax)\nax.set_title('Quality of Sleep by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Quality of Sleep')\nax.set_xticklabels(['Female', 'Male'])\nax.legend_\n\n# Create a histogram for the Sleep Duration\nplt.figure(figsize=(8, 6))\nsns.histplot(data['Sleep Duration'], kde=True, ax=plt.gca())\nplt.title('Sleep Duration Distribution')\nplt.xlabel('Sleep Duration')\nplt.ylabel('Frequency')\n\n# Create a scatter plot for the Physical Activity Level vs Heart Rate\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Physical Activity Level', y='Heart Rate', data=data)\nplt.title('Physical Activity Level vs Heart Rate')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Heart Rate')\n\n# Save the final figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a figure and axis object\nfig, ax = plt.subplots(figsize=(10, 8))\n\n# Map the BMI categories to numerical values for better visualization\nbmi_map = {'Normal': 0, 'Overweight': 1, 'Obese': 2}\ndata['BMI Category'] = data['BMI Category'].map(bmi_map)\n\n# Create a violin plot for the Quality of Sleep by Gender\nsns.violinplot(x='Gender', y='Quality of Sleep', data=data, ax=ax)\nax.set_title('Quality of Sleep by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Quality of Sleep')\nax.set_xticklabels(['Female', 'Male'])\nax.legend_\n\n# Create a histogram for the Sleep Duration\nplt.figure(figsize=(8, 6))\nsns.histplot(data['Sleep Duration'], kde=True, ax=plt.gca())\nplt.title('Sleep Duration Distribution')\nplt.xlabel('Sleep Duration')\nplt.ylabel('Frequency')\n\n# Create a scatter plot for the Physical Activity Level vs Heart Rate\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Physical Activity Level', y='Heart Rate', data=data)\nplt.title('Physical Activity Level vs Heart Rate')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Heart Rate')\n\n# Save the final figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpe0xu18ij/viz_script.py:20: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.\n  ax.set_xticklabels(['Female', 'Male'])\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.15,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.777,
+    "visual_entropy": 0.2703,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 0.857,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

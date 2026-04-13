@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-10T16:20:41.557870",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a PairPlot to visualize relationships between all numerical features\n# and differentiate species using color (hue).\n# diag_kind='kde' shows the kernel density estimate on the diagonal for each feature,\n# indicating the distribution for each species.\ng = sns.pairplot(df, hue='species', diag_kind='kde', markers=[\"o\", \"s\", \"D\"], palette='viridis')\n\n# Add a title to the figure\ng.fig.suptitle('Pairplot of Iris Dataset Features by Species', y=1.02, fontsize=16)\n\n# Improve layout and ensure everything fits\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a PairPlot to visualize relationships between all numerical features\n# and differentiate species using color (hue).\n# diag_kind='kde' shows the kernel density estimate on the diagonal for each feature,\n# indicating the distribution for each species.\ng = sns.pairplot(df, hue='species', diag_kind='kde', markers=[\"o\", \"s\", \"D\"], palette='viridis')\n\n# Add a title to the figure\ng.fig.suptitle('Pairplot of Iris Dataset Features by Species', y=1.02, fontsize=16)\n\n# Improve layout and ensure everything fits\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 1.6675,
+    "visual_entropy": 1.1414,
+    "labeling_completeness": 0.25,
+    "code_complexity": 3,
+    "generation_latency": 8.508,
+    "cost_per_run": 7.8e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

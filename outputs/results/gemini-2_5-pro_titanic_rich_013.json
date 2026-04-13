@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-12T05:03:46.377823",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Prepare the data: Fill missing age values with the median for visualization\ndf['age'].fillna(df['age'].median(), inplace=True)\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", context=\"talk\")\n\n# Create a FacetGrid to show multiple relationships\n# This visualization explores the distribution of age for passengers\n# across different classes and sexes, while distinguishing between\n# those who survived and those who did not.\ng = sns.FacetGrid(df, col=\"class\", row=\"sex\", hue=\"alive\",\n                  height=4.5, aspect=1.2, margin_titles=True,\n                  palette={'no': '#e74c3c', 'yes': '#3498db'},\n                  hue_order=['yes', 'no'])\n\n# Map a histogram with a kernel density estimate onto the grid\ng.map(sns.histplot, \"age\", kde=True, bins=20, alpha=0.7)\n\n# Add a comprehensive title and adjust layout\ng.fig.suptitle('Survival on the Titanic: Age Distribution by Class and Sex',\n               fontsize=24, y=1.05, weight='bold')\n\n# Set titles for columns and rows\ng.set_titles(col_template=\"{col_name} Class\", row_template=\"{row_name}\")\ng.set_axis_labels(\"Age\", \"Passenger Count\")\n\n# Add and customize the legend\ng.add_legend(title=\"Survived\", labels=['Yes', 'No'])\n\n# Improve spacing\nplt.tight_layout(rect=[0, 0, 1, 0.95])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Prepare the data: Fill missing age values with the median for visualization\ndf['age'].fillna(df['age'].median(), inplace=True)\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", context=\"talk\")\n\n# Create a FacetGrid to show multiple relationships\n# This visualization explores the distribution of age for passengers\n# across different classes and sexes, while distinguishing between\n# those who survived and those who did not.\ng = sns.FacetGrid(df, col=\"class\", row=\"sex\", hue=\"alive\",\n                  height=4.5, aspect=1.2, margin_titles=True,\n                  palette={'no': '#e74c3c', 'yes': '#3498db'},\n                  hue_order=['yes', 'no'])\n\n# Map a histogram with a kernel density estimate onto the grid\ng.map(sns.histplot, \"age\", kde=True, bins=20, alpha=0.7)\n\n# Add a comprehensive title and adjust layout\ng.fig.suptitle('Survival on the Titanic: Age Distribution by Class and Sex',\n               fontsize=24, y=1.05, weight='bold')\n\n# Set titles for columns and rows\ng.set_titles(col_template=\"{col_name} Class\", row_template=\"{row_name}\")\ng.set_axis_labels(\"Age\", \"Passenger Count\")\n\n# Add and customize the legend\ng.add_legend(title=\"Survived\", labels=['Yes', 'No'])\n\n# Improve spacing\nplt.tight_layout(rect=[0, 0, 1, 0.95])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp0izg_uwb/viz_script.py:10: ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment using an inplace method.\nSuch inplace method never works to update the original DataFrame or Series, because the intermediate object on which we are setting values always behaves as a copy (due to Copy-on-Write).\n\nFor example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' instead, to perform the operation inplace on the original object, or try to avoid an inplace operation using 'df[col] = df[col].method(value)'.\n\nSee the documentation for a more detailed explanation: https://pandas.pydata.org/pandas-docs/stable/user_guide/copy_on_write.html\n  df['age'].fillna(df['age'].median(), inplace=True)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 0.7022,
+    "visual_entropy": 0.9221,
+    "labeling_completeness": 0.5,
+    "code_complexity": 6,
+    "generation_latency": 22.364,
+    "cost_per_run": 0.004229,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

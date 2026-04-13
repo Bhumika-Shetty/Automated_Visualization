@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-10T16:57:49.963940",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Visualize the relationship between 'Occupation' and 'Sleep Duration',\n# differentiated by 'Gender', using a swarmplot.\n# A swarmplot is suitable for small datasets to show all individual data points\n# and their distribution within categories without overlap.\nsns.swarmplot(\n    data=df,\n    x=\"Occupation\",\n    y=\"Sleep Duration\",\n    hue=\"Gender\",\n    s=8,  # Adjust marker size for better visibility\n    palette=\"viridis\", # Choose a color palette\n    edgecolor=\"gray\", # Add a subtle edge for better contrast\n    linewidth=0.5\n)\n\n# Add informative titles and labels\nplt.title(\"Sleep Duration by Occupation and Gender\", fontsize=16, weight='bold')\nplt.xlabel(\"Occupation\", fontsize=12)\nplt.ylabel(\"Sleep Duration (hours)\", fontsize=12)\n\n# Rotate x-axis labels to prevent overlap, especially with longer occupation names\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Place the legend outside the plot area to avoid obscuring data points\nplt.legend(title=\"Gender\", bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the plot to a file\nplt.savefig(\"output.png\", dpi=300)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Visualize the relationship between 'Occupation' and 'Sleep Duration',\n# differentiated by 'Gender', using a swarmplot.\n# A swarmplot is suitable for small datasets to show all individual data points\n# and their distribution within categories without overlap.\nsns.swarmplot(\n    data=df,\n    x=\"Occupation\",\n    y=\"Sleep Duration\",\n    hue=\"Gender\",\n    s=8,  # Adjust marker size for better visibility\n    palette=\"viridis\", # Choose a color palette\n    edgecolor=\"gray\", # Add a subtle edge for better contrast\n    linewidth=0.5\n)\n\n# Add informative titles and labels\nplt.title(\"Sleep Duration by Occupation and Gender\", fontsize=16, weight='bold')\nplt.xlabel(\"Occupation\", fontsize=12)\nplt.ylabel(\"Sleep Duration (hours)\", fontsize=12)\n\n# Rotate x-axis labels to prevent overlap, especially with longer occupation names\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Place the legend outside the plot area to avoid obscuring data points\nplt.legend(title=\"Gender\", bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the plot to a file\nplt.savefig(\"output.png\", dpi=300)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpo98izzq0/viz_script.py:28: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.swarmplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4667,
+    "color_delta_e": 0.2239,
+    "visual_entropy": 0.3492,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 16.135,
+    "cost_per_run": 0.000167,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

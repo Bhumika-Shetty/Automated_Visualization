@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-09T03:49:18.605918",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date to datetime for plotting\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a bar chart to show the top products by sales\ntop_products = coffee_sales.groupby('product')['total'].sum().nlargest(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.title('Top Products by Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to show the distribution of customer age groups by product\nage_group_counts = coffee_sales.groupby(['product', 'customer_age_group'])['total'].count().unstack().fillna(0)\nplt.figure(figsize=(10,6))\nsns.heatmap(age_group_counts, cmap='coolwarm', annot=True, fmt='d')\nplt.title('Customer Age Group Distribution by Product')\nplt.xlabel('Product')\nplt.ylabel('Age Group')\nplt.savefig('output_heatmap.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date to datetime for plotting\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a bar chart to show the top products by sales\ntop_products = coffee_sales.groupby('product')['total'].sum().nlargest(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.title('Top Products by Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to show the distribution of customer age groups by product\nage_group_counts = coffee_sales.groupby(['product', 'customer_age_group'])['total'].count().unstack().fillna(0)\nplt.figure(figsize=(10,6))\nsns.heatmap(age_group_counts, cmap='coolwarm', annot=True, fmt='d')\nplt.title('Customer Age Group Distribution by Product')\nplt.xlabel('Product')\nplt.ylabel('Age Group')\nplt.savefig('output_heatmap.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.4118,
+    "color_delta_e": 1.0378,
+    "visual_entropy": 1.1628,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.597,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

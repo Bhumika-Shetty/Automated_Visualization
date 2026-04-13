@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 13,
+  "timestamp": "2026-04-11T02:20:18.219156",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'has_video_4k' to a more descriptive categorical variable for the legend\ndf['has_video_4k_label'] = df['has_video_4k'].map({0: 'No 4K Video', 1: 'Has 4K Video'})\n\n# Set a visually appealing style for seaborn plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 7))\n\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',              # Differentiate brands by color\n    style='has_video_4k_label', # Differentiate 4K video capability by marker style\n    size='weight_grams',      # Represent weight by marker size\n    sizes=(100, 1000),        # Define the range for marker sizes\n    palette='viridis',        # Choose a color palette\n    edgecolor='gray',         # Add a subtle edge to markers\n    alpha=0.8                 # Make markers slightly transparent\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Brand, Weight, and 4K Video', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement and appearance\nplt.legend(title='Camera Features', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'has_video_4k' to a more descriptive categorical variable for the legend\ndf['has_video_4k_label'] = df['has_video_4k'].map({0: 'No 4K Video', 1: 'Has 4K Video'})\n\n# Set a visually appealing style for seaborn plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 7))\n\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',              # Differentiate brands by color\n    style='has_video_4k_label', # Differentiate 4K video capability by marker style\n    size='weight_grams',      # Represent weight by marker size\n    sizes=(100, 1000),        # Define the range for marker sizes\n    palette='viridis',        # Choose a color palette\n    edgecolor='gray',         # Add a subtle edge to markers\n    alpha=0.8                 # Make markers slightly transparent\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Brand, Weight, and 4K Video', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement and appearance\nplt.legend(title='Camera Features', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5625,
+    "color_delta_e": 0.9565,
+    "visual_entropy": 0.6695,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 11.098,
+    "cost_per_run": 0.000156,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

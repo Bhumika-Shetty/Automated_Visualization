@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-09T03:48:52.019392",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert is_takeaway to categorical variable\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].map({0: 'In-store', 1: 'Takeaway'})\n\n# Create a bar chart of the top 5 products by total sales\ntop_products = coffee_sales.groupby('product')['total'].sum().nlargest(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_products.index, y=top_products.values, order=top_products.index)\nplt.title('Top 5 Products by Total Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a stacked bar chart of the top 5 payment methods by total sales\npayment_methods = coffee_sales.groupby('payment_method')['total'].sum().nlargest(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=payment_methods.index, y=payment_methods.values, order=payment_methods.index, hatch=['/', '\\\\', '+', 'x', None], alpha=0.8)\nplt.title('Top 5 Payment Methods by Total Sales')\nplt.xlabel('Payment Method')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Payment Method', labels=['Cash', 'Credit Card', 'Debit Card', 'Mobile Payment', 'Other'])\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart of the distribution of customer age groups\nage_groups = coffee_sales['customer_age_group'].value_counts()\nplt.figure(figsize=(8,8))\nplt.pie(age_groups.values, labels=age_groups.index, autopct='%1.1f%%')\nplt.title('Distribution of Customer Age Groups')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert is_takeaway to categorical variable\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].map({0: 'In-store', 1: 'Takeaway'})\n\n# Create a bar chart of the top 5 products by total sales\ntop_products = coffee_sales.groupby('product')['total'].sum().nlargest(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_products.index, y=top_products.values, order=top_products.index)\nplt.title('Top 5 Products by Total Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a stacked bar chart of the top 5 payment methods by total sales\npayment_methods = coffee_sales.groupby('payment_method')['total'].sum().nlargest(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=payment_methods.index, y=payment_methods.values, order=payment_methods.index, hatch=['/', '\\\\', '+', 'x', None], alpha=0.8)\nplt.title('Top 5 Payment Methods by Total Sales')\nplt.xlabel('Payment Method')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Payment Method', labels=['Cash', 'Credit Card', 'Debit Card', 'Mobile Payment', 'Other'])\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart of the distribution of customer age groups\nage_groups = coffee_sales['customer_age_group'].value_counts()\nplt.figure(figsize=(8,8))\nplt.pie(age_groups.values, labels=age_groups.index, autopct='%1.1f%%')\nplt.title('Distribution of Customer Age Groups')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpja_r1khi/viz_script.py\", line 25, in <module>\n    sns.barplot(x=payment_methods.index, y=payment_methods.values, order=payment_methods.index, hatch=['/', '\\\\', '+', 'x', None], alpha=0.8)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 2371, in barplot\n    color = _default_color(ax.bar, hue, color, kwargs, saturation=saturation)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/utils.py\", line 127, in _default_color\n    scout, = method([np.nan], [np.nan], **kws)\n    ^^^^^^\nValueError: too many values to unpack (expected 1)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.7547,
+    "visual_entropy": 1.148,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 1.094,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

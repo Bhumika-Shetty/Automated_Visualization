@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "poor",
+  "run_id": 23,
+  "timestamp": "2026-04-10T17:33:45.470383",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"ID,Year_Birth,Education,Marital_Status,Income,Kidhome,Teenhome,Dt_Customer,Recency,MntWines,MntFruits,MntMeatProducts,MntFishProducts,MntSweetProducts,MntGoldProds,NumDealsPurchases,NumWebPurchases,NumCatalogPurchases,NumStorePurchases,NumWebVisitsMonth,AcceptedCmp3,AcceptedCmp4,AcceptedCmp5,AcceptedCmp1,AcceptedCmp2,Complain,Z_CostContact,Z_Revenue,Response\n5524,1957,Graduation,Single,58138.0,0,0,04-09-2012,58,635,88,546,172,88,88,3,8,10,4,7,0,0,0,0,0,0,3,11,1\n2174,1954,Graduation,Single,46344.0,1,1,08-03-2014,38,11,1,6,2,1,6,2,1,1,2,5,0,0,0,0,0,0,3,11,0\n4141,1965,Graduation,Together,71613.0,0,0,21-08-2013,26,426,49,127,111,21,42,1,8,2,10,4,0,0,0,0,0,0,3,11,0\n6182,1984,Graduation,Together,26646.0,1,0,10-02-2014,26,11,4,20,10,3,5,2,2,0,4,6,0,0,0,0,0,0,3,11,0\n5324,1981,PhD,Married,58293.0,1,0,19-01-2014,94,173,43,118,46,27,15,5,5,3,6,5,0,0,0,0,0,0,3,11,0\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Calculate Total Spending by summing up all product spending columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows with missing 'Income' for clean visualization, if any exist in a larger dataset\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set a clean style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='TotalSpending',\n    hue='Education',\n    size='TotalSpending',  # Size points by Total Spending to add another dimension\n    sizes=(50, 500),      # Define the range of point sizes\n    alpha=0.8,\n    palette='viridis'\n)\n\n# Add titles and labels for clarity\nplt.title('Income vs. Total Spending by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Education', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"ID,Year_Birth,Education,Marital_Status,Income,Kidhome,Teenhome,Dt_Customer,Recency,MntWines,MntFruits,MntMeatProducts,MntFishProducts,MntSweetProducts,MntGoldProds,NumDealsPurchases,NumWebPurchases,NumCatalogPurchases,NumStorePurchases,NumWebVisitsMonth,AcceptedCmp3,AcceptedCmp4,AcceptedCmp5,AcceptedCmp1,AcceptedCmp2,Complain,Z_CostContact,Z_Revenue,Response\n5524,1957,Graduation,Single,58138.0,0,0,04-09-2012,58,635,88,546,172,88,88,3,8,10,4,7,0,0,0,0,0,0,3,11,1\n2174,1954,Graduation,Single,46344.0,1,1,08-03-2014,38,11,1,6,2,1,6,2,1,1,2,5,0,0,0,0,0,0,3,11,0\n4141,1965,Graduation,Together,71613.0,0,0,21-08-2013,26,426,49,127,111,21,42,1,8,2,10,4,0,0,0,0,0,0,3,11,0\n6182,1984,Graduation,Together,26646.0,1,0,10-02-2014,26,11,4,20,10,3,5,2,2,0,4,6,0,0,0,0,0,0,3,11,0\n5324,1981,PhD,Married,58293.0,1,0,19-01-2014,94,173,43,118,46,27,15,5,5,3,6,5,0,0,0,0,0,0,3,11,0\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Calculate Total Spending by summing up all product spending columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows with missing 'Income' for clean visualization, if any exist in a larger dataset\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set a clean style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='TotalSpending',\n    hue='Education',\n    size='TotalSpending',  # Size points by Total Spending to add another dimension\n    sizes=(50, 500),      # Define the range of point sizes\n    alpha=0.8,\n    palette='viridis'\n)\n\n# Add titles and labels for clarity\nplt.title('Income vs. Total Spending by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Education', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.8173,
+    "visual_entropy": 0.6356,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 18.368,
+    "cost_per_run": 0.00019,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

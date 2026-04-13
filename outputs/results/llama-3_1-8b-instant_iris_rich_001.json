@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-09T02:25:18.013305",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\ndata.columns = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']\n\n# Map species to numerical values for plotting\nspecies_map = {'setosa': 1, 'versicolor': 2, 'virginica': 3}\ndata['species'] = data['species'].map(species_map)\n\n# Create a pairplot with seaborn\nplt.figure(figsize=(12, 8))\nsns.pairplot(data, hue='species', markers=[\"o\", \"s\", \"D\"], palette=['green', 'red', 'blue'])\n\n# Set title and labels\nplt.title('Iris Dataset Pairplot')\nplt.xlabel('Variable')\nplt.ylabel('Value')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\ndata.columns = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']\n\n# Map species to numerical values for plotting\nspecies_map = {'setosa': 1, 'versicolor': 2, 'virginica': 3}\ndata['species'] = data['species'].map(species_map)\n\n# Create a pairplot with seaborn\nplt.figure(figsize=(12, 8))\nsns.pairplot(data, hue='species', markers=[\"o\", \"s\", \"D\"], palette=['green', 'red', 'blue'])\n\n# Set title and labels\nplt.title('Iris Dataset Pairplot')\nplt.xlabel('Variable')\nplt.ylabel('Value')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4762,
+    "color_delta_e": 2.7374,
+    "visual_entropy": 1.1419,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 0.531,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

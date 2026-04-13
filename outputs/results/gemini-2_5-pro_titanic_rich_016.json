@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-12T05:05:45.666352",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mtick\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure with two subplots side-by-side\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), sharey=True)\n\n# --- Plot 1: Survival Rate by Passenger Class and Embark Town ---\nsns.pointplot(ax=ax1, data=df, x='class', y='survived', hue='who',\n              order=['First', 'Second', 'Third'],\n              hue_order=['man', 'woman', 'child'],\n              dodge=True, markers=['^', 'o', 's'], linestyles=['--', '-', ':'])\n\nax1.set_title('Survival Rate by Class and Passenger Type', fontsize=16, pad=20)\nax1.set_xlabel('Passenger Class', fontsize=12)\nax1.set_ylabel('Survival Rate', fontsize=12)\nax1.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))\nax1.get_legend().set_title('Passenger Type')\nax1.grid(axis='x', linestyle='--', alpha=0.6)\n\n\n# --- Plot 2: Age Distribution of Survivors vs. Non-Survivors ---\n# Create a new column for survival status for easier labeling\ndf['Survival Status'] = df['survived'].map({0: 'Did Not Survive', 1: 'Survived'})\n\nsns.violinplot(ax=ax2, data=df, x='Survival Status', y='age', hue='sex',\n               split=True, inner='quartile', palette={'male': 'lightblue', 'female': 'salmon'})\n\nax2.set_title('Age Distribution by Survival Status and Sex', fontsize=16, pad=20)\nax2.set_xlabel('Survival Status', fontsize=12)\nax2.set_ylabel('Age', fontsize=12)\nax2.get_legend().set_title('Sex')\nax2.grid(axis='x', linestyle='--', alpha=0.6)\n\n# --- Final Touches ---\n# Add an overall title for the figure\nfig.suptitle('Titanic Survival Analysis: Class, Age, and Sex Were Key Factors', fontsize=20, y=1.03)\n\n# Adjust layout to prevent titles from overlapping\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mtick\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure with two subplots side-by-side\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), sharey=True)\n\n# --- Plot 1: Survival Rate by Passenger Class and Embark Town ---\nsns.pointplot(ax=ax1, data=df, x='class', y='survived', hue='who',\n              order=['First', 'Second', 'Third'],\n              hue_order=['man', 'woman', 'child'],\n              dodge=True, markers=['^', 'o', 's'], linestyles=['--', '-', ':'])\n\nax1.set_title('Survival Rate by Class and Passenger Type', fontsize=16, pad=20)\nax1.set_xlabel('Passenger Class', fontsize=12)\nax1.set_ylabel('Survival Rate', fontsize=12)\nax1.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))\nax1.get_legend().set_title('Passenger Type')\nax1.grid(axis='x', linestyle='--', alpha=0.6)\n\n\n# --- Plot 2: Age Distribution of Survivors vs. Non-Survivors ---\n# Create a new column for survival status for easier labeling\ndf['Survival Status'] = df['survived'].map({0: 'Did Not Survive', 1: 'Survived'})\n\nsns.violinplot(ax=ax2, data=df, x='Survival Status', y='age', hue='sex',\n               split=True, inner='quartile', palette={'male': 'lightblue', 'female': 'salmon'})\n\nax2.set_title('Age Distribution by Survival Status and Sex', fontsize=16, pad=20)\nax2.set_xlabel('Survival Status', fontsize=12)\nax2.set_ylabel('Age', fontsize=12)\nax2.get_legend().set_title('Sex')\nax2.grid(axis='x', linestyle='--', alpha=0.6)\n\n# --- Final Touches ---\n# Add an overall title for the figure\nfig.suptitle('Titanic Survival Analysis: Class, Age, and Sex Were Key Factors', fontsize=20, y=1.03)\n\n# Adjust layout to prevent titles from overlapping\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.6389,
+    "color_delta_e": 0.716,
+    "visual_entropy": 1.0102,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 39.37,
+    "cost_per_run": 0.005329,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

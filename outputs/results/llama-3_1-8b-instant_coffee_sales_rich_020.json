@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-09T03:48:13.332500",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Group the data by product and calculate total sales\nproduct_sales = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Create a bar chart with seaborn\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='total', data=product_sales)\n\n# Set title and labels\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Group the data by product and calculate total sales\nproduct_sales = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Create a bar chart with seaborn\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='total', data=product_sales)\n\n# Set title and labels\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.2222,
+    "color_delta_e": 1.2862,
+    "visual_entropy": 1.2105,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.454,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

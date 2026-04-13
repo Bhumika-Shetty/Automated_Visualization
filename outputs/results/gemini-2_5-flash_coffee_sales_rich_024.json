@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-12T04:50:56.795824",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/coffee_sales.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/coffee_sales.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Define a consistent order for customer age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate data: Calculate total sales for each product broken down by customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set a style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the grouped bar plot\nplt.figure(figsize=(14, 8))\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis'  # Choose a color palette that works well for ordered categories\n)\n\n# Add plot title and labels\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Position the legend outside the plot to avoid obscuring data\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/coffee_sales.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/coffee_sales.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Define a consistent order for customer age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate data: Calculate total sales for each product broken down by customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set a style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the grouped bar plot\nplt.figure(figsize=(14, 8))\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis'  # Choose a color palette that works well for ordered categories\n)\n\n# Add plot title and labels\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Position the legend outside the plot to avoid obscuring data\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 2.0932,
+    "visual_entropy": 2.1334,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 9.084,
+    "cost_per_run": 0.000151,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

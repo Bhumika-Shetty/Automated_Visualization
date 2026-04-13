@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-10T17:45:01.023775",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Map 'is_fraud' to more descriptive labels for better clarity in the plot legend\ndf['Fraud Status'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\n\n# Use a violinplot to show the distribution of transaction amounts,\n# separated by transaction type and whether it's fraudulent.\n# 'split=True' allows direct comparison of fraud vs. non-fraud distributions within each transaction type.\n# 'inner=\"quartile\"' shows the quartiles and median within each violin.\nsns.violinplot(data=df, x='transaction_type', y='amount', hue='Fraud Status',\n               split=True, inner='quartile',\n               palette={'Not Fraud': 'skyblue', 'Fraud': 'salmon'})\n\n# Set plot title and labels\nplt.title('Distribution of Transaction Amount by Type and Fraud Status', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Transaction Amount', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Adjust legend title and position\nplt.legend(title='Fraud Status', loc='upper right', frameon=True, shadow=True)\n\n# Add a grid for better readability of values on the y-axis\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure layout is tight and save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Map 'is_fraud' to more descriptive labels for better clarity in the plot legend\ndf['Fraud Status'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\n\n# Use a violinplot to show the distribution of transaction amounts,\n# separated by transaction type and whether it's fraudulent.\n# 'split=True' allows direct comparison of fraud vs. non-fraud distributions within each transaction type.\n# 'inner=\"quartile\"' shows the quartiles and median within each violin.\nsns.violinplot(data=df, x='transaction_type', y='amount', hue='Fraud Status',\n               split=True, inner='quartile',\n               palette={'Not Fraud': 'skyblue', 'Fraud': 'salmon'})\n\n# Set plot title and labels\nplt.title('Distribution of Transaction Amount by Type and Fraud Status', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Transaction Amount', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Adjust legend title and position\nplt.legend(title='Fraud Status', loc='upper right', frameon=True, shadow=True)\n\n# Add a grid for better readability of values on the y-axis\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure layout is tight and save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.7619,
+    "color_delta_e": 0.9394,
+    "visual_entropy": 0.5123,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 13.325,
+    "cost_per_run": 0.000124,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

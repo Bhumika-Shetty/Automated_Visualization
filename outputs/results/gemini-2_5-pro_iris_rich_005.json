@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-12T05:41:34.302741",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pair plot, which is excellent for visualizing relationships\n# between variables in a dataset. We color by 'species' to see how the\n# measurements separate the different types of iris flowers.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimation on the diagonals\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.85, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'linewidth': 2, 'shade': True}\n)\n\n# Add a clear, descriptive title to the entire figure\ng.fig.suptitle(\n    'Relationships Between Sepal & Petal Measurements by Iris Species',\n    y=1.02,  # Adjust title position to be slightly above the plot\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve individual axis labels for clarity\n# Seaborn's defaults are good, but we can be more explicit.\ng.axes[0,0].set_ylabel('Sepal Length (cm)')\ng.axes[1,0].set_ylabel('Sepal Width (cm)')\ng.axes[2,0].set_ylabel('Petal Length (cm)')\ng.axes[3,0].set_ylabel('Petal Width (cm)')\n\ng.axes[3,0].set_xlabel('Sepal Length (cm)')\ng.axes[3,1].set_xlabel('Sepal Width (cm)')\ng.axes[3,2].set_xlabel('Petal Length (cm)')\ng.axes[3,3].set_xlabel('Petal Width (cm)')\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pair plot, which is excellent for visualizing relationships\n# between variables in a dataset. We color by 'species' to see how the\n# measurements separate the different types of iris flowers.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimation on the diagonals\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.85, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'linewidth': 2, 'shade': True}\n)\n\n# Add a clear, descriptive title to the entire figure\ng.fig.suptitle(\n    'Relationships Between Sepal & Petal Measurements by Iris Species',\n    y=1.02,  # Adjust title position to be slightly above the plot\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve individual axis labels for clarity\n# Seaborn's defaults are good, but we can be more explicit.\ng.axes[0,0].set_ylabel('Sepal Length (cm)')\ng.axes[1,0].set_ylabel('Sepal Width (cm)')\ng.axes[2,0].set_ylabel('Petal Length (cm)')\ng.axes[3,0].set_ylabel('Petal Width (cm)')\n\ng.axes[3,0].set_xlabel('Sepal Length (cm)')\ng.axes[3,1].set_xlabel('Sepal Width (cm)')\ng.axes[3,2].set_xlabel('Petal Length (cm)')\ng.axes[3,3].set_xlabel('Petal Width (cm)')\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5625,
+    "color_delta_e": 2.2372,
+    "visual_entropy": 1.973,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 19.016,
+    "cost_per_run": 0.004002,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

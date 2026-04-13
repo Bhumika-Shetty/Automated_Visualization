@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-11T02:00:41.796963",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate the data to get the total number of dogs per district per year\n# We sum 'AnzHunde' which represents the number of dogs for each record.\ndf_agg = df.groupby(['StichtagDatJahr', 'KreisLang'])['AnzHunde'].sum().reset_index()\n\n# Sort the aggregated data by year for correct plotting of time series\ndf_agg = df_agg.sort_values(by=['StichtagDatJahr', 'KreisLang'])\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a line plot to show the trend of dog registrations over time for each district\nsns.lineplot(\n    data=df_agg,\n    x='StichtagDatJahr',\n    y='AnzHunde',\n    hue='KreisLang',\n    marker='o',  # Add markers for each year\n    linewidth=1.5,\n    palette='tab20' # Use a distinct color palette for districts\n)\n\n# Add title and labels for clarity\nplt.title('Total Number of Registered Dogs in Zurich by District (2019-2025)', fontsize=16)\nplt.xlabel('Year', fontsize=12)\nplt.ylabel('Number of Dogs Registered', fontsize=12)\n\n# Customize x-axis ticks to show all years present in the data\nplt.xticks(df_agg['StichtagDatJahr'].unique(), rotation=45, ha='right')\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Place the legend outside the plot area to prevent overlapping with data\nplt.legend(title='District', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate the data to get the total number of dogs per district per year\n# We sum 'AnzHunde' which represents the number of dogs for each record.\ndf_agg = df.groupby(['StichtagDatJahr', 'KreisLang'])['AnzHunde'].sum().reset_index()\n\n# Sort the aggregated data by year for correct plotting of time series\ndf_agg = df_agg.sort_values(by=['StichtagDatJahr', 'KreisLang'])\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a line plot to show the trend of dog registrations over time for each district\nsns.lineplot(\n    data=df_agg,\n    x='StichtagDatJahr',\n    y='AnzHunde',\n    hue='KreisLang',\n    marker='o',  # Add markers for each year\n    linewidth=1.5,\n    palette='tab20' # Use a distinct color palette for districts\n)\n\n# Add title and labels for clarity\nplt.title('Total Number of Registered Dogs in Zurich by District (2019-2025)', fontsize=16)\nplt.xlabel('Year', fontsize=12)\nplt.ylabel('Number of Dogs Registered', fontsize=12)\n\n# Customize x-axis ticks to show all years present in the data\nplt.xticks(df_agg['StichtagDatJahr'].unique(), rotation=45, ha='right')\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Place the legend outside the plot area to prevent overlapping with data\nplt.legend(title='District', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.3889,
+    "color_delta_e": 1.0666,
+    "visual_entropy": 0.7913,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 10.74,
+    "cost_per_run": 0.000187,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

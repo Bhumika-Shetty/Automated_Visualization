@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-10T15:50:29.564233",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing survival rate by sex and passenger class\n# Use hue to differentiate by passenger class\nsns.barplot(data=df, x='sex', y='survived', hue='pclass', palette='viridis', errorbar=None)\n\n# Add labels and title\nplt.title('Survival Rate on the Titanic by Sex and Passenger Class', fontsize=16)\nplt.xlabel('Sex', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\n\n# Customize x-axis tick labels for better readability\nplt.xticks(ticks=[0, 1], labels=['Female', 'Male'], fontsize=10)\n\n# Customize y-axis to show percentage-like values\nplt.yticks(fontsize=10)\nplt.ylim(0, 1) # Survival rate is between 0 and 1\n\n# Add a legend for passenger class\nplt.legend(title='Passenger Class', loc='upper right', labels=['1st Class', '2nd Class', '3rd Class'])\n\n# Add grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing survival rate by sex and passenger class\n# Use hue to differentiate by passenger class\nsns.barplot(data=df, x='sex', y='survived', hue='pclass', palette='viridis', errorbar=None)\n\n# Add labels and title\nplt.title('Survival Rate on the Titanic by Sex and Passenger Class', fontsize=16)\nplt.xlabel('Sex', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\n\n# Customize x-axis tick labels for better readability\nplt.xticks(ticks=[0, 1], labels=['Female', 'Male'], fontsize=10)\n\n# Customize y-axis to show percentage-like values\nplt.yticks(fontsize=10)\nplt.ylim(0, 1) # Survival rate is between 0 and 1\n\n# Add a legend for passenger class\nplt.legend(title='Passenger Class', loc='upper right', labels=['1st Class', '2nd Class', '3rd Class'])\n\n# Add grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.6154,
+    "color_delta_e": 1.0521,
+    "visual_entropy": 1.7015,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 7.332,
+    "cost_per_run": 0.000109,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

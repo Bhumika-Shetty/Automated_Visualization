@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-12T05:10:23.276402",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", rc={\"axes.facecolor\": (0.9, 0.9, 0.95)})\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(16, 7))\n\n# --- Plot 1: Survival Rate by Class and Sex ---\nax1 = axes[0]\nsns.barplot(x='class', y='survived', hue='sex', data=df, ax=ax1, palette={'male': 'skyblue', 'female': 'salmon'}, errorbar=None)\nax1.set_title('Survival Rate by Passenger Class and Sex', fontsize=14, weight='bold')\nax1.set_ylabel('Survival Rate', fontsize=12)\nax1.set_xlabel('Passenger Class', fontsize=12)\nax1.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\nax1.legend(title='Sex')\n\n# Add annotations to the bars\nfor p in ax1.patches:\n    ax1.annotate(f'{p.get_height():.0%}',\n                   (p.get_x() + p.get_width() / 2., p.get_height()),\n                   ha='center', va='center',\n                   xytext=(0, 9),\n                   textcoords='offset points',\n                   fontsize=10,\n                   color='black')\n\n# --- Plot 2: Age Distribution by Survival Status ---\nax2 = axes[1]\nsns.kdeplot(data=df, x='age', hue='alive', fill=True, ax=ax2,\n            palette={'no': 'firebrick', 'yes': 'seagreen'}, common_norm=False)\nax2.set_title('Age Distribution of Survivors vs. Non-Survivors', fontsize=14, weight='bold')\nax2.set_xlabel('Age', fontsize=12)\nax2.set_ylabel('Density', fontsize=12)\nax2.legend(title='Status', labels=['Survived', 'Did Not Survive'])\nax2.set_xlim(0, 80)\n\n# Add a vertical line for the median age\nmedian_age = df['age'].median()\nax2.axvline(median_age, color='grey', linestyle='--', linewidth=1.5)\nax2.text(median_age + 2, ax2.get_ylim()[1]*0.8, f'Median Age: {median_age:.1f}',\n         rotation=90, verticalalignment='center', color='grey', weight='bold')\n\n\n# Overall title for the figure\nfig.suptitle('Titanic Survival Analysis: Key Factors', fontsize=18, weight='bold', y=1.02)\n\n# Adjust layout\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", rc={\"axes.facecolor\": (0.9, 0.9, 0.95)})\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(16, 7))\n\n# --- Plot 1: Survival Rate by Class and Sex ---\nax1 = axes[0]\nsns.barplot(x='class', y='survived', hue='sex', data=df, ax=ax1, palette={'male': 'skyblue', 'female': 'salmon'}, errorbar=None)\nax1.set_title('Survival Rate by Passenger Class and Sex', fontsize=14, weight='bold')\nax1.set_ylabel('Survival Rate', fontsize=12)\nax1.set_xlabel('Passenger Class', fontsize=12)\nax1.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\nax1.legend(title='Sex')\n\n# Add annotations to the bars\nfor p in ax1.patches:\n    ax1.annotate(f'{p.get_height():.0%}',\n                   (p.get_x() + p.get_width() / 2., p.get_height()),\n                   ha='center', va='center',\n                   xytext=(0, 9),\n                   textcoords='offset points',\n                   fontsize=10,\n                   color='black')\n\n# --- Plot 2: Age Distribution by Survival Status ---\nax2 = axes[1]\nsns.kdeplot(data=df, x='age', hue='alive', fill=True, ax=ax2,\n            palette={'no': 'firebrick', 'yes': 'seagreen'}, common_norm=False)\nax2.set_title('Age Distribution of Survivors vs. Non-Survivors', fontsize=14, weight='bold')\nax2.set_xlabel('Age', fontsize=12)\nax2.set_ylabel('Density', fontsize=12)\nax2.legend(title='Status', labels=['Survived', 'Did Not Survive'])\nax2.set_xlim(0, 80)\n\n# Add a vertical line for the median age\nmedian_age = df['age'].median()\nax2.axvline(median_age, color='grey', linestyle='--', linewidth=1.5)\nax2.text(median_age + 2, ax2.get_ylim()[1]*0.8, f'Median Age: {median_age:.1f}',\n         rotation=90, verticalalignment='center', color='grey', weight='bold')\n\n\n# Overall title for the figure\nfig.suptitle('Titanic Survival Analysis: Key Factors', fontsize=18, weight='bold', y=1.02)\n\n# Adjust layout\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.7837,
+    "visual_entropy": 2.4691,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 27.252,
+    "cost_per_run": 0.005979,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

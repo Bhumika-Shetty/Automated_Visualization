@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-10T17:11:36.611792",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate 'Total_Spending' by summing up all product spending columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt') and col.endswith('Products') or col == 'MntWines' or col == 'MntGoldProds']\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Handle missing 'Income' values by dropping rows with NaN in 'Income'\n# This is important for numerical plots involving income\ndf.dropna(subset=['Income'], inplace=True)\n\n# Map 'Response' column to more descriptive labels for the legend\ndf['Response_Label'] = df['Response'].map({0: 'No', 1: 'Yes'})\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Response_Label',  # Color points based on campaign response\n    style='Response_Label', # Use different markers for different responses\n    alpha=0.7,             # Slightly transparent points\n    s=100,                 # Adjust point size\n    palette='viridis'      # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Customer Income vs. Total Spending by Campaign Response', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\n\n# Improve the legend\nplt.legend(title='Responded to Last Campaign', title_fontsize='13', fontsize='10')\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate 'Total_Spending' by summing up all product spending columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt') and col.endswith('Products') or col == 'MntWines' or col == 'MntGoldProds']\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Handle missing 'Income' values by dropping rows with NaN in 'Income'\n# This is important for numerical plots involving income\ndf.dropna(subset=['Income'], inplace=True)\n\n# Map 'Response' column to more descriptive labels for the legend\ndf['Response_Label'] = df['Response'].map({0: 'No', 1: 'Yes'})\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Response_Label',  # Color points based on campaign response\n    style='Response_Label', # Use different markers for different responses\n    alpha=0.7,             # Slightly transparent points\n    s=100,                 # Adjust point size\n    palette='viridis'      # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Customer Income vs. Total Spending by Campaign Response', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\n\n# Improve the legend\nplt.legend(title='Responded to Last Campaign', title_fontsize='13', fontsize='10')\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 13.79,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 1.0042,
+    "visual_entropy": 0.9247,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 22.061,
+    "cost_per_run": 0.000178,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

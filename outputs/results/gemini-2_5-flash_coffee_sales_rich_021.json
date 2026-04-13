@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-12T04:50:21.839052",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Map 'is_takeaway' to descriptive labels for better readability in the legend\ndf['order_type'] = df['is_takeaway'].map({1: 'Takeaway', 0: 'Dine-in'})\n\n# Aggregate data: Calculate total sales for each product, broken down by order type\n# Pivot the table to get 'Dine-in' and 'Takeaway' as separate columns for stacking\nproduct_sales_pivot = df.groupby(['product', 'order_type'])['total'].sum().unstack(fill_value=0)\n\n# Calculate total sales per product for sorting (sum of Dine-in and Takeaway sales)\ntotal_sales_per_product = product_sales_pivot.sum(axis=1).sort_values(ascending=False)\n\n# Reorder the pivot table rows (products) based on total sales\nproduct_sales_pivot = product_sales_pivot.loc[total_sales_per_product.index]\n\n# Set a style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the stacked bar chart\nplt.figure(figsize=(12, 7))\nax = plt.gca() # Get the current axes\n\nproduct_sales_pivot.plot(\n    kind='bar',\n    stacked=True,\n    ax=ax,\n    cmap='viridis',  # Choose a colormap for distinct categories\n    width=0.8\n)\n\nplt.title('Total Revenue by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Revenue ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Map 'is_takeaway' to descriptive labels for better readability in the legend\ndf['order_type'] = df['is_takeaway'].map({1: 'Takeaway', 0: 'Dine-in'})\n\n# Aggregate data: Calculate total sales for each product, broken down by order type\n# Pivot the table to get 'Dine-in' and 'Takeaway' as separate columns for stacking\nproduct_sales_pivot = df.groupby(['product', 'order_type'])['total'].sum().unstack(fill_value=0)\n\n# Calculate total sales per product for sorting (sum of Dine-in and Takeaway sales)\ntotal_sales_per_product = product_sales_pivot.sum(axis=1).sort_values(ascending=False)\n\n# Reorder the pivot table rows (products) based on total sales\nproduct_sales_pivot = product_sales_pivot.loc[total_sales_per_product.index]\n\n# Set a style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the stacked bar chart\nplt.figure(figsize=(12, 7))\nax = plt.gca() # Get the current axes\n\nproduct_sales_pivot.plot(\n    kind='bar',\n    stacked=True,\n    ax=ax,\n    cmap='viridis',  # Choose a colormap for distinct categories\n    width=0.8\n)\n\nplt.title('Total Revenue by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Revenue ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.6842,
+    "color_delta_e": 1.1105,
+    "visual_entropy": 1.7241,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 12.835,
+    "cost_per_run": 0.000156,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

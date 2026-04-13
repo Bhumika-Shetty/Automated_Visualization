@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-09T02:41:11.926616",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Select relevant columns for visualization\nsleep_health_reduced = sleep_health[['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level', 'BMI Category', 'Heart Rate']]\n\n# Create a jointplot with histograms\nsns.set_style('whitegrid')\ng = sns.jointplot(x='Sleep Duration', y='Quality of Sleep', data=sleep_health_reduced, kind='reg')\ng.ax_marg_x.set_title('Sleep Duration')\ng.ax_marg_y.set_title('Quality of Sleep')\ng.fig.suptitle('Relationship between Sleep Duration and Quality of Sleep')\n\n# Create a barplot of Physical Activity Level vs BMI Category\ng = sns.barplot(x='BMI Category', y='Physical Activity Level', data=sleep_health_reduced)\ng.set_title('Physical Activity Level by BMI Category')\ng.set_xlabel('BMI Category')\ng.set_ylabel('Physical Activity Level')\n\n# Create a boxplot of Heart Rate vs Stress Level\ng = sns.boxplot(x='Stress Level', y='Heart Rate', data=sleep_health_reduced)\ng.set_title('Heart Rate by Stress Level')\ng.set_xlabel('Stress Level')\ng.set_ylabel('Heart Rate')\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Select relevant columns for visualization\nsleep_health_reduced = sleep_health[['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level', 'BMI Category', 'Heart Rate']]\n\n# Create a jointplot with histograms\nsns.set_style('whitegrid')\ng = sns.jointplot(x='Sleep Duration', y='Quality of Sleep', data=sleep_health_reduced, kind='reg')\ng.ax_marg_x.set_title('Sleep Duration')\ng.ax_marg_y.set_title('Quality of Sleep')\ng.fig.suptitle('Relationship between Sleep Duration and Quality of Sleep')\n\n# Create a barplot of Physical Activity Level vs BMI Category\ng = sns.barplot(x='BMI Category', y='Physical Activity Level', data=sleep_health_reduced)\ng.set_title('Physical Activity Level by BMI Category')\ng.set_xlabel('BMI Category')\ng.set_ylabel('Physical Activity Level')\n\n# Create a boxplot of Heart Rate vs Stress Level\ng = sns.boxplot(x='Stress Level', y='Heart Rate', data=sleep_health_reduced)\ng.set_title('Heart Rate by Stress Level')\ng.set_xlabel('Stress Level')\ng.set_ylabel('Heart Rate')\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.15,
+    "hallucination_rate": 0.25,
+    "color_delta_e": 1.2335,
+    "visual_entropy": 1.1354,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 0.623,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

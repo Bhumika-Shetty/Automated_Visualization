@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-09T02:42:29.859149",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv', \n                           names=['Person ID', 'Gender', 'Age', 'Occupation', \n                                  'Sleep Duration', 'Quality of Sleep', \n                                  'Physical Activity Level', 'Stress Level', \n                                  'BMI Category', 'Blood Pressure', 'Heart Rate', \n                                  'Daily Steps', 'Sleep Disorder'])\n\n# Convert Blood Pressure column to numeric values\nsleep_health['Blood Pressure'] = pd.to_numeric(sleep_health['Blood Pressure'].str.split('/').str[0], errors='coerce')\n\n# Filter out missing values in Blood Pressure\nsleep_health = sleep_health.dropna(subset=['Blood Pressure'])\n\n# Plot the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', data=sleep_health)\nplt.title('Relationship between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Quality of Sleep')\nplt.show()\n\n# Plot the distribution of Daily Steps across different Age groups\nplt.figure(figsize=(10, 6))\nsns.boxenplot(x='Age', y='Daily Steps', data=sleep_health)\nplt.title('Distribution of Daily Steps across different Age groups')\nplt.xlabel('Age')\nplt.ylabel('Daily Steps')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.show()\n\n# Plot the distribution of BMI Category\nplt.figure(figsize=(8, 6))\nsns.countplot(x='BMI Category', data=sleep_health)\nplt.title('Distribution of BMI Category')\nplt.xlabel('BMI Category')\nplt.ylabel('Count')\nplt.show()\n\n# Save the final figure as output.png\nplt.figure(figsize=(10, 6))\nsns.heatmap(sleep_health.corr(), annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv', \n                           names=['Person ID', 'Gender', 'Age', 'Occupation', \n                                  'Sleep Duration', 'Quality of Sleep', \n                                  'Physical Activity Level', 'Stress Level', \n                                  'BMI Category', 'Blood Pressure', 'Heart Rate', \n                                  'Daily Steps', 'Sleep Disorder'])\n\n# Convert Blood Pressure column to numeric values\nsleep_health['Blood Pressure'] = pd.to_numeric(sleep_health['Blood Pressure'].str.split('/').str[0], errors='coerce')\n\n# Filter out missing values in Blood Pressure\nsleep_health = sleep_health.dropna(subset=['Blood Pressure'])\n\n# Plot the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', data=sleep_health)\nplt.title('Relationship between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Quality of Sleep')\nplt.show()\n\n# Plot the distribution of Daily Steps across different Age groups\nplt.figure(figsize=(10, 6))\nsns.boxenplot(x='Age', y='Daily Steps', data=sleep_health)\nplt.title('Distribution of Daily Steps across different Age groups')\nplt.xlabel('Age')\nplt.ylabel('Daily Steps')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.show()\n\n# Plot the distribution of BMI Category\nplt.figure(figsize=(8, 6))\nsns.countplot(x='BMI Category', data=sleep_health)\nplt.title('Distribution of BMI Category')\nplt.xlabel('BMI Category')\nplt.ylabel('Count')\nplt.show()\n\n# Save the final figure as output.png\nplt.figure(figsize=(10, 6))\nsns.heatmap(sleep_health.corr(), annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.2424,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 21.188,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

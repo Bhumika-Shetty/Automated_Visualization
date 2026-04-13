@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-09T03:53:04.444677",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert date to datetime\ndf['date'] = pd.to_datetime(df['date'])\n\n# Group by time and calculate total sales\ntime_sales = df.groupby('time')['total'].sum().reset_index()\n\n# Create a bar chart\nplt.figure(figsize=(10,6))\nsns.barplot(x='time', y='total', data=time_sales)\n\n# Set title and labels\nplt.title('Total Sales by Time')\nplt.xlabel('Time')\nplt.ylabel('Total Sales')\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert date to datetime\ndf['date'] = pd.to_datetime(df['date'])\n\n# Group by time and calculate total sales\ntime_sales = df.groupby('time')['total'].sum().reset_index()\n\n# Create a bar chart\nplt.figure(figsize=(10,6))\nsns.barplot(x='time', y='total', data=time_sales)\n\n# Set title and labels\nplt.title('Total Sales by Time')\nplt.xlabel('Time')\nplt.ylabel('Total Sales')\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.8981,
+    "visual_entropy": 1.0183,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.591,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

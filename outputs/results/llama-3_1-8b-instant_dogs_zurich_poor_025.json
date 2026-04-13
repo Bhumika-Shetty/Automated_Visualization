@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 25,
+  "timestamp": "2026-04-09T03:30:48.686887",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Assuming the dataset is in a file called 'data.csv'\ndf = pd.read_csv('data.csv')\n\n# Convert 'StichtagDat' to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Melt the dataframe to create separate columns for year, month and dog characteristics\ndf_melted = pd.melt(df, id_vars=['StichtagDat', 'DatenstandCd', 'HID', 'KreisCd', 'KreisLang', 'QuarCd', 'QuarLang'], value_vars=['AlterV10Cd', 'AlterVHundCd', 'SexCd', 'SexHundCd', 'AnzHunde'])\n\n# Plot the data using seaborn\nplt.figure(figsize=(10,6))\nsns.lineplot(data=df_melted, x='StichtagDat', y='value', hue='variable', palette='viridis')\nplt.title('Dog Characteristics Over Time')\nplt.xlabel('Date')\nplt.ylabel('Value')\nplt.legend(title='Characteristic')\nplt.xticks(rotation=45)\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Assuming the dataset is in a file called 'data.csv'\ndf = pd.read_csv('data.csv')\n\n# Convert 'StichtagDat' to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Melt the dataframe to create separate columns for year, month and dog characteristics\ndf_melted = pd.melt(df, id_vars=['StichtagDat', 'DatenstandCd', 'HID', 'KreisCd', 'KreisLang', 'QuarCd', 'QuarLang'], value_vars=['AlterV10Cd', 'AlterVHundCd', 'SexCd', 'SexHundCd', 'AnzHunde'])\n\n# Plot the data using seaborn\nplt.figure(figsize=(10,6))\nsns.lineplot(data=df_melted, x='StichtagDat', y='value', hue='variable', palette='viridis')\nplt.title('Dog Characteristics Over Time')\nplt.xlabel('Date')\nplt.ylabel('Value')\nplt.legend(title='Characteristic')\nplt.xticks(rotation=45)\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpzr8wmoq5/viz_script.py\", line 6, in <module>\n    df = pd.read_csv('data.csv')\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 873, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 300, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 1645, in __init__\n    self._engine = self._make_engine(f, self.engine)\n                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 1904, in _make_engine\n    self.handles = get_handle(\n                   ~~~~~~~~~~^\n        f,\n        ^^\n    ...<6 lines>...\n        storage_options=self.options.get(\"storage_options\", None),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/common.py\", line 926, in get_handle\n    handle = open(\n        handle,\n    ...<3 lines>...\n        newline=\"\",\n    )\nFileNotFoundError: [Errno 2] No such file or directory: 'data.csv'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 34.29,
+    "hallucination_rate": 0.3043,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 0.708,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

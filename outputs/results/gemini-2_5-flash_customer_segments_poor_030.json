@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "poor",
+  "run_id": 30,
+  "timestamp": "2026-04-10T17:36:51.912744",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"ID,Year_Birth,Education,Marital_Status,Income,Kidhome,Teenhome,Dt_Customer,Recency,MntWines,MntFruits,MntMeatProducts,MntFishProducts,MntSweetProducts,MntGoldProds,NumDealsPurchases,NumWebPurchases,NumCatalogPurchases,NumStorePurchases,NumWebVisitsMonth,AcceptedCmp3,AcceptedCmp4,AcceptedCmp5,AcceptedCmp1,AcceptedCmp2,Complain,Z_CostContact,Z_Revenue,Response\n5524,1957,Graduation,Single,58138.0,0,0,04-09-2012,58,635,88,546,172,88,88,3,8,10,4,7,0,0,0,0,0,0,3,11,1\n2174,1954,Graduation,Single,46344.0,1,1,08-03-2014,38,11,1,6,2,1,6,2,1,1,2,5,0,0,0,0,0,0,3,11,0\n4141,1965,Graduation,Together,71613.0,0,0,21-08-2013,26,426,49,127,111,21,42,1,8,2,10,4,0,0,0,0,0,0,3,11,0\n6182,1984,Graduation,Together,26646.0,1,0,10-02-2014,26,11,4,20,10,3,5,2,2,0,4,6,0,0,0,0,0,0,3,11,0\n5324,1981,PhD,Married,58293.0,1,0,19-01-2014,94,173,43,118,46,27,15,5,5,3,6,5,0,0,0,0,0,0,3,11,0\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Data preparation\n# Calculate Total Spending\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Handle missing values for Income (if any)\n# Drop rows where Income is NaN, as it's crucial for the plot\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the visualization: Scatter plot of Income vs Total Spending, colored by Response\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Response',\n                palette='viridis', s=100, alpha=0.7)\n\nplt.title('Customer Income vs. Total Spending by Campaign Response', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.legend(title='Responded to Last Campaign', loc='upper left', labels=['No', 'Yes'])\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"ID,Year_Birth,Education,Marital_Status,Income,Kidhome,Teenhome,Dt_Customer,Recency,MntWines,MntFruits,MntMeatProducts,MntFishProducts,MntSweetProducts,MntGoldProds,NumDealsPurchases,NumWebPurchases,NumCatalogPurchases,NumStorePurchases,NumWebVisitsMonth,AcceptedCmp3,AcceptedCmp4,AcceptedCmp5,AcceptedCmp1,AcceptedCmp2,Complain,Z_CostContact,Z_Revenue,Response\n5524,1957,Graduation,Single,58138.0,0,0,04-09-2012,58,635,88,546,172,88,88,3,8,10,4,7,0,0,0,0,0,0,3,11,1\n2174,1954,Graduation,Single,46344.0,1,1,08-03-2014,38,11,1,6,2,1,6,2,1,1,2,5,0,0,0,0,0,0,3,11,0\n4141,1965,Graduation,Together,71613.0,0,0,21-08-2013,26,426,49,127,111,21,42,1,8,2,10,4,0,0,0,0,0,0,3,11,0\n6182,1984,Graduation,Together,26646.0,1,0,10-02-2014,26,11,4,20,10,3,5,2,2,0,4,6,0,0,0,0,0,0,3,11,0\n5324,1981,PhD,Married,58293.0,1,0,19-01-2014,94,173,43,118,46,27,15,5,5,3,6,5,0,0,0,0,0,0,3,11,0\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Data preparation\n# Calculate Total Spending\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Handle missing values for Income (if any)\n# Drop rows where Income is NaN, as it's crucial for the plot\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the visualization: Scatter plot of Income vs Total Spending, colored by Response\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Response',\n                palette='viridis', s=100, alpha=0.7)\n\nplt.title('Customer Income vs. Total Spending by Campaign Response', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.legend(title='Responded to Last Campaign', loc='upper left', labels=['No', 'Yes'])\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 0.5836,
+    "visual_entropy": 0.5724,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 17.373,
+    "cost_per_run": 0.000168,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

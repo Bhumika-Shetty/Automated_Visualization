@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-10T19:10:34.113157",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Generate a grouped violin plot to show the distribution of camera prices\n# categorized by sensor type and further broken down by body type.\n# The 'inner=\"quartile\"' option displays the median and interquartile range.\n# 'cut=0' ensures the violin plot does not extend beyond the actual data range.\nsns.violinplot(\n    data=df,\n    x='sensor_type',\n    y='price_usd',\n    hue='body_type',\n    inner='quartile',\n    palette='Paired', # A categorical color palette\n    cut=0\n)\n\n# Apply a logarithmic scale to the y-axis (price) to better visualize distributions\n# across a wide range of prices, especially if there are many lower-priced items\n# and a few very expensive ones.\nplt.yscale('log')\n\n# Add a descriptive title to the plot\nplt.title('Distribution of Camera Prices by Sensor Type and Body Type', fontsize=16)\n\n# Label the x-axis\nplt.xlabel('Sensor Type', fontsize=12)\n\n# Label the y-axis, indicating the log scale\nplt.ylabel('Price (USD) [Log Scale]', fontsize=12)\n\n# Rotate x-axis labels for better readability if they are long or numerous\nplt.xticks(rotation=45, ha='right')\n\n# Place the legend outside the plot area to prevent overlap with data points\nplt.legend(title='Body Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to ensure all elements (title, labels, legend) fit without clipping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Generate a grouped violin plot to show the distribution of camera prices\n# categorized by sensor type and further broken down by body type.\n# The 'inner=\"quartile\"' option displays the median and interquartile range.\n# 'cut=0' ensures the violin plot does not extend beyond the actual data range.\nsns.violinplot(\n    data=df,\n    x='sensor_type',\n    y='price_usd',\n    hue='body_type',\n    inner='quartile',\n    palette='Paired', # A categorical color palette\n    cut=0\n)\n\n# Apply a logarithmic scale to the y-axis (price) to better visualize distributions\n# across a wide range of prices, especially if there are many lower-priced items\n# and a few very expensive ones.\nplt.yscale('log')\n\n# Add a descriptive title to the plot\nplt.title('Distribution of Camera Prices by Sensor Type and Body Type', fontsize=16)\n\n# Label the x-axis\nplt.xlabel('Sensor Type', fontsize=12)\n\n# Label the y-axis, indicating the log scale\nplt.ylabel('Price (USD) [Log Scale]', fontsize=12)\n\n# Rotate x-axis labels for better readability if they are long or numerous\nplt.xticks(rotation=45, ha='right')\n\n# Place the legend outside the plot area to prevent overlap with data points\nplt.legend(title='Body Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to ensure all elements (title, labels, legend) fit without clipping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.7857,
+    "color_delta_e": 1.8828,
+    "visual_entropy": 1.9424,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 17.505,
+    "cost_per_run": 0.000153,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

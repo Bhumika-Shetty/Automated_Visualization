@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 30,
+  "timestamp": "2026-04-13T01:59:48.362306",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# --- Create the visualization ---\n\n# Set a professional and clean style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 8))\n\n# Create a bar plot showing total sales per transaction, colored by product\nax = sns.barplot(\n    data=df,\n    x='time',\n    y='total',\n    hue='product',\n    palette='magma',\n    dodge=False  # Keep bars centered as there's one per time slot\n)\n\n# Add value labels on top of each bar for clarity\nfor p in ax.patches:\n    ax.annotate(\n        f'${p.get_height():.2f}',\n        (p.get_x() + p.get_width() / 2., p.get_height()),\n        ha='center',\n        va='center',\n        xytext=(0, 10),\n        textcoords='offset points',\n        fontsize=12,\n        fontweight='medium'\n    )\n\n# Customize titles and labels for a polished look\nplt.title('Early Morning Sales by Transaction (Jan 1, 2024)', fontsize=18, fontweight='bold', pad=20)\nplt.xlabel('Time of Transaction', fontsize=14, labelpad=15)\nplt.ylabel('Total Sale Amount ($)', fontsize=14, labelpad=15)\n\n# Adjust tick parameters for readability\nplt.xticks(fontsize=12)\nplt.yticks(fontsize=12)\n\n# Set the y-axis limit to give space for annotations above the highest bar\nplt.ylim(0, df['total'].max() * 1.25)\n\n# Enhance the legend\nplt.legend(title='Product', title_fontsize='13', fontsize='11', loc='upper left')\n\n# Use a tight layout to ensure all elements are visible\nplt.tight_layout()\n\n# Save the generated visualization to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# --- Create the visualization ---\n\n# Set a professional and clean style\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(12, 8))\n\n# Create a bar plot showing total sales per transaction, colored by product\nax = sns.barplot(\n    data=df,\n    x='time',\n    y='total',\n    hue='product',\n    palette='magma',\n    dodge=False  # Keep bars centered as there's one per time slot\n)\n\n# Add value labels on top of each bar for clarity\nfor p in ax.patches:\n    ax.annotate(\n        f'${p.get_height():.2f}',\n        (p.get_x() + p.get_width() / 2., p.get_height()),\n        ha='center',\n        va='center',\n        xytext=(0, 10),\n        textcoords='offset points',\n        fontsize=12,\n        fontweight='medium'\n    )\n\n# Customize titles and labels for a polished look\nplt.title('Early Morning Sales by Transaction (Jan 1, 2024)', fontsize=18, fontweight='bold', pad=20)\nplt.xlabel('Time of Transaction', fontsize=14, labelpad=15)\nplt.ylabel('Total Sale Amount ($)', fontsize=14, labelpad=15)\n\n# Adjust tick parameters for readability\nplt.xticks(fontsize=12)\nplt.yticks(fontsize=12)\n\n# Set the y-axis limit to give space for annotations above the highest bar\nplt.ylim(0, df['total'].max() * 1.25)\n\n# Enhance the legend\nplt.legend(title='Product', title_fontsize='13', fontsize='11', loc='upper left')\n\n# Use a tight layout to ensure all elements are visible\nplt.tight_layout()\n\n# Save the generated visualization to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.2746,
+    "visual_entropy": 1.6073,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 25.296,
+    "cost_per_run": 0.005304,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

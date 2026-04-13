@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-10T15:58:22.218918",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a clear and insightful visualization using seaborn's catplot\n# This plot shows the distribution of survival across different passenger classes and sexes,\n# which are known to be strong predictors of survival on the Titanic.\ng = sns.catplot(\n    data=df,\n    x='sex',\n    hue='survived',\n    col='pclass',\n    kind='count',\n    palette='viridis', # A colorblind-friendly palette\n    height=4,            # Height of each facet\n    aspect=1.2,          # Aspect ratio of each facet\n    col_wrap=2           # Wrap columns after 2 plots for better layout if many classes\n)\n\n# Customize the plot for clarity\ng.set_axis_labels(\"Sex\", \"Number of Passengers\")\ng.set_titles(\"Passenger Class: {col_name}\") # Set titles for each subplot\ng._legend.set_title(\"Survived\")\n\n# Improve legend labels (0 -> No, 1 -> Yes)\nnew_labels = ['No', 'Yes']\nfor t, l in zip(g._legend.texts, new_labels):\n    t.set_text(l)\n\n# Add a main title to the figure\nplt.suptitle('Survival Count by Sex and Passenger Class on the Titanic', y=1.02, fontsize=16)\n\n# Adjust layout to prevent titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98])\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a clear and insightful visualization using seaborn's catplot\n# This plot shows the distribution of survival across different passenger classes and sexes,\n# which are known to be strong predictors of survival on the Titanic.\ng = sns.catplot(\n    data=df,\n    x='sex',\n    hue='survived',\n    col='pclass',\n    kind='count',\n    palette='viridis', # A colorblind-friendly palette\n    height=4,            # Height of each facet\n    aspect=1.2,          # Aspect ratio of each facet\n    col_wrap=2           # Wrap columns after 2 plots for better layout if many classes\n)\n\n# Customize the plot for clarity\ng.set_axis_labels(\"Sex\", \"Number of Passengers\")\ng.set_titles(\"Passenger Class: {col_name}\") # Set titles for each subplot\ng._legend.set_title(\"Survived\")\n\n# Improve legend labels (0 -> No, 1 -> Yes)\nnew_labels = ['No', 'Yes']\nfor t, l in zip(g._legend.texts, new_labels):\n    t.set_text(l)\n\n# Add a main title to the figure\nplt.suptitle('Survival Count by Sex and Passenger Class on the Titanic', y=1.02, fontsize=16)\n\n# Adjust layout to prevent titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98])\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 1.3353,
+    "visual_entropy": 1.4677,
+    "labeling_completeness": 0.5,
+    "code_complexity": 5,
+    "generation_latency": 11.449,
+    "cost_per_run": 0.000146,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

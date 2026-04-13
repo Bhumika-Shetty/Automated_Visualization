@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 21,
+  "timestamp": "2026-04-10T16:06:39.048021",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# The dataset is provided as a string, so we use io.StringIO to read it as a CSV.\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a visualization showing the survival rate across passenger class and sex.\n# This is a classic and highly insightful visualization for the Titanic dataset,\n# highlighting the \"women and children first\" and class privilege aspects.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=5,\n    aspect=1.2,\n    errorbar=None  # Remove error bars for a cleaner display of the mean survival rate\n)\n\n# Set the main title for the FacetGrid figure\ng.fig.suptitle('Survival Rate by Passenger Class and Sex', y=1.03, fontsize=16)\n\n# Set axis labels for the plot\ng.set_axis_labels('Passenger Class', 'Survival Rate')\n\n# Ensure the y-axis (Survival Rate) ranges from 0 to 1\ng.set(ylim=(0, 1))\n\n# Add value labels on top of the bars for better readability\nfor ax in g.axes.flat:\n    for container in ax.containers:\n        ax.bar_label(container, fmt='%.2f', label_type='edge', fontsize=9)\n\n# Adjust layout to prevent title overlap and ensure everything fits\nplt.tight_layout()\nplt.subplots_adjust(top=0.88) # Adjust top margin to make space for the suptitle\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# The dataset is provided as a string, so we use io.StringIO to read it as a CSV.\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a visualization showing the survival rate across passenger class and sex.\n# This is a classic and highly insightful visualization for the Titanic dataset,\n# highlighting the \"women and children first\" and class privilege aspects.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=5,\n    aspect=1.2,\n    errorbar=None  # Remove error bars for a cleaner display of the mean survival rate\n)\n\n# Set the main title for the FacetGrid figure\ng.fig.suptitle('Survival Rate by Passenger Class and Sex', y=1.03, fontsize=16)\n\n# Set axis labels for the plot\ng.set_axis_labels('Passenger Class', 'Survival Rate')\n\n# Ensure the y-axis (Survival Rate) ranges from 0 to 1\ng.set(ylim=(0, 1))\n\n# Add value labels on top of the bars for better readability\nfor ax in g.axes.flat:\n    for container in ax.containers:\n        ax.bar_label(container, fmt='%.2f', label_type='edge', fontsize=9)\n\n# Adjust layout to prevent title overlap and ensure everything fits\nplt.tight_layout()\nplt.subplots_adjust(top=0.88) # Adjust top margin to make space for the suptitle\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7,
+    "color_delta_e": 0.9396,
+    "visual_entropy": 1.0614,
+    "labeling_completeness": 0.25,
+    "code_complexity": 8,
+    "generation_latency": 15.568,
+    "cost_per_run": 0.000147,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

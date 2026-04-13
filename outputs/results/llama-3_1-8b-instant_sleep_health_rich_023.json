@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-09T02:42:16.854508",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Convert categorical columns to categorical type\ndata['Gender'] = pd.Categorical(data['Gender'])\ndata['Occupation'] = pd.Categorical(data['Occupation'])\ndata['BMI Category'] = pd.Categorical(data['BMI Category'])\ndata['Blood Pressure'] = pd.Categorical(data['Blood Pressure'])\ndata['Sleep Disorder'] = pd.Categorical(data['Sleep Disorder'])\n\n# Create a pairplot of numerical columns\nplt.figure(figsize=(10, 8))\nsns.pairplot(data, vars=['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level', 'Heart Rate', 'Daily Steps'], hue='Gender', palette='viridis')\nplt.title('Pairplot of Numerical Columns by Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of sleep duration by gender\nplt.figure(figsize=(8, 6))\nsns.barplot(x='Gender', y='Sleep Duration', data=data)\nplt.title('Sleep Duration by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Sleep Duration')\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('sleep_duration_by_gender.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot of quality of sleep by occupation\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='Occupation', y='Quality of Sleep', data=data)\nplt.title('Quality of Sleep by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Quality of Sleep')\nplt.legend(title='Occupation')\nplt.tight_layout()\nplt.savefig('quality_of_sleep_by_occupation.png', bbox_inches='tight', dpi=150)\n\n# Create a scatterplot of heart rate vs daily steps\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', data=data)\nplt.title('Heart Rate vs Daily Steps')\nplt.xlabel('Daily Steps')\nplt.ylabel('Heart Rate')\nplt.tight_layout()\nplt.savefig('heart_rate_vs_daily_steps.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Convert categorical columns to categorical type\ndata['Gender'] = pd.Categorical(data['Gender'])\ndata['Occupation'] = pd.Categorical(data['Occupation'])\ndata['BMI Category'] = pd.Categorical(data['BMI Category'])\ndata['Blood Pressure'] = pd.Categorical(data['Blood Pressure'])\ndata['Sleep Disorder'] = pd.Categorical(data['Sleep Disorder'])\n\n# Create a pairplot of numerical columns\nplt.figure(figsize=(10, 8))\nsns.pairplot(data, vars=['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level', 'Heart Rate', 'Daily Steps'], hue='Gender', palette='viridis')\nplt.title('Pairplot of Numerical Columns by Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of sleep duration by gender\nplt.figure(figsize=(8, 6))\nsns.barplot(x='Gender', y='Sleep Duration', data=data)\nplt.title('Sleep Duration by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Sleep Duration')\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('sleep_duration_by_gender.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot of quality of sleep by occupation\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='Occupation', y='Quality of Sleep', data=data)\nplt.title('Quality of Sleep by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Quality of Sleep')\nplt.legend(title='Occupation')\nplt.tight_layout()\nplt.savefig('quality_of_sleep_by_occupation.png', bbox_inches='tight', dpi=150)\n\n# Create a scatterplot of heart rate vs daily steps\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', data=data)\nplt.title('Heart Rate vs Daily Steps')\nplt.xlabel('Daily Steps')\nplt.ylabel('Heart Rate')\nplt.tight_layout()\nplt.savefig('heart_rate_vs_daily_steps.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpx6p27kqd/viz_script.py:28: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Gender')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpx6p27kqd/viz_script.py:38: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Occupation')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 84.62,
+    "hallucination_rate": 0.225,
+    "color_delta_e": 1.0255,
+    "visual_entropy": 0.7984,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.917,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

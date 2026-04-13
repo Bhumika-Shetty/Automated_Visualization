@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-09T03:16:05.429849",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv', \n                   index_col=False, \n                   encoding='latin-1', \n                   sep=';')\n\n# Convert date column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart of the top 10 most common breeds\ntop_10_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_10_breeds.index, y=top_10_breeds.values, \n            label='Top 10 Breeds')\nplt.title('Top 10 Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.legend()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of dog ages\ndog_ages = data['AlterV10Sort'].dropna()\nplt.figure(figsize=(8,6))\nsns.histplot(dog_ages, bins=10, kde=True)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age')\nplt.ylabel('Number of Dogs')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of dog age vs. owner age\nplt.figure(figsize=(10,8))\nsns.scatterplot(x='AlterV10Sort', y='AlterVHundSort', \n                data=data, hue='SexHundLang', \n                palette='viridis')\nplt.title('Dog Age vs. Owner Age')\nplt.xlabel('Dog Age')\nplt.ylabel('Owner Age')\nplt.legend(title='Owner Gender')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv', \n                   index_col=False, \n                   encoding='latin-1', \n                   sep=';')\n\n# Convert date column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart of the top 10 most common breeds\ntop_10_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_10_breeds.index, y=top_10_breeds.values, \n            label='Top 10 Breeds')\nplt.title('Top 10 Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.legend()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of dog ages\ndog_ages = data['AlterV10Sort'].dropna()\nplt.figure(figsize=(8,6))\nsns.histplot(dog_ages, bins=10, kde=True)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age')\nplt.ylabel('Number of Dogs')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of dog age vs. owner age\nplt.figure(figsize=(10,8))\nsns.scatterplot(x='AlterV10Sort', y='AlterVHundSort', \n                data=data, hue='SexHundLang', \n                palette='viridis')\nplt.title('Dog Age vs. Owner Age')\nplt.xlabel('Dog Age')\nplt.ylabel('Owner Age')\nplt.legend(title='Owner Gender')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py\", line 3641, in get_loc\n    return self._engine.get_loc(casted_key)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 168, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 197, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7668, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7676, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'StichtagDat'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpo_i1b8be/viz_script.py\", line 12, in <module>\n    data['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n                                         ~~~~^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 4378, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py\", line 3648, in get_loc\n    raise KeyError(key) from err\nKeyError: 'StichtagDat'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 7.997,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": "Auto-fixed column name case mismatch. Original error: Traceback (most recent call last):\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/indexes/base.py\", line 3641, in get_loc\n    return self._"
+}

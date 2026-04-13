@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-12T04:46:49.918675",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define the order for customer age groups for consistent and meaningful visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\n# This will allow us to see which products are most popular within each age demographic\ndf_agg = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar chart using seaborn's barplot\n# 'product' on the x-axis, 'total' on the y-axis, and 'customer_age_group' as hue\n# ci=None is used because we are plotting aggregated sums, not individual data points\nsns.barplot(\n    data=df_agg,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',  # Choose a color palette that is visually appealing and accessible\n    ci=None\n)\n\n# Add titles and labels for clarity\nplt.title('Total Revenue by Product and Customer Age Group', fontsize=18, fontweight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Revenue ($)', fontsize=14)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Add a legend outside the plot area to prevent overlap with bars\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0., fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels/titles from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define the order for customer age groups for consistent and meaningful visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\n# This will allow us to see which products are most popular within each age demographic\ndf_agg = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar chart using seaborn's barplot\n# 'product' on the x-axis, 'total' on the y-axis, and 'customer_age_group' as hue\n# ci=None is used because we are plotting aggregated sums, not individual data points\nsns.barplot(\n    data=df_agg,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',  # Choose a color palette that is visually appealing and accessible\n    ci=None\n)\n\n# Add titles and labels for clarity\nplt.title('Total Revenue by Product and Customer Age Group', fontsize=18, fontweight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Revenue ($)', fontsize=14)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Add a legend outside the plot area to prevent overlap with bars\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0., fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels/titles from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp4mayw1k6/viz_script.py:25: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 2.0814,
+    "visual_entropy": 2.1184,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 11.394,
+    "cost_per_run": 0.000169,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

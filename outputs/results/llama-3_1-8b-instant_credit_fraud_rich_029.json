@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-09T03:04:36.395140",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncredit_fraud = pd.read_csv('data/credit_fraud.csv', \n                           columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Create a bar chart of transaction types by frequency\ntransaction_type_counts = credit_fraud['transaction_type'].value_counts()\nsns.barplot(x=transaction_type_counts.index, y=transaction_type_counts.values)\nplt.title('Transaction Type Frequency')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of amount distribution\nsns.histplot(credit_fraud['amount'], binwidth=10, kde=True)\nplt.title('Amount Distribution')\nplt.xlabel('Amount')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of amount vs hour of day\nsns.scatterplot(x='hour_of_day', y='amount', data=credit_fraud)\nplt.title('Amount vs Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of fraud cases by hour of day\nfraud_cases_by_hour = credit_fraud['is_fraud'].value_counts()\nfraud_cases_by_hour = fraud_cases_by_hour[credit_fraud['is_fraud'] == 1]\nsns.barplot(x=fraud_cases_by_hour.index, y=fraud_cases_by_hour.values)\nplt.title('Fraud Cases by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Frequency')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncredit_fraud = pd.read_csv('data/credit_fraud.csv', \n                           columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Create a bar chart of transaction types by frequency\ntransaction_type_counts = credit_fraud['transaction_type'].value_counts()\nsns.barplot(x=transaction_type_counts.index, y=transaction_type_counts.values)\nplt.title('Transaction Type Frequency')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of amount distribution\nsns.histplot(credit_fraud['amount'], binwidth=10, kde=True)\nplt.title('Amount Distribution')\nplt.xlabel('Amount')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of amount vs hour of day\nsns.scatterplot(x='hour_of_day', y='amount', data=credit_fraud)\nplt.title('Amount vs Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of fraud cases by hour of day\nfraud_cases_by_hour = credit_fraud['is_fraud'].value_counts()\nfraud_cases_by_hour = fraud_cases_by_hour[credit_fraud['is_fraud'] == 1]\nsns.barplot(x=fraud_cases_by_hour.index, y=fraud_cases_by_hour.values)\nplt.title('Fraud Cases by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Frequency')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpvslsw_xi/viz_script.py\", line 6, in <module>\n    credit_fraud = pd.read_csv('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpvslsw_xi/data/credit_fraud.csv',\n                               columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\nTypeError: read_csv() got an unexpected keyword argument 'columns'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.923,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": "Auto-fixed column name case mismatch. Original error: Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpvslsw_xi/viz_script.py\", line 6, in <module>\n    credit_fraud = pd.read_csv('/var/folders/m8/cn5_mdps3vdd"
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-09T03:03:46.466655",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Create a countplot for transaction type by is_fraud\nplt.figure(figsize=(8, 6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=df)\nplt.title('Transaction Type by Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Create a countplot for transaction type by is_fraud\nplt.figure(figsize=(8, 6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=df)\nplt.title('Transaction Type by Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 1.1779,
+    "visual_entropy": 1.2507,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.506,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

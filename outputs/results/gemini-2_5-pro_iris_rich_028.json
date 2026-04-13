@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-12T05:54:03.223817",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset from the specified path\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional and clean style for the visualization\nsns.set_theme(style=\"white\", palette=\"viridis\")\n\n# Create a pairplot to visualize the pairwise relationships between features,\n# colored by species. This is highly effective for the Iris dataset as it\n# clearly shows how the species are separated based on combinations of features.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    height=2.5\n)\n\n# Add a clear, descriptive title to the entire figure.\n# The `y` parameter adjusts the vertical position to prevent overlap.\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Flower Measurements by Species\",\n    y=1.03,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve the legend title for clarity\ng._legend.set_title(\"Species\")\n\n# Save the final figure to a file.\n# The 'bbox_inches' and 'dpi' arguments ensure a high-quality, well-cropped output.\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot figure to free up memory and prevent it from displaying in interactive environments.\nplt.close(g.fig)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset from the specified path\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional and clean style for the visualization\nsns.set_theme(style=\"white\", palette=\"viridis\")\n\n# Create a pairplot to visualize the pairwise relationships between features,\n# colored by species. This is highly effective for the Iris dataset as it\n# clearly shows how the species are separated based on combinations of features.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    height=2.5\n)\n\n# Add a clear, descriptive title to the entire figure.\n# The `y` parameter adjusts the vertical position to prevent overlap.\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Flower Measurements by Species\",\n    y=1.03,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve the legend title for clarity\ng._legend.set_title(\"Species\")\n\n# Save the final figure to a file.\n# The 'bbox_inches' and 'dpi' arguments ensure a high-quality, well-cropped output.\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot figure to free up memory and prevent it from displaying in interactive environments.\nplt.close(g.fig)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 2.1826,
+    "visual_entropy": 1.5585,
+    "labeling_completeness": 0.5,
+    "code_complexity": 3,
+    "generation_latency": 25.164,
+    "cost_per_run": 0.003553,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

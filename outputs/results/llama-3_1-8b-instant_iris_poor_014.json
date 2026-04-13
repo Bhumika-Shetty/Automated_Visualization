@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 14,
+  "timestamp": "2026-04-09T02:31:26.634278",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa'] * 5\n}\ndf = pd.DataFrame(data)\n\n# Create a pairplot\nsns.pairplot(df, hue='species', markers=['o', 's', '^'], \n             plot_kws={'s': 50}, diag_kind='kde')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa'] * 5\n}\ndf = pd.DataFrame(data)\n\n# Create a pairplot\nsns.pairplot(df, hue='species', markers=['o', 's', '^'], \n             plot_kws={'s': 50}, diag_kind='kde')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight')\n```",
+  "stdout": "",
+  "stderr": "/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1615: UserWarning: The markers list has more values (3) than needed (1), which may not be intended.\n  func(x=x, y=y, **kwargs)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.25,
+    "color_delta_e": 1.329,
+    "visual_entropy": 0.6877,
+    "labeling_completeness": 0.0,
+    "code_complexity": 0,
+    "generation_latency": 0.475,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

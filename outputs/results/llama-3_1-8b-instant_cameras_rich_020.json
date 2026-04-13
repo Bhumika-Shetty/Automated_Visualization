@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-09T03:34:32.940201",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv', index_col=False)\n\n# Create a bar chart to visualize the distribution of megapixels across different sensor types\nplt.figure(figsize=(10, 6))\nsns.barplot(x='sensor_type', y='megapixels', data=data)\nplt.title('Distribution of Megapixels Across Different Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.legend(title='Sensor Type')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv', index_col=False)\n\n# Create a bar chart to visualize the distribution of megapixels across different sensor types\nplt.figure(figsize=(10, 6))\nsns.barplot(x='sensor_type', y='megapixels', data=data)\nplt.title('Distribution of Megapixels Across Different Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.legend(title='Sensor Type')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpgji1b39r/viz_script.py:14: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Sensor Type')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.8821,
+    "visual_entropy": 1.2179,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.572,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

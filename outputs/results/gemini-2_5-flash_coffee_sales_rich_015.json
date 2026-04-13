@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-12T04:49:05.761114",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' integer to a more descriptive categorical label\ndf['order_type'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by product and order type, then sum the total sales\n# Unstack to get 'Dine-in' and 'Takeaway' as separate columns for stacking\nsales_by_product_order_type = df.groupby(['product', 'order_type'])['total'].sum().unstack()\n\n# Calculate total sales per product to sort the bars\nsales_by_product_order_type['total_product_sales'] = sales_by_product_order_type.sum(axis=1)\nsales_by_product_order_type = sales_by_product_order_type.sort_values('total_product_sales', ascending=False).drop('total_product_sales', axis=1)\n\n# Set the style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the stacked bar chart\nplt.figure(figsize=(12, 7))\nsales_by_product_order_type.plot(kind='bar', stacked=True, colormap='Paired', ax=plt.gca())\n\n# Add titles and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Add a legend outside the plot to avoid overlapping with bars\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' integer to a more descriptive categorical label\ndf['order_type'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by product and order type, then sum the total sales\n# Unstack to get 'Dine-in' and 'Takeaway' as separate columns for stacking\nsales_by_product_order_type = df.groupby(['product', 'order_type'])['total'].sum().unstack()\n\n# Calculate total sales per product to sort the bars\nsales_by_product_order_type['total_product_sales'] = sales_by_product_order_type.sum(axis=1)\nsales_by_product_order_type = sales_by_product_order_type.sort_values('total_product_sales', ascending=False).drop('total_product_sales', axis=1)\n\n# Set the style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the stacked bar chart\nplt.figure(figsize=(12, 7))\nsales_by_product_order_type.plot(kind='bar', stacked=True, colormap='Paired', ax=plt.gca())\n\n# Add titles and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Add a legend outside the plot to avoid overlapping with bars\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.7619,
+    "color_delta_e": 0.7813,
+    "visual_entropy": 1.3914,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 10.171,
+    "cost_per_run": 0.000144,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

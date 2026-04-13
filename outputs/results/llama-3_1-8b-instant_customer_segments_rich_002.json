@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-09T02:49:52.882843",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert 'Dt_Customer' to datetime type\ncustomer_segments['Dt_Customer'] = pd.to_datetime(customer_segments['Dt_Customer'])\n\n# Create a correlation heatmap\ncorr_matrix = customer_segments[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds', 'NumDealsPurchases', 'NumWebPurchases', 'NumCatalogPurchases', 'NumStorePurchases', 'NumWebVisitsMonth']].corr()\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Heatmap of Spending Behavior')\nplt.xlabel('Variables')\nplt.ylabel('Variables')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert 'Dt_Customer' to datetime type\ncustomer_segments['Dt_Customer'] = pd.to_datetime(customer_segments['Dt_Customer'])\n\n# Create a correlation heatmap\ncorr_matrix = customer_segments[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds', 'NumDealsPurchases', 'NumWebPurchases', 'NumCatalogPurchases', 'NumStorePurchases', 'NumWebVisitsMonth']].corr()\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Heatmap of Spending Behavior')\nplt.xlabel('Variables')\nplt.ylabel('Variables')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp9_438xon/viz_script.py\", line 9, in <module>\n    customer_segments['Dt_Customer'] = pd.to_datetime(customer_segments['Dt_Customer'])\n                                       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 1040, in to_datetime\n    values = convert_listlike(arg._values, format)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 435, in _convert_listlike_datetimes\n    return _array_strptime_with_fallback(arg, name, utc, format, exact, errors)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/tools/datetimes.py\", line 470, in _array_strptime_with_fallback\n    result, tz_out = array_strptime(arg, fmt, exact=exact, errors=errors, utc=utc)\n                     ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 563, in pandas._libs.tslibs.strptime.array_strptime\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 511, in pandas._libs.tslibs.strptime.array_strptime\n  File \"pandas/_libs/tslibs/strptime.pyx\", line 617, in pandas._libs.tslibs.strptime._parse_with_format\nValueError: time data \"21-08-2013\" doesn't match format \"%m-%d-%Y\". You might want to try:\n    - passing `format` if your strings have a consistent format;\n    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;\n    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 41.38,
+    "hallucination_rate": 0.2632,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.649,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

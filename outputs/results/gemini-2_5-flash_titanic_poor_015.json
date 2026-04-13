@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-10T16:04:14.345062",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Create the visualization\n# A common and insightful visualization for the Titanic dataset is to show\n# survival rates across key demographic factors like passenger class and sex.\nplt.figure(figsize=(8, 6))\ng = sns.catplot(\n    x='pclass', \n    y='survived', \n    hue='sex', \n    kind='bar', \n    data=df,\n    palette='viridis', \n    height=5, \n    aspect=1.2,\n    errorbar='sd' # Use standard deviation for error bars, or 'se' for standard error. For very small data 'sd' is safer.\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_xticklabels([\"1st Class\", \"2nd Class\", \"3rd Class\"])\ng.fig.suptitle('Titanic Survival Rates by Passenger Class and Sex', y=1.02) # Overall title for the figure\n\n# Add a legend title for 'hue'\ng._legend.set_title(\"Sex\")\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')\n\n# Close the plot to free memory\nplt.close(g.fig)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Create the visualization\n# A common and insightful visualization for the Titanic dataset is to show\n# survival rates across key demographic factors like passenger class and sex.\nplt.figure(figsize=(8, 6))\ng = sns.catplot(\n    x='pclass', \n    y='survived', \n    hue='sex', \n    kind='bar', \n    data=df,\n    palette='viridis', \n    height=5, \n    aspect=1.2,\n    errorbar='sd' # Use standard deviation for error bars, or 'se' for standard error. For very small data 'sd' is safer.\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_xticklabels([\"1st Class\", \"2nd Class\", \"3rd Class\"])\ng.fig.suptitle('Titanic Survival Rates by Passenger Class and Sex', y=1.02) # Overall title for the figure\n\n# Add a legend title for 'hue'\ng._legend.set_title(\"Sex\")\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')\n\n# Close the plot to free memory\nplt.close(g.fig)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpy4mg5s06/viz_script.py\", line 36, in <module>\n    g.set_xticklabels([\"1st Class\", \"2nd Class\", \"3rd Class\"])\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 929, in set_xticklabels\n    ax.set_xticklabels(labels, **kwargs)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/axes/_base.py\", line 74, in wrapper\n    return get_method(self)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/axis.py\", line 2106, in set_ticklabels\n    raise ValueError(\n    ...<3 lines>...\n        f\" the number of labels ({len(labels)}).\")\nValueError: The number of FixedLocator locations (2), usually from a call to set_ticks, does not match the number of labels (3).\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.5,
+    "code_complexity": 6,
+    "generation_latency": 13.137,
+    "cost_per_run": 0.000128,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

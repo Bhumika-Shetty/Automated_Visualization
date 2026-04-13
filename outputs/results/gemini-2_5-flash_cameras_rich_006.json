@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-10T19:05:27.632180",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels, price, and sensor type\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    alpha=0.7,  # Use transparency to show density in overlapping areas\n    s=100,      # Set a fixed size for markers for better readability\n    palette='viridis' # A perceptually uniform color palette, good for categorical data\n)\n\n# Add a title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Position the legend outside the plot area to prevent overlap with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure all elements fit within the figure area, especially with the legend outside\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels, price, and sensor type\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    alpha=0.7,  # Use transparency to show density in overlapping areas\n    s=100,      # Set a fixed size for markers for better readability\n    palette='viridis' # A perceptually uniform color palette, good for categorical data\n)\n\n# Add a title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Position the legend outside the plot area to prevent overlap with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Ensure all elements fit within the figure area, especially with the legend outside\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 1.2968,
+    "visual_entropy": 1.7621,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 12.361,
+    "cost_per_run": 0.000116,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-10T15:52:14.458191",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot to visualize survival rate by sex and passenger class\n# 'survived' is 0 or 1, so the mean directly represents the survival rate\nsns.barplot(data=df, x='sex', y='survived', hue='class', palette='viridis', errorbar=None)\n\n# Add title and labels\nplt.title('Survival Rate on Titanic by Sex and Passenger Class', fontsize=16)\nplt.xlabel('Sex', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Passenger Class', title_fontsize='11', fontsize='10')\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure layout is tight and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot to visualize survival rate by sex and passenger class\n# 'survived' is 0 or 1, so the mean directly represents the survival rate\nsns.barplot(data=df, x='sex', y='survived', hue='class', palette='viridis', errorbar=None)\n\n# Add title and labels\nplt.title('Survival Rate on Titanic by Sex and Passenger Class', fontsize=16)\nplt.xlabel('Sex', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Passenger Class', title_fontsize='11', fontsize='10')\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure layout is tight and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.7794,
+    "visual_entropy": 1.6711,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 4.41,
+    "cost_per_run": 9.3e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

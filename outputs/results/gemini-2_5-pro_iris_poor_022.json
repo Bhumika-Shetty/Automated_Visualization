@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 22,
+  "timestamp": "2026-04-12T06:06:46.542753",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# --- Visualization Code ---\n\n# Set a professional and aesthetically pleasing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pair plot to visualize the relationships between all numerical variables\n# This is an excellent choice for exploring multivariate datasets like Iris.\ng = sns.pairplot(\n    df,\n    hue='species',          # Color points by species\n    diag_kind='kde',        # Use Kernel Density Estimate for diagonal plots\n    markers='o',            # Use circles for markers\n    corner=True,            # Only show the lower triangle to avoid redundancy\n    plot_kws={'alpha': 0.8, 's': 80, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'linewidth': 3, 'fill': True} # Style diagonal plots\n)\n\n# Add a clear, informative title to the entire figure\ng.fig.suptitle(\n    \"Iris Feature Relationships (Setosa Species Sample)\",\n    y=1.03, # Adjust title position to avoid overlap\n    fontsize=16,\n    fontweight='bold',\n    color='#333333'\n)\n\n# Enhance readability of axis labels\nfor ax in g.axes.flatten():\n    if ax is not None:\n        ax.set_xlabel(ax.get_xlabel(), fontsize=12)\n        ax.set_ylabel(ax.get_ylabel(), fontsize=12)\n\n# Adjust layout to ensure all elements are clearly visible\nplt.tight_layout(rect=[0, 0, 1, 0.97]) # Adjust rect to make space for suptitle\n\n# Save the resulting plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# --- Visualization Code ---\n\n# Set a professional and aesthetically pleasing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pair plot to visualize the relationships between all numerical variables\n# This is an excellent choice for exploring multivariate datasets like Iris.\ng = sns.pairplot(\n    df,\n    hue='species',          # Color points by species\n    diag_kind='kde',        # Use Kernel Density Estimate for diagonal plots\n    markers='o',            # Use circles for markers\n    corner=True,            # Only show the lower triangle to avoid redundancy\n    plot_kws={'alpha': 0.8, 's': 80, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'linewidth': 3, 'fill': True} # Style diagonal plots\n)\n\n# Add a clear, informative title to the entire figure\ng.fig.suptitle(\n    \"Iris Feature Relationships (Setosa Species Sample)\",\n    y=1.03, # Adjust title position to avoid overlap\n    fontsize=16,\n    fontweight='bold',\n    color='#333333'\n)\n\n# Enhance readability of axis labels\nfor ax in g.axes.flatten():\n    if ax is not None:\n        ax.set_xlabel(ax.get_xlabel(), fontsize=12)\n        ax.set_ylabel(ax.get_ylabel(), fontsize=12)\n\n# Adjust layout to ensure all elements are clearly visible\nplt.tight_layout(rect=[0, 0, 1, 0.97]) # Adjust rect to make space for suptitle\n\n# Save the resulting plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6923,
+    "color_delta_e": 0.329,
+    "visual_entropy": 0.6871,
+    "labeling_completeness": 0.75,
+    "code_complexity": 6,
+    "generation_latency": 19.292,
+    "cost_per_run": 0.004573,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

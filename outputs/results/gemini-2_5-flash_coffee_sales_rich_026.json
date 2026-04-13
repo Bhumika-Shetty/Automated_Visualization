@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-12T04:51:19.965895",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/coffee_sales.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/coffee_sales.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Convert 'date' to datetime if needed for future analysis, but not strictly for this plot\n# df['date'] = pd.to_datetime(df['date'])\n\n# Group by product and takeaway status to calculate total sales\ndf_grouped = df.groupby(['product', 'is_takeaway'])['total'].sum().reset_index()\n\n# Map 'is_takeaway' numerical values to descriptive labels for better readability\ndf_grouped['takeaway_status'] = df_grouped['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar plot\nsns.barplot(\n    data=df_grouped,\n    x='product',\n    y='total',\n    hue='takeaway_status',\n    palette='viridis',\n    edgecolor='black'\n)\n\n# Add labels and title\nplt.title('Total Sales by Product and Takeaway Status', fontsize=16, pad=20)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Order Type', fontsize=10, title_fontsize=12)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/coffee_sales.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/coffee_sales.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Convert 'date' to datetime if needed for future analysis, but not strictly for this plot\n# df['date'] = pd.to_datetime(df['date'])\n\n# Group by product and takeaway status to calculate total sales\ndf_grouped = df.groupby(['product', 'is_takeaway'])['total'].sum().reset_index()\n\n# Map 'is_takeaway' numerical values to descriptive labels for better readability\ndf_grouped['takeaway_status'] = df_grouped['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar plot\nsns.barplot(\n    data=df_grouped,\n    x='product',\n    y='total',\n    hue='takeaway_status',\n    palette='viridis',\n    edgecolor='black'\n)\n\n# Add labels and title\nplt.title('Total Sales by Product and Takeaway Status', fontsize=16, pad=20)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Order Type', fontsize=10, title_fontsize=12)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.9015,
+    "visual_entropy": 1.9458,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 6.626,
+    "cost_per_run": 0.000142,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-09T03:34:39.933744",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a categorical bar chart of top 5 brands by average price\ntop_brands = data.groupby('brand')['price_usd'].mean().nlargest(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_brands.index, y=top_brands.values)\nplt.title('Top 5 Brands by Average Price')\nplt.xlabel('Brand')\nplt.ylabel('Average Price ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of megapixels\nplt.figure(figsize=(10,6))\nsns.histplot(data['megapixels'], kde=True)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_megapixels.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of price vs weight\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='weight_grams', y='price_usd', data=data)\nplt.title('Price vs Weight')\nplt.xlabel('Weight (g)')\nplt.ylabel('Price ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_price_weight.png', bbox_inches='tight', dpi=150)\n\n# Create a count plot of sensor types\nplt.figure(figsize=(10,6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_sensor_type.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a categorical bar chart of top 5 brands by average price\ntop_brands = data.groupby('brand')['price_usd'].mean().nlargest(5)\nplt.figure(figsize=(10,6))\nsns.barplot(x=top_brands.index, y=top_brands.values)\nplt.title('Top 5 Brands by Average Price')\nplt.xlabel('Brand')\nplt.ylabel('Average Price ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of megapixels\nplt.figure(figsize=(10,6))\nsns.histplot(data['megapixels'], kde=True)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_megapixels.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of price vs weight\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='weight_grams', y='price_usd', data=data)\nplt.title('Price vs Weight')\nplt.xlabel('Weight (g)')\nplt.ylabel('Price ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_price_weight.png', bbox_inches='tight', dpi=150)\n\n# Create a count plot of sensor types\nplt.figure(figsize=(10,6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_sensor_type.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 0.8045,
+    "visual_entropy": 1.1585,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 4.974,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

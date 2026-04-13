@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-09T03:48:54.503772",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert the is_takeaway column to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].astype('category')\n\n# Create the visualization: Bar chart for size distribution and pie chart for takeaway status\nplt.figure(figsize=(10,6))\n\n# Bar chart for size distribution\nsns.countplot(x='size', data=coffee_sales, ax=plt.gca())\nplt.title('Size Distribution of Coffee Sales')\nplt.xlabel('Size')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\n\n# Pie chart for takeaway status\ntakeaway_status = coffee_sales['is_takeaway'].value_counts()\nplt.subplot(1, 2, 2)\nplt.pie(takeaway_status, labels=['Takeaway', 'Dine-in'], autopct='%1.1f%%', colors=['blue', 'red'])\nplt.title('Takeaway vs Dine-in Status')\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert the is_takeaway column to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].astype('category')\n\n# Create the visualization: Bar chart for size distribution and pie chart for takeaway status\nplt.figure(figsize=(10,6))\n\n# Bar chart for size distribution\nsns.countplot(x='size', data=coffee_sales, ax=plt.gca())\nplt.title('Size Distribution of Coffee Sales')\nplt.xlabel('Size')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\n\n# Pie chart for takeaway status\ntakeaway_status = coffee_sales['is_takeaway'].value_counts()\nplt.subplot(1, 2, 2)\nplt.pie(takeaway_status, labels=['Takeaway', 'Dine-in'], autopct='%1.1f%%', colors=['blue', 'red'])\nplt.title('Takeaway vs Dine-in Status')\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5833,
+    "color_delta_e": 0.7716,
+    "visual_entropy": 1.6586,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 0.616,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-09T03:35:30.523513",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from csv file\ndata = pd.read_csv('data/cameras.csv')\n\n# Convert has_video_4k to categorical variable\ndata['has_video_4k'] = pd.Categorical(data['has_video_4k'], categories=[0, 1], ordered=True)\n\n# Create a bar chart to compare the number of cameras with and without 4K video capabilities\nplt.figure(figsize=(8, 6))\nsns.countplot(x='has_video_4k', data=data)\nplt.title('Number of Cameras with and without 4K Video Capabilities')\nplt.xlabel('4K Video Capability')\nplt.ylabel('Count')\nplt.legend(title='4K Video Capability')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to display the distribution of camera prices\nplt.figure(figsize=(8, 6))\nsns.histplot(data['price_usd'], bins=30, kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Frequency')\nplt.xscale('log')\nplt.savefig('prices.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare the megapixels of cameras with different sensor types\nplt.figure(figsize=(8, 6))\nsns.boxplot(x='sensor_type', y='megapixels', data=data)\nplt.title('Comparison of Megapixels by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.savefig('megapixels.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from csv file\ndata = pd.read_csv('data/cameras.csv')\n\n# Convert has_video_4k to categorical variable\ndata['has_video_4k'] = pd.Categorical(data['has_video_4k'], categories=[0, 1], ordered=True)\n\n# Create a bar chart to compare the number of cameras with and without 4K video capabilities\nplt.figure(figsize=(8, 6))\nsns.countplot(x='has_video_4k', data=data)\nplt.title('Number of Cameras with and without 4K Video Capabilities')\nplt.xlabel('4K Video Capability')\nplt.ylabel('Count')\nplt.legend(title='4K Video Capability')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to display the distribution of camera prices\nplt.figure(figsize=(8, 6))\nsns.histplot(data['price_usd'], bins=30, kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Frequency')\nplt.xscale('log')\nplt.savefig('prices.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare the megapixels of cameras with different sensor types\nplt.figure(figsize=(8, 6))\nsns.boxplot(x='sensor_type', y='megapixels', data=data)\nplt.title('Comparison of Megapixels by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Megapixels')\nplt.savefig('megapixels.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpzaquzwxo/viz_script.py:17: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='4K Video Capability')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 1.022,
+    "visual_entropy": 1.2403,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 7.243,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

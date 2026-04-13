@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-09T02:39:41.630419",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data from the CSV file\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a categorical plot of Sleep Disorder vs Quality of Sleep\nplt.figure(figsize=(10, 6))\nsns.catplot(x='Sleep Disorder', y='Quality of Sleep', data=sleep_health, kind='bar', \n            order=sleep_health['Sleep Disorder'].unique().tolist(), palette='viridis')\nplt.title('Sleep Disorder vs Quality of Sleep')\nplt.xlabel('Sleep Disorder')\nplt.ylabel('Quality of Sleep')\nplt.legend(title='Sleep Disorder')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data from the CSV file\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a categorical plot of Sleep Disorder vs Quality of Sleep\nplt.figure(figsize=(10, 6))\nsns.catplot(x='Sleep Disorder', y='Quality of Sleep', data=sleep_health, kind='bar', \n            order=sleep_health['Sleep Disorder'].unique().tolist(), palette='viridis')\nplt.title('Sleep Disorder vs Quality of Sleep')\nplt.xlabel('Sleep Disorder')\nplt.ylabel('Quality of Sleep')\nplt.legend(title='Sleep Disorder')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpmh3623do/viz_script.py\", line 10, in <module>\n    sns.catplot(x='Sleep Disorder', y='Quality of Sleep', data=sleep_health, kind='bar',\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                order=sleep_health['Sleep Disorder'].unique().tolist(), palette='viridis')\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 2826, in catplot\n    p._attach(g, log_scale=log_scale)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 1135, in _attach\n    converter.update_units(seed_data)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/axis.py\", line 1754, in update_units\n    default = self._converter.default_units(data, self)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/category.py\", line 106, in default_units\n    axis.set_units(UnitData(data))\n                   ~~~~~~~~^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/category.py\", line 182, in __init__\n    self.update(data)\n    ~~~~~~~~~~~^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/category.py\", line 217, in update\n    _api.check_isinstance((str, bytes), value=val)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/_api/__init__.py\", line 92, in check_isinstance\n    raise TypeError(\n    ...<4 lines>...\n            type_name(type(v))))\nTypeError: 'value' must be an instance of str or bytes, not a float\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 15.38,
+    "hallucination_rate": 0.4,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.51,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

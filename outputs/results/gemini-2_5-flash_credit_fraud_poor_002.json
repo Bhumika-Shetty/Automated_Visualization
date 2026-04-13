@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 2,
+  "timestamp": "2026-04-10T17:47:30.073458",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,transfer,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\ndf['is_fraud_label'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\nfig, axes = plt.subplots(3, 1, figsize=(10, 15))\nfig.suptitle('Transaction Characteristics', fontsize=16)\n\nsns.boxplot(x='is_fraud_label', y='amount', data=df, ax=axes[0], palette='viridis')\naxes[0].set_title('Transaction Amount Distribution by Fraud Status')\naxes[0].set_xlabel('')\naxes[0].set_ylabel('Amount')\n\nsns.histplot(data=df, x='hour_of_day', hue='is_fraud_label', multiple='dodge', bins=24,\n             ax=axes[1], palette='magma', edgecolor='black', discrete=True)\naxes[1].set_title('Transaction Hour of Day Distribution by Fraud Status')\naxes[1].set_xlabel('Hour of Day (0-23)')\naxes[1].set_ylabel('Number of Transactions')\naxes[1].set_xticks(range(0, 24, 2))\naxes[1].set_xlim(-0.5, 23.5)\n\nsns.countplot(x='transaction_type', hue='is_fraud_label', data=df, ax=axes[2], palette='cividis')\naxes[2].set_title('Transaction Type Counts by Fraud Status')\naxes[2].set_xlabel('Transaction Type')\naxes[2].set_ylabel('Number of Transactions')\n\nplt.tight_layout(rect=[0, 0.03, 1, 0.96])\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,transfer,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\ndf['is_fraud_label'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\nfig, axes = plt.subplots(3, 1, figsize=(10, 15))\nfig.suptitle('Transaction Characteristics', fontsize=16)\n\nsns.boxplot(x='is_fraud_label', y='amount', data=df, ax=axes[0], palette='viridis')\naxes[0].set_title('Transaction Amount Distribution by Fraud Status')\naxes[0].set_xlabel('')\naxes[0].set_ylabel('Amount')\n\nsns.histplot(data=df, x='hour_of_day', hue='is_fraud_label', multiple='dodge', bins=24,\n             ax=axes[1], palette='magma', edgecolor='black', discrete=True)\naxes[1].set_title('Transaction Hour of Day Distribution by Fraud Status')\naxes[1].set_xlabel('Hour of Day (0-23)')\naxes[1].set_ylabel('Number of Transactions')\naxes[1].set_xticks(range(0, 24, 2))\naxes[1].set_xlim(-0.5, 23.5)\n\nsns.countplot(x='transaction_type', hue='is_fraud_label', data=df, ax=axes[2], palette='cividis')\naxes[2].set_title('Transaction Type Counts by Fraud Status')\naxes[2].set_xlabel('Transaction Type')\naxes[2].set_ylabel('Number of Transactions')\n\nplt.tight_layout(rect=[0, 0.03, 1, 0.96])\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpko504hhc/viz_script.py:21: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='is_fraud_label', y='amount', data=df, ax=axes[0], palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7826,
+    "color_delta_e": 1.2113,
+    "visual_entropy": 1.3112,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 20.393,
+    "cost_per_run": 0.000107,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

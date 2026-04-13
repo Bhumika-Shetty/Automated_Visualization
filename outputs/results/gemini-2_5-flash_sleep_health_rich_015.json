@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-10T16:38:11.146551",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the scatter plot\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Stress Level', # Use Stress Level for marker size to add another visual dimension\n    sizes=(50, 400), # Define the range of marker sizes\n    alpha=0.7, # Add transparency for better visibility of overlapping points\n    edgecolor='w', # Add a white edge to markers for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Relationship Between Sleep Duration, Quality, and Stress Level', fontsize=16, weight='bold')\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Customize the legend for clarity\nplt.legend(title='Stress Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust plot limits for better data representation if needed (optional)\n# plt.xlim(4, 10)\n# plt.ylim(4, 10)\n\n# Ensure the layout is tight to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the scatter plot\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Stress Level', # Use Stress Level for marker size to add another visual dimension\n    sizes=(50, 400), # Define the range of marker sizes\n    alpha=0.7, # Add transparency for better visibility of overlapping points\n    edgecolor='w', # Add a white edge to markers for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Relationship Between Sleep Duration, Quality, and Stress Level', fontsize=16, weight='bold')\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Customize the legend for clarity\nplt.legend(title='Stress Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust plot limits for better data representation if needed (optional)\n# plt.xlim(4, 10)\n# plt.ylim(4, 10)\n\n# Ensure the layout is tight to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.6398,
+    "visual_entropy": 0.7795,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 12.096,
+    "cost_per_run": 0.000132,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

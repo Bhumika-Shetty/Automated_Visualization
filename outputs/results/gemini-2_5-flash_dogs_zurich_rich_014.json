@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-11T02:00:28.457261",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Ensure column names are stripped of any leading/trailing whitespace\ndf.columns = df.columns.str.strip()\n\n# Filter for the most recent year in the dataset for a current snapshot\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Aggregate data: count dogs per district and gender\n# Since 'AnzHunde' column in the sample rows is 1, counting rows (.size())\n# effectively counts individual dog registrations.\ndog_counts = df_latest_year.groupby(['KreisLang', 'SexHundLang']).size().reset_index(name='NumDogs')\n\n# Sort districts by the total number of dogs for better readability of the plot\ntotal_dogs_per_kreis = dog_counts.groupby('KreisLang')['NumDogs'].sum().sort_values(ascending=False)\nordered_kreise = total_dogs_per_kreis.index\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot to show the number of dogs by district and gender\nsns.barplot(\n    data=dog_counts,\n    x='KreisLang',\n    y='NumDogs',\n    hue='SexHundLang',\n    order=ordered_kreise,  # Apply the sorting to the x-axis\n    palette='viridis'\n)\n\n# Add title and labels for clarity\nplt.title(f'Number of Dog Registrations by District and Gender in Zurich ({latest_year})', fontsize=16)\nplt.xlabel('District (Kreis)', fontsize=12)\nplt.ylabel('Number of Dog Registrations', fontsize=12)\n\n# Rotate x-axis labels to prevent overlap and improve readability\nplt.xticks(rotation=45, ha='right')\n\n# Place the legend outside the plot area to avoid obstructing the bars\nplt.legend(title='Dog Gender', bbox_to_anchor=(1.02, 1), loc='upper left')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to ensure all elements (labels, title, legend) fit within the figure area\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Ensure column names are stripped of any leading/trailing whitespace\ndf.columns = df.columns.str.strip()\n\n# Filter for the most recent year in the dataset for a current snapshot\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Aggregate data: count dogs per district and gender\n# Since 'AnzHunde' column in the sample rows is 1, counting rows (.size())\n# effectively counts individual dog registrations.\ndog_counts = df_latest_year.groupby(['KreisLang', 'SexHundLang']).size().reset_index(name='NumDogs')\n\n# Sort districts by the total number of dogs for better readability of the plot\ntotal_dogs_per_kreis = dog_counts.groupby('KreisLang')['NumDogs'].sum().sort_values(ascending=False)\nordered_kreise = total_dogs_per_kreis.index\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot to show the number of dogs by district and gender\nsns.barplot(\n    data=dog_counts,\n    x='KreisLang',\n    y='NumDogs',\n    hue='SexHundLang',\n    order=ordered_kreise,  # Apply the sorting to the x-axis\n    palette='viridis'\n)\n\n# Add title and labels for clarity\nplt.title(f'Number of Dog Registrations by District and Gender in Zurich ({latest_year})', fontsize=16)\nplt.xlabel('District (Kreis)', fontsize=12)\nplt.ylabel('Number of Dog Registrations', fontsize=12)\n\n# Rotate x-axis labels to prevent overlap and improve readability\nplt.xticks(rotation=45, ha='right')\n\n# Place the legend outside the plot area to avoid obstructing the bars\nplt.legend(title='Dog Gender', bbox_to_anchor=(1.02, 1), loc='upper left')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to ensure all elements (labels, title, legend) fit within the figure area\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.9746,
+    "visual_entropy": 1.2791,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 11.876,
+    "cost_per_run": 0.000214,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

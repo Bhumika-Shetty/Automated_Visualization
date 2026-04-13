@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-11T02:13:51.668445",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/cameras.csv')\nexcept FileNotFoundError:\n    print(\"Error: data/cameras.csv not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nax = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='max_iso',\n    sizes=(20, 400), # Adjust min/max size for markers\n    alpha=0.7,\n    palette='viridis' # Choose a color palette for 'sensor_type'\n)\n\n# Set plot title and labels\nax.set_title('Camera Price vs. Megapixels by Sensor Type and Max ISO Capability', fontsize=16)\nax.set_xlabel('Megapixels', fontsize=12)\nax.set_ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement\n# seaborn's scatterplot automatically creates a combined legend for hue and size.\n# We can adjust its position.\nax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Ensure layout is tight to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/cameras.csv')\nexcept FileNotFoundError:\n    print(\"Error: data/cameras.csv not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nax = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='max_iso',\n    sizes=(20, 400), # Adjust min/max size for markers\n    alpha=0.7,\n    palette='viridis' # Choose a color palette for 'sensor_type'\n)\n\n# Set plot title and labels\nax.set_title('Camera Price vs. Megapixels by Sensor Type and Max ISO Capability', fontsize=16)\nax.set_xlabel('Megapixels', fontsize=12)\nax.set_ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement\n# seaborn's scatterplot automatically creates a combined legend for hue and size.\n# We can adjust its position.\nax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Ensure layout is tight to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 1.3677,
+    "visual_entropy": 1.8731,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 17.812,
+    "cost_per_run": 0.000118,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-10T17:46:03.593662",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Create a figure with two subplots\nfig, axes = plt.subplots(2, 1, figsize=(14, 12))\nplt.suptitle('Credit Card Transaction Analysis: Fraudulent vs. Non-Fraudulent', fontsize=16, y=1.02)\n\n# --- Subplot 1: Transaction Amount Distribution by Type and Fraud Status ---\nsns.violinplot(\n    data=df,\n    x='transaction_type',\n    y='amount',\n    hue='is_fraud',\n    split=True,\n    ax=axes[0],\n    palette='Set2',\n    inner='quartile', # Show quartiles for better understanding of distribution\n    hue_order=[0, 1]\n)\naxes[0].set_title('Transaction Amount Distribution by Type and Fraud Status', fontsize=14)\naxes[0].set_xlabel('Transaction Type', fontsize=12)\naxes[0].set_ylabel('Transaction Amount', fontsize=12)\n# Customize legend for clarity\nhandles, labels = axes[0].get_legend_handles_labels()\naxes[0].legend(handles=handles, labels=['No Fraud', 'Fraud'], title='Is Fraud', title_fontsize='13', fontsize='11')\naxes[0].tick_params(axis='x', labelsize=10)\naxes[0].tick_params(axis='y', labelsize=10)\n\n\n# --- Subplot 2: Transaction Frequency by Hour of Day and Fraud Status ---\nsns.countplot(\n    data=df,\n    x='hour_of_day',\n    hue='is_fraud',\n    ax=axes[1],\n    palette='Set2',\n    hue_order=[0, 1]\n)\naxes[1].set_title('Transaction Frequency by Hour of Day and Fraud Status', fontsize=14)\naxes[1].set_xlabel('Hour of Day', fontsize=12)\naxes[1].set_ylabel('Number of Transactions', fontsize=12)\n# Customize legend for clarity\nhandles, labels = axes[1].get_legend_handles_labels()\naxes[1].legend(handles=handles, labels=['No Fraud', 'Fraud'], title='Is Fraud', title_fontsize='13', fontsize='11')\naxes[1].tick_params(axis='x', labelsize=10)\naxes[1].tick_params(axis='y', labelsize=10)\n\n\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust layout to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Create a figure with two subplots\nfig, axes = plt.subplots(2, 1, figsize=(14, 12))\nplt.suptitle('Credit Card Transaction Analysis: Fraudulent vs. Non-Fraudulent', fontsize=16, y=1.02)\n\n# --- Subplot 1: Transaction Amount Distribution by Type and Fraud Status ---\nsns.violinplot(\n    data=df,\n    x='transaction_type',\n    y='amount',\n    hue='is_fraud',\n    split=True,\n    ax=axes[0],\n    palette='Set2',\n    inner='quartile', # Show quartiles for better understanding of distribution\n    hue_order=[0, 1]\n)\naxes[0].set_title('Transaction Amount Distribution by Type and Fraud Status', fontsize=14)\naxes[0].set_xlabel('Transaction Type', fontsize=12)\naxes[0].set_ylabel('Transaction Amount', fontsize=12)\n# Customize legend for clarity\nhandles, labels = axes[0].get_legend_handles_labels()\naxes[0].legend(handles=handles, labels=['No Fraud', 'Fraud'], title='Is Fraud', title_fontsize='13', fontsize='11')\naxes[0].tick_params(axis='x', labelsize=10)\naxes[0].tick_params(axis='y', labelsize=10)\n\n\n# --- Subplot 2: Transaction Frequency by Hour of Day and Fraud Status ---\nsns.countplot(\n    data=df,\n    x='hour_of_day',\n    hue='is_fraud',\n    ax=axes[1],\n    palette='Set2',\n    hue_order=[0, 1]\n)\naxes[1].set_title('Transaction Frequency by Hour of Day and Fraud Status', fontsize=14)\naxes[1].set_xlabel('Hour of Day', fontsize=12)\naxes[1].set_ylabel('Number of Transactions', fontsize=12)\n# Customize legend for clarity\nhandles, labels = axes[1].get_legend_handles_labels()\naxes[1].legend(handles=handles, labels=['No Fraud', 'Fraud'], title='Is Fraud', title_fontsize='13', fontsize='11')\naxes[1].tick_params(axis='x', labelsize=10)\naxes[1].tick_params(axis='y', labelsize=10)\n\n\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust layout to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.64,
+    "color_delta_e": 0.9154,
+    "visual_entropy": 0.8267,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 12.774,
+    "cost_per_run": 0.000166,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

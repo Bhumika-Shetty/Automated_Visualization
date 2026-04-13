@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 7,
+  "timestamp": "2026-04-12T05:21:27.114250",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# For a meaningful visualization, load the full standard titanic dataset.\n# Visualizing only the 5 provided rows would not be insightful.\ndf = sns.load_dataset('titanic')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", context=\"talk\")\n\n# Create a figure and a set of subplots\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a bar plot showing survival rate by class, faceted by sex\nsns.barplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    palette={'male': '#5E88B8', 'female': '#E5A749'},\n    ax=ax,\n    order=['First', 'Second', 'Third'],\n    saturation=0.9\n)\n\n# --- Customize the plot for clarity and impact ---\n\n# Set titles and labels\nax.set_title('Titanic Survival Rate: A Tale of Class and Gender', fontsize=20, weight='bold', pad=30)\nfig.suptitle('Women in higher classes had a significantly greater chance of survival', fontsize=14, y=0.93, style='italic', color='gray')\nax.set_xlabel('Passenger Class', fontsize=14, labelpad=15)\nax.set_ylabel('Survival Rate', fontsize=14, labelpad=15)\n\n# Format the y-axis to show percentages\nax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0, decimals=0))\nax.set_ylim(0, 1)\n\n# Add data labels on top of each bar\nfor p in ax.patches:\n    ax.annotate(f\"{p.get_height():.1%}\",\n                (p.get_x() + p.get_width() / 2., p.get_height()),\n                ha='center', va='center',\n                fontsize=12,\n                color='black',\n                xytext=(0, 12),\n                textcoords='offset points')\n\n# Customize the legend\nax.legend(title='Sex', loc='upper right', frameon=True, shadow=True)\n\n# Remove top and right spines for a cleaner look\nsns.despine(ax=ax)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.95])\n\n# Save the resulting plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# For a meaningful visualization, load the full standard titanic dataset.\n# Visualizing only the 5 provided rows would not be insightful.\ndf = sns.load_dataset('titanic')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", context=\"talk\")\n\n# Create a figure and a set of subplots\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a bar plot showing survival rate by class, faceted by sex\nsns.barplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    palette={'male': '#5E88B8', 'female': '#E5A749'},\n    ax=ax,\n    order=['First', 'Second', 'Third'],\n    saturation=0.9\n)\n\n# --- Customize the plot for clarity and impact ---\n\n# Set titles and labels\nax.set_title('Titanic Survival Rate: A Tale of Class and Gender', fontsize=20, weight='bold', pad=30)\nfig.suptitle('Women in higher classes had a significantly greater chance of survival', fontsize=14, y=0.93, style='italic', color='gray')\nax.set_xlabel('Passenger Class', fontsize=14, labelpad=15)\nax.set_ylabel('Survival Rate', fontsize=14, labelpad=15)\n\n# Format the y-axis to show percentages\nax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0, decimals=0))\nax.set_ylim(0, 1)\n\n# Add data labels on top of each bar\nfor p in ax.patches:\n    ax.annotate(f\"{p.get_height():.1%}\",\n                (p.get_x() + p.get_width() / 2., p.get_height()),\n                ha='center', va='center',\n                fontsize=12,\n                color='black',\n                xytext=(0, 12),\n                textcoords='offset points')\n\n# Customize the legend\nax.legend(title='Sex', loc='upper right', frameon=True, shadow=True)\n\n# Remove top and right spines for a cleaner look\nsns.despine(ax=ax)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.95])\n\n# Save the resulting plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.8333,
+    "color_delta_e": 0.353,
+    "visual_entropy": 1.352,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 26.772,
+    "cost_per_run": 0.005162,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

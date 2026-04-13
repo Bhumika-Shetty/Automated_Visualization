@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-09T02:26:49.433196",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load iris dataset\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Convert species to categorical for seaborn\ndata['species'] = pd.Categorical(data['species'])\n\n# Create a pairplot\nplt.figure(figsize=(10,8))\nsns.pairplot(data, hue='species', markers=['o', 's', 'D'], palette='husl')\n\n# Set title and axis labels\nplt.title('Iris Flower Dataset Pairplot')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load iris dataset\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Convert species to categorical for seaborn\ndata['species'] = pd.Categorical(data['species'])\n\n# Create a pairplot\nplt.figure(figsize=(10,8))\nsns.pairplot(data, hue='species', markers=['o', 's', 'D'], palette='husl')\n\n# Set title and axis labels\nplt.title('Iris Flower Dataset Pairplot')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmphefn9tlr/viz_script.py\", line 13, in <module>\n    sns.pairplot(data, hue='species', markers=['o', 's', 'D'], palette='husl')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 2119, in pairplot\n    grid = PairGrid(data, vars=vars, x_vars=x_vars, y_vars=y_vars, hue=hue,\n                    hue_order=hue_order, palette=palette, corner=corner,\n                    height=height, aspect=aspect, dropna=dropna, **grid_kws)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1272, in __init__\n    raise ValueError(\"No variables found for grid columns.\")\nValueError: No variables found for grid columns.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.2143,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 4.47,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

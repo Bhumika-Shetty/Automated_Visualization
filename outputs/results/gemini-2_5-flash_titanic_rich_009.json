@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-10T15:49:56.990595",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\n# Use seaborn.catplot to visualize survival rates across passenger classes, separated by sex.\n# 'kind=\"bar\"' calculates the mean of 'survived' for each group.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    col='sex',\n    kind='bar',\n    errorbar=None,  # Remove error bars for a cleaner display of mean survival rate\n    palette={'male': 'skyblue', 'female': 'pink'},  # Custom colors for clarity\n    height=5, aspect=0.9 # Adjust figure size\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate for {col_name}s\") # Set titles for each subplot based on 'sex'\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Gender\", y=1.02, fontsize=16) # Overall title\n\n# Improve x-axis labels for passenger classes\ng.set_xticklabels(['1st Class', '2nd Class', '3rd Class'])\n\n# Ensure y-axis for survival rate ranges from 0 to 1\ng.set(ylim=(0, 1))\n\n# Adjust layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rectangle for tight_layout to leave space for suptitle\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\n# Use seaborn.catplot to visualize survival rates across passenger classes, separated by sex.\n# 'kind=\"bar\"' calculates the mean of 'survived' for each group.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    col='sex',\n    kind='bar',\n    errorbar=None,  # Remove error bars for a cleaner display of mean survival rate\n    palette={'male': 'skyblue', 'female': 'pink'},  # Custom colors for clarity\n    height=5, aspect=0.9 # Adjust figure size\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate for {col_name}s\") # Set titles for each subplot based on 'sex'\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Gender\", y=1.02, fontsize=16) # Overall title\n\n# Improve x-axis labels for passenger classes\ng.set_xticklabels(['1st Class', '2nd Class', '3rd Class'])\n\n# Ensure y-axis for survival rate ranges from 0 to 1\ng.set(ylim=(0, 1))\n\n# Adjust layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rectangle for tight_layout to leave space for suptitle\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpijziwkx5/viz_script.py:11: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  g = sns.catplot(\nTraceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpijziwkx5/viz_script.py\", line 11, in <module>\n    g = sns.catplot(\n        data=df,\n    ...<6 lines>...\n        height=5, aspect=0.9 # Adjust figure size\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 2842, in catplot\n    p.map_hue(palette=palette, order=hue_order, norm=hue_norm, saturation=saturation)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 838, in map_hue\n    mapping = HueMapping(self, palette, order, norm, saturation)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 150, in __init__\n    levels, lookup_table = self.categorical_mapping(\n                           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        data, palette, order,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 234, in categorical_mapping\n    raise ValueError(err.format(missing))\nValueError: The palette dictionary is missing keys: {'1', '2', '3'}\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.25,
+    "code_complexity": 10,
+    "generation_latency": 9.453,
+    "cost_per_run": 0.000125,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

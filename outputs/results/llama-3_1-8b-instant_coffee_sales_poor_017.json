@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 17,
+  "timestamp": "2026-04-09T03:51:20.536460",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\"]*5,\n    \"time\": [\"00:00\",\"02:00\",\"04:00\",\"06:00\",\"08:00\"],\n    \"product\": [\"Cappuccino\",\"Cappuccino\",\"Tea\",\"Latte\",\"Americano\"],\n    \"size\": [\"Large\",\"Medium\",\"Small\",\"Large\",\"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"]*5,\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1]*5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Melt the dataframe to pivot long format\ndf_melted = pd.melt(df, id_vars=['date', 'product', 'size', 'payment_method', 'customer_age_group', 'is_takeaway', 'total'], var_name='attribute', value_name='value')\n\n# Calculate total revenue by product\nproduct_revenue = df_melted[df_melted['attribute'] == 'total'].groupby('product')['value'].sum().reset_index()\n\n# Plot the data using bar plot\nplt.figure(figsize=(8,6))\nsns.barplot(x='product', y='value', data=product_revenue)\n\n# Add title and labels\nplt.title('Total Revenue by Product')\nplt.xlabel('Product')\nplt.ylabel('Revenue')\n\n# Save the plot to an image file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\"]*5,\n    \"time\": [\"00:00\",\"02:00\",\"04:00\",\"06:00\",\"08:00\"],\n    \"product\": [\"Cappuccino\",\"Cappuccino\",\"Tea\",\"Latte\",\"Americano\"],\n    \"size\": [\"Large\",\"Medium\",\"Small\",\"Large\",\"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"]*5,\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1]*5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Melt the dataframe to pivot long format\ndf_melted = pd.melt(df, id_vars=['date', 'product', 'size', 'payment_method', 'customer_age_group', 'is_takeaway', 'total'], var_name='attribute', value_name='value')\n\n# Calculate total revenue by product\nproduct_revenue = df_melted[df_melted['attribute'] == 'total'].groupby('product')['value'].sum().reset_index()\n\n# Plot the data using bar plot\nplt.figure(figsize=(8,6))\nsns.barplot(x='product', y='value', data=product_revenue)\n\n# Add title and labels\nplt.title('Total Revenue by Product')\nplt.xlabel('Product')\nplt.ylabel('Revenue')\n\n# Save the plot to an image file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4615,
+    "color_delta_e": 0.7451,
+    "visual_entropy": 0.2175,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.841,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

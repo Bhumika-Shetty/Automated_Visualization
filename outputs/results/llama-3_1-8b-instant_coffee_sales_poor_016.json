@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-09T03:51:06.439441",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\"]*5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"]*5,\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1]*5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime format\ndf[\"date_time\"] = pd.to_datetime(df[\"date\"] + \" \" + df[\"time\"])\n\n# Plot a bar chart for sales by product\nplt.figure(figsize=(10,6))\nsns.barplot(x=\"product\", y=\"total\", data=df)\nplt.title(\"Sales by Product\")\nplt.xlabel(\"Product\")\nplt.ylabel(\"Total\")\nplt.tight_layout()\nplt.savefig(\"output.png\")\n\n# Plot a line chart for sales by time\nplt.figure(figsize=(10,6))\nsns.lineplot(x=\"time\", y=\"total\", data=df)\nplt.title(\"Sales by Time\")\nplt.xlabel(\"Time\")\nplt.ylabel(\"Total\")\nplt.tight_layout()\nplt.savefig(\"output_line.png\")\n\n# Plot a scatter plot for sales by customer age group\nplt.figure(figsize=(10,6))\nsns.scatterplot(x=\"customer_age_group\", y=\"total\", data=df)\nplt.title(\"Sales by Customer Age Group\")\nplt.xlabel(\"Customer Age Group\")\nplt.ylabel(\"Total\")\nplt.tight_layout()\nplt.savefig(\"output_scatter.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\"]*5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"]*5,\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1]*5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime format\ndf[\"date_time\"] = pd.to_datetime(df[\"date\"] + \" \" + df[\"time\"])\n\n# Plot a bar chart for sales by product\nplt.figure(figsize=(10,6))\nsns.barplot(x=\"product\", y=\"total\", data=df)\nplt.title(\"Sales by Product\")\nplt.xlabel(\"Product\")\nplt.ylabel(\"Total\")\nplt.tight_layout()\nplt.savefig(\"output.png\")\n\n# Plot a line chart for sales by time\nplt.figure(figsize=(10,6))\nsns.lineplot(x=\"time\", y=\"total\", data=df)\nplt.title(\"Sales by Time\")\nplt.xlabel(\"Time\")\nplt.ylabel(\"Total\")\nplt.tight_layout()\nplt.savefig(\"output_line.png\")\n\n# Plot a scatter plot for sales by customer age group\nplt.figure(figsize=(10,6))\nsns.scatterplot(x=\"customer_age_group\", y=\"total\", data=df)\nplt.title(\"Sales by Customer Age Group\")\nplt.xlabel(\"Customer Age Group\")\nplt.ylabel(\"Total\")\nplt.tight_layout()\nplt.savefig(\"output_scatter.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4103,
+    "color_delta_e": 0.8924,
+    "visual_entropy": 1.1376,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 13.009,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

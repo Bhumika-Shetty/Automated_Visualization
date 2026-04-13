@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-13T01:58:34.651926",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset from the string\ncsv_data = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Aggregate data to get total sales per product\nproduct_sales = df.groupby('product')['total'].sum().reset_index().sort_values('total', ascending=False)\n\n# Set the style for the plot\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(10, 7))\n\n# Create the bar plot\nax = sns.barplot(\n    data=product_sales,\n    x='product',\n    y='total',\n    palette='viridis',\n    hue='product',\n    dodge=False,\n    legend=False\n)\n\n# Add titles and labels for clarity\nax.set_title('Total Sales by Product', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Product', fontsize=12, labelpad=15)\nax.set_ylabel('Total Sales ($)', fontsize=12, labelpad=15)\n\n# Add data labels on top of each bar\nfor p in ax.patches:\n    ax.annotate(f'${p.get_height():.2f}',\n                (p.get_x() + p.get_width() / 2., p.get_height()),\n                ha='center', va='center',\n                fontsize=11, color='black',\n                xytext=(0, 9),\n                textcoords='offset points')\n\n# Customize the plot aesthetics\nax.spines['top'].set_visible(False)\nax.spines['right'].set_visible(False)\nax.yaxis.grid(True, linestyle='--', which='major', color='grey', alpha=.5)\nax.set_ylim(0, product_sales['total'].max() * 1.15) # Add space for labels\n\n# Ensure layout is tight and save the figure\nplt.tight_layout()\nplt.savefig('output.png', dpi=300)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset from the string\ncsv_data = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Aggregate data to get total sales per product\nproduct_sales = df.groupby('product')['total'].sum().reset_index().sort_values('total', ascending=False)\n\n# Set the style for the plot\nsns.set_style(\"whitegrid\")\nplt.figure(figsize=(10, 7))\n\n# Create the bar plot\nax = sns.barplot(\n    data=product_sales,\n    x='product',\n    y='total',\n    palette='viridis',\n    hue='product',\n    dodge=False,\n    legend=False\n)\n\n# Add titles and labels for clarity\nax.set_title('Total Sales by Product', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Product', fontsize=12, labelpad=15)\nax.set_ylabel('Total Sales ($)', fontsize=12, labelpad=15)\n\n# Add data labels on top of each bar\nfor p in ax.patches:\n    ax.annotate(f'${p.get_height():.2f}',\n                (p.get_x() + p.get_width() / 2., p.get_height()),\n                ha='center', va='center',\n                fontsize=11, color='black',\n                xytext=(0, 9),\n                textcoords='offset points')\n\n# Customize the plot aesthetics\nax.spines['top'].set_visible(False)\nax.spines['right'].set_visible(False)\nax.yaxis.grid(True, linestyle='--', which='major', color='grey', alpha=.5)\nax.set_ylim(0, product_sales['total'].max() * 1.15) # Add space for labels\n\n# Ensure layout is tight and save the figure\nplt.tight_layout()\nplt.savefig('output.png', dpi=300)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.2213,
+    "visual_entropy": 1.7493,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 21.527,
+    "cost_per_run": 0.004944,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

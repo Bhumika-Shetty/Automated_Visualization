@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-09T03:47:07.637183",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Melt the data to prepare for bar chart\ncoffee_sales_melted = pd.melt(coffee_sales, id_vars=['date', 'time', 'product', 'size', 'price', 'quantity', 'payment_method', 'customer_age_group', 'is_takeaway', 'total'],\n                              value_vars=['quantity', 'price', 'total'],\n                              var_name='category',\n                              value_name='value')\n\n# Group by category and customer age group, then calculate mean value\ncoffee_sales_grouped = coffee_sales_melted.groupby(['category', 'customer_age_group'])['value'].mean().reset_index()\n\n# Pivot the data to prepare for bar chart\ncoffee_sales_pivoted = coffee_sales_grouped.pivot(index='customer_age_group', columns='category', values='value')\n\n# Plot the data using seaborn\nplt.figure(figsize=(10, 6))\nsns.barplot(data=coffee_sales_pivoted, palette='viridis')\nplt.title('Average Quantity, Price, and Total by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Average Value')\nplt.legend(title='Category')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Melt the data to prepare for bar chart\ncoffee_sales_melted = pd.melt(coffee_sales, id_vars=['date', 'time', 'product', 'size', 'price', 'quantity', 'payment_method', 'customer_age_group', 'is_takeaway', 'total'],\n                              value_vars=['quantity', 'price', 'total'],\n                              var_name='category',\n                              value_name='value')\n\n# Group by category and customer age group, then calculate mean value\ncoffee_sales_grouped = coffee_sales_melted.groupby(['category', 'customer_age_group'])['value'].mean().reset_index()\n\n# Pivot the data to prepare for bar chart\ncoffee_sales_pivoted = coffee_sales_grouped.pivot(index='customer_age_group', columns='category', values='value')\n\n# Plot the data using seaborn\nplt.figure(figsize=(10, 6))\nsns.barplot(data=coffee_sales_pivoted, palette='viridis')\nplt.title('Average Quantity, Price, and Total by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Average Value')\nplt.legend(title='Category')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpsgdvyf73/viz_script.py:29: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Category')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3929,
+    "color_delta_e": 0.6907,
+    "visual_entropy": 0.2188,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 8.877,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-09T02:29:15.864374",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\nfrom sklearn.datasets import load_iris\nimport numpy as np\n\n# Load iris dataset\niris = load_iris()\ndata = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndata['species'] = iris.target\ndata['species'] = data['species'].map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})\n\n# Visualize sepal length vs sepal width\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='sepal length (cm)', y='sepal width (cm)', hue='species', data=data)\nplt.title('Sepal Length vs Sepal Width by Species')\nplt.savefig('output.png')\nplt.show()\n\n# Visualize petal length vs petal width\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='petal length (cm)', y='petal width (cm)', hue='species', data=data)\nplt.title('Petal Length vs Petal Width by Species')\nplt.savefig('output2.png')\nplt.show()\n\n# Visualize all four features\nplt.figure(figsize=(10, 8))\nsns.pairplot(data, hue='species')\nplt.savefig('output3.png')\nplt.show()",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\nfrom sklearn.datasets import load_iris\nimport numpy as np\n\n# Load iris dataset\niris = load_iris()\ndata = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndata['species'] = iris.target\ndata['species'] = data['species'].map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})\n\n# Visualize sepal length vs sepal width\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='sepal length (cm)', y='sepal width (cm)', hue='species', data=data)\nplt.title('Sepal Length vs Sepal Width by Species')\nplt.savefig('output.png')\nplt.show()\n\n# Visualize petal length vs petal width\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='petal length (cm)', y='petal width (cm)', hue='species', data=data)\nplt.title('Petal Length vs Petal Width by Species')\nplt.savefig('output2.png')\nplt.show()\n\n# Visualize all four features\nplt.figure(figsize=(10, 8))\nsns.pairplot(data, hue='species')\nplt.savefig('output3.png')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 0.459,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

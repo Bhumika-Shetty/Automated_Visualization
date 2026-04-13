@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-12T04:47:37.816176",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define the order for age groups to ensure consistent plotting\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot to visualize total sales by product and customer age group\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',  # A perceptually uniform palette, good for ordered categories\n    errorbar=None  # No error bars for aggregated sums\n)\n\n# Add title and labels for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=18, fontweight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Improve legend placement to avoid overlapping with bars\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True)\n\n# Rotate x-axis labels if needed (not strictly necessary for this dataset but good practice)\nplt.xticks(rotation=0, ha='center', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define the order for age groups to ensure consistent plotting\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot to visualize total sales by product and customer age group\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',  # A perceptually uniform palette, good for ordered categories\n    errorbar=None  # No error bars for aggregated sums\n)\n\n# Add title and labels for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=18, fontweight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Improve legend placement to avoid overlapping with bars\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True)\n\n# Rotate x-axis labels if needed (not strictly necessary for this dataset but good practice)\nplt.xticks(rotation=0, ha='center', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": 2.2613,
+    "visual_entropy": 2.1813,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 9.433,
+    "cost_per_run": 0.000151,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

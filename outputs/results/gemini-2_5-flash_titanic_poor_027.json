@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-10T16:13:57.195686",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Data provided as a string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Load the dataset\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a categorical plot to show survival rate by passenger class and sex\n# This is a common and insightful visualization for Titanic-like datasets.\ng = sns.catplot(\n    data=df,\n    x='sex',\n    y='survived',\n    col='pclass',\n    kind='bar',\n    errorbar=None,  # Remove error bars for cleaner visualization of mean\n    palette='viridis',\n    height=4,\n    aspect=0.8,\n    col_order=[1, 2, 3] # Ensure Pclass order is 1, 2, 3\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Sex\", \"Survival Rate\")\ng.set_titles(\"Passenger Class: {col_name}\")\ng.fig.suptitle(\"Survival Rate by Passenger Class and Sex\", y=1.02) # Adjust y to prevent overlap\n\n# Save the plot to a file\nplt.savefig(\"output.png\", dpi=300, bbox_inches='tight')",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Data provided as a string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Load the dataset\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a categorical plot to show survival rate by passenger class and sex\n# This is a common and insightful visualization for Titanic-like datasets.\ng = sns.catplot(\n    data=df,\n    x='sex',\n    y='survived',\n    col='pclass',\n    kind='bar',\n    errorbar=None,  # Remove error bars for cleaner visualization of mean\n    palette='viridis',\n    height=4,\n    aspect=0.8,\n    col_order=[1, 2, 3] # Ensure Pclass order is 1, 2, 3\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Sex\", \"Survival Rate\")\ng.set_titles(\"Passenger Class: {col_name}\")\ng.fig.suptitle(\"Survival Rate by Passenger Class and Sex\", y=1.02) # Adjust y to prevent overlap\n\n# Save the plot to a file\nplt.savefig(\"output.png\", dpi=300, bbox_inches='tight')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpt2yugj22/viz_script.py:20: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  g = sns.catplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.5392,
+    "visual_entropy": 0.8596,
+    "labeling_completeness": 0.25,
+    "code_complexity": 3,
+    "generation_latency": 12.861,
+    "cost_per_run": 0.000111,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

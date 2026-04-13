@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-12T10:16:38.950733",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preprocessing ---\n# Combine date and time into a single datetime object\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour of the day\ndf['hour'] = df['datetime'].dt.hour\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by product and hour\nsales_pivot = df.pivot_table(\n    index='product',\n    columns='hour',\n    values='total',\n    aggfunc='sum'\n).fillna(0)\n\n# Ensure all hours from 0 to 23 are present for a complete heatmap,\n# in case some hours had no sales at all.\nall_hours = pd.DataFrame(index=sales_pivot.index, columns=range(24)).fillna(0)\nsales_pivot = sales_pivot.reindex(columns=all_hours.columns, fill_value=0)\n\n\n# --- Visualization ---\n# Set the style and create the figure\nsns.set_theme(style=\"whitegrid\", font_scale=0.9)\nplt.figure(figsize=(18, 9))\n\n# Create the heatmap\nheatmap = sns.heatmap(\n    sales_pivot,\n    cmap=\"YlGnBu\",  # A sequential color map is good for this kind of data\n    linewidths=.5,\n    annot=False,   # Annotations would be too cluttered\n    cbar_kws={'label': 'Total Sales ($)'} # Label for the color bar\n)\n\n# Customize titles and labels for clarity\nheatmap.set_title(\n    'Peak Sales Hours by Product',\n    fontsize=20,\n    fontweight='bold',\n    pad=25\n)\nheatmap.set_xlabel('Hour of Day (24-hour format)', fontsize=12, labelpad=15)\nheatmap.set_ylabel('Product', fontsize=12, labelpad=15)\n\n# Improve tick label readability\nplt.xticks(rotation=0, ha='center')\nplt.yticks(rotation=0)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preprocessing ---\n# Combine date and time into a single datetime object\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour of the day\ndf['hour'] = df['datetime'].dt.hour\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by product and hour\nsales_pivot = df.pivot_table(\n    index='product',\n    columns='hour',\n    values='total',\n    aggfunc='sum'\n).fillna(0)\n\n# Ensure all hours from 0 to 23 are present for a complete heatmap,\n# in case some hours had no sales at all.\nall_hours = pd.DataFrame(index=sales_pivot.index, columns=range(24)).fillna(0)\nsales_pivot = sales_pivot.reindex(columns=all_hours.columns, fill_value=0)\n\n\n# --- Visualization ---\n# Set the style and create the figure\nsns.set_theme(style=\"whitegrid\", font_scale=0.9)\nplt.figure(figsize=(18, 9))\n\n# Create the heatmap\nheatmap = sns.heatmap(\n    sales_pivot,\n    cmap=\"YlGnBu\",  # A sequential color map is good for this kind of data\n    linewidths=.5,\n    annot=False,   # Annotations would be too cluttered\n    cbar_kws={'label': 'Total Sales ($)'} # Label for the color bar\n)\n\n# Customize titles and labels for clarity\nheatmap.set_title(\n    'Peak Sales Hours by Product',\n    fontsize=20,\n    fontweight='bold',\n    pad=25\n)\nheatmap.set_xlabel('Hour of Day (24-hour format)', fontsize=12, labelpad=15)\nheatmap.set_ylabel('Product', fontsize=12, labelpad=15)\n\n# Improve tick label readability\nplt.xticks(rotation=0, ha='center')\nplt.yticks(rotation=0)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.7059,
+    "color_delta_e": 0.9986,
+    "visual_entropy": 3.5939,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 24.043,
+    "cost_per_run": 0.004708,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

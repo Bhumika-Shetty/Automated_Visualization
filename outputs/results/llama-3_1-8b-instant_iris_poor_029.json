@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 29,
+  "timestamp": "2026-04-09T02:35:51.106078",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"sepal_length\": [5.1, 4.9, 4.7, 4.6, 5.0],\n    \"sepal_width\": [3.5, 3.0, 3.2, 3.1, 3.6],\n    \"petal_length\": [1.4, 1.4, 1.3, 1.5, 1.4],\n    \"petal_width\": [0.2, 0.2, 0.2, 0.2, 0.2],\n    \"species\": [\"setosa\"] * 5\n}\n\ndf = pd.DataFrame(data)\n\n# Plot the data\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=df, x=\"sepal_length\", y=\"petal_length\", hue=\"species\", palette=\"viridis\")\nplt.title(\"Scatterplot of Sepal Length vs Petal Length by Species\")\nplt.xlabel(\"Sepal Length\")\nplt.ylabel(\"Petal Length\")\nplt.savefig(\"output.png\")\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"sepal_length\": [5.1, 4.9, 4.7, 4.6, 5.0],\n    \"sepal_width\": [3.5, 3.0, 3.2, 3.1, 3.6],\n    \"petal_length\": [1.4, 1.4, 1.3, 1.5, 1.4],\n    \"petal_width\": [0.2, 0.2, 0.2, 0.2, 0.2],\n    \"species\": [\"setosa\"] * 5\n}\n\ndf = pd.DataFrame(data)\n\n# Plot the data\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=df, x=\"sepal_length\", y=\"petal_length\", hue=\"species\", palette=\"viridis\")\nplt.title(\"Scatterplot of Sepal Length vs Petal Length by Species\")\nplt.xlabel(\"Sepal Length\")\nplt.ylabel(\"Petal Length\")\nplt.savefig(\"output.png\")\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.606,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

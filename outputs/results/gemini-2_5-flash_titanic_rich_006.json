@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-08T18:39:12.456044",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a categorical plot to visualize survival rate by passenger class and sex.\n# This combination highlights key demographic survival patterns often discussed with the Titanic.\n# 'survived' is a binary variable (0 or 1), so its mean represents the survival rate.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',  # A perceptually uniform colormap\n    errorbar='ci',      # Show 95% confidence intervals\n    height=5,           # Height of each facet\n    aspect=1.2          # Aspect ratio of each facet\n)\n\n# Set the title and axis labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Titanic Survival Rate by Passenger Class and Sex\")\n\n# Improve the legend title\ng._legend.set_title(\"Sex\")\n\n# Ensure the y-axis range is from 0 to 1 for survival rate\ng.set(ylim=(0, 1))\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a categorical plot to visualize survival rate by passenger class and sex.\n# This combination highlights key demographic survival patterns often discussed with the Titanic.\n# 'survived' is a binary variable (0 or 1), so its mean represents the survival rate.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',  # A perceptually uniform colormap\n    errorbar='ci',      # Show 95% confidence intervals\n    height=5,           # Height of each facet\n    aspect=1.2          # Aspect ratio of each facet\n)\n\n# Set the title and axis labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Titanic Survival Rate by Passenger Class and Sex\")\n\n# Improve the legend title\ng._legend.set_title(\"Sex\")\n\n# Ensure the y-axis range is from 0 to 1 for survival rate\ng.set(ylim=(0, 1))\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.5833,
+    "color_delta_e": 0.775,
+    "visual_entropy": 1.197,
+    "labeling_completeness": 0.5,
+    "code_complexity": 3,
+    "generation_latency": 7.007,
+    "cost_per_run": 0.000107,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

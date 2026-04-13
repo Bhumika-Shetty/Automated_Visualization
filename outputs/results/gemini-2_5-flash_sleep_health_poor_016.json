@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-10T16:58:07.493009",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ncsv_data = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a clean seaborn style for better aesthetics\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot to visualize the relationship between key sleep metrics\n# X-axis: Sleep Duration (hours)\n# Y-axis: Quality of Sleep (on a scale of 1-10)\n# Hue (color): Stress Level (will use a color gradient)\n# Size: Physical Activity Level (will use marker size to represent activity)\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Physical Activity Level',\n    sizes=(100, 1000), # Define the range of marker sizes for better visibility\n    palette='viridis', # Choose a color palette for the hue (Stress Level)\n    alpha=0.8, # Set transparency for points\n    legend='full' # Display full legend for both hue and size\n)\n\n# Add informative title and axis labels\nplt.title('Relationship between Sleep Duration, Quality, Stress, and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Adjust layout to prevent elements from overlapping, especially legends\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ncsv_data = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a clean seaborn style for better aesthetics\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot to visualize the relationship between key sleep metrics\n# X-axis: Sleep Duration (hours)\n# Y-axis: Quality of Sleep (on a scale of 1-10)\n# Hue (color): Stress Level (will use a color gradient)\n# Size: Physical Activity Level (will use marker size to represent activity)\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    size='Physical Activity Level',\n    sizes=(100, 1000), # Define the range of marker sizes for better visibility\n    palette='viridis', # Choose a color palette for the hue (Stress Level)\n    alpha=0.8, # Set transparency for points\n    legend='full' # Display full legend for both hue and size\n)\n\n# Add informative title and axis labels\nplt.title('Relationship between Sleep Duration, Quality, Stress, and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Adjust layout to prevent elements from overlapping, especially legends\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.9986,
+    "visual_entropy": 0.7562,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 23.029,
+    "cost_per_run": 0.000156,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

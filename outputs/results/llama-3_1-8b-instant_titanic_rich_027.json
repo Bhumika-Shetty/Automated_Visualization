@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-09T02:14:35.678963",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert sex and embarked columns to categorical\ndf['sex'] = pd.Categorical(df['sex'])\ndf['embarked'] = pd.Categorical(df['embarked'])\n\n# Plot a heatmap of correlations between attributes\nplt.figure(figsize=(10,6))\nsns.heatmap(df.corr()[['survived']], annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation between attributes and Survival')\nplt.xlabel('Attributes')\nplt.ylabel('Attributes')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert sex and embarked columns to categorical\ndf['sex'] = pd.Categorical(df['sex'])\ndf['embarked'] = pd.Categorical(df['embarked'])\n\n# Plot a heatmap of correlations between attributes\nplt.figure(figsize=(10,6))\nsns.heatmap(df.corr()[['survived']], annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation between attributes and Survival')\nplt.xlabel('Attributes')\nplt.ylabel('Attributes')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpf33vyiiq/viz_script.py\", line 14, in <module>\n    sns.heatmap(df.corr()[['survived']], annot=True, cmap='coolwarm', square=True)\n                ~~~~~~~^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 13121, in corr\n    mat = data.to_numpy(dtype=float, na_value=np.nan, copy=False)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 2081, in to_numpy\n    result = self._mgr.as_array(dtype=dtype, copy=copy, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1864, in as_array\n    arr = self._interleave(dtype=dtype, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1917, in _interleave\n    arr = blk.values.to_numpy(  # type: ignore[union-attr]\n        dtype=dtype,\n        na_value=na_value,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/base.py\", line 688, in to_numpy\n    result = np.asarray(self, dtype=dtype)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/_mixins.py\", line 83, in method\n    return meth(self, *args, **kwargs)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/categorical.py\", line 1752, in __array__\n    return np.asarray(ret, dtype=dtype)\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/arrow/array.py\", line 864, in __array__\n    return self.to_numpy(dtype=dtype, copy=copy)\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/arrow/array.py\", line 1717, in to_numpy\n    result = result.astype(dtype, copy=False)\nValueError: could not convert string to float: 'male'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 11.685,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

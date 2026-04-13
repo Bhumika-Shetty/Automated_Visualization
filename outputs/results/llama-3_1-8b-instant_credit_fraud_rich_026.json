@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-09T03:04:18.216960",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv', columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Split dataset into genuine and fraudulent transactions\ngenuine = data[data['is_fraud'] == 0]\nfraudulent = data[data['is_fraud'] == 1]\n\n# Create a bar chart for transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=data)\nplt.title('Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Transaction Type')\nplt.tight_layout()\nplt.savefig('output_transaction_types.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram for transaction amounts\nplt.figure(figsize=(10, 6))\nsns.histplot(data['amount'], bins=50)\nplt.title('Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_amount_histogram.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of transaction amounts by hour of day for genuine transactions\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='amount', y='hour_of_day', data=genuine)\nplt.title('Genuine Transaction Amounts by Hour of Day')\nplt.xlabel('Amount ($)')\nplt.ylabel('Hour of Day')\nplt.tight_layout()\nplt.savefig('output_genuine_amounts_hour.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot of transaction amounts by hour of day for genuine and fraudulent transactions\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='hour_of_day', y='amount', data=genuine, color='blue', label='Genuine')\nsns.boxplot(x='hour_of_day', y='amount', data=fraudulent, color='red', label='Fraudulent')\nplt.title('Transaction Amounts by Hour of Day for Genuine and Fraudulent Transactions')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount ($)')\nplt.legend()\nplt.tight_layout()\nplt.savefig('output_amounts_hour_genuine_fraudulent.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv', columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Split dataset into genuine and fraudulent transactions\ngenuine = data[data['is_fraud'] == 0]\nfraudulent = data[data['is_fraud'] == 1]\n\n# Create a bar chart for transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=data)\nplt.title('Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Transaction Type')\nplt.tight_layout()\nplt.savefig('output_transaction_types.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram for transaction amounts\nplt.figure(figsize=(10, 6))\nsns.histplot(data['amount'], bins=50)\nplt.title('Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_amount_histogram.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of transaction amounts by hour of day for genuine transactions\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='amount', y='hour_of_day', data=genuine)\nplt.title('Genuine Transaction Amounts by Hour of Day')\nplt.xlabel('Amount ($)')\nplt.ylabel('Hour of Day')\nplt.tight_layout()\nplt.savefig('output_genuine_amounts_hour.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot of transaction amounts by hour of day for genuine and fraudulent transactions\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='hour_of_day', y='amount', data=genuine, color='blue', label='Genuine')\nsns.boxplot(x='hour_of_day', y='amount', data=fraudulent, color='red', label='Fraudulent')\nplt.title('Transaction Amounts by Hour of Day for Genuine and Fraudulent Transactions')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount ($)')\nplt.legend()\nplt.tight_layout()\nplt.savefig('output_amounts_hour_genuine_fraudulent.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpz_1ubybc/viz_script.py\", line 6, in <module>\n    data = pd.read_csv('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpz_1ubybc/data/credit_fraud.csv', columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\nTypeError: read_csv() got an unexpected keyword argument 'columns'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5625,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 4.765,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

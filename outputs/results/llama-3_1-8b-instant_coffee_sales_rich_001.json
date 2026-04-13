@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-09T03:46:44.809114",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Convert 'is_takeaway' column to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].astype('category')\n\n# Plot a bar chart of top 5 products by total sales\ntop_products = coffee_sales.groupby('product')['total'].sum().nlargest(5)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.title('Top 5 Products by Total Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a bar chart of top 3 payment methods by total sales\ntop_payment_methods = coffee_sales.groupby('payment_method')['total'].sum().nlargest(3)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_payment_methods.index, y=top_payment_methods.values)\nplt.title('Top 3 Payment Methods by Total Sales')\nplt.xlabel('Payment Method')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Plot a histogram of customer age groups\nplt.figure(figsize=(8, 6))\nsns.countplot(x='customer_age_group', data=coffee_sales)\nplt.title('Customer Age Groups')\nplt.xlabel('Age Group')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Plot a pie chart of takeaway status\nplt.figure(figsize=(8, 6))\ncoffee_sales['is_takeaway'].value_counts().plot(kind='pie', autopct='%1.1f%%')\nplt.title('Takeaway Status')\nplt.tight_layout()\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Convert 'is_takeaway' column to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].astype('category')\n\n# Plot a bar chart of top 5 products by total sales\ntop_products = coffee_sales.groupby('product')['total'].sum().nlargest(5)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.title('Top 5 Products by Total Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a bar chart of top 3 payment methods by total sales\ntop_payment_methods = coffee_sales.groupby('payment_method')['total'].sum().nlargest(3)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_payment_methods.index, y=top_payment_methods.values)\nplt.title('Top 3 Payment Methods by Total Sales')\nplt.xlabel('Payment Method')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Plot a histogram of customer age groups\nplt.figure(figsize=(8, 6))\nsns.countplot(x='customer_age_group', data=coffee_sales)\nplt.title('Customer Age Groups')\nplt.xlabel('Age Group')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Plot a pie chart of takeaway status\nplt.figure(figsize=(8, 6))\ncoffee_sales['is_takeaway'].value_counts().plot(kind='pie', autopct='%1.1f%%')\nplt.title('Takeaway Status')\nplt.tight_layout()\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 80.0,
+    "hallucination_rate": 0.5357,
+    "color_delta_e": 0.9395,
+    "visual_entropy": 1.1713,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.683,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

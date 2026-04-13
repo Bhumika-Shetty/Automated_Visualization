@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 19,
+  "timestamp": "2026-04-12T04:54:28.577428",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' and 'time' columns to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# --- Visualization: Total sales by product ---\n# This visualization will show which products generated the most revenue.\n\n# Group by product and sum the total sales\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False)\n\n# Create the bar chart\nplt.figure(figsize=(10, 6))\nproduct_sales.plot(kind='bar', color='skyblue')\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.grid(axis='y', linestyle='--', alpha=0.7) # Add a horizontal grid for easier value comparison\n\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\nplt.savefig('output.png') # Save the plot as output.png",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' and 'time' columns to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# --- Visualization: Total sales by product ---\n# This visualization will show which products generated the most revenue.\n\n# Group by product and sum the total sales\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False)\n\n# Create the bar chart\nplt.figure(figsize=(10, 6))\nproduct_sales.plot(kind='bar', color='skyblue')\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.grid(axis='y', linestyle='--', alpha=0.7) # Add a horizontal grid for easier value comparison\n\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\nplt.savefig('output.png') # Save the plot as output.png\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 0.9149,
+    "visual_entropy": 1.2548,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 8.115,
+    "cost_per_run": 0.000127,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

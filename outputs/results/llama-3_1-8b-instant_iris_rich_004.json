@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-09T02:25:24.002740",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map species to numerical values for visualization\nspecies_map = {'setosa': 0, 'versicolor': 1, 'virginica': 2}\ndata['species'] = data['species'].map(species_map)\n\n# Create a pairplot to visualize the relationship between features\nsns.pairplot(data, hue='species', palette='husl')\nplt.title('Relationship Between Iris Flower Features')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Reset the figure for the next plot\nplt.clf()\n\n# Create a boxplot to compare the distribution of features across species\nsns.boxplot(data=data, x='species', y='sepal_length', palette='husl')\nplt.title('Distribution of Sepal Length Across Iris Species')\nplt.xlabel('Iris Species')\nplt.ylabel('Sepal Length (cm)')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map species to numerical values for visualization\nspecies_map = {'setosa': 0, 'versicolor': 1, 'virginica': 2}\ndata['species'] = data['species'].map(species_map)\n\n# Create a pairplot to visualize the relationship between features\nsns.pairplot(data, hue='species', palette='husl')\nplt.title('Relationship Between Iris Flower Features')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Reset the figure for the next plot\nplt.clf()\n\n# Create a boxplot to compare the distribution of features across species\nsns.boxplot(data=data, x='species', y='sepal_length', palette='husl')\nplt.title('Distribution of Sepal Length Across Iris Species')\nplt.xlabel('Iris Species')\nplt.ylabel('Sepal Length (cm)')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpfvw9twb6/viz_script.py\", line 13, in <module>\n    sns.pairplot(data, hue='species', palette='husl')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 2119, in pairplot\n    grid = PairGrid(data, vars=vars, x_vars=x_vars, y_vars=y_vars, hue=hue,\n                    hue_order=hue_order, palette=palette, corner=corner,\n                    height=height, aspect=aspect, dropna=dropna, **grid_kws)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1272, in __init__\n    raise ValueError(\"No variables found for grid columns.\")\nValueError: No variables found for grid columns.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 0.794,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

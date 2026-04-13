@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 20,
+  "timestamp": "2026-04-09T03:51:41.130738",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime\ndf['date'] = pd.to_datetime(df['date'])\ndf['time'] = pd.to_datetime(df['time']).dt.time\n\n# Create a bar plot of total sales by product\nplt.figure(figsize=(8,6))\nsns.barplot(x=\"product\", y=\"total\", data=df)\nplt.title(\"Total Sales by Product\")\nplt.xlabel(\"Product\")\nplt.ylabel(\"Total Sales\")\nplt.savefig(\"output.png\")\n\n# Create a bar plot of total sales by payment method\nplt.figure(figsize=(8,6))\nsns.barplot(x=\"payment_method\", y=\"total\", data=df)\nplt.title(\"Total Sales by Payment Method\")\nplt.xlabel(\"Payment Method\")\nplt.ylabel(\"Total Sales\")\nplt.savefig(\"output.png\")\n\n# Create a scatter plot of total sales vs quantity sold\nplt.figure(figsize=(8,6))\nsns.scatterplot(x=\"quantity\", y=\"total\", data=df)\nplt.title(\"Total Sales vs Quantity Sold\")\nplt.xlabel(\"Quantity Sold\")\nplt.ylabel(\"Total Sales\")\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime\ndf['date'] = pd.to_datetime(df['date'])\ndf['time'] = pd.to_datetime(df['time']).dt.time\n\n# Create a bar plot of total sales by product\nplt.figure(figsize=(8,6))\nsns.barplot(x=\"product\", y=\"total\", data=df)\nplt.title(\"Total Sales by Product\")\nplt.xlabel(\"Product\")\nplt.ylabel(\"Total Sales\")\nplt.savefig(\"output.png\")\n\n# Create a bar plot of total sales by payment method\nplt.figure(figsize=(8,6))\nsns.barplot(x=\"payment_method\", y=\"total\", data=df)\nplt.title(\"Total Sales by Payment Method\")\nplt.xlabel(\"Payment Method\")\nplt.ylabel(\"Total Sales\")\nplt.savefig(\"output.png\")\n\n# Create a scatter plot of total sales vs quantity sold\nplt.figure(figsize=(8,6))\nsns.scatterplot(x=\"quantity\", y=\"total\", data=df)\nplt.title(\"Total Sales vs Quantity Sold\")\nplt.xlabel(\"Quantity Sold\")\nplt.ylabel(\"Total Sales\")\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpm335_vq1/viz_script.py:22: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  df['time'] = pd.to_datetime(df['time']).dt.time\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5227,
+    "color_delta_e": 0.8791,
+    "visual_entropy": 0.2606,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.713,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

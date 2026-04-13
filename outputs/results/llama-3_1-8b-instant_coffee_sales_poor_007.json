@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 7,
+  "timestamp": "2026-04-09T03:50:43.109552",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime\ndf['date'] = pd.to_datetime(df['date'])\ndf['time'] = pd.to_datetime(df['time']).dt.time\n\n# Pivot the data to get the total sales by product and time\npivot_df = pd.pivot_table(df, values='total', index='time', columns='product')\n\n# Create a bar plot\nplt.figure(figsize=(10,6))\nsns.heatmap(pivot_df, annot=True, cmap='YlGnBu')\nplt.title('Total Sales by Product and Time')\nplt.xlabel('Product')\nplt.ylabel('Time')\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime\ndf['date'] = pd.to_datetime(df['date'])\ndf['time'] = pd.to_datetime(df['time']).dt.time\n\n# Pivot the data to get the total sales by product and time\npivot_df = pd.pivot_table(df, values='total', index='time', columns='product')\n\n# Create a bar plot\nplt.figure(figsize=(10,6))\nsns.heatmap(pivot_df, annot=True, cmap='YlGnBu')\nplt.title('Total Sales by Product and Time')\nplt.xlabel('Product')\nplt.ylabel('Time')\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpogiejk4r/viz_script.py:23: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  df['time'] = pd.to_datetime(df['time']).dt.time\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4722,
+    "color_delta_e": 0.6473,
+    "visual_entropy": 1.4008,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.914,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

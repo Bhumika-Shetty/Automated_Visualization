@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-09T02:13:34.313822",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert categorical variables to numeric\ndf['sex'] = df['sex'].map({'male': 0, 'female': 1})\ndf['embarked'] = df['embarked'].map({'S': 0, 'C': 1, 'Q': 2})\n\n# Create a pairplot to visualize relationships between variables\nplt.figure(figsize=(10,8))\nsns.pairplot(df, vars=['pclass', 'age', 'fare', 'sibsp', 'parch'], hue='survived', palette='coolwarm')\nplt.title('Relationships between Passenger Attributes and Survival')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert categorical variables to numeric\ndf['sex'] = df['sex'].map({'male': 0, 'female': 1})\ndf['embarked'] = df['embarked'].map({'S': 0, 'C': 1, 'Q': 2})\n\n# Create a pairplot to visualize relationships between variables\nplt.figure(figsize=(10,8))\nsns.pairplot(df, vars=['pclass', 'age', 'fare', 'sibsp', 'parch'], hue='survived', palette='coolwarm')\nplt.title('Relationships between Passenger Attributes and Survival')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.2778,
+    "color_delta_e": 0.8452,
+    "visual_entropy": 0.6447,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 0.396,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

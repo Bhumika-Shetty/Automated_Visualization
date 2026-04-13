@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-10T17:18:51.363776",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/customer_segments.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the data might be in the current directory\n    df = pd.read_csv('customer_segments.csv')\n\n# Drop rows with missing Income, as it's a key variable for this visualization\n# Missing values in 'Income' can distort the analysis.\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending on products for each customer\ndf['TotalSpending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \\\n                      df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Income vs TotalSpending, with Education level as hue.\n# This helps visualize how different educational backgrounds relate to income and spending habits.\nsns.scatterplot(data=df, x='Income', y='TotalSpending', hue='Education', palette='viridis', alpha=0.7, s=80)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=18)\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Spending on Products', fontsize=14)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/titles from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Do not use plt.show() as per instructions",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/customer_segments.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the data might be in the current directory\n    df = pd.read_csv('customer_segments.csv')\n\n# Drop rows with missing Income, as it's a key variable for this visualization\n# Missing values in 'Income' can distort the analysis.\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending on products for each customer\ndf['TotalSpending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \\\n                      df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Income vs TotalSpending, with Education level as hue.\n# This helps visualize how different educational backgrounds relate to income and spending habits.\nsns.scatterplot(data=df, x='Income', y='TotalSpending', hue='Education', palette='viridis', alpha=0.7, s=80)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=18)\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Spending on Products', fontsize=14)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/titles from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Do not use plt.show() as per instructions\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.3889,
+    "color_delta_e": 1.084,
+    "visual_entropy": 0.791,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 12.474,
+    "cost_per_run": 0.000183,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

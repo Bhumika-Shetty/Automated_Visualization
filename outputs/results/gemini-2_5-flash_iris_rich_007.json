@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-10T16:16:21.553814",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between all features, colored by species\n# This is an excellent choice for the Iris dataset as it allows for\n# quick identification of feature combinations that separate the species.\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis')\n\n# Add a title to the entire figure\ng.fig.suptitle('Pairwise Relationships of Iris Features by Species', y=1.02, fontsize=16) # y moves the title up a bit\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between all features, colored by species\n# This is an excellent choice for the Iris dataset as it allows for\n# quick identification of feature combinations that separate the species.\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis')\n\n# Add a title to the entire figure\ng.fig.suptitle('Pairwise Relationships of Iris Features by Species', y=1.02, fontsize=16) # y moves the title up a bit\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 1.6255,
+    "visual_entropy": 1.1517,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 3.949,
+    "cost_per_run": 6.8e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

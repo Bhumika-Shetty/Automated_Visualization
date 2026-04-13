@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-12T04:47:57.860053",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/coffee_sales.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'coffee_sales.csv' not found. Please ensure the file is in the 'data/' directory.\")\n    exit()\n\n# Convert 'is_takeaway' to a more descriptive categorical type for better visualization\ndf['is_takeaway'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by product and takeaway status, then sum the total sales for each group\nsales_by_product_takeaway = df.groupby(['product', 'is_takeaway'])['total'].sum().unstack()\n\n# Set a professional style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Plot a stacked bar chart to show total sales by product, broken down by takeaway status\n# Using .plot(kind='bar', stacked=True) directly on the grouped DataFrame is efficient\nsales_by_product_takeaway.plot(kind='bar', stacked=True, colormap='viridis', ax=plt.gca())\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Customize the legend\nplt.legend(title='Order Type', title_fontsize='12', fontsize='10', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/coffee_sales.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'coffee_sales.csv' not found. Please ensure the file is in the 'data/' directory.\")\n    exit()\n\n# Convert 'is_takeaway' to a more descriptive categorical type for better visualization\ndf['is_takeaway'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by product and takeaway status, then sum the total sales for each group\nsales_by_product_takeaway = df.groupby(['product', 'is_takeaway'])['total'].sum().unstack()\n\n# Set a professional style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Plot a stacked bar chart to show total sales by product, broken down by takeaway status\n# Using .plot(kind='bar', stacked=True) directly on the grouped DataFrame is efficient\nsales_by_product_takeaway.plot(kind='bar', stacked=True, colormap='viridis', ax=plt.gca())\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Customize the legend\nplt.legend(title='Order Type', title_fontsize='12', fontsize='10', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 1.0943,
+    "visual_entropy": 1.4307,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 8.948,
+    "cost_per_run": 0.000154,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

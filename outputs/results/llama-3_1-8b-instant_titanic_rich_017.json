@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-09T02:13:09.869184",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/titanic.csv')\n\n# Create a countplot to show the distribution of survived passengers by sex\nsns.set()\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survival Distribution by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a violinplot to show the distribution of age by survival\nplt.figure(figsize=(8, 6))\nsns.violinplot(x='survived', y='age', data=data)\nplt.title('Age Distribution by Survival')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, overwrite=True)\n\n# Create a barplot to show the distribution of class by survival\nplt.figure(figsize=(8, 6))\nsns.countplot(x='class', hue='survived', data=data)\nplt.title('Survival Distribution by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, overwrite=True)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/titanic.csv')\n\n# Create a countplot to show the distribution of survived passengers by sex\nsns.set()\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survival Distribution by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a violinplot to show the distribution of age by survival\nplt.figure(figsize=(8, 6))\nsns.violinplot(x='survived', y='age', data=data)\nplt.title('Age Distribution by Survival')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, overwrite=True)\n\n# Create a barplot to show the distribution of class by survival\nplt.figure(figsize=(8, 6))\nsns.countplot(x='class', hue='survived', data=data)\nplt.title('Survival Distribution by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, overwrite=True)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpj065vm1b/viz_script.py\", line 26, in <module>\n    plt.savefig('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpj065vm1b/output.png', bbox_inches='tight', dpi=150, overwrite=True)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/pyplot.py\", line 1250, in savefig\n    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/figure.py\", line 3490, in savefig\n    self.canvas.print_figure(fname, **kwargs)\n    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/backend_bases.py\", line 2186, in print_figure\n    result = print_method(\n        filename,\n    ...<3 lines>...\n        bbox_inches_restore=_bbox_inches_restore,\n        **kwargs)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/backend_bases.py\", line 2042, in <lambda>\n    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(\n                                                                 ~~~~^\n        *args, **{k: v for k, v in kwargs.items() if k not in skip}))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: FigureCanvasAgg.print_png() got an unexpected keyword argument 'overwrite'\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 0.4178,
+    "visual_entropy": 1.937,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 22.843,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

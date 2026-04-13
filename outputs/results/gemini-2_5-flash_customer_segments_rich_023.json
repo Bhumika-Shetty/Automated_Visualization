@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-10T17:17:32.047220",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle missing values for 'Income' as it's crucial for this visualization\n# It's common to have a few NaN values in real-world income data\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate the total amount spent on all products\nmnt_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Mnt'] = df[mnt_cols].sum(axis=1)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\nsns.set_style(\"whitegrid\")\nsns.set_context(\"notebook\", font_scale=1.2)\n\n# Create a scatter plot to visualize the relationship between Income, Total Spending, and Campaign Response\n# We use 'hue' to differentiate customers based on their response to the last campaign\nsns.scatterplot(data=df, x='Income', y='Total_Mnt', hue='Response',\n                palette='viridis', alpha=0.7, s=60, edgecolor='w', linewidth=0.5)\n\n# Add title and labels for clarity\nplt.title('Customer Spending vs. Income, by Last Campaign Response', fontsize=16)\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Amount Spent on Products', fontsize=14)\n\n# Improve legend for better understanding\nhandles, labels = plt.gca().get_legend_handles_labels()\nnew_labels = ['Did Not Respond' if label == '0' else 'Responded' for label in labels]\nplt.legend(handles=handles, labels=new_labels, title='Last Campaign Response',\n           bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust plot layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle missing values for 'Income' as it's crucial for this visualization\n# It's common to have a few NaN values in real-world income data\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate the total amount spent on all products\nmnt_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Mnt'] = df[mnt_cols].sum(axis=1)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\nsns.set_style(\"whitegrid\")\nsns.set_context(\"notebook\", font_scale=1.2)\n\n# Create a scatter plot to visualize the relationship between Income, Total Spending, and Campaign Response\n# We use 'hue' to differentiate customers based on their response to the last campaign\nsns.scatterplot(data=df, x='Income', y='Total_Mnt', hue='Response',\n                palette='viridis', alpha=0.7, s=60, edgecolor='w', linewidth=0.5)\n\n# Add title and labels for clarity\nplt.title('Customer Spending vs. Income, by Last Campaign Response', fontsize=16)\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Amount Spent on Products', fontsize=14)\n\n# Improve legend for better understanding\nhandles, labels = plt.gca().get_legend_handles_labels()\nnew_labels = ['Did Not Respond' if label == '0' else 'Responded' for label in labels]\nplt.legend(handles=handles, labels=new_labels, title='Last Campaign Response',\n           bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust plot layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.6842,
+    "color_delta_e": 0.9125,
+    "visual_entropy": 0.852,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 12.304,
+    "cost_per_run": 0.000191,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

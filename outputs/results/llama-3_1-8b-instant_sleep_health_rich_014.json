@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-09T02:39:47.077149",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot for quality of sleep vs age group\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.violinplot(x='Age', y='Quality of Sleep', data=data, inner=None)\nax.set_title('Quality of Sleep by Age Group')\nax.set_xlabel('Age')\nax.set_ylabel('Quality of Sleep')\nplt.tight_layout()\n\n# Create a scatter plot for daily steps vs heart rate\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', hue='Gender', data=data)\nax = plt.gca()\nax.set_title('Daily Steps vs Heart Rate by Gender')\nax.set_xlabel('Daily Steps')\nax.set_ylabel('Heart Rate')\nplt.legend(title='Gender')\nplt.tight_layout()\n\n# Create a bar chart for sleep duration by occupation\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Occupation', y='Sleep Duration', data=data)\nax = plt.gca()\nax.set_title('Sleep Duration by Occupation')\nax.set_xlabel('Occupation')\nax.set_ylabel('Sleep Duration')\nplt.tight_layout()\n\n# Save the figures\nplt.figure(figsize=(10, 6))\nsns.pairplot(data, vars=['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level'],\n             plot_kws={'alpha': 0.5})\nplt.title('Relationship Between Sleep Metrics')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot for quality of sleep vs age group\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.violinplot(x='Age', y='Quality of Sleep', data=data, inner=None)\nax.set_title('Quality of Sleep by Age Group')\nax.set_xlabel('Age')\nax.set_ylabel('Quality of Sleep')\nplt.tight_layout()\n\n# Create a scatter plot for daily steps vs heart rate\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', hue='Gender', data=data)\nax = plt.gca()\nax.set_title('Daily Steps vs Heart Rate by Gender')\nax.set_xlabel('Daily Steps')\nax.set_ylabel('Heart Rate')\nplt.legend(title='Gender')\nplt.tight_layout()\n\n# Create a bar chart for sleep duration by occupation\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Occupation', y='Sleep Duration', data=data)\nax = plt.gca()\nax.set_title('Sleep Duration by Occupation')\nax.set_xlabel('Occupation')\nax.set_ylabel('Sleep Duration')\nplt.tight_layout()\n\n# Save the figures\nplt.figure(figsize=(10, 6))\nsns.pairplot(data, vars=['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level'],\n             plot_kws={'alpha': 0.5})\nplt.title('Relationship Between Sleep Metrics')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 69.23,
+    "hallucination_rate": 0.25,
+    "color_delta_e": 1.4468,
+    "visual_entropy": 0.8457,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 11.515,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

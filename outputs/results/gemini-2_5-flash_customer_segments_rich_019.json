@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-10T17:16:05.948698",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle potential missing values in Income.\n# Drop rows where 'Income' is NaN, as it's crucial for this visualization.\ndf.dropna(subset=['Income'], inplace=True)\n\n# Filter out extreme outliers in 'Income' for better visualization range.\n# Based on common knowledge of this dataset, there are a few very high income values\n# that can compress the rest of the data points. A threshold like 200,000 is often used\n# to focus on the main distribution.\ndf = df[df['Income'] < 200000]\n\n# Calculate Total Spending by summing all Mnt (amount spent) columns\ndf['Total_Spend'] = df['MntWines'] + df['MntFruits'] + \\\n                    df['MntMeatProducts'] + df['MntFishProducts'] + \\\n                    df['MntSweetProducts'] + df['MntGoldProds']\n\n# Set the aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spend',\n    hue='Education',\n    palette='viridis', # A perceptually uniform colormap\n    alpha=0.7,         # Transparency to see overlapping points\n    s=60,              # Size of markers\n    edgecolor='w',     # White edge around markers for better distinction\n    linewidth=0.5      # Line width for marker edges\n)\n\n# Add title and labels\nplt.title('Customer Spending vs. Income by Education Level', fontsize=18, weight='bold')\nplt.xlabel('Income ($)', fontsize=14)\nplt.ylabel('Total Spending ($)', fontsize=14)\n\n# Improve legend placement and appearance\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle potential missing values in Income.\n# Drop rows where 'Income' is NaN, as it's crucial for this visualization.\ndf.dropna(subset=['Income'], inplace=True)\n\n# Filter out extreme outliers in 'Income' for better visualization range.\n# Based on common knowledge of this dataset, there are a few very high income values\n# that can compress the rest of the data points. A threshold like 200,000 is often used\n# to focus on the main distribution.\ndf = df[df['Income'] < 200000]\n\n# Calculate Total Spending by summing all Mnt (amount spent) columns\ndf['Total_Spend'] = df['MntWines'] + df['MntFruits'] + \\\n                    df['MntMeatProducts'] + df['MntFishProducts'] + \\\n                    df['MntSweetProducts'] + df['MntGoldProds']\n\n# Set the aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spend',\n    hue='Education',\n    palette='viridis', # A perceptually uniform colormap\n    alpha=0.7,         # Transparency to see overlapping points\n    s=60,              # Size of markers\n    edgecolor='w',     # White edge around markers for better distinction\n    linewidth=0.5      # Line width for marker edges\n)\n\n# Add title and labels\nplt.title('Customer Spending vs. Income by Education Level', fontsize=18, weight='bold')\nplt.xlabel('Income ($)', fontsize=14)\nplt.ylabel('Total Spending ($)', fontsize=14)\n\n# Improve legend placement and appearance\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.381,
+    "color_delta_e": 1.3085,
+    "visual_entropy": 1.3794,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 14.867,
+    "cost_per_run": 0.000201,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

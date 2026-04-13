@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-09T02:43:51.119120",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the sleep health dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Create a bar chart for the distribution of sleep disorders\nplt.figure(figsize=(8, 6))\nsns.countplot(x='Sleep Disorder', data=df)\nplt.title('Distribution of Sleep Disorders')\nplt.xlabel('Sleep Disorder')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for the relationship between sleep duration and quality of sleep\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', data=df)\nplt.title('Relationship Between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration')\nplt.ylabel('Quality of Sleep')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart for the distribution of BMI categories\nplt.figure(figsize=(8, 6))\nsns.countplot(x='BMI Category', data=df)\nplt.title('Distribution of BMI Categories')\nplt.xlabel('BMI Category')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot for the distribution of heart rate by gender\nplt.figure(figsize=(8, 6))\nsns.boxplot(x='Gender', y='Heart Rate', data=df)\nplt.title('Distribution of Heart Rate by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Heart Rate')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the sleep health dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Create a bar chart for the distribution of sleep disorders\nplt.figure(figsize=(8, 6))\nsns.countplot(x='Sleep Disorder', data=df)\nplt.title('Distribution of Sleep Disorders')\nplt.xlabel('Sleep Disorder')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for the relationship between sleep duration and quality of sleep\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', data=df)\nplt.title('Relationship Between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration')\nplt.ylabel('Quality of Sleep')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart for the distribution of BMI categories\nplt.figure(figsize=(8, 6))\nsns.countplot(x='BMI Category', data=df)\nplt.title('Distribution of BMI Categories')\nplt.xlabel('BMI Category')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot for the distribution of heart rate by gender\nplt.figure(figsize=(8, 6))\nsns.boxplot(x='Gender', y='Heart Rate', data=df)\nplt.title('Distribution of Heart Rate by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Heart Rate')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.15,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.6592,
+    "visual_entropy": 1.1523,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 0.919,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

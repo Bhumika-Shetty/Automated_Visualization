@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-12T10:20:08.136361",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Convert date and time to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\ndf['hour'] = df['datetime'].dt.hour\n\n# Group data by hour and product to get total sales\nhourly_sales = df.groupby(['hour', 'product'])['total'].sum().reset_index()\n\n# Find the top 5 products by total sales to keep the visualization clean\ntop_products = df.groupby('product')['total'].sum().nlargest(5).index\nhourly_sales_top5 = hourly_sales[hourly_sales['product'].isin(top_products)]\n\n# Pivot the data for heatmap representation\nheatmap_data = hourly_sales_top5.pivot_table(index='product', columns='hour', values='total', fill_value=0)\n\n# Reorder index based on total sales for better visual flow\nheatmap_data = heatmap_data.loc[top_products]\n\n# --- Visualization ---\n# Set the style and create the figure\nsns.set_theme(style=\"white\")\nfig, ax = plt.subplots(figsize=(16, 8))\n\n# Create the heatmap\nsns.heatmap(\n    heatmap_data,\n    annot=True,\n    fmt=\".0f\",\n    cmap=\"viridis\",\n    linewidths=.5,\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set titles and labels\nax.set_title('Peak Sales Hours for Top 5 Products', fontsize=20, fontweight='bold', pad=20)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=14, labelpad=10)\nax.set_ylabel('Product', fontsize=14, labelpad=10)\n\n# Improve readability of ticks\nax.tick_params(axis='y', labelrotation=0)\nax.tick_params(axis='x', labelrotation=0)\n\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Convert date and time to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\ndf['hour'] = df['datetime'].dt.hour\n\n# Group data by hour and product to get total sales\nhourly_sales = df.groupby(['hour', 'product'])['total'].sum().reset_index()\n\n# Find the top 5 products by total sales to keep the visualization clean\ntop_products = df.groupby('product')['total'].sum().nlargest(5).index\nhourly_sales_top5 = hourly_sales[hourly_sales['product'].isin(top_products)]\n\n# Pivot the data for heatmap representation\nheatmap_data = hourly_sales_top5.pivot_table(index='product', columns='hour', values='total', fill_value=0)\n\n# Reorder index based on total sales for better visual flow\nheatmap_data = heatmap_data.loc[top_products]\n\n# --- Visualization ---\n# Set the style and create the figure\nsns.set_theme(style=\"white\")\nfig, ax = plt.subplots(figsize=(16, 8))\n\n# Create the heatmap\nsns.heatmap(\n    heatmap_data,\n    annot=True,\n    fmt=\".0f\",\n    cmap=\"viridis\",\n    linewidths=.5,\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set titles and labels\nax.set_title('Peak Sales Hours for Top 5 Products', fontsize=20, fontweight='bold', pad=20)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=14, labelpad=10)\nax.set_ylabel('Product', fontsize=14, labelpad=10)\n\n# Improve readability of ticks\nax.tick_params(axis='y', labelrotation=0)\nax.tick_params(axis='x', labelrotation=0)\n\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.4783,
+    "color_delta_e": 1.1552,
+    "visual_entropy": 4.4544,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 25.057,
+    "cost_per_run": 0.004868,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

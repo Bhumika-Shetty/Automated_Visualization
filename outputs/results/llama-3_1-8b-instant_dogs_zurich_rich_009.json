@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-09T03:16:44.817735",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert the StichtagDat column to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Plot the distribution of dog breeds\nplt.figure(figsize=(10,6))\nsns.countplot(x='Rasse1Text', data=df)\nplt.title('Distribution of Dog Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the age distribution of dogs\nplt.figure(figsize=(10,6))\nsns.kdeplot(data=df, x='AlterV10Sort', fill=True)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age')\nplt.ylabel('Density')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append=True)\n\n# Plot the sex distribution of dogs\nplt.figure(figsize=(10,6))\nsns.countplot(x='SexLang', data=df)\nplt.title('Sex Distribution of Dogs in Zurich')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append=True)\n\n# Plot the district distribution of dogs\nplt.figure(figsize=(10,6))\nsns.countplot(x='KreisLang', data=df)\nplt.title('District Distribution of Dogs in Zurich')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append=True)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert the StichtagDat column to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Plot the distribution of dog breeds\nplt.figure(figsize=(10,6))\nsns.countplot(x='Rasse1Text', data=df)\nplt.title('Distribution of Dog Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the age distribution of dogs\nplt.figure(figsize=(10,6))\nsns.kdeplot(data=df, x='AlterV10Sort', fill=True)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age')\nplt.ylabel('Density')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append=True)\n\n# Plot the sex distribution of dogs\nplt.figure(figsize=(10,6))\nsns.countplot(x='SexLang', data=df)\nplt.title('Sex Distribution of Dogs in Zurich')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append=True)\n\n# Plot the district distribution of dogs\nplt.figure(figsize=(10,6))\nsns.countplot(x='KreisLang', data=df)\nplt.title('District Distribution of Dogs in Zurich')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append=True)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpg6_mec5v/viz_script.py\", line 28, in <module>\n    plt.savefig('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpg6_mec5v/output.png', bbox_inches='tight', dpi=150, append=True)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/pyplot.py\", line 1250, in savefig\n    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/figure.py\", line 3490, in savefig\n    self.canvas.print_figure(fname, **kwargs)\n    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/backend_bases.py\", line 2186, in print_figure\n    result = print_method(\n        filename,\n    ...<3 lines>...\n        bbox_inches_restore=_bbox_inches_restore,\n        **kwargs)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/backend_bases.py\", line 2042, in <lambda>\n    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(\n                                                                 ~~~~^\n        *args, **{k: v for k, v in kwargs.items() if k not in skip}))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: FigureCanvasAgg.print_png() got an unexpected keyword argument 'append'\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.7273,
+    "color_delta_e": 6.4994,
+    "visual_entropy": 2.3025,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 12.779,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-10T15:52:19.909072",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing survival rate by Pclass and Sex\n# The 'survived' column is 0 or 1, so the mean directly gives the survival rate.\nsns.barplot(data=df, x='pclass', y='survived', hue='sex', palette='viridis', ci=None)\n\n# Set title and labels\nplt.title('Survival Rate on Titanic by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(ticks=[0, 1, 2], labels=['1st Class', '2nd Class', '3rd Class'], fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Sex', title_fontsize='12', fontsize='10')\n\n# Add grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing survival rate by Pclass and Sex\n# The 'survived' column is 0 or 1, so the mean directly gives the survival rate.\nsns.barplot(data=df, x='pclass', y='survived', hue='sex', palette='viridis', ci=None)\n\n# Set title and labels\nplt.title('Survival Rate on Titanic by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(ticks=[0, 1, 2], labels=['1st Class', '2nd Class', '3rd Class'], fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Sex', title_fontsize='12', fontsize='10')\n\n# Add grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpdjd_6wl0/viz_script.py:13: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(data=df, x='pclass', y='survived', hue='sex', palette='viridis', ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.0137,
+    "visual_entropy": 1.4568,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.846,
+    "cost_per_run": 9.4e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

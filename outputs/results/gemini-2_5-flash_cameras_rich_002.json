@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-11T02:12:28.898517",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    alpha=0.7,\n    s=100, # Set a fixed size for markers for consistency\n    palette='viridis' # Choose a color palette\n)\n\n# Apply log scale to the y-axis for price, as prices often have a wide, skewed distribution\nplt.yscale('log')\n\n# Add title and labels\nplt.title('Camera Price (Log Scale) vs. Megapixels, Colored by Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD, Log Scale)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    alpha=0.7,\n    s=100, # Set a fixed size for markers for consistency\n    palette='viridis' # Choose a color palette\n)\n\n# Apply log scale to the y-axis for price, as prices often have a wide, skewed distribution\nplt.yscale('log')\n\n# Add title and labels\nplt.title('Camera Price (Log Scale) vs. Megapixels, Colored by Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD, Log Scale)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 1.2183,
+    "visual_entropy": 1.5325,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 11.731,
+    "cost_per_run": 0.000109,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

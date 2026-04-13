@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-10T16:33:09.525183",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Fill NaN values in 'Sleep Disorder' with 'No Disorder' for clearer categorization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a visually appealing style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure with two subplots to compare Sleep Duration and Quality across disorders\nfig, axes = plt.subplots(1, 2, figsize=(15, 6)) # Adjust figure size for better readability\n\n# Plot 1: Box plot for Sleep Duration by Sleep Disorder\nsns.boxplot(x='Sleep Disorder', y='Sleep Duration', data=df, ax=axes[0])\naxes[0].set_title('Sleep Duration by Sleep Disorder', fontsize=14)\naxes[0].set_xlabel('Sleep Disorder', fontsize=12)\naxes[0].set_ylabel('Sleep Duration (hours)', fontsize=12)\naxes[0].tick_params(axis='x', rotation=15) # Rotate labels slightly if they overlap\n\n# Plot 2: Box plot for Quality of Sleep by Sleep Disorder\nsns.boxplot(x='Sleep Disorder', y='Quality of Sleep', data=df, ax=axes[1])\naxes[1].set_title('Quality of Sleep by Sleep Disorder', fontsize=14)\naxes[1].set_xlabel('Sleep Disorder', fontsize=12)\naxes[1].set_ylabel('Quality of Sleep (1-10)', fontsize=12)\naxes[1].tick_params(axis='x', rotation=15) # Rotate labels slightly if they overlap\n\n# Add a main title for the entire figure to provide context\nfig.suptitle('Impact of Sleep Disorders on Sleep Duration and Quality', fontsize=16, y=1.02)\n\n# Adjust layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Fill NaN values in 'Sleep Disorder' with 'No Disorder' for clearer categorization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a visually appealing style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure with two subplots to compare Sleep Duration and Quality across disorders\nfig, axes = plt.subplots(1, 2, figsize=(15, 6)) # Adjust figure size for better readability\n\n# Plot 1: Box plot for Sleep Duration by Sleep Disorder\nsns.boxplot(x='Sleep Disorder', y='Sleep Duration', data=df, ax=axes[0])\naxes[0].set_title('Sleep Duration by Sleep Disorder', fontsize=14)\naxes[0].set_xlabel('Sleep Disorder', fontsize=12)\naxes[0].set_ylabel('Sleep Duration (hours)', fontsize=12)\naxes[0].tick_params(axis='x', rotation=15) # Rotate labels slightly if they overlap\n\n# Plot 2: Box plot for Quality of Sleep by Sleep Disorder\nsns.boxplot(x='Sleep Disorder', y='Quality of Sleep', data=df, ax=axes[1])\naxes[1].set_title('Quality of Sleep by Sleep Disorder', fontsize=14)\naxes[1].set_xlabel('Sleep Disorder', fontsize=12)\naxes[1].set_ylabel('Quality of Sleep (1-10)', fontsize=12)\naxes[1].tick_params(axis='x', rotation=15) # Rotate labels slightly if they overlap\n\n# Add a main title for the entire figure to provide context\nfig.suptitle('Impact of Sleep Disorders on Sleep Duration and Quality', fontsize=16, y=1.02)\n\n# Adjust layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.4211,
+    "color_delta_e": 0.7657,
+    "visual_entropy": 1.162,
+    "labeling_completeness": 0.75,
+    "code_complexity": 11,
+    "generation_latency": 23.931,
+    "cost_per_run": 0.000162,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

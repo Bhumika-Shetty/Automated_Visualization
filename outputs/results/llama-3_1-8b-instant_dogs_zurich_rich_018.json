@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-09T03:18:45.126518",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a countplot of the top 10 most common dog breeds\ntop_10_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10, 6))\nsns.countplot(x=top_10_breeds.index, data=top_10_breeds, order=top_10_breeds.index)\nplt.title('Top 10 Most Common Dog Breeds in Zurich')\nplt.xlabel('Dog Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a countplot of the top 10 most common dog breeds\ntop_10_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10, 6))\nsns.countplot(x=top_10_breeds.index, data=top_10_breeds, order=top_10_breeds.index)\nplt.title('Top 10 Most Common Dog Breeds in Zurich')\nplt.xlabel('Dog Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp2c34kthd/viz_script.py\", line 11, in <module>\n    sns.countplot(x=top_10_breeds.index, data=top_10_breeds, order=top_10_breeds.index)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 2631, in countplot\n    p = _CategoricalAggPlotter(\n        data=data,\n    ...<4 lines>...\n        legend=legend,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 67, in __init__\n    super().__init__(data=data, variables=variables)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 634, in __init__\n    self.assign_variables(data, variables)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 679, in assign_variables\n    plot_data = PlotData(data, variables)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 57, in __init__\n    data = handle_data_source(data)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 278, in handle_data_source\n    raise TypeError(err)\nTypeError: Data source must be a DataFrame or Mapping, not <class 'pandas.Series'>.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.8,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 12.79,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

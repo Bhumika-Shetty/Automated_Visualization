@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-12T10:18:35.841964",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Convert date and time to a single datetime object\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract hour of the day\ndf['hour'] = df['datetime'].dt.hour\n\n# Aggregate sales data by product and hour\nhourly_sales = df.groupby(['product', 'hour'])['total'].sum().reset_index()\n\n# Find the top 5 best-selling products to keep the plot clean\ntop_products = df.groupby('product')['total'].sum().nlargest(5).index\nhourly_sales_top5 = hourly_sales[hourly_sales['product'].isin(top_products)]\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nplt.figure(figsize=(16, 9))\n\n# Create the line plot\nax = sns.lineplot(\n    data=hourly_sales_top5,\n    x='hour',\n    y='total',\n    hue='product',\n    style='product',\n    markers=True,\n    dashes=False,\n    linewidth=2.5,\n    markersize=8\n)\n\n# --- Customization and Labeling ---\n# Set title and labels with enhanced formatting\nax.set_title(\n    'Hourly Sales Performance for Top 5 Coffee Shop Products',\n    fontsize=20,\n    fontweight='bold',\n    pad=25\n)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=14, labelpad=15)\nax.set_ylabel('Total Sales ($)', fontsize=14, labelpad=15)\n\n# Customize ticks\nax.tick_params(axis='both', which='major', labelsize=12)\nax.xaxis.set_major_locator(mticker.MultipleLocator(2)) # Ticks every 2 hours\nax.yaxis.set_major_formatter(mticker.StrMethodFormatter('${x:,.0f}'))\n\n# Customize the legend\nlegend = ax.legend(title='Product', fontsize=12, title_fontsize=14, bbox_to_anchor=(1.02, 1), loc='upper left')\nlegend.get_frame().set_alpha(0.9)\nlegend.get_frame().set_edgecolor('black')\n\n# Add a grid for better readability\nax.grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# Set plot limits to give some padding\nax.set_xlim(-0.5, 23.5)\nax.set_ylim(bottom=0)\n\n# Final layout adjustment\nplt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout to make space for legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Convert date and time to a single datetime object\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract hour of the day\ndf['hour'] = df['datetime'].dt.hour\n\n# Aggregate sales data by product and hour\nhourly_sales = df.groupby(['product', 'hour'])['total'].sum().reset_index()\n\n# Find the top 5 best-selling products to keep the plot clean\ntop_products = df.groupby('product')['total'].sum().nlargest(5).index\nhourly_sales_top5 = hourly_sales[hourly_sales['product'].isin(top_products)]\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nplt.figure(figsize=(16, 9))\n\n# Create the line plot\nax = sns.lineplot(\n    data=hourly_sales_top5,\n    x='hour',\n    y='total',\n    hue='product',\n    style='product',\n    markers=True,\n    dashes=False,\n    linewidth=2.5,\n    markersize=8\n)\n\n# --- Customization and Labeling ---\n# Set title and labels with enhanced formatting\nax.set_title(\n    'Hourly Sales Performance for Top 5 Coffee Shop Products',\n    fontsize=20,\n    fontweight='bold',\n    pad=25\n)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=14, labelpad=15)\nax.set_ylabel('Total Sales ($)', fontsize=14, labelpad=15)\n\n# Customize ticks\nax.tick_params(axis='both', which='major', labelsize=12)\nax.xaxis.set_major_locator(mticker.MultipleLocator(2)) # Ticks every 2 hours\nax.yaxis.set_major_formatter(mticker.StrMethodFormatter('${x:,.0f}'))\n\n# Customize the legend\nlegend = ax.legend(title='Product', fontsize=12, title_fontsize=14, bbox_to_anchor=(1.02, 1), loc='upper left')\nlegend.get_frame().set_alpha(0.9)\nlegend.get_frame().set_edgecolor('black')\n\n# Add a grid for better readability\nax.grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# Set plot limits to give some padding\nax.set_xlim(-0.5, 23.5)\nax.set_ylim(bottom=0)\n\n# Final layout adjustment\nplt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout to make space for legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5769,
+    "color_delta_e": 0.9911,
+    "visual_entropy": 0.733,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 20.614,
+    "cost_per_run": 0.006037,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

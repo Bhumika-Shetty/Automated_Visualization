@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 5,
+  "timestamp": "2026-04-09T03:07:52.462783",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Plot a bar chart to show the frequency of each transaction type\nplt.figure(figsize=(8,6))\nsns.countplot(x=\"transaction_type\", data=df)\nplt.title(\"Frequency of Transaction Types\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Frequency\")\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig(\"output.png\")\nplt.show()\n\n# Plot a bar chart to show the frequency of transactions at each hour of the day\nplt.figure(figsize=(8,6))\nsns.countplot(x=\"hour_of_day\", data=df)\nplt.title(\"Frequency of Transactions at Each Hour of the Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Frequency\")\nplt.tight_layout()\nplt.savefig(\"output2.png\")\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Plot a bar chart to show the frequency of each transaction type\nplt.figure(figsize=(8,6))\nsns.countplot(x=\"transaction_type\", data=df)\nplt.title(\"Frequency of Transaction Types\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Frequency\")\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig(\"output.png\")\nplt.show()\n\n# Plot a bar chart to show the frequency of transactions at each hour of the day\nplt.figure(figsize=(8,6))\nsns.countplot(x=\"hour_of_day\", data=df)\nplt.title(\"Frequency of Transactions at Each Hour of the Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Frequency\")\nplt.tight_layout()\nplt.savefig(\"output2.png\")\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6471,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.651,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

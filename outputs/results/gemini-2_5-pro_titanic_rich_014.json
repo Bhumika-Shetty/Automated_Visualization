@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-12T05:04:10.343976",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", context=\"talk\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(12, 8))\n\n# Create the catplot (bar plot)\n# Using catplot is great for this as it automatically calculates the mean (survival rate)\n# and provides confidence intervals.\ng = sns.catplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=1.5,\n    legend=False, # We will create a custom legend\n    order=['First', 'Second', 'Third']\n)\n\n# Access the axes to customize further\nax = g.ax\n\n# --- Customization and Annotations ---\n\n# Set title and labels with more descriptive text\ng.fig.suptitle('Survival Rate on the Titanic by Passenger Class and Sex', fontsize=20, y=1.03)\ng.set_axis_labels('Passenger Class', 'Survival Rate', fontsize=14)\ng.set_xticklabels(fontsize=12)\n\n# Format the y-axis to show percentages\nax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\nax.set_ylim(0, 1) # Set y-axis limit to be from 0 to 100%\n\n# Add annotations (text labels) on top of each bar\nfor p in ax.patches:\n    height = p.get_height()\n    if height > 0: # Avoid annotating zero-height bars\n        ax.annotate(f'{height:.1%}',\n                    (p.get_x() + p.get_width() / 2., height),\n                    ha='center',\n                    va='center',\n                    fontsize=12,\n                    color='black',\n                    xytext=(0, 10),\n                    textcoords='offset points')\n\n# Improve the legend\nplt.legend(title='Sex', loc='upper right', labels=['Male', 'Female'], fontsize=12, title_fontsize=14)\n\n# Adjust layout to make room for the title\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", context=\"talk\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(12, 8))\n\n# Create the catplot (bar plot)\n# Using catplot is great for this as it automatically calculates the mean (survival rate)\n# and provides confidence intervals.\ng = sns.catplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=1.5,\n    legend=False, # We will create a custom legend\n    order=['First', 'Second', 'Third']\n)\n\n# Access the axes to customize further\nax = g.ax\n\n# --- Customization and Annotations ---\n\n# Set title and labels with more descriptive text\ng.fig.suptitle('Survival Rate on the Titanic by Passenger Class and Sex', fontsize=20, y=1.03)\ng.set_axis_labels('Passenger Class', 'Survival Rate', fontsize=14)\ng.set_xticklabels(fontsize=12)\n\n# Format the y-axis to show percentages\nax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\nax.set_ylim(0, 1) # Set y-axis limit to be from 0 to 100%\n\n# Add annotations (text labels) on top of each bar\nfor p in ax.patches:\n    height = p.get_height()\n    if height > 0: # Avoid annotating zero-height bars\n        ax.annotate(f'{height:.1%}',\n                    (p.get_x() + p.get_width() / 2., height),\n                    ha='center',\n                    va='center',\n                    fontsize=12,\n                    color='black',\n                    xytext=(0, 10),\n                    textcoords='offset points')\n\n# Improve the legend\nplt.legend(title='Sex', loc='upper right', labels=['Male', 'Female'], fontsize=12, title_fontsize=14)\n\n# Adjust layout to make room for the title\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.8182,
+    "color_delta_e": 0.9082,
+    "visual_entropy": 1.4393,
+    "labeling_completeness": 0.5,
+    "code_complexity": 6,
+    "generation_latency": 22.044,
+    "cost_per_run": 0.005399,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-09T02:51:26.197537",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert categorical variables to categorical data type\ncustomer_segments['Education'] = customer_segments['Education'].astype('category')\ncustomer_segments['Marital_Status'] = customer_segments['Marital_Status'].astype('category')\n\n# Map the categorical variables to integer values\neducation_map = customer_segments['Education'].cat.codes\nmarital_status_map = customer_segments['Marital_Status'].cat.codes\n\n# Create a new dataframe with the mapped values\ncustomer_segments['Education_Coded'] = education_map\ncustomer_segments['Marital_Status_Coded'] = marital_status_map\n\n# Plot the top 5 most frequent marital statuses by number of customers\ntop_marital_statuses = customer_segments['Marital_Status_Coded'].value_counts().head(5).reset_index()\ntop_marital_statuses.columns = ['Marital_Status', 'Count']\n\nplt.figure(figsize=(10,6))\nsns.barplot(x='Marital_Status', y='Count', data=top_marital_statuses)\nplt.title('Top 5 Most Frequent Marital Statuses')\nplt.xlabel('Marital Status')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.legend(title='Marital Status')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert categorical variables to categorical data type\ncustomer_segments['Education'] = customer_segments['Education'].astype('category')\ncustomer_segments['Marital_Status'] = customer_segments['Marital_Status'].astype('category')\n\n# Map the categorical variables to integer values\neducation_map = customer_segments['Education'].cat.codes\nmarital_status_map = customer_segments['Marital_Status'].cat.codes\n\n# Create a new dataframe with the mapped values\ncustomer_segments['Education_Coded'] = education_map\ncustomer_segments['Marital_Status_Coded'] = marital_status_map\n\n# Plot the top 5 most frequent marital statuses by number of customers\ntop_marital_statuses = customer_segments['Marital_Status_Coded'].value_counts().head(5).reset_index()\ntop_marital_statuses.columns = ['Marital_Status', 'Count']\n\nplt.figure(figsize=(10,6))\nsns.barplot(x='Marital_Status', y='Count', data=top_marital_statuses)\nplt.title('Top 5 Most Frequent Marital Statuses')\nplt.xlabel('Marital Status')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.legend(title='Marital Status')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp92xp9edi/viz_script.py:30: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Marital Status')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.6394,
+    "visual_entropy": 1.0522,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 13.884,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

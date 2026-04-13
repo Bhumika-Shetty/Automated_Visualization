@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-10T17:15:55.175624",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Drop rows with missing 'Income' for accurate visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending on products\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot to visualize Income vs Total Spending,\n# colored by Education level to identify potential segments\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis', # A perceptually uniform colormap\n    s=100,             # Size of the points\n    alpha=0.7          # Transparency of the points to handle overplotting\n)\n\n# Add title and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income ($)', fontsize=12)\nplt.ylabel('Total Spending on Products ($)', fontsize=12)\n\n# Improve legend placement to not overlap with data points\nplt.legend(title='Education', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)\n\n# Adjust plot limits if there are extreme outliers in Income or Spending\n# For example, if there's a very high income outlier distorting the view:\n# plt.xlim(0, df['Income'].quantile(0.99))\n# plt.ylim(0, df['Total_Spending'].quantile(0.99))\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Drop rows with missing 'Income' for accurate visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending on products\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot to visualize Income vs Total Spending,\n# colored by Education level to identify potential segments\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis', # A perceptually uniform colormap\n    s=100,             # Size of the points\n    alpha=0.7          # Transparency of the points to handle overplotting\n)\n\n# Add title and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income ($)', fontsize=12)\nplt.ylabel('Total Spending on Products ($)', fontsize=12)\n\n# Improve legend placement to not overlap with data points\nplt.legend(title='Education', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)\n\n# Adjust plot limits if there are extreme outliers in Income or Spending\n# For example, if there's a very high income outlier distorting the view:\n# plt.xlim(0, df['Income'].quantile(0.99))\n# plt.ylim(0, df['Total_Spending'].quantile(0.99))\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.3684,
+    "color_delta_e": 0.8609,
+    "visual_entropy": 0.7854,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 9.572,
+    "cost_per_run": 0.000181,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

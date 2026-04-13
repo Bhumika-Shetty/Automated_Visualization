@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-09T03:18:40.825033",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a bar chart to show the distribution of dog breeds\nbreed_counts = data['Rasse1Text'].value_counts()\nsns.barplot(x=breed_counts.index, y=breed_counts.values, ax=ax)\nax.set_xlabel('Dog Breed')\nax.set_ylabel('Count')\nax.set_title('Distribution of Dog Breeds')\nax.tick_params(axis='x', rotation=90)\n\n# Create a pie chart to show the distribution of dog ages\nage_counts = data['AlterV10Cd'].value_counts()\nplt.figure(figsize=(8, 8))\nsns.countplot(x='AlterV10Cd', data=data, ax=plt.gca())\nplt.pie(age_counts.values, labels=age_counts.index, autopct='%1.1f%%', startangle=90)\nplt.title('Distribution of Dog Ages')\n\n# Create a scatter plot to show the relationship between dog age and weight\nplt.figure(figsize=(8, 8))\nsns.scatterplot(x='AlterVHundNum', y='AnzHunde', data=data)\nplt.xlabel('Dog Weight (kg)')\nplt.ylabel('Count')\nplt.title('Relationship between Dog Age and Weight')\n\n# Save the figures\nplt.figure(figsize=(12, 8))\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\nplt.figure(figsize=(8, 8))\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\nplt.figure(figsize=(8, 8))\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a bar chart to show the distribution of dog breeds\nbreed_counts = data['Rasse1Text'].value_counts()\nsns.barplot(x=breed_counts.index, y=breed_counts.values, ax=ax)\nax.set_xlabel('Dog Breed')\nax.set_ylabel('Count')\nax.set_title('Distribution of Dog Breeds')\nax.tick_params(axis='x', rotation=90)\n\n# Create a pie chart to show the distribution of dog ages\nage_counts = data['AlterV10Cd'].value_counts()\nplt.figure(figsize=(8, 8))\nsns.countplot(x='AlterV10Cd', data=data, ax=plt.gca())\nplt.pie(age_counts.values, labels=age_counts.index, autopct='%1.1f%%', startangle=90)\nplt.title('Distribution of Dog Ages')\n\n# Create a scatter plot to show the relationship between dog age and weight\nplt.figure(figsize=(8, 8))\nsns.scatterplot(x='AlterVHundNum', y='AnzHunde', data=data)\nplt.xlabel('Dog Weight (kg)')\nplt.ylabel('Count')\nplt.title('Relationship between Dog Age and Weight')\n\n# Save the figures\nplt.figure(figsize=(12, 8))\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\nplt.figure(figsize=(8, 8))\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\nplt.figure(figsize=(8, 8))\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.5294,
+    "color_delta_e": 0.0,
+    "visual_entropy": -0.0,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.766,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

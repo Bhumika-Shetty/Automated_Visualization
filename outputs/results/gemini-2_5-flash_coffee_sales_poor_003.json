@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 3,
+  "timestamp": "2026-04-12T04:52:19.918709",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' and 'time' to datetime objects if needed for other plots,\n# but for this specific visualization, they are not directly used.\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# For this small dataset, let's visualize total sales by product.\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False)\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nproduct_sales.plot(kind='bar', color='skyblue')\n\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45, ha='right') # Rotate x-axis labels for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the plot\nplt.savefig('output.png')\n# plt.show() # Uncomment to display the plot",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' and 'time' to datetime objects if needed for other plots,\n# but for this specific visualization, they are not directly used.\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# For this small dataset, let's visualize total sales by product.\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False)\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nproduct_sales.plot(kind='bar', color='skyblue')\n\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45, ha='right') # Rotate x-axis labels for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the plot\nplt.savefig('output.png')\n# plt.show() # Uncomment to display the plot\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 0.8763,
+    "visual_entropy": 1.2488,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 4.531,
+    "cost_per_run": 0.000115,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

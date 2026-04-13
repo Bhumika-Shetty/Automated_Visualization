@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-09T03:48:27.828674",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].astype('category')\n\n# Create a barplot to compare the total sales for takeaway and dine-in\ntakeaway_sales = coffee_sales[coffee_sales['is_takeaway'] == 1]['total'].sum()\ndine_in_sales = coffee_sales[coffee_sales['is_takeaway'] == 0]['total'].sum()\n\nplt.figure(figsize=(8, 6))\nsns.barplot(x=['Takeaway', 'Dine-in'], y=[takeaway_sales, dine_in_sales])\nplt.title('Total Sales for Takeaway and Dine-in')\nplt.xlabel('Order Type')\nplt.ylabel('Total Sales')\nplt.legend(title='Order Type')\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to categorical\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].astype('category')\n\n# Create a barplot to compare the total sales for takeaway and dine-in\ntakeaway_sales = coffee_sales[coffee_sales['is_takeaway'] == 1]['total'].sum()\ndine_in_sales = coffee_sales[coffee_sales['is_takeaway'] == 0]['total'].sum()\n\nplt.figure(figsize=(8, 6))\nsns.barplot(x=['Takeaway', 'Dine-in'], y=[takeaway_sales, dine_in_sales])\nplt.title('Total Sales for Takeaway and Dine-in')\nplt.xlabel('Order Type')\nplt.ylabel('Total Sales')\nplt.legend(title='Order Type')\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp4pcke6ix/viz_script.py:20: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Order Type')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.4615,
+    "color_delta_e": 0.8001,
+    "visual_entropy": 1.1823,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 0.701,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

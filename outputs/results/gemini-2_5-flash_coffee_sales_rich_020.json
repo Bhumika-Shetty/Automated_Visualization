@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-12T04:50:08.304999",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime objects\ndf['date'] = pd.to_datetime(df['date'])\n\n# Map 'is_takeaway' (0=Dine-in, 1=Takeaway) to a more descriptive string for better labels\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by date and takeaway_status, then sum the total sales\n# Unstack to get 'Dine-in' and 'Takeaway' as separate columns for stacking\ndaily_sales_by_status = df.groupby(['date', 'takeaway_status'])['total'].sum().unstack(fill_value=0)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 7))\n\n# Define colors for the stacked area chart\ncolors = {\n    'Dine-in': '#66BB6A',  # A pleasant green\n    'Takeaway': '#FFCA28'  # A bright amber/yellow\n}\n\n# Plot the stacked area chart\n# Ensure the columns are in a desired order for stacking, if not already sorted\n# The unstack operation usually sorts columns alphabetically, so 'Dine-in' before 'Takeaway'\n# If we want 'Takeaway' on top, we can specify the columns explicitly:\nplot_columns = ['Dine-in', 'Takeaway'] if 'Dine-in' in daily_sales_by_status.columns and 'Takeaway' in daily_sales_by_status.columns else daily_sales_by_status.columns.tolist()\n\nax = daily_sales_by_status[plot_columns].plot(\n    kind='area',\n    stacked=True,\n    alpha=0.8,\n    ax=plt.gca(),\n    color=[colors.get(col, '#CCCCCC') for col in plot_columns]\n)\n\n# Add titles and labels\nplt.title('Daily Total Sales by Order Type (Dine-in vs. Takeaway)', fontsize=18, fontweight='bold')\nplt.xlabel('Date', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Customize the legend\nplt.legend(title='Order Type', title_fontsize='13', fontsize='12', loc='upper left')\n\n# Add grid for better readability\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Improve x-axis date formatting to prevent overlap\nplt.gcf().autofmt_xdate()\n\n# Set x-axis limits to avoid padding at the start/end if desired\n# ax.set_xlim(daily_sales_by_status.index.min(), daily_sales_by_status.index.max())\n\n# Enhance layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime objects\ndf['date'] = pd.to_datetime(df['date'])\n\n# Map 'is_takeaway' (0=Dine-in, 1=Takeaway) to a more descriptive string for better labels\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by date and takeaway_status, then sum the total sales\n# Unstack to get 'Dine-in' and 'Takeaway' as separate columns for stacking\ndaily_sales_by_status = df.groupby(['date', 'takeaway_status'])['total'].sum().unstack(fill_value=0)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 7))\n\n# Define colors for the stacked area chart\ncolors = {\n    'Dine-in': '#66BB6A',  # A pleasant green\n    'Takeaway': '#FFCA28'  # A bright amber/yellow\n}\n\n# Plot the stacked area chart\n# Ensure the columns are in a desired order for stacking, if not already sorted\n# The unstack operation usually sorts columns alphabetically, so 'Dine-in' before 'Takeaway'\n# If we want 'Takeaway' on top, we can specify the columns explicitly:\nplot_columns = ['Dine-in', 'Takeaway'] if 'Dine-in' in daily_sales_by_status.columns and 'Takeaway' in daily_sales_by_status.columns else daily_sales_by_status.columns.tolist()\n\nax = daily_sales_by_status[plot_columns].plot(\n    kind='area',\n    stacked=True,\n    alpha=0.8,\n    ax=plt.gca(),\n    color=[colors.get(col, '#CCCCCC') for col in plot_columns]\n)\n\n# Add titles and labels\nplt.title('Daily Total Sales by Order Type (Dine-in vs. Takeaway)', fontsize=18, fontweight='bold')\nplt.xlabel('Date', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Customize the legend\nplt.legend(title='Order Type', title_fontsize='13', fontsize='12', loc='upper left')\n\n# Add grid for better readability\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Improve x-axis date formatting to prevent overlap\nplt.gcf().autofmt_xdate()\n\n# Set x-axis limits to avoid padding at the start/end if desired\n# ax.set_xlim(daily_sales_by_status.index.min(), daily_sales_by_status.index.max())\n\n# Enhance layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.6364,
+    "color_delta_e": 1.8366,
+    "visual_entropy": 2.3734,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 12.342,
+    "cost_per_run": 0.000191,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

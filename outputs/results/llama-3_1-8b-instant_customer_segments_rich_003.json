@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-09T02:49:54.362466",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns\nsegments = ['Graduation', 'Secondary', 'Primary', 'Unknown', 'Tertiary']\ndata = customer_segments.groupby('Education')['Response'].value_counts().unstack().fillna(0)\n\n# Create a stacked bar chart\nplt.figure(figsize=(10,6))\nsns.set_style('whitegrid')\nsns.barplot(data=data, x=data.columns, y=data.index, hue=segments, edgecolor='black', ci='sd', capsize=.2, errwidth=0.5)\nplt.xlabel('Education')\nplt.ylabel('Count')\nplt.title('Customer Response by Education Level')\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns\nsegments = ['Graduation', 'Secondary', 'Primary', 'Unknown', 'Tertiary']\ndata = customer_segments.groupby('Education')['Response'].value_counts().unstack().fillna(0)\n\n# Create a stacked bar chart\nplt.figure(figsize=(10,6))\nsns.set_style('whitegrid')\nsns.barplot(data=data, x=data.columns, y=data.index, hue=segments, edgecolor='black', ci='sd', capsize=.2, errwidth=0.5)\nplt.xlabel('Education')\nplt.ylabel('Count')\nplt.title('Customer Response by Education Level')\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpk2mf6v6i/viz_script.py:15: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar='sd'` for the same effect.\n\n  sns.barplot(data=data, x=data.columns, y=data.index, hue=segments, edgecolor='black', ci='sd', capsize=.2, errwidth=0.5)\nTraceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpk2mf6v6i/viz_script.py\", line 15, in <module>\n    sns.barplot(data=data, x=data.columns, y=data.index, hue=segments, edgecolor='black', ci='sd', capsize=.2, errwidth=0.5)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 2341, in barplot\n    p = _CategoricalAggPlotter(\n        data=data,\n    ...<4 lines>...\n        legend=legend,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 67, in __init__\n    super().__init__(data=data, variables=variables)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 634, in __init__\n    self.assign_variables(data, variables)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 679, in assign_variables\n    plot_data = PlotData(data, variables)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 58, in __init__\n    frame, names, ids = self._assign_variables(data, variables)\n                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 251, in _assign_variables\n    raise ValueError(err)\nValueError: Length of Index vectors must match length of `data` when both are used, but `data` has length 5 and the vector passed to `x` has length 2.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.8125,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.523,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

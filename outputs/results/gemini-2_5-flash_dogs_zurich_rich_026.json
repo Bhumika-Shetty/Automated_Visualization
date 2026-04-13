@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-10T18:27:25.903397",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter out 'Mischling' (mixed breed) and 'Unbekannt' (unknown)\n# to focus on specific, identifiable breeds for better insight.\nfiltered_breeds = df[~df['Rasse1Text'].isin(['Mischling', 'Unbekannt'])]\n\n# Calculate the top N specific dog breeds by their registration count\ntop_n = 15\ntop_specific_breeds = filtered_breeds['Rasse1Text'].value_counts().nlargest(top_n)\n\n# Create the bar plot\nplt.figure(figsize=(12, 8))\nsns.barplot(x=top_specific_breeds.index, y=top_specific_breeds.values, palette='viridis')\n\n# Add a descriptive title and labels\nplt.title(f'Top {top_n} Most Common Specific Dog Breeds in Zurich (Excluding Mixed/Unknown)', fontsize=16)\nplt.xlabel('Dog Breed', fontsize=12)\nplt.ylabel('Number of Registrations', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially with longer breed names\nplt.xticks(rotation=45, ha='right')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter out 'Mischling' (mixed breed) and 'Unbekannt' (unknown)\n# to focus on specific, identifiable breeds for better insight.\nfiltered_breeds = df[~df['Rasse1Text'].isin(['Mischling', 'Unbekannt'])]\n\n# Calculate the top N specific dog breeds by their registration count\ntop_n = 15\ntop_specific_breeds = filtered_breeds['Rasse1Text'].value_counts().nlargest(top_n)\n\n# Create the bar plot\nplt.figure(figsize=(12, 8))\nsns.barplot(x=top_specific_breeds.index, y=top_specific_breeds.values, palette='viridis')\n\n# Add a descriptive title and labels\nplt.title(f'Top {top_n} Most Common Specific Dog Breeds in Zurich (Excluding Mixed/Unknown)', fontsize=16)\nplt.xlabel('Dog Breed', fontsize=12)\nplt.ylabel('Number of Registrations', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially with longer breed names\nplt.xticks(rotation=45, ha='right')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp3r6850k2/viz_script.py:18: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=top_specific_breeds.index, y=top_specific_breeds.values, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 1.105,
+    "visual_entropy": 1.406,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 14.058,
+    "cost_per_run": 0.000154,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

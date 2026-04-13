@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-09T03:02:21.018259",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv', columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Convert is_fraud column to categorical for plotting\ndf['is_fraud'] = df['is_fraud'].astype('category')\n\n# Create a bar chart to compare transaction types\nplt.figure(figsize=(10,6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=df)\nplt.title('Transaction Type vs. Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to compare hour of day\nplt.figure(figsize=(10,6))\nsns.histplot(x='hour_of_day', hue='is_fraud', data=df, bins=24, kde=True)\nplt.title('Hour of Day vs. Fraud Status')\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_hour_of_day.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare amount\nplt.figure(figsize=(10,6))\nsns.boxplot(x='is_fraud', y='amount', data=df)\nplt.title('Amount vs. Fraud Status')\nplt.xlabel('Fraud Status')\nplt.ylabel('Amount')\nplt.legend(title='Fraud Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_amount.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv', columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Convert is_fraud column to categorical for plotting\ndf['is_fraud'] = df['is_fraud'].astype('category')\n\n# Create a bar chart to compare transaction types\nplt.figure(figsize=(10,6))\nsns.countplot(x='transaction_type', hue='is_fraud', data=df)\nplt.title('Transaction Type vs. Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to compare hour of day\nplt.figure(figsize=(10,6))\nsns.histplot(x='hour_of_day', hue='is_fraud', data=df, bins=24, kde=True)\nplt.title('Hour of Day vs. Fraud Status')\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_hour_of_day.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare amount\nplt.figure(figsize=(10,6))\nsns.boxplot(x='is_fraud', y='amount', data=df)\nplt.title('Amount vs. Fraud Status')\nplt.xlabel('Fraud Status')\nplt.ylabel('Amount')\nplt.legend(title='Fraud Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_amount.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8gc0ufh9/viz_script.py\", line 6, in <module>\n    df = pd.read_csv('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8gc0ufh9/data/credit_fraud.csv', columns=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\nTypeError: read_csv() got an unexpected keyword argument 'columns'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.48,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.964,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": "Auto-fixed column name case mismatch. Original error: Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8gc0ufh9/viz_script.py\", line 6, in <module>\n    df = pd.read_csv('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg"
+}

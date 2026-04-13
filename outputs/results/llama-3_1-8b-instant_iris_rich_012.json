@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-09T02:25:37.650191",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the iris dataset\niris = pd.read_csv('data/iris.csv')\n\n# Pivot the data to create a DataFrame with species as index and columns as sepal/petal measurements\npivoted_iris = iris.pivot_table(values=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], index='species', columns=['sepal_width'], aggfunc='mean')\n\n# Create a heatmap using seaborn\nplt.figure(figsize=(8, 6))\nsns.heatmap(pivoted_iris, annot=True, cmap='coolwarm', linewidths=0.5, square=True)\nplt.title('Mean Sepal/Petal Measurements by Species')\nplt.xlabel('Sepal Width (cm)')\nplt.ylabel('Species')\nplt.xticks(rotation=45)\nplt.yticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the iris dataset\niris = pd.read_csv('data/iris.csv')\n\n# Pivot the data to create a DataFrame with species as index and columns as sepal/petal measurements\npivoted_iris = iris.pivot_table(values=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'], index='species', columns=['sepal_width'], aggfunc='mean')\n\n# Create a heatmap using seaborn\nplt.figure(figsize=(8, 6))\nsns.heatmap(pivoted_iris, annot=True, cmap='coolwarm', linewidths=0.5, square=True)\nplt.title('Mean Sepal/Petal Measurements by Species')\nplt.xlabel('Sepal Width (cm)')\nplt.ylabel('Species')\nplt.xticks(rotation=45)\nplt.yticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 2.4848,
+    "visual_entropy": 1.2983,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.425,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-10T15:51:16.518998",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create an insightful visualization: Survival probability by Passenger Class and Sex\n# Using seaborn.catplot with kind='bar' to show the mean survival rate\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',  # Choose a color palette\n    height=6,           # Height of the plot\n    aspect=1.2,         # Aspect ratio\n    errorbar='sd'       # Show standard deviation as error bars\n)\n\n# Set main title for the figure\ng.fig.suptitle(\"Survival Probability on the Titanic by Passenger Class and Sex\", y=1.02, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Probability\")\n\n# Customize x-axis tick labels for better readability\npclass_labels_map = {1: '1st Class', 2: '2nd Class', 3: '3rd Class'}\ng.set_xticklabels([pclass_labels_map[int(tick.get_text())] for tick in g.ax.get_xticklabels()])\n\n# Set legend title\ng.legend.set_title(\"Sex\")\n\n# Add a grid for better readability on the y-axis\ng.ax.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create an insightful visualization: Survival probability by Passenger Class and Sex\n# Using seaborn.catplot with kind='bar' to show the mean survival rate\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',  # Choose a color palette\n    height=6,           # Height of the plot\n    aspect=1.2,         # Aspect ratio\n    errorbar='sd'       # Show standard deviation as error bars\n)\n\n# Set main title for the figure\ng.fig.suptitle(\"Survival Probability on the Titanic by Passenger Class and Sex\", y=1.02, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Probability\")\n\n# Customize x-axis tick labels for better readability\npclass_labels_map = {1: '1st Class', 2: '2nd Class', 3: '3rd Class'}\ng.set_xticklabels([pclass_labels_map[int(tick.get_text())] for tick in g.ax.get_xticklabels()])\n\n# Set legend title\ng.legend.set_title(\"Sex\")\n\n# Add a grid for better readability on the y-axis\ng.ax.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6154,
+    "color_delta_e": 1.1287,
+    "visual_entropy": 1.1932,
+    "labeling_completeness": 0.5,
+    "code_complexity": 5,
+    "generation_latency": 11.085,
+    "cost_per_run": 0.000118,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

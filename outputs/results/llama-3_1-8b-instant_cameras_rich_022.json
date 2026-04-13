@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-09T03:34:46.135976",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart for megapixels distribution\nplt.figure(figsize=(8,6))\nsns.histplot(cameras['megapixels'], kde=True, bins=20, label='Megapixels Distribution')\nplt.title('Megapixels Distribution Across Camera Models')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.legend()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for price vs megapixels\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=cameras, hue='brand')\nplt.title('Price vs Megapixels Across Different Brands')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.legend(title='Brand')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart for sensor type distribution\nplt.figure(figsize=(8,6))\nsns.countplot(x='sensor_type', data=cameras, order=cameras['sensor_type'].value_counts().index)\nplt.title('Sensor Type Distribution Across Camera Models')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart for megapixels distribution\nplt.figure(figsize=(8,6))\nsns.histplot(cameras['megapixels'], kde=True, bins=20, label='Megapixels Distribution')\nplt.title('Megapixels Distribution Across Camera Models')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.legend()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for price vs megapixels\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=cameras, hue='brand')\nplt.title('Price vs Megapixels Across Different Brands')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.legend(title='Brand')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart for sensor type distribution\nplt.figure(figsize=(8,6))\nsns.countplot(x='sensor_type', data=cameras, order=cameras['sensor_type'].value_counts().index)\nplt.title('Sensor Type Distribution Across Camera Models')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5263,
+    "color_delta_e": 3.1362,
+    "visual_entropy": 1.6809,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 6.87,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-12T04:48:42.953957",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to a more descriptive categorical label\ndf['is_takeaway_label'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Aggregate total sales by product and takeaway status\nsales_by_product_takeaway = df.groupby(['product', 'is_takeaway_label'])['total'].sum().reset_index()\n\n# Sort products by their overall total sales for better readability\n# First, calculate total sales per product regardless of takeaway status\ntotal_sales_per_product = df.groupby('product')['total'].sum().sort_values(ascending=False).index\n# Apply this order to the 'product' column in the aggregated dataframe\nsales_by_product_takeaway['product'] = pd.Categorical(\n    sales_by_product_takeaway['product'], \n    categories=total_sales_per_product, \n    ordered=True\n)\n# Sort the aggregated dataframe by the new categorical 'product' column\nsales_by_product_takeaway = sales_by_product_takeaway.sort_values('product')\n\n# Set aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar chart\nsns.barplot(\n    data=sales_by_product_takeaway,\n    x='product',\n    y='total',\n    hue='is_takeaway_label',\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Order Type', fontsize=10, title_fontsize=12, loc='upper right')\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to a more descriptive categorical label\ndf['is_takeaway_label'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Aggregate total sales by product and takeaway status\nsales_by_product_takeaway = df.groupby(['product', 'is_takeaway_label'])['total'].sum().reset_index()\n\n# Sort products by their overall total sales for better readability\n# First, calculate total sales per product regardless of takeaway status\ntotal_sales_per_product = df.groupby('product')['total'].sum().sort_values(ascending=False).index\n# Apply this order to the 'product' column in the aggregated dataframe\nsales_by_product_takeaway['product'] = pd.Categorical(\n    sales_by_product_takeaway['product'], \n    categories=total_sales_per_product, \n    ordered=True\n)\n# Sort the aggregated dataframe by the new categorical 'product' column\nsales_by_product_takeaway = sales_by_product_takeaway.sort_values('product')\n\n# Set aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar chart\nsns.barplot(\n    data=sales_by_product_takeaway,\n    x='product',\n    y='total',\n    hue='is_takeaway_label',\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Order Type', fontsize=10, title_fontsize=12, loc='upper right')\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.44,
+    "color_delta_e": 1.167,
+    "visual_entropy": 1.7771,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 7.678,
+    "cost_per_run": 0.000167,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

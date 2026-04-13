@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-12T05:39:23.126758",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # As a fallback for environments where the data path might not exist,\n    # load the dataset directly from seaborn's repository.\n    df = sns.load_dataset('iris')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"ticks\")\n\n# Create a pairplot to visualize relationships between variables, colored by species\n# Using Kernel Density Estimation (KDE) on the diagonal for a smooth distribution view\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis',\n                 plot_kws={'alpha': 0.7, 's': 50, 'edgecolor': 'k'},\n                 diag_kws={'linewidth': 2})\n\n# Add a descriptive title\ng.fig.suptitle('Relationships Between Iris Flower Measurements by Species', y=1.02, fontsize=16)\n\n# Improve spacing between subplots\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for the suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # As a fallback for environments where the data path might not exist,\n    # load the dataset directly from seaborn's repository.\n    df = sns.load_dataset('iris')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"ticks\")\n\n# Create a pairplot to visualize relationships between variables, colored by species\n# Using Kernel Density Estimation (KDE) on the diagonal for a smooth distribution view\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis',\n                 plot_kws={'alpha': 0.7, 's': 50, 'edgecolor': 'k'},\n                 diag_kws={'linewidth': 2})\n\n# Add a descriptive title\ng.fig.suptitle('Relationships Between Iris Flower Measurements by Species', y=1.02, fontsize=16)\n\n# Improve spacing between subplots\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for the suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 1.869,
+    "visual_entropy": 1.4446,
+    "labeling_completeness": 0.25,
+    "code_complexity": 5,
+    "generation_latency": 12.536,
+    "cost_per_run": 0.003013,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

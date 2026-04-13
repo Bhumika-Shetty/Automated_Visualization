@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-10T18:09:12.624807",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the latest registration year to avoid duplicate entries for the same dog\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Ensure 'KreisLang' is a string and handle potential NaN if any (though unlikely for district names)\ndf_latest['KreisLang'] = df_latest['KreisLang'].astype(str)\n\n# Aggregate the number of dogs by district and gender\n# We count unique HIDs per district and gender to represent distinct dogs\n# If HID is not a unique dog identifier across years, then just counting rows (len(df_latest)) for each group is fine\n# Given the task description and sample, each row seems to represent a dog registration instance.\n# So, counting occurrences of (KreisLang, SexHundLang) pairs is appropriate.\ndog_counts = df_latest.groupby(['KreisLang', 'SexHundLang']).size().reset_index(name='Anzahl Hunde')\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar chart\nsns.barplot(\n    data=dog_counts,\n    x='KreisLang',\n    y='Anzahl Hunde',\n    hue='SexHundLang',\n    palette='viridis'\n)\n\n# Add labels and title\nplt.title(f'Number of Dogs by District and Gender in Zurich ({latest_year})', fontsize=16)\nplt.xlabel('District (Kreis)', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Dog Gender', title_fontsize='12', fontsize='10', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the latest registration year to avoid duplicate entries for the same dog\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Ensure 'KreisLang' is a string and handle potential NaN if any (though unlikely for district names)\ndf_latest['KreisLang'] = df_latest['KreisLang'].astype(str)\n\n# Aggregate the number of dogs by district and gender\n# We count unique HIDs per district and gender to represent distinct dogs\n# If HID is not a unique dog identifier across years, then just counting rows (len(df_latest)) for each group is fine\n# Given the task description and sample, each row seems to represent a dog registration instance.\n# So, counting occurrences of (KreisLang, SexHundLang) pairs is appropriate.\ndog_counts = df_latest.groupby(['KreisLang', 'SexHundLang']).size().reset_index(name='Anzahl Hunde')\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar chart\nsns.barplot(\n    data=dog_counts,\n    x='KreisLang',\n    y='Anzahl Hunde',\n    hue='SexHundLang',\n    palette='viridis'\n)\n\n# Add labels and title\nplt.title(f'Number of Dogs by District and Gender in Zurich ({latest_year})', fontsize=16)\nplt.xlabel('District (Kreis)', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Dog Gender', title_fontsize='12', fontsize='10', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": 1.076,
+    "visual_entropy": 1.1646,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 8.248,
+    "cost_per_run": 0.000197,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

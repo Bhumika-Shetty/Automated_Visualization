@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 22,
+  "timestamp": "2026-04-09T02:33:38.238405",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import load_iris\nfrom sklearn.decomposition import PCA\nimport seaborn as sns\n\n# Load iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\n\n# Select only the setosa species\nsetosa_df = df[df['species'] == 0]\n\n# Perform PCA to reduce dimensionality to 2D\npca = PCA(n_components=2)\npca_df = pca.fit_transform(setosa_df[['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']])\n\n# Create a new dataframe with the principal components\npca_df = pd.DataFrame(data=pca_df, columns=['PC1', 'PC2'])\n\n# Add the species column\npca_df['species'] = 'setosa'\n\n# Load the dataset with the remaining species\nother_df = df[df['species'] != 0]\n\n# Perform PCA to reduce dimensionality to 2D\npca_other = PCA(n_components=2)\npca_other_df = pca_other.fit_transform(other_df[['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']])\n\n# Create a new dataframe with the principal components\npca_other_df = pd.DataFrame(data=pca_other_df, columns=['PC1', 'PC2'])\n\n# Add the species column\npca_other_df['species'] = other_df['species'].apply(lambda x: 'versicolor' if x == 1 else 'virginica')\n\n# Concatenate the two dataframes\npca_df = pd.concat([pca_df, pca_other_df])\n\n# Plot the PCA\nplt.figure(figsize=(10, 8))\nsns.scatterplot(x='PC1', y='PC2', hue='species', data=pca_df)\nplt.title('PCA of Iris Dataset')\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.datasets import load_iris\nfrom sklearn.decomposition import PCA\nimport seaborn as sns\n\n# Load iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\n\n# Select only the setosa species\nsetosa_df = df[df['species'] == 0]\n\n# Perform PCA to reduce dimensionality to 2D\npca = PCA(n_components=2)\npca_df = pca.fit_transform(setosa_df[['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']])\n\n# Create a new dataframe with the principal components\npca_df = pd.DataFrame(data=pca_df, columns=['PC1', 'PC2'])\n\n# Add the species column\npca_df['species'] = 'setosa'\n\n# Load the dataset with the remaining species\nother_df = df[df['species'] != 0]\n\n# Perform PCA to reduce dimensionality to 2D\npca_other = PCA(n_components=2)\npca_other_df = pca_other.fit_transform(other_df[['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']])\n\n# Create a new dataframe with the principal components\npca_other_df = pd.DataFrame(data=pca_other_df, columns=['PC1', 'PC2'])\n\n# Add the species column\npca_other_df['species'] = other_df['species'].apply(lambda x: 'versicolor' if x == 1 else 'virginica')\n\n# Concatenate the two dataframes\npca_df = pd.concat([pca_df, pca_other_df])\n\n# Plot the PCA\nplt.figure(figsize=(10, 8))\nsns.scatterplot(x='PC1', y='PC2', hue='species', data=pca_df)\nplt.title('PCA of Iris Dataset')\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 0.714,
+    "visual_entropy": 0.2947,
+    "labeling_completeness": 0.25,
+    "code_complexity": 4,
+    "generation_latency": 0.944,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

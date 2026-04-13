@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-09T03:22:17.245854",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart for the top 10 breeds\ntop_10_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10, 6))\nsns.barplot(x=top_10_breeds.index, y=top_10_breeds.values, palette='Blues')\nplt.title('Top 10 Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram for the age distribution\nplt.figure(figsize=(8, 6))\nsns.histplot(data['AlterV10Sort'], bins=20, kde=True)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age (years)')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a stacked bar chart for the gender distribution\ngender_counts = data['SexLang'].value_counts()\nplt.figure(figsize=(8, 6))\nsns.barplot(x=gender_counts.index, y=gender_counts.values, palette='Set2', hue=gender_counts.index)\nplt.title('Gender Distribution of Dogs in Zurich')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for the relationship between age and owner age\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='AlterV10Sort', y='AlterV10Lang', data=data)\nplt.title('Relationship between Dog Age and Owner Age')\nplt.xlabel('Dog Age (years)')\nplt.ylabel('Owner Age (years)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart for the top 10 breeds\ntop_10_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10, 6))\nsns.barplot(x=top_10_breeds.index, y=top_10_breeds.values, palette='Blues')\nplt.title('Top 10 Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram for the age distribution\nplt.figure(figsize=(8, 6))\nsns.histplot(data['AlterV10Sort'], bins=20, kde=True)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age (years)')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a stacked bar chart for the gender distribution\ngender_counts = data['SexLang'].value_counts()\nplt.figure(figsize=(8, 6))\nsns.barplot(x=gender_counts.index, y=gender_counts.values, palette='Set2', hue=gender_counts.index)\nplt.title('Gender Distribution of Dogs in Zurich')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot for the relationship between age and owner age\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='AlterV10Sort', y='AlterV10Lang', data=data)\nplt.title('Relationship between Dog Age and Owner Age')\nplt.xlabel('Dog Age (years)')\nplt.ylabel('Owner Age (years)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp7r26ilwp/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=top_10_breeds.index, y=top_10_breeds.values, palette='Blues')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp7r26ilwp/viz_script.py:37: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Gender')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.6957,
+    "color_delta_e": 1.0052,
+    "visual_entropy": 0.2979,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 0.823,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

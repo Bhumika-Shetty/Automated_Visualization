@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-10T17:11:59.790412",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\nspending_cols = [\n    'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',\n    'MntSweetProducts', 'MntGoldProds'\n]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where 'Income' is NaN, as it's crucial for this visualization\ndf_cleaned = df.dropna(subset=['Income'])\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_cleaned,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis',  # A perceptually uniform colormap\n    alpha=0.7,          # Transparency for better visibility of overlapping points\n    s=70                # Size of the points\n)\n\n# Add title and labels for clarity\nplt.title('Customer Total Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending on Products', fontsize=12)\n\n# Improve legend placement to avoid overlap with the plot\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to make sure everything fits without overlapping, especially the legend\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\nspending_cols = [\n    'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',\n    'MntSweetProducts', 'MntGoldProds'\n]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where 'Income' is NaN, as it's crucial for this visualization\ndf_cleaned = df.dropna(subset=['Income'])\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_cleaned,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis',  # A perceptually uniform colormap\n    alpha=0.7,          # Transparency for better visibility of overlapping points\n    s=70                # Size of the points\n)\n\n# Add title and labels for clarity\nplt.title('Customer Total Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending on Products', fontsize=12)\n\n# Improve legend placement to avoid overlap with the plot\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to make sure everything fits without overlapping, especially the legend\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4211,
+    "color_delta_e": 0.9506,
+    "visual_entropy": 0.7759,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 18.613,
+    "cost_per_run": 0.000162,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

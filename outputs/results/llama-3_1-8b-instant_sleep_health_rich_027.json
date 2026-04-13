@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-09T02:42:27.804193",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a figure and axis object\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Create a bar chart to show sleep duration by gender\nsns.barplot(x='Gender', y='Sleep Duration', data=data, ax=ax)\nax.set_title('Sleep Duration by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Sleep Duration (hours)')\nplt.legend(title='Gender')\n\n# Create a violin plot to show physical activity level by sleep quality\nplt.figure(figsize=(10, 6))\nsns.violinplot(x='Quality of Sleep', y='Physical Activity Level', data=data)\nplt.title('Physical Activity Level by Sleep Quality')\nplt.xlabel('Sleep Quality')\nplt.ylabel('Physical Activity Level')\nplt.legend(title='Sleep Quality')\n\n# Create a scatter plot to show daily steps by heart rate\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Heart Rate', y='Daily Steps', data=data)\nplt.title('Daily Steps by Heart Rate')\nplt.xlabel('Heart Rate (bpm)')\nplt.ylabel('Daily Steps')\n\n# Save the final figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a figure and axis object\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Create a bar chart to show sleep duration by gender\nsns.barplot(x='Gender', y='Sleep Duration', data=data, ax=ax)\nax.set_title('Sleep Duration by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Sleep Duration (hours)')\nplt.legend(title='Gender')\n\n# Create a violin plot to show physical activity level by sleep quality\nplt.figure(figsize=(10, 6))\nsns.violinplot(x='Quality of Sleep', y='Physical Activity Level', data=data)\nplt.title('Physical Activity Level by Sleep Quality')\nplt.xlabel('Sleep Quality')\nplt.ylabel('Physical Activity Level')\nplt.legend(title='Sleep Quality')\n\n# Create a scatter plot to show daily steps by heart rate\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Heart Rate', y='Daily Steps', data=data)\nplt.title('Daily Steps by Heart Rate')\nplt.xlabel('Heart Rate (bpm)')\nplt.ylabel('Daily Steps')\n\n# Save the final figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpjcb_qds6/viz_script.py:16: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Gender')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpjcb_qds6/viz_script.py:24: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Sleep Quality')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.15,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 0.645,
+    "visual_entropy": 0.2236,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.727,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

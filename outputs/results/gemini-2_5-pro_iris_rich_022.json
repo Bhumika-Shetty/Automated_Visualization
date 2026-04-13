@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-12T05:52:04.054548",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# --- Data Visualization ---\n# A pairplot is an excellent choice for the Iris dataset. It allows us to see:\n# 1. The distribution of each individual feature (on the diagonal).\n# 2. The relationships (scatter plots) between every pair of features.\n# 3. How these distributions and relationships differ across the three species,\n#    which is achieved by coloring the data points by the 'species' column.\n# This single visualization provides a comprehensive overview of the dataset's structure.\n\n# Set a professional and colorblind-friendly style\nsns.set_theme(style=\"whitegrid\", palette=\"colorblind\")\n\n# Create the pairplot, mapping species to different colors\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimates on the diagonal for smooth distributions\n    markers=[\"o\", \"s\", \"D\"],  # Use distinct markers for each species for accessibility\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    height=2.2, # Adjust the size of the subplots\n    aspect=1.1 # Adjust the aspect ratio of the subplots\n)\n\n# Add a clear, descriptive title for the entire figure\ng.fig.suptitle(\n    \"Pairwise Feature Comparison for Iris Species\",\n    y=1.03,  # Adjust title position to be slightly above the plot\n    fontsize=18,\n    fontweight='bold'\n)\n\n# Improve the legend title\ng._legend.set_title(\"Species\")\n# Move legend slightly to avoid overlapping\nplt.setp(g._legend.get_title(), fontsize=12)\n\n\n# Save the final figure to a file\n# dpi=150 provides a good resolution for reports or presentations\n# bbox_inches='tight' ensures that all elements, including the title, are saved\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# --- Data Visualization ---\n# A pairplot is an excellent choice for the Iris dataset. It allows us to see:\n# 1. The distribution of each individual feature (on the diagonal).\n# 2. The relationships (scatter plots) between every pair of features.\n# 3. How these distributions and relationships differ across the three species,\n#    which is achieved by coloring the data points by the 'species' column.\n# This single visualization provides a comprehensive overview of the dataset's structure.\n\n# Set a professional and colorblind-friendly style\nsns.set_theme(style=\"whitegrid\", palette=\"colorblind\")\n\n# Create the pairplot, mapping species to different colors\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimates on the diagonal for smooth distributions\n    markers=[\"o\", \"s\", \"D\"],  # Use distinct markers for each species for accessibility\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    height=2.2, # Adjust the size of the subplots\n    aspect=1.1 # Adjust the aspect ratio of the subplots\n)\n\n# Add a clear, descriptive title for the entire figure\ng.fig.suptitle(\n    \"Pairwise Feature Comparison for Iris Species\",\n    y=1.03,  # Adjust title position to be slightly above the plot\n    fontsize=18,\n    fontweight='bold'\n)\n\n# Improve the legend title\ng._legend.set_title(\"Species\")\n# Move legend slightly to avoid overlapping\nplt.setp(g._legend.get_title(), fontsize=12)\n\n\n# Save the final figure to a file\n# dpi=150 provides a good resolution for reports or presentations\n# bbox_inches='tight' ensures that all elements, including the title, are saved\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5294,
+    "color_delta_e": 2.3332,
+    "visual_entropy": 1.9866,
+    "labeling_completeness": 0.5,
+    "code_complexity": 7,
+    "generation_latency": 18.545,
+    "cost_per_run": 0.004873,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

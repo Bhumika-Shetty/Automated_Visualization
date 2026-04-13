@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 12,
+  "timestamp": "2026-04-12T05:59:48.982121",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data from the string\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a visually appealing and informative style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a pair plot to visualize pairwise relationships and distributions\n# The diagonal shows the distribution (KDE) of each feature.\n# The off-diagonals show the relationship (scatter plot) between pairs of features.\ng = sns.pairplot(\n    df,\n    kind='scatter',\n    diag_kind='kde',\n    plot_kws={'s': 80, 'alpha': 0.8, 'edgecolor': 'k'},\n    diag_kws={'fill': True, 'linewidth': 2},\n    corner=True # Shows only the lower triangle to avoid redundancy\n)\n\n# Add a comprehensive title\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Setosa Measurements\",\n    y=1.03, # Adjust title position\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve layout to ensure the title and labels fit well\nplt.tight_layout()\n\n# Save the generated plot to a file\nplt.savefig(\"output.png\", dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data from the string\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a visually appealing and informative style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a pair plot to visualize pairwise relationships and distributions\n# The diagonal shows the distribution (KDE) of each feature.\n# The off-diagonals show the relationship (scatter plot) between pairs of features.\ng = sns.pairplot(\n    df,\n    kind='scatter',\n    diag_kind='kde',\n    plot_kws={'s': 80, 'alpha': 0.8, 'edgecolor': 'k'},\n    diag_kws={'fill': True, 'linewidth': 2},\n    corner=True # Shows only the lower triangle to avoid redundancy\n)\n\n# Add a comprehensive title\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Setosa Measurements\",\n    y=1.03, # Adjust title position\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve layout to ensure the title and labels fit well\nplt.tight_layout()\n\n# Save the generated plot to a file\nplt.savefig(\"output.png\", dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.8333,
+    "color_delta_e": 0.3338,
+    "visual_entropy": 0.703,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 19.846,
+    "cost_per_run": 0.003433,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

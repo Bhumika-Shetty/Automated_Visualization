@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-09T02:43:53.579727",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from csv file\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a boxplot to compare sleep duration and quality across different occupations\nplt.figure(figsize=(8,6))\nsns.boxplot(x='Occupation', y='Sleep Duration', data=data)\nplt.title('Sleep Duration by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Sleep Duration (hours)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare stress levels across different physical activity levels\nplt.figure(figsize=(8,6))\nsns.countplot(x='Physical Activity Level', hue='Stress Level', data=data)\nplt.title('Stress Levels by Physical Activity Level')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Count')\nplt.legend(title='Stress Level')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the correlation between sleep duration and daily steps\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='Sleep Duration', y='Daily Steps', data=data)\nplt.title('Sleep Duration vs Daily Steps')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Daily Steps')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of heart rates\nplt.figure(figsize=(8,6))\nsns.histplot(data['Heart Rate'], bins=10)\nplt.title('Distribution of Heart Rates')\nplt.xlabel('Heart Rate')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from csv file\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a boxplot to compare sleep duration and quality across different occupations\nplt.figure(figsize=(8,6))\nsns.boxplot(x='Occupation', y='Sleep Duration', data=data)\nplt.title('Sleep Duration by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Sleep Duration (hours)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare stress levels across different physical activity levels\nplt.figure(figsize=(8,6))\nsns.countplot(x='Physical Activity Level', hue='Stress Level', data=data)\nplt.title('Stress Levels by Physical Activity Level')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Count')\nplt.legend(title='Stress Level')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the correlation between sleep duration and daily steps\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='Sleep Duration', y='Daily Steps', data=data)\nplt.title('Sleep Duration vs Daily Steps')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Daily Steps')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of heart rates\nplt.figure(figsize=(8,6))\nsns.histplot(data['Heart Rate'], bins=10)\nplt.title('Distribution of Heart Rates')\nplt.xlabel('Heart Rate')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.15,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.1486,
+    "visual_entropy": 1.1176,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.591,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

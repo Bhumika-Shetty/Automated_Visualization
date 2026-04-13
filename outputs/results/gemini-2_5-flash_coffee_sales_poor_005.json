@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 5,
+  "timestamp": "2026-04-12T04:52:35.453911",
+  "code": "import pandas as pd\nimport io\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Dataset as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' and 'time' to datetime objects if needed for other analyses\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Aggregate total sales by product and customer age group\n# This will help understand which products are popular among which age groups\nagg_df = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(12, 7))\nsns.barplot(\n    data=agg_df,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',\n    errorbar=None # No error bars needed for aggregated sums\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the plot\nplt.savefig('output.png')\n# plt.show() # Uncomment to display the plot if running locally",
+  "raw_response": "```python\nimport pandas as pd\nimport io\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Dataset as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' and 'time' to datetime objects if needed for other analyses\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Aggregate total sales by product and customer age group\n# This will help understand which products are popular among which age groups\nagg_df = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(12, 7))\nsns.barplot(\n    data=agg_df,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis',\n    errorbar=None # No error bars needed for aggregated sums\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the plot\nplt.savefig('output.png')\n# plt.show() # Uncomment to display the plot if running locally\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3889,
+    "color_delta_e": 0.6969,
+    "visual_entropy": 0.933,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 5.175,
+    "cost_per_run": 0.000142,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

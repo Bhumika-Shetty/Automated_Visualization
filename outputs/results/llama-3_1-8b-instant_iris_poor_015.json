@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-09T02:31:28.826730",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.datasets import load_iris\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\n\n# Map species to string values\nspecies_map = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}\ndf['species'] = df['species'].map(species_map)\n\n# Create a scatter plot\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='sepal length (cm)', y='sepal width (cm)', hue='species', data=df)\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.datasets import load_iris\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\n\n# Map species to string values\nspecies_map = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}\ndf['species'] = df['species'].map(species_map)\n\n# Create a scatter plot\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='sepal length (cm)', y='sepal width (cm)', hue='species', data=df)\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.1969,
+    "visual_entropy": 0.5163,
+    "labeling_completeness": 0.0,
+    "code_complexity": 0,
+    "generation_latency": 0.384,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

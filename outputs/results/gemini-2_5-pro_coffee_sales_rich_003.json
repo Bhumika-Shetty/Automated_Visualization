@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-12T10:06:43.230108",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Combine date and time into a single datetime object\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract hour and day of the week\ndf['hour'] = df['datetime'].dt.hour\ndf['day_of_week'] = df['datetime'].dt.day_name()\n\n# Define the order for the days of the week for proper sorting in the plot\nday_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']\ndf['day_of_week'] = pd.Categorical(df['day_of_week'], categories=day_order, ordered=True)\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by day and hour\nheatmap_data = df.pivot_table(\n    values='total',\n    index='hour',\n    columns='day_of_week',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# --- Visualization ---\n# Set the style and figure size\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(14, 9))\n\n# Create the heatmap\nsns.heatmap(\n    heatmap_data,\n    ax=ax,\n    cmap='YlGnBu',  # Use a sequential color map that's visually appealing\n    linewidths=.5,\n    linecolor='white',\n    cbar_kws={'label': 'Total Sales ($)'}  # Add a label to the color bar\n)\n\n# --- Customization and Labeling ---\n# Set titles and labels for clarity\nax.set_title(\n    'Heatmap of Coffee Sales: Identifying Peak Hours',\n    fontsize=18,\n    fontweight='bold',\n    pad=20\n)\nax.set_xlabel('Day of the Week', fontsize=12, fontweight='bold')\nax.set_ylabel('Hour of the Day (24-hour format)', fontsize=12, fontweight='bold')\n\n# Improve tick label readability\nplt.xticks(rotation=45, ha='right')\nplt.yticks(rotation=0)\n\n# Format color bar ticks as currency\ncbar = ax.collections[0].colorbar\ncbar.formatter = mticker.FormatStrFormatter('$%1.0f')\ncbar.update_ticks()\n\n# --- Save the Figure ---\n# Save the plot to a file with tight bounding box and high resolution\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Combine date and time into a single datetime object\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract hour and day of the week\ndf['hour'] = df['datetime'].dt.hour\ndf['day_of_week'] = df['datetime'].dt.day_name()\n\n# Define the order for the days of the week for proper sorting in the plot\nday_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']\ndf['day_of_week'] = pd.Categorical(df['day_of_week'], categories=day_order, ordered=True)\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by day and hour\nheatmap_data = df.pivot_table(\n    values='total',\n    index='hour',\n    columns='day_of_week',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# --- Visualization ---\n# Set the style and figure size\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(14, 9))\n\n# Create the heatmap\nsns.heatmap(\n    heatmap_data,\n    ax=ax,\n    cmap='YlGnBu',  # Use a sequential color map that's visually appealing\n    linewidths=.5,\n    linecolor='white',\n    cbar_kws={'label': 'Total Sales ($)'}  # Add a label to the color bar\n)\n\n# --- Customization and Labeling ---\n# Set titles and labels for clarity\nax.set_title(\n    'Heatmap of Coffee Sales: Identifying Peak Hours',\n    fontsize=18,\n    fontweight='bold',\n    pad=20\n)\nax.set_xlabel('Day of the Week', fontsize=12, fontweight='bold')\nax.set_ylabel('Hour of the Day (24-hour format)', fontsize=12, fontweight='bold')\n\n# Improve tick label readability\nplt.xticks(rotation=45, ha='right')\nplt.yticks(rotation=0)\n\n# Format color bar ticks as currency\ncbar = ax.collections[0].colorbar\ncbar.formatter = mticker.FormatStrFormatter('$%1.0f')\ncbar.update_ticks()\n\n# --- Save the Figure ---\n# Save the plot to a file with tight bounding box and high resolution\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.8966,
+    "color_delta_e": 0.6835,
+    "visual_entropy": 4.9732,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 23.166,
+    "cost_per_run": 0.005548,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

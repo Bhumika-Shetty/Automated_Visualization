@@ -1,0 +1,13 @@
+{
+  "model": "qwen2.5-coder:32b",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T16:08:56.438693",
+  "code": null,
+  "raw_response": null,
+  "stdout": null,
+  "stderr": null,
+  "metrics": null,
+  "error": "500 Server Error: Internal Server Error for url: http://localhost:11434/api/chat"
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-12T10:10:06.222432",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preprocessing ---\n# Combine 'date' and 'time' columns and convert to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour of the day and the day of the week\ndf['hour'] = df['datetime'].dt.hour\ndf['day_of_week'] = df['datetime'].dt.day_name()\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by day and hour\nsales_by_day_hour = df.pivot_table(\n    values='total',\n    index='day_of_week',\n    columns='hour',\n    aggfunc='sum'\n).fillna(0)\n\n# Ensure the days of the week are in chronological order\nday_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']\nsales_by_day_hour = sales_by_day_hour.reindex(day_order)\n\n# --- Visualization ---\n# Set the style and figure size\nsns.set_theme(style=\"whitegrid\")\nplt.figure(figsize=(18, 9))\n\n# Create the heatmap\nax = sns.heatmap(\n    sales_by_day_hour,\n    cmap='viridis',\n    linewidths=.5,\n    annot=True,\n    fmt=\".0f\",  # Format annotations as integers\n    annot_kws={\"size\": 8},\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set the title and axis labels with appropriate font sizes\nplt.title('Peak Sales Times: Hourly Sales by Day of the Week', fontsize=20, weight='bold', pad=20)\nplt.xlabel('Hour of the Day (24-hour format)', fontsize=14)\nplt.ylabel('Day of the Week', fontsize=14)\n\n# Improve readability of tick labels\nplt.xticks(rotation=0, ha='center', fontsize=10)\nplt.yticks(rotation=0, fontsize=10)\n\n# Format the color bar labels\ncbar = ax.collections[0].colorbar\ncbar.ax.yaxis.set_major_formatter(mticker.StrMethodFormatter('${x:,.0f}'))\n\n# --- Save the Figure ---\n# Save the final plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preprocessing ---\n# Combine 'date' and 'time' columns and convert to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour of the day and the day of the week\ndf['hour'] = df['datetime'].dt.hour\ndf['day_of_week'] = df['datetime'].dt.day_name()\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by day and hour\nsales_by_day_hour = df.pivot_table(\n    values='total',\n    index='day_of_week',\n    columns='hour',\n    aggfunc='sum'\n).fillna(0)\n\n# Ensure the days of the week are in chronological order\nday_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']\nsales_by_day_hour = sales_by_day_hour.reindex(day_order)\n\n# --- Visualization ---\n# Set the style and figure size\nsns.set_theme(style=\"whitegrid\")\nplt.figure(figsize=(18, 9))\n\n# Create the heatmap\nax = sns.heatmap(\n    sales_by_day_hour,\n    cmap='viridis',\n    linewidths=.5,\n    annot=True,\n    fmt=\".0f\",  # Format annotations as integers\n    annot_kws={\"size\": 8},\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set the title and axis labels with appropriate font sizes\nplt.title('Peak Sales Times: Hourly Sales by Day of the Week', fontsize=20, weight='bold', pad=20)\nplt.xlabel('Hour of the Day (24-hour format)', fontsize=14)\nplt.ylabel('Day of the Week', fontsize=14)\n\n# Improve readability of tick labels\nplt.xticks(rotation=0, ha='center', fontsize=10)\nplt.yticks(rotation=0, fontsize=10)\n\n# Format the color bar labels\ncbar = ax.collections[0].colorbar\ncbar.ax.yaxis.set_major_formatter(mticker.StrMethodFormatter('${x:,.0f}'))\n\n# --- Save the Figure ---\n# Save the final plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.7857,
+    "color_delta_e": 1.1911,
+    "visual_entropy": 4.2567,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 20.305,
+    "cost_per_run": 0.005268,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

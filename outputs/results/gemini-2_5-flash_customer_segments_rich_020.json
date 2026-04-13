@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-10T17:16:22.013855",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending across all product categories\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows with NaN in 'Income' or 'Education' as they are critical for this visualization\ndf.dropna(subset=['Income', 'Education'], inplace=True)\n\n# Filter out extreme outliers in Income for better visualization of the main data cluster.\n# Capping income at the 99th percentile helps prevent a few extreme values from distorting the plot.\nincome_cap = df['Income'].quantile(0.99)\ndf_filtered = df[df['Income'] <= income_cap].copy()\n\n# Set up the matplotlib figure and axes for the scatter plot\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Total Spending vs. Income, colored by Education level\nsns.scatterplot(data=df_filtered, x='Income', y='TotalSpending', hue='Education',\n                palette='viridis', alpha=0.7, s=70, edgecolor='w', linewidth=0.5)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending on Products', fontsize=12)\n\n# Improve legend placement to avoid overlapping with the plot\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels and legend from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending across all product categories\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows with NaN in 'Income' or 'Education' as they are critical for this visualization\ndf.dropna(subset=['Income', 'Education'], inplace=True)\n\n# Filter out extreme outliers in Income for better visualization of the main data cluster.\n# Capping income at the 99th percentile helps prevent a few extreme values from distorting the plot.\nincome_cap = df['Income'].quantile(0.99)\ndf_filtered = df[df['Income'] <= income_cap].copy()\n\n# Set up the matplotlib figure and axes for the scatter plot\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Total Spending vs. Income, colored by Education level\nsns.scatterplot(data=df_filtered, x='Income', y='TotalSpending', hue='Education',\n                palette='viridis', alpha=0.7, s=70, edgecolor='w', linewidth=0.5)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending on Products', fontsize=12)\n\n# Improve legend placement to avoid overlapping with the plot\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels and legend from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.3043,
+    "color_delta_e": 1.6305,
+    "visual_entropy": 1.4983,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 16.414,
+    "cost_per_run": 0.000186,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

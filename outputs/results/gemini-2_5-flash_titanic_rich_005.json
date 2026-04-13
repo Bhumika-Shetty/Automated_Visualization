@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-08T18:39:06.306973",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the catplot for survival rate by passenger class and sex\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    col='sex',\n    kind='bar',\n    errorbar='ci', # Show confidence intervals\n    palette='viridis',\n    height=5,\n    aspect=1.2\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate for {col_name}\")\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Sex\", y=1.03, fontsize=16) # Adjust y to prevent overlap\n\n# Ensure class labels are clear\ng.set_xticklabels(['1st Class', '2nd Class', '3rd Class'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the catplot for survival rate by passenger class and sex\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    col='sex',\n    kind='bar',\n    errorbar='ci', # Show confidence intervals\n    palette='viridis',\n    height=5,\n    aspect=1.2\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate for {col_name}\")\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Sex\", y=1.03, fontsize=16) # Adjust y to prevent overlap\n\n# Ensure class labels are clear\ng.set_xticklabels(['1st Class', '2nd Class', '3rd Class'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpx9jkig95/viz_script.py:9: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  g = sns.catplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.7,
+    "color_delta_e": 0.8908,
+    "visual_entropy": 1.5117,
+    "labeling_completeness": 0.25,
+    "code_complexity": 2,
+    "generation_latency": 5.025,
+    "cost_per_run": 8.5e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

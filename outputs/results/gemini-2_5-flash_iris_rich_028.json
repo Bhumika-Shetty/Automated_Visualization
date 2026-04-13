@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-10T16:20:51.762256",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot of the most discriminative features (petal length vs. petal width)\nplt.figure(figsize=(9, 6)) # Set figure size for better readability\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    palette='viridis', # Choose a perceptually uniform color palette\n    s=120, # Marker size for better visibility\n    alpha=0.8, # Transparency\n    edgecolor='w', # White edge for markers\n    linewidth=0.5 # Line width for marker edges\n)\n\n# Add title and labels for clarity\nplt.title('Iris Petal Length vs. Petal Width by Species', fontsize=18, fontweight='bold')\nplt.xlabel('Petal Length (cm)', fontsize=14)\nplt.ylabel('Petal Width (cm)', fontsize=14)\n\n# Customize the legend\nplt.legend(title='Species', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Adjust layout to make space for the legend outside the plot\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot of the most discriminative features (petal length vs. petal width)\nplt.figure(figsize=(9, 6)) # Set figure size for better readability\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    palette='viridis', # Choose a perceptually uniform color palette\n    s=120, # Marker size for better visibility\n    alpha=0.8, # Transparency\n    edgecolor='w', # White edge for markers\n    linewidth=0.5 # Line width for marker edges\n)\n\n# Add title and labels for clarity\nplt.title('Iris Petal Length vs. Petal Width by Species', fontsize=18, fontweight='bold')\nplt.xlabel('Petal Length (cm)', fontsize=14)\nplt.ylabel('Petal Width (cm)', fontsize=14)\n\n# Customize the legend\nplt.legend(title='Species', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Adjust layout to make space for the legend outside the plot\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.944,
+    "visual_entropy": 0.9801,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 8.87,
+    "cost_per_run": 0.00011,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

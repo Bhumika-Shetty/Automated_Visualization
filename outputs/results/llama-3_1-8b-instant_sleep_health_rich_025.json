@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-09T02:42:23.152101",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a histogram of sleep duration\nplt.figure(figsize=(10, 6))\nsns.histplot(data['Sleep Duration'], kde=True, binwidth=0.5)\nplt.title('Distribution of Sleep Duration')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_sleep_duration.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of sleep quality\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Quality of Sleep', data=data)\nplt.title('Distribution of Sleep Quality')\nplt.xlabel('Sleep Quality')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_sleep_quality.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of heart rate vs daily steps\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', data=data)\nplt.title('Relationship between Daily Steps and Heart Rate')\nplt.xlabel('Daily Steps')\nplt.ylabel('Heart Rate (bpm)')\nplt.tight_layout()\nplt.savefig('output_heart_rate_steps.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of physical activity level\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Physical Activity Level', data=data)\nplt.title('Distribution of Physical Activity Level')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_physical_activity.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of stress level\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Stress Level', data=data)\nplt.title('Distribution of Stress Level')\nplt.xlabel('Stress Level')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_stress_level.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of bmi category\nplt.figure(figsize=(10, 6))\nsns.countplot(x='BMI Category', data=data)\nplt.title('Distribution of BMI Category')\nplt.xlabel('BMI Category')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_bmi_category.png', bbox_inches='tight', dpi=150)\n\nplt.close('all')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a histogram of sleep duration\nplt.figure(figsize=(10, 6))\nsns.histplot(data['Sleep Duration'], kde=True, binwidth=0.5)\nplt.title('Distribution of Sleep Duration')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_sleep_duration.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of sleep quality\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Quality of Sleep', data=data)\nplt.title('Distribution of Sleep Quality')\nplt.xlabel('Sleep Quality')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_sleep_quality.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of heart rate vs daily steps\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', data=data)\nplt.title('Relationship between Daily Steps and Heart Rate')\nplt.xlabel('Daily Steps')\nplt.ylabel('Heart Rate (bpm)')\nplt.tight_layout()\nplt.savefig('output_heart_rate_steps.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of physical activity level\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Physical Activity Level', data=data)\nplt.title('Distribution of Physical Activity Level')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_physical_activity.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of stress level\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Stress Level', data=data)\nplt.title('Distribution of Stress Level')\nplt.xlabel('Stress Level')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_stress_level.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of bmi category\nplt.figure(figsize=(10, 6))\nsns.countplot(x='BMI Category', data=data)\nplt.title('Distribution of BMI Category')\nplt.xlabel('BMI Category')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_bmi_category.png', bbox_inches='tight', dpi=150)\n\nplt.close('all')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 53.85,
+    "hallucination_rate": 0.6333,
+    "color_delta_e": 0.6426,
+    "visual_entropy": 1.054,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.782,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

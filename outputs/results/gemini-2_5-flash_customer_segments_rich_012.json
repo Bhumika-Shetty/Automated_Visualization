@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-10T17:13:28.816868",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\ndf['Total_Spending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \\\n                       df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Drop rows with missing income for a cleaner visualization, as income is central to this plot\ndf_cleaned = df.dropna(subset=['Income'])\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_cleaned,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    size='Total_Spending', # Use total spending for point size to visually emphasize higher spending\n    sizes=(50, 1000), # Range of sizes for points\n    alpha=0.7,\n    palette='viridis', # A perceptually uniform colormap\n    edgecolor='w', # White edges for points for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Customer Spending vs. Income by Education Level', fontsize=18, fontweight='bold')\nplt.xlabel('Annual Income', fontsize=14)\nplt.ylabel('Total Spending on Products', fontsize=14)\n\n# Improve legend title and position\nplt.legend(title='Education Level', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Customize x and y axis ticks for better readability\nplt.ticklabel_format(style='plain', axis='x') # Prevent scientific notation for income\nplt.ticklabel_format(style='plain', axis='y') # Prevent scientific notation for spending\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\ndf['Total_Spending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \\\n                       df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Drop rows with missing income for a cleaner visualization, as income is central to this plot\ndf_cleaned = df.dropna(subset=['Income'])\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_cleaned,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    size='Total_Spending', # Use total spending for point size to visually emphasize higher spending\n    sizes=(50, 1000), # Range of sizes for points\n    alpha=0.7,\n    palette='viridis', # A perceptually uniform colormap\n    edgecolor='w', # White edges for points for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Customer Spending vs. Income by Education Level', fontsize=18, fontweight='bold')\nplt.xlabel('Annual Income', fontsize=14)\nplt.ylabel('Total Spending on Products', fontsize=14)\n\n# Improve legend title and position\nplt.legend(title='Education Level', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Customize x and y axis ticks for better readability\nplt.ticklabel_format(style='plain', axis='x') # Prevent scientific notation for income\nplt.ticklabel_format(style='plain', axis='y') # Prevent scientific notation for spending\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.52,
+    "color_delta_e": 1.1073,
+    "visual_entropy": 1.0975,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 10.406,
+    "cost_per_run": 0.000195,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

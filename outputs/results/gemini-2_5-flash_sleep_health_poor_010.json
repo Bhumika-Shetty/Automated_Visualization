@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 10,
+  "timestamp": "2026-04-10T16:56:05.550871",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Due to the small and somewhat repetitive nature of the sample data,\n# a grouped bar plot comparing key metrics across a categorical variable\n# like 'Occupation' can effectively illustrate potential differences.\n\n# Calculate the mean for 'Sleep Duration' and 'Quality of Sleep' by 'Occupation'\ndf_agg = df.groupby('Occupation')[['Sleep Duration', 'Quality of Sleep']].mean().reset_index()\n\n# Melt the DataFrame to long format for easier plotting with seaborn.barplot\ndf_melted = df_agg.melt(id_vars='Occupation', var_name='Metric', value_name='Average Value')\n\n# Set a style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the grouped bar plot\nplt.figure(figsize=(12, 7))\nsns.barplot(\n    data=df_melted,\n    x='Occupation',\n    y='Average Value',\n    hue='Metric',\n    palette='viridis' # Choose a color palette\n)\n\n# Add titles and labels for clarity\nplt.title('Average Sleep Duration and Quality of Sleep by Occupation', fontsize=16)\nplt.xlabel('Occupation', fontsize=12)\nplt.ylabel('Average Value', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Sleep Metric', title_fontsize='12', fontsize='10', loc='upper right')\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure all elements fit within the figure\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', dpi=300)\n\n# Optional: Display the plot (comment out if not running in an interactive environment)\n# plt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Due to the small and somewhat repetitive nature of the sample data,\n# a grouped bar plot comparing key metrics across a categorical variable\n# like 'Occupation' can effectively illustrate potential differences.\n\n# Calculate the mean for 'Sleep Duration' and 'Quality of Sleep' by 'Occupation'\ndf_agg = df.groupby('Occupation')[['Sleep Duration', 'Quality of Sleep']].mean().reset_index()\n\n# Melt the DataFrame to long format for easier plotting with seaborn.barplot\ndf_melted = df_agg.melt(id_vars='Occupation', var_name='Metric', value_name='Average Value')\n\n# Set a style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the grouped bar plot\nplt.figure(figsize=(12, 7))\nsns.barplot(\n    data=df_melted,\n    x='Occupation',\n    y='Average Value',\n    hue='Metric',\n    palette='viridis' # Choose a color palette\n)\n\n# Add titles and labels for clarity\nplt.title('Average Sleep Duration and Quality of Sleep by Occupation', fontsize=16)\nplt.xlabel('Occupation', fontsize=12)\nplt.ylabel('Average Value', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\nplt.legend(title='Sleep Metric', title_fontsize='12', fontsize='10', loc='upper right')\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure all elements fit within the figure\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', dpi=300)\n\n# Optional: Display the plot (comment out if not running in an interactive environment)\n# plt.show()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.3118,
+    "visual_entropy": 1.7235,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 12.684,
+    "cost_per_run": 0.000176,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

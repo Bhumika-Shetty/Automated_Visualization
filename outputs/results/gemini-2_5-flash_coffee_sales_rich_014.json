@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-12T04:48:51.767855",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Calculate total sales for each product and size\n# Group by product and size, then sum the 'total' column\nsales_by_product_size = df.groupby(['product', 'size'])['total'].sum().unstack(fill_value=0)\n\n# Define a preferred order for sizes for consistent stacking and legend\n# This also ensures only existing sizes are considered\npreferred_sizes_order = ['Small', 'Medium', 'Large']\navailable_sizes = [s for s in preferred_sizes_order if s in sales_by_product_size.columns]\nsales_by_product_size = sales_by_product_size[available_sizes]\n\n# Sort products by their total sales (sum across all sizes) for better readability\nsales_by_product_size['total_product_sales'] = sales_by_product_size.sum(axis=1)\nsales_by_product_size = sales_by_product_size.sort_values(by='total_product_sales', ascending=False)\n# Drop the temporary column used for sorting\nsales_by_product_size = sales_by_product_size.drop(columns='total_product_sales')\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create the stacked bar chart\nsales_by_product_size.plot(kind='bar', stacked=True, cmap='viridis', ax=plt.gca())\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product and Size', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend, placing it outside the plot area to avoid obscuring data\nplt.legend(title='Size', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Improve layout to prevent labels, title, or legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Calculate total sales for each product and size\n# Group by product and size, then sum the 'total' column\nsales_by_product_size = df.groupby(['product', 'size'])['total'].sum().unstack(fill_value=0)\n\n# Define a preferred order for sizes for consistent stacking and legend\n# This also ensures only existing sizes are considered\npreferred_sizes_order = ['Small', 'Medium', 'Large']\navailable_sizes = [s for s in preferred_sizes_order if s in sales_by_product_size.columns]\nsales_by_product_size = sales_by_product_size[available_sizes]\n\n# Sort products by their total sales (sum across all sizes) for better readability\nsales_by_product_size['total_product_sales'] = sales_by_product_size.sum(axis=1)\nsales_by_product_size = sales_by_product_size.sort_values(by='total_product_sales', ascending=False)\n# Drop the temporary column used for sorting\nsales_by_product_size = sales_by_product_size.drop(columns='total_product_sales')\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create the stacked bar chart\nsales_by_product_size.plot(kind='bar', stacked=True, cmap='viridis', ax=plt.gca())\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product and Size', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend, placing it outside the plot area to avoid obscuring data\nplt.legend(title='Size', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Improve layout to prevent labels, title, or legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.6842,
+    "color_delta_e": 1.2629,
+    "visual_entropy": 1.4991,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 12.905,
+    "cost_per_run": 0.000172,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

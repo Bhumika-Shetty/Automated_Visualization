@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-09T03:20:25.199768",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart to show the most common breeds\nbreed_counts = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=breed_counts.index, y=breed_counts.values, palette='Blues')\nplt.title('10 Most Common Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a histogram to show the age distribution of dogs\nplt.figure(figsize=(8,6))\nsns.histplot(data['AlterV10Sort'], bins=10, kde=True)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age (Years)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a pie chart to show the distribution of male and female dogs\nmale_count = (data['SexHundCd'] == 1).sum()\nfemale_count = (data['SexHundCd'] == 2).sum()\nother_count = len(data) - male_count - female_count\nlabels = ['Male', 'Female', 'Other']\nsizes = [male_count, female_count, other_count]\nplt.figure(figsize=(8,8))\nplt.pie(sizes, labels=labels, autopct='%1.1f%%')\nplt.title('Sex Distribution of Dogs in Zurich')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.\nplt.tight_layout()\nplt.savefig('output_sex.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a scatter plot to show the relationship between age and weight\nplt.figure(figsize=(8,6))\nsns.scatterplot(x=data['AlterV10Sort'], y=data['AlterVHundNum'])\nplt.title('Relationship between Age and Weight of Dogs in Zurich')\nplt.xlabel('Age (Years)')\nplt.ylabel('Weight (kg)')\nplt.tight_layout()\nplt.savefig('output_age_weight.png', bbox_inches='tight', dpi=150)\nplt.clf()",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart to show the most common breeds\nbreed_counts = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=breed_counts.index, y=breed_counts.values, palette='Blues')\nplt.title('10 Most Common Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a histogram to show the age distribution of dogs\nplt.figure(figsize=(8,6))\nsns.histplot(data['AlterV10Sort'], bins=10, kde=True)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age (Years)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a pie chart to show the distribution of male and female dogs\nmale_count = (data['SexHundCd'] == 1).sum()\nfemale_count = (data['SexHundCd'] == 2).sum()\nother_count = len(data) - male_count - female_count\nlabels = ['Male', 'Female', 'Other']\nsizes = [male_count, female_count, other_count]\nplt.figure(figsize=(8,8))\nplt.pie(sizes, labels=labels, autopct='%1.1f%%')\nplt.title('Sex Distribution of Dogs in Zurich')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.\nplt.tight_layout()\nplt.savefig('output_sex.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a scatter plot to show the relationship between age and weight\nplt.figure(figsize=(8,6))\nsns.scatterplot(x=data['AlterV10Sort'], y=data['AlterVHundNum'])\nplt.title('Relationship between Age and Weight of Dogs in Zurich')\nplt.xlabel('Age (Years)')\nplt.ylabel('Weight (kg)')\nplt.tight_layout()\nplt.savefig('output_age_weight.png', bbox_inches='tight', dpi=150)\nplt.clf()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpran_0fsx/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=breed_counts.index, y=breed_counts.values, palette='Blues')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.7368,
+    "visual_entropy": 1.139,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 13.164,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-11T02:14:10.683193",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='has_video_4k', # Use style to differentiate by 4K video capability\n    s=100, # Adjust marker size\n    alpha=0.7 # Adjust transparency\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and 4K Video Capability', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Create custom legend for 'has_video_4k' as it's a numeric 0/1\n# Seaborn automatically handles hue legend, but for style=0/1, it might be clearer to label\nhandles, labels = plt.gca().get_legend_handles_labels()\n\n# Find where the 'has_video_4k' labels start and end\n# The labels will typically be 'sensor_type1', 'sensor_type2', ..., '0', '1'\nsensor_types = df['sensor_type'].unique()\nvideo_4k_labels_start_index = len(sensor_types)\n\n# Relabel 0 and 1 for has_video_4k\nfor i in range(len(labels)):\n    if labels[i] == '0':\n        labels[i] = 'No 4K Video'\n    elif labels[i] == '1':\n        labels[i] = 'Has 4K Video'\n\nplt.legend(handles, labels, title='Sensor Type / 4K Video', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent legend overlap\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create the visualization\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='has_video_4k', # Use style to differentiate by 4K video capability\n    s=100, # Adjust marker size\n    alpha=0.7 # Adjust transparency\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and 4K Video Capability', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Create custom legend for 'has_video_4k' as it's a numeric 0/1\n# Seaborn automatically handles hue legend, but for style=0/1, it might be clearer to label\nhandles, labels = plt.gca().get_legend_handles_labels()\n\n# Find where the 'has_video_4k' labels start and end\n# The labels will typically be 'sensor_type1', 'sensor_type2', ..., '0', '1'\nsensor_types = df['sensor_type'].unique()\nvideo_4k_labels_start_index = len(sensor_types)\n\n# Relabel 0 and 1 for has_video_4k\nfor i in range(len(labels)):\n    if labels[i] == '0':\n        labels[i] = 'No 4K Video'\n    elif labels[i] == '1':\n        labels[i] = 'Has 4K Video'\n\nplt.legend(handles, labels, title='Sensor Type / 4K Video', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent legend overlap\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 2.2351,
+    "visual_entropy": 1.8255,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 8.257,
+    "cost_per_run": 0.000141,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-12T05:02:17.627344",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create the FacetGrid\ng = sns.catplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='who',\n    col='alone',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=0.8,\n    legend=False,\n    order=['First', 'Second', 'Third']\n)\n\n# Set a comprehensive title for the entire figure\ng.fig.suptitle('Titanic Survival Rate: Class, Demographics, and Traveling Companions',\n               fontsize=18, y=1.03)\n\n# Iterate through the axes to customize labels and formatting\nfor i, ax in enumerate(g.axes.flat):\n    # Set a more descriptive Y-axis label\n    ax.set_ylabel('Survival Rate')\n    \n    # Format Y-axis as percentage\n    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\n    \n    # Set custom titles for each subplot (column)\n    if i == 0:\n        ax.set_title('Traveling with Family')\n    else:\n        ax.set_title('Traveling Alone')\n        \n    # Set X-axis label\n    ax.set_xlabel('Passenger Class')\n\n    # Add data labels on top of each bar\n    for p in ax.patches:\n        ax.annotate(f'{p.get_height():.0%}',\n                    (p.get_x() + p.get_width() / 2., p.get_height()),\n                    ha='center', va='center',\n                    xytext=(0, 9),\n                    textcoords='offset points',\n                    fontsize=9,\n                    color='dimgray')\n\n# Adjust layout and add a single legend for the figure\nplt.legend(title='Passenger Type', loc='upper right')\ng.fig.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create the FacetGrid\ng = sns.catplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='who',\n    col='alone',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=0.8,\n    legend=False,\n    order=['First', 'Second', 'Third']\n)\n\n# Set a comprehensive title for the entire figure\ng.fig.suptitle('Titanic Survival Rate: Class, Demographics, and Traveling Companions',\n               fontsize=18, y=1.03)\n\n# Iterate through the axes to customize labels and formatting\nfor i, ax in enumerate(g.axes.flat):\n    # Set a more descriptive Y-axis label\n    ax.set_ylabel('Survival Rate')\n    \n    # Format Y-axis as percentage\n    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\n    \n    # Set custom titles for each subplot (column)\n    if i == 0:\n        ax.set_title('Traveling with Family')\n    else:\n        ax.set_title('Traveling Alone')\n        \n    # Set X-axis label\n    ax.set_xlabel('Passenger Class')\n\n    # Add data labels on top of each bar\n    for p in ax.patches:\n        ax.annotate(f'{p.get_height():.0%}',\n                    (p.get_x() + p.get_width() / 2., p.get_height()),\n                    ha='center', va='center',\n                    xytext=(0, 9),\n                    textcoords='offset points',\n                    fontsize=9,\n                    color='dimgray')\n\n# Adjust layout and add a single legend for the figure\nplt.legend(title='Passenger Type', loc='upper right')\ng.fig.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpp1at9r7g/viz_script.py:59: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Passenger Type', loc='upper right')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.8095,
+    "color_delta_e": 1.4581,
+    "visual_entropy": 1.6036,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 21.977,
+    "cost_per_run": 0.004959,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 19,
+  "timestamp": "2026-04-09T03:43:25.500455",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert model_year to datetime\ndf['model_year'] = pd.to_datetime(df['model_year'], format='%Y')\n\n# Create a bar plot of sensor_type and count\nsns.set()\nplt.figure(figsize=(8,6))\nsns.countplot(x='sensor_type', data=df)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.savefig('output.png')\n\n# Create a bar plot of brand and count\nsns.set()\nplt.figure(figsize=(8,6))\nsns.countplot(x='brand', data=df)\nplt.title('Distribution of Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png')\n\n# Create a scatter plot of price_usd vs megapixels\nsns.set()\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=df)\nplt.title('Price vs Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png')\n\n# Create a bar plot of body_type and count\nsns.set()\nplt.figure(figsize=(8,6))\nsns.countplot(x='body_type', data=df)\nplt.title('Distribution of Body Types')\nplt.xlabel('Body Type')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert model_year to datetime\ndf['model_year'] = pd.to_datetime(df['model_year'], format='%Y')\n\n# Create a bar plot of sensor_type and count\nsns.set()\nplt.figure(figsize=(8,6))\nsns.countplot(x='sensor_type', data=df)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.savefig('output.png')\n\n# Create a bar plot of brand and count\nsns.set()\nplt.figure(figsize=(8,6))\nsns.countplot(x='brand', data=df)\nplt.title('Distribution of Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png')\n\n# Create a scatter plot of price_usd vs megapixels\nsns.set()\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=df)\nplt.title('Price vs Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png')\n\n# Create a bar plot of body_type and count\nsns.set()\nplt.figure(figsize=(8,6))\nsns.countplot(x='body_type', data=df)\nplt.title('Distribution of Body Types')\nplt.xlabel('Body Type')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.5712,
+    "visual_entropy": 1.8337,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.895,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

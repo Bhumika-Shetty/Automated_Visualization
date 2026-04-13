@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-10T16:43:38.491153",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a clean style for the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and an axes object\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep,\n# while incorporating Stress Level using color (hue) and Physical Activity Level using marker size.\n# This allows for a multi-dimensional view of how these key lifestyle factors interact with sleep metrics.\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',         # Color points based on Stress Level\n    size='Physical Activity Level', # Scale point size based on Physical Activity Level\n    sizes=(50, 600),            # Define the range of marker sizes\n    palette='viridis',          # Use a perceptually uniform colormap\n    alpha=0.8,                  # Set transparency to help visualize overlapping points\n    edgecolor='w',              # Add a white edge to points for better separation\n    linewidth=0.5               # Line width for the point edges\n)\n\n# Set the title and labels for the plot\nplt.title('Sleep Duration vs. Quality of Sleep by Stress and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 Scale)', fontsize=12)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a clean style for the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and an axes object\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep,\n# while incorporating Stress Level using color (hue) and Physical Activity Level using marker size.\n# This allows for a multi-dimensional view of how these key lifestyle factors interact with sleep metrics.\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',         # Color points based on Stress Level\n    size='Physical Activity Level', # Scale point size based on Physical Activity Level\n    sizes=(50, 600),            # Define the range of marker sizes\n    palette='viridis',          # Use a perceptually uniform colormap\n    alpha=0.8,                  # Set transparency to help visualize overlapping points\n    edgecolor='w',              # Add a white edge to points for better separation\n    linewidth=0.5               # Line width for the point edges\n)\n\n# Set the title and labels for the plot\nplt.title('Sleep Duration vs. Quality of Sleep by Stress and Physical Activity', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 Scale)', fontsize=12)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 0.5478,
+    "visual_entropy": 0.6073,
+    "labeling_completeness": 0.75,
+    "code_complexity": 8,
+    "generation_latency": 15.664,
+    "cost_per_run": 0.000158,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

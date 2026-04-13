@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-11T02:13:36.550664",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot to visualize the relationship between megapixels and price,\n# differentiated by camera body type.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='body_type',\n    s=80,  # Adjust marker size for better visibility\n    alpha=0.7, # Add transparency to handle overplotting\n    palette='viridis' # Choose a color palette\n)\n\n# Set y-axis to a logarithmic scale for better distribution visibility,\n# especially if prices vary widely and are skewed towards lower values.\nplt.yscale('log')\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Body Type (Log Scale Price)', fontsize=16, weight='bold')\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD, Log Scale)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Body Type', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, frameon=True)\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust plot layout to prevent labels/titles from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot to visualize the relationship between megapixels and price,\n# differentiated by camera body type.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='body_type',\n    s=80,  # Adjust marker size for better visibility\n    alpha=0.7, # Add transparency to handle overplotting\n    palette='viridis' # Choose a color palette\n)\n\n# Set y-axis to a logarithmic scale for better distribution visibility,\n# especially if prices vary widely and are skewed towards lower values.\nplt.yscale('log')\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Body Type (Log Scale Price)', fontsize=16, weight='bold')\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD, Log Scale)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Body Type', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, frameon=True)\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust plot layout to prevent labels/titles from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.6364,
+    "color_delta_e": 1.182,
+    "visual_entropy": 1.5384,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 13.908,
+    "cost_per_run": 0.000132,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

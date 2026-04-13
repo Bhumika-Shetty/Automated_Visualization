@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 28,
+  "timestamp": "2026-04-12T08:24:45.049485",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mtick\nimport io\n\n# Load the dataset from the string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional and clean theme for the visualization\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a figure and axes for the plot\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationships between variables\n# - x-axis: Hour of the day to show temporal patterns\n# - y-axis: Transaction amount\n# - hue: Differentiate by transaction type\n# - style: Differentiate by fraud status (though all are non-fraudulent in this sample)\n# - size: Emphasize the magnitude of the transaction amount\nscatter = sns.scatterplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='transaction_type',\n    style='is_fraud',\n    size='amount',\n    sizes=(100, 1000),  # Define a range for marker sizes\n    palette='viridis',\n    alpha=0.8,\n    edgecolor='black',\n    linewidth=0.5,\n    ax=ax\n)\n\n# --- Customize the plot for clarity and impact ---\n\n# Set an informative title and clear axis labels\nax.set_title('Analysis of Transactions by Time, Type, and Amount', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Hour of Day', fontsize=13)\nax.set_ylabel('Transaction Amount', fontsize=13)\n\n# Format the y-axis to represent currency\nformatter = mtick.FormatStrFormatter('$%1.2f')\nax.yaxis.set_major_formatter(formatter)\n\n# Set x-axis limits to represent a full 24-hour day and improve readability\nax.set_xlim(-1, 24)\nax.set_xticks(range(0, 25, 2))\n\n# Improve the legend by moving it outside the plot area to avoid overlap\nax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to make room for the legend\nplt.tight_layout(rect=[0, 0, 0.85, 1])\n\n# Save the resulting visualization to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close(fig)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mtick\nimport io\n\n# Load the dataset from the string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional and clean theme for the visualization\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a figure and axes for the plot\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationships between variables\n# - x-axis: Hour of the day to show temporal patterns\n# - y-axis: Transaction amount\n# - hue: Differentiate by transaction type\n# - style: Differentiate by fraud status (though all are non-fraudulent in this sample)\n# - size: Emphasize the magnitude of the transaction amount\nscatter = sns.scatterplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='transaction_type',\n    style='is_fraud',\n    size='amount',\n    sizes=(100, 1000),  # Define a range for marker sizes\n    palette='viridis',\n    alpha=0.8,\n    edgecolor='black',\n    linewidth=0.5,\n    ax=ax\n)\n\n# --- Customize the plot for clarity and impact ---\n\n# Set an informative title and clear axis labels\nax.set_title('Analysis of Transactions by Time, Type, and Amount', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Hour of Day', fontsize=13)\nax.set_ylabel('Transaction Amount', fontsize=13)\n\n# Format the y-axis to represent currency\nformatter = mtick.FormatStrFormatter('$%1.2f')\nax.yaxis.set_major_formatter(formatter)\n\n# Set x-axis limits to represent a full 24-hour day and improve readability\nax.set_xlim(-1, 24)\nax.set_xticks(range(0, 25, 2))\n\n# Improve the legend by moving it outside the plot area to avoid overlap\nax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to make room for the legend\nplt.tight_layout(rect=[0, 0, 0.85, 1])\n\n# Save the resulting visualization to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close(fig)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6154,
+    "color_delta_e": 0.4318,
+    "visual_entropy": 0.5324,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 30.514,
+    "cost_per_run": 0.005403,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

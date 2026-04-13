@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-09T03:48:00.864444",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a bar chart to show the average sales by product\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', data=coffee_sales)\nplt.title('Average Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between quantity and price\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='quantity', y='price', data=coffee_sales)\nplt.title('Relationship between Quantity and Price')\nplt.xlabel('Quantity')\nplt.ylabel('Price ($)')\nplt.tight_layout()\nplt.savefig('output_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of customer age groups\nplt.figure(figsize=(10, 6))\nsns.histplot(x='customer_age_group', data=coffee_sales, kde=True)\nplt.title('Distribution of Customer Age Groups')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Frequency')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_age_group.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to show the payment method distribution\nplt.figure(figsize=(8, 8))\nsns.countplot(x='payment_method', data=coffee_sales)\nplt.title('Payment Method Distribution')\nplt.xlabel('Payment Method')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_payment.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a bar chart to show the average sales by product\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', data=coffee_sales)\nplt.title('Average Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between quantity and price\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='quantity', y='price', data=coffee_sales)\nplt.title('Relationship between Quantity and Price')\nplt.xlabel('Quantity')\nplt.ylabel('Price ($)')\nplt.tight_layout()\nplt.savefig('output_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of customer age groups\nplt.figure(figsize=(10, 6))\nsns.histplot(x='customer_age_group', data=coffee_sales, kde=True)\nplt.title('Distribution of Customer Age Groups')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Frequency')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_age_group.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to show the payment method distribution\nplt.figure(figsize=(8, 8))\nsns.countplot(x='payment_method', data=coffee_sales)\nplt.title('Payment Method Distribution')\nplt.xlabel('Payment Method')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_payment.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 90.0,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 1.137,
+    "visual_entropy": 1.2214,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 11.128,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

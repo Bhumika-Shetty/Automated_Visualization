@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-09T02:41:06.446721",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot to compare the distribution of sleep duration and quality across different age groups\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.violinplot(x='Age', y='Sleep Duration', hue='Gender', data=sleep_health, split=True, ax=ax)\nax.set_title('Sleep Duration Distribution by Age and Gender')\nax.set_xlabel('Age')\nax.set_ylabel('Sleep Duration (hours)')\nax.legend(title='Gender')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot to compare the distribution of sleep duration and quality across different age groups\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.violinplot(x='Age', y='Sleep Duration', hue='Gender', data=sleep_health, split=True, ax=ax)\nax.set_title('Sleep Duration Distribution by Age and Gender')\nax.set_xlabel('Age')\nax.set_ylabel('Sleep Duration (hours)')\nax.legend(title='Gender')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.2857,
+    "color_delta_e": 1.5691,
+    "visual_entropy": 0.573,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.481,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

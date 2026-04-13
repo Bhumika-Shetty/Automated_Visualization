@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-09T02:34:49.149249",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.datasets import load_iris\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\ndf['species'] = df['species'].map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})\n\n# Create a scatter plot with different colors for each species\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='sepal_length', y='sepal_width', hue='species', data=df)\n\n# Add title and labels\nplt.title('Sepal Length vs Sepal Width by Species')\nplt.xlabel('Sepal Length')\nplt.ylabel('Sepal Width')\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Show the plot\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.datasets import load_iris\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\ndf['species'] = df['species'].map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})\n\n# Create a scatter plot with different colors for each species\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='sepal_length', y='sepal_width', hue='species', data=df)\n\n# Add title and labels\nplt.title('Sepal Length vs Sepal Width by Species')\nplt.xlabel('Sepal Length')\nplt.ylabel('Sepal Width')\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Show the plot\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpnw3tcuex/viz_script.py\", line 14, in <module>\n    sns.scatterplot(x='sepal_length', y='sepal_width', hue='species', data=df)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/relational.py\", line 615, in scatterplot\n    p = _ScatterPlotter(\n        data=data,\n        variables=dict(x=x, y=y, hue=hue, size=size, style=style),\n        legend=legend\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/relational.py\", line 396, in __init__\n    super().__init__(data=data, variables=variables)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 634, in __init__\n    self.assign_variables(data, variables)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 679, in assign_variables\n    plot_data = PlotData(data, variables)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 58, in __init__\n    frame, names, ids = self._assign_variables(data, variables)\n                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 232, in _assign_variables\n    raise ValueError(err)\nValueError: Could not interpret value `sepal_length` for `x`. An entry with this name does not appear in `data`.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 0.433,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

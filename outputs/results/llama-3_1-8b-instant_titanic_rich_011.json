@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-09T02:12:44.602631",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/titanic.csv')\n\n# Set the figure size\nplt.figure(figsize=(12, 6))\n\n# Create a bar chart for the survival rate based on class\nplt.subplot(1, 2, 1)\nsns.countplot(x='pclass', hue='survived', data=data)\nplt.title('Survival Rate by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\n\n# Create a histogram for the age distribution\nplt.subplot(1, 2, 2)\nsns.histplot(data['age'], kde=True)\nplt.title('Age Distribution')\nplt.xlabel('Age')\nplt.ylabel('Frequency')\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/titanic.csv')\n\n# Set the figure size\nplt.figure(figsize=(12, 6))\n\n# Create a bar chart for the survival rate based on class\nplt.subplot(1, 2, 1)\nsns.countplot(x='pclass', hue='survived', data=data)\nplt.title('Survival Rate by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\n\n# Create a histogram for the age distribution\nplt.subplot(1, 2, 2)\nsns.histplot(data['age'], kde=True)\nplt.title('Age Distribution')\nplt.xlabel('Age')\nplt.ylabel('Frequency')\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.4805,
+    "visual_entropy": 1.4603,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 0.51,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

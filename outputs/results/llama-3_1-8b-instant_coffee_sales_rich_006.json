@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-09T03:46:57.065574",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Plot sales by product and size\nplt.figure(figsize=(10, 6))\nsns.countplot(x='product', hue='size', data=coffee_sales)\nplt.title('Coffee Sales by Product and Size')\nplt.xlabel('Product')\nplt.ylabel('Count')\nplt.legend(title='Size')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Plot sales by product and size\nplt.figure(figsize=(10, 6))\nsns.countplot(x='product', hue='size', data=coffee_sales)\nplt.title('Coffee Sales by Product and Size')\nplt.xlabel('Product')\nplt.ylabel('Count')\nplt.legend(title='Size')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 1.8718,
+    "visual_entropy": 1.7768,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.45,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

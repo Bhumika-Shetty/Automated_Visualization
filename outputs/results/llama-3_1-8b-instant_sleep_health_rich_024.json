@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-09T02:42:21.138003",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot to compare sleep duration by age group\nplt.figure(figsize=(10,6))\nsns.violinplot(x='Age', y='Sleep Duration', hue='Gender', data=sleep_health)\nplt.title('Sleep Duration by Age Group and Gender')\nplt.xlabel('Age')\nplt.ylabel('Sleep Duration (hours)')\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare physical activity levels by occupation\nplt.figure(figsize=(10,6))\nsns.countplot(x='Occupation', hue='Physical Activity Level', data=sleep_health)\nplt.title('Physical Activity Levels by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Count')\nplt.legend(title='Physical Activity Level')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to visualize the correlation between health metrics\nplt.figure(figsize=(10,8))\ncorr_matrix = sleep_health[['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level', 'BMI Category', 'Blood Pressure', 'Heart Rate', 'Daily Steps']].corr()\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation between Health Metrics')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot to compare sleep duration by age group\nplt.figure(figsize=(10,6))\nsns.violinplot(x='Age', y='Sleep Duration', hue='Gender', data=sleep_health)\nplt.title('Sleep Duration by Age Group and Gender')\nplt.xlabel('Age')\nplt.ylabel('Sleep Duration (hours)')\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare physical activity levels by occupation\nplt.figure(figsize=(10,6))\nsns.countplot(x='Occupation', hue='Physical Activity Level', data=sleep_health)\nplt.title('Physical Activity Levels by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Count')\nplt.legend(title='Physical Activity Level')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to visualize the correlation between health metrics\nplt.figure(figsize=(10,8))\ncorr_matrix = sleep_health[['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level', 'BMI Category', 'Blood Pressure', 'Heart Rate', 'Daily Steps']].corr()\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation between Health Metrics')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp5xeil2c9/viz_script.py\", line 30, in <module>\n    corr_matrix = sleep_health[['Sleep Duration', 'Quality of Sleep', 'Physical Activity Level', 'Stress Level', 'BMI Category', 'Blood Pressure', 'Heart Rate', 'Daily Steps']].corr()\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 13121, in corr\n    mat = data.to_numpy(dtype=float, na_value=np.nan, copy=False)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 2081, in to_numpy\n    result = self._mgr.as_array(dtype=dtype, copy=copy, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1864, in as_array\n    arr = self._interleave(dtype=dtype, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1917, in _interleave\n    arr = blk.values.to_numpy(  # type: ignore[union-attr]\n        dtype=dtype,\n        na_value=na_value,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/arrow/array.py\", line 1717, in to_numpy\n    result = result.astype(dtype, copy=False)\nValueError: could not convert string to float: 'Overweight'\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 84.62,
+    "hallucination_rate": 0.32,
+    "color_delta_e": 1.4082,
+    "visual_entropy": 0.6368,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.688,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

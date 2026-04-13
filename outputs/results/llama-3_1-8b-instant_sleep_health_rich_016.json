@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-09T02:41:04.186311",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Convert categorical variables to categorical data type\nsleep_health['Gender'] = sleep_health['Gender'].astype('category')\nsleep_health['Occupation'] = sleep_health['Occupation'].astype('category')\nsleep_health['BMI Category'] = sleep_health['BMI Category'].astype('category')\nsleep_health['Blood Pressure'] = sleep_health['Blood Pressure'].astype('category')\nsleep_health['Sleep Disorder'] = sleep_health['Sleep Disorder'].astype('category')\n\n# Create a boxplot to visualize the distribution of sleep duration by gender\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.boxplot(x='Gender', y='Sleep Duration', data=sleep_health)\nax.set_title('Sleep Duration by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Sleep Duration (hours)')\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to visualize the distribution of physical activity levels across different age groups\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.countplot(x='Age', hue='Physical Activity Level', data=sleep_health)\nax.set_title('Physical Activity Levels by Age')\nax.set_xlabel('Age')\nax.set_ylabel('Count')\nax.legend(title='Physical Activity Level')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between sleep duration and daily steps\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.scatterplot(x='Sleep Duration', y='Daily Steps', data=sleep_health)\nax.set_title('Relationship between Sleep Duration and Daily Steps')\nax.set_xlabel('Sleep Duration (hours)')\nax.set_ylabel('Daily Steps')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to visualize the distribution of blood pressure across different BMI categories\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.countplot(x='BMI Category', hue='Blood Pressure', data=sleep_health)\nax.set_title('Blood Pressure by BMI Category')\nax.set_xlabel('BMI Category')\nax.set_ylabel('Count')\nax.legend(title='Blood Pressure')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Convert categorical variables to categorical data type\nsleep_health['Gender'] = sleep_health['Gender'].astype('category')\nsleep_health['Occupation'] = sleep_health['Occupation'].astype('category')\nsleep_health['BMI Category'] = sleep_health['BMI Category'].astype('category')\nsleep_health['Blood Pressure'] = sleep_health['Blood Pressure'].astype('category')\nsleep_health['Sleep Disorder'] = sleep_health['Sleep Disorder'].astype('category')\n\n# Create a boxplot to visualize the distribution of sleep duration by gender\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.boxplot(x='Gender', y='Sleep Duration', data=sleep_health)\nax.set_title('Sleep Duration by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Sleep Duration (hours)')\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to visualize the distribution of physical activity levels across different age groups\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.countplot(x='Age', hue='Physical Activity Level', data=sleep_health)\nax.set_title('Physical Activity Levels by Age')\nax.set_xlabel('Age')\nax.set_ylabel('Count')\nax.legend(title='Physical Activity Level')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between sleep duration and daily steps\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.scatterplot(x='Sleep Duration', y='Daily Steps', data=sleep_health)\nax.set_title('Relationship between Sleep Duration and Daily Steps')\nax.set_xlabel('Sleep Duration (hours)')\nax.set_ylabel('Daily Steps')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to visualize the distribution of blood pressure across different BMI categories\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.countplot(x='BMI Category', hue='Blood Pressure', data=sleep_health)\nax.set_title('Blood Pressure by BMI Category')\nax.set_xlabel('BMI Category')\nax.set_ylabel('Count')\nax.legend(title='Blood Pressure')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 69.23,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 0.8242,
+    "visual_entropy": 0.299,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.799,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

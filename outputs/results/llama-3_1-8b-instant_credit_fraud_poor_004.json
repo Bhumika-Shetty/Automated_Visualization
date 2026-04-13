@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 4,
+  "timestamp": "2026-04-09T03:07:50.870868",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Save the dataframe to a csv file\ndf.to_csv('dataset.csv', index=False)\n\n# Read the csv file\ndf = pd.read_csv('dataset.csv')\n\n# Plot a bar chart to compare the number of transactions by hour of day\nhour_counts = df['hour_of_day'].value_counts()\nplt.figure(figsize=(10,6))\nsns.barplot(x=hour_counts.index, y=hour_counts.values, palette='Blues_d')\nplt.title('Hour of Day vs Number of Transactions')\nplt.xlabel('Hour of Day')\nplt.ylabel('Number of Transactions')\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Save the dataframe to a csv file\ndf.to_csv('dataset.csv', index=False)\n\n# Read the csv file\ndf = pd.read_csv('dataset.csv')\n\n# Plot a bar chart to compare the number of transactions by hour of day\nhour_counts = df['hour_of_day'].value_counts()\nplt.figure(figsize=(10,6))\nsns.barplot(x=hour_counts.index, y=hour_counts.values, palette='Blues_d')\nplt.title('Hour of Day vs Number of Transactions')\nplt.xlabel('Hour of Day')\nplt.ylabel('Number of Transactions')\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp80q2sp1t/viz_script.py:23: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=hour_counts.index, y=hour_counts.values, palette='Blues_d')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6429,
+    "color_delta_e": 0.8933,
+    "visual_entropy": 1.6228,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.591,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

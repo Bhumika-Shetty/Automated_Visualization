@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-09T02:14:12.698316",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the csv file\ntitanic_df = pd.read_csv('data/titanic.csv')\n\n# Explore the data\nprint(titanic_df.head())\nprint(titanic_df.info())\nprint(titanic_df.describe())\n\n# Create a bar chart to compare the survival rate by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=titanic_df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the csv file\ntitanic_df = pd.read_csv('data/titanic.csv')\n\n# Explore the data\nprint(titanic_df.head())\nprint(titanic_df.info())\nprint(titanic_df.describe())\n\n# Create a bar chart to compare the survival rate by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=titanic_df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "   survived  pclass     sex   age  ...  deck  embark_town  alive  alone\n0         0       3    male  22.0  ...   NaN  Southampton     no  False\n1         1       1  female  38.0  ...     C    Cherbourg    yes  False\n2         1       3  female  26.0  ...   NaN  Southampton    yes   True\n3         1       1  female  35.0  ...     C  Southampton    yes  False\n4         0       3    male  35.0  ...   NaN  Southampton     no   True\n\n[5 rows x 15 columns]\n<class 'pandas.DataFrame'>\nRangeIndex: 891 entries, 0 to 890\nData columns (total 15 columns):\n #   Column       Non-Null Count  Dtype  \n---  ------       --------------  -----  \n 0   survived     891 non-null    int64  \n 1   pclass       891 non-null    int64  \n 2   sex          891 non-null    str    \n 3   age          714 non-null    float64\n 4   sibsp        891 non-null    int64  \n 5   parch        891 non-null    int64  \n 6   fare         891 non-null    float64\n 7   embarked     889 non-null    str    \n 8   class        891 non-null    str    \n 9   who          891 non-null    str    \n 10  adult_male   891 non-null    bool   \n 11  deck         203 non-null    str    \n 12  embark_town  889 non-null    str    \n 13  alive        891 non-null    str    \n 14  alone        891 non-null    bool   \ndtypes: bool(2), float64(2), int64(4), str(7)\nmemory usage: 116.9 KB\nNone\n         survived      pclass         age       sibsp       parch        fare\ncount  891.000000  891.000000  714.000000  891.000000  891.000000  891.000000\nmean     0.383838    2.308642   29.699118    0.523008    0.381594   32.204208\nstd      0.486592    0.836071   14.526497    1.102743    0.806057   49.693429\nmin      0.000000    1.000000    0.420000    0.000000    0.000000    0.000000\n25%      0.000000    2.000000   20.125000    0.000000    0.000000    7.910400\n50%      0.000000    3.000000   28.000000    0.000000    0.000000   14.454200\n75%      1.000000    3.000000   38.000000    1.000000    0.000000   31.000000\nmax      1.000000    3.000000   80.000000    8.000000    6.000000  512.329200\n",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 13.33,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.6554,
+    "visual_entropy": 1.2844,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.445,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

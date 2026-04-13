@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-09T03:02:15.966975",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Convert is_fraud to categorical for better visualization\ndf['is_fraud'] = pd.Categorical(df['is_fraud']).codes\n\n# Create a bar chart to compare the frequency of fraud and non-fraud transactions\nplt.figure(figsize=(8, 6))\nsns.countplot(x='is_fraud', data=df)\nplt.title('Frequency of Fraud and Non-Fraud Transactions')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Transaction Type')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to display the distribution of transaction amounts\nplt.figure(figsize=(8, 6))\nsns.histplot(df['amount'], kde=True)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.savefig('output_amount.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between hour_of_day and amount\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=df)\nplt.title('Relationship between Hour of Day and Transaction Amount')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount ($)')\nplt.savefig('output_hour_amount.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to display the distribution of transaction types\nplt.figure(figsize=(8, 6))\ndf['transaction_type'].value_counts().plot(kind='pie', autopct='%1.1f%%')\nplt.title('Distribution of Transaction Types')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.\nplt.savefig('output_types.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Convert is_fraud to categorical for better visualization\ndf['is_fraud'] = pd.Categorical(df['is_fraud']).codes\n\n# Create a bar chart to compare the frequency of fraud and non-fraud transactions\nplt.figure(figsize=(8, 6))\nsns.countplot(x='is_fraud', data=df)\nplt.title('Frequency of Fraud and Non-Fraud Transactions')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Transaction Type')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to display the distribution of transaction amounts\nplt.figure(figsize=(8, 6))\nsns.histplot(df['amount'], kde=True)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.savefig('output_amount.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between hour_of_day and amount\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=df)\nplt.title('Relationship between Hour of Day and Transaction Amount')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount ($)')\nplt.savefig('output_hour_amount.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to display the distribution of transaction types\nplt.figure(figsize=(8, 6))\ndf['transaction_type'].value_counts().plot(kind='pie', autopct='%1.1f%%')\nplt.title('Distribution of Transaction Types')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.\nplt.savefig('output_types.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmph78i3q8y/viz_script.py:17: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Transaction Type')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.8277,
+    "visual_entropy": 1.1175,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.926,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

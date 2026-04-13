@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-09T02:13:47.934195",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Map 'yes'/'no' alive values to numerical values\ndf['alive'] = df['alive'].map({'yes': 1, 'no': 0})\n\n# Plot survival rate by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='alive', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Alive')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Plot survival rate by class\nplt.figure(figsize=(10,6))\nsns.countplot(x='class', hue='alive', data=df)\nplt.title('Survival Rate by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Alive')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append_args={'mode': 'a'})\nplt.clf()\n\n# Plot survival rate by age group\nbins = [0, 10, 20, 30, 40, 50, 60, 70, 80]\nlabels = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79']\ndf['age_group'] = pd.cut(df['age'], bins=bins, labels=labels, include_lowest=True)\nplt.figure(figsize=(10,6))\nsns.countplot(x='age_group', hue='alive', data=df)\nplt.title('Survival Rate by Age Group')\nplt.xlabel('Age Group')\nplt.ylabel('Count')\nplt.legend(title='Alive')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append_args={'mode': 'a'})",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Map 'yes'/'no' alive values to numerical values\ndf['alive'] = df['alive'].map({'yes': 1, 'no': 0})\n\n# Plot survival rate by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='alive', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Alive')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Plot survival rate by class\nplt.figure(figsize=(10,6))\nsns.countplot(x='class', hue='alive', data=df)\nplt.title('Survival Rate by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Alive')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append_args={'mode': 'a'})\nplt.clf()\n\n# Plot survival rate by age group\nbins = [0, 10, 20, 30, 40, 50, 60, 70, 80]\nlabels = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79']\ndf['age_group'] = pd.cut(df['age'], bins=bins, labels=labels, include_lowest=True)\nplt.figure(figsize=(10,6))\nsns.countplot(x='age_group', hue='alive', data=df)\nplt.title('Survival Rate by Age Group')\nplt.xlabel('Age Group')\nplt.ylabel('Count')\nplt.legend(title='Alive')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150, append_args={'mode': 'a'})\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpehf5jqj1/viz_script.py\", line 30, in <module>\n    plt.savefig('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpehf5jqj1/output.png', bbox_inches='tight', dpi=150, append_args={'mode': 'a'})\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/pyplot.py\", line 1250, in savefig\n    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/figure.py\", line 3490, in savefig\n    self.canvas.print_figure(fname, **kwargs)\n    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/backend_bases.py\", line 2186, in print_figure\n    result = print_method(\n        filename,\n    ...<3 lines>...\n        bbox_inches_restore=_bbox_inches_restore,\n        **kwargs)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/matplotlib/backend_bases.py\", line 2042, in <lambda>\n    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(\n                                                                 ~~~~^\n        *args, **{k: v for k, v in kwargs.items() if k not in skip}))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: FigureCanvasAgg.print_png() got an unexpected keyword argument 'append_args'\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 0.5135,
+    "visual_entropy": 1.2729,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.728,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 18,
+  "timestamp": "2026-04-10T16:05:38.721630",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset from the provided string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\ndf = pd.read_csv(io.StringIO(data))\n\n# Set the style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a bar plot to visualize survival rate by passenger class and sex\n# This is a classic and highly insightful view for the Titanic dataset.\n# ci=None is used because the sample size is very small, making confidence intervals less meaningful.\nplt.figure(figsize=(8, 6))\nsns.barplot(x='class', y='survived', hue='sex', data=df, palette='viridis', ci=None)\n\n# Add title and labels for clarity\nplt.title('Survival Rate on Titanic by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.ylim(0, 1) # Survival rate is always between 0 and 1\nplt.legend(title='Sex', loc='upper right')\n\n# Enhance readability\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset from the provided string\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\ndf = pd.read_csv(io.StringIO(data))\n\n# Set the style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a bar plot to visualize survival rate by passenger class and sex\n# This is a classic and highly insightful view for the Titanic dataset.\n# ci=None is used because the sample size is very small, making confidence intervals less meaningful.\nplt.figure(figsize=(8, 6))\nsns.barplot(x='class', y='survived', hue='sex', data=df, palette='viridis', ci=None)\n\n# Add title and labels for clarity\nplt.title('Survival Rate on Titanic by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.ylim(0, 1) # Survival rate is always between 0 and 1\nplt.legend(title='Sex', loc='upper right')\n\n# Enhance readability\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpfremu6z0/viz_script.py:23: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x='class', y='survived', hue='sex', data=df, palette='viridis', ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 0.8874,
+    "visual_entropy": 1.3402,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 18.994,
+    "cost_per_run": 0.000128,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

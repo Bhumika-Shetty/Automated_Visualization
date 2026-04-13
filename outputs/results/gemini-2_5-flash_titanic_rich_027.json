@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-10T15:53:49.452030",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the catplot to visualize survival rate by Pclass and Sex\n# 'kind=\"bar\"' automatically calculates the mean of 'survived' for each group\ng = sns.catplot(\n    x='pclass', \n    y='survived', \n    hue='sex', \n    data=df, \n    kind='bar', \n    palette='viridis', \n    height=5, \n    aspect=1.2,\n    errorbar=('ci', 95) # Show 95% confidence interval\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.fig.suptitle('Survival Rate on Titanic by Passenger Class and Sex', y=1.03) # y adjusts title position\ng._legend.set_title(\"Sex\")\n\n# Improve x-axis labels for Pclass if desired (optional)\n# g.set_xticklabels(['First', 'Second', 'Third']) # requires setting x-axis ticks manually if 'pclass' is int\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the catplot to visualize survival rate by Pclass and Sex\n# 'kind=\"bar\"' automatically calculates the mean of 'survived' for each group\ng = sns.catplot(\n    x='pclass', \n    y='survived', \n    hue='sex', \n    data=df, \n    kind='bar', \n    palette='viridis', \n    height=5, \n    aspect=1.2,\n    errorbar=('ci', 95) # Show 95% confidence interval\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.fig.suptitle('Survival Rate on Titanic by Passenger Class and Sex', y=1.03) # y adjusts title position\ng._legend.set_title(\"Sex\")\n\n# Improve x-axis labels for Pclass if desired (optional)\n# g.set_xticklabels(['First', 'Second', 'Third']) # requires setting x-axis ticks manually if 'pclass' is int\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6471,
+    "color_delta_e": 0.9545,
+    "visual_entropy": 1.1985,
+    "labeling_completeness": 0.5,
+    "code_complexity": 4,
+    "generation_latency": 6.339,
+    "cost_per_run": 9.7e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

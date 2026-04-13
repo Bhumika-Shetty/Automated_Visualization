@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-12T04:51:07.082145",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a consistent order for 'size' for better visualization\nsize_order = ['Small', 'Medium', 'Large']\ndf['size'] = pd.Categorical(df['size'], categories=size_order, ordered=True)\n\n# Aggregate total sales by product and size\n# This will calculate the sum of 'total' for each unique combination of 'product' and 'size'\naggregated_sales = df.groupby(['product', 'size'])['total'].sum().reset_index()\n\n# Set a visually appealing style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar chart to visualize total sales by product and size\nsns.barplot(\n    data=aggregated_sales,\n    x='product',\n    y='total',\n    hue='size',\n    palette='viridis'  # Choose a color palette for different sizes\n)\n\n# Add a descriptive title to the plot\nplt.title('Total Sales by Product and Size', fontsize=16)\n\n# Label the x-axis\nplt.xlabel('Product', fontsize=12)\n\n# Label the y-axis\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend to distinguish between different sizes\nplt.legend(title='Size', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a consistent order for 'size' for better visualization\nsize_order = ['Small', 'Medium', 'Large']\ndf['size'] = pd.Categorical(df['size'], categories=size_order, ordered=True)\n\n# Aggregate total sales by product and size\n# This will calculate the sum of 'total' for each unique combination of 'product' and 'size'\naggregated_sales = df.groupby(['product', 'size'])['total'].sum().reset_index()\n\n# Set a visually appealing style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar chart to visualize total sales by product and size\nsns.barplot(\n    data=aggregated_sales,\n    x='product',\n    y='total',\n    hue='size',\n    palette='viridis'  # Choose a color palette for different sizes\n)\n\n# Add a descriptive title to the plot\nplt.title('Total Sales by Product and Size', fontsize=16)\n\n# Label the x-axis\nplt.xlabel('Product', fontsize=12)\n\n# Label the y-axis\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend to distinguish between different sizes\nplt.legend(title='Size', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.3913,
+    "color_delta_e": 1.2802,
+    "visual_entropy": 1.5984,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 11.728,
+    "cost_per_run": 0.000142,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

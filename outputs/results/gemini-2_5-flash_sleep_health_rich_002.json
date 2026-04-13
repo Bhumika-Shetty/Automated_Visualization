@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-10T16:29:54.878062",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle the 'Sleep Disorder' column: replace NaN with 'No Disorder'\n# This ensures all data points are categorized and included in the plot.\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a clean and professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create an insightful scatter plot to visualize the relationship between\n# Sleep Duration and Age, while also showing the impact of Sleep Disorders (color)\n# and Stress Level (point size).\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='Age',\n    y='Sleep Duration',\n    hue='Sleep Disorder',  # Color points by Sleep Disorder category\n    size='Stress Level',   # Size points by Stress Level (ordinal, higher stress = larger point)\n    sizes=(50, 600),       # Define the range of point sizes for better visual distinction\n    alpha=0.7,             # Set transparency for better visibility of overlapping points\n    palette='tab10',       # Use a qualitative color palette suitable for categorical data\n    linewidth=0            # Remove linewidth for cleaner points\n)\n\n# Add a descriptive title and axis labels\nplt.title('Sleep Duration vs. Age: Impact of Sleep Disorders and Stress Level', fontsize=16, pad=15)\nplt.xlabel('Age (Years)', fontsize=12)\nplt.ylabel('Sleep Duration (Hours)', fontsize=12)\n\n# Position the legend outside the plot area to prevent overlap with data points\n# Seaborn automatically generates appropriate titles for the hue and size legends.\nplt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Enhance readability with grid lines\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle the 'Sleep Disorder' column: replace NaN with 'No Disorder'\n# This ensures all data points are categorized and included in the plot.\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a clean and professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create an insightful scatter plot to visualize the relationship between\n# Sleep Duration and Age, while also showing the impact of Sleep Disorders (color)\n# and Stress Level (point size).\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='Age',\n    y='Sleep Duration',\n    hue='Sleep Disorder',  # Color points by Sleep Disorder category\n    size='Stress Level',   # Size points by Stress Level (ordinal, higher stress = larger point)\n    sizes=(50, 600),       # Define the range of point sizes for better visual distinction\n    alpha=0.7,             # Set transparency for better visibility of overlapping points\n    palette='tab10',       # Use a qualitative color palette suitable for categorical data\n    linewidth=0            # Remove linewidth for cleaner points\n)\n\n# Add a descriptive title and axis labels\nplt.title('Sleep Duration vs. Age: Impact of Sleep Disorders and Stress Level', fontsize=16, pad=15)\nplt.xlabel('Age (Years)', fontsize=12)\nplt.ylabel('Sleep Duration (Hours)', fontsize=12)\n\n# Position the legend outside the plot area to prevent overlap with data points\n# Seaborn automatically generates appropriate titles for the hue and size legends.\nplt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Enhance readability with grid lines\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.4615,
+    "color_delta_e": 0.7195,
+    "visual_entropy": 1.0624,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 19.236,
+    "cost_per_run": 0.000178,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

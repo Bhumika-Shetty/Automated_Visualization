@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-09T03:47:03.984064",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time columns to datetime format\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n\n# Extract year and month from date column\ncoffee_sales['year'] = coffee_sales['date'].dt.year\ncoffee_sales['month'] = coffee_sales['date'].dt.month\n\n# Plot the total sales by month\nplt.figure(figsize=(10, 6))\nsns.lineplot(x='month', y='total', data=coffee_sales)\nplt.title('Total Sales by Month')\nplt.xlabel('Month')\nplt.ylabel('Total Sales')\nplt.legend(title='Year')\nplt.grid(True)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time columns to datetime format\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n\n# Extract year and month from date column\ncoffee_sales['year'] = coffee_sales['date'].dt.year\ncoffee_sales['month'] = coffee_sales['date'].dt.month\n\n# Plot the total sales by month\nplt.figure(figsize=(10, 6))\nsns.lineplot(x='month', y='total', data=coffee_sales)\nplt.title('Total Sales by Month')\nplt.xlabel('Month')\nplt.ylabel('Total Sales')\nplt.legend(title='Year')\nplt.grid(True)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmppx18zc8v/viz_script.py:11: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  coffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmppx18zc8v/viz_script.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Year')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 0.7393,
+    "visual_entropy": 1.4459,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.52,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

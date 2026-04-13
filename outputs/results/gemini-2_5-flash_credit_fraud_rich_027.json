@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-10T17:45:52.930817",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create a figure with two subplots\nfig, axes = plt.subplots(2, 1, figsize=(10, 10))\n\n# Plot 1: Distribution of Transaction Amount by Fraud Status\nsns.kdeplot(data=df, x='amount', hue='is_fraud', fill=True, common_norm=False, ax=axes[0], palette='viridis')\naxes[0].set_title('Distribution of Transaction Amount by Fraud Status', fontsize=14)\naxes[0].set_xlabel('Transaction Amount', fontsize=12)\naxes[0].set_ylabel('Density', fontsize=12)\naxes[0].legend(title='Is Fraud', labels=['Not Fraud', 'Fraud'])\n\n# Plot 2: Fraud Rate by Hour of Day\n# Calculate the mean 'is_fraud' for each 'hour_of_day'\nfraud_rate_by_hour = df.groupby('hour_of_day')['is_fraud'].mean().reset_index()\nsns.barplot(data=fraud_rate_by_hour, x='hour_of_day', y='is_fraud', ax=axes[1], color='skyblue')\naxes[1].set_title('Fraud Rate by Hour of Day', fontsize=14)\naxes[1].set_xlabel('Hour of Day', fontsize=12)\naxes[1].set_ylabel('Fraud Rate (Proportion)', fontsize=12)\naxes[1].set_xticks(range(0, 24, 2)) # Set ticks for every 2 hours for clarity\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create a figure with two subplots\nfig, axes = plt.subplots(2, 1, figsize=(10, 10))\n\n# Plot 1: Distribution of Transaction Amount by Fraud Status\nsns.kdeplot(data=df, x='amount', hue='is_fraud', fill=True, common_norm=False, ax=axes[0], palette='viridis')\naxes[0].set_title('Distribution of Transaction Amount by Fraud Status', fontsize=14)\naxes[0].set_xlabel('Transaction Amount', fontsize=12)\naxes[0].set_ylabel('Density', fontsize=12)\naxes[0].legend(title='Is Fraud', labels=['Not Fraud', 'Fraud'])\n\n# Plot 2: Fraud Rate by Hour of Day\n# Calculate the mean 'is_fraud' for each 'hour_of_day'\nfraud_rate_by_hour = df.groupby('hour_of_day')['is_fraud'].mean().reset_index()\nsns.barplot(data=fraud_rate_by_hour, x='hour_of_day', y='is_fraud', ax=axes[1], color='skyblue')\naxes[1].set_title('Fraud Rate by Hour of Day', fontsize=14)\naxes[1].set_xlabel('Hour of Day', fontsize=12)\naxes[1].set_ylabel('Fraud Rate (Proportion)', fontsize=12)\naxes[1].set_xticks(range(0, 24, 2)) # Set ticks for every 2 hours for clarity\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.8217,
+    "visual_entropy": 1.0322,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 9.441,
+    "cost_per_run": 0.000119,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

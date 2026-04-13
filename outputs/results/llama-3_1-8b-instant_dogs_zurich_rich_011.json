@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-09T03:17:01.667952",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Plot the distribution of dog ages\nplt.figure(figsize=(10, 6))\nsns.histplot(data['AlterVHundNum'], kde=True, bins=20)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Count')\nplt.savefig('output_ages.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog breeds\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Rasse1Text', data=data, order=data['Rasse1Text'].value_counts().index[:10])\nplt.title('Top 10 Most Common Dog Breeds')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog genders\nplt.figure(figsize=(10, 6))\nsns.countplot(x='SexHundCd', data=data, order=data['SexHundCd'].value_counts().index)\nplt.title('Distribution of Dog Genders')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.xticks([1, 2], ['m\u00e4nnlich', 'weiblich'])\nplt.savefig('output_genders.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog districts\nplt.figure(figsize=(10, 6))\nsns.countplot(x='KreisCd', data=data, order=data['KreisCd'].value_counts().index[:10])\nplt.title('Top 10 Most Common Dog Districts')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_districts.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Plot the distribution of dog ages\nplt.figure(figsize=(10, 6))\nsns.histplot(data['AlterVHundNum'], kde=True, bins=20)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Count')\nplt.savefig('output_ages.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog breeds\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Rasse1Text', data=data, order=data['Rasse1Text'].value_counts().index[:10])\nplt.title('Top 10 Most Common Dog Breeds')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog genders\nplt.figure(figsize=(10, 6))\nsns.countplot(x='SexHundCd', data=data, order=data['SexHundCd'].value_counts().index)\nplt.title('Distribution of Dog Genders')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.xticks([1, 2], ['m\u00e4nnlich', 'weiblich'])\nplt.savefig('output_genders.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog districts\nplt.figure(figsize=(10, 6))\nsns.countplot(x='KreisCd', data=data, order=data['KreisCd'].value_counts().index[:10])\nplt.title('Top 10 Most Common Dog Districts')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output_districts.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.64,
+    "color_delta_e": 0.8112,
+    "visual_entropy": 0.7727,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 12.99,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

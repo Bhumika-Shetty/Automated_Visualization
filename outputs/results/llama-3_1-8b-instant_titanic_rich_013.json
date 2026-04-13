@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-09T02:13:01.197776",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Create a bar chart to compare the survival rate of passengers by sex\nplt.figure(figsize=(10, 6))\nsns.countplot(x='sex', hue='survived', data=titanic)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a violin plot to compare the age distribution of survived and non-survived passengers\nplt.figure(figsize=(10, 6))\nsns.violinplot(x='survived', y='age', data=titanic, split=True)\nplt.title('Age Distribution by Survival Status')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to compare the fare distribution of survived and non-survived passengers\nplt.figure(figsize=(10, 6))\nsns.histplot(x='fare', hue='survived', data=titanic, bins=20, stat='density')\nplt.title('Fare Distribution by Survival Status')\nplt.xlabel('Fare')\nplt.ylabel('Density')\nplt.legend(title='Survived')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Create a bar chart to compare the survival rate of passengers by sex\nplt.figure(figsize=(10, 6))\nsns.countplot(x='sex', hue='survived', data=titanic)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a violin plot to compare the age distribution of survived and non-survived passengers\nplt.figure(figsize=(10, 6))\nsns.violinplot(x='survived', y='age', data=titanic, split=True)\nplt.title('Age Distribution by Survival Status')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to compare the fare distribution of survived and non-survived passengers\nplt.figure(figsize=(10, 6))\nsns.histplot(x='fare', hue='survived', data=titanic, bins=20, stat='density')\nplt.title('Fare Distribution by Survival Status')\nplt.xlabel('Fare')\nplt.ylabel('Density')\nplt.legend(title='Survived')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpb465tp0b/viz_script.py:31: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Survived')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.6216,
+    "visual_entropy": 1.2815,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.831,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

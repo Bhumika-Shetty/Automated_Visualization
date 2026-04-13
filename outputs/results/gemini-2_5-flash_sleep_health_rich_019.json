@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-10T16:39:57.124499",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Fill NaN values in 'Sleep Disorder' with 'None' for better categorical plotting\n# Assuming NaN indicates no sleep disorder\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create a FacetGrid using seaborn.relplot to visualize relationships broken down by Sleep Disorder\n# This allows us to see how Sleep Duration and Quality relate to Stress and Physical Activity,\n# and if these relationships differ based on the presence and type of sleep disorder.\ng = sns.relplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    col='Sleep Disorder',\n    col_wrap=2,  # Arrange subplots in 2 columns\n    kind='scatter',\n    height=5,\n    aspect=1.2,  # Adjust the aspect ratio of each subplot\n    palette='viridis',  # Use a perceptually uniform colormap for Stress Level\n    size='Physical Activity Level',  # Map Physical Activity Level to marker size\n    sizes=(50, 500),  # Define the range of marker sizes\n    alpha=0.7,  # Set transparency for points to reveal overlaps\n    edgecolor='w',  # Add white edges to markers for better separation\n    linewidth=0.5,\n    facet_kws={'sharex': False, 'sharey': False} # Allow independent axes for better detail if ranges vary\n)\n\n# Add a main title to the entire figure\ng.fig.suptitle('Sleep Duration vs. Quality of Sleep by Stress, Activity, and Sleep Disorder', y=1.03, fontsize=16)\n\n# Set common axis labels for all subplots\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10)\", fontsize=12)\n\n# Customize subplot titles\ng.set_titles(col_template=\"{col_name} Sleep Disorder\", fontsize=12)\n\n# Adjust the layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # rect leaves space for the suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Fill NaN values in 'Sleep Disorder' with 'None' for better categorical plotting\n# Assuming NaN indicates no sleep disorder\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create a FacetGrid using seaborn.relplot to visualize relationships broken down by Sleep Disorder\n# This allows us to see how Sleep Duration and Quality relate to Stress and Physical Activity,\n# and if these relationships differ based on the presence and type of sleep disorder.\ng = sns.relplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level',\n    col='Sleep Disorder',\n    col_wrap=2,  # Arrange subplots in 2 columns\n    kind='scatter',\n    height=5,\n    aspect=1.2,  # Adjust the aspect ratio of each subplot\n    palette='viridis',  # Use a perceptually uniform colormap for Stress Level\n    size='Physical Activity Level',  # Map Physical Activity Level to marker size\n    sizes=(50, 500),  # Define the range of marker sizes\n    alpha=0.7,  # Set transparency for points to reveal overlaps\n    edgecolor='w',  # Add white edges to markers for better separation\n    linewidth=0.5,\n    facet_kws={'sharex': False, 'sharey': False} # Allow independent axes for better detail if ranges vary\n)\n\n# Add a main title to the entire figure\ng.fig.suptitle('Sleep Duration vs. Quality of Sleep by Stress, Activity, and Sleep Disorder', y=1.03, fontsize=16)\n\n# Set common axis labels for all subplots\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10)\", fontsize=12)\n\n# Customize subplot titles\ng.set_titles(col_template=\"{col_name} Sleep Disorder\", fontsize=12)\n\n# Adjust the layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # rect leaves space for the suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": 0.589,
+    "visual_entropy": 0.6639,
+    "labeling_completeness": 0.25,
+    "code_complexity": 11,
+    "generation_latency": 17.464,
+    "cost_per_run": 0.000183,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

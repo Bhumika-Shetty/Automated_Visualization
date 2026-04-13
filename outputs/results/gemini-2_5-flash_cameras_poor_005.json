@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 5,
+  "timestamp": "2026-04-11T02:18:14.577880",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data provided by the user\ndata = {\n    'brand': ['Leica', 'Fuji', 'Pentax', 'Olympus', 'Leica'],\n    'model_year': [2005, 2019, 2012, 2015, 2016],\n    'megapixels': [13.5, 46.4, 38.7, 22.5, 12.2],\n    'max_iso': [25600, 51200, 12800, 6400, 25600],\n    'weight_grams': [324, 1151, 598, 1095, 290],\n    'price_usd': [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    'sensor_type': ['Micro 4/3', 'APS-C', 'Full Frame', 'APS-C', 'Medium Format'],\n    'has_video_4k': [1, 0, 0, 0, 0],\n    'lens_mount': ['E', 'EF', 'MFT', 'Z', 'MFT'],\n    'body_type': ['Compact', 'Mirrorless', 'Mirrorless', 'Mirrorless', 'DSLR']\n}\ndf = pd.DataFrame(data)\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8)) # Increased figure size for better readability\nscatter = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(100, 800), # Adjust size range for better visibility of weight differences\n    style='body_type',\n    palette='viridis', # Choose a color palette\n    edgecolor='black', # Add edge to markers for better visibility\n    linewidth=1,\n    s=200 # Base size for markers, will be overridden by 'size' mapping\n)\n\n# Add brand labels to each point for easy identification\nfor i, row in df.iterrows():\n    plt.text(row['megapixels'] + 0.7, row['price_usd'] + 80, row['brand'],\n             horizontalalignment='left', size='small', color='black', weight='semibold')\n\nplt.title('Camera Price vs. Megapixels by Sensor Type, Weight, and Body Type', fontsize=18)\nplt.xlabel('Megapixels', fontsize=14)\nplt.ylabel('Price (USD)', fontsize=14)\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Improve legend placement and appearance\nplt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, title='Legend', fontsize=10, title_fontsize=12)\n\nplt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout to make space for the legend\n\n# Save the plot\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data provided by the user\ndata = {\n    'brand': ['Leica', 'Fuji', 'Pentax', 'Olympus', 'Leica'],\n    'model_year': [2005, 2019, 2012, 2015, 2016],\n    'megapixels': [13.5, 46.4, 38.7, 22.5, 12.2],\n    'max_iso': [25600, 51200, 12800, 6400, 25600],\n    'weight_grams': [324, 1151, 598, 1095, 290],\n    'price_usd': [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    'sensor_type': ['Micro 4/3', 'APS-C', 'Full Frame', 'APS-C', 'Medium Format'],\n    'has_video_4k': [1, 0, 0, 0, 0],\n    'lens_mount': ['E', 'EF', 'MFT', 'Z', 'MFT'],\n    'body_type': ['Compact', 'Mirrorless', 'Mirrorless', 'Mirrorless', 'DSLR']\n}\ndf = pd.DataFrame(data)\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8)) # Increased figure size for better readability\nscatter = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(100, 800), # Adjust size range for better visibility of weight differences\n    style='body_type',\n    palette='viridis', # Choose a color palette\n    edgecolor='black', # Add edge to markers for better visibility\n    linewidth=1,\n    s=200 # Base size for markers, will be overridden by 'size' mapping\n)\n\n# Add brand labels to each point for easy identification\nfor i, row in df.iterrows():\n    plt.text(row['megapixels'] + 0.7, row['price_usd'] + 80, row['brand'],\n             horizontalalignment='left', size='small', color='black', weight='semibold')\n\nplt.title('Camera Price vs. Megapixels by Sensor Type, Weight, and Body Type', fontsize=18)\nplt.xlabel('Megapixels', fontsize=14)\nplt.ylabel('Price (USD)', fontsize=14)\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Improve legend placement and appearance\nplt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, title='Legend', fontsize=10, title_fontsize=12)\n\nplt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust layout to make space for the legend\n\n# Save the plot\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5435,
+    "color_delta_e": 0.9913,
+    "visual_entropy": 0.6377,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 12.006,
+    "cost_per_run": 0.000165,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

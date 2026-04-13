@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-10T16:19:58.127187",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create the scatter plot\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=100, # size of the points\n    alpha=0.8, # transparency\n    palette='viridis' # color palette\n)\n\n# Add title and labels\nplt.title('Iris Petal Dimensions by Species', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Add a legend\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout and save the figure\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create the scatter plot\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=100, # size of the points\n    alpha=0.8, # transparency\n    palette='viridis' # color palette\n)\n\n# Add title and labels\nplt.title('Iris Petal Dimensions by Species', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Add a legend\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout and save the figure\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.7645,
+    "visual_entropy": 0.5638,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.047,
+    "cost_per_run": 7.8e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

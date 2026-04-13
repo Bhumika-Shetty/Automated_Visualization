@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-10T16:14:59.745551",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a scatter plot using seaborn\n# Petal length and petal width are often the most discriminative features for Iris species\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species', # Differentiate species by color\n    s=100, # Adjust marker size for better visibility\n    alpha=0.8, # Add some transparency\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Iris Petal Length vs. Petal Width by Species', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Add a legend\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a scatter plot using seaborn\n# Petal length and petal width are often the most discriminative features for Iris species\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species', # Differentiate species by color\n    s=100, # Adjust marker size for better visibility\n    alpha=0.8, # Add some transparency\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Iris Petal Length vs. Petal Width by Species', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Add a legend\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.6961,
+    "visual_entropy": 0.4611,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 2.674,
+    "cost_per_run": 9.2e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-11T02:02:19.272267",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Find the latest year in the dataset to get the most current snapshot\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Count the occurrences of each primary breed\nbreed_counts = df_latest_year['Rasse1Text'].value_counts()\n\n# Select the top 15 most common breeds\ntop_n = 15\ntop_breeds = breed_counts.head(top_n).index\n\n# Filter the dataset to include only these top breeds\ndf_top_breeds = df_latest_year[df_latest_year['Rasse1Text'].isin(top_breeds)]\n\n# Ensure 'SexHundLang' is clean (remove potential NaNs if any, though not explicitly shown in sample)\ndf_top_breeds.dropna(subset=['SexHundLang'], inplace=True)\n\n# Create the visualization\nplt.figure(figsize=(12, 8))\nsns.countplot(\n    data=df_top_breeds,\n    y='Rasse1Text',\n    hue='SexHundLang',\n    order=top_breeds,  # Order breeds by overall frequency\n    palette='viridis',\n    edgecolor='black'\n)\n\n# Add labels and title\nplt.title(f'Top {top_n} Dog Breeds in Zurich by Gender ({latest_year})', fontsize=16, pad=20)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Breed', fontsize=12)\nplt.legend(title='Dog Gender', title_fontsize='11', fontsize='10', loc='lower right')\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.grid(axis='x', linestyle='--', alpha=0.7)\n\n# Adjust layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Find the latest year in the dataset to get the most current snapshot\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Count the occurrences of each primary breed\nbreed_counts = df_latest_year['Rasse1Text'].value_counts()\n\n# Select the top 15 most common breeds\ntop_n = 15\ntop_breeds = breed_counts.head(top_n).index\n\n# Filter the dataset to include only these top breeds\ndf_top_breeds = df_latest_year[df_latest_year['Rasse1Text'].isin(top_breeds)]\n\n# Ensure 'SexHundLang' is clean (remove potential NaNs if any, though not explicitly shown in sample)\ndf_top_breeds.dropna(subset=['SexHundLang'], inplace=True)\n\n# Create the visualization\nplt.figure(figsize=(12, 8))\nsns.countplot(\n    data=df_top_breeds,\n    y='Rasse1Text',\n    hue='SexHundLang',\n    order=top_breeds,  # Order breeds by overall frequency\n    palette='viridis',\n    edgecolor='black'\n)\n\n# Add labels and title\nplt.title(f'Top {top_n} Dog Breeds in Zurich by Gender ({latest_year})', fontsize=16, pad=20)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Breed', fontsize=12)\nplt.legend(title='Dog Gender', title_fontsize='11', fontsize='10', loc='lower right')\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\nplt.grid(axis='x', linestyle='--', alpha=0.7)\n\n# Adjust layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 1.0246,
+    "visual_entropy": 1.107,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 11.247,
+    "cost_per_run": 0.000178,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

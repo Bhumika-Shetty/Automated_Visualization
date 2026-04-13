@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-12T10:05:51.567336",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Data Preparation: Aggregate sales by product and customer age group\nsales_by_age_product = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Create a pivot table for the heatmap\npivot_table = sales_by_age_product.pivot_table(\n    index='product',\n    columns='customer_age_group',\n    values='total',\n    aggfunc='sum'\n)\n\n# Ensure columns are in a logical order\nage_order = ['<18', '18-24', '25-34', '35-44', '45-54', '55+']\n# Use reindex to handle potentially missing age groups in the data for some products\npivot_table = pivot_table.reindex(columns=age_order)\n\n# Create the visualization\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(14, 9))\n\n# Generate the heatmap\nheatmap = sns.heatmap(\n    pivot_table,\n    annot=True,\n    fmt=\".0f\",  # Format annotations as integers\n    cmap='YlGnBu',\n    linewidths=0.5,\n    linecolor='white',\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}  # Add label to the color bar\n)\n\n# Set titles and labels for clarity\nax.set_title('Total Sales by Product and Customer Age Group', fontsize=18, pad=20, weight='bold')\nax.set_xlabel('Customer Age Group', fontsize=12, labelpad=10)\nax.set_ylabel('Product', fontsize=12, labelpad=10)\nax.tick_params(axis='y', rotation=0) # Ensure y-axis labels are horizontal\nax.tick_params(axis='x', labelsize=11)\nax.tick_params(axis='y', labelsize=11)\n\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Data Preparation: Aggregate sales by product and customer age group\nsales_by_age_product = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Create a pivot table for the heatmap\npivot_table = sales_by_age_product.pivot_table(\n    index='product',\n    columns='customer_age_group',\n    values='total',\n    aggfunc='sum'\n)\n\n# Ensure columns are in a logical order\nage_order = ['<18', '18-24', '25-34', '35-44', '45-54', '55+']\n# Use reindex to handle potentially missing age groups in the data for some products\npivot_table = pivot_table.reindex(columns=age_order)\n\n# Create the visualization\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(14, 9))\n\n# Generate the heatmap\nheatmap = sns.heatmap(\n    pivot_table,\n    annot=True,\n    fmt=\".0f\",  # Format annotations as integers\n    cmap='YlGnBu',\n    linewidths=0.5,\n    linecolor='white',\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}  # Add label to the color bar\n)\n\n# Set titles and labels for clarity\nax.set_title('Total Sales by Product and Customer Age Group', fontsize=18, pad=20, weight='bold')\nax.set_xlabel('Customer Age Group', fontsize=12, labelpad=10)\nax.set_ylabel('Product', fontsize=12, labelpad=10)\nax.tick_params(axis='y', rotation=0) # Ensure y-axis labels are horizontal\nax.tick_params(axis='x', labelsize=11)\nax.tick_params(axis='y', labelsize=11)\n\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4444,
+    "color_delta_e": 0.9141,
+    "visual_entropy": 4.1651,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 18.242,
+    "cost_per_run": 0.004418,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

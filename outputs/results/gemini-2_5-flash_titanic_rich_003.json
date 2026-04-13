@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-08T18:38:49.870191",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(10, 7))\n\n# Create a bar plot to visualize the survival rate by passenger class and sex\n# 'survived' column contains 0s and 1s, so the mean directly represents the survival rate.\nsns.barplot(x='pclass', y='survived', hue='sex', data=df, palette='viridis', errorbar='sd')\n\n# Add title and labels for clarity\nplt.title('Titanic Survival Rate by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\n\n# Customize x-axis tick labels for better readability\nplt.xticks(ticks=[0, 1, 2], labels=['1st Class', '2nd Class', '3rd Class'], fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend for 'sex'\nplt.legend(title='Sex', loc='upper right', fontsize=10, title_fontsize='12')\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(10, 7))\n\n# Create a bar plot to visualize the survival rate by passenger class and sex\n# 'survived' column contains 0s and 1s, so the mean directly represents the survival rate.\nsns.barplot(x='pclass', y='survived', hue='sex', data=df, palette='viridis', errorbar='sd')\n\n# Add title and labels for clarity\nplt.title('Titanic Survival Rate by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\n\n# Customize x-axis tick labels for better readability\nplt.xticks(ticks=[0, 1, 2], labels=['1st Class', '2nd Class', '3rd Class'], fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend for 'sex'\nplt.legend(title='Sex', loc='upper right', fontsize=10, title_fontsize='12')\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": 0.8865,
+    "visual_entropy": 1.163,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 10.069,
+    "cost_per_run": 0.000107,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

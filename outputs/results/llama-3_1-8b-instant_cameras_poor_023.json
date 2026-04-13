@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 23,
+  "timestamp": "2026-04-09T03:44:31.676489",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a pairplot to visualize relationships between variables\nsns.pairplot(df, vars=['megapixels', 'max_iso', 'weight_grams', 'price_usd', 'model_year'], hue='brand', markers=['o', '^', 's', 'D'])\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a pairplot to visualize relationships between variables\nsns.pairplot(df, vars=['megapixels', 'max_iso', 'weight_grams', 'price_usd', 'model_year'], hue='brand', markers=['o', '^', 's', 'D'])\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.0,
+    "color_delta_e": 1.2675,
+    "visual_entropy": 0.5341,
+    "labeling_completeness": 0.0,
+    "code_complexity": 0,
+    "generation_latency": 0.483,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-10T16:19:47.651526",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between all numerical features, colored by species\n# This is highly insightful for the Iris dataset as it shows how species separate based on measurements.\ng = sns.pairplot(df, hue=\"species\", diag_kind=\"kde\", palette=\"viridis\")\n\n# Add a title to the entire figure\ng.fig.suptitle(\"Pairwise Relationships of Iris Flower Measurements by Species\", y=1.02, fontsize=16)\n\n# Improve legend placement if necessary, though pairplot usually handles it well.\n# For pairplot, the legend is typically part of the figure.\n# You can further customize legend if needed, for example:\n# g._legend.set_title(\"Species\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between all numerical features, colored by species\n# This is highly insightful for the Iris dataset as it shows how species separate based on measurements.\ng = sns.pairplot(df, hue=\"species\", diag_kind=\"kde\", palette=\"viridis\")\n\n# Add a title to the entire figure\ng.fig.suptitle(\"Pairwise Relationships of Iris Flower Measurements by Species\", y=1.02, fontsize=16)\n\n# Improve legend placement if necessary, though pairplot usually handles it well.\n# For pairplot, the legend is typically part of the figure.\n# You can further customize legend if needed, for example:\n# g._legend.set_title(\"Species\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 1.6557,
+    "visual_entropy": 1.1599,
+    "labeling_completeness": 0.5,
+    "code_complexity": 4,
+    "generation_latency": 3.677,
+    "cost_per_run": 8.2e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

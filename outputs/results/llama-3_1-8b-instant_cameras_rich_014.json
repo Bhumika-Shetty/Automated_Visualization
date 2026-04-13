@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-09T03:33:47.319937",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/cameras.csv')\n\n# Group by brand and calculate average megapixels and price\nbrand_avg = df.groupby('brand')[['megapixels', 'price_usd']].mean().reset_index()\n\n# Create a bar plot to compare average megapixels and price across different brands\nsns.set_style('whitegrid')\nplt.figure(figsize=(12, 8))\nsns.barplot(x='brand', y='megapixels', hue='brand', data=brand_avg, palette='Blues')\nplt.title('Average Megapixels Across Different Brands')\nplt.xlabel('Brand')\nplt.ylabel('Average Megapixels')\nplt.legend(title='Brand')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of prices\nplt.figure(figsize=(12, 8))\nsns.histplot(df['price_usd'], bins=20, kde=True)\nplt.title('Distribution of Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Frequency')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_prices.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between megapixels and price\nplt.figure(figsize=(12, 8))\nsns.scatterplot(x='megapixels', y='price_usd', data=df)\nplt.title('Relationship Between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_megapixels_price.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/cameras.csv')\n\n# Group by brand and calculate average megapixels and price\nbrand_avg = df.groupby('brand')[['megapixels', 'price_usd']].mean().reset_index()\n\n# Create a bar plot to compare average megapixels and price across different brands\nsns.set_style('whitegrid')\nplt.figure(figsize=(12, 8))\nsns.barplot(x='brand', y='megapixels', hue='brand', data=brand_avg, palette='Blues')\nplt.title('Average Megapixels Across Different Brands')\nplt.xlabel('Brand')\nplt.ylabel('Average Megapixels')\nplt.legend(title='Brand')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of prices\nplt.figure(figsize=(12, 8))\nsns.histplot(df['price_usd'], bins=20, kde=True)\nplt.title('Distribution of Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Frequency')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_prices.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between megapixels and price\nplt.figure(figsize=(12, 8))\nsns.scatterplot(x='megapixels', y='price_usd', data=df)\nplt.title('Relationship Between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output_megapixels_price.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpuftrlwo4/viz_script.py:18: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Brand')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.6112,
+    "visual_entropy": 3.1226,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.806,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

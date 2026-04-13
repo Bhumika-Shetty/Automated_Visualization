@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-09T03:17:33.050387",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndogs_zurich = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a countplot to show the distribution of dog breeds\nsns.set(font_scale=1.5)\nplt.figure(figsize=(12,8))\nplt.title('Distribution of Dog Breeds in Zurich')\nsns.countplot(x='Rasse1Text', data=dogs_zurich)\nplt.xlabel('Dog Breeds')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndogs_zurich = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a countplot to show the distribution of dog breeds\nsns.set(font_scale=1.5)\nplt.figure(figsize=(12,8))\nplt.title('Distribution of Dog Breeds in Zurich')\nsns.countplot(x='Rasse1Text', data=dogs_zurich)\nplt.xlabel('Dog Breeds')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 3.9191,
+    "visual_entropy": 2.5802,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 7.616,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

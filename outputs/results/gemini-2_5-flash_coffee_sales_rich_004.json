@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-12T04:47:02.516250",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to a more descriptive categorical variable\ndf['order_type'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Aggregate total sales by product and order type\n# This will show which products are most popular and how their sales split between dine-in and takeaway\nsales_by_product_and_type = df.groupby(['product', 'order_type'])['total'].sum().reset_index()\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(12, 7))\nsns.barplot(\n    data=sales_by_product_and_type,\n    x='product',\n    y='total',\n    hue='order_type',\n    palette='viridis',\n    errorbar=None  # No error bars needed for aggregated sums\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, fontweight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend\nplt.legend(title='Order Type', title_fontsize='11', fontsize='10', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to a more descriptive categorical variable\ndf['order_type'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Aggregate total sales by product and order type\n# This will show which products are most popular and how their sales split between dine-in and takeaway\nsales_by_product_and_type = df.groupby(['product', 'order_type'])['total'].sum().reset_index()\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(12, 7))\nsns.barplot(\n    data=sales_by_product_and_type,\n    x='product',\n    y='total',\n    hue='order_type',\n    palette='viridis',\n    errorbar=None  # No error bars needed for aggregated sums\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, fontweight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend\nplt.legend(title='Order Type', title_fontsize='11', fontsize='10', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.6316,
+    "color_delta_e": 1.1462,
+    "visual_entropy": 1.6486,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 8.211,
+    "cost_per_run": 0.000129,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

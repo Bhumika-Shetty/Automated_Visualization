@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-09T03:34:54.666946",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a countplot of brand distribution\nplt.figure(figsize=(10, 6))\nsns.countplot(x='brand', data=data)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of megapixels distribution\nplt.figure(figsize=(8, 6))\nsns.histplot(data['megapixels'], bins=20, kde=True)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of average price by brand\nplt.figure(figsize=(10, 6))\nsns.barplot(x='brand', y='price_usd', data=data.groupby('brand')['price_usd'].mean().reset_index())\nplt.title('Average Price by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of price vs megapixels\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Price vs Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot of price by sensor type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='sensor_type', y='price_usd', data=data)\nplt.title('Price Distribution by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a countplot of brand distribution\nplt.figure(figsize=(10, 6))\nsns.countplot(x='brand', data=data)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of megapixels distribution\nplt.figure(figsize=(8, 6))\nsns.histplot(data['megapixels'], bins=20, kde=True)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of average price by brand\nplt.figure(figsize=(10, 6))\nsns.barplot(x='brand', y='price_usd', data=data.groupby('brand')['price_usd'].mean().reset_index())\nplt.title('Average Price by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of price vs megapixels\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Price vs Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot of price by sensor type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='sensor_type', y='price_usd', data=data)\nplt.title('Price Distribution by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4815,
+    "color_delta_e": 0.8751,
+    "visual_entropy": 1.1218,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 4.761,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

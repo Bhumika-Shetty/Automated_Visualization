@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-09T02:25:29.027700",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Melt the dataset for plotting\nmelted_data = pd.melt(data, id_vars='species', value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a boxplot for each variable across species\nplt.figure(figsize=(10,6))\nsns.boxplot(x='variable', y='value', hue='species', data=melted_data)\nplt.title('Distribution of Sepal and Petal Measurements Across Iris Species')\nplt.xlabel('Measurement Type')\nplt.ylabel('Value')\nplt.legend(title='Iris Species')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Melt the dataset for plotting\nmelted_data = pd.melt(data, id_vars='species', value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a boxplot for each variable across species\nplt.figure(figsize=(10,6))\nsns.boxplot(x='variable', y='value', hue='species', data=melted_data)\nplt.title('Distribution of Sepal and Petal Measurements Across Iris Species')\nplt.xlabel('Measurement Type')\nplt.ylabel('Value')\nplt.legend(title='Iris Species')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3889,
+    "color_delta_e": 1.401,
+    "visual_entropy": 0.9065,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 0.446,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

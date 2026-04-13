@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-12T10:11:56.135227",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Extract the hour from the 'time' column\ndf['hour'] = pd.to_datetime(df['time'], format='%H:%M').dt.hour\n\n# Identify the top 7 products by total sales to keep the heatmap focused\ntop_products = df.groupby('product')['total'].sum().nlargest(7).index\n\n# Filter the DataFrame to include only these top-selling products\ndf_top_products = df[df['product'].isin(top_products)]\n\n# Create a pivot table: hours as rows, products as columns, and total sales as values\nsales_pivot = df_top_products.pivot_table(\n    index='hour',\n    columns='product',\n    values='total',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# Ensure the columns are in order of total sales (descending) for better visual flow\nsales_pivot = sales_pivot[top_products]\n\n# --- Visualization ---\n# Set the style and create the figure\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(14, 10))\n\n# Create the heatmap\nheatmap = sns.heatmap(\n    sales_pivot,\n    cmap='YlGnBu',\n    linewidths=.5,\n    linecolor='lightgray',\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set the main title and axis labels with appropriate font sizes\nax.set_title('Peak Sales Hours for Top-Selling Products', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Product', fontsize=12, fontweight='bold', labelpad=15)\nax.set_ylabel('Hour of the Day (24-hour format)', fontsize=12, fontweight='bold', labelpad=15)\n\n# Improve readability of tick labels\nplt.xticks(rotation=45, ha='right', fontsize=11)\nplt.yticks(rotation=0, fontsize=10)\n\n# Format the y-axis to clearly show hours\nax.yaxis.set_major_formatter(mticker.FormatStrFormatter('%02d:00'))\n\n# Adjust layout to prevent labels from being cut off\nfig.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Extract the hour from the 'time' column\ndf['hour'] = pd.to_datetime(df['time'], format='%H:%M').dt.hour\n\n# Identify the top 7 products by total sales to keep the heatmap focused\ntop_products = df.groupby('product')['total'].sum().nlargest(7).index\n\n# Filter the DataFrame to include only these top-selling products\ndf_top_products = df[df['product'].isin(top_products)]\n\n# Create a pivot table: hours as rows, products as columns, and total sales as values\nsales_pivot = df_top_products.pivot_table(\n    index='hour',\n    columns='product',\n    values='total',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# Ensure the columns are in order of total sales (descending) for better visual flow\nsales_pivot = sales_pivot[top_products]\n\n# --- Visualization ---\n# Set the style and create the figure\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(14, 10))\n\n# Create the heatmap\nheatmap = sns.heatmap(\n    sales_pivot,\n    cmap='YlGnBu',\n    linewidths=.5,\n    linecolor='lightgray',\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set the main title and axis labels with appropriate font sizes\nax.set_title('Peak Sales Hours for Top-Selling Products', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Product', fontsize=12, fontweight='bold', labelpad=15)\nax.set_ylabel('Hour of the Day (24-hour format)', fontsize=12, fontweight='bold', labelpad=15)\n\n# Improve readability of tick labels\nplt.xticks(rotation=45, ha='right', fontsize=11)\nplt.yticks(rotation=0, fontsize=10)\n\n# Format the y-axis to clearly show hours\nax.yaxis.set_major_formatter(mticker.FormatStrFormatter('%02d:00'))\n\n# Adjust layout to prevent labels from being cut off\nfig.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 0.597,
+    "visual_entropy": 5.0857,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 24.744,
+    "cost_per_run": 0.005448,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

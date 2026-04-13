@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-09T03:15:29.254787",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' to datetime format\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Create a categorical plot of the top 10 breeds by count\ntop_breeds = df['Rasse1Text'].value_counts().head(10).index\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Rasse1Text', data=df, order=top_breeds)\nplt.title('Top 10 Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the age distribution\nplt.figure(figsize=(10, 6))\nsns.countplot(x='AlterV10Lang', data=df)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age Group')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of the relationship between age and number of dogs per owner\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='AlterVHundNum', y='AnzHunde', data=df)\nplt.title('Relationship between Dog Age and Number of Dogs per Owner')\nplt.xlabel('Dog Age')\nplt.ylabel('Number of Dogs per Owner')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the sex distribution\nplt.figure(figsize=(10, 6))\nsns.countplot(x='SexLang', data=df)\nplt.title('Sex Distribution of Dogs in Zurich')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' to datetime format\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Create a categorical plot of the top 10 breeds by count\ntop_breeds = df['Rasse1Text'].value_counts().head(10).index\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Rasse1Text', data=df, order=top_breeds)\nplt.title('Top 10 Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the age distribution\nplt.figure(figsize=(10, 6))\nsns.countplot(x='AlterV10Lang', data=df)\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age Group')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of the relationship between age and number of dogs per owner\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='AlterVHundNum', y='AnzHunde', data=df)\nplt.title('Relationship between Dog Age and Number of Dogs per Owner')\nplt.xlabel('Dog Age')\nplt.ylabel('Number of Dogs per Owner')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the sex distribution\nplt.figure(figsize=(10, 6))\nsns.countplot(x='SexLang', data=df)\nplt.title('Sex Distribution of Dogs in Zurich')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 17.14,
+    "hallucination_rate": 0.64,
+    "color_delta_e": 0.779,
+    "visual_entropy": 0.7629,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.679,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

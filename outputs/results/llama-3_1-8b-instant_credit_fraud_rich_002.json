@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-09T03:02:01.358556",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Plot the distribution of transaction amounts\nsns.histplot(data['amount'], kde=True, bins=50)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.savefig('output_amount.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of hour of day for fraudulent and non-fraudulent transactions\nsns.countplot(x='hour_of_day', hue='is_fraud', data=data)\nplt.title('Hour of Day Distribution for Fraudulent vs. Non-Fraudulent Transactions')\nplt.xlabel('Hour of Day')\nplt.ylabel('Frequency')\nplt.legend(title='Transaction Type')\nplt.savefig('output_hour.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of transaction types\nsns.countplot(x='transaction_type', data=data)\nplt.title('Distribution of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.savefig('output_type.png', bbox_inches='tight', dpi=150)\n\n# Plot the box plot for amount of fraudulent and non-fraudulent transactions\nsns.boxplot(x='is_fraud', y='amount', data=data)\nplt.title('Box Plot of Amount for Fraudulent vs. Non-Fraudulent Transactions')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount ($)')\nplt.legend(title='Transaction Type')\nplt.savefig('output_box.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Plot the distribution of transaction amounts\nsns.histplot(data['amount'], kde=True, bins=50)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.savefig('output_amount.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of hour of day for fraudulent and non-fraudulent transactions\nsns.countplot(x='hour_of_day', hue='is_fraud', data=data)\nplt.title('Hour of Day Distribution for Fraudulent vs. Non-Fraudulent Transactions')\nplt.xlabel('Hour of Day')\nplt.ylabel('Frequency')\nplt.legend(title='Transaction Type')\nplt.savefig('output_hour.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of transaction types\nsns.countplot(x='transaction_type', data=data)\nplt.title('Distribution of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.savefig('output_type.png', bbox_inches='tight', dpi=150)\n\n# Plot the box plot for amount of fraudulent and non-fraudulent transactions\nsns.boxplot(x='is_fraud', y='amount', data=data)\nplt.title('Box Plot of Amount for Fraudulent vs. Non-Fraudulent Transactions')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount ($)')\nplt.legend(title='Transaction Type')\nplt.savefig('output_box.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7,
+    "color_delta_e": 1.4391,
+    "visual_entropy": 0.4634,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 6.749,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

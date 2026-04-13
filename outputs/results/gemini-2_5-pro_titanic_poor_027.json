@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-12T05:36:39.947704",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Load the dataset from the string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a categorical plot to show survival rate based on class and sex\n# Using a bar plot, where the height of the bar represents the mean of 'survived' (i.e., the survival rate)\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=1.2,\n    errorbar=None  # Disable error bars for this small sample\n)\n\n# Enhance the plot with titles and labels for clarity\ng.fig.suptitle('Titanic Survival Rate by Passenger Class and Sex (Sample Data)', fontsize=16, y=1.03)\ng.set_axis_labels('Passenger Class', 'Survival Rate')\ng.set(ylim=(0, 1)) # Set y-axis to range from 0 to 1 for rate\ng.legend.set_title('Sex')\n\n# Annotate bars with the exact rate\nax = g.ax\nfor p in ax.patches:\n    ax.annotate(\n        format(p.get_height(), '.2f'),\n        (p.get_x() + p.get_width() / 2., p.get_height()),\n        ha='center',\n        va='center',\n        xytext=(0, 9),\n        textcoords='offset points',\n        fontsize=12,\n        color='black'\n    )\n\n# Adjust layout and save the figure\nplt.tight_layout(rect=[0, 0, 1, 0.97])\nplt.savefig('output.png', dpi=300)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Load the dataset from the string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a categorical plot to show survival rate based on class and sex\n# Using a bar plot, where the height of the bar represents the mean of 'survived' (i.e., the survival rate)\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=6,\n    aspect=1.2,\n    errorbar=None  # Disable error bars for this small sample\n)\n\n# Enhance the plot with titles and labels for clarity\ng.fig.suptitle('Titanic Survival Rate by Passenger Class and Sex (Sample Data)', fontsize=16, y=1.03)\ng.set_axis_labels('Passenger Class', 'Survival Rate')\ng.set(ylim=(0, 1)) # Set y-axis to range from 0 to 1 for rate\ng.legend.set_title('Sex')\n\n# Annotate bars with the exact rate\nax = g.ax\nfor p in ax.patches:\n    ax.annotate(\n        format(p.get_height(), '.2f'),\n        (p.get_x() + p.get_width() / 2., p.get_height()),\n        ha='center',\n        va='center',\n        xytext=(0, 9),\n        textcoords='offset points',\n        fontsize=12,\n        color='black'\n    )\n\n# Adjust layout and save the figure\nplt.tight_layout(rect=[0, 0, 1, 0.97])\nplt.savefig('output.png', dpi=300)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6429,
+    "color_delta_e": 0.2114,
+    "visual_entropy": 1.0286,
+    "labeling_completeness": 0.5,
+    "code_complexity": 6,
+    "generation_latency": 32.829,
+    "cost_per_run": 0.004752,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

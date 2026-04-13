@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-09T03:15:46.758195",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a scatter plot to visualize the relationship between dog age and breed type\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='AlterV10Sort', y='Rassetyp1Sort', hue='Rasse1Text', data=data)\nplt.title('Dog Age vs Breed Type')\nplt.xlabel('Dog Age')\nplt.ylabel('Breed Type')\nplt.legend(title='Breed Type')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a scatter plot to visualize the relationship between dog age and breed type\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='AlterV10Sort', y='Rassetyp1Sort', hue='Rasse1Text', data=data)\nplt.title('Dog Age vs Breed Type')\nplt.xlabel('Dog Age')\nplt.ylabel('Breed Type')\nplt.legend(title='Breed Type')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 1.8251,
+    "visual_entropy": 0.541,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 13.702,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

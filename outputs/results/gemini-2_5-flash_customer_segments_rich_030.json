@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-10T17:19:36.673467",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Drop rows with missing 'Income' values, as they are crucial for this analysis\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate 'Total Spending' by summing all product-related columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt') and col.endswith('Prods')]\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Filter out extreme income values for better visualization clarity\n# Based on typical customer datasets, incomes can have extreme outliers that skew plots.\n# We'll filter to focus on the main distribution of customers.\n# Assuming typical income ranges, values below 10000 or above 120000 might be outliers\n# or represent a very small segment that distorts the overall view.\ndf_filtered = df[(df['Income'] > 10000) & (df['Income'] < 120000)].copy()\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='TotalSpending',\n    hue='Education',\n    palette='viridis', # A color palette suitable for categorical data\n    alpha=0.7,         # Transparency of points\n    s=70,              # Size of points\n    edgecolor='w',     # White edge around points for better separation\n    linewidth=0.5      # Line width of the edge\n)\n\n# Add title and labels\nplt.title('Total Spending vs. Income by Education Level', fontsize=18, fontweight='bold')\nplt.xlabel('Income ($)', fontsize=14)\nplt.ylabel('Total Spending on Products ($)', fontsize=14)\n\n# Improve legend placement\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Customize x and y axis ticks for better readability\nplt.ticklabel_format(style='plain', axis='x')\nplt.ticklabel_format(style='plain', axis='y')\nplt.xticks(fontsize=11)\nplt.yticks(fontsize=11)\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Drop rows with missing 'Income' values, as they are crucial for this analysis\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate 'Total Spending' by summing all product-related columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt') and col.endswith('Prods')]\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Filter out extreme income values for better visualization clarity\n# Based on typical customer datasets, incomes can have extreme outliers that skew plots.\n# We'll filter to focus on the main distribution of customers.\n# Assuming typical income ranges, values below 10000 or above 120000 might be outliers\n# or represent a very small segment that distorts the overall view.\ndf_filtered = df[(df['Income'] > 10000) & (df['Income'] < 120000)].copy()\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='TotalSpending',\n    hue='Education',\n    palette='viridis', # A color palette suitable for categorical data\n    alpha=0.7,         # Transparency of points\n    s=70,              # Size of points\n    edgecolor='w',     # White edge around points for better separation\n    linewidth=0.5      # Line width of the edge\n)\n\n# Add title and labels\nplt.title('Total Spending vs. Income by Education Level', fontsize=18, fontweight='bold')\nplt.xlabel('Income ($)', fontsize=14)\nplt.ylabel('Total Spending on Products ($)', fontsize=14)\n\n# Improve legend placement\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Customize x and y axis ticks for better readability\nplt.ticklabel_format(style='plain', axis='x')\nplt.ticklabel_format(style='plain', axis='y')\nplt.xticks(fontsize=11)\nplt.yticks(fontsize=11)\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.5909,
+    "color_delta_e": 1.4742,
+    "visual_entropy": 1.5611,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 13.069,
+    "cost_per_run": 0.000215,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

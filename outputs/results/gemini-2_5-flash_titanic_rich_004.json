@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T18:39:01.086215",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot to show survival rate by sex and passenger class\n# Use 'alive' column for more intuitive labeling if available, otherwise 'survived'\n# 'alive' is 'yes'/'no', 'survived' is 1/0. 'survived' is better for mean calculation.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    col='sex',\n    y='survived',\n    kind='bar',\n    hue='sex', # Color bars by sex within each pclass column\n    palette={'male': 'skyblue', 'female': 'salmon'},\n    height=5,\n    aspect=0.9,\n    errorbar=None # Remove error bars for simplicity, or keep if standard error is desired\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate by {col_name}\")\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Sex\", y=1.03, fontsize=16) # Adjust y to prevent overlap\n\n# Adjust x-axis labels for pclass\ng.set_xticklabels([\"First Class\", \"Second Class\", \"Third Class\"])\n\n# Add value labels on top of bars\nfor ax in g.axes.flat:\n    for container in ax.containers:\n        ax.bar_label(container, fmt='%.2f', label_type='edge', padding=3)\n\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust layout to make room for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot to show survival rate by sex and passenger class\n# Use 'alive' column for more intuitive labeling if available, otherwise 'survived'\n# 'alive' is 'yes'/'no', 'survived' is 1/0. 'survived' is better for mean calculation.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    col='sex',\n    y='survived',\n    kind='bar',\n    hue='sex', # Color bars by sex within each pclass column\n    palette={'male': 'skyblue', 'female': 'salmon'},\n    height=5,\n    aspect=0.9,\n    errorbar=None # Remove error bars for simplicity, or keep if standard error is desired\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate by {col_name}\")\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Sex\", y=1.03, fontsize=16) # Adjust y to prevent overlap\n\n# Adjust x-axis labels for pclass\ng.set_xticklabels([\"First Class\", \"Second Class\", \"Third Class\"])\n\n# Add value labels on top of bars\nfor ax in g.axes.flat:\n    for container in ax.containers:\n        ax.bar_label(container, fmt='%.2f', label_type='edge', padding=3)\n\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust layout to make room for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 1.0917,
+    "visual_entropy": 1.2801,
+    "labeling_completeness": 0.25,
+    "code_complexity": 9,
+    "generation_latency": 4.101,
+    "cost_per_run": 0.000133,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

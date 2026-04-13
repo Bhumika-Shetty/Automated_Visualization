@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-09T02:25:58.026758",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the dataset to prepare for plotting\nmelted_data = pd.melt(data, id_vars='species', value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a boxplot for each species\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='species', y='value', data=melted_data)\nplt.title('Iris Species Comparison of Sepal and Petal Measurements')\nplt.xlabel('Species')\nplt.ylabel('Measurement (cm)')\nplt.xticks(rotation=45)\nplt.legend(title='Measurement Type')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the dataset to prepare for plotting\nmelted_data = pd.melt(data, id_vars='species', value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a boxplot for each species\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='species', y='value', data=melted_data)\nplt.title('Iris Species Comparison of Sepal and Petal Measurements')\nplt.xlabel('Species')\nplt.ylabel('Measurement (cm)')\nplt.xticks(rotation=45)\nplt.legend(title='Measurement Type')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp00s59hh5/viz_script.py:18: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Measurement Type')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3636,
+    "color_delta_e": 0.7463,
+    "visual_entropy": 1.1234,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 3.694,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

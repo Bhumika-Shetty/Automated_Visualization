@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-10T16:44:08.219445",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle missing values in 'Sleep Disorder' column\n# Replace NaN with 'No Disorder' for better categorical plotting\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a stylish seaborn theme for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure with two subplots to compare Sleep Duration and Quality across disorders\nfig, axes = plt.subplots(1, 2, figsize=(16, 6))\n\n# Plot 1: Distribution of Sleep Duration by Sleep Disorder using violin plot\nsns.violinplot(x='Sleep Disorder', y='Sleep Duration', data=df, ax=axes[0], palette='viridis', inner='quartile')\naxes[0].set_title('Sleep Duration Distribution by Sleep Disorder', fontsize=14)\naxes[0].set_xlabel('Sleep Disorder', fontsize=12)\naxes[0].set_ylabel('Sleep Duration (hours)', fontsize=12)\naxes[0].tick_params(axis='x', rotation=15) # Rotate x-axis labels for better readability if they overlap\n\n# Plot 2: Distribution of Quality of Sleep by Sleep Disorder using violin plot\nsns.violinplot(x='Sleep Disorder', y='Quality of Sleep', data=df, ax=axes[1], palette='plasma', inner='quartile')\naxes[1].set_title('Quality of Sleep Distribution by Sleep Disorder', fontsize=14)\naxes[1].set_xlabel('Sleep Disorder', fontsize=12)\naxes[1].set_ylabel('Quality of Sleep (1-10 Score)', fontsize=12)\naxes[1].tick_params(axis='x', rotation=15) # Rotate x-axis labels for better readability\n\n# Add an overall title for the entire figure\nfig.suptitle('Impact of Sleep Disorders on Sleep Duration and Quality Metrics', fontsize=16, y=1.02)\n\n# Adjust layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0.03, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle missing values in 'Sleep Disorder' column\n# Replace NaN with 'No Disorder' for better categorical plotting\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a stylish seaborn theme for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure with two subplots to compare Sleep Duration and Quality across disorders\nfig, axes = plt.subplots(1, 2, figsize=(16, 6))\n\n# Plot 1: Distribution of Sleep Duration by Sleep Disorder using violin plot\nsns.violinplot(x='Sleep Disorder', y='Sleep Duration', data=df, ax=axes[0], palette='viridis', inner='quartile')\naxes[0].set_title('Sleep Duration Distribution by Sleep Disorder', fontsize=14)\naxes[0].set_xlabel('Sleep Disorder', fontsize=12)\naxes[0].set_ylabel('Sleep Duration (hours)', fontsize=12)\naxes[0].tick_params(axis='x', rotation=15) # Rotate x-axis labels for better readability if they overlap\n\n# Plot 2: Distribution of Quality of Sleep by Sleep Disorder using violin plot\nsns.violinplot(x='Sleep Disorder', y='Quality of Sleep', data=df, ax=axes[1], palette='plasma', inner='quartile')\naxes[1].set_title('Quality of Sleep Distribution by Sleep Disorder', fontsize=14)\naxes[1].set_xlabel('Sleep Disorder', fontsize=12)\naxes[1].set_ylabel('Quality of Sleep (1-10 Score)', fontsize=12)\naxes[1].tick_params(axis='x', rotation=15) # Rotate x-axis labels for better readability\n\n# Add an overall title for the entire figure\nfig.suptitle('Impact of Sleep Disorders on Sleep Duration and Quality Metrics', fontsize=16, y=1.02)\n\n# Adjust layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0.03, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpttf99d9y/viz_script.py:19: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.violinplot(x='Sleep Disorder', y='Sleep Duration', data=df, ax=axes[0], palette='viridis', inner='quartile')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpttf99d9y/viz_script.py:26: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.violinplot(x='Sleep Disorder', y='Quality of Sleep', data=df, ax=axes[1], palette='plasma', inner='quartile')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.0006,
+    "visual_entropy": 1.6291,
+    "labeling_completeness": 0.75,
+    "code_complexity": 9,
+    "generation_latency": 9.394,
+    "cost_per_run": 0.000173,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-09T02:51:16.474254",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns for the visualization\ncolumns = ['Marital_Status', 'Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'Response']\n\n# Melt the dataframe to prepare it for the bar plot\ncustomer_segments_melted = pd.melt(customer_segments, id_vars=['Marital_Status', 'Income'], value_vars=[col for col in customer_segments.columns if col in columns[2:]], var_name='Category', value_name='Spending')\n\n# Group by Marital_Status and Income, and calculate the mean spending for each group\ncustomer_segments_grouped = customer_segments_melted.groupby(['Marital_Status', 'Income', 'Category'])['Spending'].mean().reset_index()\n\n# Pivot the grouped dataframe to prepare it for the heatmap\ncustomer_segments_pivoted = customer_segments_grouped.pivot_table(index=['Marital_Status', 'Income'], columns='Category', values='Spending').reset_index()\n\n# Create a heatmap of the mean spending for each group\nplt.figure(figsize=(12, 8))\nsns.heatmap(customer_segments_pivoted, annot=False, cmap='coolwarm', fmt='.2f', square=True)\nplt.title('Mean Customer Spending by Marital Status, Income, and Category')\nplt.xlabel('Category')\nplt.ylabel('Marital Status - Income')\nplt.xticks(rotation=90)\nplt.yticks(rotation=0)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns for the visualization\ncolumns = ['Marital_Status', 'Income', 'MntWines', 'MntFruits', 'MntMeatProducts', 'Response']\n\n# Melt the dataframe to prepare it for the bar plot\ncustomer_segments_melted = pd.melt(customer_segments, id_vars=['Marital_Status', 'Income'], value_vars=[col for col in customer_segments.columns if col in columns[2:]], var_name='Category', value_name='Spending')\n\n# Group by Marital_Status and Income, and calculate the mean spending for each group\ncustomer_segments_grouped = customer_segments_melted.groupby(['Marital_Status', 'Income', 'Category'])['Spending'].mean().reset_index()\n\n# Pivot the grouped dataframe to prepare it for the heatmap\ncustomer_segments_pivoted = customer_segments_grouped.pivot_table(index=['Marital_Status', 'Income'], columns='Category', values='Spending').reset_index()\n\n# Create a heatmap of the mean spending for each group\nplt.figure(figsize=(12, 8))\nsns.heatmap(customer_segments_pivoted, annot=False, cmap='coolwarm', fmt='.2f', square=True)\nplt.title('Mean Customer Spending by Marital Status, Income, and Category')\nplt.xlabel('Category')\nplt.ylabel('Marital Status - Income')\nplt.xticks(rotation=90)\nplt.yticks(rotation=0)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmparcw2t1s/viz_script.py\", line 22, in <module>\n    sns.heatmap(customer_segments_pivoted, annot=False, cmap='coolwarm', fmt='.2f', square=True)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/matrix.py\", line 446, in heatmap\n    plotter = _HeatMapper(data, vmin, vmax, cmap, center, robust, annot, fmt,\n                          annot_kws, cbar, cbar_kws, xticklabels,\n                          yticklabels, mask)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/matrix.py\", line 163, in __init__\n    self._determine_cmap_params(plot_data, vmin, vmax,\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n                                cmap, center, robust)\n                                ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/matrix.py\", line 197, in _determine_cmap_params\n    calc_data = plot_data.astype(float).filled(np.nan)\n                ~~~~~~~~~~~~~~~~^^^^^^^\nValueError: could not convert string to float: 'Absurd'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 20.69,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 7,
+    "generation_latency": 0.729,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

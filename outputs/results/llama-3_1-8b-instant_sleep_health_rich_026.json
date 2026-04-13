@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-09T02:42:25.249327",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Create a bar chart to visualize the distribution of sleep duration by gender\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.barplot(x='Gender', y='Sleep Duration', hue='Age', data=df)\nax.set_title('Sleep Duration by Gender and Age')\nax.set_xlabel('Gender')\nax.set_ylabel('Sleep Duration (hours)')\nax.legend(title='Age')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot to visualize the relationship between physical activity level and sleep quality\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.scatterplot(x='Physical Activity Level', y='Quality of Sleep', data=df)\nax.set_title('Relationship between Physical Activity Level and Sleep Quality')\nax.set_xlabel('Physical Activity Level')\nax.set_ylabel('Sleep Quality')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a histogram to visualize the distribution of heart rate\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.histplot(x='Heart Rate', data=df)\nax.set_title('Distribution of Heart Rate')\nax.set_xlabel('Heart Rate (beats per minute)')\nax.set_ylabel('Frequency')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a box plot to visualize the distribution of daily steps by gender\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.boxplot(x='Gender', y='Daily Steps', data=df)\nax.set_title('Distribution of Daily Steps by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Daily Steps')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Create a bar chart to visualize the distribution of sleep duration by gender\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.barplot(x='Gender', y='Sleep Duration', hue='Age', data=df)\nax.set_title('Sleep Duration by Gender and Age')\nax.set_xlabel('Gender')\nax.set_ylabel('Sleep Duration (hours)')\nax.legend(title='Age')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot to visualize the relationship between physical activity level and sleep quality\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.scatterplot(x='Physical Activity Level', y='Quality of Sleep', data=df)\nax.set_title('Relationship between Physical Activity Level and Sleep Quality')\nax.set_xlabel('Physical Activity Level')\nax.set_ylabel('Sleep Quality')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a histogram to visualize the distribution of heart rate\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.histplot(x='Heart Rate', data=df)\nax.set_title('Distribution of Heart Rate')\nax.set_xlabel('Heart Rate (beats per minute)')\nax.set_ylabel('Frequency')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a box plot to visualize the distribution of daily steps by gender\nfig, ax = plt.subplots(figsize=(10, 6))\nsns.boxplot(x='Gender', y='Daily Steps', data=df)\nax.set_title('Distribution of Daily Steps by Gender')\nax.set_xlabel('Gender')\nax.set_ylabel('Daily Steps')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 53.85,
+    "hallucination_rate": 0.4348,
+    "color_delta_e": 0.7858,
+    "visual_entropy": 0.8856,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 1.176,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

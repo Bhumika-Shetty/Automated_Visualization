@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-11T02:14:58.486070",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a box plot to visualize the distribution of camera prices\n# broken down by 'body_type' and further categorized by 'sensor_type'.\n# This helps understand how these key specifications influence pricing.\nplt.figure(figsize=(14, 8)) # Adjust figure size for better readability and legend placement\nsns.boxplot(\n    data=df,\n    x='body_type',\n    y='price_usd',\n    hue='sensor_type',\n    palette='viridis', # Use a distinct color palette\n    linewidth=1.0,\n    fliersize=3 # Adjust size of outlier points\n)\n\n# Add a descriptive title to the plot\nplt.title('Camera Price Distribution by Body Type and Sensor Type', fontsize=16, pad=20)\n\n# Label the axes clearly\nplt.xlabel('Body Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Place the legend outside the plot area to prevent overlap with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to ensure all elements (especially the legend) fit within the figure\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a box plot to visualize the distribution of camera prices\n# broken down by 'body_type' and further categorized by 'sensor_type'.\n# This helps understand how these key specifications influence pricing.\nplt.figure(figsize=(14, 8)) # Adjust figure size for better readability and legend placement\nsns.boxplot(\n    data=df,\n    x='body_type',\n    y='price_usd',\n    hue='sensor_type',\n    palette='viridis', # Use a distinct color palette\n    linewidth=1.0,\n    fliersize=3 # Adjust size of outlier points\n)\n\n# Add a descriptive title to the plot\nplt.title('Camera Price Distribution by Body Type and Sensor Type', fontsize=16, pad=20)\n\n# Label the axes clearly\nplt.xlabel('Body Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Place the legend outside the plot area to prevent overlap with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to ensure all elements (especially the legend) fit within the figure\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.5833,
+    "color_delta_e": 1.4265,
+    "visual_entropy": 1.8193,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 11.7,
+    "cost_per_run": 0.000124,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

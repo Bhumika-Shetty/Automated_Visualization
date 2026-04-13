@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 3,
+  "timestamp": "2026-04-11T02:17:22.435183",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot to visualize relationships between numerical features,\n# while differentiating by categorical features using color, size, and style.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',           # Differentiate brands by color\n    size='weight_grams',   # Differentiate weight by marker size\n    sizes=(100, 1000),     # Adjust the range of marker sizes for better visual differentiation\n    style='sensor_type',   # Differentiate sensor types by marker shape/style\n    palette='viridis',     # Choose a color palette for the 'brand'\n    alpha=0.8              # Set transparency for markers\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Brand, Weight, and Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Add grid lines for easier readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust legend position to not overlap with the plot\nplt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, title='Legend')\n\n# Ensure all elements of the plot fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a visually appealing style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot to visualize relationships between numerical features,\n# while differentiating by categorical features using color, size, and style.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',           # Differentiate brands by color\n    size='weight_grams',   # Differentiate weight by marker size\n    sizes=(100, 1000),     # Adjust the range of marker sizes for better visual differentiation\n    style='sensor_type',   # Differentiate sensor types by marker shape/style\n    palette='viridis',     # Choose a color palette for the 'brand'\n    alpha=0.8              # Set transparency for markers\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Brand, Weight, and Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Add grid lines for easier readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust legend position to not overlap with the plot\nplt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, title='Legend')\n\n# Ensure all elements of the plot fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3636,
+    "color_delta_e": 1.0512,
+    "visual_entropy": 0.7436,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 10.214,
+    "cost_per_run": 0.000157,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

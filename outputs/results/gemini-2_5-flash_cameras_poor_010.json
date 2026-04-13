@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 10,
+  "timestamp": "2026-04-11T02:19:29.777495",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize Price vs. Megapixels,\n# with Brand differentiated by color and Sensor Type by marker style.\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',         # Use 'brand' for color differentiation\n    style='sensor_type', # Use 'sensor_type' for marker style differentiation\n    size='max_iso',      # Use 'max_iso' for marker size to add another dimension\n    sizes=(50, 500),     # Define a range for marker sizes\n    alpha=0.8,           # Set transparency for markers\n    edgecolor='w',       # Add white edge to markers for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels, by Brand, Sensor Type, and Max ISO', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Camera Attributes', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize Price vs. Megapixels,\n# with Brand differentiated by color and Sensor Type by marker style.\nplt.figure(figsize=(10, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',         # Use 'brand' for color differentiation\n    style='sensor_type', # Use 'sensor_type' for marker style differentiation\n    size='max_iso',      # Use 'max_iso' for marker size to add another dimension\n    sizes=(50, 500),     # Define a range for marker sizes\n    alpha=0.8,           # Set transparency for markers\n    edgecolor='w',       # Add white edge to markers for better separation\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels, by Brand, Sensor Type, and Max ISO', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Camera Attributes', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.2308,
+    "color_delta_e": 1.0587,
+    "visual_entropy": 0.6991,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 12.169,
+    "cost_per_run": 0.000149,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

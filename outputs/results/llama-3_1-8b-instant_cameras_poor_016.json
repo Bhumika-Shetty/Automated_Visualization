@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-09T03:42:21.000647",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Load the dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Create a bar chart for price distribution by brand\nplt.figure(figsize=(10,6))\nsns.barplot(x='brand', y='price_usd', data=df)\nplt.title('Price Distribution by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png')\nplt.show()\n\n# Create a scatter plot for price vs megapixels\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=df)\nplt.title('Price vs Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output_2.png')\nplt.show()\n\n# Create a histogram for model year distribution\nplt.figure(figsize=(10,6))\nsns.histplot(df['model_year'], bins=30)\nplt.title('Model Year Distribution')\nplt.xlabel('Model Year')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output_3.png')\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Load the dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Create a bar chart for price distribution by brand\nplt.figure(figsize=(10,6))\nsns.barplot(x='brand', y='price_usd', data=df)\nplt.title('Price Distribution by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png')\nplt.show()\n\n# Create a scatter plot for price vs megapixels\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=df)\nplt.title('Price vs Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output_2.png')\nplt.show()\n\n# Create a histogram for model year distribution\nplt.figure(figsize=(10,6))\nsns.histplot(df['model_year'], bins=30)\nplt.title('Model Year Distribution')\nplt.xlabel('Model Year')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output_3.png')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4167,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 0.705,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

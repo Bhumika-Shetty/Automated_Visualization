@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 9,
+  "timestamp": "2026-04-11T02:19:11.556744",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a clean and professional style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a scatter plot to visualize multiple dimensions\n# - x-axis: model_year to show evolution over time\n# - y-axis: price_usd as a key outcome variable\n# - hue: brand to distinguish different manufacturers\n# - size: megapixels to indicate resolution (larger circle = more megapixels)\n# - style: sensor_type to differentiate sensor sizes\nplt.figure(figsize=(11, 7))\nsns.scatterplot(\n    data=df,\n    x=\"model_year\",\n    y=\"price_usd\",\n    hue=\"brand\",\n    size=\"megapixels\",\n    sizes=(150, 800),  # Adjust size range for better visibility of megapixels\n    style=\"sensor_type\",\n    edgecolor='black', # Add edge color for better distinction of points\n    linewidth=0.7\n)\n\n# Add title and labels for clarity\nplt.title(\"Camera Price (USD) Over Model Year by Brand, Megapixels, and Sensor Type\", fontsize=16, weight='bold')\nplt.xlabel(\"Model Year\", fontsize=13)\nplt.ylabel(\"Price (USD)\", fontsize=13)\n\n# Ensure model_year ticks are integers and cover the range of data\nplt.xticks(sorted(df['model_year'].unique()))\n\n# Improve legend placement and aesthetics\n# Place legend outside the plot area to avoid overlap with data points\nplt.legend(title=\"Camera Attributes\", bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legends from being cut off\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a clean and professional style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a scatter plot to visualize multiple dimensions\n# - x-axis: model_year to show evolution over time\n# - y-axis: price_usd as a key outcome variable\n# - hue: brand to distinguish different manufacturers\n# - size: megapixels to indicate resolution (larger circle = more megapixels)\n# - style: sensor_type to differentiate sensor sizes\nplt.figure(figsize=(11, 7))\nsns.scatterplot(\n    data=df,\n    x=\"model_year\",\n    y=\"price_usd\",\n    hue=\"brand\",\n    size=\"megapixels\",\n    sizes=(150, 800),  # Adjust size range for better visibility of megapixels\n    style=\"sensor_type\",\n    edgecolor='black', # Add edge color for better distinction of points\n    linewidth=0.7\n)\n\n# Add title and labels for clarity\nplt.title(\"Camera Price (USD) Over Model Year by Brand, Megapixels, and Sensor Type\", fontsize=16, weight='bold')\nplt.xlabel(\"Model Year\", fontsize=13)\nplt.ylabel(\"Price (USD)\", fontsize=13)\n\n# Ensure model_year ticks are integers and cover the range of data\nplt.xticks(sorted(df['model_year'].unique()))\n\n# Improve legend placement and aesthetics\n# Place legend outside the plot area to avoid overlap with data points\nplt.legend(title=\"Camera Attributes\", bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legends from being cut off\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": 1.1055,
+    "visual_entropy": 0.7099,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 17.192,
+    "cost_per_run": 0.000164,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

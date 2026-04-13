@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-12T04:46:38.339299",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a specific order for customer age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\n# Unstack to prepare for a stacked bar chart: products as index, age groups as columns\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().unstack()\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Plotting the stacked bar chart\n# Use seaborn's color palette\nsales_by_product_age.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add labels and title\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16, pad=20)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Customize the legend\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a specific order for customer age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total sales by product and customer age group\n# Unstack to prepare for a stacked bar chart: products as index, age groups as columns\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().unstack()\n\n# Set a style for better aesthetics\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Plotting the stacked bar chart\n# Use seaborn's color palette\nsales_by_product_age.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add labels and title\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16, pad=20)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Customize the legend\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 0.9976,
+    "visual_entropy": 1.7018,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 10.441,
+    "cost_per_run": 0.000141,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

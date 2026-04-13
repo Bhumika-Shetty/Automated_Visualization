@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 21,
+  "timestamp": "2026-04-09T03:51:42.861969",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    \"date\": [\"2024-01-01\"]*5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"]*4 + [\"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1]*5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\ndf = pd.DataFrame(data)\n\n# Convert date column to datetime\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\n\n# Pivot the DataFrame to facilitate visualization\npivoted_df = df.pivot_table(index=\"date\", columns=[\"product\", \"size\"], values=\"total\")\n\n# Plot the pivoted DataFrame\nplt.figure(figsize=(10,6))\nsns.heatmap(pivoted_df, annot=True, cmap=\"Blues\")\nplt.title(\"Daily Sales by Product and Size\")\nplt.xlabel(\"\")\nplt.ylabel(\"Date\")\nplt.tight_layout()\nplt.savefig(\"output.png\")\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    \"date\": [\"2024-01-01\"]*5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"]*4 + [\"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1]*5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\ndf = pd.DataFrame(data)\n\n# Convert date column to datetime\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\n\n# Pivot the DataFrame to facilitate visualization\npivoted_df = df.pivot_table(index=\"date\", columns=[\"product\", \"size\"], values=\"total\")\n\n# Plot the pivoted DataFrame\nplt.figure(figsize=(10,6))\nsns.heatmap(pivoted_df, annot=True, cmap=\"Blues\")\nplt.title(\"Daily Sales by Product and Size\")\nplt.xlabel(\"\")\nplt.ylabel(\"Date\")\nplt.tight_layout()\nplt.savefig(\"output.png\")\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4516,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 11.856,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

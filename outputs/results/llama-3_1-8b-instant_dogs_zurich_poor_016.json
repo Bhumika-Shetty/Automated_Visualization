@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-09T03:28:37.360721",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"DatenstandCd\": [\"D\"] * 5,\n    \"HID\": [123408, 123408, 123481, 123481, 123481],\n    \"AlterV10Cd\": [30] * 5,\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"AlterV10Sort\": [4] * 5,\n    \"SexCd\": [\"1\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"SexSort\": [1] * 5,\n    \"KreisCd\": [7, 7, 10, 10, 10],\n    \"KreisLang\": [\"Kreis 7\"] * 2 + [\"H\u00f6ngg\"] * 3,\n    \"KreisSort\": [72, 72, 101, 101, 101],\n    \"QuarCd\": [72] * 5,\n    \"QuarLang\": [\"Hottingen\"] * 2 + [\"H\u00f6ngg\"] * 3,\n    \"QuarSort\": [72] * 2 + [101] * 3,\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Labrador Retriever\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"Rasse2Text\": [\"Labrador Retriever\", \"Continental Bulldog\", \"Unbekannt\", \"Unbekannt\", \"Unbekannt\"],\n    \"Rassetyp1Cd\": [\"I\"] * 5,\n    \"Rassetyp1Lang\": [\"Rassentypenliste I\"] * 5,\n    \"Rassetyp1Sort\": [2] * 5,\n    \"Rassetyp2Cd\": [2] * 5,\n    \"Rassetyp2Lang\": [\"I\"] * 5,\n    \"Rassetyp2Sort\": [2] * 5,\n    \"GebHundDatJahr\": [2020, 2020, 2019, 2019, 2019],\n    \"AlterVHundCd\": [4, 5, 0, 1, 2],\n    \"AlterVHundLang\": [\"4-J\u00e4hrige\", \"5-J\u00e4hrige\", \"0-J\u00e4hrige\", \"1-J\u00e4hrige\", \"2-J\u00e4hrige\"],\n    \"AlterVHundSort\": [4, 5, 0, 1, 2],\n    \"AlterVHundNum\": [4, 5, 0, 1, 2],\n    \"SexHundCd\": [\"1\"] * 5,\n    \"SexHundLang\": [\"m\u00e4nnlich\"] * 5,\n    \"SexHundSort\": [1] * 5,\n    \"HundefarbeText\": [\"beige\"] * 5,\n    \"AnzHunde\": [1] * 5\n}\ndf = pd.DataFrame(data)\n\n# Plot the data\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x=\"GebHundDatJahr\", y=\"AlterVHundCd\", hue=\"SexHundLang\", data=df)\nplt.title(\"Hundalter und Geburtsjahr\")\nplt.xlabel(\"Geburtsjahr\")\nplt.ylabel(\"Alter\")\nplt.xticks([2019, 2020, 2021, 2024, 2025])\nplt.legend(title=\"Geschlecht\")\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"DatenstandCd\": [\"D\"] * 5,\n    \"HID\": [123408, 123408, 123481, 123481, 123481],\n    \"AlterV10Cd\": [30] * 5,\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"AlterV10Sort\": [4] * 5,\n    \"SexCd\": [\"1\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"SexSort\": [1] * 5,\n    \"KreisCd\": [7, 7, 10, 10, 10],\n    \"KreisLang\": [\"Kreis 7\"] * 2 + [\"H\u00f6ngg\"] * 3,\n    \"KreisSort\": [72, 72, 101, 101, 101],\n    \"QuarCd\": [72] * 5,\n    \"QuarLang\": [\"Hottingen\"] * 2 + [\"H\u00f6ngg\"] * 3,\n    \"QuarSort\": [72] * 2 + [101] * 3,\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Labrador Retriever\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"Rasse2Text\": [\"Labrador Retriever\", \"Continental Bulldog\", \"Unbekannt\", \"Unbekannt\", \"Unbekannt\"],\n    \"Rassetyp1Cd\": [\"I\"] * 5,\n    \"Rassetyp1Lang\": [\"Rassentypenliste I\"] * 5,\n    \"Rassetyp1Sort\": [2] * 5,\n    \"Rassetyp2Cd\": [2] * 5,\n    \"Rassetyp2Lang\": [\"I\"] * 5,\n    \"Rassetyp2Sort\": [2] * 5,\n    \"GebHundDatJahr\": [2020, 2020, 2019, 2019, 2019],\n    \"AlterVHundCd\": [4, 5, 0, 1, 2],\n    \"AlterVHundLang\": [\"4-J\u00e4hrige\", \"5-J\u00e4hrige\", \"0-J\u00e4hrige\", \"1-J\u00e4hrige\", \"2-J\u00e4hrige\"],\n    \"AlterVHundSort\": [4, 5, 0, 1, 2],\n    \"AlterVHundNum\": [4, 5, 0, 1, 2],\n    \"SexHundCd\": [\"1\"] * 5,\n    \"SexHundLang\": [\"m\u00e4nnlich\"] * 5,\n    \"SexHundSort\": [1] * 5,\n    \"HundefarbeText\": [\"beige\"] * 5,\n    \"AnzHunde\": [1] * 5\n}\ndf = pd.DataFrame(data)\n\n# Plot the data\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x=\"GebHundDatJahr\", y=\"AlterVHundCd\", hue=\"SexHundLang\", data=df)\nplt.title(\"Hundalter und Geburtsjahr\")\nplt.xlabel(\"Geburtsjahr\")\nplt.ylabel(\"Alter\")\nplt.xticks([2019, 2020, 2021, 2024, 2025])\nplt.legend(title=\"Geschlecht\")\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 97.14,
+    "hallucination_rate": 0.3103,
+    "color_delta_e": 0.6771,
+    "visual_entropy": 0.2361,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 1.142,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-11T02:16:00.708953",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Adding weight as size to show another dimension\n    sizes=(20, 400), # Range of sizes for points\n    alpha=0.7,\n    palette='viridis'\n)\n\n# Set title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend for size\nhandles, labels = plt.gca().get_legend_handles_labels()\n# Filter out size legend if it's too noisy or adjust\n# For simplicity, let's just make sure the hue legend is clear\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Adding weight as size to show another dimension\n    sizes=(20, 400), # Range of sizes for points\n    alpha=0.7,\n    palette='viridis'\n)\n\n# Set title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend for size\nhandles, labels = plt.gca().get_legend_handles_labels()\n# Filter out size legend if it's too noisy or adjust\n# For simplicity, let's just make sure the hue legend is clear\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4444,
+    "color_delta_e": 1.8995,
+    "visual_entropy": 2.4863,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 4.574,
+    "cost_per_run": 0.000109,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

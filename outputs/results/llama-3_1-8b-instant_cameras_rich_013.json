@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-09T03:33:39.570297",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data from the csv file\ncameras = pd.read_csv('data/cameras.csv', \n                      columns=['brand', 'model_year', 'megapixels', 'max_iso', 'weight_grams', \n                               'price_usd', 'sensor_type', 'has_video_4k', 'lens_mount', 'body_type'])\n\n# Plot a histogram of megapixels distribution\nsns.histplot(cameras['megapixels'], kde=True, bins=20)\nplt.title('Distribution of Megapixels in Cameras')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a bar chart of top 5 camera brands by average price\ntop_brands = cameras.groupby('brand')['price_usd'].mean().nlargest(5)\nplt.figure(figsize=(8,6))\nsns.barplot(x=top_brands.index, y=top_brands.values)\nplt.title('Top 5 Camera Brands by Average Price')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Plot a scatter plot of price vs weight\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='weight_grams', y='price_usd', data=cameras)\nplt.title('Price vs Weight of Cameras')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Price (USD)')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data from the csv file\ncameras = pd.read_csv('data/cameras.csv', \n                      columns=['brand', 'model_year', 'megapixels', 'max_iso', 'weight_grams', \n                               'price_usd', 'sensor_type', 'has_video_4k', 'lens_mount', 'body_type'])\n\n# Plot a histogram of megapixels distribution\nsns.histplot(cameras['megapixels'], kde=True, bins=20)\nplt.title('Distribution of Megapixels in Cameras')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot a bar chart of top 5 camera brands by average price\ntop_brands = cameras.groupby('brand')['price_usd'].mean().nlargest(5)\nplt.figure(figsize=(8,6))\nsns.barplot(x=top_brands.index, y=top_brands.values)\nplt.title('Top 5 Camera Brands by Average Price')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Plot a scatter plot of price vs weight\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='weight_grams', y='price_usd', data=cameras)\nplt.title('Price vs Weight of Cameras')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Price (USD)')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpe1rd1m4q/viz_script.py\", line 6, in <module>\n    cameras = pd.read_csv('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpe1rd1m4q/data/cameras.csv',\n                          columns=['brand', 'model_year', 'megapixels', 'max_iso', 'weight_grams',\n                                   'price_usd', 'sensor_type', 'has_video_4k', 'lens_mount', 'body_type'])\nTypeError: read_csv() got an unexpected keyword argument 'columns'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.2917,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 6.056,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": "Auto-fixed column name case mismatch. Original error: Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpe1rd1m4q/viz_script.py\", line 6, in <module>\n    cameras = pd.read_csv('/var/folders/m8/cn5_mdps3vddfxvxn"
+}

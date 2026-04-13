@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-11T02:18:27.718352",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a descriptive label for 'has_video_4k' for better legend readability\ndf['has_video_4k_label'] = df['has_video_4k'].map({0: 'No 4K Video', 1: 'Has 4K Video'})\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 7))\n\n# Create a scatter plot to visualize relationships between key camera attributes\n# X-axis: Megapixels\n# Y-axis: Price\n# Color: Body Type\n# Style (marker): Has 4K Video capability\n# Size: Weight in grams\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='body_type',\n    style='has_video_4k_label',\n    size='weight_grams',\n    sizes=(100, 1000),  # Adjust marker size range for better distinction\n    palette='viridis',\n    edgecolor='black',\n    linewidth=0.5,\n    alpha=0.9\n)\n\n# Add titles and labels for clarity\nplt.title('Camera Price vs. Megapixels by Body Type, 4K Video, and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement and appearance\nplt.legend(title='Camera Attributes', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, frameon=True)\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Create a descriptive label for 'has_video_4k' for better legend readability\ndf['has_video_4k_label'] = df['has_video_4k'].map({0: 'No 4K Video', 1: 'Has 4K Video'})\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 7))\n\n# Create a scatter plot to visualize relationships between key camera attributes\n# X-axis: Megapixels\n# Y-axis: Price\n# Color: Body Type\n# Style (marker): Has 4K Video capability\n# Size: Weight in grams\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='body_type',\n    style='has_video_4k_label',\n    size='weight_grams',\n    sizes=(100, 1000),  # Adjust marker size range for better distinction\n    palette='viridis',\n    edgecolor='black',\n    linewidth=0.5,\n    alpha=0.9\n)\n\n# Add titles and labels for clarity\nplt.title('Camera Price vs. Megapixels by Body Type, 4K Video, and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement and appearance\nplt.legend(title='Camera Attributes', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, frameon=True)\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 1.3198,
+    "visual_entropy": 0.7113,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 9.723,
+    "cost_per_run": 0.000155,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-12T05:44:30.050770",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set the visual style for the plots\nsns.set_theme(style=\"ticks\")\n\n# Create a custom color palette\npalette = {\n    'setosa': '#1f77b4',\n    'versicolor': '#ff7f0e',\n    'virginica': '#2ca02c'\n}\n\n# Create the pairplot\n# A pairplot shows pairwise relationships between variables and is colored by species.\n# The diagonal shows the distribution of each feature for each species (using KDE).\ng = sns.pairplot(\n    df,\n    hue='species',\n    palette=palette,\n    diag_kind='kde',\n    plot_kws={'alpha': 0.7, 's': 40, 'edgecolor': 'k'},\n    diag_kws={'fill': True, 'alpha': 0.5}\n)\n\n# Add a descriptive title to the overall figure\ng.fig.suptitle(\"Pairwise Relationships and Distributions in the Iris Dataset\", y=1.02, fontsize=16)\n\n# Improve individual axis labels for clarity\nfor i, col in enumerate(df.columns[:-1]):\n    g.axes[i, 0].set_ylabel(col.replace('_', ' ').title() + ' (cm)')\n    g.axes[-1, i].set_xlabel(col.replace('_', ' ').title() + ' (cm)')\n\n# Adjust legend title\ng._legend.set_title(\"Species\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set the visual style for the plots\nsns.set_theme(style=\"ticks\")\n\n# Create a custom color palette\npalette = {\n    'setosa': '#1f77b4',\n    'versicolor': '#ff7f0e',\n    'virginica': '#2ca02c'\n}\n\n# Create the pairplot\n# A pairplot shows pairwise relationships between variables and is colored by species.\n# The diagonal shows the distribution of each feature for each species (using KDE).\ng = sns.pairplot(\n    df,\n    hue='species',\n    palette=palette,\n    diag_kind='kde',\n    plot_kws={'alpha': 0.7, 's': 40, 'edgecolor': 'k'},\n    diag_kws={'fill': True, 'alpha': 0.5}\n)\n\n# Add a descriptive title to the overall figure\ng.fig.suptitle(\"Pairwise Relationships and Distributions in the Iris Dataset\", y=1.02, fontsize=16)\n\n# Improve individual axis labels for clarity\nfor i, col in enumerate(df.columns[:-1]):\n    g.axes[i, 0].set_ylabel(col.replace('_', ' ').title() + ' (cm)')\n    g.axes[-1, i].set_xlabel(col.replace('_', ' ').title() + ' (cm)')\n\n# Adjust legend title\ng._legend.set_title(\"Species\")\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6471,
+    "color_delta_e": 2.0202,
+    "visual_entropy": 1.3573,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 14.587,
+    "cost_per_run": 0.003342,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

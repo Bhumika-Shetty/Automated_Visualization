@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-09T03:03:40.257574",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Create a bar chart to show the distribution of transactions by type\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=credit_fraud)\nplt.title('Distribution of Transactions by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of transaction amounts\nplt.figure(figsize=(10, 6))\nsns.histplot(credit_fraud['amount'], kde=True)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount')\nplt.ylabel('Frequency')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between transaction amount and hour of day\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=credit_fraud, hue='is_fraud')\nplt.title('Relationship Between Transaction Amount and Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.legend(title='Is Fraud')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to show the distribution of transactions by hour of day\nplt.figure(figsize=(10, 6))\nsns.countplot(x='hour_of_day', data=credit_fraud)\nplt.title('Distribution of Transactions by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Create a bar chart to show the distribution of transactions by type\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=credit_fraud)\nplt.title('Distribution of Transactions by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of transaction amounts\nplt.figure(figsize=(10, 6))\nsns.histplot(credit_fraud['amount'], kde=True)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount')\nplt.ylabel('Frequency')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between transaction amount and hour of day\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=credit_fraud, hue='is_fraud')\nplt.title('Relationship Between Transaction Amount and Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.legend(title='Is Fraud')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to show the distribution of transactions by hour of day\nplt.figure(figsize=(10, 6))\nsns.countplot(x='hour_of_day', data=credit_fraud)\nplt.title('Distribution of Transactions by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6522,
+    "color_delta_e": 0.8923,
+    "visual_entropy": 1.1544,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.935,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

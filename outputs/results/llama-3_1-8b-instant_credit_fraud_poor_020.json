@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 20,
+  "timestamp": "2026-04-09T03:13:12.033175",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Convert categorical columns to categorical type\ndf['transaction_type'] = df['transaction_type'].astype('category')\ndf['hour_of_day'] = df['hour_of_day'].astype('category')\n\n# Plot a bar chart for transaction types\nplt.figure(figsize=(10,6))\nsns.countplot(x='transaction_type', data=df)\nplt.title('Transaction Types')\nplt.ylabel('Count')\nplt.savefig('transaction_types.png')\n\n# Plot a bar chart for hours of day\nplt.figure(figsize=(10,6))\nsns.countplot(x='hour_of_day', data=df)\nplt.title('Hours of Day')\nplt.ylabel('Count')\nplt.savefig('hours_of_day.png')\n\n# Plot a bar chart for amount distribution\nplt.figure(figsize=(10,6))\nsns.histplot(df['amount'], kde=True)\nplt.title('Amount Distribution')\nplt.xlabel('Amount')\nplt.ylabel('Count')\nplt.savefig('amount_distribution.png')\n\n# Plot a histogram for amount distribution with bins\nplt.figure(figsize=(10,6))\nsns.histplot(df['amount'], bins=10, kde=True)\nplt.title('Amount Distribution with Bins')\nplt.xlabel('Amount')\nplt.ylabel('Count')\nplt.savefig('amount_distribution_with_bins.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Convert categorical columns to categorical type\ndf['transaction_type'] = df['transaction_type'].astype('category')\ndf['hour_of_day'] = df['hour_of_day'].astype('category')\n\n# Plot a bar chart for transaction types\nplt.figure(figsize=(10,6))\nsns.countplot(x='transaction_type', data=df)\nplt.title('Transaction Types')\nplt.ylabel('Count')\nplt.savefig('transaction_types.png')\n\n# Plot a bar chart for hours of day\nplt.figure(figsize=(10,6))\nsns.countplot(x='hour_of_day', data=df)\nplt.title('Hours of Day')\nplt.ylabel('Count')\nplt.savefig('hours_of_day.png')\n\n# Plot a bar chart for amount distribution\nplt.figure(figsize=(10,6))\nsns.histplot(df['amount'], kde=True)\nplt.title('Amount Distribution')\nplt.xlabel('Amount')\nplt.ylabel('Count')\nplt.savefig('amount_distribution.png')\n\n# Plot a histogram for amount distribution with bins\nplt.figure(figsize=(10,6))\nsns.histplot(df['amount'], bins=10, kde=True)\nplt.title('Amount Distribution with Bins')\nplt.xlabel('Amount')\nplt.ylabel('Count')\nplt.savefig('amount_distribution_with_bins.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5172,
+    "color_delta_e": 0.7476,
+    "visual_entropy": 1.0038,
+    "labeling_completeness": 0.75,
+    "code_complexity": 6,
+    "generation_latency": 0.954,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

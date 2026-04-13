@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-12T05:11:20.697130",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/titanic.csv')\nexcept FileNotFoundError:\n    df = sns.load_dataset('titanic')\n\n# Create a figure and axes for the plot\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create the pointplot to show survival probability with confidence intervals\nsns.pointplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='who',\n    palette='viridis',\n    markers=['o', 's', 'D'],\n    linestyles=['-', '--', ':'],\n    ax=ax,\n    dodge=True\n)\n\n# --- Style and Annotations ---\n\n# Set the title and labels with clear, descriptive text\nax.set_title(\n    'Titanic Survival Rate by Passenger Class and Type',\n    fontsize=18,\n    fontweight='bold',\n    pad=20\n)\nax.set_xlabel('Passenger Class', fontsize=12, labelpad=10)\nax.set_ylabel('Survival Probability', fontsize=12, labelpad=10)\n\n# Customize x-axis ticks\nax.set_xticklabels(['First', 'Second', 'Third'])\nax.tick_params(axis='both', which='major', labelsize=11)\n\n# Format y-axis as percentage\nax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\nax.set_ylim(0, 1.05)\n\n# Improve grid and layout\nax.grid(axis='y', linestyle='--', alpha=0.7)\nax.grid(axis='x', linestyle='')\nsns.despine()\n\n# Enhance the legend\nlegend = ax.legend(title='Passenger Type', title_fontsize='12', fontsize='11', loc='upper left')\nlegend.get_frame().set_alpha(0.9)\nlegend.get_frame().set_facecolor('white')\n\n# Add a background text for context\nfig.text(0.5, 0.02,\n         'Analysis shows a stark difference in survival rates. Women and children in First Class had the highest chances of survival,\\n'\n         'while men in Third Class had the lowest, highlighting the era\\'s social hierarchy and \"women and children first\" protocol.',\n         ha='center', va='bottom', fontsize=10, color='gray', style='italic')\n\nplt.tight_layout(rect=[0, 0.05, 1, 0.95]) # Adjust layout to make space for text\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/titanic.csv')\nexcept FileNotFoundError:\n    df = sns.load_dataset('titanic')\n\n# Create a figure and axes for the plot\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create the pointplot to show survival probability with confidence intervals\nsns.pointplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='who',\n    palette='viridis',\n    markers=['o', 's', 'D'],\n    linestyles=['-', '--', ':'],\n    ax=ax,\n    dodge=True\n)\n\n# --- Style and Annotations ---\n\n# Set the title and labels with clear, descriptive text\nax.set_title(\n    'Titanic Survival Rate by Passenger Class and Type',\n    fontsize=18,\n    fontweight='bold',\n    pad=20\n)\nax.set_xlabel('Passenger Class', fontsize=12, labelpad=10)\nax.set_ylabel('Survival Probability', fontsize=12, labelpad=10)\n\n# Customize x-axis ticks\nax.set_xticklabels(['First', 'Second', 'Third'])\nax.tick_params(axis='both', which='major', labelsize=11)\n\n# Format y-axis as percentage\nax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=1.0))\nax.set_ylim(0, 1.05)\n\n# Improve grid and layout\nax.grid(axis='y', linestyle='--', alpha=0.7)\nax.grid(axis='x', linestyle='')\nsns.despine()\n\n# Enhance the legend\nlegend = ax.legend(title='Passenger Type', title_fontsize='12', fontsize='11', loc='upper left')\nlegend.get_frame().set_alpha(0.9)\nlegend.get_frame().set_facecolor('white')\n\n# Add a background text for context\nfig.text(0.5, 0.02,\n         'Analysis shows a stark difference in survival rates. Women and children in First Class had the highest chances of survival,\\n'\n         'while men in Third Class had the lowest, highlighting the era\\'s social hierarchy and \"women and children first\" protocol.',\n         ha='center', va='bottom', fontsize=10, color='gray', style='italic')\n\nplt.tight_layout(rect=[0, 0.05, 1, 0.95]) # Adjust layout to make space for text\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmprnz_r6ei/viz_script.py:41: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.\n  ax.set_xticklabels(['First', 'Second', 'Third'])\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 0.8152,
+    "visual_entropy": 0.5085,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 20.248,
+    "cost_per_run": 0.005569,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-11T02:01:21.117292",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Group by the year of the data snapshot and the dog's gender,\n# then count the number of dogs for each group.\n# Each row represents a unique dog-year observation, so .size() gives the count.\ndog_counts_by_year_gender = df.groupby(['StichtagDatJahr', 'SexHundLang']).size().reset_index(name='Anzahl Hunde')\n\n# Set up the matplotlib figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Create a line plot to visualize the trend of dog registrations over years,\n# broken down by dog gender.\nsns.lineplot(\n    data=dog_counts_by_year_gender,\n    x='StichtagDatJahr',\n    y='Anzahl Hunde',\n    hue='SexHundLang',\n    marker='o', # Add circles at each data point for clarity\n    palette={'m\u00e4nnlich': '#4CAF50', 'weiblich': '#FF6F61'} # Custom color palette\n)\n\n# Add a descriptive title to the plot\nplt.title('Number of Registered Dogs in Zurich by Year and Gender', fontsize=16, weight='bold')\n\n# Label the x-axis\nplt.xlabel('Year of Data Snapshot', fontsize=12)\n\n# Label the y-axis\nplt.ylabel('Number of Dogs', fontsize=12)\n\n# Ensure all unique years are shown on the x-axis and format them as integers\nplt.xticks(dog_counts_by_year_gender['StichtagDatJahr'].unique().astype(int))\n\n# Add a legend to distinguish between genders, with a clear title\nplt.legend(title='Dog Gender', loc='upper left', frameon=True, borderpad=1)\n\n# Add a grid for better readability of the trends\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Group by the year of the data snapshot and the dog's gender,\n# then count the number of dogs for each group.\n# Each row represents a unique dog-year observation, so .size() gives the count.\ndog_counts_by_year_gender = df.groupby(['StichtagDatJahr', 'SexHundLang']).size().reset_index(name='Anzahl Hunde')\n\n# Set up the matplotlib figure and axes for the plot\nplt.figure(figsize=(12, 7))\n\n# Create a line plot to visualize the trend of dog registrations over years,\n# broken down by dog gender.\nsns.lineplot(\n    data=dog_counts_by_year_gender,\n    x='StichtagDatJahr',\n    y='Anzahl Hunde',\n    hue='SexHundLang',\n    marker='o', # Add circles at each data point for clarity\n    palette={'m\u00e4nnlich': '#4CAF50', 'weiblich': '#FF6F61'} # Custom color palette\n)\n\n# Add a descriptive title to the plot\nplt.title('Number of Registered Dogs in Zurich by Year and Gender', fontsize=16, weight='bold')\n\n# Label the x-axis\nplt.xlabel('Year of Data Snapshot', fontsize=12)\n\n# Label the y-axis\nplt.ylabel('Number of Dogs', fontsize=12)\n\n# Ensure all unique years are shown on the x-axis and format them as integers\nplt.xticks(dog_counts_by_year_gender['StichtagDatJahr'].unique().astype(int))\n\n# Add a legend to distinguish between genders, with a clear title\nplt.legend(title='Dog Gender', loc='upper left', frameon=True, borderpad=1)\n\n# Add a grid for better readability of the trends\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.9605,
+    "visual_entropy": 0.5401,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 12.78,
+    "cost_per_run": 0.00019,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

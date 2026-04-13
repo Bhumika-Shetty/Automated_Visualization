@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-12T05:54:30.373989",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    print(\"Dataset 'data/iris.csv' not found. Loading sample Iris dataset from seaborn.\")\n    df = sns.load_dataset('iris')\n\n# Set a visually appealing and informative style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the pair plot, which is ideal for visualizing pairwise relationships\n# in a dataset. The 'hue' parameter colors points by species, revealing\n# how the different species are clustered based on their measurements.\ng = sns.pairplot(\n    df,\n    hue='species',\n    markers=[\"o\", \"s\", \"D\"],  # Different markers for each species for better accessibility\n    diag_kind='kde',         # Use Kernel Density Estimate for diagonal plots\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'linewidth': 2, 'shade': True} # Style KDE plots\n)\n\n# Add a clear, descriptive title for the entire figure\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Measurements by Species',\n    y=1.02,  # Adjust title position to avoid overlap\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Enhance readability of axis labels\nfor ax in g.axes.flatten():\n    ax.set_xlabel(ax.get_xlabel(), fontsize=11)\n    ax.set_ylabel(ax.get_ylabel(), fontsize=11)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    print(\"Dataset 'data/iris.csv' not found. Loading sample Iris dataset from seaborn.\")\n    df = sns.load_dataset('iris')\n\n# Set a visually appealing and informative style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the pair plot, which is ideal for visualizing pairwise relationships\n# in a dataset. The 'hue' parameter colors points by species, revealing\n# how the different species are clustered based on their measurements.\ng = sns.pairplot(\n    df,\n    hue='species',\n    markers=[\"o\", \"s\", \"D\"],  # Different markers for each species for better accessibility\n    diag_kind='kde',         # Use Kernel Density Estimate for diagonal plots\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'linewidth': 2, 'shade': True} # Style KDE plots\n)\n\n# Add a clear, descriptive title for the entire figure\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Measurements by Species',\n    y=1.02,  # Adjust title position to avoid overlap\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Enhance readability of axis labels\nfor ax in g.axes.flatten():\n    ax.set_xlabel(ax.get_xlabel(), fontsize=11)\n    ax.set_ylabel(ax.get_ylabel(), fontsize=11)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py:1513: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  func(x=vector, **plot_kwargs)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6842,
+    "color_delta_e": 2.1402,
+    "visual_entropy": 1.9647,
+    "labeling_completeness": 0.75,
+    "code_complexity": 8,
+    "generation_latency": 17.998,
+    "cost_per_run": 0.003942,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

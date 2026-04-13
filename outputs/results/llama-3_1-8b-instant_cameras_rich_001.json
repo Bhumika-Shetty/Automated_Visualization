@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-09T03:32:53.470799",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a countplot of the different camera brands\nplt.figure(figsize=(10,6))\nsns.countplot(x='brand', data=data)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the average price by body type\nbody_type_avg_price = data.groupby('body_type')['price_usd'].mean().reset_index()\nplt.figure(figsize=(8,6))\nsns.barplot(x='body_type', y='price_usd', data=body_type_avg_price)\nplt.title('Average Price by Body Type')\nplt.xlabel('Body Type')\nplt.ylabel('Average Price (USD)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of megapixels vs price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Megapixels vs Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.xticks([0, 10, 20, 30, 40, 50, 60])\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a countplot of the different camera brands\nplt.figure(figsize=(10,6))\nsns.countplot(x='brand', data=data)\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the average price by body type\nbody_type_avg_price = data.groupby('body_type')['price_usd'].mean().reset_index()\nplt.figure(figsize=(8,6))\nsns.barplot(x='body_type', y='price_usd', data=body_type_avg_price)\nplt.title('Average Price by Body Type')\nplt.xlabel('Body Type')\nplt.ylabel('Average Price (USD)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of megapixels vs price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Megapixels vs Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.xticks([0, 10, 20, 30, 40, 50, 60])\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": 1.5425,
+    "visual_entropy": 0.8468,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.819,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

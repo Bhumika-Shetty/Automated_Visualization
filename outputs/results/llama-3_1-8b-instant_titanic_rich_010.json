@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-09T02:12:42.895735",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert 'alive' column to numerical values\ndf['alive'] = df['alive'].map({'yes': 1, 'no': 0})\n\n# Create a bar chart to show the distribution of survived passengers by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='alive', data=df)\nplt.title('Survival Distribution by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert 'alive' column to numerical values\ndf['alive'] = df['alive'].map({'yes': 1, 'no': 0})\n\n# Create a bar chart to show the distribution of survived passengers by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='alive', data=df)\nplt.title('Survival Distribution by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.4167,
+    "color_delta_e": 0.6545,
+    "visual_entropy": 1.2888,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.443,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

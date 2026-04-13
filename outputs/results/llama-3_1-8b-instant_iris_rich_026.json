@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-09T02:26:40.791855",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from iris.csv\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the data to transform it into a suitable form for plotting\nmelted_data = pd.melt(data, id_vars='species', value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a boxplot using seaborn to visualize the distribution of sepal/petal measurements\nplt.figure(figsize=(10, 6))\nsns.boxplot(data=melted_data, x='variable', y='value', hue='species', palette='viridis')\nplt.title('Distribution of Sepal/Petal Measurements by Species')\nplt.xlabel('Measurement Type')\nplt.ylabel('Value')\nplt.legend(title='Species')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from iris.csv\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the data to transform it into a suitable form for plotting\nmelted_data = pd.melt(data, id_vars='species', value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a boxplot using seaborn to visualize the distribution of sepal/petal measurements\nplt.figure(figsize=(10, 6))\nsns.boxplot(data=melted_data, x='variable', y='value', hue='species', palette='viridis')\nplt.title('Distribution of Sepal/Petal Measurements by Species')\nplt.xlabel('Measurement Type')\nplt.ylabel('Value')\nplt.legend(title='Species')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4615,
+    "color_delta_e": 0.9077,
+    "visual_entropy": 0.6355,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.592,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

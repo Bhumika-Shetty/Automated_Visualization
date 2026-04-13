@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-09T03:17:54.860177",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from CSV file\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a histogram of dog ages\nplt.figure(figsize=(10, 6))\nsns.histplot(data['AlterV10Sort'], kde=True, bins=20, color='skyblue')\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (Years)')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the top 10 breeds\ntop_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10, 6))\nsns.barplot(x=top_breeds.index, y=top_breeds.values, color='skyblue')\nplt.title('Top 10 Breeds')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of dog age vs. owner age\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x=data['AlterV10Sort'], y=data['AlterV10Cd'], hue=data['SexCd'], palette='viridis')\nplt.title('Dog Age vs. Owner Age')\nplt.xlabel('Dog Age (Years)')\nplt.ylabel('Owner Age (Years)')\nplt.legend(title='Sex')\nplt.savefig('output_age_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart of dog sex distribution\nplt.figure(figsize=(6, 6))\ndata['SexLang'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['skyblue', 'lightgreen'])\nplt.title('Sex Distribution of Dogs')\nplt.savefig('output_sex_pie.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from CSV file\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a histogram of dog ages\nplt.figure(figsize=(10, 6))\nsns.histplot(data['AlterV10Sort'], kde=True, bins=20, color='skyblue')\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (Years)')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of the top 10 breeds\ntop_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10, 6))\nsns.barplot(x=top_breeds.index, y=top_breeds.values, color='skyblue')\nplt.title('Top 10 Breeds')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.savefig('output_breeds.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of dog age vs. owner age\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x=data['AlterV10Sort'], y=data['AlterV10Cd'], hue=data['SexCd'], palette='viridis')\nplt.title('Dog Age vs. Owner Age')\nplt.xlabel('Dog Age (Years)')\nplt.ylabel('Owner Age (Years)')\nplt.legend(title='Sex')\nplt.savefig('output_age_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart of dog sex distribution\nplt.figure(figsize=(6, 6))\ndata['SexLang'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['skyblue', 'lightgreen'])\nplt.title('Sex Distribution of Dogs')\nplt.savefig('output_sex_pie.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.7391,
+    "color_delta_e": 0.8015,
+    "visual_entropy": 0.4787,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 16.927,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

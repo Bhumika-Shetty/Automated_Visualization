@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-09T02:26:54.947753",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map species to a numerical value for plotting\nspecies_map = {'setosa': 1, 'versicolor': 2, 'virginica': 3}\ndata['species'] = data['species'].map(species_map)\n\n# Create a pairplot with seaborn\nsns.pairplot(data, hue='species', markers=['o', 's', '^'], palette='husl')\n\n# Add title and labels\nplt.title('Iris Flower Species Classification Dataset')\nplt.xlabel('Measurement')\nplt.ylabel('Value')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map species to a numerical value for plotting\nspecies_map = {'setosa': 1, 'versicolor': 2, 'virginica': 3}\ndata['species'] = data['species'].map(species_map)\n\n# Create a pairplot with seaborn\nsns.pairplot(data, hue='species', markers=['o', 's', '^'], palette='husl')\n\n# Add title and labels\nplt.title('Iris Flower Species Classification Dataset')\nplt.xlabel('Measurement')\nplt.ylabel('Value')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpyy4til4w/viz_script.py\", line 13, in <module>\n    sns.pairplot(data, hue='species', markers=['o', 's', '^'], palette='husl')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 2119, in pairplot\n    grid = PairGrid(data, vars=vars, x_vars=x_vars, y_vars=y_vars, hue=hue,\n                    hue_order=hue_order, palette=palette, corner=corner,\n                    height=height, aspect=aspect, dropna=dropna, **grid_kws)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1272, in __init__\n    raise ValueError(\"No variables found for grid columns.\")\nValueError: No variables found for grid columns.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4444,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 4.563,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

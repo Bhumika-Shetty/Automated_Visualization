@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-10T15:51:58.157308",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing the survival rate by Pclass, separated by Sex\n# The 'kind=\"bar\"' in catplot by default calculates the mean of the y-variable (survived)\n# for each category, which represents the survival rate.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    col='sex',\n    kind='bar',\n    errorbar=None, # Remove error bars for cleaner visualization of means\n    palette='viridis',\n    height=5,\n    aspect=0.9\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate by {col_name}\")\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Sex\", y=1.03, fontsize=16) # Adjust y to prevent overlap\n\n# Ensure layout is tight\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and axes for the plot\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing the survival rate by Pclass, separated by Sex\n# The 'kind=\"bar\"' in catplot by default calculates the mean of the y-variable (survived)\n# for each category, which represents the survival rate.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    col='sex',\n    kind='bar',\n    errorbar=None, # Remove error bars for cleaner visualization of means\n    palette='viridis',\n    height=5,\n    aspect=0.9\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate by {col_name}\")\ng.fig.suptitle(\"Titanic Survival Rate by Passenger Class and Sex\", y=1.03, fontsize=16) # Adjust y to prevent overlap\n\n# Ensure layout is tight\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp6q118st5/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  g = sns.catplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.7,
+    "color_delta_e": 0.9739,
+    "visual_entropy": 1.4413,
+    "labeling_completeness": 0.25,
+    "code_complexity": 4,
+    "generation_latency": 5.528,
+    "cost_per_run": 0.000102,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

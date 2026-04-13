@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-12T10:20:34.437122",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Combine 'date' and 'time' and convert to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour of the day\ndf['hour'] = df['datetime'].dt.hour\n\n# Group data by hour and product to calculate total sales\nhourly_sales = df.groupby(['hour', 'product'])['total'].sum().reset_index()\n\n# Find the top 5 products by total sales to keep the visualization clean\ntop_products = df.groupby('product')['total'].sum().nlargest(5).index\nhourly_sales_top5 = hourly_sales[hourly_sales['product'].isin(top_products)]\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nfig, ax = plt.subplots(figsize=(14, 8))\n\n# Create the line plot\nsns.lineplot(\n    data=hourly_sales_top5,\n    x='hour',\n    y='total',\n    hue='product',\n    style='product',\n    markers=True,\n    dashes=False,\n    linewidth=2.5,\n    ax=ax\n)\n\n# --- Customization and Labeling ---\n# Set title and labels with enhanced formatting\nax.set_title('Peak Sales Hours for Top 5 Coffee Products', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=12, fontweight='bold')\nax.set_ylabel('Total Sales ($)', fontsize=12, fontweight='bold')\n\n# Set x-axis ticks to be every hour for clarity\nax.set_xticks(range(0, 24, 1))\nax.set_xticklabels([f'{h:02d}:00' for h in range(24)], rotation=45, ha='right')\nax.grid(which='major', linestyle='--', linewidth='0.5', color='gray')\n\n# Customize the legend\nlegend = ax.legend(title='Top Products', title_fontsize='13', fontsize='11')\n\n# Add a text annotation for an insight\nax.text(8, hourly_sales_top5['total'].max() * 0.9, 'Morning rush peak',\n        fontsize=12, style='italic', color='black',\n        bbox=dict(facecolor='wheat', alpha=0.5, boxstyle='round,pad=0.5'))\n\n# Final layout adjustment\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Combine 'date' and 'time' and convert to datetime objects\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour of the day\ndf['hour'] = df['datetime'].dt.hour\n\n# Group data by hour and product to calculate total sales\nhourly_sales = df.groupby(['hour', 'product'])['total'].sum().reset_index()\n\n# Find the top 5 products by total sales to keep the visualization clean\ntop_products = df.groupby('product')['total'].sum().nlargest(5).index\nhourly_sales_top5 = hourly_sales[hourly_sales['product'].isin(top_products)]\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nfig, ax = plt.subplots(figsize=(14, 8))\n\n# Create the line plot\nsns.lineplot(\n    data=hourly_sales_top5,\n    x='hour',\n    y='total',\n    hue='product',\n    style='product',\n    markers=True,\n    dashes=False,\n    linewidth=2.5,\n    ax=ax\n)\n\n# --- Customization and Labeling ---\n# Set title and labels with enhanced formatting\nax.set_title('Peak Sales Hours for Top 5 Coffee Products', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=12, fontweight='bold')\nax.set_ylabel('Total Sales ($)', fontsize=12, fontweight='bold')\n\n# Set x-axis ticks to be every hour for clarity\nax.set_xticks(range(0, 24, 1))\nax.set_xticklabels([f'{h:02d}:00' for h in range(24)], rotation=45, ha='right')\nax.grid(which='major', linestyle='--', linewidth='0.5', color='gray')\n\n# Customize the legend\nlegend = ax.legend(title='Top Products', title_fontsize='13', fontsize='11')\n\n# Add a text annotation for an insight\nax.text(8, hourly_sales_top5['total'].max() * 0.9, 'Morning rush peak',\n        fontsize=12, style='italic', color='black',\n        bbox=dict(facecolor='wheat', alpha=0.5, boxstyle='round,pad=0.5'))\n\n# Final layout adjustment\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.6061,
+    "color_delta_e": 1.8059,
+    "visual_entropy": 1.082,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 25.723,
+    "cost_per_run": 0.005748,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-09T03:04:23.965784",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Convert transaction_type to categorical type\ndata['transaction_type'] = pd.Categorical(data['transaction_type'])\n\n# Create a bar chart to show the distribution of transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=data)\nplt.title('Distribution of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Transaction Type')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Convert transaction_type to categorical type\ndata['transaction_type'] = pd.Categorical(data['transaction_type'])\n\n# Create a bar chart to show the distribution of transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=data)\nplt.title('Distribution of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Transaction Type')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp4sru_fc5/viz_script.py:17: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Transaction Type')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 25.0,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.7833,
+    "visual_entropy": 1.1475,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.635,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

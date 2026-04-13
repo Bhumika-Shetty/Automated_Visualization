@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 11,
+  "timestamp": "2026-04-09T03:25:07.135722",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"DatenstandCd\": [\"D\", \"D\", \"D\", \"D\", \"D\"],\n    \"HID\": [\"123408\", \"123408\", \"123481\", \"123481\", \"123481\"],\n    \"AlterV10Cd\": [\"30\", \"30\", \"30\", \"30\", \"30\"],\n    \"SexCd\": [\"1\", \"1\", \"1\", \"1\", \"1\"],\n    \"KreisCd\": [\"7\", \"7\", \"10\", \"10\", \"10\"],\n    \"QuarCd\": [\"72\", \"72\", \"101\", \"101\", \"101\"],\n    \"Rassetyp1Cd\": [\"2\", \"2\", \"5\", \"5\", \"5\"],\n    \"GebHundDatJahr\": [\"2020\", \"2020\", \"2019\", \"2019\", \"2019\"],\n    \"AlterVHundCd\": [\"4\", \"5\", \"0\", \"1\", \"2\"],\n    \"SexHundCd\": [\"1\", \"1\", \"1\", \"1\", \"1\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert the 'StichtagDat' column to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Create a bar chart with the number of dogs per year\nplt.figure(figsize=(10, 6))\nsns.countplot(x='GebHundDatJahr', data=df)\nplt.title('Number of Dogs Per Year')\nplt.xlabel('Year')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"DatenstandCd\": [\"D\", \"D\", \"D\", \"D\", \"D\"],\n    \"HID\": [\"123408\", \"123408\", \"123481\", \"123481\", \"123481\"],\n    \"AlterV10Cd\": [\"30\", \"30\", \"30\", \"30\", \"30\"],\n    \"SexCd\": [\"1\", \"1\", \"1\", \"1\", \"1\"],\n    \"KreisCd\": [\"7\", \"7\", \"10\", \"10\", \"10\"],\n    \"QuarCd\": [\"72\", \"72\", \"101\", \"101\", \"101\"],\n    \"Rassetyp1Cd\": [\"2\", \"2\", \"5\", \"5\", \"5\"],\n    \"GebHundDatJahr\": [\"2020\", \"2020\", \"2019\", \"2019\", \"2019\"],\n    \"AlterVHundCd\": [\"4\", \"5\", \"0\", \"1\", \"2\"],\n    \"SexHundCd\": [\"1\", \"1\", \"1\", \"1\", \"1\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert the 'StichtagDat' column to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Create a bar chart with the number of dogs per year\nplt.figure(figsize=(10, 6))\nsns.countplot(x='GebHundDatJahr', data=df)\nplt.title('Number of Dogs Per Year')\nplt.xlabel('Year')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 31.43,
+    "hallucination_rate": 0.1304,
+    "color_delta_e": 0.714,
+    "visual_entropy": 1.179,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 3.984,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-09T03:35:47.445438",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart to compare the number of cameras in each sensor type\nplt.figure(figsize=(10,6))\nsns.countplot(x='sensor_type', data=data, order=data['sensor_type'].value_counts().index)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to compare megapixels and price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship Between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.xscale('log')\nplt.yscale('log')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to compare the distribution of prices\nplt.figure(figsize=(10,6))\nsns.histplot(data['price_usd'], bins=50, kde=True)\nplt.title('Distribution of Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Frequency')\nplt.xscale('log')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart to compare the number of cameras in each sensor type\nplt.figure(figsize=(10,6))\nsns.countplot(x='sensor_type', data=data, order=data['sensor_type'].value_counts().index)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to compare megapixels and price\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship Between Megapixels and Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.xscale('log')\nplt.yscale('log')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to compare the distribution of prices\nplt.figure(figsize=(10,6))\nsns.histplot(data['price_usd'], bins=50, kde=True)\nplt.title('Distribution of Prices')\nplt.xlabel('Price (USD)')\nplt.ylabel('Frequency')\nplt.xscale('log')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.6489,
+    "visual_entropy": 1.1256,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 6.874,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

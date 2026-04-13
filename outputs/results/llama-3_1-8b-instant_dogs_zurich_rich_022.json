@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-09T03:19:44.430512",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert the date column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a histogram of dog ages\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterV10Sort'], kde=True)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (Years)')\nplt.ylabel('Frequency')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert the date column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a histogram of dog ages\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterV10Sort'], kde=True)\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (Years)')\nplt.ylabel('Frequency')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.7829,
+    "visual_entropy": 0.2854,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 11.565,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

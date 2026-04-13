@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-09T03:12:05.046335",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Create a sample dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Plot a histogram of transaction amounts\nplt.figure(figsize=(8, 6))\nsns.histplot(df[\"amount\"], bins=np.linspace(0, 600, 13), kde=True)\nplt.title(\"Distribution of Transaction Amounts\")\nplt.xlabel(\"Amount (USD)\")\nplt.ylabel(\"Frequency\")\nplt.savefig(\"output.png\")\n\n# Plot a bar chart of transaction types\nplt.figure(figsize=(8, 6))\nsns.countplot(x=\"transaction_type\", data=df)\nplt.title(\"Transaction Type Distribution\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Frequency\")\nplt.savefig(\"output2.png\")\n\n# Plot a scatter plot of transaction amounts vs hour of day\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x=\"hour_of_day\", y=\"amount\", data=df)\nplt.title(\"Transaction Amounts by Hour of Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Amount (USD)\")\nplt.savefig(\"output3.png\")\n\n# Plot a box plot of transaction amounts by hour of day\nplt.figure(figsize=(8, 6))\nsns.boxplot(x=\"hour_of_day\", y=\"amount\", data=df)\nplt.title(\"Transaction Amounts by Hour of Day (Box Plot)\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Amount (USD)\")\nplt.savefig(\"output4.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Create a sample dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Plot a histogram of transaction amounts\nplt.figure(figsize=(8, 6))\nsns.histplot(df[\"amount\"], bins=np.linspace(0, 600, 13), kde=True)\nplt.title(\"Distribution of Transaction Amounts\")\nplt.xlabel(\"Amount (USD)\")\nplt.ylabel(\"Frequency\")\nplt.savefig(\"output.png\")\n\n# Plot a bar chart of transaction types\nplt.figure(figsize=(8, 6))\nsns.countplot(x=\"transaction_type\", data=df)\nplt.title(\"Transaction Type Distribution\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Frequency\")\nplt.savefig(\"output2.png\")\n\n# Plot a scatter plot of transaction amounts vs hour of day\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x=\"hour_of_day\", y=\"amount\", data=df)\nplt.title(\"Transaction Amounts by Hour of Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Amount (USD)\")\nplt.savefig(\"output3.png\")\n\n# Plot a box plot of transaction amounts by hour of day\nplt.figure(figsize=(8, 6))\nsns.boxplot(x=\"hour_of_day\", y=\"amount\", data=df)\nplt.title(\"Transaction Amounts by Hour of Day (Box Plot)\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Amount (USD)\")\nplt.savefig(\"output4.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5652,
+    "color_delta_e": 1.7831,
+    "visual_entropy": 0.8985,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.638,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

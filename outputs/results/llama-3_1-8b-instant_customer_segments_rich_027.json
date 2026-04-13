@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-09T02:54:10.813368",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Melt the data to create separate rows for each product type and customer\ncustomer_segments_pivot = pd.melt(customer_segments, id_vars=['ID', 'Year_Birth', 'Education', 'Marital_Status', 'Income', 'Kidhome', 'Teenhome', 'Dt_Customer', 'Recency'], \n                                  value_vars=['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds'], \n                                  var_name='Product', value_name='Spending')\n\n# Filter out customers with no spending on any product\ncustomer_segments_pivot = customer_segments_pivot[customer_segments_pivot['Spending'] > 0]\n\n# Plot the data using a violin plot\nplt.figure(figsize=(12, 8))\nsns.violinplot(x='Product', y='Spending', data=customer_segments_pivot)\nplt.title('Product Spending Distribution')\nplt.xlabel('Product Type')\nplt.ylabel('Spending Amount')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Melt the data to create separate rows for each product type and customer\ncustomer_segments_pivot = pd.melt(customer_segments, id_vars=['ID', 'Year_Birth', 'Education', 'Marital_Status', 'Income', 'Kidhome', 'Teenhome', 'Dt_Customer', 'Recency'], \n                                  value_vars=['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds'], \n                                  var_name='Product', value_name='Spending')\n\n# Filter out customers with no spending on any product\ncustomer_segments_pivot = customer_segments_pivot[customer_segments_pivot['Spending'] > 0]\n\n# Plot the data using a violin plot\nplt.figure(figsize=(12, 8))\nsns.violinplot(x='Product', y='Spending', data=customer_segments_pivot)\nplt.title('Product Spending Distribution')\nplt.xlabel('Product Type')\nplt.ylabel('Spending Amount')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 51.72,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 0.5707,
+    "visual_entropy": 0.3041,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 7.779,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

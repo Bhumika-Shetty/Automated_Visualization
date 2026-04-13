@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 10,
+  "timestamp": "2026-04-09T03:09:59.341834",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Load the dataset\ndata = \"\"\"\namount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Create a bar plot to show the distribution of transactions by hour of day\nplt.figure(figsize=(10,6))\nsns.barplot(x='hour_of_day', y='amount', data=df)\nplt.title('Distribution of Transactions by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Create a histogram to show the distribution of transaction amounts\nplt.figure(figsize=(10,6))\nsns.histplot(df['amount'], kde=True)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount')\nplt.ylabel('Frequency')\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Load the dataset\ndata = \"\"\"\namount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Create a bar plot to show the distribution of transactions by hour of day\nplt.figure(figsize=(10,6))\nsns.barplot(x='hour_of_day', y='amount', data=df)\nplt.title('Distribution of Transactions by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Create a histogram to show the distribution of transaction amounts\nplt.figure(figsize=(10,6))\nsns.histplot(df['amount'], kde=True)\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount')\nplt.ylabel('Frequency')\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4444,
+    "color_delta_e": 1.1288,
+    "visual_entropy": 1.1114,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.475,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

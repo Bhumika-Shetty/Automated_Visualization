@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-12T04:49:44.493779",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Aggregate total sales by product and size\n# This will give us the sum of 'total' for each unique combination of 'product' and 'size'\nproduct_size_sales = df.groupby(['product', 'size'])['total'].sum().reset_index()\n\n# Determine the order of products on the x-axis based on their overall total sales (descending)\nproduct_order = df.groupby('product')['total'].sum().sort_values(ascending=False).index\n\n# Define a preferred logical order for sizes (e.g., Small, Medium, Large, Extra Large)\n# Filter this list to only include sizes actually present in the dataset to avoid errors\nsize_order_preferred = ['Small', 'Medium', 'Large', 'Extra Large']\nunique_sizes_in_data = df['size'].unique()\nsize_order_filtered = [s for s in size_order_preferred if s in unique_sizes_in_data]\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8)) # Set a larger figure size for better readability\n\n# Create a grouped bar chart using seaborn.barplot\n# x='product' will be the main categories, hue='size' will create groups within each product\nsns.barplot(\n    data=product_size_sales,\n    x='product',\n    y='total',\n    hue='size',\n    order=product_order,       # Apply the custom order for products\n    hue_order=size_order_filtered, # Apply the custom order for sizes in the legend\n    palette='viridis'          # Use a perceptually uniform colormap\n)\n\n# Add a title and labels for clarity\nplt.title('Total Sales by Product and Size', fontsize=18)\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Rotate x-axis labels to prevent overlap, especially if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Place the legend outside the plot area to prevent obscuring the bars\nplt.legend(title='Size', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Aggregate total sales by product and size\n# This will give us the sum of 'total' for each unique combination of 'product' and 'size'\nproduct_size_sales = df.groupby(['product', 'size'])['total'].sum().reset_index()\n\n# Determine the order of products on the x-axis based on their overall total sales (descending)\nproduct_order = df.groupby('product')['total'].sum().sort_values(ascending=False).index\n\n# Define a preferred logical order for sizes (e.g., Small, Medium, Large, Extra Large)\n# Filter this list to only include sizes actually present in the dataset to avoid errors\nsize_order_preferred = ['Small', 'Medium', 'Large', 'Extra Large']\nunique_sizes_in_data = df['size'].unique()\nsize_order_filtered = [s for s in size_order_preferred if s in unique_sizes_in_data]\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(14, 8)) # Set a larger figure size for better readability\n\n# Create a grouped bar chart using seaborn.barplot\n# x='product' will be the main categories, hue='size' will create groups within each product\nsns.barplot(\n    data=product_size_sales,\n    x='product',\n    y='total',\n    hue='size',\n    order=product_order,       # Apply the custom order for products\n    hue_order=size_order_filtered, # Apply the custom order for sizes in the legend\n    palette='viridis'          # Use a perceptually uniform colormap\n)\n\n# Add a title and labels for clarity\nplt.title('Total Sales by Product and Size', fontsize=18)\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Rotate x-axis labels to prevent overlap, especially if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Place the legend outside the plot area to prevent obscuring the bars\nplt.legend(title='Size', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.3462,
+    "color_delta_e": 0.9902,
+    "visual_entropy": 1.5848,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 11.98,
+    "cost_per_run": 0.000193,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

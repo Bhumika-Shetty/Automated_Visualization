@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-09T03:33:32.440670",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Map sensor types to a more interpretable categorization\nsensor_type_map = {\n    'Micro 4/3': 'Micro Four Thirds',\n    'APS-C': 'APS-C Sensor',\n    'Full Frame': 'Full Frame Sensor'\n}\ncameras['sensor_type'] = cameras['sensor_type'].map(sensor_type_map)\n\n# Map lens mounts to a more interpretable categorization\nlens_mount_map = {\n    'E': 'EF Mount',\n    'EF': 'EF Mount',\n    'MFT': 'Micro Four Thirds Mount'\n}\ncameras['lens_mount'] = cameras['lens_mount'].map(lens_mount_map)\n\n# Set up the figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a bar chart of camera prices by brand\nsns.set_style('whitegrid')\nplt.subplot(1, 2, 1)\nsns.barplot(x='brand', y='price_usd', data=cameras)\nplt.title('Camera Prices by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Price (USD)')\n\n# Create a histogram of megapixels\nplt.subplot(1, 2, 2)\nsns.histplot(cameras['megapixels'], bins=10, kde=True)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Map sensor types to a more interpretable categorization\nsensor_type_map = {\n    'Micro 4/3': 'Micro Four Thirds',\n    'APS-C': 'APS-C Sensor',\n    'Full Frame': 'Full Frame Sensor'\n}\ncameras['sensor_type'] = cameras['sensor_type'].map(sensor_type_map)\n\n# Map lens mounts to a more interpretable categorization\nlens_mount_map = {\n    'E': 'EF Mount',\n    'EF': 'EF Mount',\n    'MFT': 'Micro Four Thirds Mount'\n}\ncameras['lens_mount'] = cameras['lens_mount'].map(lens_mount_map)\n\n# Set up the figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a bar chart of camera prices by brand\nsns.set_style('whitegrid')\nplt.subplot(1, 2, 1)\nsns.barplot(x='brand', y='price_usd', data=cameras)\nplt.title('Camera Prices by Brand')\nplt.xlabel('Brand')\nplt.ylabel('Price (USD)')\n\n# Create a histogram of megapixels\nplt.subplot(1, 2, 2)\nsns.histplot(cameras['megapixels'], bins=10, kde=True)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\n\n# Layout so plots do not overlap\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5652,
+    "color_delta_e": 1.7089,
+    "visual_entropy": 2.02,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 5.901,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

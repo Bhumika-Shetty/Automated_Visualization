@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-11T02:12:55.017072",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with sensor type as a distinguishing factor (hue and style).\n# A log scale for price is often useful for financial data due to wide ranges.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='sensor_type', # Use style to differentiate for colorblindness and clarity\n    s=100,               # Adjust marker size\n    alpha=0.7            # Add some transparency\n)\n\n# Apply a logarithmic scale to the y-axis (price) for better visualization of skewed data\nplt.yscale('log')\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD, Log Scale)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True)\n\n# Add a grid for easier reading of values, especially with log scale\nplt.grid(True, which=\"both\", ls=\"--\", c='0.7', alpha=0.7)\n\n# Adjust layout to make room for the legend outside the plot area\nplt.tight_layout(rect=[0, 0, 0.85, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with sensor type as a distinguishing factor (hue and style).\n# A log scale for price is often useful for financial data due to wide ranges.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='sensor_type', # Use style to differentiate for colorblindness and clarity\n    s=100,               # Adjust marker size\n    alpha=0.7            # Add some transparency\n)\n\n# Apply a logarithmic scale to the y-axis (price) for better visualization of skewed data\nplt.yscale('log')\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Sensor Type', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD, Log Scale)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True)\n\n# Add a grid for easier reading of values, especially with log scale\nplt.grid(True, which=\"both\", ls=\"--\", c='0.7', alpha=0.7)\n\n# Adjust layout to make room for the legend outside the plot area\nplt.tight_layout(rect=[0, 0, 0.85, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 2.0094,
+    "visual_entropy": 1.6728,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 9.747,
+    "cost_per_run": 0.000133,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

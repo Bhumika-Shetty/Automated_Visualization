@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-10T17:18:02.324593",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle missing values in 'Income' by dropping rows, as income is crucial for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Define product spending columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\n\n# Calculate total spending for each customer\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Filter out extreme outliers in Income for better visualization of the main data cluster.\n# The max income (666666) is an extreme outlier that skews the plot.\n# We'll filter for incomes below a reasonable threshold, e.g., 200,000.\ndf_filtered = df[df['Income'] < 200000].copy()\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    alpha=0.7,\n    s=70,  # Adjust marker size for better visibility\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Total Spending vs. Income, Grouped by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending Across All Products', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for easier reading\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Handle missing values in 'Income' by dropping rows, as income is crucial for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Define product spending columns\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\n\n# Calculate total spending for each customer\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Filter out extreme outliers in Income for better visualization of the main data cluster.\n# The max income (666666) is an extreme outlier that skews the plot.\n# We'll filter for incomes below a reasonable threshold, e.g., 200,000.\ndf_filtered = df[df['Income'] < 200000].copy()\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    alpha=0.7,\n    s=70,  # Adjust marker size for better visibility\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Total Spending vs. Income, Grouped by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending Across All Products', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for easier reading\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 1.5658,
+    "visual_entropy": 1.32,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 16.046,
+    "cost_per_run": 0.000172,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

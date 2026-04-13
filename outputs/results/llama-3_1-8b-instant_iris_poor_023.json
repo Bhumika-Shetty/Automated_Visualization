@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 23,
+  "timestamp": "2026-04-09T02:33:42.800776",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.datasets import load_iris\nfrom sklearn.decomposition import PCA\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target_names[iris.target]\n\n# Reduce dimensionality to 2D using PCA\npca = PCA(n_components=2)\npca_data = pca.fit_transform(df.drop('species', axis=1))\n\n# Create a DataFrame with the reduced data\npca_df = pd.DataFrame(data=pca_data, columns=['Principal Component 1', 'Principal Component 2'])\npca_df['species'] = df['species']\n\n# Map species to a numerical value\nspecies_map = {'setosa': 0, 'versicolor': 1, 'virginica': 2}\npca_df['species'] = pca_df['species'].map(species_map)\n\n# Plot the data using seaborn\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Principal Component 1', y='Principal Component 2', hue='species', data=pca_df)\nplt.title('Iris Dataset Visualization')\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.datasets import load_iris\nfrom sklearn.decomposition import PCA\n\n# Load the iris dataset\niris = load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target_names[iris.target]\n\n# Reduce dimensionality to 2D using PCA\npca = PCA(n_components=2)\npca_data = pca.fit_transform(df.drop('species', axis=1))\n\n# Create a DataFrame with the reduced data\npca_df = pd.DataFrame(data=pca_data, columns=['Principal Component 1', 'Principal Component 2'])\npca_df['species'] = df['species']\n\n# Map species to a numerical value\nspecies_map = {'setosa': 0, 'versicolor': 1, 'virginica': 2}\npca_df['species'] = pca_df['species'].map(species_map)\n\n# Plot the data using seaborn\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Principal Component 1', y='Principal Component 2', hue='species', data=pca_df)\nplt.title('Iris Dataset Visualization')\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 1.103,
+    "visual_entropy": 0.505,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 0.597,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

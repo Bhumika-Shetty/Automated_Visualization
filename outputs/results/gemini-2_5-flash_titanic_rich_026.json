@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-10T15:53:17.914671",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\n# Using seaborn.catplot to show the mean survival rate by Pclass and Sex\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='coolwarm',  # 'coolwarm' palette is good for distinguishing categories\n    errorbar='sd',       # Show standard deviation as error bars\n    height=6,            # Height of the plot\n    aspect=1.2           # Aspect ratio of the plot\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate on Titanic by Passenger Class and Sex\")\ng._legend.set_title(\"Sex\") # Set the legend title\n\n# Map numerical pclass values to descriptive strings for better readability on x-axis\npclass_labels = {1: 'First Class', 2: 'Second Class', 3: 'Third Class'}\n# Access the axes object directly from the FacetGrid and set xticklabels\nfor ax in g.axes.flat:\n    ax.set_xticks(list(pclass_labels.keys())) # Ensure ticks are at the correct positions\n    ax.set_xticklabels(list(pclass_labels.values()))\n\n# Adjust y-axis limits to start from 0 and end at 1 for survival rate clarity\ng.set(ylim=(0, 1))\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\n# Using seaborn.catplot to show the mean survival rate by Pclass and Sex\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='coolwarm',  # 'coolwarm' palette is good for distinguishing categories\n    errorbar='sd',       # Show standard deviation as error bars\n    height=6,            # Height of the plot\n    aspect=1.2           # Aspect ratio of the plot\n)\n\n# Set titles and labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"Survival Rate on Titanic by Passenger Class and Sex\")\ng._legend.set_title(\"Sex\") # Set the legend title\n\n# Map numerical pclass values to descriptive strings for better readability on x-axis\npclass_labels = {1: 'First Class', 2: 'Second Class', 3: 'Third Class'}\n# Access the axes object directly from the FacetGrid and set xticklabels\nfor ax in g.axes.flat:\n    ax.set_xticks(list(pclass_labels.keys())) # Ensure ticks are at the correct positions\n    ax.set_xticklabels(list(pclass_labels.values()))\n\n# Adjust y-axis limits to start from 0 and end at 1 for survival rate clarity\ng.set(ylim=(0, 1))\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.7333,
+    "color_delta_e": 0.8772,
+    "visual_entropy": 1.2078,
+    "labeling_completeness": 0.5,
+    "code_complexity": 4,
+    "generation_latency": 13.444,
+    "cost_per_run": 0.000126,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

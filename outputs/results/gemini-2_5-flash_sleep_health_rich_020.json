@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-10T16:40:16.048461",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' by filling with 'None' for better visualization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Set a visually appealing style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a relational plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# Stress Level, and Physical Activity, faceted by Sleep Disorder.\n# This allows us to see how these key metrics interact under different sleep disorder conditions.\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    hue=\"Stress Level\",\n    size=\"Physical Activity Level\", # Map physical activity to marker size\n    col=\"Sleep Disorder\", # Create separate plots for each sleep disorder category\n    col_wrap=2, # Arrange facets into two columns\n    kind=\"scatter\", # Specify scatter plot\n    height=4, # Height of each facet\n    aspect=1.2, # Aspect ratio of each facet\n    sizes=(50, 400), # Range of marker sizes for 'Physical Activity Level'\n    alpha=0.7, # Transparency of markers\n    palette=\"viridis\", # Color palette for 'Stress Level'\n    legend=\"full\", # Show full legend for hue and size\n    facet_kws={'sharex': False, 'sharey': False} # Allow each facet to have its own x and y limits\n)\n\n# Set custom titles and labels for clarity\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10)\")\ng.set_titles(col_template=\"{col_name} Sleep Disorder\")\ng.fig.suptitle(\"Sleep Metrics: Duration vs. Quality by Stress, Activity, and Disorder\", y=1.02, fontsize=16)\n\n# Adjust the layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rectangle to make space for suptitle\n\n# Save the figure as a high-resolution PNG image\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' by filling with 'None' for better visualization\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Set a visually appealing style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a relational plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# Stress Level, and Physical Activity, faceted by Sleep Disorder.\n# This allows us to see how these key metrics interact under different sleep disorder conditions.\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    hue=\"Stress Level\",\n    size=\"Physical Activity Level\", # Map physical activity to marker size\n    col=\"Sleep Disorder\", # Create separate plots for each sleep disorder category\n    col_wrap=2, # Arrange facets into two columns\n    kind=\"scatter\", # Specify scatter plot\n    height=4, # Height of each facet\n    aspect=1.2, # Aspect ratio of each facet\n    sizes=(50, 400), # Range of marker sizes for 'Physical Activity Level'\n    alpha=0.7, # Transparency of markers\n    palette=\"viridis\", # Color palette for 'Stress Level'\n    legend=\"full\", # Show full legend for hue and size\n    facet_kws={'sharex': False, 'sharey': False} # Allow each facet to have its own x and y limits\n)\n\n# Set custom titles and labels for clarity\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10)\")\ng.set_titles(col_template=\"{col_name} Sleep Disorder\")\ng.fig.suptitle(\"Sleep Metrics: Duration vs. Quality by Stress, Activity, and Disorder\", y=1.02, fontsize=16)\n\n# Adjust the layout to prevent titles and labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rectangle to make space for suptitle\n\n# Save the figure as a high-resolution PNG image\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.8649,
+    "visual_entropy": 0.8466,
+    "labeling_completeness": 0.5,
+    "code_complexity": 9,
+    "generation_latency": 14.014,
+    "cost_per_run": 0.000178,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

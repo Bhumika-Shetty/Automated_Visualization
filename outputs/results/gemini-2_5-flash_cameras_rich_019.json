@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-10T19:16:56.916469",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the violin plot to visualize the distribution of camera prices across different sensor types\nplt.figure(figsize=(12, 7))\nsns.violinplot(\n    x='sensor_type',\n    y='price_usd',\n    data=df,\n    palette='viridis',\n    inner='quartile', # Shows quartiles (median, 25th, 75th percentiles) inside the violins\n    linewidth=1.0\n)\n\n# Add informative title and labels\nplt.title('Distribution of Camera Price by Sensor Type', fontsize=16, fontweight='bold')\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Rotate x-axis labels for better readability if sensor type names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Enhance layout\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the violin plot to visualize the distribution of camera prices across different sensor types\nplt.figure(figsize=(12, 7))\nsns.violinplot(\n    x='sensor_type',\n    y='price_usd',\n    data=df,\n    palette='viridis',\n    inner='quartile', # Shows quartiles (median, 25th, 75th percentiles) inside the violins\n    linewidth=1.0\n)\n\n# Add informative title and labels\nplt.title('Distribution of Camera Price by Sensor Type', fontsize=16, fontweight='bold')\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Rotate x-axis labels for better readability if sensor type names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Enhance layout\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmps5oyo3x1/viz_script.py:13: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.violinplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7273,
+    "color_delta_e": 0.8941,
+    "visual_entropy": 2.1519,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 9.494,
+    "cost_per_run": 0.000103,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

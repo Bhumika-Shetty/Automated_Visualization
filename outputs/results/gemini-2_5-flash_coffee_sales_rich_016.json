@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-12T04:49:17.056904",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a logical order for customer age groups.\n# This list should ideally cover all possible age groups that might appear in the dataset\n# to ensure consistent sorting, even if some are not present in the current data.\nfull_age_group_order = ['<18', '18-24', '25-34', '35-44', '45-54', '55+', '65+']\n\n# Aggregate data: calculate total sales for each product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().unstack(fill_value=0)\n\n# Get the unique age groups actually present in the dataset\nactual_age_groups = df['customer_age_group'].unique()\n\n# Filter and sort the actual age groups based on the predefined logical order\n# This ensures that the age groups appear in a meaningful sequence on the plot.\nsorted_age_groups = [group for group in full_age_group_order if group in actual_age_groups]\n\n# Reindex the columns of the aggregated DataFrame to apply the sorted order\nsales_by_product_age = sales_by_product_age.reindex(columns=sorted_age_groups)\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 7))\n\n# Create a heatmap to visualize total sales\nsns.heatmap(\n    sales_by_product_age,\n    annot=True,        # Show the numerical values on the heatmap cells\n    fmt=\".0f\",         # Format annotations as whole numbers (no decimal places)\n    cmap=\"YlGnBu\",     # Choose a sequential color map for better intensity representation\n    linewidths=.5,     # Add lines between cells for better separation\n    linecolor='white', # Color of the lines between cells\n    cbar_kws={'label': 'Total Sales ($)'} # Label for the color bar legend\n)\n\n# Add title and labels for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Product', fontsize=12)\n\n# Rotate x-axis labels for better readability if they are long or numerous\nplt.xticks(rotation=45, ha='right')\n# Ensure y-axis labels are horizontal\nplt.yticks(rotation=0)\n\n# Adjust layout to prevent labels/title from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a logical order for customer age groups.\n# This list should ideally cover all possible age groups that might appear in the dataset\n# to ensure consistent sorting, even if some are not present in the current data.\nfull_age_group_order = ['<18', '18-24', '25-34', '35-44', '45-54', '55+', '65+']\n\n# Aggregate data: calculate total sales for each product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().unstack(fill_value=0)\n\n# Get the unique age groups actually present in the dataset\nactual_age_groups = df['customer_age_group'].unique()\n\n# Filter and sort the actual age groups based on the predefined logical order\n# This ensures that the age groups appear in a meaningful sequence on the plot.\nsorted_age_groups = [group for group in full_age_group_order if group in actual_age_groups]\n\n# Reindex the columns of the aggregated DataFrame to apply the sorted order\nsales_by_product_age = sales_by_product_age.reindex(columns=sorted_age_groups)\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 7))\n\n# Create a heatmap to visualize total sales\nsns.heatmap(\n    sales_by_product_age,\n    annot=True,        # Show the numerical values on the heatmap cells\n    fmt=\".0f\",         # Format annotations as whole numbers (no decimal places)\n    cmap=\"YlGnBu\",     # Choose a sequential color map for better intensity representation\n    linewidths=.5,     # Add lines between cells for better separation\n    linecolor='white', # Color of the lines between cells\n    cbar_kws={'label': 'Total Sales ($)'} # Label for the color bar legend\n)\n\n# Add title and labels for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Product', fontsize=12)\n\n# Rotate x-axis labels for better readability if they are long or numerous\nplt.xticks(rotation=45, ha='right')\n# Ensure y-axis labels are horizontal\nplt.yticks(rotation=0)\n\n# Adjust layout to prevent labels/title from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5833,
+    "color_delta_e": 1.0908,
+    "visual_entropy": 4.4982,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 15.307,
+    "cost_per_run": 0.000195,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

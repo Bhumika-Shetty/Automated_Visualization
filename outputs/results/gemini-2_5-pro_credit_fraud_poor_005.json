@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 5,
+  "timestamp": "2026-04-12T08:08:51.594428",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Load the dataset from the string\ncsv_data = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to show the relationship between hour, amount, and type\n# Size is used to emphasize the transaction amount visually\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='transaction_type',\n    size='amount',\n    sizes=(100, 1000),  # Control the range of point sizes\n    alpha=0.8,\n    edgecolor='black',\n    linewidth=1.5,\n    style='transaction_type', # Use different markers for each type\n    s=300 # Base size for markers when style is used\n)\n\n# Enhance the plot with titles and labels\nplt.title('Transaction Amount by Hour of Day and Type', fontsize=18, fontweight='bold', pad=20)\nplt.xlabel('Hour of Day (24h format)', fontsize=14)\nplt.ylabel('Transaction Amount ($)', fontsize=14)\nplt.xticks(range(0, 25, 2)) # Set x-axis ticks for clarity\nplt.grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# Improve the legend\nhandles, labels = scatter_plot.get_legend_handles_labels()\n# Separate hue and size legends if they get combined, and give them titles\n# Note: For this small dataset, seaborn might create a single combined legend.\n# This code handles it gracefully.\nplt.legend(title='Transaction Details', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to make sure everything fits, including the external legend\nplt.tight_layout(rect=[0, 0, 0.85, 1])\n\n# Save the resulting plot as a PNG file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Load the dataset from the string\ncsv_data = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to show the relationship between hour, amount, and type\n# Size is used to emphasize the transaction amount visually\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='transaction_type',\n    size='amount',\n    sizes=(100, 1000),  # Control the range of point sizes\n    alpha=0.8,\n    edgecolor='black',\n    linewidth=1.5,\n    style='transaction_type', # Use different markers for each type\n    s=300 # Base size for markers when style is used\n)\n\n# Enhance the plot with titles and labels\nplt.title('Transaction Amount by Hour of Day and Type', fontsize=18, fontweight='bold', pad=20)\nplt.xlabel('Hour of Day (24h format)', fontsize=14)\nplt.ylabel('Transaction Amount ($)', fontsize=14)\nplt.xticks(range(0, 25, 2)) # Set x-axis ticks for clarity\nplt.grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# Improve the legend\nhandles, labels = scatter_plot.get_legend_handles_labels()\n# Separate hue and size legends if they get combined, and give them titles\n# Note: For this small dataset, seaborn might create a single combined legend.\n# This code handles it gracefully.\nplt.legend(title='Transaction Details', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to make sure everything fits, including the external legend\nplt.tight_layout(rect=[0, 0, 0.85, 1])\n\n# Save the resulting plot as a PNG file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6429,
+    "color_delta_e": 0.3868,
+    "visual_entropy": 0.4706,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 21.908,
+    "cost_per_run": 0.005053,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

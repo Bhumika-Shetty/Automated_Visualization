@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-11T02:02:31.941384",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate the data: count the number of dogs by district and dog gender.\n# The 'AnzHunde' column indicates the number of dogs.\n# Since a value_counts() check on 'AnzHunde' usually shows it's always 1,\n# summing 'AnzHunde' effectively counts the entries for each group.\ndf_agg = df.groupby(['KreisLang', 'SexHundLang'])['AnzHunde'].sum().reset_index()\n\n# Sort districts by the total number of dogs for better readability in the plot.\n# This helps in identifying districts with higher dog populations at a glance.\ndistrict_total_dogs = df_agg.groupby('KreisLang')['AnzHunde'].sum().sort_values(ascending=False).index\ndf_agg['KreisLang'] = pd.Categorical(df_agg['KreisLang'], categories=district_total_dogs, ordered=True)\ndf_agg = df_agg.sort_values('KreisLang')\n\n# Set up the matplotlib figure and axes for the plot.\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot to visualize the distribution of dog genders\n# across different districts in Zurich.\nsns.barplot(\n    data=df_agg,\n    x='KreisLang',\n    y='AnzHunde',\n    hue='SexHundLang',\n    palette='viridis'  # 'viridis' is a perceptually uniform colormap\n)\n\n# Add informative labels and a title to the plot.\nplt.title('Total Number of Dogs by District and Gender in Zurich (2019-2025)', fontsize=16)\nplt.xlabel('District (Kreis)', fontsize=12)\nplt.ylabel('Total Number of Dogs', fontsize=12)\n\n# Rotate x-axis labels to prevent overlapping and improve readability, especially with many districts.\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend to explain the 'hue' variable (dog gender).\nplt.legend(title='Dog Gender', loc='upper right')\n\n# Add a grid for easier reading of values.\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to ensure all plot elements (labels, title) are visible.\nplt.tight_layout()\n\n# Save the figure to a file.\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate the data: count the number of dogs by district and dog gender.\n# The 'AnzHunde' column indicates the number of dogs.\n# Since a value_counts() check on 'AnzHunde' usually shows it's always 1,\n# summing 'AnzHunde' effectively counts the entries for each group.\ndf_agg = df.groupby(['KreisLang', 'SexHundLang'])['AnzHunde'].sum().reset_index()\n\n# Sort districts by the total number of dogs for better readability in the plot.\n# This helps in identifying districts with higher dog populations at a glance.\ndistrict_total_dogs = df_agg.groupby('KreisLang')['AnzHunde'].sum().sort_values(ascending=False).index\ndf_agg['KreisLang'] = pd.Categorical(df_agg['KreisLang'], categories=district_total_dogs, ordered=True)\ndf_agg = df_agg.sort_values('KreisLang')\n\n# Set up the matplotlib figure and axes for the plot.\nplt.figure(figsize=(14, 8))\n\n# Create a grouped bar plot to visualize the distribution of dog genders\n# across different districts in Zurich.\nsns.barplot(\n    data=df_agg,\n    x='KreisLang',\n    y='AnzHunde',\n    hue='SexHundLang',\n    palette='viridis'  # 'viridis' is a perceptually uniform colormap\n)\n\n# Add informative labels and a title to the plot.\nplt.title('Total Number of Dogs by District and Gender in Zurich (2019-2025)', fontsize=16)\nplt.xlabel('District (Kreis)', fontsize=12)\nplt.ylabel('Total Number of Dogs', fontsize=12)\n\n# Rotate x-axis labels to prevent overlapping and improve readability, especially with many districts.\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend to explain the 'hue' variable (dog gender).\nplt.legend(title='Dog Gender', loc='upper right')\n\n# Add a grid for easier reading of values.\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to ensure all plot elements (labels, title) are visible.\nplt.tight_layout()\n\n# Save the figure to a file.\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.3478,
+    "color_delta_e": 0.9079,
+    "visual_entropy": 1.2776,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 14.582,
+    "cost_per_run": 0.000213,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

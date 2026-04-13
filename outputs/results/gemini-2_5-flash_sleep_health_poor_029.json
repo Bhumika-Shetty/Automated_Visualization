@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 29,
+  "timestamp": "2026-04-10T17:07:12.540593",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided by the user\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Preprocessing: Fill missing 'Sleep Disorder' values with 'No Disorder'\n# This makes it a clear categorical variable for visualization.\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# Stress Level, and the presence of Sleep Disorder.\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level', # Color points based on Stress Level\n    style='Sleep Disorder', # Use different marker styles for Sleep Disorder\n    palette='viridis', # Colormap for Stress Level (sequential for ordinal data)\n    s=200, # Set a fixed size for markers\n    alpha=0.8, # Transparency of markers\n    edgecolor='w', # White edge for markers for better visibility\n    linewidth=1 # Line width for marker edges\n)\n\n# Add titles and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by Stress Level and Sleep Disorder', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Adjust legend position to avoid overlapping with data points\nplt.legend(title='Legend', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png', dpi=300)\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided by the user\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Preprocessing: Fill missing 'Sleep Disorder' values with 'No Disorder'\n# This makes it a clear categorical variable for visualization.\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration, Quality of Sleep,\n# Stress Level, and the presence of Sleep Disorder.\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Stress Level', # Color points based on Stress Level\n    style='Sleep Disorder', # Use different marker styles for Sleep Disorder\n    palette='viridis', # Colormap for Stress Level (sequential for ordinal data)\n    s=200, # Set a fixed size for markers\n    alpha=0.8, # Transparency of markers\n    edgecolor='w', # White edge for markers for better visibility\n    linewidth=1 # Line width for marker edges\n)\n\n# Add titles and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by Stress Level and Sleep Disorder', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Adjust legend position to avoid overlapping with data points\nplt.legend(title='Legend', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png', dpi=300)\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 0.4782,
+    "visual_entropy": 0.2901,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 23.086,
+    "cost_per_run": 0.000174,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

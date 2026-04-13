@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-10T16:18:57.983263",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize the relationships between all numerical features,\n# colored by species. This is highly insightful for the Iris dataset\n# as it clearly shows the separability of species based on measurements.\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis')\n\n# Add a main title to the figure\ng.fig.suptitle('Pairwise Relationships of Iris Flower Measurements by Species', y=1.02, fontsize=16)\n\n# Improve layout and save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize the relationships between all numerical features,\n# colored by species. This is highly insightful for the Iris dataset\n# as it clearly shows the separability of species based on measurements.\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis')\n\n# Add a main title to the figure\ng.fig.suptitle('Pairwise Relationships of Iris Flower Measurements by Species', y=1.02, fontsize=16)\n\n# Improve layout and save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 1.6557,
+    "visual_entropy": 1.1599,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 2.7,
+    "cost_per_run": 6.8e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-09T02:51:21.662704",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns\nsegments = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ncustomer_segments = customer_segments[['ID', 'Z_Revenue'] + segments]\n\n# Melt the DataFrame for easier plotting\ncustomer_segments = pd.melt(customer_segments, id_vars='ID', value_vars=segments, value_name='Product_Spending')\n\n# Group by product and calculate the mean revenue\nrevenue_by_product = customer_segments.groupby('variable')['value'].mean().reset_index()\n\n# Plot a bar chart\nplt.figure(figsize=(10, 6))\nsns.barplot(x='variable', y='value', data=customer_segments, hue='variable', dodge=False)\n\n# Add title and labels\nplt.title('Product Spending by Revenue')\nplt.xlabel('Product')\nplt.ylabel('Average Revenue')\nplt.xticks(rotation=90)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Select relevant columns\nsegments = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ncustomer_segments = customer_segments[['ID', 'Z_Revenue'] + segments]\n\n# Melt the DataFrame for easier plotting\ncustomer_segments = pd.melt(customer_segments, id_vars='ID', value_vars=segments, value_name='Product_Spending')\n\n# Group by product and calculate the mean revenue\nrevenue_by_product = customer_segments.groupby('variable')['value'].mean().reset_index()\n\n# Plot a bar chart\nplt.figure(figsize=(10, 6))\nsns.barplot(x='variable', y='value', data=customer_segments, hue='variable', dodge=False)\n\n# Add title and labels\nplt.title('Product Spending by Revenue')\nplt.xlabel('Product')\nplt.ylabel('Average Revenue')\nplt.xticks(rotation=90)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp0lfrkrl3/viz_script.py\", line 17, in <module>\n    revenue_by_product = customer_segments.groupby('variable')['value'].mean().reset_index()\n                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/groupby/generic.py\", line 2938, in __getitem__\n    return super().__getitem__(key)\n           ~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/base.py\", line 228, in __getitem__\n    raise KeyError(f\"Column not found: {key}\")\nKeyError: 'Column not found: value'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.5263,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.643,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": "Auto-fixed column name case mismatch. Original error: Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp0lfrkrl3/viz_script.py\", line 17, in <module>\n    revenue_by_product = customer_segments.groupby('variabl"
+}

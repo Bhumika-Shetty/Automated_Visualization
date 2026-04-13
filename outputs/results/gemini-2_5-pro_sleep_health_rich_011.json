@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-12T20:05:40.525224",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/sleep_health.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/sleep_health.csv' not found. Make sure the data file is in the 'data' directory.\")\n    exit()\n\n# Data Preprocessing\n# Fill NaN in 'Sleep Disorder' with 'No Disorder' for clarity in visualization\ndf['Sleep Disorder'].fillna('No Disorder', inplace=True)\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes for the plot\n# A faceted plot is chosen to explore the relationship between key variables across different sleep disorder categories.\n# This allows for a multi-dimensional view of the data.\ng = sns.relplot(\n    data=df,\n    x=\"Stress Level\",\n    y=\"Quality of Sleep\",\n    hue=\"BMI Category\",\n    size=\"Sleep Duration\",\n    col=\"Sleep Disorder\",\n    kind=\"scatter\",\n    palette=\"magma_r\",\n    sizes=(30, 200),\n    alpha=0.7,\n    height=5,\n    aspect=1.1,\n    col_order=['No Disorder', 'Insomnia', 'Sleep Apnea'] # Ensure a logical order for the facets\n)\n\n# Enhance plot readability and add insightful titles\ng.fig.suptitle('Stress, Sleep Quality, and Duration Across Different Sleep Disorders', fontsize=18, y=1.05)\ng.set_axis_labels(\"Stress Level (1-10)\", \"Quality of Sleep (1-10)\", fontsize=12)\ng.set_titles(\"Sleep Disorder: {col_name}\", fontsize=14)\ng.despine(left=True, bottom=True)\n\n# Adjust legend\ng._legend.set_title(\"BMI Category\")\nfor t in g._legend.texts:\n    t.set_fontsize(10)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/sleep_health.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/sleep_health.csv' not found. Make sure the data file is in the 'data' directory.\")\n    exit()\n\n# Data Preprocessing\n# Fill NaN in 'Sleep Disorder' with 'No Disorder' for clarity in visualization\ndf['Sleep Disorder'].fillna('No Disorder', inplace=True)\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the figure and axes for the plot\n# A faceted plot is chosen to explore the relationship between key variables across different sleep disorder categories.\n# This allows for a multi-dimensional view of the data.\ng = sns.relplot(\n    data=df,\n    x=\"Stress Level\",\n    y=\"Quality of Sleep\",\n    hue=\"BMI Category\",\n    size=\"Sleep Duration\",\n    col=\"Sleep Disorder\",\n    kind=\"scatter\",\n    palette=\"magma_r\",\n    sizes=(30, 200),\n    alpha=0.7,\n    height=5,\n    aspect=1.1,\n    col_order=['No Disorder', 'Insomnia', 'Sleep Apnea'] # Ensure a logical order for the facets\n)\n\n# Enhance plot readability and add insightful titles\ng.fig.suptitle('Stress, Sleep Quality, and Duration Across Different Sleep Disorders', fontsize=18, y=1.05)\ng.set_axis_labels(\"Stress Level (1-10)\", \"Quality of Sleep (1-10)\", fontsize=12)\ng.set_titles(\"Sleep Disorder: {col_name}\", fontsize=14)\ng.despine(left=True, bottom=True)\n\n# Adjust legend\ng._legend.set_title(\"BMI Category\")\nfor t in g._legend.texts:\n    t.set_fontsize(10)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp7vm9fzqs/viz_script.py:14: ChainedAssignmentError: A value is being set on a copy of a DataFrame or Series through chained assignment using an inplace method.\nSuch inplace method never works to update the original DataFrame or Series, because the intermediate object on which we are setting values always behaves as a copy (due to Copy-on-Write).\n\nFor example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' instead, to perform the operation inplace on the original object, or try to avoid an inplace operation using 'df[col] = df[col].method(value)'.\n\nSee the documentation for a more detailed explanation: https://pandas.pydata.org/pandas-docs/stable/user_guide/copy_on_write.html\n  df['Sleep Disorder'].fillna('No Disorder', inplace=True)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 0.7582,
+    "visual_entropy": 0.5811,
+    "labeling_completeness": 0.5,
+    "code_complexity": 8,
+    "generation_latency": 17.07,
+    "cost_per_run": 0.004637,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

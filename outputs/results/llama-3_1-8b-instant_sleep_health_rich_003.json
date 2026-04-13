@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-09T02:38:00.587599",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a bar chart to visualize the distribution of sleep duration\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Sleep Duration', y='Person ID', data=sleep_health)\nplt.title('Sleep Duration Distribution')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Person ID')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between stress level and sleep quality\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Stress Level', y='Quality of Sleep', data=sleep_health)\nplt.title('Stress Level vs Sleep Quality')\nplt.xlabel('Stress Level')\nplt.ylabel('Sleep Quality')\nplt.legend(title='Person ID')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare the distribution of daily steps across different occupation groups\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='Occupation', y='Daily Steps', data=sleep_health)\nplt.title('Daily Steps Distribution by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Daily Steps')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to visualize the distribution of heart rate\nplt.figure(figsize=(10, 6))\nsns.histplot(sleep_health['Heart Rate'], bins=10, kde=True)\nplt.title('Heart Rate Distribution')\nplt.xlabel('Heart Rate (bpm)')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a bar chart to visualize the distribution of sleep duration\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Sleep Duration', y='Person ID', data=sleep_health)\nplt.title('Sleep Duration Distribution')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Person ID')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to visualize the relationship between stress level and sleep quality\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Stress Level', y='Quality of Sleep', data=sleep_health)\nplt.title('Stress Level vs Sleep Quality')\nplt.xlabel('Stress Level')\nplt.ylabel('Sleep Quality')\nplt.legend(title='Person ID')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare the distribution of daily steps across different occupation groups\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='Occupation', y='Daily Steps', data=sleep_health)\nplt.title('Daily Steps Distribution by Occupation')\nplt.xlabel('Occupation')\nplt.ylabel('Daily Steps')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to visualize the distribution of heart rate\nplt.figure(figsize=(10, 6))\nsns.histplot(sleep_health['Heart Rate'], bins=10, kde=True)\nplt.title('Heart Rate Distribution')\nplt.xlabel('Heart Rate (bpm)')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmph9a7w3wf/viz_script.py:24: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Person ID')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 53.85,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.9108,
+    "visual_entropy": 1.1395,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.772,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

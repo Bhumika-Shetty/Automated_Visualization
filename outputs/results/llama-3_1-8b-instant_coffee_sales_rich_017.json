@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-09T03:47:50.348233",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data from csv file\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Convert date to datetime object for easier plotting\ncoffee_sales['date'] = coffee_sales['date'].dt.date\n\n# Create bar chart to visualize sales by product\nproduct_sales = coffee_sales.groupby('product')['total'].sum().reset_index()\nplt.figure(figsize=(10,6))\nsns.barplot(data=product_sales, x='product', y='total', ci=None)\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create pie chart to visualize payment method distribution\npayment_method_dist = coffee_sales['payment_method'].value_counts().reset_index()\npayment_method_dist.columns = ['payment_method', 'frequency']\nplt.figure(figsize=(8,8))\nsns.set_palette('viridis')\nplt.pie(payment_method_dist['frequency'], labels=payment_method_dist['payment_method'], autopct='%1.1f%%')\nplt.title('Payment Method Distribution')\nplt.tight_layout()\nplt.savefig('payment_method_dist.png', bbox_inches='tight', dpi=150)\n\n# Create scatter plot to visualize relationship between price and quantity\nplt.figure(figsize=(10,8))\nsns.scatterplot(data=coffee_sales, x='price', y='quantity')\nplt.title('Relationship between Price and Quantity')\nplt.xlabel('Price ($)')\nplt.ylabel('Quantity')\nplt.tight_layout()\nplt.savefig('price_quantity_scatter.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data from csv file\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Convert date to datetime object for easier plotting\ncoffee_sales['date'] = coffee_sales['date'].dt.date\n\n# Create bar chart to visualize sales by product\nproduct_sales = coffee_sales.groupby('product')['total'].sum().reset_index()\nplt.figure(figsize=(10,6))\nsns.barplot(data=product_sales, x='product', y='total', ci=None)\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create pie chart to visualize payment method distribution\npayment_method_dist = coffee_sales['payment_method'].value_counts().reset_index()\npayment_method_dist.columns = ['payment_method', 'frequency']\nplt.figure(figsize=(8,8))\nsns.set_palette('viridis')\nplt.pie(payment_method_dist['frequency'], labels=payment_method_dist['payment_method'], autopct='%1.1f%%')\nplt.title('Payment Method Distribution')\nplt.tight_layout()\nplt.savefig('payment_method_dist.png', bbox_inches='tight', dpi=150)\n\n# Create scatter plot to visualize relationship between price and quantity\nplt.figure(figsize=(10,8))\nsns.scatterplot(data=coffee_sales, x='price', y='quantity')\nplt.title('Relationship between Price and Quantity')\nplt.xlabel('Price ($)')\nplt.ylabel('Quantity')\nplt.tight_layout()\nplt.savefig('price_quantity_scatter.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp9wixc8dz/viz_script.py:15: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(data=product_sales, x='product', y='total', ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 80.0,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 1.1232,
+    "visual_entropy": 1.1957,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.019,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

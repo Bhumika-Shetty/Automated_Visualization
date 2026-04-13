@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-09T03:16:15.542789",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert date column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Plot the distribution of dog ages\nplt.figure(figsize=(8, 6))\nsns.kdeplot(data['AlterVHundNum'], shade=True, color='skyblue', label='Age Distribution')\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Density')\nplt.legend()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the top 5 most common dog breeds\ntop_breeds = data['Rasse1Text'].value_counts().head(5)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_breeds.index, y=top_breeds.values, color='skyblue')\nplt.title('Top 5 Most Common Dog Breeds')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('breeds.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog owners' ages\nplt.figure(figsize=(8, 6))\nsns.kdeplot(data['AlterV10Cd'], shade=True, color='skyblue', label='Owner Age Distribution')\nplt.title('Distribution of Dog Owners\\' Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Density')\nplt.legend()\nplt.savefig('owners_ages.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog owners' genders\nplt.figure(figsize=(8, 6))\nsns.countplot(data['SexLang'], color='skyblue')\nplt.title('Distribution of Dog Owners\\' Genders')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.savefig('owners_genders.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert date column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Plot the distribution of dog ages\nplt.figure(figsize=(8, 6))\nsns.kdeplot(data['AlterVHundNum'], shade=True, color='skyblue', label='Age Distribution')\nplt.title('Distribution of Dog Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Density')\nplt.legend()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the top 5 most common dog breeds\ntop_breeds = data['Rasse1Text'].value_counts().head(5)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_breeds.index, y=top_breeds.values, color='skyblue')\nplt.title('Top 5 Most Common Dog Breeds')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('breeds.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog owners' ages\nplt.figure(figsize=(8, 6))\nsns.kdeplot(data['AlterV10Cd'], shade=True, color='skyblue', label='Owner Age Distribution')\nplt.title('Distribution of Dog Owners\\' Ages')\nplt.xlabel('Age (in years)')\nplt.ylabel('Density')\nplt.legend()\nplt.savefig('owners_ages.png', bbox_inches='tight', dpi=150)\n\n# Plot the distribution of dog owners' genders\nplt.figure(figsize=(8, 6))\nsns.countplot(data['SexLang'], color='skyblue')\nplt.title('Distribution of Dog Owners\\' Genders')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.savefig('owners_genders.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp2lmeyspk/viz_script.py:14: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  sns.kdeplot(data['AlterVHundNum'], shade=True, color='skyblue', label='Age Distribution')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp2lmeyspk/viz_script.py:34: FutureWarning: \n\n`shade` is now deprecated in favor of `fill`; setting `fill=True`.\nThis will become an error in seaborn v0.14.0; please update your code.\n\n  sns.kdeplot(data['AlterV10Cd'], shade=True, color='skyblue', label='Owner Age Distribution')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.8701,
+    "visual_entropy": 1.1678,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 12.11,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

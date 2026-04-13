@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-10T16:18:23.644706",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between all numerical variables,\n# colored by the 'species' column. This is highly insightful for the Iris dataset\n# as it clearly shows the separation of species based on the measurements.\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis')\n\n# Add a title to the figure\ng.fig.suptitle('Pairplot of Iris Dataset by Species', y=1.02, fontsize=16) # y moves the title up a bit\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between all numerical variables,\n# colored by the 'species' column. This is highly insightful for the Iris dataset\n# as it clearly shows the separation of species based on the measurements.\ng = sns.pairplot(df, hue='species', diag_kind='kde', palette='viridis')\n\n# Add a title to the figure\ng.fig.suptitle('Pairplot of Iris Dataset by Species', y=1.02, fontsize=16) # y moves the title up a bit\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 1.5933,
+    "visual_entropy": 1.1421,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 3.389,
+    "cost_per_run": 6.7e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

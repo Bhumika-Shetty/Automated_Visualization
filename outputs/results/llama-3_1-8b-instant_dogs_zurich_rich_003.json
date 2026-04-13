@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-09T03:15:33.770164",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.dates as mdates\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Plot the number of dogs registered per year\nplt.figure(figsize=(10,6))\nsns.countplot(x='StichtagDatJahr', data=data)\nplt.title('Number of Dogs Registered per Year')\nplt.xlabel('Year')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the age distribution of dogs\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterV10Sort'], kde=True)\nplt.title('Age Distribution of Dogs')\nplt.xlabel('Age (in years)')\nplt.ylabel('Count')\nplt.savefig('output_age_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the sex distribution of dogs\nplt.figure(figsize=(10,6))\nsns.countplot(x='SexSort', data=data)\nplt.title('Sex Distribution of Dogs')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.savefig('output_sex_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the number of dogs registered per district\nplt.figure(figsize=(10,6))\nsns.countplot(x='KreisSort', data=data)\nplt.title('Number of Dogs Registered per District')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.savefig('output_district_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the number of dogs registered per quarter\nplt.figure(figsize=(10,6))\nsns.countplot(x='QuarSort', data=data)\nplt.title('Number of Dogs Registered per Quarter')\nplt.xlabel('Quarter')\nplt.ylabel('Count')\nplt.savefig('output_quarter_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the average age of dogs per district\nplt.figure(figsize=(10,6))\nsns.barplot(x='KreisSort', y='AlterVHundNum', data=data)\nplt.title('Average Age of Dogs per District')\nplt.xlabel('District')\nplt.ylabel('Average Age (in years)')\nplt.savefig('output_average_age_per_district.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.dates as mdates\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert StichtagDat to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Plot the number of dogs registered per year\nplt.figure(figsize=(10,6))\nsns.countplot(x='StichtagDatJahr', data=data)\nplt.title('Number of Dogs Registered per Year')\nplt.xlabel('Year')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Plot the age distribution of dogs\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterV10Sort'], kde=True)\nplt.title('Age Distribution of Dogs')\nplt.xlabel('Age (in years)')\nplt.ylabel('Count')\nplt.savefig('output_age_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the sex distribution of dogs\nplt.figure(figsize=(10,6))\nsns.countplot(x='SexSort', data=data)\nplt.title('Sex Distribution of Dogs')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.savefig('output_sex_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the number of dogs registered per district\nplt.figure(figsize=(10,6))\nsns.countplot(x='KreisSort', data=data)\nplt.title('Number of Dogs Registered per District')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.savefig('output_district_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the number of dogs registered per quarter\nplt.figure(figsize=(10,6))\nsns.countplot(x='QuarSort', data=data)\nplt.title('Number of Dogs Registered per Quarter')\nplt.xlabel('Quarter')\nplt.ylabel('Count')\nplt.savefig('output_quarter_distribution.png', bbox_inches='tight', dpi=150)\n\n# Plot the average age of dogs per district\nplt.figure(figsize=(10,6))\nsns.barplot(x='KreisSort', y='AlterVHundNum', data=data)\nplt.title('Average Age of Dogs per District')\nplt.xlabel('District')\nplt.ylabel('Average Age (in years)')\nplt.savefig('output_average_age_per_district.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7097,
+    "color_delta_e": 1.459,
+    "visual_entropy": 1.1907,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.716,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

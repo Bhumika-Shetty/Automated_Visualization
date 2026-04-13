@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 29,
+  "timestamp": "2026-04-09T03:15:25.809014",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Create a sample dataset from the given information\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert hour_of_day to numeric (assuming 0-23)\ndf['hour_of_day'] = pd.to_numeric(df['hour_of_day'])\n\n# Melt the dataframe to facilitate plotting\ndf_melt = pd.melt(df, id_vars=['is_fraud', 'amount', 'transaction_type'], value_vars=['hour_of_day'])\n\n# Create a barplot\nplt.figure(figsize=(10,6))\nsns.barplot(x='variable', y='value', hue='is_fraud', data=df_melt, ci=None)\n\n# Set labels and title\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.title('Transaction Hour Distribution')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Create a sample dataset from the given information\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert hour_of_day to numeric (assuming 0-23)\ndf['hour_of_day'] = pd.to_numeric(df['hour_of_day'])\n\n# Melt the dataframe to facilitate plotting\ndf_melt = pd.melt(df, id_vars=['is_fraud', 'amount', 'transaction_type'], value_vars=['hour_of_day'])\n\n# Create a barplot\nplt.figure(figsize=(10,6))\nsns.barplot(x='variable', y='value', hue='is_fraud', data=df_melt, ci=None)\n\n# Set labels and title\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.title('Transaction Hour Distribution')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpzxutqmk8/viz_script.py:24: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x='variable', y='value', hue='is_fraud', data=df_melt, ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.9144,
+    "visual_entropy": 1.2058,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.53,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

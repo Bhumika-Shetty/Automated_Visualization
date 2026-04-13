@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-09T02:13:07.379543",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ntitanic = pd.read_csv('data/titanic.csv')\ntitanic.columns = ['survived', 'pclass', 'sex', 'age', 'sibsp', 'parch', 'fare', 'embarked', 'class', 'who', \n                   'adult_male', 'deck', 'embark_town', 'alive', 'alone']\n\n# Create a countplot for survival by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=titanic)\nplt.title('Survival by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ntitanic = pd.read_csv('data/titanic.csv')\ntitanic.columns = ['survived', 'pclass', 'sex', 'age', 'sibsp', 'parch', 'fare', 'embarked', 'class', 'who', \n                   'adult_male', 'deck', 'embark_town', 'alive', 'alone']\n\n# Create a countplot for survival by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=titanic)\nplt.title('Survival by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.1364,
+    "color_delta_e": 0.7398,
+    "visual_entropy": 1.2842,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 1.481,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-09T03:35:39.041123",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from csv file\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a histogram of price distribution\nplt.figure(figsize=(10, 6))\nsns.histplot(data['price_usd'], kde=True)\nplt.title('Price Distribution of Cameras')\nplt.xlabel('Price (USD)')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of top camera brands by price\ntop_brands = data.groupby('brand')['price_usd'].mean().sort_values(ascending=False).head(10)\nplt.figure(figsize=(10, 6))\nsns.barplot(x=top_brands.index, y=top_brands.values)\nplt.title('Top Camera Brands by Price')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of megapixels vs. price\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Megapixels vs. Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot of weight distribution by body type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='body_type', y='weight_grams', data=data)\nplt.title('Weight Distribution by Body Type')\nplt.xlabel('Body Type')\nplt.ylabel('Weight (grams)')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from csv file\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a histogram of price distribution\nplt.figure(figsize=(10, 6))\nsns.histplot(data['price_usd'], kde=True)\nplt.title('Price Distribution of Cameras')\nplt.xlabel('Price (USD)')\nplt.ylabel('Count')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of top camera brands by price\ntop_brands = data.groupby('brand')['price_usd'].mean().sort_values(ascending=False).head(10)\nplt.figure(figsize=(10, 6))\nsns.barplot(x=top_brands.index, y=top_brands.values)\nplt.title('Top Camera Brands by Price')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.savefig('output1.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of megapixels vs. price\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Megapixels vs. Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot of weight distribution by body type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='body_type', y='weight_grams', data=data)\nplt.title('Weight Distribution by Body Type')\nplt.xlabel('Body Type')\nplt.ylabel('Weight (grams)')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.7482,
+    "visual_entropy": 1.4293,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 7.228,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-09T03:33:09.726293",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\ndata.columns = ['brand', 'model_year', 'megapixels', 'max_iso', 'weight_grams', 'price_usd', 'sensor_type', 'has_video_4k', 'lens_mount', 'body_type']\n\n# Create a bar plot to show the distribution of camera prices\nplt.figure(figsize=(10, 6))\nsns.barplot(x='sensor_type', y='price_usd', data=data)\nplt.title('Camera Prices by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of megapixels\nplt.figure(figsize=(10, 6))\nsns.histplot(data['megapixels'], bins=20)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('megapixels_histogram.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between weight and price\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='weight_grams', y='price_usd', hue='sensor_type', data=data)\nplt.title('Relationship between Weight and Price')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Price (USD)')\nplt.legend(title='Sensor Type')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('weight_price_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to show the distribution of body types\nplt.figure(figsize=(10, 6))\nsns.set_palette('viridis')\nplt.pie(data['body_type'].value_counts(), labels=data['body_type'].value_counts().index, autopct='%1.1f%%')\nplt.title('Distribution of Body Types')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('body_type_pie.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\ndata.columns = ['brand', 'model_year', 'megapixels', 'max_iso', 'weight_grams', 'price_usd', 'sensor_type', 'has_video_4k', 'lens_mount', 'body_type']\n\n# Create a bar plot to show the distribution of camera prices\nplt.figure(figsize=(10, 6))\nsns.barplot(x='sensor_type', y='price_usd', data=data)\nplt.title('Camera Prices by Sensor Type')\nplt.xlabel('Sensor Type')\nplt.ylabel('Price (USD)')\nplt.xticks(rotation=90)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of megapixels\nplt.figure(figsize=(10, 6))\nsns.histplot(data['megapixels'], bins=20)\nplt.title('Distribution of Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Frequency')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('megapixels_histogram.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between weight and price\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='weight_grams', y='price_usd', hue='sensor_type', data=data)\nplt.title('Relationship between Weight and Price')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Price (USD)')\nplt.legend(title='Sensor Type')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('weight_price_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to show the distribution of body types\nplt.figure(figsize=(10, 6))\nsns.set_palette('viridis')\nplt.pie(data['body_type'].value_counts(), labels=data['body_type'].value_counts().index, autopct='%1.1f%%')\nplt.title('Distribution of Body Types')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('body_type_pie.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3871,
+    "color_delta_e": 0.7533,
+    "visual_entropy": 1.1623,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.045,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

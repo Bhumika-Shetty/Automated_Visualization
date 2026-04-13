@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-09T02:12:46.395632",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Prepare the data for visualization\ndf['adult_male'] = df['adult_male'].map({True: 'Male', False: 'Female'})\n\n# Create a bar chart to compare the survival rate by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Prepare the data for visualization\ndf['adult_male'] = df['adult_male'].map({True: 'Male', False: 'Female'})\n\n# Create a bar chart to compare the survival rate by sex\nplt.figure(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.6554,
+    "visual_entropy": 1.2844,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 13.763,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

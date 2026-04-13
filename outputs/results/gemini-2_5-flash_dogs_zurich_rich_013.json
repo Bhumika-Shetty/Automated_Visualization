@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-10T18:16:45.474608",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the most recent year in the dataset to get a current snapshot\nlatest_year = df['StichtagDatJahr'].max()\ndf_current_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Count occurrences of primary breed and dog gender for the current year\n# We use .size() to count rows for each group\nbreed_gender_counts = df_current_year.groupby(['Rasse1Text', 'SexHundLang']).size().reset_index(name='Count')\n\n# Get the top N breeds based on their overall popularity in the current year\ntop_n = 10\ntop_breeds_overall = df_current_year['Rasse1Text'].value_counts().nlargest(top_n).index.tolist()\n\n# Filter the aggregated data to include only these top breeds\nbreed_gender_counts_filtered = breed_gender_counts[breed_gender_counts['Rasse1Text'].isin(top_breeds_overall)]\n\n# Ensure the breeds are ordered by overall popularity for consistent plotting\n# Convert 'Rasse1Text' to a categorical type with the desired order\nbreed_gender_counts_filtered['Rasse1Text'] = pd.Categorical(\n    breed_gender_counts_filtered['Rasse1Text'],\n    categories=top_breeds_overall,\n    ordered=True\n)\n\n# Sort the DataFrame by breed to ensure correct plotting order\nbreed_gender_counts_filtered = breed_gender_counts_filtered.sort_values('Rasse1Text', ascending=False)\n\n# Create the grouped bar plot\nplt.figure(figsize=(12, 8))\nsns.barplot(\n    data=breed_gender_counts_filtered,\n    x='Count',\n    y='Rasse1Text',\n    hue='SexHundLang',\n    palette='viridis' # Choose a color palette\n)\n\n# Add titles and labels for clarity\nplt.title(f'Top {top_n} Dog Breeds in Zurich by Gender ({latest_year})', fontsize=16)\nplt.xlabel('Number of Registered Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\nplt.legend(title='Dog Gender', bbox_to_anchor=(1.05, 1), loc='upper left') # Place legend outside the plot\nplt.grid(axis='x', linestyle='--', alpha=0.7) # Add a grid for better readability of counts\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the most recent year in the dataset to get a current snapshot\nlatest_year = df['StichtagDatJahr'].max()\ndf_current_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Count occurrences of primary breed and dog gender for the current year\n# We use .size() to count rows for each group\nbreed_gender_counts = df_current_year.groupby(['Rasse1Text', 'SexHundLang']).size().reset_index(name='Count')\n\n# Get the top N breeds based on their overall popularity in the current year\ntop_n = 10\ntop_breeds_overall = df_current_year['Rasse1Text'].value_counts().nlargest(top_n).index.tolist()\n\n# Filter the aggregated data to include only these top breeds\nbreed_gender_counts_filtered = breed_gender_counts[breed_gender_counts['Rasse1Text'].isin(top_breeds_overall)]\n\n# Ensure the breeds are ordered by overall popularity for consistent plotting\n# Convert 'Rasse1Text' to a categorical type with the desired order\nbreed_gender_counts_filtered['Rasse1Text'] = pd.Categorical(\n    breed_gender_counts_filtered['Rasse1Text'],\n    categories=top_breeds_overall,\n    ordered=True\n)\n\n# Sort the DataFrame by breed to ensure correct plotting order\nbreed_gender_counts_filtered = breed_gender_counts_filtered.sort_values('Rasse1Text', ascending=False)\n\n# Create the grouped bar plot\nplt.figure(figsize=(12, 8))\nsns.barplot(\n    data=breed_gender_counts_filtered,\n    x='Count',\n    y='Rasse1Text',\n    hue='SexHundLang',\n    palette='viridis' # Choose a color palette\n)\n\n# Add titles and labels for clarity\nplt.title(f'Top {top_n} Dog Breeds in Zurich by Gender ({latest_year})', fontsize=16)\nplt.xlabel('Number of Registered Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\nplt.legend(title='Dog Gender', bbox_to_anchor=(1.05, 1), loc='upper left') # Place legend outside the plot\nplt.grid(axis='x', linestyle='--', alpha=0.7) # Add a grid for better readability of counts\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.381,
+    "color_delta_e": 0.8665,
+    "visual_entropy": 0.9557,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 13.149,
+    "cost_per_run": 0.000224,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

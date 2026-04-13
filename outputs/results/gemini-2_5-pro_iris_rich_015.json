@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-12T20:03:03.184064",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback to loading from seaborn's dataset repository if local file not found\n    df = sns.load_dataset('iris')\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pairplot to visualize pairwise relationships and distributions\n# This is an excellent choice for this dataset as it shows:\n# 1. Scatter plots for each pair of numerical features, revealing correlations and clusters.\n# 2. The distribution of each feature on the diagonal.\n# 3. How the different species are separated by these features (using the 'hue' parameter).\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'linewidth': 2, 'fill': True}\n)\n\n# Add a descriptive title to the entire figure\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Measurements by Species',\n    y=1.02,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Adjust spacing for the title\ng.fig.subplots_adjust(top=0.95)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback to loading from seaborn's dataset repository if local file not found\n    df = sns.load_dataset('iris')\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pairplot to visualize pairwise relationships and distributions\n# This is an excellent choice for this dataset as it shows:\n# 1. Scatter plots for each pair of numerical features, revealing correlations and clusters.\n# 2. The distribution of each feature on the diagonal.\n# 3. How the different species are separated by these features (using the 'hue' parameter).\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.8, 's': 50, 'edgecolor': 'k'},\n    diag_kws={'linewidth': 2, 'fill': True}\n)\n\n# Add a descriptive title to the entire figure\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Measurements by Species',\n    y=1.02,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Adjust spacing for the title\ng.fig.subplots_adjust(top=0.95)\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 2.1,
+    "visual_entropy": 1.8998,
+    "labeling_completeness": 0.25,
+    "code_complexity": 6,
+    "generation_latency": 15.596,
+    "cost_per_run": 0.003662,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

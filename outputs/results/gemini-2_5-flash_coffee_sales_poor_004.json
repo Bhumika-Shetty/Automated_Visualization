@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 4,
+  "timestamp": "2026-04-12T04:52:24.996897",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Dataset provided as a string\ncsv_data = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the dataset into a pandas DataFrame\ndf = pd.read_csv(StringIO(csv_data))\n\n# Convert 'date' and 'time' columns to datetime objects for potential time-series analysis\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Aggregate total sales by product\n# This gives an overview of which products contribute most to revenue\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False)\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x=product_sales.index, y=product_sales.values, palette='viridis')\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Add value labels on top of the bars for precise reading\nfor index, value in enumerate(product_sales.values):\n    plt.text(index, value + 0.5, f'${value:.2f}', color='black', ha=\"center\", va='bottom', fontsize=9)\n\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\nplt.savefig('output.png', dpi=300) # Save the plot with high resolution",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Dataset provided as a string\ncsv_data = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the dataset into a pandas DataFrame\ndf = pd.read_csv(StringIO(csv_data))\n\n# Convert 'date' and 'time' columns to datetime objects for potential time-series analysis\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Aggregate total sales by product\n# This gives an overview of which products contribute most to revenue\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False)\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x=product_sales.index, y=product_sales.values, palette='viridis')\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Add value labels on top of the bars for precise reading\nfor index, value in enumerate(product_sales.values):\n    plt.text(index, value + 0.5, f'${value:.2f}', color='black', ha=\"center\", va='bottom', fontsize=9)\n\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\nplt.savefig('output.png', dpi=300) # Save the plot with high resolution\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp9s426dzf/viz_script.py:30: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=product_sales.index, y=product_sales.values, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5625,
+    "color_delta_e": 0.2545,
+    "visual_entropy": 1.8542,
+    "labeling_completeness": 0.75,
+    "code_complexity": 6,
+    "generation_latency": 9.012,
+    "cost_per_run": 0.000147,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

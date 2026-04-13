@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 4,
+  "timestamp": "2026-04-10T15:57:38.628307",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# The dataset is provided as a string, simulate reading it from a file\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a clean seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a bar plot showing the survival rate by sex, further broken down by passenger class.\n# This visualizes two of the most significant factors influencing survival on the Titanic.\n# `catplot` with `kind='bar'` automatically calculates the mean (survival rate) for each group.\ng = sns.catplot(\n    data=df,\n    x=\"sex\",\n    y=\"survived\",\n    hue=\"pclass\",\n    kind=\"bar\",\n    palette=\"viridis\",\n    height=6,\n    aspect=1.2,\n    errorbar=None # Given the very small sample, error bars might be misleading.\n                  # For a full dataset, 'sd' or ('ci', 95) would be typical.\n)\n\n# Customize the plot for clarity\ng.set_axis_labels(\"Sex\", \"Survival Rate\")\ng._legend.set_title(\"Passenger Class\")\ng.fig.suptitle(\"Titanic Survival Rate by Sex and Passenger Class\", y=1.02, fontsize=16)\n\n# Save the plot to output.png\nplt.savefig(\"output.png\", bbox_inches='tight')\nplt.close() # Close the plot to free up memory",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# The dataset is provided as a string, simulate reading it from a file\ndata = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a clean seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a bar plot showing the survival rate by sex, further broken down by passenger class.\n# This visualizes two of the most significant factors influencing survival on the Titanic.\n# `catplot` with `kind='bar'` automatically calculates the mean (survival rate) for each group.\ng = sns.catplot(\n    data=df,\n    x=\"sex\",\n    y=\"survived\",\n    hue=\"pclass\",\n    kind=\"bar\",\n    palette=\"viridis\",\n    height=6,\n    aspect=1.2,\n    errorbar=None # Given the very small sample, error bars might be misleading.\n                  # For a full dataset, 'sd' or ('ci', 95) would be typical.\n)\n\n# Customize the plot for clarity\ng.set_axis_labels(\"Sex\", \"Survival Rate\")\ng._legend.set_title(\"Passenger Class\")\ng.fig.suptitle(\"Titanic Survival Rate by Sex and Passenger Class\", y=1.02, fontsize=16)\n\n# Save the plot to output.png\nplt.savefig(\"output.png\", bbox_inches='tight')\nplt.close() # Close the plot to free up memory\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 0.9252,
+    "visual_entropy": 1.4583,
+    "labeling_completeness": 0.5,
+    "code_complexity": 3,
+    "generation_latency": 17.899,
+    "cost_per_run": 0.000131,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

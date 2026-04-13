@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-10T15:51:49.063588",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\nplt.figure(figsize=(9, 6))\nsns.barplot(data=df, x='sex', y='survived', hue='pclass', palette='viridis', errorbar=None)\n\n# Add labels and title\nplt.title('Titanic Survival Rate by Sex and Passenger Class', fontsize=16)\nplt.xlabel('Sex', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(ticks=[0, 1], labels=['Female', 'Male'], fontsize=10) # More descriptive labels for sex\nplt.yticks(fontsize=10)\n\n# Customize legend\nplt.legend(title='Passenger Class', title_fontsize='11', fontsize='10', loc='upper right')\n\n# Add grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure layout is tight\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create the visualization\nplt.figure(figsize=(9, 6))\nsns.barplot(data=df, x='sex', y='survived', hue='pclass', palette='viridis', errorbar=None)\n\n# Add labels and title\nplt.title('Titanic Survival Rate by Sex and Passenger Class', fontsize=16)\nplt.xlabel('Sex', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\nplt.xticks(ticks=[0, 1], labels=['Female', 'Male'], fontsize=10) # More descriptive labels for sex\nplt.yticks(fontsize=10)\n\n# Customize legend\nplt.legend(title='Passenger Class', title_fontsize='11', fontsize='10', loc='upper right')\n\n# Add grid for better readability\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Ensure layout is tight\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6154,
+    "color_delta_e": 0.8927,
+    "visual_entropy": 1.6684,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 8.051,
+    "cost_per_run": 9.2e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

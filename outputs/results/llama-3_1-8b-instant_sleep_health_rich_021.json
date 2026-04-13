@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-09T02:41:13.860824",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Convert categorical variables to categorical data type\ndata['Gender'] = data['Gender'].astype('category')\ndata['Occupation'] = data['Occupation'].astype('category')\ndata['BMI Category'] = data['BMI Category'].astype('category')\ndata['Blood Pressure'] = data['Blood Pressure'].astype('category')\ndata['Sleep Disorder'] = data['Sleep Disorder'].astype('category')\n\n# Create a violin plot to compare the distribution of sleep duration across different age groups\nplt.figure(figsize=(10,6))\nsns.violinplot(x='Age', y='Sleep Duration', data=data)\nplt.title('Sleep Duration Distribution Across Different Age Groups')\nplt.xlabel('Age')\nplt.ylabel('Sleep Duration')\nplt.show()\n\n# Save the figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare the average daily steps across different physical activity levels\nplt.figure(figsize=(10,6))\nsns.barplot(x='Physical Activity Level', y='Daily Steps', data=data)\nplt.title('Average Daily Steps Across Different Physical Activity Levels')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Daily Steps')\nplt.show()\n\n# Save the figure as output.png (overwrites previous figure)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to compare the relationship between sleep duration and quality of sleep\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', data=data)\nplt.title('Relationship Between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration')\nplt.ylabel('Quality of Sleep')\nplt.show()\n\n# Save the figure as output.png (overwrites previous figure)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Convert categorical variables to categorical data type\ndata['Gender'] = data['Gender'].astype('category')\ndata['Occupation'] = data['Occupation'].astype('category')\ndata['BMI Category'] = data['BMI Category'].astype('category')\ndata['Blood Pressure'] = data['Blood Pressure'].astype('category')\ndata['Sleep Disorder'] = data['Sleep Disorder'].astype('category')\n\n# Create a violin plot to compare the distribution of sleep duration across different age groups\nplt.figure(figsize=(10,6))\nsns.violinplot(x='Age', y='Sleep Duration', data=data)\nplt.title('Sleep Duration Distribution Across Different Age Groups')\nplt.xlabel('Age')\nplt.ylabel('Sleep Duration')\nplt.show()\n\n# Save the figure as output.png\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare the average daily steps across different physical activity levels\nplt.figure(figsize=(10,6))\nsns.barplot(x='Physical Activity Level', y='Daily Steps', data=data)\nplt.title('Average Daily Steps Across Different Physical Activity Levels')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Daily Steps')\nplt.show()\n\n# Save the figure as output.png (overwrites previous figure)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to compare the relationship between sleep duration and quality of sleep\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', data=data)\nplt.title('Relationship Between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration')\nplt.ylabel('Quality of Sleep')\nplt.show()\n\n# Save the figure as output.png (overwrites previous figure)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 76.92,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.849,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

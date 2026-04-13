@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T18:38:34.531304",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and an axes object for the plot\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot to visualize survival rate by passenger class and sex\n# 'survived' is a binary variable (0 or 1), so the mean directly represents the survival rate.\nsns.barplot(data=df, x='pclass', y='survived', hue='sex', palette='viridis', errorbar='ci')\n\n# Add titles and labels for clarity\nplt.title('Survival Rate on Titanic by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\n\n# Customize x-axis tick labels for better readability\n# Mapping pclass numbers to descriptive names\npclass_labels = {1: 'First Class', 2: 'Second Class', 3: 'Third Class'}\nplt.xticks(ticks=[0, 1, 2], labels=[pclass_labels[1], pclass_labels[2], pclass_labels[3]], fontsize=10)\n\n# Ensure y-axis starts at 0 and goes up to 1 for survival rate\nplt.ylim(0, 1)\n\n# Add a legend\nplt.legend(title='Sex', loc='upper right')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a figure and an axes object for the plot\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot to visualize survival rate by passenger class and sex\n# 'survived' is a binary variable (0 or 1), so the mean directly represents the survival rate.\nsns.barplot(data=df, x='pclass', y='survived', hue='sex', palette='viridis', errorbar='ci')\n\n# Add titles and labels for clarity\nplt.title('Survival Rate on Titanic by Passenger Class and Sex', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Survival Rate', fontsize=12)\n\n# Customize x-axis tick labels for better readability\n# Mapping pclass numbers to descriptive names\npclass_labels = {1: 'First Class', 2: 'Second Class', 3: 'Third Class'}\nplt.xticks(ticks=[0, 1, 2], labels=[pclass_labels[1], pclass_labels[2], pclass_labels[3]], fontsize=10)\n\n# Ensure y-axis starts at 0 and goes up to 1 for survival rate\nplt.ylim(0, 1)\n\n# Add a legend\nplt.legend(title='Sex', loc='upper right')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 1.0854,
+    "visual_entropy": 1.4834,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 8.869,
+    "cost_per_run": 0.00012,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

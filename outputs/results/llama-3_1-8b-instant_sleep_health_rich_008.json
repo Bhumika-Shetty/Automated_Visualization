@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-09T02:39:09.501236",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Define the figure size\nplt.figure(figsize=(10, 6))\n\n# Create a bar chart to show the distribution of BMI categories\nsns.countplot(x='BMI Category', data=df)\nplt.title('Distribution of BMI Categories')\nplt.xlabel('BMI Category')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between age and quality of sleep\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Age', y='Quality of Sleep', data=df)\nplt.title('Relationship between Age and Quality of Sleep')\nplt.xlabel('Age')\nplt.ylabel('Quality of Sleep')\nplt.legend()\nplt.savefig('output_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to show the distribution of physical activity levels\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Physical Activity Level', data=df)\nplt.title('Distribution of Physical Activity Levels')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output_activity.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Define the figure size\nplt.figure(figsize=(10, 6))\n\n# Create a bar chart to show the distribution of BMI categories\nsns.countplot(x='BMI Category', data=df)\nplt.title('Distribution of BMI Categories')\nplt.xlabel('BMI Category')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between age and quality of sleep\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Age', y='Quality of Sleep', data=df)\nplt.title('Relationship between Age and Quality of Sleep')\nplt.xlabel('Age')\nplt.ylabel('Quality of Sleep')\nplt.legend()\nplt.savefig('output_scatter.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to show the distribution of physical activity levels\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Physical Activity Level', data=df)\nplt.title('Distribution of Physical Activity Levels')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output_activity.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmprg8dva7u/viz_script.py:25: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend()\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.6517,
+    "visual_entropy": 1.0234,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.558,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-09T02:25:25.754430",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map the species to a more readable format\nspecies_map = {'setosa': 'Iris Setosa', 'versicolor': 'Iris Versicolor', 'virginica': 'Iris Virginica'}\ndata['species'] = data['species'].map(species_map)\n\n# Create a scatter plot to visualize the sepal and petal measurements\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=data, x='sepal_length', y='petal_length', hue='species', palette='viridis', s=50)\nplt.title('Sepal Length vs Petal Length by Species')\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Petal Length (cm)')\nplt.legend(title='Species')\nplt.xticks(rotation=45)\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])\n\n# Map the species to a more readable format\nspecies_map = {'setosa': 'Iris Setosa', 'versicolor': 'Iris Versicolor', 'virginica': 'Iris Virginica'}\ndata['species'] = data['species'].map(species_map)\n\n# Create a scatter plot to visualize the sepal and petal measurements\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=data, x='sepal_length', y='petal_length', hue='species', palette='viridis', s=50)\nplt.title('Sepal Length vs Petal Length by Species')\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Petal Length (cm)')\nplt.legend(title='Species')\nplt.xticks(rotation=45)\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.45,
+    "color_delta_e": 1.3664,
+    "visual_entropy": 0.598,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.626,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

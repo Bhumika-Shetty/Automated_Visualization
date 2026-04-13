@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-09T02:51:41.148147",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Plot a scatter plot to visualize the relationship between income and spending behavior\nplt.figure(figsize=(10, 8))\nsns.scatterplot(x='Income', y='MntWines', data=data)\nsns.scatterplot(x='Income', y='MntFruits', data=data, color='red')\nsns.scatterplot(x='Income', y='MntMeatProducts', data=data, color='green')\nsns.scatterplot(x='Income', y='MntFishProducts', data=data, color='blue')\nplt.title('Spending Behavior by Income')\nplt.xlabel('Income')\nplt.ylabel('Spending Amount')\nplt.legend(['Wines', 'Fruits', 'Meat Products', 'Fish Products'])\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Plot a scatter plot to visualize the relationship between income and spending behavior\nplt.figure(figsize=(10, 8))\nsns.scatterplot(x='Income', y='MntWines', data=data)\nsns.scatterplot(x='Income', y='MntFruits', data=data, color='red')\nsns.scatterplot(x='Income', y='MntMeatProducts', data=data, color='green')\nsns.scatterplot(x='Income', y='MntFishProducts', data=data, color='blue')\nplt.title('Spending Behavior by Income')\nplt.xlabel('Income')\nplt.ylabel('Spending Amount')\nplt.legend(['Wines', 'Fruits', 'Meat Products', 'Fish Products'])\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 17.24,
+    "hallucination_rate": 0.5263,
+    "color_delta_e": 1.5992,
+    "visual_entropy": 0.662,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 9.806,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

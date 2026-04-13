@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-09T03:12:06.713645",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Create a pandas DataFrame from the dataset\ndata = \"\"\"\namount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Pivot the DataFrame to count the number of transactions by hour of day\nhourly_transactions = df.pivot_table(index='hour_of_day', columns='transaction_type', values='amount', aggfunc='count')\n\n# Plot the resulting pivot table as a bar chart\nplt.figure(figsize=(10,6))\nsns.barplot(x=hourly_transactions.columns, y=hourly_transactions.iloc[0], data=hourly_transactions)\nplt.title('Number of Transactions by Hour of Day')\nplt.xlabel('Transaction Type')\nplt.ylabel('Number of Transactions')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the plot to output.png\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Create a pandas DataFrame from the dataset\ndata = \"\"\"\namount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Pivot the DataFrame to count the number of transactions by hour of day\nhourly_transactions = df.pivot_table(index='hour_of_day', columns='transaction_type', values='amount', aggfunc='count')\n\n# Plot the resulting pivot table as a bar chart\nplt.figure(figsize=(10,6))\nsns.barplot(x=hourly_transactions.columns, y=hourly_transactions.iloc[0], data=hourly_transactions)\nplt.title('Number of Transactions by Hour of Day')\nplt.xlabel('Transaction Type')\nplt.ylabel('Number of Transactions')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the plot to output.png\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpk4cz3zp3/viz_script.py\", line 23, in <module>\n    sns.barplot(x=hourly_transactions.columns, y=hourly_transactions.iloc[0], data=hourly_transactions)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 2341, in barplot\n    p = _CategoricalAggPlotter(\n        data=data,\n    ...<4 lines>...\n        legend=legend,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/categorical.py\", line 67, in __init__\n    super().__init__(data=data, variables=variables)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 634, in __init__\n    self.assign_variables(data, variables)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 679, in assign_variables\n    plot_data = PlotData(data, variables)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 58, in __init__\n    frame, names, ids = self._assign_variables(data, variables)\n                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 251, in _assign_variables\n    raise ValueError(err)\nValueError: Length of Index vectors must match length of `data` when both are used, but `data` has length 4 and the vector passed to `x` has length 3.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.644,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

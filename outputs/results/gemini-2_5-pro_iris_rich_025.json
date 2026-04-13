@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-12T05:53:04.793314",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    print(\"Downloading Iris dataset...\")\n    url = \"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv\"\n    df = pd.read_csv(url)\n    # Ensure the directory exists before saving\n    import os\n    if not os.path.exists('data'):\n        os.makedirs('data')\n    df.to_csv('data/iris.csv', index=False)\n\n\n# Set a professional and clear style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pairplot to visualize pairwise relationships and distributions\n# This is highly effective for the Iris dataset to see how features separate the species\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimate for diagonal plots\n    markers=[\"o\", \"s\", \"D\"],  # Use distinct markers for each species\n    plot_kws={'alpha': 0.85, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    height=2.5\n)\n\n# Add a clear, overarching title to the figure\ng.fig.suptitle(\n    'Pairwise Feature Relationships in the Iris Dataset',\n    y=1.03,  # Adjust title position to avoid overlap\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve the legend\ng._legend.set_title(\"Species\")\nfor t in g._legend.texts:\n    t.set_text(t.get_text().capitalize()) # Capitalize species names\n\n# Save the final figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot to prevent it from displaying in some environments\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    print(\"Downloading Iris dataset...\")\n    url = \"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv\"\n    df = pd.read_csv(url)\n    # Ensure the directory exists before saving\n    import os\n    if not os.path.exists('data'):\n        os.makedirs('data')\n    df.to_csv('data/iris.csv', index=False)\n\n\n# Set a professional and clear style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a pairplot to visualize pairwise relationships and distributions\n# This is highly effective for the Iris dataset to see how features separate the species\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',  # Use Kernel Density Estimate for diagonal plots\n    markers=[\"o\", \"s\", \"D\"],  # Use distinct markers for each species\n    plot_kws={'alpha': 0.85, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    height=2.5\n)\n\n# Add a clear, overarching title to the figure\ng.fig.suptitle(\n    'Pairwise Feature Relationships in the Iris Dataset',\n    y=1.03,  # Adjust title position to avoid overlap\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve the legend\ng._legend.set_title(\"Species\")\nfor t in g._legend.texts:\n    t.set_text(t.get_text().capitalize()) # Capitalize species names\n\n# Save the final figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot to prevent it from displaying in some environments\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 2.1505,
+    "visual_entropy": 1.9189,
+    "labeling_completeness": 0.5,
+    "code_complexity": 8,
+    "generation_latency": 19.27,
+    "cost_per_run": 0.004243,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

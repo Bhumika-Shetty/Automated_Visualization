@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-11T02:00:14.520476",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the latest year available in the dataset to get the most current view\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Aggregate the data to count dog registrations by district and dog gender\n# We are counting the number of rows for each combination of district and dog gender.\n# 'SexHundLang' contains values like 'm\u00e4nnlich' (male), 'weiblich' (female), 'unbekannt' (unknown).\n# 'KreisLang' contains the district names.\ndog_counts_by_district_gender = df_latest_year.groupby(['KreisLang', 'SexHundLang']).size().unstack(fill_value=0)\n\n# Calculate the total number of dogs per district to sort them\ndog_counts_by_district_gender['Total'] = dog_counts_by_district_gender.sum(axis=1)\n\n# Sort districts by the total number of dogs in descending order\ndog_counts_by_district_gender = dog_counts_by_district_gender.sort_values('Total', ascending=False)\n\n# Drop the 'Total' column before plotting, as it's only for sorting purposes\ndog_counts_to_plot = dog_counts_by_district_gender.drop(columns=['Total'])\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8))\nax = plt.gca() # Get current axes for plotting\n\n# Create a stacked bar chart using the aggregated data\n# We use a color palette suitable for categorical data\ncolors = sns.color_palette(\"viridis\", n_colors=len(dog_counts_to_plot.columns))\ndog_counts_to_plot.plot(kind='bar', stacked=True, ax=ax, color=colors)\n\n# Add title and labels for clarity\nax.set_title(f'Number of Dog Registrations by District and Gender in Zurich ({latest_year})', fontsize=16, pad=20)\nax.set_xlabel('District', fontsize=12)\nax.set_ylabel('Number of Dog Registrations', fontsize=12)\n\n# Rotate x-axis labels for better readability if district names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend to explain the gender colors\nax.legend(title='Dog Gender', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the latest year available in the dataset to get the most current view\nlatest_year = df['StichtagDatJahr'].max()\ndf_latest_year = df[df['StichtagDatJahr'] == latest_year].copy()\n\n# Aggregate the data to count dog registrations by district and dog gender\n# We are counting the number of rows for each combination of district and dog gender.\n# 'SexHundLang' contains values like 'm\u00e4nnlich' (male), 'weiblich' (female), 'unbekannt' (unknown).\n# 'KreisLang' contains the district names.\ndog_counts_by_district_gender = df_latest_year.groupby(['KreisLang', 'SexHundLang']).size().unstack(fill_value=0)\n\n# Calculate the total number of dogs per district to sort them\ndog_counts_by_district_gender['Total'] = dog_counts_by_district_gender.sum(axis=1)\n\n# Sort districts by the total number of dogs in descending order\ndog_counts_by_district_gender = dog_counts_by_district_gender.sort_values('Total', ascending=False)\n\n# Drop the 'Total' column before plotting, as it's only for sorting purposes\ndog_counts_to_plot = dog_counts_by_district_gender.drop(columns=['Total'])\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8))\nax = plt.gca() # Get current axes for plotting\n\n# Create a stacked bar chart using the aggregated data\n# We use a color palette suitable for categorical data\ncolors = sns.color_palette(\"viridis\", n_colors=len(dog_counts_to_plot.columns))\ndog_counts_to_plot.plot(kind='bar', stacked=True, ax=ax, color=colors)\n\n# Add title and labels for clarity\nax.set_title(f'Number of Dog Registrations by District and Gender in Zurich ({latest_year})', fontsize=16, pad=20)\nax.set_xlabel('District', fontsize=12)\nax.set_ylabel('Number of Dog Registrations', fontsize=12)\n\n# Rotate x-axis labels for better readability if district names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend to explain the gender colors\nax.legend(title='Dog Gender', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.7,
+    "color_delta_e": 0.8126,
+    "visual_entropy": 0.8861,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 12.604,
+    "cost_per_run": 0.000229,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

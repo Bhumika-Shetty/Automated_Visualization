@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 17,
+  "timestamp": "2026-04-12T04:43:22.554373",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a scatter plot to visualize relationships between key numerical features,\n# and use categorical features for hue, size, and style to add more dimensions.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',       # Differentiate by sensor type\n    size='weight_grams',     # Vary marker size by weight\n    style='has_video_4k',    # Use different markers for 4K video capability\n    sizes=(80, 800),         # Range for marker sizes\n    markers={0: 'o', 1: 'X'}, # Custom markers for 0 (no 4K) and 1 (has 4K)\n    palette='viridis',       # Color palette for sensor_type\n    alpha=0.8                # Transparency for markers\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels, colored by Sensor Type, sized by Weight, styled by 4K Video', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Camera Features', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legends from being cut off\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a scatter plot to visualize relationships between key numerical features,\n# and use categorical features for hue, size, and style to add more dimensions.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',       # Differentiate by sensor type\n    size='weight_grams',     # Vary marker size by weight\n    style='has_video_4k',    # Use different markers for 4K video capability\n    sizes=(80, 800),         # Range for marker sizes\n    markers={0: 'o', 1: 'X'}, # Custom markers for 0 (no 4K) and 1 (has 4K)\n    palette='viridis',       # Color palette for sensor_type\n    alpha=0.8                # Transparency for markers\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels, colored by Sensor Type, sized by Weight, styled by 4K Video', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Camera Features', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legends from being cut off\nplt.tight_layout()\n\n# Save the plot as output.png\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 1.009,
+    "visual_entropy": 0.6751,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 12.074,
+    "cost_per_run": 0.000153,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

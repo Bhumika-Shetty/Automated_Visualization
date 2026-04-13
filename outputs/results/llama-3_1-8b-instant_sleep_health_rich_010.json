@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-09T02:39:12.904996",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot to compare the distribution of sleep duration across different age groups\nplt.figure(figsize=(10,6))\nsns.violinplot(x='Age', y='Sleep Duration', data=sleep_health)\nplt.title('Distribution of Sleep Duration Across Different Age Groups')\nplt.xlabel('Age')\nplt.ylabel('Sleep Duration (hours)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare the average daily steps across different physical activity levels\nplt.figure(figsize=(10,6))\nsns.barplot(x='Physical Activity Level', y='Daily Steps', data=sleep_health)\nplt.title('Average Daily Steps Across Different Physical Activity Levels')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Average Daily Steps')\nplt.xticks(rotation=45)\nplt.legend(title='Physical Activity Level')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a violin plot to compare the distribution of sleep duration across different age groups\nplt.figure(figsize=(10,6))\nsns.violinplot(x='Age', y='Sleep Duration', data=sleep_health)\nplt.title('Distribution of Sleep Duration Across Different Age Groups')\nplt.xlabel('Age')\nplt.ylabel('Sleep Duration (hours)')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to compare the average daily steps across different physical activity levels\nplt.figure(figsize=(10,6))\nsns.barplot(x='Physical Activity Level', y='Daily Steps', data=sleep_health)\nplt.title('Average Daily Steps Across Different Physical Activity Levels')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Average Daily Steps')\nplt.xticks(rotation=45)\nplt.legend(title='Physical Activity Level')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpl4d4cs3g/viz_script.py:25: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Physical Activity Level')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.4167,
+    "color_delta_e": 1.4472,
+    "visual_entropy": 1.2111,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 1.076,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

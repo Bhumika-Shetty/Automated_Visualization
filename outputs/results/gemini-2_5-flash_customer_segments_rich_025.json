@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-10T17:18:19.561539",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on products\ndf['Total_Mnt'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \\\n                  df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Drop rows with missing Income values, as Income is crucial for this visualization\ndf_filtered = df.dropna(subset=['Income'])\n\n# Filter out potential outliers in Income and Total_Mnt for better visualization of the main distribution\n# Remove incomes that are extremely low or high, and customers with zero spending\ndf_filtered = df_filtered[\n    (df_filtered['Income'] > 1000) &\n    (df_filtered['Income'] < 150000) &\n    (df_filtered['Total_Mnt'] > 0)\n]\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='Total_Mnt',\n    hue='Marital_Status',\n    palette='viridis',\n    alpha=0.7,\n    s=60,  # Size of the markers\n    edgecolor='w', # White edge for better distinction of points\n    linewidth=0.5\n)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Marital Status', fontsize=16, fontweight='bold')\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Amount Spent on Products', fontsize=12)\n\n# Position the legend outside the plot area\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)\n\n# Ensure all elements fit tightly within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on products\ndf['Total_Mnt'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \\\n                  df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Drop rows with missing Income values, as Income is crucial for this visualization\ndf_filtered = df.dropna(subset=['Income'])\n\n# Filter out potential outliers in Income and Total_Mnt for better visualization of the main distribution\n# Remove incomes that are extremely low or high, and customers with zero spending\ndf_filtered = df_filtered[\n    (df_filtered['Income'] > 1000) &\n    (df_filtered['Income'] < 150000) &\n    (df_filtered['Total_Mnt'] > 0)\n]\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='Total_Mnt',\n    hue='Marital_Status',\n    palette='viridis',\n    alpha=0.7,\n    s=60,  # Size of the markers\n    edgecolor='w', # White edge for better distinction of points\n    linewidth=0.5\n)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Marital Status', fontsize=16, fontweight='bold')\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Amount Spent on Products', fontsize=12)\n\n# Position the legend outside the plot area\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)\n\n# Ensure all elements fit tightly within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4348,
+    "color_delta_e": 1.3433,
+    "visual_entropy": 1.377,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 13.331,
+    "cost_per_run": 0.000182,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-10T17:18:34.086878",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Drop rows with missing 'Income' as it's a critical variable for this analysis\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending for each customer across all product categories\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',\n                 'MntSweetProducts', 'MntGoldProds']\ndf['Total_Mnt'] = df[spending_cols].sum(axis=1)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationship between Income and Total Spending,\n# with 'Education' level as a categorical differentiator (hue).\n# This helps to identify if different education groups have distinct spending patterns\n# at various income levels.\nsns.scatterplot(data=df, x='Income', y='Total_Mnt', hue='Education', palette='viridis', alpha=0.7, s=70)\n\n# Add titles and labels for clarity\nplt.title('Total Amount Spent vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Amount Spent on Products', fontsize=12)\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust legend position to not overlap with the plot data\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Use tight_layout to ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG image\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Drop rows with missing 'Income' as it's a critical variable for this analysis\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending for each customer across all product categories\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',\n                 'MntSweetProducts', 'MntGoldProds']\ndf['Total_Mnt'] = df[spending_cols].sum(axis=1)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize the relationship between Income and Total Spending,\n# with 'Education' level as a categorical differentiator (hue).\n# This helps to identify if different education groups have distinct spending patterns\n# at various income levels.\nsns.scatterplot(data=df, x='Income', y='Total_Mnt', hue='Education', palette='viridis', alpha=0.7, s=70)\n\n# Add titles and labels for clarity\nplt.title('Total Amount Spent vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Amount Spent on Products', fontsize=12)\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust legend position to not overlap with the plot data\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Use tight_layout to ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure as a high-resolution PNG image\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.3684,
+    "color_delta_e": 1.0674,
+    "visual_entropy": 0.7689,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 16.086,
+    "cost_per_run": 0.000175,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

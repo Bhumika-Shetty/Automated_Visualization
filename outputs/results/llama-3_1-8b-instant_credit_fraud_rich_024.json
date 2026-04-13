@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-09T03:04:08.659688",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ndata = pd.read_csv('data/credit_fraud.csv', names=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Convert 'is_fraud' to categorical values for plotting\ndata['is_fraud'] = data['is_fraud'].astype('category').cat.rename_categories(['Not a Fraud', 'Fraud'])\n\n# Create a countplot to visualize the distribution of transaction types\nplt.figure(figsize=(8, 6))\nsns.countplot(x='transaction_type', data=data, hue='is_fraud')\nplt.title('Distribution of Transaction Types by Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ndata = pd.read_csv('data/credit_fraud.csv', names=['amount', 'is_fraud', 'transaction_type', 'hour_of_day'])\n\n# Convert 'is_fraud' to categorical values for plotting\ndata['is_fraud'] = data['is_fraud'].astype('category').cat.rename_categories(['Not a Fraud', 'Fraud'])\n\n# Create a countplot to visualize the distribution of transaction types\nplt.figure(figsize=(8, 6))\nsns.countplot(x='transaction_type', data=data, hue='is_fraud')\nplt.title('Distribution of Transaction Types by Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpw_bdrggh/viz_script.py\", line 9, in <module>\n    data['is_fraud'] = data['is_fraud'].astype('category').cat.rename_categories(['Not a Fraud', 'Fraud'])\n                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/accessor.py\", line 127, in f\n    return self._delegate_method(name, *args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/categorical.py\", line 3025, in _delegate_method\n    res = method(*args, **kwargs)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/categorical.py\", line 1265, in rename_categories\n    cat._set_categories(new_categories)\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/categorical.py\", line 969, in _set_categories\n    raise ValueError(\n    ...<2 lines>...\n    )\nValueError: new categories need to have the same number of items as the old categories!\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 1.702,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

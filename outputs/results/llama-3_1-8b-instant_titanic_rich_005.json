@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-09T02:12:07.628919",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/titanic.csv')\n\n# Convert categorical columns to categorical\ndata['sex'] = data['sex'].astype('category')\ndata['class'] = data['class'].astype('category')\ndata['embarked'] = data['embarked'].astype('category')\ndata['deck'] = data['deck'].astype('category')\ndata['alive'] = data['alive'].astype('category')\n\n# Create a bar chart of survival rate by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of survival rate by class\nplt.figure(figsize=(10,6))\nsns.countplot(x='class', hue='survived', data=data)\nplt.title('Survival Rate by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of age\nplt.figure(figsize=(10,6))\nsns.histplot(data['age'], binrange=(0, 80), kde=True)\nplt.title('Age Distribution')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/titanic.csv')\n\n# Convert categorical columns to categorical\ndata['sex'] = data['sex'].astype('category')\ndata['class'] = data['class'].astype('category')\ndata['embarked'] = data['embarked'].astype('category')\ndata['deck'] = data['deck'].astype('category')\ndata['alive'] = data['alive'].astype('category')\n\n# Create a bar chart of survival rate by sex\nplt.figure(figsize=(10,6))\nsns.countplot(x='sex', hue='survived', data=data)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of survival rate by class\nplt.figure(figsize=(10,6))\nsns.countplot(x='class', hue='survived', data=data)\nplt.title('Survival Rate by Class')\nplt.xlabel('Class')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of age\nplt.figure(figsize=(10,6))\nsns.histplot(data['age'], binrange=(0, 80), kde=True)\nplt.title('Age Distribution')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 46.67,
+    "hallucination_rate": 0.4118,
+    "color_delta_e": 1.2738,
+    "visual_entropy": 1.1806,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.84,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 25,
+  "timestamp": "2026-04-12T06:08:49.875523",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\nfig.suptitle('Analysis of Iris Setosa Sample', fontsize=18, fontweight='bold')\n\n# --- Plot 1: Scatter plot of Sepal dimensions ---\nsns.scatterplot(\n    ax=axes[0],\n    data=df,\n    x='sepal_length',\n    y='sepal_width',\n    s=150,  # size of markers\n    alpha=0.8,\n    edgecolor='k',\n    linewidth=1.5\n)\naxes[0].set_title('Sepal Length vs. Sepal Width', fontsize=14)\naxes[0].set_xlabel('Sepal Length (cm)', fontsize=12)\naxes[0].set_ylabel('Sepal Width (cm)', fontsize=12)\naxes[0].grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# --- Plot 2: Scatter plot of Petal dimensions ---\nsns.scatterplot(\n    ax=axes[1],\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    s=150,\n    alpha=0.8,\n    edgecolor='k',\n    linewidth=1.5\n)\naxes[1].set_title('Petal Length vs. Petal Width', fontsize=14)\naxes[1].set_xlabel('Petal Length (cm)', fontsize=12)\naxes[1].set_ylabel('Petal Width (cm)', fontsize=12)\naxes[1].grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# Improve layout and save the figure\nplt.tight_layout(rect=[0, 0, 1, 0.96])\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\nfig.suptitle('Analysis of Iris Setosa Sample', fontsize=18, fontweight='bold')\n\n# --- Plot 1: Scatter plot of Sepal dimensions ---\nsns.scatterplot(\n    ax=axes[0],\n    data=df,\n    x='sepal_length',\n    y='sepal_width',\n    s=150,  # size of markers\n    alpha=0.8,\n    edgecolor='k',\n    linewidth=1.5\n)\naxes[0].set_title('Sepal Length vs. Sepal Width', fontsize=14)\naxes[0].set_xlabel('Sepal Length (cm)', fontsize=12)\naxes[0].set_ylabel('Sepal Width (cm)', fontsize=12)\naxes[0].grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# --- Plot 2: Scatter plot of Petal dimensions ---\nsns.scatterplot(\n    ax=axes[1],\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    s=150,\n    alpha=0.8,\n    edgecolor='k',\n    linewidth=1.5\n)\naxes[1].set_title('Petal Length vs. Petal Width', fontsize=14)\naxes[1].set_xlabel('Petal Length (cm)', fontsize=12)\naxes[1].set_ylabel('Petal Width (cm)', fontsize=12)\naxes[1].grid(True, which='both', linestyle='--', linewidth=0.5)\n\n# Improve layout and save the figure\nplt.tight_layout(rect=[0, 0, 1, 0.96])\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": 0.4098,
+    "visual_entropy": 0.4686,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 19.125,
+    "cost_per_run": 0.004372,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

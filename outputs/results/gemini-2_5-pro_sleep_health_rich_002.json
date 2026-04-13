@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-12T06:12:52.039693",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport warnings\n\n# Suppress warnings for a cleaner output\nwarnings.filterwarnings('ignore')\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/sleep_health.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/sleep_health.csv' not found. Please ensure the dataset is in the correct directory.\")\n    exit()\n\n# --- Data Preprocessing ---\n# Fill NaN values in 'Sleep Disorder' for clearer categorization in the plot\ndf['Sleep Disorder'].fillna('No Disorder', inplace=True)\n\n# Ensure BMI Category is an ordered categorical type for logical facet ordering\nbmi_order = ['Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", rc={\"axes.edgecolor\": \".8\", \"grid.linestyle\": \"--\"})\n\n# Create a figure-level plot (relplot) to explore relationships\ng = sns.relplot(\n    data=df.sort_values('BMI Category'),\n    x='Stress Level',\n    y='Quality of Sleep',\n    hue='Sleep Disorder',\n    size='Physical Activity Level',\n    col='BMI Category',\n    palette='viridis_r',\n    sizes=(30, 300),\n    alpha=0.8,\n    height=6,\n    aspect=0.8,\n    kind='scatter'\n)\n\n# --- Customization and Titling ---\n# Set custom titles and labels for clarity\ng.fig.suptitle(\n    'Sleep Quality vs. Stress Level, Influenced by Physical Activity',\n    y=1.03,\n    fontsize=18,\n    fontweight='bold'\n)\ng.set_axis_labels(\"Stress Level (1-10)\", \"Quality of Sleep (1-10)\", fontsize=12)\ng.set_titles(\"BMI: {col_name}\", fontsize=12)\ng.legend.set_title(\"Sleep Disorder\", prop={'size': 11, 'weight': 'bold'})\nplt.setp(g._legend.get_texts(), fontsize='10')\n\n# Adjust layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.97])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport warnings\n\n# Suppress warnings for a cleaner output\nwarnings.filterwarnings('ignore')\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/sleep_health.csv')\nexcept FileNotFoundError:\n    print(\"Error: 'data/sleep_health.csv' not found. Please ensure the dataset is in the correct directory.\")\n    exit()\n\n# --- Data Preprocessing ---\n# Fill NaN values in 'Sleep Disorder' for clearer categorization in the plot\ndf['Sleep Disorder'].fillna('No Disorder', inplace=True)\n\n# Ensure BMI Category is an ordered categorical type for logical facet ordering\nbmi_order = ['Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", rc={\"axes.edgecolor\": \".8\", \"grid.linestyle\": \"--\"})\n\n# Create a figure-level plot (relplot) to explore relationships\ng = sns.relplot(\n    data=df.sort_values('BMI Category'),\n    x='Stress Level',\n    y='Quality of Sleep',\n    hue='Sleep Disorder',\n    size='Physical Activity Level',\n    col='BMI Category',\n    palette='viridis_r',\n    sizes=(30, 300),\n    alpha=0.8,\n    height=6,\n    aspect=0.8,\n    kind='scatter'\n)\n\n# --- Customization and Titling ---\n# Set custom titles and labels for clarity\ng.fig.suptitle(\n    'Sleep Quality vs. Stress Level, Influenced by Physical Activity',\n    y=1.03,\n    fontsize=18,\n    fontweight='bold'\n)\ng.set_axis_labels(\"Stress Level (1-10)\", \"Quality of Sleep (1-10)\", fontsize=12)\ng.set_titles(\"BMI: {col_name}\", fontsize=12)\ng.legend.set_title(\"Sleep Disorder\", prop={'size': 11, 'weight': 'bold'})\nplt.setp(g._legend.get_texts(), fontsize='10')\n\n# Adjust layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.97])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.5417,
+    "color_delta_e": 0.6566,
+    "visual_entropy": 0.5794,
+    "labeling_completeness": 0.5,
+    "code_complexity": 6,
+    "generation_latency": 20.876,
+    "cost_per_run": 0.005337,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

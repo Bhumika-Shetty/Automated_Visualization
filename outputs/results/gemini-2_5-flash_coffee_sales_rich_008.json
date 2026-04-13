@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-12T04:47:48.458295",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime objects for potential time-based analysis if needed, though not strictly required for this plot\ndf['date'] = pd.to_datetime(df['date'])\n\n# Map 'is_takeaway' to more descriptive labels for the plot\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Define a specific order for customer age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\n\n# Aggregate total sales by customer age group and takeaway status\nsales_by_age_takeaway = df.groupby(['customer_age_group', 'takeaway_status'])['total'].sum().reset_index()\n\n# Set plot style\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a grouped bar chart\nsns.barplot(\n    data=sales_by_age_takeaway,\n    x='customer_age_group',\n    y='total',\n    hue='takeaway_status',\n    order=age_group_order,\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Total Sales by Customer Age Group and Order Type', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Improve x-axis tick label readability if needed (e.g., rotation)\nplt.xticks(rotation=0)\n\n# Add legend\nplt.legend(title='Order Type', title_fontsize='11', fontsize='10')\n\n# Ensure layout is tight to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime objects for potential time-based analysis if needed, though not strictly required for this plot\ndf['date'] = pd.to_datetime(df['date'])\n\n# Map 'is_takeaway' to more descriptive labels for the plot\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Define a specific order for customer age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\n\n# Aggregate total sales by customer age group and takeaway status\nsales_by_age_takeaway = df.groupby(['customer_age_group', 'takeaway_status'])['total'].sum().reset_index()\n\n# Set plot style\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(10, 6))\n\n# Create a grouped bar chart\nsns.barplot(\n    data=sales_by_age_takeaway,\n    x='customer_age_group',\n    y='total',\n    hue='takeaway_status',\n    order=age_group_order,\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Total Sales by Customer Age Group and Order Type', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Improve x-axis tick label readability if needed (e.g., rotation)\nplt.xticks(rotation=0)\n\n# Add legend\nplt.legend(title='Order Type', title_fontsize='11', fontsize='10')\n\n# Ensure layout is tight to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5263,
+    "color_delta_e": 0.9733,
+    "visual_entropy": 1.7812,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 8.312,
+    "cost_per_run": 0.000144,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

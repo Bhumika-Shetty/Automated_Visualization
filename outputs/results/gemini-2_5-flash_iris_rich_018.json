@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-10T16:19:37.879270",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot to visualize the relationship between petal length and petal width,\n# with species differentiated by color. Petal dimensions often show the clearest separation.\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=100,  # size of the markers\n    alpha=0.8, # transparency\n    palette='viridis' # color palette\n)\n\n# Add title and labels\nplt.title('Petal Length vs. Petal Width by Species (Iris Dataset)', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and axes\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot to visualize the relationship between petal length and petal width,\n# with species differentiated by color. Petal dimensions often show the clearest separation.\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=100,  # size of the markers\n    alpha=0.8, # transparency\n    palette='viridis' # color palette\n)\n\n# Add title and labels\nplt.title('Petal Length vs. Petal Width by Species (Iris Dataset)', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.6665,
+    "visual_entropy": 0.7198,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 3.867,
+    "cost_per_run": 9.9e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

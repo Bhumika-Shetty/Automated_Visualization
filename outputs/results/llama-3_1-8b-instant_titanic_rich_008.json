@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-09T02:12:27.129089",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert 'survived' column to categorical for better visualization\ndf['survived'] = pd.Categorical(df['survived'])\n\n# Create a bar chart to compare survival rate by sex\nsns.set()\nplt.figure(figsize=(8,6))\nsns.barplot(x='sex', y='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Survival Rate')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of age\nplt.figure(figsize=(8,6))\nsns.histplot(df['age'], kde=True)\nplt.title('Distribution of Passenger Age')\nplt.xlabel('Age')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_age_dist.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare fare by class\nplt.figure(figsize=(8,6))\nsns.boxplot(x='pclass', y='fare', data=df)\nplt.title('Fare Distribution by Class')\nplt.xlabel('Class')\nplt.ylabel('Fare')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_fare_class.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Convert 'survived' column to categorical for better visualization\ndf['survived'] = pd.Categorical(df['survived'])\n\n# Create a bar chart to compare survival rate by sex\nsns.set()\nplt.figure(figsize=(8,6))\nsns.barplot(x='sex', y='survived', data=df)\nplt.title('Survival Rate by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Survival Rate')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of age\nplt.figure(figsize=(8,6))\nsns.histplot(df['age'], kde=True)\nplt.title('Distribution of Passenger Age')\nplt.xlabel('Age')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output_age_dist.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare fare by class\nplt.figure(figsize=(8,6))\nsns.boxplot(x='pclass', y='fare', data=df)\nplt.title('Fare Distribution by Class')\nplt.xlabel('Class')\nplt.ylabel('Fare')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output_fare_class.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 0.3454,
+    "visual_entropy": 1.7141,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.645,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

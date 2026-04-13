@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-12T04:49:57.674095",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a custom order for customer_age_group for better visualization\n# This ensures age groups are plotted in a logical sequence (e.g., youngest to oldest)\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Calculate total sales by customer age group\nsales_by_age = df.groupby('customer_age_group')['total'].sum().reset_index()\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='customer_age_group', y='total', data=sales_by_age, palette='viridis')\n\n# Add labels and title for clarity\nplt.title('Total Sales by Customer Age Group', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels if they overlap, and align them to the right\nplt.xticks(rotation=45, ha='right')\n\n# Add data labels on top of the bars for exact values\nfor index, row in sales_by_age.iterrows():\n    plt.text(index, row['total'], f'{row[\"total\"]:.2f}', color='black', ha=\"center\", va='bottom')\n\n# Improve layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a custom order for customer_age_group for better visualization\n# This ensures age groups are plotted in a logical sequence (e.g., youngest to oldest)\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Calculate total sales by customer age group\nsales_by_age = df.groupby('customer_age_group')['total'].sum().reset_index()\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='customer_age_group', y='total', data=sales_by_age, palette='viridis')\n\n# Add labels and title for clarity\nplt.title('Total Sales by Customer Age Group', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels if they overlap, and align them to the right\nplt.xticks(rotation=45, ha='right')\n\n# Add data labels on top of the bars for exact values\nfor index, row in sales_by_age.iterrows():\n    plt.text(index, row['total'], f'{row[\"total\"]:.2f}', color='black', ha=\"center\", va='bottom')\n\n# Improve layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp0ts7ny2u/viz_script.py:18: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='customer_age_group', y='total', data=sales_by_age, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.0099,
+    "visual_entropy": 2.4215,
+    "labeling_completeness": 0.75,
+    "code_complexity": 6,
+    "generation_latency": 9.557,
+    "cost_per_run": 0.000127,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

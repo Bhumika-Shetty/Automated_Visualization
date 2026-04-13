@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-09T02:39:05.621608",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport os\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Explore and clean the data\nprint(data.info())\nprint(data.describe())\n\n# Create a scatter plot to visualize the relationship between sleep duration and quality of sleep\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', hue='Gender', data=data)\nplt.title('Relationship between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Quality of Sleep (scale of 1-10)')\nplt.legend(title='Gender')\nplt.xticks(range(0, 12, 2))  # Limit x-axis ticks to every 2 hours\n\n# Create a bar chart to compare the average daily steps of different BMI categories\nplt.figure(figsize=(10,6))\nsns.barplot(x='BMI Category', y='Daily Steps', data=data)\nplt.title('Average Daily Steps by BMI Category')\nplt.xlabel('BMI Category')\nplt.ylabel('Daily Steps (count)')\nplt.xticks(rotation=45)\n\n# Create a box plot to compare the heart rate of different stress levels\nplt.figure(figsize=(10,6))\nsns.boxplot(x='Stress Level', y='Heart Rate', data=data)\nplt.title('Heart Rate by Stress Level')\nplt.xlabel('Stress Level')\nplt.ylabel('Heart Rate (beats per minute)')\nplt.xticks(range(1, 9))  # Limit x-axis ticks to every stress level\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Remove the plot objects\nplt.clf()\n\n# Remove the data frame\ndel data",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport os\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Explore and clean the data\nprint(data.info())\nprint(data.describe())\n\n# Create a scatter plot to visualize the relationship between sleep duration and quality of sleep\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Sleep Duration', y='Quality of Sleep', hue='Gender', data=data)\nplt.title('Relationship between Sleep Duration and Quality of Sleep')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Quality of Sleep (scale of 1-10)')\nplt.legend(title='Gender')\nplt.xticks(range(0, 12, 2))  # Limit x-axis ticks to every 2 hours\n\n# Create a bar chart to compare the average daily steps of different BMI categories\nplt.figure(figsize=(10,6))\nsns.barplot(x='BMI Category', y='Daily Steps', data=data)\nplt.title('Average Daily Steps by BMI Category')\nplt.xlabel('BMI Category')\nplt.ylabel('Daily Steps (count)')\nplt.xticks(rotation=45)\n\n# Create a box plot to compare the heart rate of different stress levels\nplt.figure(figsize=(10,6))\nsns.boxplot(x='Stress Level', y='Heart Rate', data=data)\nplt.title('Heart Rate by Stress Level')\nplt.xlabel('Stress Level')\nplt.ylabel('Heart Rate (beats per minute)')\nplt.xticks(range(1, 9))  # Limit x-axis ticks to every stress level\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Remove the plot objects\nplt.clf()\n\n# Remove the data frame\ndel data\n```",
+  "stdout": "<class 'pandas.DataFrame'>\nRangeIndex: 374 entries, 0 to 373\nData columns (total 13 columns):\n #   Column                   Non-Null Count  Dtype  \n---  ------                   --------------  -----  \n 0   Person ID                374 non-null    int64  \n 1   Gender                   374 non-null    str    \n 2   Age                      374 non-null    int64  \n 3   Occupation               374 non-null    str    \n 4   Sleep Duration           374 non-null    float64\n 5   Quality of Sleep         374 non-null    int64  \n 6   Physical Activity Level  374 non-null    int64  \n 7   Stress Level             374 non-null    int64  \n 8   BMI Category             374 non-null    str    \n 9   Blood Pressure           374 non-null    str    \n 10  Heart Rate               374 non-null    int64  \n 11  Daily Steps              374 non-null    int64  \n 12  Sleep Disorder           155 non-null    str    \ndtypes: float64(1), int64(7), str(5)\nmemory usage: 49.2 KB\nNone\n        Person ID         Age  ...  Heart Rate   Daily Steps\ncount  374.000000  374.000000  ...  374.000000    374.000000\nmean   187.500000   42.184492  ...   70.165775   6816.844920\nstd    108.108742    8.673133  ...    4.135676   1617.915679\nmin      1.000000   27.000000  ...   65.000000   3000.000000\n25%     94.250000   35.250000  ...   68.000000   5600.000000\n50%    187.500000   43.000000  ...   70.000000   7000.000000\n75%    280.750000   50.000000  ...   72.000000   8000.000000\nmax    374.000000   59.000000  ...   86.000000  10000.000000\n\n[8 rows x 8 columns]\n",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 53.85,
+    "hallucination_rate": 0.2857,
+    "color_delta_e": 0.6597,
+    "visual_entropy": 0.4745,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.696,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

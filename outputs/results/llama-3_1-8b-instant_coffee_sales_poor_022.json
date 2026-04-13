@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 22,
+  "timestamp": "2026-04-09T03:52:54.776655",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"date\": [\"2024-01-01\"] * 5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"] * 5,\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1] * 5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert the date column to datetime type\ndf['date'] = pd.to_datetime(df['date'])\n\n# Group by product and calculate the total quantity and total price\nproduct_sales = df.groupby('product')[['quantity', 'total']].sum().reset_index()\n\n# Create a bar chart to visualize the total quantity and total price by product\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='quantity', data=product_sales)\nplt.title('Total Quantity by Product')\nplt.xlabel('Product')\nplt.ylabel('Quantity')\nplt.savefig('output_quantity.png')\n\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='total', data=product_sales)\nplt.title('Total Price by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Price')\nplt.savefig('output_price.png')\n\n# Group by customer age group and calculate the total quantity and total price\nage_group_sales = df.groupby('customer_age_group')[['quantity', 'total']].sum().reset_index()\n\n# Create a bar chart to visualize the total quantity and total price by customer age group\nplt.figure(figsize=(10,6))\nsns.barplot(x='customer_age_group', y='quantity', data=age_group_sales)\nplt.title('Total Quantity by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Quantity')\nplt.savefig('output_quantity_age.png')\n\nplt.figure(figsize=(10,6))\nsns.barplot(x='customer_age_group', y='total', data=age_group_sales)\nplt.title('Total Price by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Price')\nplt.savefig('output_price_age.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"date\": [\"2024-01-01\"] * 5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\"] * 5,\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1] * 5,\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert the date column to datetime type\ndf['date'] = pd.to_datetime(df['date'])\n\n# Group by product and calculate the total quantity and total price\nproduct_sales = df.groupby('product')[['quantity', 'total']].sum().reset_index()\n\n# Create a bar chart to visualize the total quantity and total price by product\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='quantity', data=product_sales)\nplt.title('Total Quantity by Product')\nplt.xlabel('Product')\nplt.ylabel('Quantity')\nplt.savefig('output_quantity.png')\n\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='total', data=product_sales)\nplt.title('Total Price by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Price')\nplt.savefig('output_price.png')\n\n# Group by customer age group and calculate the total quantity and total price\nage_group_sales = df.groupby('customer_age_group')[['quantity', 'total']].sum().reset_index()\n\n# Create a bar chart to visualize the total quantity and total price by customer age group\nplt.figure(figsize=(10,6))\nsns.barplot(x='customer_age_group', y='quantity', data=age_group_sales)\nplt.title('Total Quantity by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Quantity')\nplt.savefig('output_quantity_age.png')\n\nplt.figure(figsize=(10,6))\nsns.barplot(x='customer_age_group', y='total', data=age_group_sales)\nplt.title('Total Price by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Price')\nplt.savefig('output_price_age.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3878,
+    "color_delta_e": 0.8245,
+    "visual_entropy": 0.9308,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.84,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

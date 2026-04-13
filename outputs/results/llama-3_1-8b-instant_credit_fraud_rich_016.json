@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-09T03:03:23.826152",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Convert categorical variables to numerical\ncredit_fraud['transaction_type'] = credit_fraud['transaction_type'].map({'refund': 0, 'payment': 1, 'transfer': 2}).astype(int)\n\n# Create a bar chart to compare the frequency of different transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=credit_fraud, hue='is_fraud')\nplt.title('Frequency of Transaction Types by Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Convert categorical variables to numerical\ncredit_fraud['transaction_type'] = credit_fraud['transaction_type'].map({'refund': 0, 'payment': 1, 'transfer': 2}).astype(int)\n\n# Create a bar chart to compare the frequency of different transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=credit_fraud, hue='is_fraud')\nplt.title('Frequency of Transaction Types by Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.legend(title='Fraud Status')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpnlbs4twt/viz_script.py\", line 9, in <module>\n    credit_fraud['transaction_type'] = credit_fraud['transaction_type'].map({'refund': 0, 'payment': 1, 'transfer': 2}).astype(int)\n                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/generic.py\", line 6541, in astype\n    new_data = self._mgr.astype(dtype=dtype, errors=errors)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 611, in astype\n    return self.apply(\"astype\", dtype=dtype, errors=errors)\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 442, in apply\n    applied = getattr(b, f)(**kwargs)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/blocks.py\", line 607, in astype\n    new_values = astype_array_safe(values, dtype, errors=errors)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/dtypes/astype.py\", line 240, in astype_array_safe\n    new_values = astype_array(values, dtype, copy=copy)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/dtypes/astype.py\", line 185, in astype_array\n    values = _astype_nansafe(values, dtype, copy=copy)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/dtypes/astype.py\", line 102, in _astype_nansafe\n    return _astype_float_to_int_nansafe(arr, dtype, copy)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/dtypes/astype.py\", line 146, in _astype_float_to_int_nansafe\n    raise IntCastingNaNError(\n    ...<3 lines>...\n    )\npandas.errors.IntCastingNaNError: Cannot convert non-finite values (NA or inf) to integer.Replace or remove non-finite values or cast to an integer typethat supports these values (e.g. 'Int64')\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.539,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

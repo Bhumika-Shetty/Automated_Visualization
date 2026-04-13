@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-11T02:14:38.742295",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nplt.figure(figsize=(12, 7))\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with sensor type as hue and weight_grams as point size.\n# This allows us to see how different sensor types perform across megapixels and price,\n# and how camera weight correlates with these factors.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(50, 1000),  # Adjust point size range for better visibility\n    alpha=0.7,         # Add transparency to handle potential overplotting\n    palette='tab10',   # A categorical color palette\n    edgecolor='w',     # White edge to distinguish points\n    linewidth=0.5      # Line width for the edge\n)\n\n# Add a title to the plot for clarity\nplt.title('Camera Price vs. Megapixels: Impact of Sensor Type and Weight', fontsize=16, pad=20)\n\n# Label the axes\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Customize the legend to make it more informative\n# Place the legend outside the plot to prevent obscuring data points\nplt.legend(title='Sensor Type / Weight (grams)', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels and legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust rect to make space for the legend\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nplt.figure(figsize=(12, 7))\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with sensor type as hue and weight_grams as point size.\n# This allows us to see how different sensor types perform across megapixels and price,\n# and how camera weight correlates with these factors.\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(50, 1000),  # Adjust point size range for better visibility\n    alpha=0.7,         # Add transparency to handle potential overplotting\n    palette='tab10',   # A categorical color palette\n    edgecolor='w',     # White edge to distinguish points\n    linewidth=0.5      # Line width for the edge\n)\n\n# Add a title to the plot for clarity\nplt.title('Camera Price vs. Megapixels: Impact of Sensor Type and Weight', fontsize=16, pad=20)\n\n# Label the axes\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Customize the legend to make it more informative\n# Place the legend outside the plot to prevent obscuring data points\nplt.legend(title='Sensor Type / Weight (grams)', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels and legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust rect to make space for the legend\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 2.8824,
+    "visual_entropy": 4.0514,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 11.865,
+    "cost_per_run": 0.000151,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

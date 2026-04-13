@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 14,
+  "timestamp": "2026-04-09T03:50:58.313058",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\ndf[\"time\"] = pd.to_datetime(df[\"time\"])\n\n# Pivot the data to show quantity by product and size\npivoted_df = df.pivot_table(index=\"date\", columns=[\"product\", \"size\"], values=\"quantity\")\n\n# Create a heatmap\nplt.figure(figsize=(10, 8))\nsns.heatmap(pivoted_df, annot=True, cmap=\"YlGnBu\")\nplt.title(\"Quantity of Products by Date, Product, and Size\")\nplt.savefig(\"output.png\")\n\n# Create a bar chart to show total revenue by payment method\nplt.figure(figsize=(8, 6))\nsns.barplot(x=\"payment_method\", y=\"total\", data=df)\nplt.title(\"Total Revenue by Payment Method\")\nplt.savefig(\"output2.png\")\n\n# Create a pie chart to show total revenue by age group\nplt.figure(figsize=(8, 6))\nsns.countplot(x=\"customer_age_group\", data=df)\nplt.title(\"Total Revenue by Customer Age Group\")\nplt.savefig(\"output3.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\", \"2024-01-01\"],\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\ndf = pd.DataFrame(data)\n\n# Convert date and time to datetime\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\ndf[\"time\"] = pd.to_datetime(df[\"time\"])\n\n# Pivot the data to show quantity by product and size\npivoted_df = df.pivot_table(index=\"date\", columns=[\"product\", \"size\"], values=\"quantity\")\n\n# Create a heatmap\nplt.figure(figsize=(10, 8))\nsns.heatmap(pivoted_df, annot=True, cmap=\"YlGnBu\")\nplt.title(\"Quantity of Products by Date, Product, and Size\")\nplt.savefig(\"output.png\")\n\n# Create a bar chart to show total revenue by payment method\nplt.figure(figsize=(8, 6))\nsns.barplot(x=\"payment_method\", y=\"total\", data=df)\nplt.title(\"Total Revenue by Payment Method\")\nplt.savefig(\"output2.png\")\n\n# Create a pie chart to show total revenue by age group\nplt.figure(figsize=(8, 6))\nsns.countplot(x=\"customer_age_group\", data=df)\nplt.title(\"Total Revenue by Customer Age Group\")\nplt.savefig(\"output3.png\")\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpvpm6i6f7/viz_script.py:22: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  df[\"time\"] = pd.to_datetime(df[\"time\"])\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4615,
+    "color_delta_e": 0.8009,
+    "visual_entropy": 2.1385,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 0.955,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-10T15:50:13.484659",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create an insightful visualization: Survival rate by Passenger Class and Sex\n# A seaborn catplot with kind='bar' is excellent for showing the mean of a numerical\n# variable (survival rate, where 'survived' is 0 or 1) across multiple categorical variables.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',  # Choose a color palette\n    height=5,           # Height of each facet\n    aspect=1.2          # Aspect ratio of each facet\n)\n\n# Set the title of the plot\ng.fig.suptitle('Titanic Survival Rate by Passenger Class and Sex', y=1.03, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\n\n# Customize x-axis tick labels for better readability (e.g., 1st, 2nd, 3rd Class)\n# The 'class' column already provides these string labels, which might be better\n# Let's use 'class' column instead of 'pclass' for x-axis if available and clearer.\n# Re-plotting with 'class' column if it aligns with 'pclass' values (which it does).\n# Let's check 'class' column values: 'First', 'Second', 'Third'. This is better.\n\n# Re-create plot using 'class' column for x-axis for clearer labels\ng = sns.catplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=5,\n    aspect=1.2,\n    order=['First', 'Second', 'Third'] # Ensure correct order of classes\n)\n\ng.fig.suptitle('Titanic Survival Rate by Passenger Class and Sex', y=1.03, fontsize=16)\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\n\n# Add legend title\ng.add_legend(title=\"Sex\")\n\n# Adjust y-axis limits to start from 0 for survival rate\ng.set(ylim=(0, df['survived'].max() + 0.1)) # Max survival is 1, so 1.1 is fine\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create an insightful visualization: Survival rate by Passenger Class and Sex\n# A seaborn catplot with kind='bar' is excellent for showing the mean of a numerical\n# variable (survival rate, where 'survived' is 0 or 1) across multiple categorical variables.\ng = sns.catplot(\n    data=df,\n    x='pclass',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',  # Choose a color palette\n    height=5,           # Height of each facet\n    aspect=1.2          # Aspect ratio of each facet\n)\n\n# Set the title of the plot\ng.fig.suptitle('Titanic Survival Rate by Passenger Class and Sex', y=1.03, fontsize=16)\n\n# Set axis labels\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\n\n# Customize x-axis tick labels for better readability (e.g., 1st, 2nd, 3rd Class)\n# The 'class' column already provides these string labels, which might be better\n# Let's use 'class' column instead of 'pclass' for x-axis if available and clearer.\n# Re-plotting with 'class' column if it aligns with 'pclass' values (which it does).\n# Let's check 'class' column values: 'First', 'Second', 'Third'. This is better.\n\n# Re-create plot using 'class' column for x-axis for clearer labels\ng = sns.catplot(\n    data=df,\n    x='class',\n    y='survived',\n    hue='sex',\n    kind='bar',\n    palette='viridis',\n    height=5,\n    aspect=1.2,\n    order=['First', 'Second', 'Third'] # Ensure correct order of classes\n)\n\ng.fig.suptitle('Titanic Survival Rate by Passenger Class and Sex', y=1.03, fontsize=16)\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\n\n# Add legend title\ng.add_legend(title=\"Sex\")\n\n# Adjust y-axis limits to start from 0 for survival rate\ng.set(ylim=(0, df['survived'].max() + 0.1)) # Max survival is 1, so 1.1 is fine\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.8006,
+    "visual_entropy": 1.3477,
+    "labeling_completeness": 0.5,
+    "code_complexity": 12,
+    "generation_latency": 14.936,
+    "cost_per_run": 0.000176,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

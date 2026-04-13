@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-12T04:51:42.850038",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a custom order for customer age groups for better visualization and legend consistency\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total revenue by product and customer age group\nrevenue_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().unstack(fill_value=0)\n\n# Sort products by their total revenue in descending order for better readability\nproduct_total_revenue = revenue_by_product_age.sum(axis=1).sort_values(ascending=False)\nrevenue_by_product_age = revenue_by_product_age.loc[product_total_revenue.index]\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8)) # Slightly larger figure for better detail\n\n# Create a stacked bar chart\n# Using a vibrant colormap to distinguish age groups\nrevenue_by_product_age.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='tab20')\n\n# Add labels and title\nplt.title('Total Revenue by Product, Segmented by Customer Age Group', fontsize=18, pad=20)\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Revenue ($)', fontsize=14)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Add a legend outside the plot area\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\n\n# Improve layout and add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust layout to make space for the legend\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Define a custom order for customer age groups for better visualization and legend consistency\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Aggregate total revenue by product and customer age group\nrevenue_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().unstack(fill_value=0)\n\n# Sort products by their total revenue in descending order for better readability\nproduct_total_revenue = revenue_by_product_age.sum(axis=1).sort_values(ascending=False)\nrevenue_by_product_age = revenue_by_product_age.loc[product_total_revenue.index]\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(14, 8)) # Slightly larger figure for better detail\n\n# Create a stacked bar chart\n# Using a vibrant colormap to distinguish age groups\nrevenue_by_product_age.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='tab20')\n\n# Add labels and title\nplt.title('Total Revenue by Product, Segmented by Customer Age Group', fontsize=18, pad=20)\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Revenue ($)', fontsize=14)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for better readability\nplt.yticks(fontsize=10)\n\n# Add a legend outside the plot area\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\n\n# Improve layout and add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust layout to make space for the legend\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4615,
+    "color_delta_e": 0.9756,
+    "visual_entropy": 1.6605,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 11.356,
+    "cost_per_run": 0.000163,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

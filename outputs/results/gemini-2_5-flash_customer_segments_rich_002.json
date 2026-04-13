@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-10T17:10:02.922256",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending for each customer\n# Summing all columns that represent amount spent on products\nmnt_cols = [\n    'MntWines', 'MntFruits', 'MntMeatProducts', \n    'MntFishProducts', 'MntSweetProducts', 'MntGoldProds'\n]\ndf['TotalMnt'] = df[mnt_cols].sum(axis=1)\n\n# Drop rows with missing Income for this specific visualization, as Income is a key variable\ndf_plot = df.dropna(subset=['Income']).copy()\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Income vs Total Spending,\n# with points colored by Education level and sized by Total Spending.\nsns.scatterplot(\n    data=df_plot,\n    x='Income',\n    y='TotalMnt',\n    hue='Education',\n    size='TotalMnt', # Use TotalMnt to scale marker size, emphasizing higher spenders\n    sizes=(20, 400), # Range for the marker sizes\n    alpha=0.7,       # Transparency for better visibility of overlapping points\n    palette='viridis' # Color palette for different education levels\n)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income (USD)', fontsize=12)\nplt.ylabel('Total Amount Spent (USD)', fontsize=12)\n\n# Improve legend title and position\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from overlapping with the plot\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending for each customer\n# Summing all columns that represent amount spent on products\nmnt_cols = [\n    'MntWines', 'MntFruits', 'MntMeatProducts', \n    'MntFishProducts', 'MntSweetProducts', 'MntGoldProds'\n]\ndf['TotalMnt'] = df[mnt_cols].sum(axis=1)\n\n# Drop rows with missing Income for this specific visualization, as Income is a key variable\ndf_plot = df.dropna(subset=['Income']).copy()\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Income vs Total Spending,\n# with points colored by Education level and sized by Total Spending.\nsns.scatterplot(\n    data=df_plot,\n    x='Income',\n    y='TotalMnt',\n    hue='Education',\n    size='TotalMnt', # Use TotalMnt to scale marker size, emphasizing higher spenders\n    sizes=(20, 400), # Range for the marker sizes\n    alpha=0.7,       # Transparency for better visibility of overlapping points\n    palette='viridis' # Color palette for different education levels\n)\n\n# Add titles and labels for clarity\nplt.title('Customer Spending vs. Income by Education Level', fontsize=16)\nplt.xlabel('Income (USD)', fontsize=12)\nplt.ylabel('Total Amount Spent (USD)', fontsize=12)\n\n# Improve legend title and position\nplt.legend(title='Education Level', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for better readability of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from overlapping with the plot\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 1.1462,
+    "visual_entropy": 0.8841,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 16.917,
+    "cost_per_run": 0.000181,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-11T02:14:51.891993",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/cameras.csv')\nexcept FileNotFoundError:\n    print(\"Error: data/cameras.csv not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with sensor type as a categorical differentiator.\n# This helps to see if certain sensor types command higher prices or have different megapixel ranges.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to add another layer of information (size of point)\n    sizes=(20, 400), # Define the range for point sizes\n    alpha=0.7,\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels, by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement and title\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/cameras.csv')\nexcept FileNotFoundError:\n    print(\"Error: data/cameras.csv not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price,\n# with sensor type as a categorical differentiator.\n# This helps to see if certain sensor types command higher prices or have different megapixel ranges.\nplt.figure(figsize=(12, 7))\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to add another layer of information (size of point)\n    sizes=(20, 400), # Define the range for point sizes\n    alpha=0.7,\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels, by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement and title\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.9158,
+    "visual_entropy": 2.826,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 5.37,
+    "cost_per_run": 0.00013,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

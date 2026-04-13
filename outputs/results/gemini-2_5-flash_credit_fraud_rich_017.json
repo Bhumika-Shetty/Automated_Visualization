@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-10T17:42:55.556061",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Convert 'is_fraud' to a more descriptive categorical label for better readability\ndf['fraud_status'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\n# Create a multi-faceted violin plot to visualize the distribution of transaction amounts\n# for fraudulent vs. non-fraudulent transactions, broken down by transaction type.\n# This helps to identify if certain transaction types exhibit different amount patterns\n# when fraud occurs.\n\ng = sns.catplot(\n    data=df,\n    x='fraud_status',\n    y='amount',\n    col='transaction_type',\n    kind='violin',\n    col_wrap=2,  # Wrap columns after 2 subplots for better layout if many types\n    height=4,    # Height of each facet\n    aspect=1.2,  # Aspect ratio of each facet\n    palette='viridis', # Color palette\n    inner='quartile', # Show quartiles inside the violins\n    sharey=True, # Share the y-axis across all facets for easier comparison of amounts\n    errorbar=None # Remove error bars for cleaner violin plots\n)\n\n# Set titles and labels for the plot\ng.set_axis_labels(\"Transaction Status\", \"Transaction Amount\")\ng.set_titles(\"Transaction Type: {col_name}\")\ng.fig.suptitle('Distribution of Transaction Amounts by Fraud Status and Type', y=1.02, fontsize=16)\n\n# Adjust layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Convert 'is_fraud' to a more descriptive categorical label for better readability\ndf['fraud_status'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\n# Create a multi-faceted violin plot to visualize the distribution of transaction amounts\n# for fraudulent vs. non-fraudulent transactions, broken down by transaction type.\n# This helps to identify if certain transaction types exhibit different amount patterns\n# when fraud occurs.\n\ng = sns.catplot(\n    data=df,\n    x='fraud_status',\n    y='amount',\n    col='transaction_type',\n    kind='violin',\n    col_wrap=2,  # Wrap columns after 2 subplots for better layout if many types\n    height=4,    # Height of each facet\n    aspect=1.2,  # Aspect ratio of each facet\n    palette='viridis', # Color palette\n    inner='quartile', # Show quartiles inside the violins\n    sharey=True, # Share the y-axis across all facets for easier comparison of amounts\n    errorbar=None # Remove error bars for cleaner violin plots\n)\n\n# Set titles and labels for the plot\ng.set_axis_labels(\"Transaction Status\", \"Transaction Amount\")\ng.set_titles(\"Transaction Type: {col_name}\")\ng.fig.suptitle('Distribution of Transaction Amounts by Fraud Status and Type', y=1.02, fontsize=16)\n\n# Adjust layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpokrqth92/viz_script.py:16: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  g = sns.catplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.7333,
+    "color_delta_e": 1.037,
+    "visual_entropy": 0.4572,
+    "labeling_completeness": 0.25,
+    "code_complexity": 9,
+    "generation_latency": 16.771,
+    "cost_per_run": 0.000134,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-12T04:47:11.862313",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Calculate total sales for each product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Define a specific order for age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\nsales_by_product_age['customer_age_group'] = pd.Categorical(\n    sales_by_product_age['customer_age_group'],\n    categories=age_group_order,\n    ordered=True\n)\n\n# Sort products by their overall total sales for better readability\n# First calculate total sales per product\ntotal_sales_per_product = sales_by_product_age.groupby('product')['total'].sum().sort_values(ascending=False).index\n# Then convert product column to categorical with this order\nsales_by_product_age['product'] = pd.Categorical(\n    sales_by_product_age['product'],\n    categories=total_sales_per_product,\n    ordered=True\n)\n\n# Sort the DataFrame by product and then by age group for consistent plotting order\nsales_by_product_age = sales_by_product_age.sort_values(by=['product', 'customer_age_group'])\n\n# --- Visualization ---\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar plot using seaborn\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis' # A perceptually uniform color palette\n)\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Place the legend outside the plot area to prevent overlap with bars\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels/elements from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Calculate total sales for each product and customer age group\nsales_by_product_age = df.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Define a specific order for age groups for better visualization\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\nsales_by_product_age['customer_age_group'] = pd.Categorical(\n    sales_by_product_age['customer_age_group'],\n    categories=age_group_order,\n    ordered=True\n)\n\n# Sort products by their overall total sales for better readability\n# First calculate total sales per product\ntotal_sales_per_product = sales_by_product_age.groupby('product')['total'].sum().sort_values(ascending=False).index\n# Then convert product column to categorical with this order\nsales_by_product_age['product'] = pd.Categorical(\n    sales_by_product_age['product'],\n    categories=total_sales_per_product,\n    ordered=True\n)\n\n# Sort the DataFrame by product and then by age group for consistent plotting order\nsales_by_product_age = sales_by_product_age.sort_values(by=['product', 'customer_age_group'])\n\n# --- Visualization ---\nplt.figure(figsize=(12, 7))\n\n# Create a grouped bar plot using seaborn\nsns.barplot(\n    data=sales_by_product_age,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    palette='viridis' # A perceptually uniform color palette\n)\n\n# Add titles and labels for clarity\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Place the legend outside the plot area to prevent overlap with bars\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Add a grid for easier reading of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels/elements from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.2727,
+    "color_delta_e": 1.5664,
+    "visual_entropy": 1.9854,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 12.251,
+    "cost_per_run": 0.00019,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

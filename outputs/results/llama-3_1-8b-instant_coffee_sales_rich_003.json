@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-09T03:46:50.488615",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a bar chart of average sales by product\navg_sales_by_product = coffee_sales.groupby('product')['price'].mean().reset_index()\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='price', data=avg_sales_by_product)\nplt.title('Average Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Average Price')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart of sales by payment method\npayment_method_counts = coffee_sales['payment_method'].value_counts()\nplt.figure(figsize=(8, 8))\nplt.pie(payment_method_counts, labels=payment_method_counts.index, autopct='%1.1f%%')\nplt.title('Sales by Payment Method')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle\nplt.savefig('payment_method.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of average sales by customer age group\navg_sales_by_age_group = coffee_sales.groupby('customer_age_group')['price'].mean().reset_index()\nplt.figure(figsize=(10, 6))\nsns.barplot(x='customer_age_group', y='price', data=avg_sales_by_age_group)\nplt.title('Average Sales by Customer Age Group')\nplt.xlabel('Age Group')\nplt.ylabel('Average Price')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('age_group.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a bar chart of average sales by product\navg_sales_by_product = coffee_sales.groupby('product')['price'].mean().reset_index()\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='price', data=avg_sales_by_product)\nplt.title('Average Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Average Price')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart of sales by payment method\npayment_method_counts = coffee_sales['payment_method'].value_counts()\nplt.figure(figsize=(8, 8))\nplt.pie(payment_method_counts, labels=payment_method_counts.index, autopct='%1.1f%%')\nplt.title('Sales by Payment Method')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle\nplt.savefig('payment_method.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of average sales by customer age group\navg_sales_by_age_group = coffee_sales.groupby('customer_age_group')['price'].mean().reset_index()\nplt.figure(figsize=(10, 6))\nsns.barplot(x='customer_age_group', y='price', data=avg_sales_by_age_group)\nplt.title('Average Sales by Customer Age Group')\nplt.xlabel('Age Group')\nplt.ylabel('Average Price')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('age_group.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 70.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.122,
+    "visual_entropy": 1.1867,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.755,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

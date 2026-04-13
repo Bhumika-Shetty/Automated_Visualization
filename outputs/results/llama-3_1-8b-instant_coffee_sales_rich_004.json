@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-09T03:46:52.445164",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime format\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time']).dt.time\n\n# Create a bar chart to show the total sales by product\nplt.figure(figsize=(10,6))\nsns.set()\nsns.barplot(x='product', y='total', data=coffee_sales, ci=None)\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to show the payment method distribution\npayment_method_counts = coffee_sales['payment_method'].value_counts()\nplt.figure(figsize=(8,8))\nsns.set()\nplt.pie(payment_method_counts, labels=payment_method_counts.index, autopct='%1.1f%%')\nplt.title('Payment Method Distribution')\nplt.tight_layout()\nplt.savefig('output_pie.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime format\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time']).dt.time\n\n# Create a bar chart to show the total sales by product\nplt.figure(figsize=(10,6))\nsns.set()\nsns.barplot(x='product', y='total', data=coffee_sales, ci=None)\nplt.title('Total Sales by Product')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a pie chart to show the payment method distribution\npayment_method_counts = coffee_sales['payment_method'].value_counts()\nplt.figure(figsize=(8,8))\nsns.set()\nplt.pie(payment_method_counts, labels=payment_method_counts.index, autopct='%1.1f%%')\nplt.title('Payment Method Distribution')\nplt.tight_layout()\nplt.savefig('output_pie.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpyjv8uv5e/viz_script.py:10: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  coffee_sales['time'] = pd.to_datetime(coffee_sales['time']).dt.time\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpyjv8uv5e/viz_script.py:15: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x='product', y='total', data=coffee_sales, ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 0.926,
+    "visual_entropy": 1.7052,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.593,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-10T18:09:22.158898",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Calculate the number of dogs per district (KreisLang)\n# Assuming each row represents one dog registration, so we count occurrences.\ndogs_per_district = df['KreisLang'].value_counts().sort_values(ascending=True)\n\n# Set a clean aesthetic style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(10, 8))\n\n# Create a horizontal bar plot using seaborn\nsns.barplot(\n    x=dogs_per_district.values,\n    y=dogs_per_district.index,\n    palette='viridis' # Choose a color palette\n)\n\n# Add labels and title for clarity\nplt.xlabel('Number of Registered Dogs', fontsize=12)\nplt.ylabel('Zurich District (Kreis)', fontsize=12)\nplt.title('Distribution of Dog Registrations Across Zurich Districts', fontsize=14, pad=15)\n\n# Add value labels on the bars for exact counts\nfor index, value in enumerate(dogs_per_district.values):\n    plt.text(value + 100, index, f'{value:,}', va='center', ha='left', fontsize=10) # Adjust x-offset for better spacing\n\n# Adjust x-axis limits to accommodate text labels\nplt.xlim(0, dogs_per_district.max() * 1.15) # Extend x-axis slightly beyond max value\n\n# Ensure all labels and title fit within the figure area\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Calculate the number of dogs per district (KreisLang)\n# Assuming each row represents one dog registration, so we count occurrences.\ndogs_per_district = df['KreisLang'].value_counts().sort_values(ascending=True)\n\n# Set a clean aesthetic style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the figure and axes for the plot\nplt.figure(figsize=(10, 8))\n\n# Create a horizontal bar plot using seaborn\nsns.barplot(\n    x=dogs_per_district.values,\n    y=dogs_per_district.index,\n    palette='viridis' # Choose a color palette\n)\n\n# Add labels and title for clarity\nplt.xlabel('Number of Registered Dogs', fontsize=12)\nplt.ylabel('Zurich District (Kreis)', fontsize=12)\nplt.title('Distribution of Dog Registrations Across Zurich Districts', fontsize=14, pad=15)\n\n# Add value labels on the bars for exact counts\nfor index, value in enumerate(dogs_per_district.values):\n    plt.text(value + 100, index, f'{value:,}', va='center', ha='left', fontsize=10) # Adjust x-offset for better spacing\n\n# Adjust x-axis limits to accommodate text labels\nplt.xlim(0, dogs_per_district.max() * 1.15) # Extend x-axis slightly beyond max value\n\n# Ensure all labels and title fit within the figure area\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpbx3mxvhr/viz_script.py:19: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.875,
+    "color_delta_e": 0.7728,
+    "visual_entropy": 1.8176,
+    "labeling_completeness": 0.75,
+    "code_complexity": 6,
+    "generation_latency": 11.822,
+    "cost_per_run": 0.000169,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

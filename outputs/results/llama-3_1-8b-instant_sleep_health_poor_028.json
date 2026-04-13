@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 28,
+  "timestamp": "2026-04-09T02:49:45.549311",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Sample dataset\ndata = \"\"\"\nPerson ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Load the dataset\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert categorical variables to numerical variables\ndf['Gender'] = df['Gender'].map({'Male': 0, 'Female': 1})\ndf['Occupation'] = df['Occupation'].map({'Software Engineer': 0, 'Doctor': 1, 'Sales Representative': 2})\ndf['BMI Category'] = df['BMI Category'].map({'Normal': 0, 'Overweight': 1, 'Obese': 2})\ndf['Sleep Disorder'] = df['Sleep Disorder'].map({'No': 0, 'Sleep Apnea': 1})\n\n# Create a correlation matrix\ncorr_matrix = df.corr()\n\n# Create a heatmap\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Sample dataset\ndata = \"\"\"\nPerson ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Load the dataset\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert categorical variables to numerical variables\ndf['Gender'] = df['Gender'].map({'Male': 0, 'Female': 1})\ndf['Occupation'] = df['Occupation'].map({'Software Engineer': 0, 'Doctor': 1, 'Sales Representative': 2})\ndf['BMI Category'] = df['BMI Category'].map({'Normal': 0, 'Overweight': 1, 'Obese': 2})\ndf['Sleep Disorder'] = df['Sleep Disorder'].map({'No': 0, 'Sleep Apnea': 1})\n\n# Create a correlation matrix\ncorr_matrix = df.corr()\n\n# Create a heatmap\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp6k6id62x/viz_script.py\", line 26, in <module>\n    corr_matrix = df.corr()\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 13121, in corr\n    mat = data.to_numpy(dtype=float, na_value=np.nan, copy=False)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 2081, in to_numpy\n    result = self._mgr.as_array(dtype=dtype, copy=copy, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1864, in as_array\n    arr = self._interleave(dtype=dtype, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1917, in _interleave\n    arr = blk.values.to_numpy(  # type: ignore[union-attr]\n        dtype=dtype,\n        na_value=na_value,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/arrow/array.py\", line 1717, in to_numpy\n    result = result.astype(dtype, copy=False)\nValueError: could not convert string to float: '126/83'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 0.586,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

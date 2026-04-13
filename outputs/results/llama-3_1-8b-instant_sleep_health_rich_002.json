@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-09T02:37:54.939837",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load dataset from csv file\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Convert Blood Pressure column to numeric values for plotting\nsleep_health['Blood Pressure'] = sleep_health['Blood Pressure'].str.extract('(\\d+)', expand=False).astype(float)\n\n# Create a pairplot to visualize the relationship between various features\nplt.figure(figsize=(12, 10))\nsns.pairplot(sleep_health, hue='Sleep Disorder', palette='viridis', markers=['o', 's'])\nplt.title('Relationship between Sleep Health Features and Sleep Disorder')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load dataset from csv file\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Convert Blood Pressure column to numeric values for plotting\nsleep_health['Blood Pressure'] = sleep_health['Blood Pressure'].str.extract('(\\d+)', expand=False).astype(float)\n\n# Create a pairplot to visualize the relationship between various features\nplt.figure(figsize=(12, 10))\nsns.pairplot(sleep_health, hue='Sleep Disorder', palette='viridis', markers=['o', 's'])\nplt.title('Relationship between Sleep Health Features and Sleep Disorder')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpgnm5hojo/viz_script.py:9: SyntaxWarning: invalid escape sequence '\\d'\n  sleep_health['Blood Pressure'] = sleep_health['Blood Pressure'].str.extract('(\\d+)', expand=False).astype(float)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 15.38,
+    "hallucination_rate": 0.375,
+    "color_delta_e": 0.8173,
+    "visual_entropy": 0.5151,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 0.499,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

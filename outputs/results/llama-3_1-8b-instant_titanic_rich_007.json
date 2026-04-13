@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-09T02:12:11.190856",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ntitanic_df = pd.read_csv('data/titanic.csv')\n\n# Check the null values\nprint(titanic_df.isnull().sum())\n\n# Create a countplot of survival by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=titanic_df)\nplt.title('Survival by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot of age by survived\nplt.figure(figsize=(8,6))\nsns.boxplot(x='survived', y='age', data=titanic_df)\nplt.title('Age Distribution by Survival')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.tight_layout()\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of mean fare by class\nplt.figure(figsize=(8,6))\nsns.barplot(x='pclass', y='fare', data=titanic_df)\nplt.title('Mean Fare by Class')\nplt.xlabel('Class')\nplt.ylabel('Mean Fare')\nplt.tight_layout()\nplt.savefig('output_fare.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of age vs fare\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='age', y='fare', data=titanic_df)\nplt.title('Age vs Fare')\nplt.xlabel('Age')\nplt.ylabel('Fare')\nplt.tight_layout()\nplt.savefig('output_age_fare.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ntitanic_df = pd.read_csv('data/titanic.csv')\n\n# Check the null values\nprint(titanic_df.isnull().sum())\n\n# Create a countplot of survival by sex\nplt.figure(figsize=(8,6))\nsns.countplot(x='sex', hue='survived', data=titanic_df)\nplt.title('Survival by Sex')\nplt.xlabel('Sex')\nplt.ylabel('Count')\nplt.legend(title='Survived')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a boxplot of age by survived\nplt.figure(figsize=(8,6))\nsns.boxplot(x='survived', y='age', data=titanic_df)\nplt.title('Age Distribution by Survival')\nplt.xlabel('Survived')\nplt.ylabel('Age')\nplt.tight_layout()\nplt.savefig('output_age.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of mean fare by class\nplt.figure(figsize=(8,6))\nsns.barplot(x='pclass', y='fare', data=titanic_df)\nplt.title('Mean Fare by Class')\nplt.xlabel('Class')\nplt.ylabel('Mean Fare')\nplt.tight_layout()\nplt.savefig('output_fare.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot of age vs fare\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='age', y='fare', data=titanic_df)\nplt.title('Age vs Fare')\nplt.xlabel('Age')\nplt.ylabel('Fare')\nplt.tight_layout()\nplt.savefig('output_age_fare.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "survived         0\npclass           0\nsex              0\nage            177\nsibsp            0\nparch            0\nfare             0\nembarked         2\nclass            0\nwho              0\nadult_male       0\ndeck           688\nembark_town      2\nalive            0\nalone            0\ndtype: int64\n",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 0.6384,
+    "visual_entropy": 1.2788,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 14.783,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

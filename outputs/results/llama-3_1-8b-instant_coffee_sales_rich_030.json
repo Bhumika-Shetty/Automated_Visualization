@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-09T03:49:22.429794",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time columns to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n\n# Pivot the data to count the number of sales by product and size\nsales_pivot = coffee_sales.pivot_table(index='product', columns='size', values='quantity', aggfunc='sum', fill_value=0)\n\n# Create a heatmap\nplt.figure(figsize=(10, 8))\nsns.heatmap(sales_pivot, annot=True, cmap='Blues', fmt='d')\nplt.title('Monthly Sales by Product and Size')\nplt.xlabel('Size')\nplt.ylabel('Product')\nplt.xticks(rotation=45)\nplt.yticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time columns to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n\n# Pivot the data to count the number of sales by product and size\nsales_pivot = coffee_sales.pivot_table(index='product', columns='size', values='quantity', aggfunc='sum', fill_value=0)\n\n# Create a heatmap\nplt.figure(figsize=(10, 8))\nsns.heatmap(sales_pivot, annot=True, cmap='Blues', fmt='d')\nplt.title('Monthly Sales by Product and Size')\nplt.xlabel('Size')\nplt.ylabel('Product')\nplt.xticks(rotation=45)\nplt.yticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8jfo4nll/viz_script.py:10: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  coffee_sales['time'] = pd.to_datetime(coffee_sales['time'])\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.2857,
+    "color_delta_e": 0.6556,
+    "visual_entropy": 4.3224,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 5.706,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

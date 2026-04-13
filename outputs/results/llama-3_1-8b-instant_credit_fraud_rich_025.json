@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-09T03:04:11.168378",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Create a histogram for the distribution of transaction amounts\nplt.figure(figsize=(10, 6))\nsns.histplot(x='amount', data=credit_fraud, kde=True, color='skyblue')\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.savefig('output_amount_dist.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a bar chart for the distribution of transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=credit_fraud, order=credit_fraud['transaction_type'].value_counts().index)\nplt.title('Distribution of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.savefig('output_transaction_types.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a bar chart for the distribution of hours of the day\nplt.figure(figsize=(10, 6))\nsns.countplot(x='hour_of_day', data=credit_fraud, order=credit_fraud['hour_of_day'].value_counts().index)\nplt.title('Distribution of Hours of the Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Frequency')\nplt.savefig('output_hours_of_day.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot for the relationship between transaction amounts and hours of the day (fraudulent transactions highlighted)\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=credit_fraud, hue='is_fraud')\nplt.title('Relationship between Transaction Amounts and Hours of the Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount ($)')\nplt.legend(title='Is Fraud')\nplt.savefig('output_amount_hour.png', bbox_inches='tight', dpi=150)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ncredit_fraud = pd.read_csv('data/credit_fraud.csv')\n\n# Create a histogram for the distribution of transaction amounts\nplt.figure(figsize=(10, 6))\nsns.histplot(x='amount', data=credit_fraud, kde=True, color='skyblue')\nplt.title('Distribution of Transaction Amounts')\nplt.xlabel('Amount ($)')\nplt.ylabel('Frequency')\nplt.savefig('output_amount_dist.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a bar chart for the distribution of transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x='transaction_type', data=credit_fraud, order=credit_fraud['transaction_type'].value_counts().index)\nplt.title('Distribution of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Frequency')\nplt.savefig('output_transaction_types.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a bar chart for the distribution of hours of the day\nplt.figure(figsize=(10, 6))\nsns.countplot(x='hour_of_day', data=credit_fraud, order=credit_fraud['hour_of_day'].value_counts().index)\nplt.title('Distribution of Hours of the Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Frequency')\nplt.savefig('output_hours_of_day.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot for the relationship between transaction amounts and hours of the day (fraudulent transactions highlighted)\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='hour_of_day', y='amount', data=credit_fraud, hue='is_fraud')\nplt.title('Relationship between Transaction Amounts and Hours of the Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Amount ($)')\nplt.legend(title='Is Fraud')\nplt.savefig('output_amount_hour.png', bbox_inches='tight', dpi=150)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 2.0602,
+    "visual_entropy": 1.1646,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 5.85,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

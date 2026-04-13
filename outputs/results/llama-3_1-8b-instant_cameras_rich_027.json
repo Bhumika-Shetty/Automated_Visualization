@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-09T03:35:22.996078",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart to show the distribution of camera brands\nbrand_counts = data['brand'].value_counts()\nsns.barplot(x=brand_counts.index, y=brand_counts.values, palette='Blues_d')\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a histogram to show the distribution of camera megapixels\nsns.histplot(data['megapixels'], kde=True)\nplt.title('Distribution of Camera Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a scatter plot to show the relationship between camera price and megapixels\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship between Camera Price and Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a bar chart to show the distribution of camera sensor types\nsensor_counts = data['sensor_type'].value_counts()\nsns.barplot(x=sensor_counts.index, y=sensor_counts.values, palette='Greens_d')\nplt.title('Distribution of Camera Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a pie chart to show the proportion of cameras with and without 4K video capabilities\nhas_4k = data['has_video_4k'].value_counts()\nsns.set_palette(['red', 'green'])\nplt.pie(has_4k.values, labels=has_4k.index, autopct='%1.1f%%')\nplt.title('Proportion of Cameras with 4K Video Capabilities')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart to show the distribution of camera brands\nbrand_counts = data['brand'].value_counts()\nsns.barplot(x=brand_counts.index, y=brand_counts.values, palette='Blues_d')\nplt.title('Distribution of Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a histogram to show the distribution of camera megapixels\nsns.histplot(data['megapixels'], kde=True)\nplt.title('Distribution of Camera Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a scatter plot to show the relationship between camera price and megapixels\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Relationship between Camera Price and Megapixels')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a bar chart to show the distribution of camera sensor types\nsensor_counts = data['sensor_type'].value_counts()\nsns.barplot(x=sensor_counts.index, y=sensor_counts.values, palette='Greens_d')\nplt.title('Distribution of Camera Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n\n# Create a pie chart to show the proportion of cameras with and without 4K video capabilities\nhas_4k = data['has_video_4k'].value_counts()\nsns.set_palette(['red', 'green'])\nplt.pie(has_4k.values, labels=has_4k.index, autopct='%1.1f%%')\nplt.title('Proportion of Cameras with 4K Video Capabilities')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.clf()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp7pns_5aw/viz_script.py:10: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=brand_counts.index, y=brand_counts.values, palette='Blues_d')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp7pns_5aw/viz_script.py:39: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=sensor_counts.index, y=sensor_counts.values, palette='Greens_d')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.7999,
+    "visual_entropy": 1.6253,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 6.389,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

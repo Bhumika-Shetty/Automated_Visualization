@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-12T05:49:00.889222",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.font_manager\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the data might be loaded directly\n    from sklearn.datasets import load_iris\n    iris = load_iris()\n    df = pd.DataFrame(data=iris.data, columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n    df['species'] = [iris.target_names[i] for i in iris.target]\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a PairGrid for more control over the plot aesthetics\ng = sns.PairGrid(df, hue=\"species\", corner=True, diag_sharey=False)\n\n# Use different plot types for the diagonal and off-diagonal\ng.map_lower(sns.scatterplot, alpha=0.7, s=50, edgecolor='w')\ng.map_diag(sns.kdeplot, fill=True, lw=3)\n\n# Add a legend and a clear, descriptive title\ng.add_legend(title=\"Species\", fontsize=12, title_fontsize=14)\ng.fig.suptitle(\"Relationships Between Iris Flower Measurements by Species\",\n               fontsize=18, y=1.03, weight='bold')\n\n# Adjust layout to make room for the title\ng.fig.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.font_manager\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the data might be loaded directly\n    from sklearn.datasets import load_iris\n    iris = load_iris()\n    df = pd.DataFrame(data=iris.data, columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n    df['species'] = [iris.target_names[i] for i in iris.target]\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a PairGrid for more control over the plot aesthetics\ng = sns.PairGrid(df, hue=\"species\", corner=True, diag_sharey=False)\n\n# Use different plot types for the diagonal and off-diagonal\ng.map_lower(sns.scatterplot, alpha=0.7, s=50, edgecolor='w')\ng.map_diag(sns.kdeplot, fill=True, lw=3)\n\n# Add a legend and a clear, descriptive title\ng.add_legend(title=\"Species\", fontsize=12, title_fontsize=14)\ng.fig.suptitle(\"Relationships Between Iris Flower Measurements by Species\",\n               fontsize=18, y=1.03, weight='bold')\n\n# Adjust layout to make room for the title\ng.fig.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 0.9718,
+    "visual_entropy": 1.2257,
+    "labeling_completeness": 0.5,
+    "code_complexity": 7,
+    "generation_latency": 15.094,
+    "cost_per_run": 0.003533,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

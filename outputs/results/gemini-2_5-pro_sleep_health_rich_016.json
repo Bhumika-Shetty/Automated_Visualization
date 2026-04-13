@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-12T06:23:42.540281",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# --- Data Preparation ---\n# Fill NaN in 'Sleep Disorder' with 'None' for clarity\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Define a logical order for BMI Category for better visualization\nbmi_order = ['Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# Define a logical order for the columns in the plot\ndisorder_order = ['None', 'Insomnia', 'Sleep Apnea']\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a faceted scatter plot using relplot\ng = sns.relplot(\n    data=df,\n    x=\"Stress Level\",\n    y=\"Quality of Sleep\",\n    hue=\"BMI Category\",\n    size=\"Physical Activity Level\",\n    col=\"Sleep Disorder\",\n    kind=\"scatter\",\n    palette=\"plasma\",\n    sizes=(30, 350),\n    alpha=0.8,\n    height=6.5,\n    aspect=1,\n    hue_order=bmi_order,\n    col_order=disorder_order\n)\n\n# --- Customization and Titling ---\n# Set custom axis labels\ng.set_axis_labels(\"Stress Level (1-10)\", \"Quality of Sleep (1-10)\", fontsize=14)\n\n# Set individual facet titles\ng.set_titles(\"Sleep Disorder: {col_name}\", size=16)\n\n# Add a clear, descriptive main title for the entire figure\ng.fig.suptitle(\n    \"Interplay of Stress, BMI, and Activity on Sleep Quality\",\n    fontsize=22,\n    y=1.03, # Adjust title vertical position\n    fontweight='bold'\n)\n\n# Improve the legend title and placement\ng.legend.set_title(\"BMI Category\", prop={'size': 14, 'weight': 'bold'})\nplt.setp(g.legend.get_texts(), fontsize='12')\n\n# Adjust layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# --- Data Preparation ---\n# Fill NaN in 'Sleep Disorder' with 'None' for clarity\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Define a logical order for BMI Category for better visualization\nbmi_order = ['Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# Define a logical order for the columns in the plot\ndisorder_order = ['None', 'Insomnia', 'Sleep Apnea']\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a faceted scatter plot using relplot\ng = sns.relplot(\n    data=df,\n    x=\"Stress Level\",\n    y=\"Quality of Sleep\",\n    hue=\"BMI Category\",\n    size=\"Physical Activity Level\",\n    col=\"Sleep Disorder\",\n    kind=\"scatter\",\n    palette=\"plasma\",\n    sizes=(30, 350),\n    alpha=0.8,\n    height=6.5,\n    aspect=1,\n    hue_order=bmi_order,\n    col_order=disorder_order\n)\n\n# --- Customization and Titling ---\n# Set custom axis labels\ng.set_axis_labels(\"Stress Level (1-10)\", \"Quality of Sleep (1-10)\", fontsize=14)\n\n# Set individual facet titles\ng.set_titles(\"Sleep Disorder: {col_name}\", size=16)\n\n# Add a clear, descriptive main title for the entire figure\ng.fig.suptitle(\n    \"Interplay of Stress, BMI, and Activity on Sleep Quality\",\n    fontsize=22,\n    y=1.03, # Adjust title vertical position\n    fontweight='bold'\n)\n\n# Improve the legend title and placement\ng.legend.set_title(\"BMI Category\", prop={'size': 14, 'weight': 'bold'})\nplt.setp(g.legend.get_texts(), fontsize='12')\n\n# Adjust layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp6792ghjk/viz_script.py:14: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  df['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.5926,
+    "color_delta_e": 0.6083,
+    "visual_entropy": 0.5748,
+    "labeling_completeness": 0.5,
+    "code_complexity": 6,
+    "generation_latency": 29.381,
+    "cost_per_run": 0.005177,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

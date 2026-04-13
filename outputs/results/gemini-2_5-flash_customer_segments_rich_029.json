@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-10T17:19:20.603595",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending for each customer\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where 'Income' is NaN, as it's crucial for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Income vs. Total_Spending, colored by Marital_Status\n# This visualization aims to show how income and overall spending vary\n# across different marital statuses, which can be a key demographic for segmentation.\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Marital_Status',\n    palette='viridis', # A perceptually uniform colormap\n    s=80, # Size of the points\n    alpha=0.7, # Transparency for better visibility of overlapping points\n    edgecolor='w', # White edge for better distinction of points\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Customer Income vs. Total Spending by Marital Status', fontsize=16)\nplt.xlabel('Annual Income', fontsize=12)\nplt.ylabel('Total Spending on Products', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust x-axis limits to remove potential extreme outliers for better visual focus\n# (optional, based on data distribution, but often helpful for income)\n# You might inspect df['Income'].quantile([0.01, 0.99]) to set these more precisely\nplt.xlim(df['Income'].min() * 0.9, df['Income'].quantile(0.99) * 1.1)\nplt.ylim(df['Total_Spending'].min() * 0.9, df['Total_Spending'].max() * 1.1)\n\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending for each customer\nspending_cols = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where 'Income' is NaN, as it's crucial for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot of Income vs. Total_Spending, colored by Marital_Status\n# This visualization aims to show how income and overall spending vary\n# across different marital statuses, which can be a key demographic for segmentation.\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Marital_Status',\n    palette='viridis', # A perceptually uniform colormap\n    s=80, # Size of the points\n    alpha=0.7, # Transparency for better visibility of overlapping points\n    edgecolor='w', # White edge for better distinction of points\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Customer Income vs. Total Spending by Marital Status', fontsize=16)\nplt.xlabel('Annual Income', fontsize=12)\nplt.ylabel('Total Spending on Products', fontsize=12)\n\n# Improve legend placement\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust x-axis limits to remove potential extreme outliers for better visual focus\n# (optional, based on data distribution, but often helpful for income)\n# You might inspect df['Income'].quantile([0.01, 0.99]) to set these more precisely\nplt.xlim(df['Income'].min() * 0.9, df['Income'].quantile(0.99) * 1.1)\nplt.ylim(df['Total_Spending'].min() * 0.9, df['Total_Spending'].max() * 1.1)\n\n\n# Adjust layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 1.6731,
+    "visual_entropy": 1.5684,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 14.876,
+    "cost_per_run": 0.000205,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

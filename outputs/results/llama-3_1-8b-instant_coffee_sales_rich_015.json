@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-09T03:47:32.005765",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Plot sales by product over time\nplt.figure(figsize=(12,6))\nsns.barplot(x='date', y='total', hue='product', data=coffee_sales)\nplt.title('Daily Sales by Product')\nplt.xlabel('Date')\nplt.ylabel('Total Sales')\nplt.legend(title='Product')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Explore distribution of total sales\nplt.figure(figsize=(8,6))\nsns.histplot(coffee_sales['total'], kde=True)\nplt.title('Distribution of Total Sales')\nplt.xlabel('Total Sales')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Plot sales by customer age group\nplt.figure(figsize=(8,6))\nsns.barplot(x='customer_age_group', y='total', data=coffee_sales)\nplt.title('Sales by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Plot sales by product over time\nplt.figure(figsize=(12,6))\nsns.barplot(x='date', y='total', hue='product', data=coffee_sales)\nplt.title('Daily Sales by Product')\nplt.xlabel('Date')\nplt.ylabel('Total Sales')\nplt.legend(title='Product')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Explore distribution of total sales\nplt.figure(figsize=(8,6))\nsns.histplot(coffee_sales['total'], kde=True)\nplt.title('Distribution of Total Sales')\nplt.xlabel('Total Sales')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Plot sales by customer age group\nplt.figure(figsize=(8,6))\nsns.barplot(x='customer_age_group', y='total', data=coffee_sales)\nplt.title('Sales by Customer Age Group')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 16.1882,
+    "visual_entropy": 3.0121,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 11.791,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

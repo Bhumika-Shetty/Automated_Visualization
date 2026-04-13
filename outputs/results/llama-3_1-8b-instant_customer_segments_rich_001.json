@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-09T02:49:51.294048",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert year and date to datetime\ncustomer_segments['Year_Birth'] = pd.to_datetime(customer_segments['Year_Birth'], format='%Y')\ncustomer_segments['Dt_Customer'] = pd.to_datetime(customer_segments['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a violin plot for income distribution across marital status\nplt.figure(figsize=(10, 8))\nsns.violinplot(x='Marital_Status', y='Income', data=customer_segments)\nplt.title('Income Distribution Across Marital Status')\nplt.xlabel('Marital Status')\nplt.ylabel('Income')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert year and date to datetime\ncustomer_segments['Year_Birth'] = pd.to_datetime(customer_segments['Year_Birth'], format='%Y')\ncustomer_segments['Dt_Customer'] = pd.to_datetime(customer_segments['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a violin plot for income distribution across marital status\nplt.figure(figsize=(10, 8))\nsns.violinplot(x='Marital_Status', y='Income', data=customer_segments)\nplt.title('Income Distribution Across Marital Status')\nplt.xlabel('Marital Status')\nplt.ylabel('Income')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 13.79,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 0.747,
+    "visual_entropy": 0.3789,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.443,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

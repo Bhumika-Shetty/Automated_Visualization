@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-09T02:40:00.348813",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Plot the distribution of sleep duration and quality of sleep\nplt.figure(figsize=(10,6))\nsns.boxplot(x='Quality of Sleep', y='Sleep Duration', data=sleep_health)\nplt.title('Distribution of Sleep Duration by Quality of Sleep')\nplt.xlabel('Quality of Sleep')\nplt.ylabel('Sleep Duration (hours)')\nplt.show()\n\n# Plot the relationship between physical activity level and daily steps\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Physical Activity Level', y='Daily Steps', data=sleep_health)\nplt.title('Relationship between Physical Activity Level and Daily Steps')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Daily Steps')\nplt.show()\n\n# Plot the distribution of stress levels and BMI categories\nplt.figure(figsize=(10,6))\nsns.countplot(x='Stress Level', hue='BMI Category', data=sleep_health)\nplt.title('Distribution of Stress Levels by BMI Category')\nplt.xlabel('Stress Level')\nplt.ylabel('Count')\nplt.legend(title='BMI Category')\nplt.show()\n\n# Plot the relationship between heart rate and blood pressure\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Heart Rate', y='Blood Pressure', data=sleep_health)\nplt.title('Relationship between Heart Rate and Blood Pressure')\nplt.xlabel('Heart Rate')\nplt.ylabel('Blood Pressure')\nplt.show()\n\n# Save the final figure\nplt.figure(figsize=(15,10))\nsns.pairplot(sleep_health)\nplt.title('Sleep Health Dataset Correlation Matrix')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Plot the distribution of sleep duration and quality of sleep\nplt.figure(figsize=(10,6))\nsns.boxplot(x='Quality of Sleep', y='Sleep Duration', data=sleep_health)\nplt.title('Distribution of Sleep Duration by Quality of Sleep')\nplt.xlabel('Quality of Sleep')\nplt.ylabel('Sleep Duration (hours)')\nplt.show()\n\n# Plot the relationship between physical activity level and daily steps\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Physical Activity Level', y='Daily Steps', data=sleep_health)\nplt.title('Relationship between Physical Activity Level and Daily Steps')\nplt.xlabel('Physical Activity Level')\nplt.ylabel('Daily Steps')\nplt.show()\n\n# Plot the distribution of stress levels and BMI categories\nplt.figure(figsize=(10,6))\nsns.countplot(x='Stress Level', hue='BMI Category', data=sleep_health)\nplt.title('Distribution of Stress Levels by BMI Category')\nplt.xlabel('Stress Level')\nplt.ylabel('Count')\nplt.legend(title='BMI Category')\nplt.show()\n\n# Plot the relationship between heart rate and blood pressure\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='Heart Rate', y='Blood Pressure', data=sleep_health)\nplt.title('Relationship between Heart Rate and Blood Pressure')\nplt.xlabel('Heart Rate')\nplt.ylabel('Blood Pressure')\nplt.show()\n\n# Save the final figure\nplt.figure(figsize=(15,10))\nsns.pairplot(sleep_health)\nplt.title('Sleep Health Dataset Correlation Matrix')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 61.54,
+    "hallucination_rate": 0.3182,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 3.781,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-12T04:46:25.329314",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' column to a more descriptive string for better legend labels\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by product and the new takeaway_status, then sum the total sales\n# Unstack the 'takeaway_status' to create separate columns for 'Dine-in' and 'Takeaway' sales\n# fill_value=0 ensures that products with no sales in one category still appear\nsales_by_product_takeaway = df.groupby(['product', 'takeaway_status'])['total'].sum().unstack(fill_value=0)\n\n# Calculate the overall total sales for each product to sort them\nsales_by_product_takeaway['Overall Total Sales'] = sales_by_product_takeaway['Dine-in'] + sales_by_product_takeaway['Takeaway']\n\n# Sort products by their overall total sales in descending order\nsales_by_product_takeaway = sales_by_product_takeaway.sort_values(by='Overall Total Sales', ascending=False)\n\n# Drop the temporary 'Overall Total Sales' column before plotting\nsales_by_product_takeaway = sales_by_product_takeaway.drop(columns=['Overall Total Sales'])\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a stacked bar chart using the aggregated DataFrame's plot method\n# This efficiently plots 'Dine-in' and 'Takeaway' sales stacked for each product\nsales_by_product_takeaway.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add labels and title for clarity\nplt.title('Total Sales by Product and Order Type', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend, positioning it outside the plot area to prevent overlap\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels/title from being cut off\nplt.tight_layout()\n\n# Save the figure as output.png with high resolution\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' column to a more descriptive string for better legend labels\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group by product and the new takeaway_status, then sum the total sales\n# Unstack the 'takeaway_status' to create separate columns for 'Dine-in' and 'Takeaway' sales\n# fill_value=0 ensures that products with no sales in one category still appear\nsales_by_product_takeaway = df.groupby(['product', 'takeaway_status'])['total'].sum().unstack(fill_value=0)\n\n# Calculate the overall total sales for each product to sort them\nsales_by_product_takeaway['Overall Total Sales'] = sales_by_product_takeaway['Dine-in'] + sales_by_product_takeaway['Takeaway']\n\n# Sort products by their overall total sales in descending order\nsales_by_product_takeaway = sales_by_product_takeaway.sort_values(by='Overall Total Sales', ascending=False)\n\n# Drop the temporary 'Overall Total Sales' column before plotting\nsales_by_product_takeaway = sales_by_product_takeaway.drop(columns=['Overall Total Sales'])\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a stacked bar chart using the aggregated DataFrame's plot method\n# This efficiently plots 'Dine-in' and 'Takeaway' sales stacked for each product\nsales_by_product_takeaway.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add labels and title for clarity\nplt.title('Total Sales by Product and Order Type', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability, especially if product names are long\nplt.xticks(rotation=45, ha='right')\n\n# Add a legend, positioning it outside the plot area to prevent overlap\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Adjust layout to prevent labels/title from being cut off\nplt.tight_layout()\n\n# Save the figure as output.png with high resolution\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.7826,
+    "color_delta_e": 1.264,
+    "visual_entropy": 1.3083,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 11.876,
+    "cost_per_run": 0.000185,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-12T09:39:53.819175",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset from the specified path\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a figure and axes for the plot\nfig, ax = plt.subplots(figsize=(14, 9))\n\n# Create a bubble chart (scatter plot with size encoding) to show the relationship\n# between four key variables: Price, Megapixels, Sensor Type, and Max ISO.\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='max_iso',\n    sizes=(30, 600),  # Control the range of bubble sizes for clarity\n    palette='viridis',\n    alpha=0.7,\n    edgecolor='black',\n    linewidth=0.5,\n    ax=ax\n)\n\n# Use a logarithmic scale for the price axis to better handle the wide distribution\nax.set_yscale('log')\n\n# Format the y-axis labels to be more readable (e.g., $1,000)\nformatter = mticker.FuncFormatter(lambda y, _: f'${int(y):,}')\nax.yaxis.set_major_formatter(formatter)\nax.tick_params(axis='y', which='minor', bottom=False)\n\n# Set a clear and descriptive title and subtitle\nfig.suptitle('Camera Market Analysis: Price vs. Megapixels', fontsize=20, weight='bold')\nax.set_title('Colored by Sensor Type, Bubble Size Proportional to Max ISO', fontsize=14, pad=10)\n\n# Set informative axis labels\nax.set_xlabel('Megapixels (MP)', fontsize=12, weight='bold')\nax.set_ylabel('Price (USD) - Logarithmic Scale', fontsize=12, weight='bold')\n\n# Improve the legend by moving it outside the plot area to prevent overlap\nlegend = ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\nlegend.set_title(\"Legend\", prop={'size': 12, 'weight': 'bold'})\n\n# Add a subtle grid for better readability\nax.grid(True, which='major', linestyle='--', linewidth=0.5)\n\n# Adjust layout to make space for the legend and suptitle\nplt.tight_layout(rect=[0, 0, 0.88, 0.95])\n\n# Save the final figure as a high-quality PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset from the specified path\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a professional and visually appealing style\nsns.set_theme(style=\"whitegrid\", font_scale=1.1)\n\n# Create a figure and axes for the plot\nfig, ax = plt.subplots(figsize=(14, 9))\n\n# Create a bubble chart (scatter plot with size encoding) to show the relationship\n# between four key variables: Price, Megapixels, Sensor Type, and Max ISO.\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='max_iso',\n    sizes=(30, 600),  # Control the range of bubble sizes for clarity\n    palette='viridis',\n    alpha=0.7,\n    edgecolor='black',\n    linewidth=0.5,\n    ax=ax\n)\n\n# Use a logarithmic scale for the price axis to better handle the wide distribution\nax.set_yscale('log')\n\n# Format the y-axis labels to be more readable (e.g., $1,000)\nformatter = mticker.FuncFormatter(lambda y, _: f'${int(y):,}')\nax.yaxis.set_major_formatter(formatter)\nax.tick_params(axis='y', which='minor', bottom=False)\n\n# Set a clear and descriptive title and subtitle\nfig.suptitle('Camera Market Analysis: Price vs. Megapixels', fontsize=20, weight='bold')\nax.set_title('Colored by Sensor Type, Bubble Size Proportional to Max ISO', fontsize=14, pad=10)\n\n# Set informative axis labels\nax.set_xlabel('Megapixels (MP)', fontsize=12, weight='bold')\nax.set_ylabel('Price (USD) - Logarithmic Scale', fontsize=12, weight='bold')\n\n# Improve the legend by moving it outside the plot area to prevent overlap\nlegend = ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\nlegend.set_title(\"Legend\", prop={'size': 12, 'weight': 'bold'})\n\n# Add a subtle grid for better readability\nax.grid(True, which='major', linestyle='--', linewidth=0.5)\n\n# Adjust layout to make space for the legend and suptitle\nplt.tight_layout(rect=[0, 0, 0.88, 0.95])\n\n# Save the final figure as a high-quality PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 2.081,
+    "visual_entropy": 2.1235,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 38.903,
+    "cost_per_run": 0.005644,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

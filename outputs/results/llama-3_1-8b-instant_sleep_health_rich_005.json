@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-09T02:38:04.930428",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Explore the data\nprint(sleep_health.head())\n\n# Create a violin plot to show the distribution of sleep duration\nplt.figure(figsize=(8,6))\nsns.violinplot(x='Gender', y='Sleep Duration', data=sleep_health)\nplt.title('Distribution of Sleep Duration by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Sleep Duration (hours)')\nplt.show()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to show the distribution of quality of sleep\nplt.figure(figsize=(8,6))\nsns.countplot(x='Quality of Sleep', hue='Gender', data=sleep_health)\nplt.title('Distribution of Quality of Sleep by Gender')\nplt.xlabel('Quality of Sleep')\nplt.ylabel('Count')\nplt.legend(title='Gender')\nplt.show()\n\n# Save the figure\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between heart rate and daily steps\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', hue='Gender', data=sleep_health)\nplt.title('Relationship between Daily Steps and Heart Rate')\nplt.xlabel('Daily Steps')\nplt.ylabel('Heart Rate (bpm)')\nplt.legend(title='Gender')\nplt.show()\n\n# Save the figure\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Explore the data\nprint(sleep_health.head())\n\n# Create a violin plot to show the distribution of sleep duration\nplt.figure(figsize=(8,6))\nsns.violinplot(x='Gender', y='Sleep Duration', data=sleep_health)\nplt.title('Distribution of Sleep Duration by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Sleep Duration (hours)')\nplt.show()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart to show the distribution of quality of sleep\nplt.figure(figsize=(8,6))\nsns.countplot(x='Quality of Sleep', hue='Gender', data=sleep_health)\nplt.title('Distribution of Quality of Sleep by Gender')\nplt.xlabel('Quality of Sleep')\nplt.ylabel('Count')\nplt.legend(title='Gender')\nplt.show()\n\n# Save the figure\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between heart rate and daily steps\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='Daily Steps', y='Heart Rate', hue='Gender', data=sleep_health)\nplt.title('Relationship between Daily Steps and Heart Rate')\nplt.xlabel('Daily Steps')\nplt.ylabel('Heart Rate (bpm)')\nplt.legend(title='Gender')\nplt.show()\n\n# Save the figure\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.3684,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.642,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

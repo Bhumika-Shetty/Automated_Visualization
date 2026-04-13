@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-09T02:53:58.238372",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Create a heatmap for correlation analysis\ncorr_matrix = customer_segments.corr()\nplt.figure(figsize=(15, 10))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.xlabel('Features')\nplt.ylabel('Features')\nplt.xticks(rotation=90)\nplt.yticks(rotation=0)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport numpy as np\n\n# Load the dataset\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Create a heatmap for correlation analysis\ncorr_matrix = customer_segments.corr()\nplt.figure(figsize=(15, 10))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.xlabel('Features')\nplt.ylabel('Features')\nplt.xticks(rotation=90)\nplt.yticks(rotation=0)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpllbeu8s_/viz_script.py\", line 10, in <module>\n    corr_matrix = customer_segments.corr()\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 13121, in corr\n    mat = data.to_numpy(dtype=float, na_value=np.nan, copy=False)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 2081, in to_numpy\n    result = self._mgr.as_array(dtype=dtype, copy=copy, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1864, in as_array\n    arr = self._interleave(dtype=dtype, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1917, in _interleave\n    arr = blk.values.to_numpy(  # type: ignore[union-attr]\n        dtype=dtype,\n        na_value=na_value,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/arrow/array.py\", line 1717, in to_numpy\n    result = result.astype(dtype, copy=False)\nValueError: could not convert string to float: 'Graduation'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 0.0,
+    "hallucination_rate": 1.0,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 11.781,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

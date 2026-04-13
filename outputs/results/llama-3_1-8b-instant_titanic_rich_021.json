@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-09T02:13:49.793898",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a bar chart to visualize the distribution of survived passengers by sex\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df, ax=ax)\nax.set_title('Survived Passengers by Sex')\nax.set_xlabel('Sex')\nax.set_ylabel('Count')\nax.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a histogram to visualize the distribution of passenger ages\nplt.figure(figsize=(8, 6))\nsns.histplot(df['age'], bins=20, kde=True)\nplt.title('Distribution of Passenger Ages')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot to visualize the relationship between fare and survived\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='fare', y='survived', data=df)\nplt.title('Fare vs Survived')\nplt.xlabel('Fare')\nplt.ylabel('Survived')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a bar chart to visualize the distribution of survived passengers by class\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='class', hue='survived', data=df, ax=ax)\nax.set_title('Survived Passengers by Class')\nax.set_xlabel('Class')\nax.set_ylabel('Count')\nax.legend(title='Survived')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset from the CSV file\ndf = pd.read_csv('data/titanic.csv')\n\n# Create a bar chart to visualize the distribution of survived passengers by sex\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='sex', hue='survived', data=df, ax=ax)\nax.set_title('Survived Passengers by Sex')\nax.set_xlabel('Sex')\nax.set_ylabel('Count')\nax.legend(title='Survived')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a histogram to visualize the distribution of passenger ages\nplt.figure(figsize=(8, 6))\nsns.histplot(df['age'], bins=20, kde=True)\nplt.title('Distribution of Passenger Ages')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a scatter plot to visualize the relationship between fare and survived\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='fare', y='survived', data=df)\nplt.title('Fare vs Survived')\nplt.xlabel('Fare')\nplt.ylabel('Survived')\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\nplt.close()\n\n# Create a bar chart to visualize the distribution of survived passengers by class\nfig, ax = plt.subplots(figsize=(8, 6))\nsns.countplot(x='class', hue='survived', data=df, ax=ax)\nax.set_title('Survived Passengers by Class')\nax.set_xlabel('Class')\nax.set_ylabel('Count')\nax.legend(title='Survived')\nplt.savefig('output4.png', bbox_inches='tight', dpi=150)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.44,
+    "color_delta_e": 0.7903,
+    "visual_entropy": 1.3019,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.798,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

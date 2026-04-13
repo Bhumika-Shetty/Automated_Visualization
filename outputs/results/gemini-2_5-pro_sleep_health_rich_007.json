@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-12T06:16:06.477933",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/sleep_health.csv')\nexcept FileNotFoundError:\n    print(\"Dataset 'data/sleep_health.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Pre-processing: Fill NaN in 'Sleep Disorder' with 'None' for clarity\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Pre-processing: Create separate systolic and diastolic blood pressure columns\ndf[['Systolic BP', 'Diastolic BP']] = df['Blood Pressure'].str.split('/', expand=True).astype(int)\n\n# Select key variables for the visualization\nplot_vars = [\n    'Sleep Duration',\n    'Quality of Sleep',\n    'Physical Activity Level',\n    'Stress Level',\n    'Heart Rate',\n    'Systolic BP'\n]\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the pairplot\n# A pairplot allows us to see both the distribution of single variables and relationships between two variables.\n# Hue is set to 'Sleep Disorder' to see how these relationships differ for people with and without sleep disorders.\ng = sns.pairplot(\n    df,\n    vars=plot_vars,\n    hue='Sleep Disorder',\n    diag_kind='kde',\n    plot_kws={'alpha': 0.6, 's': 50, 'edgecolor': 'k'},\n    height=2.5,\n    corner=True # Only plot the lower triangle to reduce redundancy\n)\n\n# Add a descriptive title\ng.fig.suptitle(\n    'Interactions Between Lifestyle Factors and Sleep Health by Disorder',\n    y=1.03,\n    fontsize=20,\n    fontweight='bold'\n)\n\n# Adjust legend\ng.legend.set_title(\"Sleep Disorder\", prop={'size': 12, 'weight': 'bold'})\n\n# Improve axis labels for clarity\nfor i, col in enumerate(plot_vars):\n    g.axes[i, 0].set_ylabel(col.replace('_', ' '), fontsize=12)\nfor j, col in enumerate(plot_vars):\n    if j < len(plot_vars) -1:\n        g.axes[len(plot_vars)-1, j].set_xlabel(col.replace('_', ' '), fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/sleep_health.csv')\nexcept FileNotFoundError:\n    print(\"Dataset 'data/sleep_health.csv' not found. Please ensure the file is in the correct directory.\")\n    exit()\n\n# Pre-processing: Fill NaN in 'Sleep Disorder' with 'None' for clarity\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None')\n\n# Pre-processing: Create separate systolic and diastolic blood pressure columns\ndf[['Systolic BP', 'Diastolic BP']] = df['Blood Pressure'].str.split('/', expand=True).astype(int)\n\n# Select key variables for the visualization\nplot_vars = [\n    'Sleep Duration',\n    'Quality of Sleep',\n    'Physical Activity Level',\n    'Stress Level',\n    'Heart Rate',\n    'Systolic BP'\n]\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the pairplot\n# A pairplot allows us to see both the distribution of single variables and relationships between two variables.\n# Hue is set to 'Sleep Disorder' to see how these relationships differ for people with and without sleep disorders.\ng = sns.pairplot(\n    df,\n    vars=plot_vars,\n    hue='Sleep Disorder',\n    diag_kind='kde',\n    plot_kws={'alpha': 0.6, 's': 50, 'edgecolor': 'k'},\n    height=2.5,\n    corner=True # Only plot the lower triangle to reduce redundancy\n)\n\n# Add a descriptive title\ng.fig.suptitle(\n    'Interactions Between Lifestyle Factors and Sleep Health by Disorder',\n    y=1.03,\n    fontsize=20,\n    fontweight='bold'\n)\n\n# Adjust legend\ng.legend.set_title(\"Sleep Disorder\", prop={'size': 12, 'weight': 'bold'})\n\n# Improve axis labels for clarity\nfor i, col in enumerate(plot_vars):\n    g.axes[i, 0].set_ylabel(col.replace('_', ' '), fontsize=12)\nfor j, col in enumerate(plot_vars):\n    if j < len(plot_vars) -1:\n        g.axes[len(plot_vars)-1, j].set_xlabel(col.replace('_', ' '), fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 53.85,
+    "hallucination_rate": 0.5152,
+    "color_delta_e": 0.8644,
+    "visual_entropy": 0.9775,
+    "labeling_completeness": 1.0,
+    "code_complexity": 11,
+    "generation_latency": 20.405,
+    "cost_per_run": 0.005537,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

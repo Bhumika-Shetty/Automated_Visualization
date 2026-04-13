@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-10T19:13:59.220014",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to indicate size for an additional dimension\n    sizes=(20, 400), # Adjust size range for better visibility\n    alpha=0.7,\n    palette='viridis' # Choose a color palette\n)\n\n# Add labels and title\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend title for 'size'\nhandles, labels = scatter_plot.get_legend_handles_labels()\n# Find the index for the 'Weight (grams)' legend part\nweight_legend_idx = labels.index('weight_grams')\nlabels[weight_legend_idx] = 'Weight (grams)' # Rename the label\nplt.legend(handles=handles, labels=labels, title='Sensor Type / Weight', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for better aesthetics\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to indicate size for an additional dimension\n    sizes=(20, 400), # Adjust size range for better visibility\n    alpha=0.7,\n    palette='viridis' # Choose a color palette\n)\n\n# Add labels and title\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend title for 'size'\nhandles, labels = scatter_plot.get_legend_handles_labels()\n# Find the index for the 'Weight (grams)' legend part\nweight_legend_idx = labels.index('weight_grams')\nlabels[weight_legend_idx] = 'Weight (grams)' # Rename the label\nplt.legend(handles=handles, labels=labels, title='Sensor Type / Weight', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.9425,
+    "visual_entropy": 2.8051,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 6.196,
+    "cost_per_run": 0.000124,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

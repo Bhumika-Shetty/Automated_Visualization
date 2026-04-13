@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 5,
+  "timestamp": "2026-04-10T16:53:46.770006",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset from the provided string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\ndf = pd.read_csv(io.StringIO(data))\n\n# Preprocessing: Replace empty strings/NaN in 'Sleep Disorder' with 'None' for clarity\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None').replace('', 'None')\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a relational plot to visualize the relationship between Sleep Duration and Quality of Sleep,\n# faceted by BMI Category and colored/styled by the presence of a Sleep Disorder.\n# This helps to see how sleep patterns vary across different health categories and if disorders play a role.\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    col=\"BMI Category\",\n    hue=\"Sleep Disorder\",\n    style=\"Sleep Disorder\", # Use different markers for sleep disorders\n    kind=\"scatter\",\n    col_wrap=2, # Arrange subplots in 2 columns\n    height=4,\n    aspect=1.2, # Adjust aspect ratio for wider plots\n    s=150, # Increase marker size for better visibility\n    alpha=0.8, # Add transparency to markers\n    facet_kws={'sharex': False, 'sharey': False} # Allow different x/y scales per facet if needed\n)\n\n# Add a descriptive title to the entire figure\ng.fig.suptitle('Sleep Duration vs. Quality by BMI Category and Sleep Disorder', y=1.03, fontsize=16)\n\n# Adjust layout to prevent labels/titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure to a file\nplt.savefig('output.png', dpi=300)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load the dataset from the provided string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\ndf = pd.read_csv(io.StringIO(data))\n\n# Preprocessing: Replace empty strings/NaN in 'Sleep Disorder' with 'None' for clarity\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('None').replace('', 'None')\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a relational plot to visualize the relationship between Sleep Duration and Quality of Sleep,\n# faceted by BMI Category and colored/styled by the presence of a Sleep Disorder.\n# This helps to see how sleep patterns vary across different health categories and if disorders play a role.\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    col=\"BMI Category\",\n    hue=\"Sleep Disorder\",\n    style=\"Sleep Disorder\", # Use different markers for sleep disorders\n    kind=\"scatter\",\n    col_wrap=2, # Arrange subplots in 2 columns\n    height=4,\n    aspect=1.2, # Adjust aspect ratio for wider plots\n    s=150, # Increase marker size for better visibility\n    alpha=0.8, # Add transparency to markers\n    facet_kws={'sharex': False, 'sharey': False} # Allow different x/y scales per facet if needed\n)\n\n# Add a descriptive title to the entire figure\ng.fig.suptitle('Sleep Duration vs. Quality by BMI Category and Sleep Disorder', y=1.03, fontsize=16)\n\n# Adjust layout to prevent labels/titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure to a file\nplt.savefig('output.png', dpi=300)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.3386,
+    "visual_entropy": 0.4556,
+    "labeling_completeness": 0.25,
+    "code_complexity": 9,
+    "generation_latency": 24.279,
+    "cost_per_run": 0.00017,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

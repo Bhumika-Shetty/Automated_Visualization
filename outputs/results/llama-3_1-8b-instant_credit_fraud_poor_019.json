@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 19,
+  "timestamp": "2026-04-09T03:12:11.438043",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical variables to numerical\ndf['is_fraud'] = df['is_fraud'].astype('category').cat.codes\ntransaction_map = {'refund': 0, 'payment': 1, 'transfer': 2}\ndf['transaction_type'] = df['transaction_type'].map(transaction_map)\n\n# Create a pairplot to visualize the relationship between variables\nplt.figure(figsize=(10, 6))\nsns.pairplot(df, vars=['amount', 'hour_of_day', 'transaction_type'])\nplt.savefig('output.png')\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert categorical variables to numerical\ndf['is_fraud'] = df['is_fraud'].astype('category').cat.codes\ntransaction_map = {'refund': 0, 'payment': 1, 'transfer': 2}\ndf['transaction_type'] = df['transaction_type'].map(transaction_map)\n\n# Create a pairplot to visualize the relationship between variables\nplt.figure(figsize=(10, 6))\nsns.pairplot(df, vars=['amount', 'hour_of_day', 'transaction_type'])\nplt.savefig('output.png')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.45,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.0,
+    "code_complexity": 0,
+    "generation_latency": 0.535,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

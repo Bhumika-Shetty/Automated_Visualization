@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-12T10:11:27.799914",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Combine date and time into a single datetime object to extract the hour\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\ndf['hour'] = df['datetime'].dt.hour\n\n# --- Data Aggregation for Heatmap ---\n# Create a pivot table to summarize total sales for each product per hour\nsales_heatmap_data = df.pivot_table(\n    values='total',\n    index='product',\n    columns='hour',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# Sort products by total daily sales for a more organized and insightful visualization\nproduct_total_sales = sales_heatmap_data.sum(axis=1).sort_values(ascending=False)\nsales_heatmap_data = sales_heatmap_data.loc[product_total_sales.index]\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"white\", font_scale=1.1)\n\n# Create the figure and axes for the plot\nfig, ax = plt.subplots(figsize=(20, 10))\n\n# Generate the heatmap\nsns.heatmap(\n    sales_heatmap_data,\n    annot=False,  # Annotations would be too cluttered\n    cmap='viridis',\n    linewidths=.5,\n    linecolor='lightgray',\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set the title and labels with appropriate font sizes\nax.set_title('Peak Sales Hours by Product', fontsize=22, weight='bold', pad=25)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=16, labelpad=20)\nax.set_ylabel('Product', fontsize=16, labelpad=20)\n\n# Improve tick label readability\nax.tick_params(axis='x', labelsize=12)\nax.tick_params(axis='y', rotation=0, labelsize=12)\n\n# Add a subtle grid effect within the heatmap\nfor i in range(sales_heatmap_data.shape[1] + 1):\n    ax.axvline(i, color='lightgray', linewidth=0.5)\nfor i in range(sales_heatmap_data.shape[0] + 1):\n    ax.axhline(i, color='lightgray', linewidth=0.5)\n\n# --- Save the Figure ---\n# Save the final visualization to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preparation ---\n# Combine date and time into a single datetime object to extract the hour\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\ndf['hour'] = df['datetime'].dt.hour\n\n# --- Data Aggregation for Heatmap ---\n# Create a pivot table to summarize total sales for each product per hour\nsales_heatmap_data = df.pivot_table(\n    values='total',\n    index='product',\n    columns='hour',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# Sort products by total daily sales for a more organized and insightful visualization\nproduct_total_sales = sales_heatmap_data.sum(axis=1).sort_values(ascending=False)\nsales_heatmap_data = sales_heatmap_data.loc[product_total_sales.index]\n\n# --- Visualization ---\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"white\", font_scale=1.1)\n\n# Create the figure and axes for the plot\nfig, ax = plt.subplots(figsize=(20, 10))\n\n# Generate the heatmap\nsns.heatmap(\n    sales_heatmap_data,\n    annot=False,  # Annotations would be too cluttered\n    cmap='viridis',\n    linewidths=.5,\n    linecolor='lightgray',\n    ax=ax,\n    cbar_kws={'label': 'Total Sales ($)'}\n)\n\n# --- Customization and Labeling ---\n# Set the title and labels with appropriate font sizes\nax.set_title('Peak Sales Hours by Product', fontsize=22, weight='bold', pad=25)\nax.set_xlabel('Hour of the Day (24-hour format)', fontsize=16, labelpad=20)\nax.set_ylabel('Product', fontsize=16, labelpad=20)\n\n# Improve tick label readability\nax.tick_params(axis='x', labelsize=12)\nax.tick_params(axis='y', rotation=0, labelsize=12)\n\n# Add a subtle grid effect within the heatmap\nfor i in range(sales_heatmap_data.shape[1] + 1):\n    ax.axvline(i, color='lightgray', linewidth=0.5)\nfor i in range(sales_heatmap_data.shape[0] + 1):\n    ax.axhline(i, color='lightgray', linewidth=0.5)\n\n# --- Save the Figure ---\n# Save the final visualization to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.7605,
+    "visual_entropy": 4.3716,
+    "labeling_completeness": 0.75,
+    "code_complexity": 7,
+    "generation_latency": 26.986,
+    "cost_per_run": 0.005568,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

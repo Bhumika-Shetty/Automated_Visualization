@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-10T17:11:03.264824",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\ndf['TotalSpending'] = df[[\n    'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',\n    'MntSweetProducts', 'MntGoldProds'\n]].sum(axis=1)\n\n# Create a categorical feature indicating presence of children\n# 'Has Children' if Kidhome > 0 or Teenhome > 0, otherwise 'No Children'\ndf['Children_Status'] = ((df['Kidhome'] > 0) | (df['Teenhome'] > 0)).astype(str)\ndf['Children_Status'] = df['Children_Status'].replace({'True': 'Has Children', 'False': 'No Children'})\n\n# Filter out rows with NaN in Income and extreme income outliers for better visualization\ndf_filtered = df.dropna(subset=['Income'])\n# Filter incomes greater than a reasonable threshold (e.g., 200,000) to avoid compressing the main data\ndf_filtered = df_filtered[df_filtered['Income'] < 200000]\n\n# Set a clean seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='TotalSpending',\n    hue='Children_Status',\n    palette={'No Children': '#4CAF50', 'Has Children': '#FFC107'}, # Green for no children, Amber for children\n    alpha=0.7,\n    s=70, # Size of the points\n    edgecolor='w', # White edge for points\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Customer Total Spending vs. Income by Family Status', fontsize=18, fontweight='bold')\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Spending on Products', fontsize=14)\n\n# Customize legend\nplt.legend(title='Family Status', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Add grid and improve layout\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\ndf['TotalSpending'] = df[[\n    'MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',\n    'MntSweetProducts', 'MntGoldProds'\n]].sum(axis=1)\n\n# Create a categorical feature indicating presence of children\n# 'Has Children' if Kidhome > 0 or Teenhome > 0, otherwise 'No Children'\ndf['Children_Status'] = ((df['Kidhome'] > 0) | (df['Teenhome'] > 0)).astype(str)\ndf['Children_Status'] = df['Children_Status'].replace({'True': 'Has Children', 'False': 'No Children'})\n\n# Filter out rows with NaN in Income and extreme income outliers for better visualization\ndf_filtered = df.dropna(subset=['Income'])\n# Filter incomes greater than a reasonable threshold (e.g., 200,000) to avoid compressing the main data\ndf_filtered = df_filtered[df_filtered['Income'] < 200000]\n\n# Set a clean seaborn style\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='TotalSpending',\n    hue='Children_Status',\n    palette={'No Children': '#4CAF50', 'Has Children': '#FFC107'}, # Green for no children, Amber for children\n    alpha=0.7,\n    s=70, # Size of the points\n    edgecolor='w', # White edge for points\n    linewidth=0.5\n)\n\n# Add title and labels\nplt.title('Customer Total Spending vs. Income by Family Status', fontsize=18, fontweight='bold')\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Spending on Products', fontsize=14)\n\n# Customize legend\nplt.legend(title='Family Status', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Add grid and improve layout\nplt.grid(True, linestyle='--', alpha=0.6)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 31.03,
+    "hallucination_rate": 0.6061,
+    "color_delta_e": 1.3946,
+    "visual_entropy": 1.3843,
+    "labeling_completeness": 1.0,
+    "code_complexity": 6,
+    "generation_latency": 14.413,
+    "cost_per_run": 0.000197,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

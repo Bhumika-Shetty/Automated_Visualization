@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-12T05:40:16.416516",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the file might not be present,\n    # though the user's environment is expected to have it.\n    df = sns.load_dataset('iris')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a pair plot to visualize pairwise relationships, colored by species.\n# A pair plot is an excellent choice for this dataset as it allows for the simultaneous\n# visualization of the relationships between all pairs of numerical variables,\n# while the 'hue' parameter clearly separates the data by species.\n# This immediately reveals how the species cluster based on their measurements.\ng = sns.pairplot(\n    df,\n    hue='species',\n    palette='viridis',\n    diag_kind='kde',  # Use Kernel Density Estimation on the diagonal\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.85, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'fill': True, 'alpha': 0.6} # Style diagonal plots\n)\n\n# Add a descriptive title for the entire figure\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Measurements by Species',\n    y=1.02,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve axis labels (optional but good practice)\nfor ax in g.axes.flatten():\n    if ax:\n        ax.set_xlabel(ax.get_xlabel(), fontsize=11)\n        ax.set_ylabel(ax.get_ylabel(), fontsize=11)\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntry:\n    df = pd.read_csv('data/iris.csv')\nexcept FileNotFoundError:\n    # Fallback for environments where the file might not be present,\n    # though the user's environment is expected to have it.\n    df = sns.load_dataset('iris')\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a pair plot to visualize pairwise relationships, colored by species.\n# A pair plot is an excellent choice for this dataset as it allows for the simultaneous\n# visualization of the relationships between all pairs of numerical variables,\n# while the 'hue' parameter clearly separates the data by species.\n# This immediately reveals how the species cluster based on their measurements.\ng = sns.pairplot(\n    df,\n    hue='species',\n    palette='viridis',\n    diag_kind='kde',  # Use Kernel Density Estimation on the diagonal\n    markers=[\"o\", \"s\", \"D\"],\n    plot_kws={'alpha': 0.85, 's': 50, 'edgecolor': 'k'}, # Style scatter plots\n    diag_kws={'fill': True, 'alpha': 0.6} # Style diagonal plots\n)\n\n# Add a descriptive title for the entire figure\ng.fig.suptitle(\n    'Pairwise Relationships of Iris Flower Measurements by Species',\n    y=1.02,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve axis labels (optional but good practice)\nfor ax in g.axes.flatten():\n    if ax:\n        ax.set_xlabel(ax.get_xlabel(), fontsize=11)\n        ax.set_ylabel(ax.get_ylabel(), fontsize=11)\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 2.1579,
+    "visual_entropy": 1.9373,
+    "labeling_completeness": 0.75,
+    "code_complexity": 9,
+    "generation_latency": 21.352,
+    "cost_per_run": 0.004253,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

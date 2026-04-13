@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-10T17:13:05.713061",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\nspending_cols = [\n    'MntWines', 'MntFruits', 'MntMeatProducts',\n    'MntFishProducts', 'MntSweetProducts', 'MntGoldProds'\n]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where Income is NaN, as it's a key variable for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis', # A perceptually uniform colormap\n    s=70,              # Size of the markers\n    alpha=0.7,         # Transparency to show density in overlapping areas\n    edgecolor='w',     # White edge around markers for better distinction\n    linewidth=0.5      # Line width of the marker edge\n)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=18, pad=20)\nplt.xlabel('Income (\u20ac)', fontsize=14)\nplt.ylabel('Total Spending on Products (\u20ac)', fontsize=14)\n\n# Customize the legend\nplt.legend(title='Education Level', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on all products\nspending_cols = [\n    'MntWines', 'MntFruits', 'MntMeatProducts',\n    'MntFishProducts', 'MntSweetProducts', 'MntGoldProds'\n]\ndf['Total_Spending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where Income is NaN, as it's a key variable for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis', # A perceptually uniform colormap\n    s=70,              # Size of the markers\n    alpha=0.7,         # Transparency to show density in overlapping areas\n    edgecolor='w',     # White edge around markers for better distinction\n    linewidth=0.5      # Line width of the marker edge\n)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=18, pad=20)\nplt.xlabel('Income (\u20ac)', fontsize=14)\nplt.ylabel('Total Spending on Products (\u20ac)', fontsize=14)\n\n# Customize the legend\nplt.legend(title='Education Level', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4118,
+    "color_delta_e": 0.9605,
+    "visual_entropy": 0.9084,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 10.683,
+    "cost_per_run": 0.000182,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

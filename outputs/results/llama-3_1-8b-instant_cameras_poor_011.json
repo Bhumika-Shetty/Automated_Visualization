@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 11,
+  "timestamp": "2026-04-09T03:41:12.587298",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Load dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Convert categorical variables to datetime\ndf['body_type'] = pd.Categorical(df['body_type']).codes\ndf['sensor_type'] = pd.Categorical(df['sensor_type']).codes\ndf['lens_mount'] = pd.Categorical(df['lens_mount']).codes\n\n# Create a bar chart for the distribution of camera types\nplt.figure(figsize=(10,6))\nsns.barplot(x='body_type', y='price_usd', data=df)\nplt.title('Price Distribution of Cameras by Type')\nplt.xlabel('Camera Type')\nplt.ylabel('Price (USD)')\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Load dataset\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(StringIO(data))\n\n# Convert categorical variables to datetime\ndf['body_type'] = pd.Categorical(df['body_type']).codes\ndf['sensor_type'] = pd.Categorical(df['sensor_type']).codes\ndf['lens_mount'] = pd.Categorical(df['lens_mount']).codes\n\n# Create a bar chart for the distribution of camera types\nplt.figure(figsize=(10,6))\nsns.barplot(x='body_type', y='price_usd', data=df)\nplt.title('Price Distribution of Cameras by Type')\nplt.xlabel('Camera Type')\nplt.ylabel('Price (USD)')\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.2,
+    "color_delta_e": 0.9146,
+    "visual_entropy": 1.1072,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.666,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

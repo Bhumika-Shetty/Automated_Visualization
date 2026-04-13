@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-09T03:48:40.366896",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Plot the data\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', hue='is_takeaway', data=coffee_sales)\nplt.title('Total Sales by Product and Takeaway Status')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.legend(title='Takeaway Status')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Plot the data\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', hue='is_takeaway', data=coffee_sales)\nplt.title('Total Sales by Product and Takeaway Status')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.legend(title='Takeaway Status')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.7949,
+    "visual_entropy": 1.8048,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.417,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-12T07:56:36.222515",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Prepare the data for visualization\n# Map integer 'is_fraud' to a more descriptive string for the legend\ndf['Fraud Status'] = df['is_fraud'].map({0: 'Legitimate', 1: 'Fraudulent'})\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\", {'axes.grid': True, 'grid.linestyle': '--'})\n\n# Create a FacetGrid to show the relationship across transaction types\ng = sns.relplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='Fraud Status',\n    col='transaction_type',\n    kind='scatter',\n    size='amount',\n    sizes=(20, 250),\n    palette={'Legitimate': '#3498db', 'Fraudulent': '#e74c3c'},\n    alpha=0.7,\n    height=5,\n    aspect=1.2,\n    col_wrap=2,  # Wrap columns into 2 for a better layout\n    legend='full'\n)\n\n# --- Customization and Labeling ---\n\n# Set a clear, overarching title for the entire figure\ng.fig.suptitle('Transaction Amount vs. Hour of Day by Transaction Type',\n               fontsize=18, weight='bold', y=1.05)\n\n# Improve axis labels and titles for clarity\ng.set_axis_labels(\"Hour of Day\", \"Transaction Amount ($)\", fontsize=12, weight='bold')\ng.set_titles(\"Transaction Type: {col_name}\", fontsize=14, weight='bold')\n\n# Format the y-axis to represent currency\nfor ax in g.axes.flat:\n    ax.yaxis.set_major_formatter(mticker.FormatStrFormatter('$%.0f'))\n    ax.tick_params(axis='both', which='major', labelsize=10)\n\n# Adjust the legend\nsns.move_legend(g, \"upper right\", bbox_to_anchor=(.98, .95), title='Transaction Status')\n\n# Adjust layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Prepare the data for visualization\n# Map integer 'is_fraud' to a more descriptive string for the legend\ndf['Fraud Status'] = df['is_fraud'].map({0: 'Legitimate', 1: 'Fraudulent'})\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\", {'axes.grid': True, 'grid.linestyle': '--'})\n\n# Create a FacetGrid to show the relationship across transaction types\ng = sns.relplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='Fraud Status',\n    col='transaction_type',\n    kind='scatter',\n    size='amount',\n    sizes=(20, 250),\n    palette={'Legitimate': '#3498db', 'Fraudulent': '#e74c3c'},\n    alpha=0.7,\n    height=5,\n    aspect=1.2,\n    col_wrap=2,  # Wrap columns into 2 for a better layout\n    legend='full'\n)\n\n# --- Customization and Labeling ---\n\n# Set a clear, overarching title for the entire figure\ng.fig.suptitle('Transaction Amount vs. Hour of Day by Transaction Type',\n               fontsize=18, weight='bold', y=1.05)\n\n# Improve axis labels and titles for clarity\ng.set_axis_labels(\"Hour of Day\", \"Transaction Amount ($)\", fontsize=12, weight='bold')\ng.set_titles(\"Transaction Type: {col_name}\", fontsize=14, weight='bold')\n\n# Format the y-axis to represent currency\nfor ax in g.axes.flat:\n    ax.yaxis.set_major_formatter(mticker.FormatStrFormatter('$%.0f'))\n    ax.tick_params(axis='both', which='major', labelsize=10)\n\n# Adjust the legend\nsns.move_legend(g, \"upper right\", bbox_to_anchor=(.98, .95), title='Transaction Status')\n\n# Adjust layout to prevent title overlap\nplt.tight_layout(rect=[0, 0, 1, 0.96])\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.2989,
+    "visual_entropy": 0.1444,
+    "labeling_completeness": 0.5,
+    "code_complexity": 6,
+    "generation_latency": 20.363,
+    "cost_per_run": 0.0048,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

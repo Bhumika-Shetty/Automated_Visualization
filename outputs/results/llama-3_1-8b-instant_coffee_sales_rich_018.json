@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-09T03:47:54.051376",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Group by product and size, then calculate total sales\nproduct_sales = coffee_sales.groupby(['product', 'size']).total.sum().reset_index()\n\n# Sort the sales in descending order\nproduct_sales = product_sales.sort_values('total', ascending=False)\n\n# Select top 5 products\ntop_products = product_sales.nlargest(5, 'total')\n\n# Create a bar plot of top products\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='total', data=top_products)\nplt.title('Top 5 Coffee Product Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Group by product and size, then calculate total sales\nproduct_sales = coffee_sales.groupby(['product', 'size']).total.sum().reset_index()\n\n# Sort the sales in descending order\nproduct_sales = product_sales.sort_values('total', ascending=False)\n\n# Select top 5 products\ntop_products = product_sales.nlargest(5, 'total')\n\n# Create a bar plot of top products\nplt.figure(figsize=(10,6))\nsns.barplot(x='product', y='total', data=top_products)\nplt.title('Top 5 Coffee Product Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.25,
+    "color_delta_e": 0.7495,
+    "visual_entropy": 1.1543,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 5.651,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

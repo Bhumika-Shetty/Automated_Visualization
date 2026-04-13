@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 18,
+  "timestamp": "2026-04-11T01:55:46.790248",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional and clean style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure and a set of subplots\nplt.figure(figsize=(10, 6))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep.\n# We use 'BMI Category' for color to see if there are distinct patterns among different BMI groups.\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='BMI Category',\n    s=200,  # Set a fixed size for markers for better visibility with limited data points\n    alpha=0.8,\n    edgecolor='w', # Add white edge for better separation of markers\n    linewidth=1\n)\n\n# Add title and labels for clarity\nplt.title('Relationship between Sleep Duration and Quality of Sleep by BMI Category', fontsize=16, weight='bold')\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=12)\n\n# Improve legend placement to not overlap with the data points\nplt.legend(title='BMI Category', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, frameon=True)\n\n# Add grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Adjust plot layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', dpi=300)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"Person ID,Gender,Age,Occupation,Sleep Duration,Quality of Sleep,Physical Activity Level,Stress Level,BMI Category,Blood Pressure,Heart Rate,Daily Steps,Sleep Disorder\n1,Male,27,Software Engineer,6.1,6,42,6,Overweight,126/83,77,4200,\n2,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n3,Male,28,Doctor,6.2,6,60,8,Normal,125/80,75,10000,\n4,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n5,Male,28,Sales Representative,5.9,4,30,8,Obese,140/90,85,3000,Sleep Apnea\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional and clean style for the plot\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create a figure and a set of subplots\nplt.figure(figsize=(10, 6))\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep.\n# We use 'BMI Category' for color to see if there are distinct patterns among different BMI groups.\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='BMI Category',\n    s=200,  # Set a fixed size for markers for better visibility with limited data points\n    alpha=0.8,\n    edgecolor='w', # Add white edge for better separation of markers\n    linewidth=1\n)\n\n# Add title and labels for clarity\nplt.title('Relationship between Sleep Duration and Quality of Sleep by BMI Category', fontsize=16, weight='bold')\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=12)\n\n# Improve legend placement to not overlap with the data points\nplt.legend(title='BMI Category', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, frameon=True)\n\n# Add grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.7)\n\n# Adjust plot layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', dpi=300)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.3852,
+    "visual_entropy": 0.5277,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 12.864,
+    "cost_per_run": 0.000162,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

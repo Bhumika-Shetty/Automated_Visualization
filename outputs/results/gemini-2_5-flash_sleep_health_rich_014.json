@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-10T16:37:58.654166",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' by filling them with 'No Disorder'\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a clean and professional seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8)) # Adjust figure size for better readability\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Sleep Disorder',\n    size='Stress Level', # Use Stress Level to vary point size, adding another dimension\n    sizes=(50, 400), # Range for point sizes\n    alpha=0.7, # Transparency to help with overplotting\n    edgecolor='w', # White edge for points for better separation\n    linewidth=0.5 # Line width for the edge\n)\n\n# Add title and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by Sleep Disorder and Stress Level', fontsize=18, pad=20)\nplt.xlabel('Sleep Duration (Hours)', fontsize=14)\nplt.ylabel('Quality of Sleep (1-10 Scale)', fontsize=14)\n\n# Customize the legend\n# Place the legend outside the plot area to avoid obscuring data\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Handle NaN values in 'Sleep Disorder' by filling them with 'No Disorder'\ndf['Sleep Disorder'] = df['Sleep Disorder'].fillna('No Disorder')\n\n# Set a clean and professional seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8)) # Adjust figure size for better readability\nsns.scatterplot(\n    data=df,\n    x='Sleep Duration',\n    y='Quality of Sleep',\n    hue='Sleep Disorder',\n    size='Stress Level', # Use Stress Level to vary point size, adding another dimension\n    sizes=(50, 400), # Range for point sizes\n    alpha=0.7, # Transparency to help with overplotting\n    edgecolor='w', # White edge for points for better separation\n    linewidth=0.5 # Line width for the edge\n)\n\n# Add title and labels for clarity\nplt.title('Sleep Duration vs. Quality of Sleep by Sleep Disorder and Stress Level', fontsize=18, pad=20)\nplt.xlabel('Sleep Duration (Hours)', fontsize=14)\nplt.ylabel('Quality of Sleep (1-10 Scale)', fontsize=14)\n\n# Customize the legend\n# Place the legend outside the plot area to avoid obscuring data\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0, fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels/legend from overlapping\nplt.tight_layout(rect=[0, 0, 0.88, 1]) # Adjust rect to make space for the legend\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 0.7273,
+    "visual_entropy": 0.722,
+    "labeling_completeness": 1.0,
+    "code_complexity": 9,
+    "generation_latency": 11.343,
+    "cost_per_run": 0.000149,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

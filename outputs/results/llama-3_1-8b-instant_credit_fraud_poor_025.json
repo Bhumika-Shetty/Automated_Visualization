@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 25,
+  "timestamp": "2026-04-09T03:14:20.382731",
+  "code": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given data\ndf = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Convert hour_of_day to numeric values\ndf['hour_of_day'] = pd.to_numeric(df['hour_of_day'])\n\n# Pivot the DataFrame to count transactions by hour and type\npivot_df = df.pivot_table(index='hour_of_day', columns='transaction_type', values='amount', aggfunc='sum', fill_value=0)\n\n# Plot the pivot table as a bar chart\nplt.figure(figsize=(10,6))\nsns.heatmap(pivot_df, annot=True, cmap='coolwarm', fmt='g')\nplt.title('Transaction Amounts by Hour and Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Hour of Day')\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given data\ndf = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Convert hour_of_day to numeric values\ndf['hour_of_day'] = pd.to_numeric(df['hour_of_day'])\n\n# Pivot the DataFrame to count transactions by hour and type\npivot_df = df.pivot_table(index='hour_of_day', columns='transaction_type', values='amount', aggfunc='sum', fill_value=0)\n\n# Plot the pivot table as a bar chart\nplt.figure(figsize=(10,6))\nsns.heatmap(pivot_df, annot=True, cmap='coolwarm', fmt='g')\nplt.title('Transaction Amounts by Hour and Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Hour of Day')\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.7906,
+    "visual_entropy": 2.0985,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.458,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

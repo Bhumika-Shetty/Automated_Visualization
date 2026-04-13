@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-10T17:44:30.327550",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Convert 'is_fraud' to a categorical type for better labeling in plots\ndf['is_fraud_label'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\n# Set a professional style for the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure with a 1x3 subplot layout\nfig, axes = plt.subplots(1, 3, figsize=(18, 6))\n\n# Plot 1: Distribution of Transaction Amount by Fraud Status\nsns.violinplot(x='is_fraud_label', y='amount', data=df, ax=axes[0], palette='viridis')\naxes[0].set_title('Transaction Amount Distribution by Fraud Status', fontsize=14)\naxes[0].set_xlabel('Fraud Status', fontsize=12)\naxes[0].set_ylabel('Transaction Amount', fontsize=12)\n\n# Plot 2: Transaction Type Counts by Fraud Status\nsns.countplot(x='transaction_type', hue='is_fraud_label', data=df, ax=axes[1], palette='magma')\naxes[1].set_title('Transaction Type Counts by Fraud Status', fontsize=14)\naxes[1].set_xlabel('Transaction Type', fontsize=12)\naxes[1].set_ylabel('Count', fontsize=12)\naxes[1].legend(title='Fraud Status', loc='upper right')\n\n# Plot 3: Distribution of Hour of Day by Fraud Status\nsns.kdeplot(x='hour_of_day', hue='is_fraud_label', data=df, fill=True, common_norm=False, ax=axes[2], palette='cividis')\naxes[2].set_title('Transaction Hour Distribution by Fraud Status', fontsize=14)\naxes[2].set_xlabel('Hour of Day (0-23)', fontsize=12)\naxes[2].set_ylabel('Density', fontsize=12)\naxes[2].set_xticks(range(0, 24, 3)) # Set x-ticks for better readability\naxes[2].legend(title='Fraud Status', loc='upper right')\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Convert 'is_fraud' to a categorical type for better labeling in plots\ndf['is_fraud_label'] = df['is_fraud'].map({0: 'Not Fraud', 1: 'Fraud'})\n\n# Set a professional style for the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure with a 1x3 subplot layout\nfig, axes = plt.subplots(1, 3, figsize=(18, 6))\n\n# Plot 1: Distribution of Transaction Amount by Fraud Status\nsns.violinplot(x='is_fraud_label', y='amount', data=df, ax=axes[0], palette='viridis')\naxes[0].set_title('Transaction Amount Distribution by Fraud Status', fontsize=14)\naxes[0].set_xlabel('Fraud Status', fontsize=12)\naxes[0].set_ylabel('Transaction Amount', fontsize=12)\n\n# Plot 2: Transaction Type Counts by Fraud Status\nsns.countplot(x='transaction_type', hue='is_fraud_label', data=df, ax=axes[1], palette='magma')\naxes[1].set_title('Transaction Type Counts by Fraud Status', fontsize=14)\naxes[1].set_xlabel('Transaction Type', fontsize=12)\naxes[1].set_ylabel('Count', fontsize=12)\naxes[1].legend(title='Fraud Status', loc='upper right')\n\n# Plot 3: Distribution of Hour of Day by Fraud Status\nsns.kdeplot(x='hour_of_day', hue='is_fraud_label', data=df, fill=True, common_norm=False, ax=axes[2], palette='cividis')\naxes[2].set_title('Transaction Hour Distribution by Fraud Status', fontsize=14)\naxes[2].set_xlabel('Hour of Day (0-23)', fontsize=12)\naxes[2].set_ylabel('Density', fontsize=12)\naxes[2].set_xticks(range(0, 24, 3)) # Set x-ticks for better readability\naxes[2].legend(title='Fraud Status', loc='upper right')\n\n# Adjust layout to prevent overlapping titles/labels\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpqv5mk_ll/viz_script.py:18: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.violinplot(x='is_fraud_label', y='amount', data=df, ax=axes[0], palette='viridis')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpqv5mk_ll/viz_script.py:36: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  axes[2].legend(title='Fraud Status', loc='upper right')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.8214,
+    "color_delta_e": 1.0107,
+    "visual_entropy": 1.5413,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 8.719,
+    "cost_per_run": 0.00015,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

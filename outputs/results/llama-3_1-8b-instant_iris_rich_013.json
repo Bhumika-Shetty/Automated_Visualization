@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-09T02:25:39.460466",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn import datasets\n\n# Load iris dataset\niris = datasets.load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\ndf['species'] = df['species'].map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})\n\n# Create a pairplot to visualize the relationships between each pair of numeric columns\nplt.figure(figsize=(10, 8))\nsns.pairplot(df, hue='species', markers=['o', 's', 'D'], palette=['green', 'blue', 'red'])\nplt.title('Relationships Between Iris Measurements and Species')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn import datasets\n\n# Load iris dataset\niris = datasets.load_iris()\ndf = pd.DataFrame(data=iris.data, columns=iris.feature_names)\ndf['species'] = iris.target\ndf['species'] = df['species'].map({0: 'setosa', 1: 'versicolor', 2: 'virginica'})\n\n# Create a pairplot to visualize the relationships between each pair of numeric columns\nplt.figure(figsize=(10, 8))\nsns.pairplot(df, hue='species', markers=['o', 's', 'D'], palette=['green', 'blue', 'red'])\nplt.title('Relationships Between Iris Measurements and Species')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 2.3855,
+    "visual_entropy": 1.0567,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 0.396,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

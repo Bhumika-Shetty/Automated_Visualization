@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-09T02:51:58.613775",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.preprocessing import LabelEncoder\nimport numpy as np\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert categorical variables to numerical variables\nle = LabelEncoder()\ncustomer_segments['Education'] = le.fit_transform(customer_segments['Education'])\ncustomer_segments['Marital_Status'] = le.fit_transform(customer_segments['Marital_Status'])\n\n# Create a correlation matrix\ncorr_matrix = customer_segments.corr()\n\n# Create a heatmap of the correlation matrix\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix of Customer Segments')\nplt.xlabel('Features')\nplt.ylabel('Features')\nplt.xticks(np.arange(0, 29, 2), customer_segments.columns[1:], rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.preprocessing import LabelEncoder\nimport numpy as np\n\n# Load the data\ncustomer_segments = pd.read_csv('data/customer_segments.csv')\n\n# Convert categorical variables to numerical variables\nle = LabelEncoder()\ncustomer_segments['Education'] = le.fit_transform(customer_segments['Education'])\ncustomer_segments['Marital_Status'] = le.fit_transform(customer_segments['Marital_Status'])\n\n# Create a correlation matrix\ncorr_matrix = customer_segments.corr()\n\n# Create a heatmap of the correlation matrix\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix of Customer Segments')\nplt.xlabel('Features')\nplt.ylabel('Features')\nplt.xticks(np.arange(0, 29, 2), customer_segments.columns[1:], rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8j_ufod3/viz_script.py\", line 16, in <module>\n    corr_matrix = customer_segments.corr()\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 13121, in corr\n    mat = data.to_numpy(dtype=float, na_value=np.nan, copy=False)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/frame.py\", line 2081, in to_numpy\n    result = self._mgr.as_array(dtype=dtype, copy=copy, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1864, in as_array\n    arr = self._interleave(dtype=dtype, na_value=na_value)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/internals/managers.py\", line 1917, in _interleave\n    arr = blk.values.to_numpy(  # type: ignore[union-attr]\n        dtype=dtype,\n        na_value=na_value,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/arrays/arrow/array.py\", line 1717, in to_numpy\n    result = result.astype(dtype, copy=False)\nValueError: could not convert string to float: '04-09-2012'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 13.221,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

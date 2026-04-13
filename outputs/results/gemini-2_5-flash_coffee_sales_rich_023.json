@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-12T04:50:45.156621",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Create a more descriptive column for takeaway status for better legend labels\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group data by product and takeaway status, then sum the total sales\nsales_by_product_takeaway = df.groupby(['product', 'takeaway_status'])['total'].sum().unstack()\n\n# Fill any NaN values with 0, in case a product has no sales for dine-in or takeaway\nsales_by_product_takeaway = sales_by_product_takeaway.fillna(0)\n\n# Ensure 'Dine-in' and 'Takeaway' columns exist and are in a consistent order for stacking\n# This handles cases where one category might be entirely missing for some products\nif 'Dine-in' not in sales_by_product_takeaway.columns:\n    sales_by_product_takeaway['Dine-in'] = 0\nif 'Takeaway' not in sales_by_product_takeaway.columns:\n    sales_by_product_takeaway['Takeaway'] = 0\n\n# Reorder columns to ensure 'Dine-in' is at the bottom of the stack and 'Takeaway' on top\nplot_data = sales_by_product_takeaway[['Dine-in', 'Takeaway']]\n\n# Set a consistent style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Plot a stacked bar chart\nplot_data.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend with a clear title and position it outside the plot area\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Create a more descriptive column for takeaway status for better legend labels\ndf['takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Group data by product and takeaway status, then sum the total sales\nsales_by_product_takeaway = df.groupby(['product', 'takeaway_status'])['total'].sum().unstack()\n\n# Fill any NaN values with 0, in case a product has no sales for dine-in or takeaway\nsales_by_product_takeaway = sales_by_product_takeaway.fillna(0)\n\n# Ensure 'Dine-in' and 'Takeaway' columns exist and are in a consistent order for stacking\n# This handles cases where one category might be entirely missing for some products\nif 'Dine-in' not in sales_by_product_takeaway.columns:\n    sales_by_product_takeaway['Dine-in'] = 0\nif 'Takeaway' not in sales_by_product_takeaway.columns:\n    sales_by_product_takeaway['Takeaway'] = 0\n\n# Reorder columns to ensure 'Dine-in' is at the bottom of the stack and 'Takeaway' on top\nplot_data = sales_by_product_takeaway[['Dine-in', 'Takeaway']]\n\n# Set a consistent style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the figure and axes\nplt.figure(figsize=(12, 7))\n\n# Plot a stacked bar chart\nplot_data.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add title and labels\nplt.title('Total Sales by Product and Order Type', fontsize=16, weight='bold')\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability if product names are long\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend with a clear title and position it outside the plot area\nplt.legend(title='Order Type', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels from overlapping\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.8095,
+    "color_delta_e": 1.0859,
+    "visual_entropy": 1.3915,
+    "labeling_completeness": 1.0,
+    "code_complexity": 12,
+    "generation_latency": 10.513,
+    "cost_per_run": 0.000176,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

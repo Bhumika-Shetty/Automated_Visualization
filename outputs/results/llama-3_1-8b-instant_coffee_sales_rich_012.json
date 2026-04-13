@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-09T03:47:17.570392",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert the date and time columns to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time']).dt.time\n\n# Create a bar chart to show the top 5 products by total sales\ntop_products = coffee_sales.groupby('product')['total'].sum().sort_values(ascending=False).head(5)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.title('Top 5 Products by Total Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert the date and time columns to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\ncoffee_sales['time'] = pd.to_datetime(coffee_sales['time']).dt.time\n\n# Create a bar chart to show the top 5 products by total sales\ntop_products = coffee_sales.groupby('product')['total'].sum().sort_values(ascending=False).head(5)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=top_products.index, y=top_products.values)\nplt.title('Top 5 Products by Total Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpki1uqbj5/viz_script.py:10: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  coffee_sales['time'] = pd.to_datetime(coffee_sales['time']).dt.time\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 0.904,
+    "visual_entropy": 1.1573,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.428,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

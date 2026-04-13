@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-10T18:14:47.603236",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# --- Data Preparation for Visualization ---\n\n# 1. Get the top N breeds (e.g., top 15)\ntop_n_breeds = 15\ntop_breeds = df['Rasse1Text'].value_counts().nlargest(top_n_breeds).index.tolist()\n\n# 2. Filter the DataFrame to include only these top breeds\ndf_filtered = df[df['Rasse1Text'].isin(top_breeds)].copy()\n\n# 3. Ensure age groups are ordered correctly\n# Get unique age group names and their sort order, then sort them\nage_order_df = df_filtered[['AlterVHundLang', 'AlterVHundSort']].drop_duplicates().sort_values('AlterVHundSort')\nage_labels_sorted = age_order_df['AlterVHundLang'].tolist()\n\n# 4. Create a cross-tabulation (pivot table) of breed vs. age group\n# This counts the number of dogs for each breed-age combination\nheatmap_data = pd.crosstab(df_filtered['Rasse1Text'], df_filtered['AlterVHundLang'])\n\n# 5. Reindex columns to ensure age groups are in the correct order\nheatmap_data = heatmap_data[age_labels_sorted]\n\n# 6. Reindex rows to ensure breeds are in order of overall popularity (descending)\nheatmap_data = heatmap_data.reindex(top_breeds)\n\n# --- Visualization ---\n\nplt.figure(figsize=(16, 10))\nsns.heatmap(heatmap_data,\n            annot=False,  # No annotations as numbers can be large and clutter\n            fmt='d',      # Format as integer\n            cmap='viridis', # Choose a color map\n            linewidths=.5, # Add lines between cells for better separation\n            cbar_kws={'label': 'Number of Dogs'})\n\nplt.title(f'Distribution of Top {top_n_breeds} Dog Breeds by Age Group in Zurich', fontsize=16)\nplt.xlabel('Dog Age Group', fontsize=12)\nplt.ylabel('Dog Breed (Primary)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for readability\nplt.yticks(rotation=0, fontsize=10) # Keep y-axis labels horizontal\n\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# --- Data Preparation for Visualization ---\n\n# 1. Get the top N breeds (e.g., top 15)\ntop_n_breeds = 15\ntop_breeds = df['Rasse1Text'].value_counts().nlargest(top_n_breeds).index.tolist()\n\n# 2. Filter the DataFrame to include only these top breeds\ndf_filtered = df[df['Rasse1Text'].isin(top_breeds)].copy()\n\n# 3. Ensure age groups are ordered correctly\n# Get unique age group names and their sort order, then sort them\nage_order_df = df_filtered[['AlterVHundLang', 'AlterVHundSort']].drop_duplicates().sort_values('AlterVHundSort')\nage_labels_sorted = age_order_df['AlterVHundLang'].tolist()\n\n# 4. Create a cross-tabulation (pivot table) of breed vs. age group\n# This counts the number of dogs for each breed-age combination\nheatmap_data = pd.crosstab(df_filtered['Rasse1Text'], df_filtered['AlterVHundLang'])\n\n# 5. Reindex columns to ensure age groups are in the correct order\nheatmap_data = heatmap_data[age_labels_sorted]\n\n# 6. Reindex rows to ensure breeds are in order of overall popularity (descending)\nheatmap_data = heatmap_data.reindex(top_breeds)\n\n# --- Visualization ---\n\nplt.figure(figsize=(16, 10))\nsns.heatmap(heatmap_data,\n            annot=False,  # No annotations as numbers can be large and clutter\n            fmt='d',      # Format as integer\n            cmap='viridis', # Choose a color map\n            linewidths=.5, # Add lines between cells for better separation\n            cbar_kws={'label': 'Number of Dogs'})\n\nplt.title(f'Distribution of Top {top_n_breeds} Dog Breeds by Age Group in Zurich', fontsize=16)\nplt.xlabel('Dog Age Group', fontsize=12)\nplt.ylabel('Dog Breed (Primary)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10) # Rotate x-axis labels for readability\nplt.yticks(rotation=0, fontsize=10) # Keep y-axis labels horizontal\n\nplt.tight_layout() # Adjust layout to prevent labels from overlapping\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 2.4011,
+    "visual_entropy": 3.8505,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 15.283,
+    "cost_per_run": 0.000214,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

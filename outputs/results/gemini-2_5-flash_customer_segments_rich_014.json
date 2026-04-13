@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-10T17:15:07.372732",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on products\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where 'Income' is missing, as it's crucial for this visualization\ndf_filtered = df.dropna(subset=['Income'])\n\n# Filter out rows with zero or extremely low income if they are considered outliers\n# For this dataset, a few very low incomes exist, but let's keep them to see the full range\n# If there were clearly erroneous zero incomes, one might filter them.\n# df_filtered = df_filtered[df_filtered['Income'] > 0]\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='TotalSpending',\n    hue='Education',\n    size='TotalSpending', # Use TotalSpending to vary point size, making higher spending more prominent\n    sizes=(30, 600), # Range of point sizes\n    alpha=0.6, # Transparency to help with overplotting\n    palette='viridis' # A perceptually uniform colormap\n)\n\n# Add title and labels for clarity\nplt.title('Total Product Spending vs. Income, Grouped by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending on All Products', fontsize=12)\n\n# Improve legend placement to prevent overlap with the plot\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust plot layout to make room for the legend\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending on products\nspending_cols = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['TotalSpending'] = df[spending_cols].sum(axis=1)\n\n# Drop rows where 'Income' is missing, as it's crucial for this visualization\ndf_filtered = df.dropna(subset=['Income'])\n\n# Filter out rows with zero or extremely low income if they are considered outliers\n# For this dataset, a few very low incomes exist, but let's keep them to see the full range\n# If there were clearly erroneous zero incomes, one might filter them.\n# df_filtered = df_filtered[df_filtered['Income'] > 0]\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(\n    data=df_filtered,\n    x='Income',\n    y='TotalSpending',\n    hue='Education',\n    size='TotalSpending', # Use TotalSpending to vary point size, making higher spending more prominent\n    sizes=(30, 600), # Range of point sizes\n    alpha=0.6, # Transparency to help with overplotting\n    palette='viridis' # A perceptually uniform colormap\n)\n\n# Add title and labels for clarity\nplt.title('Total Product Spending vs. Income, Grouped by Education Level', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending on All Products', fontsize=12)\n\n# Improve legend placement to prevent overlap with the plot\nplt.legend(title='Education Level', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust plot layout to make room for the legend\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.9466,
+    "visual_entropy": 0.9526,
+    "labeling_completeness": 1.0,
+    "code_complexity": 7,
+    "generation_latency": 13.437,
+    "cost_per_run": 0.000188,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

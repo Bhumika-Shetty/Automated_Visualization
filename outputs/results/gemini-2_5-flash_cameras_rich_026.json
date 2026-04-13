@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-11T02:15:11.415905",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Map 'has_video_4k' to more descriptive labels for better legend readability\ndf['has_video_4k_label'] = df['has_video_4k'].map({0: 'No 4K Video', 1: 'Has 4K Video'})\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a boxplot to visualize camera price distribution\n# Grouped by sensor type and further broken down by 4K video capability\nsns.boxplot(\n    data=df,\n    x='sensor_type',\n    y='price_usd',\n    hue='has_video_4k_label',\n    palette='viridis', # Choose a color palette for visual appeal\n    linewidth=0.8,\n    flierprops=dict(marker='o', markersize=4, linestyle='none', alpha=0.6) # Style outliers\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price Distribution by Sensor Type and 4K Video Capability', fontsize=16, weight='bold')\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Rotate x-axis labels to prevent overlap and improve readability, especially if many categories\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend to explain the hue variable, placing it outside the plot area\nplt.legend(title='4K Video Capability', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for better readability of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Map 'has_video_4k' to more descriptive labels for better legend readability\ndf['has_video_4k_label'] = df['has_video_4k'].map({0: 'No 4K Video', 1: 'Has 4K Video'})\n\n# Set up the matplotlib figure and axes\nplt.figure(figsize=(12, 7))\n\n# Create a boxplot to visualize camera price distribution\n# Grouped by sensor type and further broken down by 4K video capability\nsns.boxplot(\n    data=df,\n    x='sensor_type',\n    y='price_usd',\n    hue='has_video_4k_label',\n    palette='viridis', # Choose a color palette for visual appeal\n    linewidth=0.8,\n    flierprops=dict(marker='o', markersize=4, linestyle='none', alpha=0.6) # Style outliers\n)\n\n# Add title and labels for clarity\nplt.title('Camera Price Distribution by Sensor Type and 4K Video Capability', fontsize=16, weight='bold')\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Rotate x-axis labels to prevent overlap and improve readability, especially if many categories\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add a legend to explain the hue variable, placing it outside the plot area\nplt.legend(title='4K Video Capability', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for better readability of values\nplt.grid(axis='y', linestyle='--', alpha=0.7)\n\n# Adjust layout to prevent labels from being cut off\nplt.tight_layout()\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 1.1684,
+    "visual_entropy": 1.3627,
+    "labeling_completeness": 1.0,
+    "code_complexity": 5,
+    "generation_latency": 11.731,
+    "cost_per_run": 0.000145,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

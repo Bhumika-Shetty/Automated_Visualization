@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-09T02:25:36.124255",
+  "code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the iris dataset\niris = pd.read_csv('data/iris.csv')\n\n# Create a scatterplot with different colors for each species\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='sepal_length', y='sepal_width', hue='species', data=iris)\n\n# Set axis labels and title\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Sepal Width (cm)')\nplt.title('Iris Flower Species by Sepal Measurements')\n\n# Add a legend\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\n\n# Load the iris dataset\niris = pd.read_csv('data/iris.csv')\n\n# Create a scatterplot with different colors for each species\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='sepal_length', y='sepal_width', hue='species', data=iris)\n\n# Set axis labels and title\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Sepal Width (cm)')\nplt.title('Iris Flower Species by Sepal Measurements')\n\n# Add a legend\nplt.legend(title='Species', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 0.9287,
+    "visual_entropy": 0.4241,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 0.433,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

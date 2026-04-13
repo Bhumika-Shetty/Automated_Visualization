@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 29,
+  "timestamp": "2026-04-11T01:59:16.088694",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationships between amount, hour_of_day,\n# and transaction_type.\n# Since 'is_fraud' is constant (0) in this specific dataset, it won't provide\n# visual differentiation, but we can note its value in the title.\nplt.figure(figsize=(10, 6))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x=\"hour_of_day\",\n    y=\"amount\",\n    hue=\"transaction_type\",  # Differentiate transaction types by color\n    size=\"amount\",           # Use amount to vary marker size, emphasizing larger transactions\n    sizes=(100, 800),        # Range of marker sizes\n    alpha=0.7,               # Slightly transparent markers\n    edgecolor=\"w\",           # White edge for markers\n    linewidth=1              # Edge line width\n)\n\n# Add title and labels for clarity\nplt.title(\n    \"Transaction Amount vs. Hour of Day by Transaction Type\\n\"\n    f\"(All transactions are non-fraudulent: is_fraud={df['is_fraud'].iloc[0]})\",\n    fontsize=16\n)\nplt.xlabel(\"Hour of Day (0-23)\", fontsize=12)\nplt.ylabel(\"Transaction Amount\", fontsize=12)\n\n# Ensure x-axis ticks are at integer hours for better readability\nplt.xticks(range(0, 24, 2))\nplt.xlim(-1, 24) # Set x-axis limits to clearly show all hours\n\n# Improve legend title and position\nplt.legend(title=\"Transaction Type\", bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a clean aesthetic style for the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationships between amount, hour_of_day,\n# and transaction_type.\n# Since 'is_fraud' is constant (0) in this specific dataset, it won't provide\n# visual differentiation, but we can note its value in the title.\nplt.figure(figsize=(10, 6))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x=\"hour_of_day\",\n    y=\"amount\",\n    hue=\"transaction_type\",  # Differentiate transaction types by color\n    size=\"amount\",           # Use amount to vary marker size, emphasizing larger transactions\n    sizes=(100, 800),        # Range of marker sizes\n    alpha=0.7,               # Slightly transparent markers\n    edgecolor=\"w\",           # White edge for markers\n    linewidth=1              # Edge line width\n)\n\n# Add title and labels for clarity\nplt.title(\n    \"Transaction Amount vs. Hour of Day by Transaction Type\\n\"\n    f\"(All transactions are non-fraudulent: is_fraud={df['is_fraud'].iloc[0]})\",\n    fontsize=16\n)\nplt.xlabel(\"Hour of Day (0-23)\", fontsize=12)\nplt.ylabel(\"Transaction Amount\", fontsize=12)\n\n# Ensure x-axis ticks are at integer hours for better readability\nplt.xticks(range(0, 24, 2))\nplt.xlim(-1, 24) # Set x-axis limits to clearly show all hours\n\n# Improve legend title and position\nplt.legend(title=\"Transaction Type\", bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)\n\n# Adjust layout to prevent labels from overlapping and ensure everything fits\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3636,
+    "color_delta_e": 1.4329,
+    "visual_entropy": 0.8101,
+    "labeling_completeness": 1.0,
+    "code_complexity": 4,
+    "generation_latency": 12.854,
+    "cost_per_run": 0.000148,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

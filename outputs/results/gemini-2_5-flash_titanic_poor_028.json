@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 28,
+  "timestamp": "2026-04-10T16:14:11.342820",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Create a categorical plot to visualize survival rate across sex and passenger class\n# This combination often reveals the most significant factors in Titanic survival.\ng = sns.catplot(\n    data=df,\n    x=\"sex\",\n    y=\"survived\",\n    col=\"pclass\",\n    kind=\"bar\",\n    height=4,\n    aspect=0.8,\n    palette=\"viridis\",\n    errorbar=None # Remove error bars for cleaner visualization with small dataset\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Sex\", \"Survival Rate\")\ng.set_titles(\"Passenger Class: {col_name}\")\ng.fig.suptitle(\"Survival Rate by Sex and Passenger Class\", y=1.02) # Adjust suptitle position\n\n# Ensure tight layout to prevent labels/titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98])\n\n# Save the plot to a file\nplt.savefig(\"output.png\")\n\n# Close the plot to free memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Dataset provided as a string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Create a categorical plot to visualize survival rate across sex and passenger class\n# This combination often reveals the most significant factors in Titanic survival.\ng = sns.catplot(\n    data=df,\n    x=\"sex\",\n    y=\"survived\",\n    col=\"pclass\",\n    kind=\"bar\",\n    height=4,\n    aspect=0.8,\n    palette=\"viridis\",\n    errorbar=None # Remove error bars for cleaner visualization with small dataset\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Sex\", \"Survival Rate\")\ng.set_titles(\"Passenger Class: {col_name}\")\ng.fig.suptitle(\"Survival Rate by Sex and Passenger Class\", y=1.02) # Adjust suptitle position\n\n# Ensure tight layout to prevent labels/titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98])\n\n# Save the plot to a file\nplt.savefig(\"output.png\")\n\n# Close the plot to free memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpxj8ooxrw/viz_script.py:20: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  g = sns.catplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.575,
+    "visual_entropy": 1.118,
+    "labeling_completeness": 0.25,
+    "code_complexity": 3,
+    "generation_latency": 10.394,
+    "cost_per_run": 0.00012,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

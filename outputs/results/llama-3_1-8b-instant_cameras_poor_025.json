@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 25,
+  "timestamp": "2026-04-09T03:44:35.835642",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load data\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert data types\ndf['model_year'] = pd.to_numeric(df['model_year'])\ndf['price_usd'] = pd.to_numeric(df['price_usd'])\ndf['max_iso'] = pd.to_numeric(df['max_iso'])\ndf['megapixels'] = pd.to_numeric(df['megapixels'])\ndf['weight_grams'] = pd.to_numeric(df['weight_grams'])\n\n# Create scatter plot of price vs model year\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='model_year', y='price_usd', hue='brand', data=df)\nplt.title('Price vs Model Year')\nplt.xlabel('Model Year')\nplt.ylabel('Price (USD)')\nplt.savefig('output.png')\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Load data\ndata = \"\"\"\nbrand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert data types\ndf['model_year'] = pd.to_numeric(df['model_year'])\ndf['price_usd'] = pd.to_numeric(df['price_usd'])\ndf['max_iso'] = pd.to_numeric(df['max_iso'])\ndf['megapixels'] = pd.to_numeric(df['megapixels'])\ndf['weight_grams'] = pd.to_numeric(df['weight_grams'])\n\n# Create scatter plot of price vs model year\nplt.figure(figsize=(10,6))\nsns.scatterplot(x='model_year', y='price_usd', hue='brand', data=df)\nplt.title('Price vs Model Year')\nplt.xlabel('Model Year')\nplt.ylabel('Price (USD)')\nplt.savefig('output.png')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.1333,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.672,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

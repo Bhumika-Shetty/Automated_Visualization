@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-09T03:34:10.923220",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart to show the distribution of cameras by brand\nbrand_counts = cameras['brand'].value_counts()\nplt.figure(figsize=(10, 6))\nsns.countplot(x='brand', data=cameras)\nplt.title('Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between megapixels and price\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=cameras)\nplt.title('Megapixels vs Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price ($USD)')\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of camera prices\nplt.figure(figsize=(10, 6))\nsns.histplot(cameras['price_usd'], kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price ($USD)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ncameras = pd.read_csv('data/cameras.csv')\n\n# Create a bar chart to show the distribution of cameras by brand\nbrand_counts = cameras['brand'].value_counts()\nplt.figure(figsize=(10, 6))\nsns.countplot(x='brand', data=cameras)\nplt.title('Camera Brands')\nplt.xlabel('Brand')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to show the relationship between megapixels and price\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='megapixels', y='price_usd', data=cameras)\nplt.title('Megapixels vs Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price ($USD)')\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the distribution of camera prices\nplt.figure(figsize=(10, 6))\nsns.histplot(cameras['price_usd'], kde=True)\nplt.title('Distribution of Camera Prices')\nplt.xlabel('Price ($USD)')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 1.0076,
+    "visual_entropy": 1.1635,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 7.068,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

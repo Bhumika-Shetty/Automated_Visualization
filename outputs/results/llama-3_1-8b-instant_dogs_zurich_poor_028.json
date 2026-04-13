@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 28,
+  "timestamp": "2026-04-09T03:31:10.378576",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"DatenstandCd\": [\"D\", \"D\", \"D\", \"D\", \"D\"],\n    \"HID\": [123408, 123408, 123481, 123481, 123481],\n    \"AlterV10Cd\": [30, 30, 30, 30, 30],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\"],\n    \"SexCd\": [4, 4, 4, 4, 4],\n    \"SexLang\": [\"m\u00e4nnlich\", \"m\u00e4nnlich\", \"m\u00e4nnlich\", \"m\u00e4nnlich\", \"m\u00e4nnlich\"],\n    \"KreisCd\": [7, 7, 10, 10, 10],\n    \"QuarCd\": [72, 72, 101, 101, 101],\n    \"Rassetyp1Cd\": [I, I, I, I, I],\n    \"GebHundDatJahr\": [2020, 2020, 2019, 2019, 2019],\n    \"AlterVHundCd\": [4, 5, 0, 1, 2],\n    \"SexHundCd\": [1, 1, 1, 1, 1],\n}\n\ndf = pd.DataFrame(data)\n\n# Convert the 'StichtagDatJahr' column to datetime\ndf['StichtagDatJahr'] = pd.to_datetime(df['StichtagDatJahr'], format='%Y')\n\n# Plot a line chart for the number of dogs per year\nplt.figure(figsize=(8,6))\nsns.lineplot(x='StichtagDatJahr', y='AnzHunde', data=df)\nplt.title('Number of Dogs per Year')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight')\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"DatenstandCd\": [\"D\", \"D\", \"D\", \"D\", \"D\"],\n    \"HID\": [123408, 123408, 123481, 123481, 123481],\n    \"AlterV10Cd\": [30, 30, 30, 30, 30],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\"],\n    \"SexCd\": [4, 4, 4, 4, 4],\n    \"SexLang\": [\"m\u00e4nnlich\", \"m\u00e4nnlich\", \"m\u00e4nnlich\", \"m\u00e4nnlich\", \"m\u00e4nnlich\"],\n    \"KreisCd\": [7, 7, 10, 10, 10],\n    \"QuarCd\": [72, 72, 101, 101, 101],\n    \"Rassetyp1Cd\": [I, I, I, I, I],\n    \"GebHundDatJahr\": [2020, 2020, 2019, 2019, 2019],\n    \"AlterVHundCd\": [4, 5, 0, 1, 2],\n    \"SexHundCd\": [1, 1, 1, 1, 1],\n}\n\ndf = pd.DataFrame(data)\n\n# Convert the 'StichtagDatJahr' column to datetime\ndf['StichtagDatJahr'] = pd.to_datetime(df['StichtagDatJahr'], format='%Y')\n\n# Plot a line chart for the number of dogs per year\nplt.figure(figsize=(8,6))\nsns.lineplot(x='StichtagDatJahr', y='AnzHunde', data=df)\nplt.title('Number of Dogs per Year')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpjvmab49p/viz_script.py\", line 17, in <module>\n    \"Rassetyp1Cd\": [I, I, I, I, I],\n                    ^\nNameError: name 'I' is not defined\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 42.86,
+    "hallucination_rate": 0.1429,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 17.146,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

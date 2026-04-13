@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-12T10:15:52.337329",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preprocessing ---\n# Combine date and time into a single datetime object for time series analysis\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour and the day of the week\ndf['hour'] = df['datetime'].dt.hour\ndf['day_of_week'] = df['datetime'].dt.day_name()\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by day of the week and hour\nheatmap_data = df.pivot_table(\n    values='total',\n    index='day_of_week',\n    columns='hour',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# Ensure the days are in chronological order\nday_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']\nheatmap_data = heatmap_data.reindex(day_order)\n\n# --- Visualization ---\n# Set the style and figure size\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(16, 9))\n\n# Create the heatmap\nsns.heatmap(\n    heatmap_data,\n    cmap='YlGnBu',\n    linewidths=.5,\n    annot=False,  # Annotations would be too cluttered\n    cbar_kws={'label': 'Total Sales ($)'},\n    ax=ax\n)\n\n# --- Customization and Labels ---\n# Set title and labels with appropriate font sizes\nax.set_title('Peak Sales Times: Hourly Sales by Day of the Week', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Hour of Day (24-hour format)', fontsize=12, labelpad=10)\nax.set_ylabel('Day of the Week', fontsize=12, labelpad=10)\n\n# Customize tick parameters for better readability\nax.tick_params(axis='x', rotation=0, labelsize=10)\nax.tick_params(axis='y', rotation=0, labelsize=10)\n\n# Format the color bar to show currency\ncbar = ax.collections[0].colorbar\ncbar.ax.yaxis.set_major_formatter(mticker.StrMethodFormatter('${x:,.0f}'))\ncbar.ax.tick_params(labelsize=10)\ncbar.ax.set_ylabel('Total Sales ($)', rotation=270, labelpad=15, fontsize=12)\n\n# --- Save the Figure ---\n# Save the final visualization to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport matplotlib.ticker as mticker\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# --- Data Preprocessing ---\n# Combine date and time into a single datetime object for time series analysis\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Extract the hour and the day of the week\ndf['hour'] = df['datetime'].dt.hour\ndf['day_of_week'] = df['datetime'].dt.day_name()\n\n# --- Data Aggregation ---\n# Create a pivot table to aggregate total sales by day of the week and hour\nheatmap_data = df.pivot_table(\n    values='total',\n    index='day_of_week',\n    columns='hour',\n    aggfunc='sum',\n    fill_value=0\n)\n\n# Ensure the days are in chronological order\nday_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']\nheatmap_data = heatmap_data.reindex(day_order)\n\n# --- Visualization ---\n# Set the style and figure size\nplt.style.use('seaborn-v0_8-whitegrid')\nfig, ax = plt.subplots(figsize=(16, 9))\n\n# Create the heatmap\nsns.heatmap(\n    heatmap_data,\n    cmap='YlGnBu',\n    linewidths=.5,\n    annot=False,  # Annotations would be too cluttered\n    cbar_kws={'label': 'Total Sales ($)'},\n    ax=ax\n)\n\n# --- Customization and Labels ---\n# Set title and labels with appropriate font sizes\nax.set_title('Peak Sales Times: Hourly Sales by Day of the Week', fontsize=18, fontweight='bold', pad=20)\nax.set_xlabel('Hour of Day (24-hour format)', fontsize=12, labelpad=10)\nax.set_ylabel('Day of the Week', fontsize=12, labelpad=10)\n\n# Customize tick parameters for better readability\nax.tick_params(axis='x', rotation=0, labelsize=10)\nax.tick_params(axis='y', rotation=0, labelsize=10)\n\n# Format the color bar to show currency\ncbar = ax.collections[0].colorbar\ncbar.ax.yaxis.set_major_formatter(mticker.StrMethodFormatter('${x:,.0f}'))\ncbar.ax.tick_params(labelsize=10)\ncbar.ax.set_ylabel('Total Sales ($)', rotation=270, labelpad=15, fontsize=12)\n\n# --- Save the Figure ---\n# Save the final visualization to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 0.8128,
+    "visual_entropy": 4.9797,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 22.219,
+    "cost_per_run": 0.005668,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

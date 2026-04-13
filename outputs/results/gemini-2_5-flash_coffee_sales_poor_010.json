@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 10,
+  "timestamp": "2026-04-12T04:53:17.660012",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' column to datetime objects (optional for this specific plot, but good practice)\ndf['date'] = pd.to_datetime(df['date'])\n\n# Aggregate total sales by product\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False).reset_index()\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='total', y='product', data=product_sales, palette='viridis')\n\n# Add labels and title for clarity\nplt.title('Total Sales by Product', fontsize=16)\nplt.xlabel('Total Sales ($)', fontsize=12)\nplt.ylabel('Product', fontsize=12)\n\n# Improve layout and save the plot\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Convert 'date' column to datetime objects (optional for this specific plot, but good practice)\ndf['date'] = pd.to_datetime(df['date'])\n\n# Aggregate total sales by product\nproduct_sales = df.groupby('product')['total'].sum().sort_values(ascending=False).reset_index()\n\n# Set the aesthetic style of the plots\nsns.set_theme(style=\"whitegrid\")\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='total', y='product', data=product_sales, palette='viridis')\n\n# Add labels and title for clarity\nplt.title('Total Sales by Product', fontsize=16)\nplt.xlabel('Total Sales ($)', fontsize=12)\nplt.ylabel('Product', fontsize=12)\n\n# Improve layout and save the plot\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpiw1yiwaf/viz_script.py:29: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='total', y='product', data=product_sales, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.2727,
+    "color_delta_e": 0.5616,
+    "visual_entropy": 1.9377,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 6.19,
+    "cost_per_run": 0.000109,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

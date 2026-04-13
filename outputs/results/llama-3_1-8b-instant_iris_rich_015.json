@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-09T02:25:44.552431",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the iris dataset from a CSV file\niris_data = pd.read_csv('data/iris.csv')\n\n# Melt the data to transform it from wide to long format\niris_melted = pd.melt(iris_data, id_vars=['species'], var_name='feature', value_name='value')\n\n# Create a pairplot to visualize the relationships between features\nplt.figure(figsize=(10, 8))\ng = sns.pairplot(iris_melted, hue='species', palette='viridis', markers=['o', 's', 'D'])\n\n# Remove the axes from the diagonal subplots\nfor i, ax in enumerate(g.axs):\n    ax.set_xticklabels([])\n    ax.set_yticklabels([])\n    if i == len(g.axs) - 1:\n        ax.set_xlabel('')\n\n# Set the title of the pairplot\nplt.suptitle('Iris Flower Species Classification Dataset')\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the iris dataset from a CSV file\niris_data = pd.read_csv('data/iris.csv')\n\n# Melt the data to transform it from wide to long format\niris_melted = pd.melt(iris_data, id_vars=['species'], var_name='feature', value_name='value')\n\n# Create a pairplot to visualize the relationships between features\nplt.figure(figsize=(10, 8))\ng = sns.pairplot(iris_melted, hue='species', palette='viridis', markers=['o', 's', 'D'])\n\n# Remove the axes from the diagonal subplots\nfor i, ax in enumerate(g.axs):\n    ax.set_xticklabels([])\n    ax.set_yticklabels([])\n    if i == len(g.axs) - 1:\n        ax.set_xlabel('')\n\n# Set the title of the pairplot\nplt.suptitle('Iris Flower Species Classification Dataset')\n\n# Save the figure to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpg3dzyx6d/viz_script.py\", line 16, in <module>\n    for i, ax in enumerate(g.axs):\n                           ^^^^^\nAttributeError: 'PairGrid' object has no attribute 'axs'. Did you mean: 'axes'?\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.5,
+    "code_complexity": 2,
+    "generation_latency": 0.557,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

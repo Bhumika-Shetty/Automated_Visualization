@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-09T02:39:17.216575",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a scatter plot of Sleep Duration vs Physical Activity Level\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Sleep Duration', y='Physical Activity Level', data=sleep_health, hue='BMI Category', palette='viridis')\nplt.title('Relationship Between Sleep Duration and Physical Activity Level')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Physical Activity Level')\nplt.legend(title='BMI Category')\nplt.grid(True)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of Quality of Sleep vs Age\nplt.figure(figsize=(8, 6))\nsns.barplot(x='Age', y='Quality of Sleep', data=sleep_health, hue='Gender', palette='viridis')\nplt.title('Relationship Between Quality of Sleep and Age')\nplt.xlabel('Age')\nplt.ylabel('Quality of Sleep')\nplt.legend(title='Gender')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of Daily Steps\nplt.figure(figsize=(8, 6))\nsns.histplot(sleep_health['Daily Steps'], kde=True, bins=10)\nplt.title('Distribution of Daily Steps')\nplt.xlabel('Daily Steps')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nsleep_health = pd.read_csv('data/sleep_health.csv')\n\n# Create a scatter plot of Sleep Duration vs Physical Activity Level\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x='Sleep Duration', y='Physical Activity Level', data=sleep_health, hue='BMI Category', palette='viridis')\nplt.title('Relationship Between Sleep Duration and Physical Activity Level')\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Physical Activity Level')\nplt.legend(title='BMI Category')\nplt.grid(True)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of Quality of Sleep vs Age\nplt.figure(figsize=(8, 6))\nsns.barplot(x='Age', y='Quality of Sleep', data=sleep_health, hue='Gender', palette='viridis')\nplt.title('Relationship Between Quality of Sleep and Age')\nplt.xlabel('Age')\nplt.ylabel('Quality of Sleep')\nplt.legend(title='Gender')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output2.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of Daily Steps\nplt.figure(figsize=(8, 6))\nsns.histplot(sleep_health['Daily Steps'], kde=True, bins=10)\nplt.title('Distribution of Daily Steps')\nplt.xlabel('Daily Steps')\nplt.ylabel('Frequency')\nplt.tight_layout()\nplt.savefig('output3.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 53.85,
+    "hallucination_rate": 0.4091,
+    "color_delta_e": 1.4597,
+    "visual_entropy": 0.6371,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 22.979,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

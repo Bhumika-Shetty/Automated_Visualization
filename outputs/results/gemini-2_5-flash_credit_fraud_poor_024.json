@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 24,
+  "timestamp": "2026-04-11T01:57:57.432506",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"\n\n# Load the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Initialize a figure with multiple subplots for a comprehensive view\nfig, axes = plt.subplots(1, 3, figsize=(18, 6))\nfig.suptitle('Transaction Characteristics (Sample Data)', fontsize=16)\n\n# Plot 1: Distribution of Transaction Amount\n# Using a histogram with KDE to show the distribution shape\nsns.histplot(data=df, x='amount', kde=True, ax=axes[0], color='skyblue')\naxes[0].set_title('Distribution of Transaction Amount')\naxes[0].set_xlabel('Amount ($)')\naxes[0].set_ylabel('Count')\n\n# Plot 2: Count of Transaction Types\n# Using a countplot to show the frequency of each transaction type\nsns.countplot(data=df, x='transaction_type', ax=axes[1], palette='viridis',\n              order=df['transaction_type'].value_counts().index) # Order by frequency\naxes[1].set_title('Count of Transaction Types')\naxes[1].set_xlabel('Transaction Type')\naxes[1].set_ylabel('Count')\naxes[1].tick_params(axis='x', rotation=45) # Rotate labels for better readability\n\n# Plot 3: Count of Transactions by Hour of Day\n# Using a countplot to show transaction activity across different hours\nsns.countplot(data=df, x='hour_of_day', ax=axes[2], palette='magma',\n              order=sorted(df['hour_of_day'].unique())) # Order by hour of day\naxes[2].set_title('Count of Transactions by Hour of Day')\naxes[2].set_xlabel('Hour of Day')\naxes[2].set_ylabel('Count')\n\n# Adjust layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"\n\n# Load the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Initialize a figure with multiple subplots for a comprehensive view\nfig, axes = plt.subplots(1, 3, figsize=(18, 6))\nfig.suptitle('Transaction Characteristics (Sample Data)', fontsize=16)\n\n# Plot 1: Distribution of Transaction Amount\n# Using a histogram with KDE to show the distribution shape\nsns.histplot(data=df, x='amount', kde=True, ax=axes[0], color='skyblue')\naxes[0].set_title('Distribution of Transaction Amount')\naxes[0].set_xlabel('Amount ($)')\naxes[0].set_ylabel('Count')\n\n# Plot 2: Count of Transaction Types\n# Using a countplot to show the frequency of each transaction type\nsns.countplot(data=df, x='transaction_type', ax=axes[1], palette='viridis',\n              order=df['transaction_type'].value_counts().index) # Order by frequency\naxes[1].set_title('Count of Transaction Types')\naxes[1].set_xlabel('Transaction Type')\naxes[1].set_ylabel('Count')\naxes[1].tick_params(axis='x', rotation=45) # Rotate labels for better readability\n\n# Plot 3: Count of Transactions by Hour of Day\n# Using a countplot to show transaction activity across different hours\nsns.countplot(data=df, x='hour_of_day', ax=axes[2], palette='magma',\n              order=sorted(df['hour_of_day'].unique())) # Order by hour of day\naxes[2].set_title('Count of Transactions by Hour of Day')\naxes[2].set_xlabel('Hour of Day')\naxes[2].set_ylabel('Count')\n\n# Adjust layout to prevent titles/labels from overlapping\nplt.tight_layout(rect=[0, 0.03, 1, 0.95])\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpc0n324eg/viz_script.py:30: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.countplot(data=df, x='transaction_type', ax=axes[1], palette='viridis',\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpc0n324eg/viz_script.py:39: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.countplot(data=df, x='hour_of_day', ax=axes[2], palette='magma',\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6471,
+    "color_delta_e": 1.5108,
+    "visual_entropy": 1.7228,
+    "labeling_completeness": 0.75,
+    "code_complexity": 4,
+    "generation_latency": 12.378,
+    "cost_per_run": 0.000142,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

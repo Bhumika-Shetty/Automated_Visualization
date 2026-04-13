@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-12T04:42:51.175601",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize relationships between key camera specs\n# - X-axis: Megapixels (resolution)\n# - Y-axis: Price (USD)\n# - Hue: Brand (to distinguish manufacturers)\n# - Size: Weight in grams (indicating portability/build)\n# - Style: Sensor Type (fundamental camera characteristic)\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',\n    size='weight_grams',\n    sizes=(100, 800),  # Adjust size range for better visual differentiation of weight\n    style='sensor_type',\n    palette='viridis',\n    legend='full'\n)\n\n# Add annotations for each point to display the model year, providing more context\nfor i, row in df.iterrows():\n    plt.text(\n        row['megapixels'] + 0.5,  # Offset x-coordinate slightly for readability\n        row['price_usd'] + 50,    # Offset y-coordinate slightly for readability\n        f\"{row['model_year']}\",\n        horizontalalignment='left',\n        size='small',\n        color='black',\n        weight='semibold'\n    )\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Brand, Weight, and Sensor Type (with Model Year)', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Camera Attributes', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legends from being cut off\nplt.tight_layout()\n\n# Save the plot to output.png\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Data provided as a string\ndata = \"\"\"brand,model_year,megapixels,max_iso,weight_grams,price_usd,sensor_type,has_video_4k,lens_mount,body_type\nLeica,2005,13.5,25600,324,811.8,Micro 4/3,1,E,Compact\nFuji,2019,46.4,51200,1151,3596.41,APS-C,0,EF,Mirrorless\nPentax,2012,38.7,12800,598,3357.2,Full Frame,0,MFT,Mirrorless\nOlympus,2015,22.5,6400,1095,1555.7,APS-C,0,Z,Mirrorless\nLeica,2016,12.2,25600,290,3899.09,Medium Format,0,MFT,DSLR\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Set a professional seaborn style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to visualize relationships between key camera specs\n# - X-axis: Megapixels (resolution)\n# - Y-axis: Price (USD)\n# - Hue: Brand (to distinguish manufacturers)\n# - Size: Weight in grams (indicating portability/build)\n# - Style: Sensor Type (fundamental camera characteristic)\nsns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='brand',\n    size='weight_grams',\n    sizes=(100, 800),  # Adjust size range for better visual differentiation of weight\n    style='sensor_type',\n    palette='viridis',\n    legend='full'\n)\n\n# Add annotations for each point to display the model year, providing more context\nfor i, row in df.iterrows():\n    plt.text(\n        row['megapixels'] + 0.5,  # Offset x-coordinate slightly for readability\n        row['price_usd'] + 50,    # Offset y-coordinate slightly for readability\n        f\"{row['model_year']}\",\n        horizontalalignment='left',\n        size='small',\n        color='black',\n        weight='semibold'\n    )\n\n# Add title and labels for clarity\nplt.title('Camera Price vs. Megapixels by Brand, Weight, and Sensor Type (with Model Year)', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend placement to avoid overlapping with data points\nplt.legend(title='Camera Attributes', bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0.)\n\n# Adjust layout to prevent labels/legends from being cut off\nplt.tight_layout()\n\n# Save the plot to output.png\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5263,
+    "color_delta_e": 1.0122,
+    "visual_entropy": 0.6387,
+    "labeling_completeness": 1.0,
+    "code_complexity": 8,
+    "generation_latency": 12.198,
+    "cost_per_run": 0.000177,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

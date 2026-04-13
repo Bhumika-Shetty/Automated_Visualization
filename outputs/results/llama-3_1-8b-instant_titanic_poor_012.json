@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 12,
+  "timestamp": "2026-04-09T02:17:25.876237",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv(StringIO(\"\"\"\nsurvived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"))\n\n# Convert the categorical variables into numerical variables\ndf = pd.get_dummies(df, columns=['sex', 'class', 'embarked', 'who', 'deck', 'alive', 'alone', 'embark_town'])\ndf = pd.get_dummies(df, columns=['pclass'], prefix='pclass')\n\n# Map the survived column into a numerical variable\ndf['survived'] = df['survived'].map({'0': 0, '1': 1})\n\n# Create a correlation matrix heatmap\nsns.set()\ncorr = df.corr()\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv(StringIO(\"\"\"\nsurvived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"))\n\n# Convert the categorical variables into numerical variables\ndf = pd.get_dummies(df, columns=['sex', 'class', 'embarked', 'who', 'deck', 'alive', 'alone', 'embark_town'])\ndf = pd.get_dummies(df, columns=['pclass'], prefix='pclass')\n\n# Map the survived column into a numerical variable\ndf['survived'] = df['survived'].map({'0': 0, '1': 1})\n\n# Create a correlation matrix heatmap\nsns.set()\ncorr = df.corr()\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr, annot=True, cmap='coolwarm', square=True)\nplt.title('Correlation Matrix')\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8usf3l5a/viz_script.py\", line 6, in <module>\n    df = pd.read_csv(StringIO(\"\"\"\n                     ^^^^^^^^\nNameError: name 'StringIO' is not defined\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.1429,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 0.748,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

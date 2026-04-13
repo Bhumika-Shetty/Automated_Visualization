@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-pro",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-12T06:01:41.194506",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a professional and aesthetically pleasing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# A pair plot is an excellent choice for this dataset to visualize\n# pairwise relationships and the distribution of each variable.\n# 'hue' is used to color data points by species, a best practice for this dataset.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    plot_kws={'alpha': 0.8, 's': 100, 'edgecolor': 'k'},\n    height=2.5\n)\n\n# Add a clear, descriptive title\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Features for Setosa Species\",\n    y=1.03,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve layout\nplt.tight_layout()\n\n# Save the resulting plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Prepare the data\ncsv_data = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\n\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Set a professional and aesthetically pleasing style\nsns.set_theme(style=\"whitegrid\", palette=\"viridis\")\n\n# A pair plot is an excellent choice for this dataset to visualize\n# pairwise relationships and the distribution of each variable.\n# 'hue' is used to color data points by species, a best practice for this dataset.\ng = sns.pairplot(\n    df,\n    hue='species',\n    diag_kind='kde',\n    plot_kws={'alpha': 0.8, 's': 100, 'edgecolor': 'k'},\n    height=2.5\n)\n\n# Add a clear, descriptive title\ng.fig.suptitle(\n    \"Pairwise Relationships of Iris Features for Setosa Species\",\n    y=1.03,\n    fontsize=16,\n    fontweight='bold'\n)\n\n# Improve layout\nplt.tight_layout()\n\n# Save the resulting plot to a file\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\n\n# Close the plot to free up memory\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.4422,
+    "visual_entropy": 0.9326,
+    "labeling_completeness": 0.25,
+    "code_complexity": 3,
+    "generation_latency": 17.769,
+    "cost_per_run": 0.003063,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

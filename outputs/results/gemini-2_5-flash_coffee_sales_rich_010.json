@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-12T04:48:07.930171",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Ensure 'total' is numeric\ndf['total'] = pd.to_numeric(df['total'])\n\n# Define a custom order for age groups to ensure consistent plotting order\n# Assuming standard age group ranges; adjust if the dataset has different groups\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\n# Convert 'customer_age_group' to a categorical type with the specified order\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the plot\nplt.figure(figsize=(14, 8)) # Adjust figure size for better readability\n\n# Use seaborn.barplot to visualize total sales by product, with customer age group as hue\nsns.barplot(\n    data=df,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    estimator=sum, # Calculate the sum of 'total' for each group\n    ci=None,       # Do not show confidence intervals as we're interested in the total sum\n    palette='viridis' # Use a color palette suitable for categorical data\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Customer Age Group', fontsize=18, fontweight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Rotate x-axis labels if product names are long to prevent overlap\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Place the legend outside the plot area for better clarity\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0., fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Ensure 'total' is numeric\ndf['total'] = pd.to_numeric(df['total'])\n\n# Define a custom order for age groups to ensure consistent plotting order\n# Assuming standard age group ranges; adjust if the dataset has different groups\nage_group_order = ['18-24', '25-34', '35-44', '45-54', '55+']\n# Convert 'customer_age_group' to a categorical type with the specified order\ndf['customer_age_group'] = pd.Categorical(df['customer_age_group'], categories=age_group_order, ordered=True)\n\n# Set a professional style for the plot\nsns.set_theme(style=\"whitegrid\")\n\n# Create the plot\nplt.figure(figsize=(14, 8)) # Adjust figure size for better readability\n\n# Use seaborn.barplot to visualize total sales by product, with customer age group as hue\nsns.barplot(\n    data=df,\n    x='product',\n    y='total',\n    hue='customer_age_group',\n    estimator=sum, # Calculate the sum of 'total' for each group\n    ci=None,       # Do not show confidence intervals as we're interested in the total sum\n    palette='viridis' # Use a color palette suitable for categorical data\n)\n\n# Add title and labels\nplt.title('Total Sales by Product and Customer Age Group', fontsize=18, fontweight='bold')\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\n\n# Rotate x-axis labels if product names are long to prevent overlap\nplt.xticks(rotation=45, ha='right', fontsize=12)\nplt.yticks(fontsize=12)\n\n# Place the legend outside the plot area for better clarity\nplt.legend(title='Customer Age Group', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0., fontsize=10, title_fontsize=12)\n\n# Improve layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpqlitbt9v/viz_script.py:24: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4211,
+    "color_delta_e": 2.0738,
+    "visual_entropy": 2.0746,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 9.116,
+    "cost_per_run": 0.000165,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 23,
+  "timestamp": "2026-04-09T03:13:17.811850",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given data\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Convert hour of day to datetime for easier plotting\ndf['hour_of_day'] = pd.to_datetime(df['hour_of_day'], unit='h')\n\n# Plot the data\nplt.figure(figsize=(10,6))\nsns.countplot(x='hour_of_day', hue='transaction_type', data=df)\nplt.title('Transaction Distribution by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.savefig('output.png')\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given data\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Convert hour of day to datetime for easier plotting\ndf['hour_of_day'] = pd.to_datetime(df['hour_of_day'], unit='h')\n\n# Plot the data\nplt.figure(figsize=(10,6))\nsns.countplot(x='hour_of_day', hue='transaction_type', data=df)\nplt.title('Transaction Distribution by Hour of Day')\nplt.xlabel('Hour of Day')\nplt.ylabel('Count')\nplt.savefig('output.png')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 0.556,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

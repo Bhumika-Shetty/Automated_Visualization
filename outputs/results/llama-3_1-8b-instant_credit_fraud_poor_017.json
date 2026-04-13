@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 17,
+  "timestamp": "2026-04-09T03:12:08.529823",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Plot a bar chart to show the distribution of transactions by hour of day\nplt.figure(figsize=(10, 6))\nsns.barplot(x=\"hour_of_day\", y=\"amount\", data=df)\nplt.title(\"Distribution of Transactions by Hour of Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Amount ($)\")\nplt.savefig(\"output.png\")\n\n# Plot a countplot to show the distribution of transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x=\"transaction_type\", data=df)\nplt.title(\"Distribution of Transaction Types\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Count\")\nplt.savefig(\"output2.png\")\n\n# Plot a boxplot to show the distribution of amounts by transaction type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x=\"transaction_type\", y=\"amount\", data=df)\nplt.title(\"Distribution of Amounts by Transaction Type\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Amount ($)\")\nplt.savefig(\"output3.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given dataset\ndata = {\n    \"amount\": [115.02, 44.37, 144.25, 536.22, 38.43],\n    \"is_fraud\": [0, 0, 0, 0, 0],\n    \"transaction_type\": [\"refund\", \"payment\", \"transfer\", \"payment\", \"payment\"],\n    \"hour_of_day\": [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Plot a bar chart to show the distribution of transactions by hour of day\nplt.figure(figsize=(10, 6))\nsns.barplot(x=\"hour_of_day\", y=\"amount\", data=df)\nplt.title(\"Distribution of Transactions by Hour of Day\")\nplt.xlabel(\"Hour of Day\")\nplt.ylabel(\"Amount ($)\")\nplt.savefig(\"output.png\")\n\n# Plot a countplot to show the distribution of transaction types\nplt.figure(figsize=(10, 6))\nsns.countplot(x=\"transaction_type\", data=df)\nplt.title(\"Distribution of Transaction Types\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Count\")\nplt.savefig(\"output2.png\")\n\n# Plot a boxplot to show the distribution of amounts by transaction type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x=\"transaction_type\", y=\"amount\", data=df)\nplt.title(\"Distribution of Amounts by Transaction Type\")\nplt.xlabel(\"Transaction Type\")\nplt.ylabel(\"Amount ($)\")\nplt.savefig(\"output3.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.8041,
+    "visual_entropy": 0.8801,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.493,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

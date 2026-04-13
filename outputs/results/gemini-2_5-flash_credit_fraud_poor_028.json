@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 28,
+  "timestamp": "2026-04-10T18:05:09.932451",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Since the sample dataset is very small (5 rows) and all 'is_fraud' values are 0,\n# focusing on the relationship between 'amount', 'hour_of_day', and 'transaction_type'\n# will be most informative. A scatter plot allows visualizing individual transactions.\n\nplt.figure(figsize=(10, 6))\nsns.scatterplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='transaction_type',\n    style='transaction_type',\n    s=200, # Increase point size for better visibility of individual points\n    palette='viridis'\n)\n\nplt.title('Transaction Amount vs. Hour of Day by Transaction Type', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Transaction Amount', fontsize=12)\nplt.xticks(range(0, 24, 2)) # Set x-ticks for hourly intervals\nplt.grid(True, linestyle='--', alpha=0.7)\nplt.legend(title='Transaction Type', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.tight_layout()\n\n# Save the visualization as output.png\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport io\n\n# Dataset provided as a string\ndata = \"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"\n\n# Read the data into a pandas DataFrame\ndf = pd.read_csv(io.StringIO(data))\n\n# Since the sample dataset is very small (5 rows) and all 'is_fraud' values are 0,\n# focusing on the relationship between 'amount', 'hour_of_day', and 'transaction_type'\n# will be most informative. A scatter plot allows visualizing individual transactions.\n\nplt.figure(figsize=(10, 6))\nsns.scatterplot(\n    data=df,\n    x='hour_of_day',\n    y='amount',\n    hue='transaction_type',\n    style='transaction_type',\n    s=200, # Increase point size for better visibility of individual points\n    palette='viridis'\n)\n\nplt.title('Transaction Amount vs. Hour of Day by Transaction Type', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Transaction Amount', fontsize=12)\nplt.xticks(range(0, 24, 2)) # Set x-ticks for hourly intervals\nplt.grid(True, linestyle='--', alpha=0.7)\nplt.legend(title='Transaction Type', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.tight_layout()\n\n# Save the visualization as output.png\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 1.3755,
+    "visual_entropy": 0.6877,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 10.26,
+    "cost_per_run": 0.000102,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

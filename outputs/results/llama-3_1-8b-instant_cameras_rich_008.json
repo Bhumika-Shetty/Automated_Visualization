@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-09T03:33:07.651330",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\ndata['model_year'] = pd.to_numeric(data['model_year'])\ndata['weight_grams'] = pd.to_numeric(data['weight_grams'])\ndata['max_iso'] = pd.to_numeric(data['max_iso'])\ndata['price_usd'] = pd.to_numeric(data['price_usd'])\ndata['megapixels'] = pd.to_numeric(data['megapixels'])\n\n# Create a scatter plot of megapixels vs price\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Megapixels vs Price of Digital Cameras')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of sensor types\nplt.figure(figsize=(8,6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('sensor_types.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of camera weights\nplt.figure(figsize=(8,6))\nsns.histplot(data['weight_grams'], kde=True)\nplt.title('Distribution of Camera Weights')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Frequency')\nplt.savefig('camera_weights.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot of megapixels by brand\nplt.figure(figsize=(8,6))\nsns.boxplot(x='brand', y='megapixels', data=data)\nplt.title('Megapixels by Camera Brand')\nplt.xlabel('Brand')\nplt.ylabel('Megapixels')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('megapixels_by_brand.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\ndata['model_year'] = pd.to_numeric(data['model_year'])\ndata['weight_grams'] = pd.to_numeric(data['weight_grams'])\ndata['max_iso'] = pd.to_numeric(data['max_iso'])\ndata['price_usd'] = pd.to_numeric(data['price_usd'])\ndata['megapixels'] = pd.to_numeric(data['megapixels'])\n\n# Create a scatter plot of megapixels vs price\nplt.figure(figsize=(8,6))\nsns.scatterplot(x='megapixels', y='price_usd', data=data)\nplt.title('Megapixels vs Price of Digital Cameras')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a bar chart of sensor types\nplt.figure(figsize=(8,6))\nsns.countplot(x='sensor_type', data=data)\nplt.title('Distribution of Sensor Types')\nplt.xlabel('Sensor Type')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('sensor_types.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram of camera weights\nplt.figure(figsize=(8,6))\nsns.histplot(data['weight_grams'], kde=True)\nplt.title('Distribution of Camera Weights')\nplt.xlabel('Weight (grams)')\nplt.ylabel('Frequency')\nplt.savefig('camera_weights.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot of megapixels by brand\nplt.figure(figsize=(8,6))\nsns.boxplot(x='brand', y='megapixels', data=data)\nplt.title('Megapixels by Camera Brand')\nplt.xlabel('Brand')\nplt.ylabel('Megapixels')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('megapixels_by_brand.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 70.0,
+    "hallucination_rate": 0.3667,
+    "color_delta_e": 2.3449,
+    "visual_entropy": 1.163,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 0.808,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

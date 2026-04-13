@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-09T03:47:02.496874",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/coffee_sales.csv', \n                   parse_dates=['date'], \n                   infer_datetime_format=True)\n\n# Convert 'is_takeaway' column to category\ndata['is_takeaway'] = data['is_takeaway'].astype('category')\n\n# Pivot the data to create a bar chart of sales by product and takeaway status\nsales_by_product = data.pivot_table(index='product', columns='is_takeaway', values='quantity', aggfunc='sum')\n\n# Create a bar chart\nplt.figure(figsize=(10, 6))\nsns.barplot(x=sales_by_product.columns, y=sales_by_product[0], data=sales_by_product)\nplt.title('Coffee Sales by Product and Takeaway Status')\nplt.xlabel('Takeaway Status')\nplt.ylabel('Quantity Sold')\nplt.legend(title='Takeaway Status', loc='upper right')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/coffee_sales.csv', \n                   parse_dates=['date'], \n                   infer_datetime_format=True)\n\n# Convert 'is_takeaway' column to category\ndata['is_takeaway'] = data['is_takeaway'].astype('category')\n\n# Pivot the data to create a bar chart of sales by product and takeaway status\nsales_by_product = data.pivot_table(index='product', columns='is_takeaway', values='quantity', aggfunc='sum')\n\n# Create a bar chart\nplt.figure(figsize=(10, 6))\nsns.barplot(x=sales_by_product.columns, y=sales_by_product[0], data=sales_by_product)\nplt.title('Coffee Sales by Product and Takeaway Status')\nplt.xlabel('Takeaway Status')\nplt.ylabel('Quantity Sold')\nplt.legend(title='Takeaway Status', loc='upper right')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpka7dml0o/viz_script.py\", line 6, in <module>\n    data = pd.read_csv('/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpka7dml0o/data/coffee_sales.csv',\n                       parse_dates=['date'],\n                       infer_datetime_format=True)\nTypeError: read_csv() got an unexpected keyword argument 'infer_datetime_format'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.5,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

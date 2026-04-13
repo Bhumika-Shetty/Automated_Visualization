@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-10T16:20:08.390492",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a figure and axes\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot using seaborn\n# Petal measurements generally show better separation between species than sepal measurements\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=100,  # size of the markers\n    alpha=0.8, # transparency\n    palette='viridis' # color palette\n)\n\n# Add title and labels\nplt.title('Iris Petal Length vs. Petal Width by Species', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Add a legend\nplt.legend(title='Species', title_fontsize='13', fontsize='11')\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Create a figure and axes\nplt.figure(figsize=(10, 7))\n\n# Create a scatter plot using seaborn\n# Petal measurements generally show better separation between species than sepal measurements\nsns.scatterplot(\n    data=df,\n    x='petal_length',\n    y='petal_width',\n    hue='species',\n    s=100,  # size of the markers\n    alpha=0.8, # transparency\n    palette='viridis' # color palette\n)\n\n# Add title and labels\nplt.title('Iris Petal Length vs. Petal Width by Species', fontsize=16)\nplt.xlabel('Petal Length (cm)', fontsize=12)\nplt.ylabel('Petal Width (cm)', fontsize=12)\n\n# Add a legend\nplt.legend(title='Species', title_fontsize='13', fontsize='11')\n\n# Add a grid for better readability\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 0.8203,
+    "visual_entropy": 0.6039,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 4.711,
+    "cost_per_run": 9.1e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

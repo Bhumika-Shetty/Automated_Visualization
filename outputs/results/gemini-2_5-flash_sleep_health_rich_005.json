@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-10T16:32:02.438559",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a clean theme for better aesthetics\nsns.set_theme(style=\"whitegrid\", rc={\"axes.facecolor\": \".95\"})\n\n# Define a logical order for BMI Category for better visualization\nbmi_order = ['Normal Weight', 'Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# Create an insightful relplot to visualize the relationships\n# - X-axis: Sleep Duration\n# - Y-axis: Quality of Sleep\n# - Hue (color): Stress Level, showing how stress impacts sleep patterns\n# - Size: Daily Steps, indicating physical activity level\n# - Columns (faceting): BMI Category, to see how these relationships differ across BMI groups\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    hue=\"Stress Level\",\n    size=\"Daily Steps\",\n    col=\"BMI Category\",\n    col_wrap=2,  # Arrange facets in 2 columns for a compact layout (assuming 4 BMI categories)\n    palette=\"viridis\",  # A sequential color palette suitable for stress level\n    sizes=(50, 600),  # Range of point sizes for Daily Steps\n    alpha=0.7,  # Transparency for better visibility of overlapping points\n    height=4.5,  # Height of each facet\n    aspect=1.2,  # Aspect ratio of each facet\n    linewidth=0,  # No line around points\n    marker='o'  # Explicitly set marker style\n)\n\n# Set a descriptive common title for the entire figure\ng.fig.suptitle('Sleep Duration vs. Quality of Sleep by Stress Level and BMI Category', y=1.03, fontsize=16)\n\n# Adjust subplot titles to be more readable\ng.set_titles(\"BMI: {col_name}\")\n\n# Set clear axis labels\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10)\")\n\n# Add a legend title for clarity\ng.add_legend(title=\"Stress Level\", loc='center right', bbox_to_anchor=(1.08, 0.5))\n\n# Adjust layout to prevent labels/titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set a clean theme for better aesthetics\nsns.set_theme(style=\"whitegrid\", rc={\"axes.facecolor\": \".95\"})\n\n# Define a logical order for BMI Category for better visualization\nbmi_order = ['Normal Weight', 'Normal', 'Overweight', 'Obese']\ndf['BMI Category'] = pd.Categorical(df['BMI Category'], categories=bmi_order, ordered=True)\n\n# Create an insightful relplot to visualize the relationships\n# - X-axis: Sleep Duration\n# - Y-axis: Quality of Sleep\n# - Hue (color): Stress Level, showing how stress impacts sleep patterns\n# - Size: Daily Steps, indicating physical activity level\n# - Columns (faceting): BMI Category, to see how these relationships differ across BMI groups\ng = sns.relplot(\n    data=df,\n    x=\"Sleep Duration\",\n    y=\"Quality of Sleep\",\n    hue=\"Stress Level\",\n    size=\"Daily Steps\",\n    col=\"BMI Category\",\n    col_wrap=2,  # Arrange facets in 2 columns for a compact layout (assuming 4 BMI categories)\n    palette=\"viridis\",  # A sequential color palette suitable for stress level\n    sizes=(50, 600),  # Range of point sizes for Daily Steps\n    alpha=0.7,  # Transparency for better visibility of overlapping points\n    height=4.5,  # Height of each facet\n    aspect=1.2,  # Aspect ratio of each facet\n    linewidth=0,  # No line around points\n    marker='o'  # Explicitly set marker style\n)\n\n# Set a descriptive common title for the entire figure\ng.fig.suptitle('Sleep Duration vs. Quality of Sleep by Stress Level and BMI Category', y=1.03, fontsize=16)\n\n# Adjust subplot titles to be more readable\ng.set_titles(\"BMI: {col_name}\")\n\n# Set clear axis labels\ng.set_axis_labels(\"Sleep Duration (hours)\", \"Quality of Sleep (1-10)\")\n\n# Add a legend title for clarity\ng.add_legend(title=\"Stress Level\", loc='center right', bbox_to_anchor=(1.08, 0.5))\n\n# Adjust layout to prevent labels/titles from overlapping\nplt.tight_layout(rect=[0, 0, 1, 0.98]) # Adjust rect to make space for suptitle\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.4706,
+    "color_delta_e": 0.5804,
+    "visual_entropy": 1.6222,
+    "labeling_completeness": 0.5,
+    "code_complexity": 10,
+    "generation_latency": 16.973,
+    "cost_per_run": 0.000191,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

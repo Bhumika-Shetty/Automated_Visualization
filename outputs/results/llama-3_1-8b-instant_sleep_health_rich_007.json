@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-09T02:39:07.418808",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame(pd.read_csv('data/sleep_health.csv'))\n\n# Create a bar chart to compare sleep duration across different gender groups\nplt.figure(figsize=(8, 6))\nsns.barplot(data=data, x='Gender', y='Sleep Duration', hue='Quality of Sleep')\nplt.title('Sleep Duration Across Different Gender Groups')\nplt.xlabel('Gender')\nplt.ylabel('Sleep Duration (hours)')\nplt.legend(title='Quality of Sleep')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to compare physical activity level and heart rate across different age groups\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=data, x='Age', y='Heart Rate', hue='Physical Activity Level')\nplt.title('Physical Activity Level and Heart Rate Across Different Age Groups')\nplt.xlabel('Age')\nplt.ylabel('Heart Rate (bpm)')\nplt.legend(title='Physical Activity Level')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare daily steps across different BMI categories\nplt.figure(figsize=(8, 6))\nsns.boxplot(data=data, x='BMI Category', y='Daily Steps')\nplt.title('Daily Steps Across Different BMI Categories')\nplt.xlabel('BMI Category')\nplt.ylabel('Daily Steps')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame(pd.read_csv('data/sleep_health.csv'))\n\n# Create a bar chart to compare sleep duration across different gender groups\nplt.figure(figsize=(8, 6))\nsns.barplot(data=data, x='Gender', y='Sleep Duration', hue='Quality of Sleep')\nplt.title('Sleep Duration Across Different Gender Groups')\nplt.xlabel('Gender')\nplt.ylabel('Sleep Duration (hours)')\nplt.legend(title='Quality of Sleep')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a scatter plot to compare physical activity level and heart rate across different age groups\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=data, x='Age', y='Heart Rate', hue='Physical Activity Level')\nplt.title('Physical Activity Level and Heart Rate Across Different Age Groups')\nplt.xlabel('Age')\nplt.ylabel('Heart Rate (bpm)')\nplt.legend(title='Physical Activity Level')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a box plot to compare daily steps across different BMI categories\nplt.figure(figsize=(8, 6))\nsns.boxplot(data=data, x='BMI Category', y='Daily Steps')\nplt.title('Daily Steps Across Different BMI Categories')\nplt.xlabel('BMI Category')\nplt.ylabel('Daily Steps')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 61.54,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 0.9417,
+    "visual_entropy": 0.8358,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 0.761,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

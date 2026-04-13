@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-09T03:16:29.230669",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart to show the most common breeds\nmost_common_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=most_common_breeds.index, y=most_common_breeds.values, palette='Blues_d')\nplt.title('Most Common Dog Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the age distribution of dogs\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterV10Sort'], bins=20, kde=True, palette='Blues_d')\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to show the relationship between age and district\nplt.figure(figsize=(10,6))\nsns.set(font_scale=1)\nsns.set_style('whitegrid')\ncorr_matrix = data[['AlterV10Sort', 'KreisCd']].corr()\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Relationship between Age and District')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data from the CSV file\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' column to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Create a bar chart to show the most common breeds\nmost_common_breeds = data['Rasse1Text'].value_counts().head(10)\nplt.figure(figsize=(10,6))\nsns.barplot(x=most_common_breeds.index, y=most_common_breeds.values, palette='Blues_d')\nplt.title('Most Common Dog Breeds in Zurich')\nplt.xlabel('Breed')\nplt.ylabel('Count')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a histogram to show the age distribution of dogs\nplt.figure(figsize=(10,6))\nsns.histplot(data['AlterV10Sort'], bins=20, kde=True, palette='Blues_d')\nplt.title('Age Distribution of Dogs in Zurich')\nplt.xlabel('Age')\nplt.ylabel('Count')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Create a heatmap to show the relationship between age and district\nplt.figure(figsize=(10,6))\nsns.set(font_scale=1)\nsns.set_style('whitegrid')\ncorr_matrix = data[['AlterV10Sort', 'KreisCd']].corr()\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', square=True)\nplt.title('Relationship between Age and District')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpq88_o50x/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=most_common_breeds.index, y=most_common_breeds.values, palette='Blues_d')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpq88_o50x/viz_script.py:24: UserWarning: Ignoring `palette` because no `hue` variable has been assigned.\n  sns.histplot(data['AlterV10Sort'], bins=20, kde=True, palette='Blues_d')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.7535,
+    "visual_entropy": 2.0698,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 14.008,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

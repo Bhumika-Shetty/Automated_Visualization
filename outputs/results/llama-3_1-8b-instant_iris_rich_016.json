@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-09T02:25:46.105481",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the dataset for better visualization\nmelted_data = pd.melt(data, id_vars=['species'], value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a joint plot with scatter plot for individual variables and regression line\nfig = plt.figure(figsize=(12, 8))\nsns.jointplot(x='value', y='sepal_length', data=melted_data[melted_data['variable'] == 'sepal_width'], kind='reg')\nsns.jointplot(x='value', y='sepal_length', data=melted_data[melted_data['variable'] == 'petal_length'], kind='reg')\nsns.jointplot(x='value', y='sepal_length', data=melted_data[melted_data['variable'] == 'petal_width'], kind='reg')\nplt.suptitle('Relationship between Sepal Length and Other Variables')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the dataset for better visualization\nmelted_data = pd.melt(data, id_vars=['species'], value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])\n\n# Create a joint plot with scatter plot for individual variables and regression line\nfig = plt.figure(figsize=(12, 8))\nsns.jointplot(x='value', y='sepal_length', data=melted_data[melted_data['variable'] == 'sepal_width'], kind='reg')\nsns.jointplot(x='value', y='sepal_length', data=melted_data[melted_data['variable'] == 'petal_length'], kind='reg')\nsns.jointplot(x='value', y='sepal_length', data=melted_data[melted_data['variable'] == 'petal_width'], kind='reg')\nplt.suptitle('Relationship between Sepal Length and Other Variables')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpjqyokiao/viz_script.py\", line 13, in <module>\n    sns.jointplot(x='value', y='sepal_length', data=melted_data[melted_data['variable'] == 'sepal_width'], kind='reg')\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 2243, in jointplot\n    grid = JointGrid(\n        data=data, x=x, y=y, hue=hue,\n    ...<2 lines>...\n        xlim=xlim, ylim=ylim, marginal_ticks=marginal_ticks,\n    )\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/axisgrid.py\", line 1728, in __init__\n    p = VectorPlotter(data=data, variables=dict(x=x, y=y, hue=hue))\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 634, in __init__\n    self.assign_variables(data, variables)\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 679, in assign_variables\n    plot_data = PlotData(data, variables)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 58, in __init__\n    frame, names, ids = self._assign_variables(data, variables)\n                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_core/data.py\", line 232, in _assign_variables\n    raise ValueError(err)\nValueError: Could not interpret value `sepal_length` for `y`. An entry with this name does not appear in `data`.\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.25,
+    "code_complexity": 3,
+    "generation_latency": 5.079,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

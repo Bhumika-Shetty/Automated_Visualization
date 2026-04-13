@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-10T19:19:00.584651",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to indicate size, as it's another important spec\n    sizes=(50, 800), # Adjust size range for better visualization\n    alpha=0.7,\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend for size\nhandles, labels = scatter_plot.get_legend_handles_labels()\n# Filter out size legend labels if they are numeric, keep only sensor_type\nsensor_type_handles = [h for i, h in enumerate(handles) if labels[i] in df['sensor_type'].unique()]\nsensor_type_labels = [l for l in labels if l in df['sensor_type'].unique()]\n# Create a separate legend for sensor_type\nlegend1 = plt.legend(sensor_type_handles, sensor_type_labels, title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Create a custom legend for weight\n# This is a bit tricky with seaborn's default `size` legend, often easier to manually create or simplify\n# For simplicity, we'll keep the auto-generated one for now, but ensure it's not overlapping.\n# If more control is needed, one might iterate through unique weight ranges or use a continuous colorbar for size.\n# For this task, the default size legend is acceptable.\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set a style for the plot\nsns.set_style(\"whitegrid\")\n\n# Create the scatter plot\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams', # Use weight to indicate size, as it's another important spec\n    sizes=(50, 800), # Adjust size range for better visualization\n    alpha=0.7,\n    palette='viridis' # Choose a color palette\n)\n\n# Add title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and Weight', fontsize=16)\nplt.xlabel('Megapixels', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Improve legend for size\nhandles, labels = scatter_plot.get_legend_handles_labels()\n# Filter out size legend labels if they are numeric, keep only sensor_type\nsensor_type_handles = [h for i, h in enumerate(handles) if labels[i] in df['sensor_type'].unique()]\nsensor_type_labels = [l for l in labels if l in df['sensor_type'].unique()]\n# Create a separate legend for sensor_type\nlegend1 = plt.legend(sensor_type_handles, sensor_type_labels, title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Create a custom legend for weight\n# This is a bit tricky with seaborn's default `size` legend, often easier to manually create or simplify\n# For simplicity, we'll keep the auto-generated one for now, but ensure it's not overlapping.\n# If more control is needed, one might iterate through unique weight ranges or use a continuous colorbar for size.\n# For this task, the default size legend is acceptable.\n\n# Adjust layout to prevent labels/legend from being cut off\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4167,
+    "color_delta_e": 1.9629,
+    "visual_entropy": 3.5174,
+    "labeling_completeness": 1.0,
+    "code_complexity": 13,
+    "generation_latency": 6.958,
+    "cost_per_run": 0.000163,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-12T04:51:27.731913",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to a more descriptive categorical variable\ndf['is_takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Calculate total sales by product and takeaway status\nsales_by_product_takeaway = df.groupby(['product', 'is_takeaway_status'])['total'].sum().unstack()\n\n# Sort products by total sales for better readability\nsales_by_product_takeaway['Total'] = sales_by_product_takeaway.sum(axis=1)\nsales_by_product_takeaway = sales_by_product_takeaway.sort_values('Total', ascending=False).drop('Total', axis=1)\n\n# Set up the plot style\nsns.set_theme(style=\"whitegrid\")\nplt.figure(figsize=(12, 7))\n\n# Create a stacked bar chart\nsales_by_product_takeaway.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add labels and title\nplt.title('Total Sales by Product and Takeaway Status', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Order Type', title_fontsize='12', fontsize='10', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'is_takeaway' to a more descriptive categorical variable\ndf['is_takeaway_status'] = df['is_takeaway'].map({0: 'Dine-in', 1: 'Takeaway'})\n\n# Calculate total sales by product and takeaway status\nsales_by_product_takeaway = df.groupby(['product', 'is_takeaway_status'])['total'].sum().unstack()\n\n# Sort products by total sales for better readability\nsales_by_product_takeaway['Total'] = sales_by_product_takeaway.sum(axis=1)\nsales_by_product_takeaway = sales_by_product_takeaway.sort_values('Total', ascending=False).drop('Total', axis=1)\n\n# Set up the plot style\nsns.set_theme(style=\"whitegrid\")\nplt.figure(figsize=(12, 7))\n\n# Create a stacked bar chart\nsales_by_product_takeaway.plot(kind='bar', stacked=True, ax=plt.gca(), cmap='viridis')\n\n# Add labels and title\nplt.title('Total Sales by Product and Takeaway Status', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45, ha='right', fontsize=10)\nplt.yticks(fontsize=10)\nplt.legend(title='Order Type', title_fontsize='12', fontsize='10', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Improve layout and save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5789,
+    "color_delta_e": 1.116,
+    "visual_entropy": 1.4446,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.172,
+    "cost_per_run": 0.000125,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

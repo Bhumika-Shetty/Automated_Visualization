@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-10T17:12:19.549629",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# --- Data Preprocessing for Visualization ---\n# Drop rows with missing 'Income' values, as they are crucial for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending across all product categories\nspending_columns = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_columns].sum(axis=1)\n\n# --- Visualization ---\nplt.figure(figsize=(14, 9)) # Adjust figure size for better readability\n\n# Create a scatter plot to visualize Total Spending vs. Income,\n# colored by Education level to reveal potential segmentation patterns.\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis', # Choose a color palette\n    alpha=0.7,         # Add transparency to handle potential overplotting\n    s=70,              # Adjust marker size\n    edgecolor='w',     # Add white edge to markers for better separation\n    linewidth=0.5\n)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=18, fontweight='bold')\nplt.xlabel('Annual Income', fontsize=14)\nplt.ylabel('Total Spending (USD)', fontsize=14)\n\n# Improve legend placement and title\nplt.legend(title='Education Level', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust x-axis limits to better focus on the main data distribution, if needed\n# plt.xlim(0, df['Income'].max() * 1.05)\n# plt.ylim(0, df['Total_Spending'].max() * 1.05)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# --- Data Preprocessing for Visualization ---\n# Drop rows with missing 'Income' values, as they are crucial for this visualization\ndf.dropna(subset=['Income'], inplace=True)\n\n# Calculate total spending across all product categories\nspending_columns = [col for col in df.columns if col.startswith('Mnt')]\ndf['Total_Spending'] = df[spending_columns].sum(axis=1)\n\n# --- Visualization ---\nplt.figure(figsize=(14, 9)) # Adjust figure size for better readability\n\n# Create a scatter plot to visualize Total Spending vs. Income,\n# colored by Education level to reveal potential segmentation patterns.\nsns.scatterplot(\n    data=df,\n    x='Income',\n    y='Total_Spending',\n    hue='Education',\n    palette='viridis', # Choose a color palette\n    alpha=0.7,         # Add transparency to handle potential overplotting\n    s=70,              # Adjust marker size\n    edgecolor='w',     # Add white edge to markers for better separation\n    linewidth=0.5\n)\n\n# Add title and labels for clarity\nplt.title('Total Customer Spending vs. Income by Education Level', fontsize=18, fontweight='bold')\nplt.xlabel('Annual Income', fontsize=14)\nplt.ylabel('Total Spending (USD)', fontsize=14)\n\n# Improve legend placement and title\nplt.legend(title='Education Level', title_fontsize='13', fontsize='11',\n           bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\n# Add a grid for easier reading of values\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Adjust x-axis limits to better focus on the main data distribution, if needed\n# plt.xlim(0, df['Income'].max() * 1.05)\n# plt.ylim(0, df['Total_Spending'].max() * 1.05)\n\n# Ensure all elements fit within the figure area\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 6.9,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.9232,
+    "visual_entropy": 0.7151,
+    "labeling_completeness": 1.0,
+    "code_complexity": 10,
+    "generation_latency": 13.591,
+    "cost_per_run": 0.000197,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

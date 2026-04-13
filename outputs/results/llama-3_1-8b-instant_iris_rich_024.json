@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-09T02:26:29.915837",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the data to create separate rows for each measurement\nmelted_data = pd.melt(data, id_vars=['species'], value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'],\n                      var_name='measurement', value_name='value')\n\n# Create a pairplot with a histogram and scatterplot for each pair of measurements\nsns.pairplot(melted_data, hue='species', markers=['o', 's', '^'], palette='husl')\n\n# Set the title and save the figure\nplt.title('Iris Flower Species Measurements')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot to prevent it from displaying\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Melt the data to create separate rows for each measurement\nmelted_data = pd.melt(data, id_vars=['species'], value_vars=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'],\n                      var_name='measurement', value_name='value')\n\n# Create a pairplot with a histogram and scatterplot for each pair of measurements\nsns.pairplot(melted_data, hue='species', markers=['o', 's', '^'], palette='husl')\n\n# Set the title and save the figure\nplt.title('Iris Flower Species Measurements')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n\n# Close the plot to prevent it from displaying\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.3846,
+    "color_delta_e": 2.6772,
+    "visual_entropy": 1.7262,
+    "labeling_completeness": 0.25,
+    "code_complexity": 3,
+    "generation_latency": 3.69,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 12,
+  "timestamp": "2026-04-11T01:53:42.364008",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Data provided as a string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Create a categorical plot to show survival rate by passenger class and sex\ng = sns.catplot(\n    data=df,\n    x=\"pclass\",\n    y=\"survived\",\n    hue=\"sex\",\n    kind=\"bar\",\n    palette=\"viridis\",\n    height=5,\n    aspect=1.2\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"\") # Remove facet titles as there's only one facet\ng.fig.suptitle(\"Survival Rate by Passenger Class and Sex\", y=1.03)\n\nplt.tight_layout()\nplt.savefig(\"output.png\")",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport io\n\n# Data provided as a string\ncsv_data = \"\"\"survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"\n\ndf = pd.read_csv(io.StringIO(csv_data))\n\n# Create a categorical plot to show survival rate by passenger class and sex\ng = sns.catplot(\n    data=df,\n    x=\"pclass\",\n    y=\"survived\",\n    hue=\"sex\",\n    kind=\"bar\",\n    palette=\"viridis\",\n    height=5,\n    aspect=1.2\n)\n\n# Set titles and labels for clarity\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.set_titles(\"\") # Remove facet titles as there's only one facet\ng.fig.suptitle(\"Survival Rate by Passenger Class and Sex\", y=1.03)\n\nplt.tight_layout()\nplt.savefig(\"output.png\")\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.8494,
+    "visual_entropy": 1.0321,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 9.062,
+    "cost_per_run": 9.2e-05,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

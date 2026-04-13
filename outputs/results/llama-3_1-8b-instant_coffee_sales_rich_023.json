@@ -1,0 +1,26 @@
+{
+  "model": "llama-3.1-8b-instant",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-09T03:48:30.019072",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data from csv\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert is_takeaway to categorical variable\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].map({0: 'In-store', 1: 'Takeaway'})\n\n# Group data by product and calculate total sales\nproduct_sales = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Plot bar chart of top 10 products by sales\ntop_products = product_sales.nlargest(10, 'total')\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', data=top_products)\nplt.title('Top 10 Products by Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data from csv\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert is_takeaway to categorical variable\ncoffee_sales['is_takeaway'] = coffee_sales['is_takeaway'].map({0: 'In-store', 1: 'Takeaway'})\n\n# Group data by product and calculate total sales\nproduct_sales = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Plot bar chart of top 10 products by sales\ntop_products = product_sales.nlargest(10, 'total')\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', data=top_products)\nplt.title('Top 10 Products by Sales')\nplt.xlabel('Product')\nplt.ylabel('Total Sales')\nplt.xticks(rotation=90)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 1.0455,
+    "visual_entropy": 1.1652,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 8.953,
+    "cost_per_run": 0.0,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}
