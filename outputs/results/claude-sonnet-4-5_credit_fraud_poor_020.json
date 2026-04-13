@@ -1,0 +1,26 @@
+{
+  "model": "claude-sonnet-4-5",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 20,
+  "timestamp": "2026-04-08T07:52:52.275287",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the data\ndata = pd.read_csv(pd.compat.StringIO(\"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"))\n\n# Create a figure with multiple subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\nfig.suptitle('Transaction Data Analysis', fontsize=16, fontweight='bold')\n\n# 1. Transaction amount distribution by type\nax1 = axes[0, 0]\nsns.boxplot(data=data, x='transaction_type', y='amount', ax=ax1, palette='Set2')\nax1.set_title('Transaction Amount by Type')\nax1.set_xlabel('Transaction Type')\nax1.set_ylabel('Amount ($)')\n\n# 2. Transaction count by hour of day\nax2 = axes[0, 1]\nhour_counts = data['hour_of_day'].value_counts().sort_index()\nax2.bar(hour_counts.index, hour_counts.values, color='steelblue', alpha=0.7)\nax2.set_title('Transactions by Hour of Day')\nax2.set_xlabel('Hour of Day')\nax2.set_ylabel('Count')\nax2.grid(axis='y', alpha=0.3)\n\n# 3. Transaction type distribution\nax3 = axes[1, 0]\ntype_counts = data['transaction_type'].value_counts()\ncolors = sns.color_palette('Set2', len(type_counts))\nax3.pie(type_counts.values, labels=type_counts.index, autopct='%1.1f%%', \n        colors=colors, startangle=90)\nax3.set_title('Transaction Type Distribution')\n\n# 4. Amount vs Hour scatter plot colored by transaction type\nax4 = axes[1, 1]\nfor trans_type in data['transaction_type'].unique():\n    subset = data[data['transaction_type'] == trans_type]\n    ax4.scatter(subset['hour_of_day'], subset['amount'], \n               label=trans_type, s=100, alpha=0.7)\nax4.set_title('Transaction Amount vs Hour of Day')\nax4.set_xlabel('Hour of Day')\nax4.set_ylabel('Amount ($)')\nax4.legend()\nax4.grid(alpha=0.3)\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the data\ndata = pd.read_csv(pd.compat.StringIO(\"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"))\n\n# Create a figure with multiple subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\nfig.suptitle('Transaction Data Analysis', fontsize=16, fontweight='bold')\n\n# 1. Transaction amount distribution by type\nax1 = axes[0, 0]\nsns.boxplot(data=data, x='transaction_type', y='amount', ax=ax1, palette='Set2')\nax1.set_title('Transaction Amount by Type')\nax1.set_xlabel('Transaction Type')\nax1.set_ylabel('Amount ($)')\n\n# 2. Transaction count by hour of day\nax2 = axes[0, 1]\nhour_counts = data['hour_of_day'].value_counts().sort_index()\nax2.bar(hour_counts.index, hour_counts.values, color='steelblue', alpha=0.7)\nax2.set_title('Transactions by Hour of Day')\nax2.set_xlabel('Hour of Day')\nax2.set_ylabel('Count')\nax2.grid(axis='y', alpha=0.3)\n\n# 3. Transaction type distribution\nax3 = axes[1, 0]\ntype_counts = data['transaction_type'].value_counts()\ncolors = sns.color_palette('Set2', len(type_counts))\nax3.pie(type_counts.values, labels=type_counts.index, autopct='%1.1f%%', \n        colors=colors, startangle=90)\nax3.set_title('Transaction Type Distribution')\n\n# 4. Amount vs Hour scatter plot colored by transaction type\nax4 = axes[1, 1]\nfor trans_type in data['transaction_type'].unique():\n    subset = data[data['transaction_type'] == trans_type]\n    ax4.scatter(subset['hour_of_day'], subset['amount'], \n               label=trans_type, s=100, alpha=0.7)\nax4.set_title('Transaction Amount vs Hour of Day')\nax4.set_xlabel('Hour of Day')\nax4.set_ylabel('Amount ($)')\nax4.legend()\nax4.grid(alpha=0.3)\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpikgxteo3/viz_script.py\", line 6, in <module>\n    data = pd.read_csv(pd.compat.StringIO(\"\"\"amount,is_fraud,transaction_type,hour_of_day\n                       ^^^^^^^^^^^^^^^^^^\nAttributeError: module 'pandas.compat' has no attribute 'StringIO'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6087,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 8.882,
+    "cost_per_run": 0.010587,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

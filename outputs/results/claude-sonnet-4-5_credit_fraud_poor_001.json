@@ -1,0 +1,26 @@
+{
+  "model": "claude-sonnet-4-5",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 1,
+  "timestamp": "2026-04-08T07:48:49.043351",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the data\ndata = pd.read_csv(pd.io.common.StringIO(\"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"))\n\n# Create a figure with multiple subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\nfig.suptitle('Transaction Data Analysis', fontsize=16, fontweight='bold')\n\n# 1. Transaction amount distribution by type\nsns.boxplot(data=data, x='transaction_type', y='amount', ax=axes[0, 0], palette='Set2')\naxes[0, 0].set_title('Transaction Amount by Type', fontweight='bold')\naxes[0, 0].set_xlabel('Transaction Type')\naxes[0, 0].set_ylabel('Amount ($)')\n\n# 2. Transaction count by type\ntransaction_counts = data['transaction_type'].value_counts()\naxes[0, 1].bar(transaction_counts.index, transaction_counts.values, color=['#66c2a5', '#fc8d62', '#8da0cb'])\naxes[0, 1].set_title('Transaction Count by Type', fontweight='bold')\naxes[0, 1].set_xlabel('Transaction Type')\naxes[0, 1].set_ylabel('Count')\naxes[0, 1].grid(axis='y', alpha=0.3)\n\n# 3. Transactions by hour of day\naxes[1, 0].scatter(data['hour_of_day'], data['amount'], \n                   c=data['transaction_type'].astype('category').cat.codes, \n                   s=100, alpha=0.6, cmap='viridis', edgecolors='black', linewidth=1)\naxes[1, 0].set_title('Transaction Amount vs Hour of Day', fontweight='bold')\naxes[1, 0].set_xlabel('Hour of Day')\naxes[1, 0].set_ylabel('Amount ($)')\naxes[1, 0].grid(True, alpha=0.3)\n\n# 4. Transaction distribution across hours\nhour_data = data.groupby('hour_of_day').agg({'amount': 'sum', 'transaction_type': 'count'})\naxes[1, 1].plot(hour_data.index, hour_data['amount'], marker='o', linewidth=2, markersize=8, color='#e41a1c')\naxes[1, 1].set_title('Total Transaction Amount by Hour', fontweight='bold')\naxes[1, 1].set_xlabel('Hour of Day')\naxes[1, 1].set_ylabel('Total Amount ($)')\naxes[1, 1].grid(True, alpha=0.3)\naxes[1, 1].set_xticks(range(0, 24, 2))\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "\n\n```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the data\ndata = pd.read_csv(pd.io.common.StringIO(\"\"\"amount,is_fraud,transaction_type,hour_of_day\n115.02,0,refund,22\n44.37,0,payment,5\n144.25,0,transfer,21\n536.22,0,payment,17\n38.43,0,payment,5\"\"\"))\n\n# Create a figure with multiple subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\nfig.suptitle('Transaction Data Analysis', fontsize=16, fontweight='bold')\n\n# 1. Transaction amount distribution by type\nsns.boxplot(data=data, x='transaction_type', y='amount', ax=axes[0, 0], palette='Set2')\naxes[0, 0].set_title('Transaction Amount by Type', fontweight='bold')\naxes[0, 0].set_xlabel('Transaction Type')\naxes[0, 0].set_ylabel('Amount ($)')\n\n# 2. Transaction count by type\ntransaction_counts = data['transaction_type'].value_counts()\naxes[0, 1].bar(transaction_counts.index, transaction_counts.values, color=['#66c2a5', '#fc8d62', '#8da0cb'])\naxes[0, 1].set_title('Transaction Count by Type', fontweight='bold')\naxes[0, 1].set_xlabel('Transaction Type')\naxes[0, 1].set_ylabel('Count')\naxes[0, 1].grid(axis='y', alpha=0.3)\n\n# 3. Transactions by hour of day\naxes[1, 0].scatter(data['hour_of_day'], data['amount'], \n                   c=data['transaction_type'].astype('category').cat.codes, \n                   s=100, alpha=0.6, cmap='viridis', edgecolors='black', linewidth=1)\naxes[1, 0].set_title('Transaction Amount vs Hour of Day', fontweight='bold')\naxes[1, 0].set_xlabel('Hour of Day')\naxes[1, 0].set_ylabel('Amount ($)')\naxes[1, 0].grid(True, alpha=0.3)\n\n# 4. Transaction distribution across hours\nhour_data = data.groupby('hour_of_day').agg({'amount': 'sum', 'transaction_type': 'count'})\naxes[1, 1].plot(hour_data.index, hour_data['amount'], marker='o', linewidth=2, markersize=8, color='#e41a1c')\naxes[1, 1].set_title('Total Transaction Amount by Hour', fontweight='bold')\naxes[1, 1].set_xlabel('Hour of Day')\naxes[1, 1].set_ylabel('Total Amount ($)')\naxes[1, 1].grid(True, alpha=0.3)\naxes[1, 1].set_xticks(range(0, 24, 2))\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp2zk6s7dx/viz_script.py:18: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(data=data, x='transaction_type', y='amount', ax=axes[0, 0], palette='Set2')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6471,
+    "color_delta_e": 0.5016,
+    "visual_entropy": 1.0485,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 12.599,
+    "cost_per_run": 0.012267,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

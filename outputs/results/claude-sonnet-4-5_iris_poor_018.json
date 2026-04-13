@@ -1,0 +1,26 @@
+{
+  "model": "claude-sonnet-4-5",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 18,
+  "timestamp": "2026-04-08T06:55:56.413317",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the data\ndata = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\"\"\"\n\nfrom io import StringIO\ndf = pd.read_csv(StringIO(data))\n\n# Create a pairplot to visualize relationships between all features\nsns.set_style(\"whitegrid\")\npairplot = sns.pairplot(df, hue='species', diag_kind='kde', markers='o', \n                        palette='Set2', plot_kws={'alpha': 0.7, 's': 80})\npairplot.fig.suptitle('Iris Dataset - Pairwise Feature Relationships', y=1.02, fontsize=16)\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Read the data\ndata = \"\"\"sepal_length,sepal_width,petal_length,petal_width,species\n5.1,3.5,1.4,0.2,setosa\n4.9,3.0,1.4,0.2,setosa\n4.7,3.2,1.3,0.2,setosa\n4.6,3.1,1.5,0.2,setosa\n5.0,3.6,1.4,0.2,setosa\"\"\"\n\nfrom io import StringIO\ndf = pd.read_csv(StringIO(data))\n\n# Create a pairplot to visualize relationships between all features\nsns.set_style(\"whitegrid\")\npairplot = sns.pairplot(df, hue='species', diag_kind='kde', markers='o', \n                        palette='Set2', plot_kws={'alpha': 0.7, 's': 80})\npairplot.fig.suptitle('Iris Dataset - Pairwise Feature Relationships', y=1.02, fontsize=16)\n\nplt.tight_layout()\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.3766,
+    "visual_entropy": 0.8609,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 4.949,
+    "cost_per_run": 0.005367,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}
