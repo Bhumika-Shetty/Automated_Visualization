@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 19,
+  "timestamp": "2026-04-08T04:01:59.496941",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given data\ndata = {\n    'survived': [0, 1, 1, 1, 0],\n    'pclass': [3, 1, 3, 1, 3],\n    'sex': ['male', 'female', 'female', 'female', 'male'],\n    'age': [22.0, 38.0, 26.0, 35.0, 35.0],\n    'sibsp': [1, 1, 0, 1, 0],\n    'parch': [0, 0, 0, 0, 0],\n    'fare': [7.25, 71.2833, 7.925, 53.1, 8.05],\n    'embarked': ['S', 'C', 'S', 'S', 'S'],\n    'class': ['Third', 'First', 'Third', 'First', 'Third'],\n    'who': ['man', 'woman', 'woman', 'woman', 'man'],\n    'adult_male': [True, False, False, False, True],\n    'deck': [None, 'C', None, 'C', None],\n    'embark_town': ['Southampton', 'Cherbourg', 'Southampton', 'Southampton', 'Southampton'],\n    'alive': ['no', 'yes', 'yes', 'yes', 'no'],\n    'alone': [False, False, True, False, True]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualizations\nsns.set(style=\"whitegrid\")\n\n# Create a figure with a specific size\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot of survival counts by class and sex\nsns.countplot(data=df, x='class', hue='sex')\n\n# Add title and labels\nplt.title('Survival Count by Class and Sex')\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Show the plot\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the given data\ndata = {\n    'survived': [0, 1, 1, 1, 0],\n    'pclass': [3, 1, 3, 1, 3],\n    'sex': ['male', 'female', 'female', 'female', 'male'],\n    'age': [22.0, 38.0, 26.0, 35.0, 35.0],\n    'sibsp': [1, 1, 0, 1, 0],\n    'parch': [0, 0, 0, 0, 0],\n    'fare': [7.25, 71.2833, 7.925, 53.1, 8.05],\n    'embarked': ['S', 'C', 'S', 'S', 'S'],\n    'class': ['Third', 'First', 'Third', 'First', 'Third'],\n    'who': ['man', 'woman', 'woman', 'woman', 'man'],\n    'adult_male': [True, False, False, False, True],\n    'deck': [None, 'C', None, 'C', None],\n    'embark_town': ['Southampton', 'Cherbourg', 'Southampton', 'Southampton', 'Southampton'],\n    'alive': ['no', 'yes', 'yes', 'yes', 'no'],\n    'alone': [False, False, True, False, True]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualizations\nsns.set(style=\"whitegrid\")\n\n# Create a figure with a specific size\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot of survival counts by class and sex\nsns.countplot(data=df, x='class', hue='sex')\n\n# Add title and labels\nplt.title('Survival Count by Class and Sex')\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\n\n# Save the plot to a file\nplt.savefig('output.png')\n\n# Show the plot\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5472,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 4.689,
+    "cost_per_run": 0.005313,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

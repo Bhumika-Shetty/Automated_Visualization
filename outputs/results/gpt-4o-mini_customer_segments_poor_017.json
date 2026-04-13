@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "customer_segments",
+  "prompt_type": "poor",
+  "run_id": 17,
+  "timestamp": "2026-04-08T05:03:30.144517",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame\ndata = {\n    \"ID\": [5524, 2174, 4141, 6182, 5324],\n    \"Year_Birth\": [1957, 1954, 1965, 1984, 1981],\n    \"Education\": [\"Graduation\", \"Graduation\", \"Graduation\", \"Graduation\", \"PhD\"],\n    \"Marital_Status\": [\"Single\", \"Single\", \"Together\", \"Together\", \"Married\"],\n    \"Income\": [58138.0, 46344.0, 71613.0, 26646.0, 58293.0],\n    \"Kidhome\": [0, 1, 0, 1, 1],\n    \"Teenhome\": [0, 1, 0, 0, 0],\n    \"Recency\": [58, 38, 26, 26, 94],\n    \"MntWines\": [635, 11, 426, 11, 173],\n    \"MntFruits\": [88, 1, 49, 4, 43],\n    \"MntMeatProducts\": [546, 6, 127, 20, 118],\n    \"MntFishProducts\": [172, 2, 111, 10, 46],\n    \"MntSweetProducts\": [88, 1, 21, 3, 27],\n    \"MntGoldProds\": [88, 6, 42, 5, 15],\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for Income by Education\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Education', y='Income', data=df, ci=None, palette='viridis')\n\n# Adding titles and labels\nplt.title('Average Income by Education Level', fontsize=16)\nplt.xlabel('Education Level', fontsize=14)\nplt.ylabel('Average Income', fontsize=14)\n\n# Save the plot as output.png\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame\ndata = {\n    \"ID\": [5524, 2174, 4141, 6182, 5324],\n    \"Year_Birth\": [1957, 1954, 1965, 1984, 1981],\n    \"Education\": [\"Graduation\", \"Graduation\", \"Graduation\", \"Graduation\", \"PhD\"],\n    \"Marital_Status\": [\"Single\", \"Single\", \"Together\", \"Together\", \"Married\"],\n    \"Income\": [58138.0, 46344.0, 71613.0, 26646.0, 58293.0],\n    \"Kidhome\": [0, 1, 0, 1, 1],\n    \"Teenhome\": [0, 1, 0, 0, 0],\n    \"Recency\": [58, 38, 26, 26, 94],\n    \"MntWines\": [635, 11, 426, 11, 173],\n    \"MntFruits\": [88, 1, 49, 4, 43],\n    \"MntMeatProducts\": [546, 6, 127, 20, 118],\n    \"MntFishProducts\": [172, 2, 111, 10, 46],\n    \"MntSweetProducts\": [88, 1, 21, 3, 27],\n    \"MntGoldProds\": [88, 6, 42, 5, 15],\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for Income by Education\nplt.figure(figsize=(10, 6))\nsns.barplot(x='Education', y='Income', data=df, ci=None, palette='viridis')\n\n# Adding titles and labels\nplt.title('Average Income by Education Level', fontsize=16)\nplt.xlabel('Education Level', fontsize=14)\nplt.ylabel('Average Income', fontsize=14)\n\n# Save the plot as output.png\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp0ll__bug/viz_script.py:30: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x='Education', y='Income', data=df, ci=None, palette='viridis')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp0ll__bug/viz_script.py:30: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='Education', y='Income', data=df, ci=None, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 48.28,
+    "hallucination_rate": 0.4839,
+    "color_delta_e": 0.6781,
+    "visual_entropy": 1.719,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 7.597,
+    "cost_per_run": 0.000361,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

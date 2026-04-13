@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-08T04:10:56.391288",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis for plotting\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Plot a boxplot to show the distribution of Sleep Duration for different BMI Categories\nsns.boxplot(x='BMI Category', y='Sleep Duration', data=data, ax=ax, palette=\"Set2\")\n\n# Set labels and title\nax.set_xlabel('BMI Category', fontsize=12)\nax.set_ylabel('Sleep Duration (hours)', fontsize=12)\nax.set_title('Distribution of Sleep Duration Across BMI Categories', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis for plotting\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Plot a boxplot to show the distribution of Sleep Duration for different BMI Categories\nsns.boxplot(x='BMI Category', y='Sleep Duration', data=data, ax=ax, palette=\"Set2\")\n\n# Set labels and title\nax.set_xlabel('BMI Category', fontsize=12)\nax.set_ylabel('Sleep Duration (hours)', fontsize=12)\nax.set_title('Distribution of Sleep Duration Across BMI Categories', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpzan4w0sw/viz_script.py:15: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='BMI Category', y='Sleep Duration', data=data, ax=ax, palette=\"Set2\")\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 15.38,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.6114,
+    "visual_entropy": 1.5375,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 2.13,
+    "cost_per_run": 0.002942,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

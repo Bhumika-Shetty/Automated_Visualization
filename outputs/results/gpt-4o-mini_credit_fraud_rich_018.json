@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-08T05:08:31.589976",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a violin plot to show the distribution of transaction amounts by fraud status\nplt.figure(figsize=(10, 6))\nsns.violinplot(x='is_fraud', y='amount', data=data, hue='transaction_type', split=True)\n\n# Labeling the axes and title\nplt.xlabel('Fraud Status (0 = No Fraud, 1 = Fraud)')\nplt.ylabel('Transaction Amount')\nplt.title('Distribution of Transaction Amounts by Fraud Status and Type')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a violin plot to show the distribution of transaction amounts by fraud status\nplt.figure(figsize=(10, 6))\nsns.violinplot(x='is_fraud', y='amount', data=data, hue='transaction_type', split=True)\n\n# Labeling the axes and title\nplt.xlabel('Fraud Status (0 = No Fraud, 1 = Fraud)')\nplt.ylabel('Transaction Amount')\nplt.title('Distribution of Transaction Amounts by Fraud Status and Type')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.7987,
+    "visual_entropy": 0.7414,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 4.277,
+    "cost_per_run": 0.00014,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

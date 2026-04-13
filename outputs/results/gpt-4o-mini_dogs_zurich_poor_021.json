@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 21,
+  "timestamp": "2026-04-08T16:36:45.028098",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided data\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'SexLang': ['m\u00e4nnlich'] * 5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set up the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Create a count plot\nsns.countplot(data=df, x='KreisLang', hue='SexLang', palette='viridis')\n\n# Adding titles and labels\nplt.title('Number of Dogs by Kreis and Sex', fontsize=16)\nplt.xlabel('Kreis', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.legend(title='Sex', fontsize=10)\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided data\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'SexLang': ['m\u00e4nnlich'] * 5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set up the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Create a count plot\nsns.countplot(data=df, x='KreisLang', hue='SexLang', palette='viridis')\n\n# Adding titles and labels\nplt.title('Number of Dogs by Kreis and Sex', fontsize=16)\nplt.xlabel('Kreis', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.legend(title='Sex', fontsize=10)\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 0.8515,
+    "visual_entropy": 1.1934,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.487,
+    "cost_per_run": 0.000284,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

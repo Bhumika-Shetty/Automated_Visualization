@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-08T04:46:41.539219",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot with regression line to explore the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(10, 6))\nscatter_plot = sns.regplot(x='Sleep Duration', y='Quality of Sleep', data=data, \n                            scatter_kws={'alpha':0.5}, line_kws={'color':'red'})\n\n# Customize the plot with titles and labels\nplt.title('Relationship Between Sleep Duration and Quality of Sleep', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=14)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot with regression line to explore the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(10, 6))\nscatter_plot = sns.regplot(x='Sleep Duration', y='Quality of Sleep', data=data, \n                            scatter_kws={'alpha':0.5}, line_kws={'color':'red'})\n\n# Customize the plot with titles and labels\nplt.title('Relationship Between Sleep Duration and Quality of Sleep', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=14)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 15.38,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.828,
+    "visual_entropy": 0.8163,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 4.609,
+    "cost_per_run": 0.000186,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

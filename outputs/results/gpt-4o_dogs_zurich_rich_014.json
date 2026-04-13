@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-08T16:13:46.651235",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndogs_zurich = pd.read_csv('data/dogs_zurich.csv')\n\n# Data preparation: Count the number of dogs by breed\nbreed_counts = dogs_zurich['Rasse1Text'].value_counts().head(10)\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a bar plot for the top 10 breeds\nsns.barplot(\n    x=breed_counts.values,\n    y=breed_counts.index,\n    palette='viridis'\n)\n\n# Add title and labels\nplt.title('Top 10 Dog Breeds in Zurich', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Breed', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndogs_zurich = pd.read_csv('data/dogs_zurich.csv')\n\n# Data preparation: Count the number of dogs by breed\nbreed_counts = dogs_zurich['Rasse1Text'].value_counts().head(10)\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a bar plot for the top 10 breeds\nsns.barplot(\n    x=breed_counts.values,\n    y=breed_counts.index,\n    palette='viridis'\n)\n\n# Add title and labels\nplt.title('Top 10 Dog Breeds in Zurich', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Breed', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```\n",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8t2wy89z/viz_script.py:15: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.8333,
+    "color_delta_e": 0.6674,
+    "visual_entropy": 1.447,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.234,
+    "cost_per_run": 0.004522,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

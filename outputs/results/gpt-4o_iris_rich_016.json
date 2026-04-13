@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-08T04:06:00.414753",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris_data = pd.read_csv('data/iris.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot\npairplot = sns.pairplot(iris_data, hue='species', markers=['o', 's', 'D'], palette='Set2')\n\n# Add a title to the pairplot\npairplot.fig.suptitle('Pairwise Relationships in Iris Dataset', y=1.02)\n\n# Save the plot as a png file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris_data = pd.read_csv('data/iris.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot\npairplot = sns.pairplot(iris_data, hue='species', markers=['o', 's', 'D'], palette='Set2')\n\n# Add a title to the pairplot\npairplot.fig.suptitle('Pairwise Relationships in Iris Dataset', y=1.02)\n\n# Save the plot as a png file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.3518,
+    "visual_entropy": 1.5267,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 1.528,
+    "cost_per_run": 0.002197,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

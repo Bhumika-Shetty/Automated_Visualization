@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-08T16:35:01.136801",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\ndf = pd.DataFrame(data)\n\n# Prepare the plot\nplt.figure(figsize=(12, 6))\nsns.barplot(x='StichtagDat', y='AnzHunde', hue='KreisLang', data=df)\n\n# Customize the plot\nplt.title('Number of Dogs by Date and District')\nplt.xlabel('Date')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.legend(title='District')\n\n# Save the result\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\ndf = pd.DataFrame(data)\n\n# Prepare the plot\nplt.figure(figsize=(12, 6))\nsns.barplot(x='StichtagDat', y='AnzHunde', hue='KreisLang', data=df)\n\n# Customize the plot\nplt.title('Number of Dogs by Date and District')\nplt.xlabel('Date')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.legend(title='District')\n\n# Save the result\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.5294,
+    "color_delta_e": 1.1039,
+    "visual_entropy": 1.8004,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.698,
+    "cost_per_run": 0.000274,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

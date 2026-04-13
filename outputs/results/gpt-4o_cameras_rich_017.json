@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-08T16:20:22.525634",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='has_video_4k',\n    palette='deep',\n    markers={0: 'X', 1: 'o'},\n    alpha=0.7\n)\n\n# Add a regression line for each sensor type\nsns.regplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    scatter=False,\n    fit_reg=True,\n    color='gray',\n    ci=None\n)\n\n# Customize plot elements\nplt.title('Digital Cameras: Megapixels vs. Price', fontsize=16)\nplt.xlabel('Megapixels', fontsize=14)\nplt.ylabel('Price (USD)', fontsize=14)\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='has_video_4k',\n    palette='deep',\n    markers={0: 'X', 1: 'o'},\n    alpha=0.7\n)\n\n# Add a regression line for each sensor type\nsns.regplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    scatter=False,\n    fit_reg=True,\n    color='gray',\n    ci=None\n)\n\n# Customize plot elements\nplt.title('Digital Cameras: Megapixels vs. Price', fontsize=16)\nplt.xlabel('Megapixels', fontsize=14)\nplt.ylabel('Price (USD)', fontsize=14)\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 1.042,
+    "visual_entropy": 1.1174,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.373,
+    "cost_per_run": 0.003882,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

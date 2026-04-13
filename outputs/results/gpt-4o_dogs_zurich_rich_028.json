@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-08T16:14:49.164886",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate the number of dogs by district and breed\nbreed_district = data.groupby(['KreisLang', 'Rasse1Text']).size().reset_index(name='Count')\n\n# Pivot the table for heatmap\nheatmap_data = breed_district.pivot('KreisLang', 'Rasse1Text', 'Count').fillna(0)\n\n# Create the heatmap\nplt.figure(figsize=(12, 8))\nsns.heatmap(heatmap_data, cmap='YlGnBu', linewidths=.5)\n\n# Add title and labels\nplt.title('Number of Dogs by Breed and District in Zurich', fontsize=16)\nplt.xlabel('Breed', fontsize=12)\nplt.ylabel('District', fontsize=12)\nplt.xticks(rotation=45, ha='right')\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate the number of dogs by district and breed\nbreed_district = data.groupby(['KreisLang', 'Rasse1Text']).size().reset_index(name='Count')\n\n# Pivot the table for heatmap\nheatmap_data = breed_district.pivot('KreisLang', 'Rasse1Text', 'Count').fillna(0)\n\n# Create the heatmap\nplt.figure(figsize=(12, 8))\nsns.heatmap(heatmap_data, cmap='YlGnBu', linewidths=.5)\n\n# Add title and labels\nplt.title('Number of Dogs by Breed and District in Zurich', fontsize=16)\nplt.xlabel('Breed', fontsize=12)\nplt.ylabel('District', fontsize=12)\nplt.xticks(rotation=45, ha='right')\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp7pbd9osf/viz_script.py\", line 12, in <module>\n    heatmap_data = breed_district.pivot('KreisLang', 'Rasse1Text', 'Count').fillna(0)\n                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: DataFrame.pivot() takes 1 positional argument but 4 were given\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 4.939,
+    "cost_per_run": 0.004853,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

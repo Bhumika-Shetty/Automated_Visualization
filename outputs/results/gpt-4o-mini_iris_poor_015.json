@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-08T04:42:55.883107",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create a DataFrame\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\n# Create a pairplot\nsns.pairplot(df, hue='species', markers=[\"o\"])\n\n# Save the figure\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create a DataFrame\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\n# Create a pairplot\nsns.pairplot(df, hue='species', markers=[\"o\"])\n\n# Save the figure\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4167,
+    "color_delta_e": 1.2915,
+    "visual_entropy": 0.666,
+    "labeling_completeness": 0.0,
+    "code_complexity": 0,
+    "generation_latency": 5.288,
+    "cost_per_run": 0.000156,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

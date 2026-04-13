@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-08T16:33:15.201573",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter the data for the top 10 breeds by count\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot of the top breeds by gender\nplt.figure(figsize=(12, 6))\nsns.countplot(data=filtered_data, x='Rasse1Text', hue='SexLang', order=top_breeds, palette='Set2')\nplt.title('Top 10 Dog Breeds in Zurich by Gender')\nplt.xlabel('Dog Breed')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter the data for the top 10 breeds by count\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot of the top breeds by gender\nplt.figure(figsize=(12, 6))\nsns.countplot(data=filtered_data, x='Rasse1Text', hue='SexLang', order=top_breeds, palette='Set2')\nplt.title('Top 10 Dog Breeds in Zurich by Gender')\nplt.xlabel('Dog Breed')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.legend(title='Gender')\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.8953,
+    "visual_entropy": 0.7208,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 4.435,
+    "cost_per_run": 0.000279,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

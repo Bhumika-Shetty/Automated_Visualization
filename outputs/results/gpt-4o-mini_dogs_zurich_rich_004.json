@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T16:31:28.067973",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter to get the top 10 most common breeds\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Set up the visualization\nplt.figure(figsize=(12, 8))\nsns.countplot(data=filtered_data, y='Rasse1Text', hue='SexLang', palette='Set2')\n\n# Add titles and labels\nplt.title('Top 10 Dog Breeds in Zurich by Gender', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\nplt.legend(title='Gender', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter to get the top 10 most common breeds\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Set up the visualization\nplt.figure(figsize=(12, 8))\nsns.countplot(data=filtered_data, y='Rasse1Text', hue='SexLang', palette='Set2')\n\n# Add titles and labels\nplt.title('Top 10 Dog Breeds in Zurich by Gender', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\nplt.legend(title='Gender', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6364,
+    "color_delta_e": 0.7402,
+    "visual_entropy": 0.7284,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.791,
+    "cost_per_run": 0.000281,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

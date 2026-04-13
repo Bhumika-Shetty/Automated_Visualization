@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-08T04:15:16.641406",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for total spending\ndf['Total_Spending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Create a new column for total children\ndf['Total_Children'] = df['Kidhome'] + df['Teenhome']\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot to show the relationship between Income and Total Spending, colored by Marital Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='viridis', alpha=0.7)\n\n# Add labels and title\nplt.xlabel('Annual Income (USD)')\nplt.ylabel('Total Spending on Products (USD)')\nplt.title('Income vs Total Spending by Marital Status')\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for total spending\ndf['Total_Spending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Create a new column for total children\ndf['Total_Children'] = df['Kidhome'] + df['Teenhome']\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot to show the relationship between Income and Total Spending, colored by Marital Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='viridis', alpha=0.7)\n\n# Add labels and title\nplt.xlabel('Annual Income (USD)')\nplt.ylabel('Total Spending on Products (USD)')\nplt.title('Income vs Total Spending by Marital Status')\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 34.48,
+    "hallucination_rate": 0.4737,
+    "color_delta_e": 0.9129,
+    "visual_entropy": 0.714,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 3.394,
+    "cost_per_run": 0.004962,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

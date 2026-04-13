@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-08T16:13:10.866372",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a new column for dog age groups\ndata['DogAgeGroup'] = pd.cut(data['AlterVHundNum'], bins=[0, 1, 3, 5, 10, 20], labels=['0-1', '1-3', '3-5', '5-10', '10+'])\n\n# Aggregate data by district and dog age group\nagg_data = data.groupby(['KreisLang', 'DogAgeGroup']).size().reset_index(name='Count')\n\n# Setup the figure\nplt.figure(figsize=(14, 8))\n\n# Create a bar plot\nsns.barplot(data=agg_data, x='KreisLang', y='Count', hue='DogAgeGroup')\n\n# Add title and labels\nplt.title('Distribution of Dogs by Age Group Across Districts in Zurich', fontsize=14)\nplt.xlabel('District', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45, ha='right')\nplt.legend(title='Dog Age Group', title_fontsize='13', fontsize='11')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a new column for dog age groups\ndata['DogAgeGroup'] = pd.cut(data['AlterVHundNum'], bins=[0, 1, 3, 5, 10, 20], labels=['0-1', '1-3', '3-5', '5-10', '10+'])\n\n# Aggregate data by district and dog age group\nagg_data = data.groupby(['KreisLang', 'DogAgeGroup']).size().reset_index(name='Count')\n\n# Setup the figure\nplt.figure(figsize=(14, 8))\n\n# Create a bar plot\nsns.barplot(data=agg_data, x='KreisLang', y='Count', hue='DogAgeGroup')\n\n# Add title and labels\nplt.title('Distribution of Dogs by Age Group Across Districts in Zurich', fontsize=14)\nplt.xlabel('District', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45, ha='right')\nplt.legend(title='Dog Age Group', title_fontsize='13', fontsize='11')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.7857,
+    "color_delta_e": 1.3199,
+    "visual_entropy": 1.1214,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 6.553,
+    "cost_per_run": 0.005423,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

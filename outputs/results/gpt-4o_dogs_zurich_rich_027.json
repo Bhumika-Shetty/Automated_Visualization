@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-08T16:14:44.174893",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare data for visualization\nbreed_counts = df['Rasse1Text'].value_counts().head(10)\ndistrict_counts = df['KreisLang'].value_counts()\n\n# Set up the matplotlib figure\nfig, axes = plt.subplots(2, 1, figsize=(10, 12))\n\n# Plot 1: Top 10 dog breeds\nsns.barplot(x=breed_counts.values, y=breed_counts.index, ax=axes[0], palette='viridis')\naxes[0].set_title('Top 10 Dog Breeds in Zurich')\naxes[0].set_xlabel('Number of Dogs')\naxes[0].set_ylabel('Breed')\n\n# Plot 2: Dogs by District\nsns.barplot(x=district_counts.values, y=district_counts.index, ax=axes[1], palette='muted')\naxes[1].set_title('Number of Dogs by District')\naxes[1].set_xlabel('Number of Dogs')\naxes[1].set_ylabel('District')\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare data for visualization\nbreed_counts = df['Rasse1Text'].value_counts().head(10)\ndistrict_counts = df['KreisLang'].value_counts()\n\n# Set up the matplotlib figure\nfig, axes = plt.subplots(2, 1, figsize=(10, 12))\n\n# Plot 1: Top 10 dog breeds\nsns.barplot(x=breed_counts.values, y=breed_counts.index, ax=axes[0], palette='viridis')\naxes[0].set_title('Top 10 Dog Breeds in Zurich')\naxes[0].set_xlabel('Number of Dogs')\naxes[0].set_ylabel('Breed')\n\n# Plot 2: Dogs by District\nsns.barplot(x=district_counts.values, y=district_counts.index, ax=axes[1], palette='muted')\naxes[1].set_title('Number of Dogs by District')\naxes[1].set_xlabel('Number of Dogs')\naxes[1].set_ylabel('District')\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp51ehef7e/viz_script.py:16: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=breed_counts.values, y=breed_counts.index, ax=axes[0], palette='viridis')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp51ehef7e/viz_script.py:22: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=district_counts.values, y=district_counts.index, ax=axes[1], palette='muted')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.8182,
+    "color_delta_e": 0.8196,
+    "visual_entropy": 1.699,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 3.519,
+    "cost_per_run": 0.005312,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

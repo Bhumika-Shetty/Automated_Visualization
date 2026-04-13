@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 4,
+  "timestamp": "2026-04-08T04:24:43.494990",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a pandas DataFrame\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create a figure and a set of subplots\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Create a boxplot of amounts by transaction type\nsns.boxplot(x='transaction_type', y='amount', data=data, ax=ax)\n\n# Set the title and labels\nax.set_title('Transaction Amounts by Type')\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Amount')\n\n# Save the plot as a .png file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a pandas DataFrame\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create a figure and a set of subplots\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Create a boxplot of amounts by transaction type\nsns.boxplot(x='transaction_type', y='amount', data=data, ax=ax)\n\n# Set the title and labels\nax.set_title('Transaction Amounts by Type')\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Amount')\n\n# Save the plot as a .png file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 0.4688,
+    "visual_entropy": 0.7657,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.617,
+    "cost_per_run": 0.002747,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

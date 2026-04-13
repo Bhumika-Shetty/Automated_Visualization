@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-08T16:20:03.553618",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a jointplot to visualize the relationship between megapixels and price, colored by sensor type\ng = sns.jointplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    kind='scatter',\n    palette='deep',\n    height=8\n)\n\n# Add titles and labels\ng.fig.suptitle('Megapixels vs Price by Sensor Type', fontsize=16)\ng.set_axis_labels('Megapixels', 'Price (USD)', fontsize=12)\ng.add_legend(title='Sensor Type')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a jointplot to visualize the relationship between megapixels and price, colored by sensor type\ng = sns.jointplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    kind='scatter',\n    palette='deep',\n    height=8\n)\n\n# Add titles and labels\ng.fig.suptitle('Megapixels vs Price by Sensor Type', fontsize=16)\ng.set_axis_labels('Megapixels', 'Price (USD)', fontsize=12)\ng.add_legend(title='Sensor Type')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpuhcxxvb2/viz_script.py\", line 25, in <module>\n    g.add_legend(title='Sensor Type')\n    ^^^^^^^^^^^^\nAttributeError: 'JointGrid' object has no attribute 'add_legend'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 30.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.5,
+    "code_complexity": 0,
+    "generation_latency": 2.235,
+    "cost_per_run": 0.002913,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

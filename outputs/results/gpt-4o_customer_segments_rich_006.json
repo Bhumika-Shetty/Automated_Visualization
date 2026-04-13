@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-08T04:14:26.359351",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Convert the Dt_Customer to datetime\ndata['Dt_Customer'] = pd.to_datetime(data['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for the total spending on products\ndata['Total_Spending'] = data[['MntWines', 'MntFruits', 'MntMeatProducts', \n                               'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot the relationship between Income and Total Spending\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Income', y='Total_Spending', hue='Education', style='Marital_Status', data=data, alpha=0.7)\n\n# Add labels and title\nplt.xlabel('Income')\nplt.ylabel('Total Spending')\nplt.title('Income vs Total Spending by Education and Marital Status')\nplt.legend(title='Education, Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Convert the Dt_Customer to datetime\ndata['Dt_Customer'] = pd.to_datetime(data['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for the total spending on products\ndata['Total_Spending'] = data[['MntWines', 'MntFruits', 'MntMeatProducts', \n                               'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot the relationship between Income and Total Spending\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='Income', y='Total_Spending', hue='Education', style='Marital_Status', data=data, alpha=0.7)\n\n# Add labels and title\nplt.xlabel('Income')\nplt.ylabel('Total Spending')\nplt.title('Income vs Total Spending by Education and Marital Status')\nplt.legend(title='Education, Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```\n",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 34.48,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 1.4895,
+    "visual_entropy": 0.7111,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.369,
+    "cost_per_run": 0.004733,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

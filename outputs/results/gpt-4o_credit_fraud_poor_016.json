@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-08T04:28:22.392320",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the aesthetic style of the plots\nsns.set(style='whitegrid')\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Create a boxplot for transaction amounts by type\nsns.boxplot(x='transaction_type', y='amount', data=df, ax=ax, palette='Set2')\n\n# Set the title and labels\nax.set_title('Transaction Amounts by Type')\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Amount')\n\n# Save the plot as a PNG file\nplt.savefig('output.png')\nplt.close(fig)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the aesthetic style of the plots\nsns.set(style='whitegrid')\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Create a boxplot for transaction amounts by type\nsns.boxplot(x='transaction_type', y='amount', data=df, ax=ax, palette='Set2')\n\n# Set the title and labels\nax.set_title('Transaction Amounts by Type')\nax.set_xlabel('Transaction Type')\nax.set_ylabel('Amount')\n\n# Save the plot as a PNG file\nplt.savefig('output.png')\nplt.close(fig)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmptolivq_m/viz_script.py:22: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='transaction_type', y='amount', data=df, ax=ax, palette='Set2')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5625,
+    "color_delta_e": 0.4741,
+    "visual_entropy": 0.7663,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 1.969,
+    "cost_per_run": 0.002788,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

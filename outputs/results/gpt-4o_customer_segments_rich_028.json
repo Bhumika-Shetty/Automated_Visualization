@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-08T04:15:54.633895",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime format\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot: Average total spending by education level\nplt.figure(figsize=(12, 6))\nsns.barplot(data=df, x='Education', y='Total_Spending', ci=None, palette='viridis', estimator=sum)\nplt.title('Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Total Spending')\nplt.xticks(rotation=45)\nplt.grid(axis='y')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime format\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot: Average total spending by education level\nplt.figure(figsize=(12, 6))\nsns.barplot(data=df, x='Education', y='Total_Spending', ci=None, palette='viridis', estimator=sum)\nplt.title('Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Total Spending')\nplt.xticks(rotation=45)\nplt.grid(axis='y')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp26i7lvv7/viz_script.py:16: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(data=df, x='Education', y='Total_Spending', ci=None, palette='viridis', estimator=sum)\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp26i7lvv7/viz_script.py:16: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=df, x='Education', y='Total_Spending', ci=None, palette='viridis', estimator=sum)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4118,
+    "color_delta_e": 0.7149,
+    "visual_entropy": 1.3911,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.174,
+    "cost_per_run": 0.004393,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-08T16:32:33.211889",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter out necessary columns and drop rows with missing values\ndata_filtered = data[['Rasse1Text', 'AlterVHundLang', 'AnzHunde']].dropna()\n\n# Create a bar plot for the number of dogs by breed and age\nplt.figure(figsize=(12, 8))\nsns.barplot(data=data_filtered, x='Rasse1Text', y='AnzHunde', hue='AlterVHundLang', ci=None)\n\n# Customize the plot\nplt.title('Number of Dogs by Breed and Age in Zurich', fontsize=16)\nplt.xlabel('Dog Breed', fontsize=14)\nplt.ylabel('Number of Dogs', fontsize=14)\nplt.xticks(rotation=45, ha='right')\nplt.legend(title='Age of Dog', fontsize=12)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter out necessary columns and drop rows with missing values\ndata_filtered = data[['Rasse1Text', 'AlterVHundLang', 'AnzHunde']].dropna()\n\n# Create a bar plot for the number of dogs by breed and age\nplt.figure(figsize=(12, 8))\nsns.barplot(data=data_filtered, x='Rasse1Text', y='AnzHunde', hue='AlterVHundLang', ci=None)\n\n# Customize the plot\nplt.title('Number of Dogs by Breed and Age in Zurich', fontsize=16)\nplt.xlabel('Dog Breed', fontsize=14)\nplt.ylabel('Number of Dogs', fontsize=14)\nplt.xticks(rotation=45, ha='right')\nplt.legend(title='Age of Dog', fontsize=12)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpliyi5tfp/viz_script.py:13: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(data=data_filtered, x='Rasse1Text', y='AnzHunde', hue='AlterVHundLang', ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 15.9881,
+    "visual_entropy": 2.8012,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 8.474,
+    "cost_per_run": 0.000291,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-08T05:10:19.189840",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='hour_of_day', y='amount', hue='transaction_type', data=df, ci=None)\n\n# Add labels and title\nplt.title('Transaction Amounts by Hour of Day and Type')\nplt.xlabel('Hour of Day')\nplt.ylabel('Transaction Amount')\nplt.legend(title='Transaction Type')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create the plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='hour_of_day', y='amount', hue='transaction_type', data=df, ci=None)\n\n# Add labels and title\nplt.title('Transaction Amounts by Hour of Day and Type')\nplt.xlabel('Hour of Day')\nplt.ylabel('Transaction Amount')\nplt.legend(title='Transaction Type')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpg9q_61xr/viz_script.py:20: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x='hour_of_day', y='amount', hue='transaction_type', data=df, ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 0.6405,
+    "visual_entropy": 1.2636,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.215,
+    "cost_per_run": 0.000158,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

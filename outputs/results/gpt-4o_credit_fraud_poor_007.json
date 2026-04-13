@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 7,
+  "timestamp": "2026-04-08T04:24:52.913480",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a boxplot for transaction amount by transaction type\nsns.boxplot(x='transaction_type', y='amount', data=data)\n\n# Add a title and labels\nplt.title('Transaction Amount by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot\nplt.savefig('output.png')\n\n# Show the plot\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a boxplot for transaction amount by transaction type\nsns.boxplot(x='transaction_type', y='amount', data=data)\n\n# Add a title and labels\nplt.title('Transaction Amount by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot\nplt.savefig('output.png')\n\n# Show the plot\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "Timeout after 60s",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.005,
+    "cost_per_run": 0.002558,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

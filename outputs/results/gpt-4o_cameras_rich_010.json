@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-08T16:19:55.897598",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to explore the relationship between megapixels and price\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(data=cameras, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', palette='deep', s=100)\n\n# Set plot title and labels\nscatter_plot.set_title('Megapixels vs Price of Digital Cameras by Sensor Type and 4K Video Capability', fontsize=16)\nscatter_plot.set_xlabel('Megapixels', fontsize=14)\nscatter_plot.set_ylabel('Price (USD)', fontsize=14)\n\n# Place the legend\nscatter_plot.legend(title='Sensor Type & 4K Video')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to explore the relationship between megapixels and price\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(data=cameras, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', palette='deep', s=100)\n\n# Set plot title and labels\nscatter_plot.set_title('Megapixels vs Price of Digital Cameras by Sensor Type and 4K Video Capability', fontsize=16)\nscatter_plot.set_xlabel('Megapixels', fontsize=14)\nscatter_plot.set_ylabel('Price (USD)', fontsize=14)\n\n# Place the legend\nscatter_plot.legend(title='Sensor Type & 4K Video')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4444,
+    "color_delta_e": 2.3342,
+    "visual_entropy": 1.8598,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.115,
+    "cost_per_run": 0.003243,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

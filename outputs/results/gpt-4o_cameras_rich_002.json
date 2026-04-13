@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-08T16:19:21.388232",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='has_video_4k',\n    palette='viridis',\n    s=100,\n    alpha=0.7\n)\n\n# Add labels and title\nscatter_plot.set_title('Megapixels vs Price by Sensor Type and 4K Video Capability', fontsize=16)\nscatter_plot.set_xlabel('Megapixels', fontsize=14)\nscatter_plot.set_ylabel('Price (USD)', fontsize=14)\nscatter_plot.legend(title='Sensor Type / 4K Video', title_fontsize='13', fontsize='11', loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between megapixels and price, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    style='has_video_4k',\n    palette='viridis',\n    s=100,\n    alpha=0.7\n)\n\n# Add labels and title\nscatter_plot.set_title('Megapixels vs Price by Sensor Type and 4K Video Capability', fontsize=16)\nscatter_plot.set_xlabel('Megapixels', fontsize=14)\nscatter_plot.set_ylabel('Price (USD)', fontsize=14)\nscatter_plot.legend(title='Sensor Type / 4K Video', title_fontsize='13', fontsize='11', loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.9213,
+    "visual_entropy": 2.144,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.967,
+    "cost_per_run": 0.003472,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

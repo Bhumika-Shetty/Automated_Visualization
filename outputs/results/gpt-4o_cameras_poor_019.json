@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 19,
+  "timestamp": "2026-04-08T16:23:22.325346",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"brand\": [\"Leica\", \"Fuji\", \"Pentax\", \"Olympus\", \"Leica\"],\n    \"model_year\": [2005, 2019, 2012, 2015, 2016],\n    \"megapixels\": [13.5, 46.4, 38.7, 22.5, 12.2],\n    \"max_iso\": [25600, 51200, 12800, 6400, 25600],\n    \"weight_grams\": [324, 1151, 598, 1095, 290],\n    \"price_usd\": [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    \"sensor_type\": [\"Micro 4/3\", \"APS-C\", \"Full Frame\", \"APS-C\", \"Medium Format\"],\n    \"has_video_4k\": [1, 0, 0, 0, 0],\n    \"lens_mount\": [\"E\", \"EF\", \"MFT\", \"Z\", \"MFT\"],\n    \"body_type\": [\"Compact\", \"Mirrorless\", \"Mirrorless\", \"Mirrorless\", \"DSLR\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(\n    data=df,\n    x=\"megapixels\",\n    y=\"price_usd\",\n    hue=\"brand\",\n    size=\"weight_grams\",\n    sizes=(40, 400),\n    style=\"body_type\",\n    palette=\"viridis\",\n)\n\n# Add a legend\nplt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)\n\n# Set labels and title\nplt.title(\"Camera Features: Megapixels vs Price\")\nplt.xlabel(\"Megapixels\")\nplt.ylabel(\"Price in USD\")\n\n# Save the plot as a PNG file\nplt.savefig(\"output.png\", bbox_inches='tight')\n\n# Display the plot\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"brand\": [\"Leica\", \"Fuji\", \"Pentax\", \"Olympus\", \"Leica\"],\n    \"model_year\": [2005, 2019, 2012, 2015, 2016],\n    \"megapixels\": [13.5, 46.4, 38.7, 22.5, 12.2],\n    \"max_iso\": [25600, 51200, 12800, 6400, 25600],\n    \"weight_grams\": [324, 1151, 598, 1095, 290],\n    \"price_usd\": [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    \"sensor_type\": [\"Micro 4/3\", \"APS-C\", \"Full Frame\", \"APS-C\", \"Medium Format\"],\n    \"has_video_4k\": [1, 0, 0, 0, 0],\n    \"lens_mount\": [\"E\", \"EF\", \"MFT\", \"Z\", \"MFT\"],\n    \"body_type\": [\"Compact\", \"Mirrorless\", \"Mirrorless\", \"Mirrorless\", \"DSLR\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(\n    data=df,\n    x=\"megapixels\",\n    y=\"price_usd\",\n    hue=\"brand\",\n    size=\"weight_grams\",\n    sizes=(40, 400),\n    style=\"body_type\",\n    palette=\"viridis\",\n)\n\n# Add a legend\nplt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)\n\n# Set labels and title\nplt.title(\"Camera Features: Megapixels vs Price\")\nplt.xlabel(\"Megapixels\")\nplt.ylabel(\"Price in USD\")\n\n# Save the plot as a PNG file\nplt.savefig(\"output.png\", bbox_inches='tight')\n\n# Display the plot\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5135,
+    "color_delta_e": 0.7613,
+    "visual_entropy": 0.5698,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.255,
+    "cost_per_run": 0.005325,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

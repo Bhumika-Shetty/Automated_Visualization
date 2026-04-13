@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-08T16:15:38.459021",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'StichtagDatJahr': [2024, 2025, 2019, 2020, 2021],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige']*5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'QuarLang': ['Hottingen', 'Hottingen', 'H\u00f6ngg', 'H\u00f6ngg', 'H\u00f6ngg'],\n    'Rasse1Text': ['Deutsche Dogge', 'Deutsche Dogge', 'Continental Bulldog', 'Continental Bulldog', 'Continental Bulldog'],\n    'Rasse2Text': ['Labrador Retriever', 'Labrador Retriever', '', '', ''],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='StichtagDatJahr', hue='KreisLang')\nplt.title('Number of Dogs by Year and Kreis')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Kreis')\nplt.savefig('output.png')\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'StichtagDatJahr': [2024, 2025, 2019, 2020, 2021],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige']*5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'QuarLang': ['Hottingen', 'Hottingen', 'H\u00f6ngg', 'H\u00f6ngg', 'H\u00f6ngg'],\n    'Rasse1Text': ['Deutsche Dogge', 'Deutsche Dogge', 'Continental Bulldog', 'Continental Bulldog', 'Continental Bulldog'],\n    'Rasse2Text': ['Labrador Retriever', 'Labrador Retriever', '', '', ''],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='StichtagDatJahr', hue='KreisLang')\nplt.title('Number of Dogs by Year and Kreis')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Kreis')\nplt.savefig('output.png')\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 22.86,
+    "hallucination_rate": 0.6429,
+    "color_delta_e": 1.2103,
+    "visual_entropy": 1.7045,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.554,
+    "cost_per_run": 0.005253,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

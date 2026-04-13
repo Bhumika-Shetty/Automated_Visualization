@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T04:14:17.393455",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert 'Dt_Customer' to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], dayfirst=True)\n\n# Calculate the age of the customers\ncurrent_year = pd.to_datetime('today').year\ndf['Age'] = current_year - df['Year_Birth']\n\n# Create a new column for total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', \n                           'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of Age vs. Total Spending, colored by Education\nplt.figure(figsize=(14, 8))\nscatter = sns.scatterplot(\n    data=df, x='Age', y='Total_Spending', hue='Education', palette='deep', alpha=0.7\n)\n\n# Add labels and title\nscatter.set_title('Customer Age vs. Total Spending by Education Level', fontsize=16)\nscatter.set_xlabel('Age', fontsize=12)\nscatter.set_ylabel('Total Spending', fontsize=12)\n\n# Add legend\nplt.legend(title='Education', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert 'Dt_Customer' to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], dayfirst=True)\n\n# Calculate the age of the customers\ncurrent_year = pd.to_datetime('today').year\ndf['Age'] = current_year - df['Year_Birth']\n\n# Create a new column for total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', \n                           'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of Age vs. Total Spending, colored by Education\nplt.figure(figsize=(14, 8))\nscatter = sns.scatterplot(\n    data=df, x='Age', y='Total_Spending', hue='Education', palette='deep', alpha=0.7\n)\n\n# Add labels and title\nscatter.set_title('Customer Age vs. Total Spending by Education Level', fontsize=16)\nscatter.set_xlabel('Age', fontsize=12)\nscatter.set_ylabel('Total Spending', fontsize=12)\n\n# Add legend\nplt.legend(title='Education', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```\n",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 31.03,
+    "hallucination_rate": 0.4783,
+    "color_delta_e": 1.004,
+    "visual_entropy": 1.1843,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.951,
+    "cost_per_run": 0.005383,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

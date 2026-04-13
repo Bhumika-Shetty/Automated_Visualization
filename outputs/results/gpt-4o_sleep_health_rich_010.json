@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-08T04:09:40.473275",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the data\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Daily Steps, colored by Quality of Sleep\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=data,\n    x='Daily Steps',\n    y='Sleep Duration',\n    hue='Quality of Sleep',\n    palette='coolwarm',\n    size='Stress Level',\n    sizes=(20, 200),\n    alpha=0.7,\n    edgecolor='w'\n)\n\n# Add axis labels and title\nscatter_plot.set_xlabel('Daily Steps', fontsize=12)\nscatter_plot.set_ylabel('Sleep Duration (hours)', fontsize=12)\nscatter_plot.set_title('Relationship between Daily Steps and Sleep Duration\\nColored by Quality of Sleep', fontsize=14)\n\n# Add legend\nscatter_plot.legend(title='Quality of Sleep', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the data\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Daily Steps, colored by Quality of Sleep\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=data,\n    x='Daily Steps',\n    y='Sleep Duration',\n    hue='Quality of Sleep',\n    palette='coolwarm',\n    size='Stress Level',\n    sizes=(20, 200),\n    alpha=0.7,\n    edgecolor='w'\n)\n\n# Add axis labels and title\nscatter_plot.set_xlabel('Daily Steps', fontsize=12)\nscatter_plot.set_ylabel('Sleep Duration (hours)', fontsize=12)\nscatter_plot.set_title('Relationship between Daily Steps and Sleep Duration\\nColored by Quality of Sleep', fontsize=14)\n\n# Add legend\nscatter_plot.legend(title='Quality of Sleep', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 0.6923,
+    "visual_entropy": 0.3952,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.469,
+    "cost_per_run": 0.003502,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-08T04:05:33.874410",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot\npairplot = sns.pairplot(df, hue='species', palette='bright', diag_kind='kde')\n\n# Set titles and labels\npairplot.fig.suptitle('Iris Dataset Pairplot', y=1.02)\npairplot.set(xlabel='Measure in cm', ylabel='Measure in cm')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/iris.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot\npairplot = sns.pairplot(df, hue='species', palette='bright', diag_kind='kde')\n\n# Set titles and labels\npairplot.fig.suptitle('Iris Dataset Pairplot', y=1.02)\npairplot.set(xlabel='Measure in cm', ylabel='Measure in cm')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.875,
+    "color_delta_e": 2.0467,
+    "visual_entropy": 1.5541,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.176,
+    "cost_per_run": 0.002197,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

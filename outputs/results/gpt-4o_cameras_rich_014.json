@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 14,
+  "timestamp": "2026-04-08T16:20:10.837050",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=df, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', size='weight_grams', sizes=(20, 200), palette='deep', edgecolor='w', alpha=0.7)\n\n# Add axis labels and title\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.title('Price vs Megapixels by Sensor Type and 4K Video Capability')\n\n# Add legend with title\nscatter.legend(title='Sensor Type & 4K Video', bbox_to_anchor=(1.05, 1), loc=2)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=df, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', size='weight_grams', sizes=(20, 200), palette='deep', edgecolor='w', alpha=0.7)\n\n# Add axis labels and title\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.title('Price vs Megapixels by Sensor Type and 4K Video Capability')\n\n# Add legend with title\nscatter.legend(title='Sensor Type & 4K Video', bbox_to_anchor=(1.05, 1), loc=2)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.3636,
+    "color_delta_e": 1.5805,
+    "visual_entropy": 1.8174,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.596,
+    "cost_per_run": 0.003233,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

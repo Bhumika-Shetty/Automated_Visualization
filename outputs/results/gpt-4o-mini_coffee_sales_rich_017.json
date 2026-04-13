@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-08T16:50:39.683870",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time into a datetime object for better plotting\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Create a new column for total sales per product\ntotal_sales_per_product = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Set the figure size\nplt.figure(figsize=(12, 6))\n\n# Create a bar plot for total sales per product\nsns.barplot(data=total_sales_per_product, x='product', y='total', palette='viridis')\n\n# Add titles and labels\nplt.title('Total Sales per Coffee Product', fontsize=16)\nplt.xlabel('Coffee Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.grid(axis='y')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time into a datetime object for better plotting\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Create a new column for total sales per product\ntotal_sales_per_product = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Set the figure size\nplt.figure(figsize=(12, 6))\n\n# Create a bar plot for total sales per product\nsns.barplot(data=total_sales_per_product, x='product', y='total', palette='viridis')\n\n# Add titles and labels\nplt.title('Total Sales per Coffee Product', fontsize=16)\nplt.xlabel('Coffee Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.grid(axis='y')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpn0_3oshf/viz_script.py:18: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=total_sales_per_product, x='product', y='total', palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.4167,
+    "color_delta_e": 1.1749,
+    "visual_entropy": 2.8706,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 3.421,
+    "cost_per_run": 0.000197,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

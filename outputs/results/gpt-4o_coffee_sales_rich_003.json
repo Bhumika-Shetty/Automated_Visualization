@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-08T16:24:54.276066",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Create a pivot table for total sales by date and product\nsales_pivot = data.pivot_table(values='total', index='date', columns='product', aggfunc='sum').fillna(0)\n\n# Plot\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_pivot, linewidth=2.5)\nplt.title('Daily Sales Trend by Product', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.legend(title='Product', fontsize=10, title_fontsize='12')\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Create a pivot table for total sales by date and product\nsales_pivot = data.pivot_table(values='total', index='date', columns='product', aggfunc='sum').fillna(0)\n\n# Plot\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_pivot, linewidth=2.5)\nplt.title('Daily Sales Trend by Product', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.legend(title='Product', fontsize=10, title_fontsize='12')\nplt.grid(True, linestyle='--', alpha=0.6)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.2727,
+    "color_delta_e": 6.6198,
+    "visual_entropy": 2.7801,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.027,
+    "cost_per_run": 0.0032,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

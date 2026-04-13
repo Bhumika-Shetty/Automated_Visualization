@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-08T16:31:59.738914",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter and count the number of dogs by breed and gender\nbreed_gender_count = data.groupby(['Rasse1Text', 'SexLang']).size().reset_index(name='Count')\n\n# Create a bar plot\nplt.figure(figsize=(12, 8))\nsns.barplot(data=breed_gender_count, x='Rasse1Text', y='Count', hue='SexLang', palette='Set2')\n\n# Customize the plot\nplt.xticks(rotation=45, ha='right')\nplt.title('Number of Dogs by Breed and Gender in Zurich')\nplt.xlabel('Dog Breed')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Gender')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter and count the number of dogs by breed and gender\nbreed_gender_count = data.groupby(['Rasse1Text', 'SexLang']).size().reset_index(name='Count')\n\n# Create a bar plot\nplt.figure(figsize=(12, 8))\nsns.barplot(data=breed_gender_count, x='Rasse1Text', y='Count', hue='SexLang', palette='Set2')\n\n# Customize the plot\nplt.xticks(rotation=45, ha='right')\nplt.title('Number of Dogs by Breed and Gender in Zurich')\nplt.xlabel('Dog Breed')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Gender')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6923,
+    "color_delta_e": 4.093,
+    "visual_entropy": 1.6576,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.918,
+    "cost_per_run": 0.000273,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

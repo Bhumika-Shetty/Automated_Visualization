@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 7,
+  "timestamp": "2026-04-08T04:51:34.527897",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Creating the dataset\ndata = {\n    'Person ID': [1, 2, 3, 4, 5],\n    'Gender': ['Male', 'Male', 'Male', 'Male', 'Male'],\n    'Age': [27, 28, 28, 28, 28],\n    'Occupation': ['Software Engineer', 'Doctor', 'Doctor', 'Sales Representative', 'Sales Representative'],\n    'Sleep Duration': [6.1, 6.2, 6.2, 5.9, 5.9],\n    'Quality of Sleep': [6, 6, 6, 4, 4],\n    'Physical Activity Level': [42, 60, 60, 30, 30],\n    'Stress Level': [6, 8, 8, 8, 8],\n    'BMI Category': ['Overweight', 'Normal', 'Normal', 'Obese', 'Obese'],\n    'Blood Pressure': ['126/83', '125/80', '125/80', '140/90', '140/90'],\n    'Heart Rate': [77, 75, 75, 85, 85],\n    'Daily Steps': [4200, 10000, 10000, 3000, 3000],\n    'Sleep Disorder': [None, None, None, 'Sleep Apnea', 'Sleep Apnea']\n}\n\ndf = pd.DataFrame(data)\n\n# Setting the style\nsns.set(style=\"whitegrid\")\n\n# Creating a scatter plot to visualize Sleep Duration and Quality of Sleep, colored by Sleep Disorder\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=df, x='Sleep Duration', y='Quality of Sleep', hue='Sleep Disorder', style='BMI Category', s=100)\n\n# Adding titles and labels\nplt.title('Sleep Duration vs Quality of Sleep by Sleep Disorder and BMI Category', fontsize=14)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (scale 1-10)', fontsize=12)\n\n# Saving the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Creating the dataset\ndata = {\n    'Person ID': [1, 2, 3, 4, 5],\n    'Gender': ['Male', 'Male', 'Male', 'Male', 'Male'],\n    'Age': [27, 28, 28, 28, 28],\n    'Occupation': ['Software Engineer', 'Doctor', 'Doctor', 'Sales Representative', 'Sales Representative'],\n    'Sleep Duration': [6.1, 6.2, 6.2, 5.9, 5.9],\n    'Quality of Sleep': [6, 6, 6, 4, 4],\n    'Physical Activity Level': [42, 60, 60, 30, 30],\n    'Stress Level': [6, 8, 8, 8, 8],\n    'BMI Category': ['Overweight', 'Normal', 'Normal', 'Obese', 'Obese'],\n    'Blood Pressure': ['126/83', '125/80', '125/80', '140/90', '140/90'],\n    'Heart Rate': [77, 75, 75, 85, 85],\n    'Daily Steps': [4200, 10000, 10000, 3000, 3000],\n    'Sleep Disorder': [None, None, None, 'Sleep Apnea', 'Sleep Apnea']\n}\n\ndf = pd.DataFrame(data)\n\n# Setting the style\nsns.set(style=\"whitegrid\")\n\n# Creating a scatter plot to visualize Sleep Duration and Quality of Sleep, colored by Sleep Disorder\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=df, x='Sleep Duration', y='Quality of Sleep', hue='Sleep Disorder', style='BMI Category', s=100)\n\n# Adding titles and labels\nplt.title('Sleep Duration vs Quality of Sleep by Sleep Disorder and BMI Category', fontsize=14)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (scale 1-10)', fontsize=12)\n\n# Saving the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5278,
+    "color_delta_e": 1.0481,
+    "visual_entropy": 0.7135,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 8.795,
+    "cost_per_run": 0.000321,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

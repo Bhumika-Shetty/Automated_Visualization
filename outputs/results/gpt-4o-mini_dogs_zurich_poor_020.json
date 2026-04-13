@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 20,
+  "timestamp": "2026-04-08T16:36:38.708266",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'SexLang': ['m\u00e4nnlich'] * 5,\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Count the number of dogs by year and sex\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\ndf['Year'] = df['StichtagDat'].dt.year\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='Year', hue='SexLang', palette='pastel')\n\n# Add titles and labels\nplt.title('Number of Dogs by Year and Sex')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Sex')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'SexLang': ['m\u00e4nnlich'] * 5,\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Count the number of dogs by year and sex\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\ndf['Year'] = df['StichtagDat'].dt.year\n\n# Create the bar plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='Year', hue='SexLang', palette='pastel')\n\n# Add titles and labels\nplt.title('Number of Dogs by Year and Sex')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Sex')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.4667,
+    "color_delta_e": 0.8994,
+    "visual_entropy": 1.2499,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.334,
+    "cost_per_run": 0.00027,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

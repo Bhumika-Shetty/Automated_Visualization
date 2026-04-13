@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 18,
+  "timestamp": "2026-04-08T04:54:20.411270",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    \"Person ID\": [1, 2, 3, 4, 5],\n    \"Gender\": [\"Male\", \"Male\", \"Male\", \"Male\", \"Male\"],\n    \"Age\": [27, 28, 28, 28, 28],\n    \"Occupation\": [\"Software Engineer\", \"Doctor\", \"Doctor\", \"Sales Representative\", \"Sales Representative\"],\n    \"Sleep Duration\": [6.1, 6.2, 6.2, 5.9, 5.9],\n    \"Quality of Sleep\": [6, 6, 6, 4, 4],\n    \"Physical Activity Level\": [42, 60, 60, 30, 30],\n    \"Stress Level\": [6, 8, 8, 8, 8],\n    \"BMI Category\": [\"Overweight\", \"Normal\", \"Normal\", \"Obese\", \"Obese\"],\n    \"Blood Pressure\": [\"126/83\", \"125/80\", \"125/80\", \"140/90\", \"140/90\"],\n    \"Heart Rate\": [77, 75, 75, 85, 85],\n    \"Daily Steps\": [4200, 10000, 10000, 3000, 3000],\n    \"Sleep Disorder\": [None, None, None, \"Sleep Apnea\", \"Sleep Apnea\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot for Sleep Duration vs. Daily Steps colored by Sleep Disorder\nplt.figure(figsize=(10, 6))\nscatter = sns.scatterplot(data=df, x='Daily Steps', y='Sleep Duration', hue='Sleep Disorder', style='Occupation', s=100)\n\n# Add titles and labels\nplt.title('Sleep Duration vs. Daily Steps with Sleep Disorder Indicator')\nplt.xlabel('Daily Steps')\nplt.ylabel('Sleep Duration (hours)')\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot as output.png\nplt.savefig('output.png', bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the dataset\ndata = {\n    \"Person ID\": [1, 2, 3, 4, 5],\n    \"Gender\": [\"Male\", \"Male\", \"Male\", \"Male\", \"Male\"],\n    \"Age\": [27, 28, 28, 28, 28],\n    \"Occupation\": [\"Software Engineer\", \"Doctor\", \"Doctor\", \"Sales Representative\", \"Sales Representative\"],\n    \"Sleep Duration\": [6.1, 6.2, 6.2, 5.9, 5.9],\n    \"Quality of Sleep\": [6, 6, 6, 4, 4],\n    \"Physical Activity Level\": [42, 60, 60, 30, 30],\n    \"Stress Level\": [6, 8, 8, 8, 8],\n    \"BMI Category\": [\"Overweight\", \"Normal\", \"Normal\", \"Obese\", \"Obese\"],\n    \"Blood Pressure\": [\"126/83\", \"125/80\", \"125/80\", \"140/90\", \"140/90\"],\n    \"Heart Rate\": [77, 75, 75, 85, 85],\n    \"Daily Steps\": [4200, 10000, 10000, 3000, 3000],\n    \"Sleep Disorder\": [None, None, None, \"Sleep Apnea\", \"Sleep Apnea\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot for Sleep Duration vs. Daily Steps colored by Sleep Disorder\nplt.figure(figsize=(10, 6))\nscatter = sns.scatterplot(data=df, x='Daily Steps', y='Sleep Duration', hue='Sleep Disorder', style='Occupation', s=100)\n\n# Add titles and labels\nplt.title('Sleep Duration vs. Daily Steps with Sleep Disorder Indicator')\nplt.xlabel('Daily Steps')\nplt.ylabel('Sleep Duration (hours)')\nplt.legend(title='Sleep Disorder', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot as output.png\nplt.savefig('output.png', bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5128,
+    "color_delta_e": 1.0217,
+    "visual_entropy": 0.6564,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 8.316,
+    "cost_per_run": 0.00033,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-08T05:09:17.966627",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of amount vs hour_of_day, colored by is_fraud\nplt.figure(figsize=(12, 6))\nscatter = sns.scatterplot(data=data, x='hour_of_day', y='amount', hue='is_fraud', \n                          palette={0: 'blue', 1: 'red'}, alpha=0.6)\n\n# Adding titles and labels\nplt.title('Credit Card Transactions: Amount vs Hour of Day', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Transaction Amount ($)', fontsize=12)\nplt.legend(title='Fraudulent', loc='upper left', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of amount vs hour_of_day, colored by is_fraud\nplt.figure(figsize=(12, 6))\nscatter = sns.scatterplot(data=data, x='hour_of_day', y='amount', hue='is_fraud', \n                          palette={0: 'blue', 1: 'red'}, alpha=0.6)\n\n# Adding titles and labels\nplt.title('Credit Card Transactions: Amount vs Hour of Day', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Transaction Amount ($)', fontsize=12)\nplt.legend(title='Fraudulent', loc='upper left', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.7719,
+    "visual_entropy": 0.6899,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.432,
+    "cost_per_run": 0.000167,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

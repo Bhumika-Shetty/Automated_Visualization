@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-08T04:14:21.562456",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Data preprocessing: Convert 'Dt_Customer' to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Calculate total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot: Total Spending vs Income with hue based on Marital_Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='Set2', alpha=0.7)\n\n# Customizing the plot\nplt.title('Total Spending vs Income by Marital Status', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.legend(title='Marital Status', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\nplt.grid(True)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Data preprocessing: Convert 'Dt_Customer' to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Calculate total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot: Total Spending vs Income with hue based on Marital_Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='Set2', alpha=0.7)\n\n# Customizing the plot\nplt.title('Total Spending vs Income by Marital Status', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.legend(title='Marital Status', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\nplt.grid(True)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 31.03,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 1.0956,
+    "visual_entropy": 0.7284,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.616,
+    "cost_per_run": 0.004932,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-08T16:49:43.711379",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' and 'time' to datetime\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 6))\n\n# Create a line plot for total sales over time, separated by age group\nsns.lineplot(data=coffee_sales, x='datetime', y='total', hue='customer_age_group', estimator='sum', ci=None)\n\n# Adding titles and labels\nplt.title('Total Coffee Sales Over Time by Customer Age Group', fontsize=16)\nplt.xlabel('Date and Time', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Customer Age Group', fontsize=10)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' and 'time' to datetime\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 6))\n\n# Create a line plot for total sales over time, separated by age group\nsns.lineplot(data=coffee_sales, x='datetime', y='total', hue='customer_age_group', estimator='sum', ci=None)\n\n# Adding titles and labels\nplt.title('Total Coffee Sales Over Time by Customer Age Group', fontsize=16)\nplt.xlabel('Date and Time', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Customer Age Group', fontsize=10)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpmejj8h5u/viz_script.py:15: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.lineplot(data=coffee_sales, x='datetime', y='total', hue='customer_age_group', estimator='sum', ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": 14.9026,
+    "visual_entropy": 3.3938,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.44,
+    "cost_per_run": 0.000188,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T16:19:28.984174",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a scatter plot of Price vs Megapixels, colored by Sensor Type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=df, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k',\n                          palette='Set2', s=100, alpha=0.7)\n\n# Add axis labels and title\nplt.xlabel('Megapixels')\nplt.ylabel('Price in USD')\nplt.title('Camera Price vs. Megapixels by Sensor Type with 4K Video Capability Indication')\n\n# Add a legend\nplt.legend(title='Sensor Type / 4K Video')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a scatter plot of Price vs Megapixels, colored by Sensor Type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=df, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k',\n                          palette='Set2', s=100, alpha=0.7)\n\n# Add axis labels and title\nplt.xlabel('Megapixels')\nplt.ylabel('Price in USD')\nplt.title('Camera Price vs. Megapixels by Sensor Type with 4K Video Capability Indication')\n\n# Add a legend\nplt.legend(title='Sensor Type / 4K Video')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4444,
+    "color_delta_e": 1.6637,
+    "visual_entropy": 2.073,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.375,
+    "cost_per_run": 0.003102,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

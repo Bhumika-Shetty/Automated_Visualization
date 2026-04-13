@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T16:13:02.219688",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Calculate the number of dogs per district\ndogs_per_district = df.groupby('KreisLang')['AnzHunde'].sum().reset_index()\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a bar plot\nsns.barplot(data=dogs_per_district, x='KreisLang', y='AnzHunde', palette='viridis')\n\n# Add labels and title\nplt.title('Number of Registered Dogs per District in Zurich', fontsize=16)\nplt.xlabel('District', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45, ha='right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Calculate the number of dogs per district\ndogs_per_district = df.groupby('KreisLang')['AnzHunde'].sum().reset_index()\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a bar plot\nsns.barplot(data=dogs_per_district, x='KreisLang', y='AnzHunde', palette='viridis')\n\n# Add labels and title\nplt.title('Number of Registered Dogs per District in Zurich', fontsize=16)\nplt.xlabel('District', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45, ha='right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpq9vyvkn9/viz_script.py:15: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=dogs_per_district, x='KreisLang', y='AnzHunde', palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.9676,
+    "visual_entropy": 1.8007,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.29,
+    "cost_per_run": 0.004553,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

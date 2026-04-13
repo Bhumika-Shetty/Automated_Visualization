@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 2,
+  "timestamp": "2026-04-08T04:24:37.474343",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Initialize the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot for transaction types vs amounts\nsns.barplot(x='transaction_type', y='amount', data=data, palette='viridis')\n\n# Add title and labels\nplt.title('Transaction Amount by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot as an image file\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Initialize the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot for transaction types vs amounts\nsns.barplot(x='transaction_type', y='amount', data=data, palette='viridis')\n\n# Add title and labels\nplt.title('Transaction Amount by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot as an image file\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpkb7iv7wd/viz_script.py:17: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='transaction_type', y='amount', data=data, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 0.8218,
+    "visual_entropy": 0.9994,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.18,
+    "cost_per_run": 0.002448,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

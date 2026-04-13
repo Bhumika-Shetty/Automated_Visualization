@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-08T03:59:59.292532",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a count plot for survival rates among different classes\nsns.countplot(data=titanic, x='pclass', hue='survived', palette='viridis')\n\n# Add labels and title\nplt.title('Survival Count by Passenger Class', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Count', fontsize=12)\nplt.legend(title='Survived', labels=['No', 'Yes'])\n\n# Save the plot as a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a count plot for survival rates among different classes\nsns.countplot(data=titanic, x='pclass', hue='survived', palette='viridis')\n\n# Add labels and title\nplt.title('Survival Count by Passenger Class', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Count', fontsize=12)\nplt.legend(title='Survived', labels=['No', 'Yes'])\n\n# Save the plot as a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7273,
+    "color_delta_e": 0.5538,
+    "visual_entropy": 1.3066,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.653,
+    "cost_per_run": 0.002928,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

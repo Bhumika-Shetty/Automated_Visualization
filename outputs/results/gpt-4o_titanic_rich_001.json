@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T03:58:12.062751",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntitanic_data = pd.read_csv('data/titanic.csv')\n\n# Set the style for seaborn\nsns.set(style='whitegrid')\n\n# Create a figure for the visualization\nplt.figure(figsize=(10, 6))\n\n# Create a countplot to show the number of survivors and non-survivors based on the passenger class\nsns.countplot(data=titanic_data, x='pclass', hue='survived', palette='Set2')\n\n# Set plot title and labels\nplt.title('Survival Counts by Passenger Class', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Count', fontsize=12)\n\n# Customize the legend\nplt.legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntitanic_data = pd.read_csv('data/titanic.csv')\n\n# Set the style for seaborn\nsns.set(style='whitegrid')\n\n# Create a figure for the visualization\nplt.figure(figsize=(10, 6))\n\n# Create a countplot to show the number of survivors and non-survivors based on the passenger class\nsns.countplot(data=titanic_data, x='pclass', hue='survived', palette='Set2')\n\n# Set plot title and labels\nplt.title('Survival Counts by Passenger Class', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Count', fontsize=12)\n\n# Customize the legend\nplt.legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.5242,
+    "visual_entropy": 1.4208,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 3.793,
+    "cost_per_run": 0.003128,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

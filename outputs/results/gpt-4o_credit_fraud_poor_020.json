@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 20,
+  "timestamp": "2026-04-08T04:28:34.576277",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create the figure and axis\nplt.figure(figsize=(8, 6))\n\n# Create a boxplot of transaction amounts by transaction type\nsns.boxplot(x='transaction_type', y='amount', data=data, palette='muted')\n\n# Set the title and labels\nplt.title('Transaction Amounts by Transaction Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create the figure and axis\nplt.figure(figsize=(8, 6))\n\n# Create a boxplot of transaction amounts by transaction type\nsns.boxplot(x='transaction_type', y='amount', data=data, palette='muted')\n\n# Set the title and labels\nplt.title('Transaction Amounts by Transaction Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp1hma17ba/viz_script.py:20: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='transaction_type', y='amount', data=data, palette='muted')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5625,
+    "color_delta_e": 0.6472,
+    "visual_entropy": 0.8138,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 1.881,
+    "cost_per_run": 0.002578,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-08T04:22:29.459690",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, axs = plt.subplots(2, 1, figsize=(12, 10))\n\n# Plot 1: Distribution of Transaction Amounts Separated by Fraud/Non-Fraud\nsns.histplot(data=df, x='amount', hue='is_fraud', bins=30, kde=True, ax=axs[0])\naxs[0].set_title('Distribution of Transaction Amounts by Fraud Status')\naxs[0].set_xlabel('Transaction Amount')\naxs[0].set_ylabel('Frequency')\naxs[0].legend(title='Fraud Status', labels=['Non-Fraud', 'Fraud'])\n\n# Plot 2: Count of Transactions by Hour of Day and Fraud Status\nsns.countplot(data=df, x='hour_of_day', hue='is_fraud', ax=axs[1])\naxs[1].set_title('Count of Transactions by Hour and Fraud Status')\naxs[1].set_xlabel('Hour of Day')\naxs[1].set_ylabel('Number of Transactions')\naxs[1].legend(title='Fraud Status', labels=['Non-Fraud', 'Fraud'])\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, axs = plt.subplots(2, 1, figsize=(12, 10))\n\n# Plot 1: Distribution of Transaction Amounts Separated by Fraud/Non-Fraud\nsns.histplot(data=df, x='amount', hue='is_fraud', bins=30, kde=True, ax=axs[0])\naxs[0].set_title('Distribution of Transaction Amounts by Fraud Status')\naxs[0].set_xlabel('Transaction Amount')\naxs[0].set_ylabel('Frequency')\naxs[0].legend(title='Fraud Status', labels=['Non-Fraud', 'Fraud'])\n\n# Plot 2: Count of Transactions by Hour of Day and Fraud Status\nsns.countplot(data=df, x='hour_of_day', hue='is_fraud', ax=axs[1])\naxs[1].set_title('Count of Transactions by Hour and Fraud Status')\naxs[1].set_xlabel('Hour of Day')\naxs[1].set_ylabel('Number of Transactions')\naxs[1].legend(title='Fraud Status', labels=['Non-Fraud', 'Fraud'])\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 1.0269,
+    "visual_entropy": 1.1359,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.598,
+    "cost_per_run": 0.003818,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

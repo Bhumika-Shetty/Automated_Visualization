@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-08T16:19:33.575741",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Convert 'model_year' to a categorical type for better plotting\ndf['model_year'] = df['model_year'].astype(str)\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Initialize the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot\nscatter = sns.scatterplot(x='weight_grams', y='price_usd', hue='sensor_type', size='megapixels',\n                          sizes=(20, 200), alpha=0.7, palette='viridis', data=df)\n\n# Customize the plot\nscatter.set_title('Digital Cameras: Weight vs Price')\nscatter.set_xlabel('Weight (grams)')\nscatter.set_ylabel('Price (USD)')\nscatter.legend(title='Sensor Type & Megapixels', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Convert 'model_year' to a categorical type for better plotting\ndf['model_year'] = df['model_year'].astype(str)\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Initialize the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot\nscatter = sns.scatterplot(x='weight_grams', y='price_usd', hue='sensor_type', size='megapixels',\n                          sizes=(20, 200), alpha=0.7, palette='viridis', data=df)\n\n# Customize the plot\nscatter.set_title('Digital Cameras: Weight vs Price')\nscatter.set_xlabel('Weight (grams)')\nscatter.set_ylabel('Price (USD)')\nscatter.legend(title='Sensor Type & Megapixels', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.3636,
+    "color_delta_e": 1.4041,
+    "visual_entropy": 1.8649,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 4.537,
+    "cost_per_run": 0.003332,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

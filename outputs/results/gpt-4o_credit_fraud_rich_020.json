@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-08T04:22:56.546985",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(12, 6))\n\n# Create a violin plot to show the distribution of transaction amounts by transaction type and whether it's fraud\nsns.violinplot(x='transaction_type', y='amount', hue='is_fraud', data=data, split=True, inner='quart', palette='muted')\n\n# Add axis labels and a title\nplt.xlabel('Transaction Type')\nplt.ylabel('Transaction Amount')\nplt.title('Distribution of Transaction Amounts by Type and Fraud Status')\n\n# Add a legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(12, 6))\n\n# Create a violin plot to show the distribution of transaction amounts by transaction type and whether it's fraud\nsns.violinplot(x='transaction_type', y='amount', hue='is_fraud', data=data, split=True, inner='quart', palette='muted')\n\n# Add axis labels and a title\nplt.xlabel('Transaction Type')\nplt.ylabel('Transaction Amount')\nplt.title('Distribution of Transaction Amounts by Type and Fraud Status')\n\n# Add a legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.6448,
+    "visual_entropy": 0.6484,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 1.733,
+    "cost_per_run": 0.002587,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

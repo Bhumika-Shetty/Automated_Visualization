@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-08T16:32:28.015465",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare the data for visualization\nbreed_counts = data['Rasse1Text'].value_counts().head(10).reset_index()\nbreed_counts.columns = ['Breed', 'Count']\n\n# Create the bar plot\nplt.figure(figsize=(12, 6))\nsns.barplot(x='Count', y='Breed', data=breed_counts, palette='viridis')\nplt.title('Top 10 Dog Breeds Registered in Zurich')\nplt.xlabel('Number of Registrations')\nplt.ylabel('Dog Breed')\nplt.grid(axis='x', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare the data for visualization\nbreed_counts = data['Rasse1Text'].value_counts().head(10).reset_index()\nbreed_counts.columns = ['Breed', 'Count']\n\n# Create the bar plot\nplt.figure(figsize=(12, 6))\nsns.barplot(x='Count', y='Breed', data=breed_counts, palette='viridis')\nplt.title('Top 10 Dog Breeds Registered in Zurich')\nplt.xlabel('Number of Registrations')\nplt.ylabel('Dog Breed')\nplt.grid(axis='x', linestyle='--', alpha=0.7)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpp6fy8p6t/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='Count', y='Breed', data=breed_counts, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.8182,
+    "color_delta_e": 0.9075,
+    "visual_entropy": 1.5067,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 3.929,
+    "cost_per_run": 0.000262,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

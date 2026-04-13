@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 17,
+  "timestamp": "2026-04-08T16:54:09.024184",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data.csv')\n\n# Convert 'date' and 'time' to datetime\ndata['datetime'] = pd.to_datetime(data['date'] + ' ' + data['time'])\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a line plot for total sales over time\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=data, x='datetime', y='total', marker='o')\n\n# Customize the plot\nplt.title('Total Sales Over Time')\nplt.xlabel('Date and Time')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data.csv')\n\n# Convert 'date' and 'time' to datetime\ndata['datetime'] = pd.to_datetime(data['date'] + ' ' + data['time'])\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a line plot for total sales over time\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=data, x='datetime', y='total', marker='o')\n\n# Customize the plot\nplt.title('Total Sales Over Time')\nplt.xlabel('Date and Time')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpek2z4lnh/viz_script.py\", line 6, in <module>\n    data = pd.read_csv('data.csv')\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 873, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 300, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 1645, in __init__\n    self._engine = self._make_engine(f, self.engine)\n                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py\", line 1904, in _make_engine\n    self.handles = get_handle(\n                   ~~~~~~~~~~^\n        f,\n        ^^\n    ...<6 lines>...\n        storage_options=self.options.get(\"storage_options\", None),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/io/common.py\", line 926, in get_handle\n    handle = open(\n        handle,\n    ...<3 lines>...\n        newline=\"\",\n    )\nFileNotFoundError: [Errno 2] No such file or directory: 'data.csv'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 3.67,
+    "cost_per_run": 0.000138,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

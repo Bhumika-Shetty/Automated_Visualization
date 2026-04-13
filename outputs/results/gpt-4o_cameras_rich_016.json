@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-08T16:20:18.737769",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set_style(\"whitegrid\")\n\n# Create a barplot to compare average price by brand\nplt.figure(figsize=(12, 8))\navg_price_by_brand = df.groupby('brand')['price_usd'].mean().sort_values(ascending=False)\nsns.barplot(x=avg_price_by_brand.index, y=avg_price_by_brand.values, palette='viridis')\nplt.xticks(rotation=45, ha='right')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.title('Average Camera Price by Brand')\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style of the visualization\nsns.set_style(\"whitegrid\")\n\n# Create a barplot to compare average price by brand\nplt.figure(figsize=(12, 8))\navg_price_by_brand = df.groupby('brand')['price_usd'].mean().sort_values(ascending=False)\nsns.barplot(x=avg_price_by_brand.index, y=avg_price_by_brand.values, palette='viridis')\nplt.xticks(rotation=45, ha='right')\nplt.xlabel('Brand')\nplt.ylabel('Average Price (USD)')\nplt.title('Average Camera Price by Brand')\nplt.tight_layout()\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```\n",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpr0fupyoa/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=avg_price_by_brand.index, y=avg_price_by_brand.values, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.793,
+    "visual_entropy": 3.0435,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.592,
+    "cost_per_run": 0.002832,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

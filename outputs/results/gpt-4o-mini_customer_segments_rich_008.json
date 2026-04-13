@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-08T04:57:50.400621",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for Age\ndata['Age'] = 2023 - data['Year_Birth']\n\n# Set the size of the plot\nplt.figure(figsize=(12, 6))\n\n# Create a boxplot for Income by Marital Status\nsns.boxplot(x='Marital_Status', y='Income', data=data, palette='Set2')\n\n# Set the title and labels\nplt.title('Income Distribution by Marital Status', fontsize=16)\nplt.xlabel('Marital Status', fontsize=14)\nplt.ylabel('Income', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for Age\ndata['Age'] = 2023 - data['Year_Birth']\n\n# Set the size of the plot\nplt.figure(figsize=(12, 6))\n\n# Create a boxplot for Income by Marital Status\nsns.boxplot(x='Marital_Status', y='Income', data=data, palette='Set2')\n\n# Set the title and labels\nplt.title('Income Distribution by Marital Status', fontsize=16)\nplt.xlabel('Marital Status', fontsize=14)\nplt.ylabel('Income', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp45icocqn/viz_script.py:15: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='Marital_Status', y='Income', data=data, palette='Set2')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 10.34,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.8024,
+    "visual_entropy": 0.4891,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 3.191,
+    "cost_per_run": 0.000228,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

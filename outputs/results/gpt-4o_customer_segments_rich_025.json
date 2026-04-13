@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-08T04:15:42.514084",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Parse the date column\ndata['Dt_Customer'] = pd.to_datetime(data['Dt_Customer'], format='%d-%m-%Y')\n\n# Calculate the total amount spent by each customer\ndata['Total_Spent'] = data['MntWines'] + data['MntFruits'] + data['MntMeatProducts'] + \\\n                      data['MntFishProducts'] + data['MntSweetProducts'] + data['MntGoldProds']\n\n# Group by Education and Marital Status, and calculate the average income and total spent\ngrouped_data = data.groupby(['Education', 'Marital_Status']).agg({\n    'Income': 'mean',\n    'Total_Spent': 'mean'\n}).reset_index()\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create the bar plot\nsns.barplot(x='Education', y='Total_Spent', hue='Marital_Status', data=grouped_data, palette='muted')\n\n# Add labels and title\nplt.title('Average Total Spending by Education and Marital Status')\nplt.xlabel('Education Level')\nplt.ylabel('Average Total Spending')\nplt.legend(title='Marital Status', loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Parse the date column\ndata['Dt_Customer'] = pd.to_datetime(data['Dt_Customer'], format='%d-%m-%Y')\n\n# Calculate the total amount spent by each customer\ndata['Total_Spent'] = data['MntWines'] + data['MntFruits'] + data['MntMeatProducts'] + \\\n                      data['MntFishProducts'] + data['MntSweetProducts'] + data['MntGoldProds']\n\n# Group by Education and Marital Status, and calculate the average income and total spent\ngrouped_data = data.groupby(['Education', 'Marital_Status']).agg({\n    'Income': 'mean',\n    'Total_Spent': 'mean'\n}).reset_index()\n\n# Set up the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create the bar plot\nsns.barplot(x='Education', y='Total_Spent', hue='Marital_Status', data=grouped_data, palette='muted')\n\n# Add labels and title\nplt.title('Average Total Spending by Education and Marital Status')\nplt.xlabel('Education Level')\nplt.ylabel('Average Total Spending')\nplt.legend(title='Marital Status', loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 34.48,
+    "hallucination_rate": 0.48,
+    "color_delta_e": 1.3199,
+    "visual_entropy": 1.5745,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.999,
+    "cost_per_run": 0.005143,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

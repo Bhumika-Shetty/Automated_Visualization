@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-08T16:21:12.288010",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create a boxplot to compare the price distribution across different sensor types\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='sensor_type', y='price_usd', data=df, palette='viridis')\n\n# Add labels and title\nplt.title('Price Distribution of Digital Cameras by Sensor Type', fontsize=14)\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price in USD', fontsize=12)\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Create a boxplot to compare the price distribution across different sensor types\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='sensor_type', y='price_usd', data=df, palette='viridis')\n\n# Add labels and title\nplt.title('Price Distribution of Digital Cameras by Sensor Type', fontsize=14)\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price in USD', fontsize=12)\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpgl8yely4/viz_script.py:10: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='sensor_type', y='price_usd', data=df, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 1.0263,
+    "visual_entropy": 1.7314,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 1.799,
+    "cost_per_run": 0.002563,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

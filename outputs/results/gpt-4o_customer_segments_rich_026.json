@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-08T04:15:46.648172",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Plot: Average spending by education level\nplt.figure(figsize=(12, 6))\nspending_columns = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['Total_Spending'] = df[spending_columns].sum(axis=1)\navg_spending_by_education = df.groupby('Education')['Total_Spending'].mean().sort_values()\n\nsns.barplot(x=avg_spending_by_education.index, y=avg_spending_by_education.values, palette='viridis')\nplt.title('Average Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Average Total Spending')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Plot: Average spending by education level\nplt.figure(figsize=(12, 6))\nspending_columns = ['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']\ndf['Total_Spending'] = df[spending_columns].sum(axis=1)\navg_spending_by_education = df.groupby('Education')['Total_Spending'].mean().sort_values()\n\nsns.barplot(x=avg_spending_by_education.index, y=avg_spending_by_education.values, palette='viridis')\nplt.title('Average Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Average Total Spending')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp4fcevo32/viz_script.py:17: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=avg_spending_by_education.index, y=avg_spending_by_education.values, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 0.6617,
+    "visual_entropy": 2.0068,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.781,
+    "cost_per_run": 0.004582,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

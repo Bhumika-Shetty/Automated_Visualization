@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-08T16:24:48.685086",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert the 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Aggregate total sales by product and date\nsales_by_product = data.groupby(['date', 'product'])['total'].sum().reset_index()\n\n# Create a line plot for sales over time by product\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_by_product, x='date', y='total', hue='product', marker='o')\n\n# Set plot labels and title\nplt.title('Daily Sales by Product')\nplt.xlabel('Date')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.grid(True)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert the 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Aggregate total sales by product and date\nsales_by_product = data.groupby(['date', 'product'])['total'].sum().reset_index()\n\n# Create a line plot for sales over time by product\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_by_product, x='date', y='total', hue='product', marker='o')\n\n# Set plot labels and title\nplt.title('Daily Sales by Product')\nplt.xlabel('Date')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.grid(True)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.1429,
+    "color_delta_e": 7.555,
+    "visual_entropy": 2.618,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 4.447,
+    "cost_per_run": 0.003,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

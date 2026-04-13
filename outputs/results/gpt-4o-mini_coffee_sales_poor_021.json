@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 21,
+  "timestamp": "2026-04-08T16:54:47.334346",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\"] * 5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Create a bar plot for total sales by product\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', data=df, palette='viridis')\n\n# Add title and labels\nplt.title('Total Sales by Product on 2024-01-01', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"date\": [\"2024-01-01\"] * 5,\n    \"time\": [\"00:00\", \"02:00\", \"04:00\", \"06:00\", \"08:00\"],\n    \"product\": [\"Cappuccino\", \"Cappuccino\", \"Tea\", \"Latte\", \"Americano\"],\n    \"size\": [\"Large\", \"Medium\", \"Small\", \"Large\", \"Medium\"],\n    \"price\": [4.18, 4.01, 5.22, 6.37, 7.07],\n    \"quantity\": [2, 3, 1, 2, 3],\n    \"payment_method\": [\"Credit Card\", \"Credit Card\", \"Credit Card\", \"Credit Card\", \"Cash\"],\n    \"customer_age_group\": [\"55+\", \"35-44\", \"18-24\", \"45-54\", \"45-54\"],\n    \"is_takeaway\": [1, 1, 1, 1, 1],\n    \"total\": [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Create a bar plot for total sales by product\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', data=df, palette='viridis')\n\n# Add title and labels\nplt.title('Total Sales by Product on 2024-01-01', fontsize=16)\nplt.xlabel('Product', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpc8g0nji8/viz_script.py:23: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='product', y='total', data=df, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5517,
+    "color_delta_e": 1.0148,
+    "visual_entropy": 1.5663,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 6.994,
+    "cost_per_run": 0.000264,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

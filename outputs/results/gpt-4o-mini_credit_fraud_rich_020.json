@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-08T05:08:42.026275",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(12, 6))\n\n# Create a boxplot to visualize the distribution of transaction amounts by fraud status\nsns.boxplot(x='is_fraud', y='amount', data=data, palette=\"Set2\")\n\n# Add titles and labels\nplt.title('Transaction Amount Distribution by Fraud Status', fontsize=16)\nplt.xlabel('Is Fraud', fontsize=14)\nplt.ylabel('Transaction Amount', fontsize=14)\nplt.xticks([0, 1], ['Not Fraud', 'Fraud'], fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(12, 6))\n\n# Create a boxplot to visualize the distribution of transaction amounts by fraud status\nsns.boxplot(x='is_fraud', y='amount', data=data, palette=\"Set2\")\n\n# Add titles and labels\nplt.title('Transaction Amount Distribution by Fraud Status', fontsize=16)\nplt.xlabel('Is Fraud', fontsize=14)\nplt.ylabel('Transaction Amount', fontsize=14)\nplt.xticks([0, 1], ['Not Fraud', 'Fraud'], fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpzw12hzc7/viz_script.py:15: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='is_fraud', y='amount', data=data, palette=\"Set2\")\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 0.4415,
+    "visual_entropy": 0.5542,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 9.955,
+    "cost_per_run": 0.000153,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

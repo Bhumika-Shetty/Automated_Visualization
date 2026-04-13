@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-08T04:06:17.542394",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris = pd.read_csv('data/iris.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot with hue based on the species\npairplot = sns.pairplot(iris, hue=\"species\", markers=[\"o\", \"s\", \"D\"],\n                        plot_kws={'alpha':0.7, 's':60, 'edgecolor':'w'}, \n                        diag_kind='hist', diag_kws={'alpha':0.5})\n\n# Add a title and adjust layout\npairplot.fig.suptitle(\"Iris Dataset Pairplot by Species\", y=1.02)\npairplot.fig.subplots_adjust(top=0.95)  # Adjust the top of the plots to fit the title\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris = pd.read_csv('data/iris.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot with hue based on the species\npairplot = sns.pairplot(iris, hue=\"species\", markers=[\"o\", \"s\", \"D\"],\n                        plot_kws={'alpha':0.7, 's':60, 'edgecolor':'w'}, \n                        diag_kind='hist', diag_kws={'alpha':0.5})\n\n# Add a title and adjust layout\npairplot.fig.suptitle(\"Iris Dataset Pairplot by Species\", y=1.02)\npairplot.fig.subplots_adjust(top=0.95)  # Adjust the top of the plots to fit the title\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": 1.286,
+    "visual_entropy": 1.8189,
+    "labeling_completeness": 0.25,
+    "code_complexity": 1,
+    "generation_latency": 2.436,
+    "cost_per_run": 0.002788,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

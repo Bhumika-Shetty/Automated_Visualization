@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T04:22:01.175243",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a boxplot to visualize the distribution of transaction amounts\n# split by whether the transaction was fraudulent or not\nplt.figure(figsize=(14, 8))\nsns.boxplot(data=df, x='transaction_type', y='amount', hue='is_fraud', palette='Set2')\n\n# Add title and labels\nplt.title('Transaction Amounts by Type and Fraud Status', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Transaction Amount', fontsize=12)\n\n# Add legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a boxplot to visualize the distribution of transaction amounts\n# split by whether the transaction was fraudulent or not\nplt.figure(figsize=(14, 8))\nsns.boxplot(data=df, x='transaction_type', y='amount', hue='is_fraud', palette='Set2')\n\n# Add title and labels\nplt.title('Transaction Amounts by Type and Fraud Status', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Transaction Amount', fontsize=12)\n\n# Add legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.7273,
+    "color_delta_e": 0.3937,
+    "visual_entropy": 0.5086,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.32,
+    "cost_per_run": 0.002577,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

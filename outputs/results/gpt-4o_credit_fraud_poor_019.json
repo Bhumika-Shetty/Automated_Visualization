@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 19,
+  "timestamp": "2026-04-08T04:28:31.160512",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a pandas DataFrame\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Initialize the matplotlib figure\nf, ax = plt.subplots(figsize=(10, 6))\n\n# Create a bar plot using seaborn\nsns.barplot(x=\"hour_of_day\", y=\"amount\", hue=\"transaction_type\", data=data, ci=None)\n\n# Add a legend and informative axis label\nax.legend(ncol=2, loc=\"upper right\", frameon=True)\nax.set(ylim=(0, 600), ylabel=\"Transaction Amount\", xlabel=\"Hour of Day\")\nsns.despine(left=True, bottom=True)\n\n# Save the plot as an image file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a pandas DataFrame\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Initialize the matplotlib figure\nf, ax = plt.subplots(figsize=(10, 6))\n\n# Create a bar plot using seaborn\nsns.barplot(x=\"hour_of_day\", y=\"amount\", hue=\"transaction_type\", data=data, ci=None)\n\n# Add a legend and informative axis label\nax.legend(ncol=2, loc=\"upper right\", frameon=True)\nax.set(ylim=(0, 600), ylabel=\"Transaction Amount\", xlabel=\"Hour of Day\")\nsns.despine(left=True, bottom=True)\n\n# Save the plot as an image file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpx_c6wyto/viz_script.py:20: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x=\"hour_of_day\", y=\"amount\", hue=\"transaction_type\", data=data, ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5625,
+    "color_delta_e": 0.3914,
+    "visual_entropy": 1.1337,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.453,
+    "cost_per_run": 0.002988,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

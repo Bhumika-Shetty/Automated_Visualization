@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 30,
+  "timestamp": "2026-04-08T16:19:12.501262",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data preparation\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"QuarLang\": [\"Hottingen\", \"Hottingen\", \"H\u00f6ngg\", \"H\u00f6ngg\", \"H\u00f6ngg\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Visualization\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='husl')\nplt.title('Dog Breed Distribution by Kreis')\nplt.xlabel('Kreis')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Breed')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data preparation\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"QuarLang\": [\"Hottingen\", \"Hottingen\", \"H\u00f6ngg\", \"H\u00f6ngg\", \"H\u00f6ngg\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Visualization\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='husl')\nplt.title('Dog Breed Distribution by Kreis')\nplt.xlabel('Kreis')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Breed')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 17.14,
+    "hallucination_rate": 0.68,
+    "color_delta_e": 0.8929,
+    "visual_entropy": 1.701,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 3.927,
+    "cost_per_run": 0.005083,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

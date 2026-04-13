@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-08T04:30:53.538914",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Create a figure and a set of subplots\nplt.figure(figsize=(10, 6))\n\n# Create a countplot for transaction types\nsns.countplot(x='transaction_type', data=data, palette='viridis')\nplt.title('Count of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Create a figure and a set of subplots\nplt.figure(figsize=(10, 6))\n\n# Create a countplot for transaction types\nsns.countplot(x='transaction_type', data=data, palette='viridis')\nplt.title('Count of Transaction Types')\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp5i6mr_78/viz_script.py:17: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.countplot(x='transaction_type', data=data, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6429,
+    "color_delta_e": 0.781,
+    "visual_entropy": 1.3577,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.827,
+    "cost_per_run": 0.002338,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

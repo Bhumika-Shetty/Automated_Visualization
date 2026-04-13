@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-08T03:58:58.918088",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a count plot of survival by class and sex\nsns.countplot(data=titanic, x='class', hue='survived', palette='viridis')\n\n# Add title and labels\nplt.title('Survival Count by Passenger Class and Sex', fontsize=14)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Count', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add legend\nplt.legend(title='Survived', labels=['No', 'Yes'], loc='upper right')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a count plot of survival by class and sex\nsns.countplot(data=titanic, x='class', hue='survived', palette='viridis')\n\n# Add title and labels\nplt.title('Survival Count by Passenger Class and Sex', fontsize=14)\nplt.xlabel('Passenger Class', fontsize=12)\nplt.ylabel('Count', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Add legend\nplt.legend(title='Survived', labels=['No', 'Yes'], loc='upper right')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.6127,
+    "visual_entropy": 1.4316,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.61,
+    "cost_per_run": 0.003148,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

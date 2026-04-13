@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 17,
+  "timestamp": "2026-04-08T16:17:04.266626",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Prepare the data\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\ndf['Year'] = df['StichtagDat'].dt.year\n\n# Plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='Year', hue='KreisLang', palette='Set2')\nplt.title('Number of Dogs by Year and District')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='District')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Prepare the data\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\ndf['Year'] = df['StichtagDat'].dt.year\n\n# Plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='Year', hue='KreisLang', palette='Set2')\nplt.title('Number of Dogs by Year and District')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='District')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.68,
+    "color_delta_e": 1.1266,
+    "visual_entropy": 1.8255,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.955,
+    "cost_per_run": 0.004743,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

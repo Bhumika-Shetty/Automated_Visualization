@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-08T04:31:52.398327",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/titanic.csv')\n\n# Set the style for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a countplot of survival based on passenger class and gender\nplt.figure(figsize=(12, 6))\nsns.countplot(data=data, x='pclass', hue='sex', palette='pastel')\n\n# Add labels and title\nplt.title('Passenger Survival on the Titanic by Class and Gender', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=14)\nplt.ylabel('Count of Passengers', fontsize=14)\nplt.legend(title='Gender', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/titanic.csv')\n\n# Set the style for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a countplot of survival based on passenger class and gender\nplt.figure(figsize=(12, 6))\nsns.countplot(data=data, x='pclass', hue='sex', palette='pastel')\n\n# Add labels and title\nplt.title('Passenger Survival on the Titanic by Class and Gender', fontsize=16)\nplt.xlabel('Passenger Class', fontsize=14)\nplt.ylabel('Count of Passengers', fontsize=14)\nplt.legend(title='Gender', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7778,
+    "color_delta_e": 0.5402,
+    "visual_entropy": 1.4832,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.879,
+    "cost_per_run": 0.000167,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

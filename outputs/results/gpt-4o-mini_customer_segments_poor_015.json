@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "customer_segments",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-08T05:03:05.476708",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Data loading\ndata = {\n    \"ID\": [5524, 2174, 4141, 6182, 5324],\n    \"Year_Birth\": [1957, 1954, 1965, 1984, 1981],\n    \"Education\": ['Graduation', 'Graduation', 'Graduation', 'Graduation', 'PhD'],\n    \"Marital_Status\": ['Single', 'Single', 'Together', 'Together', 'Married'],\n    \"Income\": [58138.0, 46344.0, 71613.0, 26646.0, 58293.0],\n    \"Kidhome\": [0, 1, 0, 1, 1],\n    \"Teenhome\": [0, 1, 0, 0, 0],\n    \"Recency\": [58, 38, 26, 26, 94],\n    \"MntWines\": [635, 11, 426, 11, 173],\n    \"MntFruits\": [88, 1, 49, 4, 43],\n    \"MntMeatProducts\": [546, 6, 127, 20, 118],\n    \"MntFishProducts\": [172, 2, 111, 10, 46],\n    \"MntSweetProducts\": [88, 1, 21, 3, 27],\n    \"NumDealsPurchases\": [3, 2, 1, 2, 5],\n    \"NumWebPurchases\": [8, 1, 8, 0, 5],\n    \"NumCatalogPurchases\": [10, 1, 2, 4, 3],\n    \"NumStorePurchases\": [4, 2, 10, 6, 6],\n}\n\ndf = pd.DataFrame(data)\n\n# Visualization\nplt.figure(figsize=(12, 6))\nsns.barplot(data=df, x='Education', y='Income', hue='Marital_Status', palette='viridis')\nplt.title('Income by Education Level and Marital Status')\nplt.xlabel('Education Level')\nplt.ylabel('Income')\nplt.legend(title='Marital Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Data loading\ndata = {\n    \"ID\": [5524, 2174, 4141, 6182, 5324],\n    \"Year_Birth\": [1957, 1954, 1965, 1984, 1981],\n    \"Education\": ['Graduation', 'Graduation', 'Graduation', 'Graduation', 'PhD'],\n    \"Marital_Status\": ['Single', 'Single', 'Together', 'Together', 'Married'],\n    \"Income\": [58138.0, 46344.0, 71613.0, 26646.0, 58293.0],\n    \"Kidhome\": [0, 1, 0, 1, 1],\n    \"Teenhome\": [0, 1, 0, 0, 0],\n    \"Recency\": [58, 38, 26, 26, 94],\n    \"MntWines\": [635, 11, 426, 11, 173],\n    \"MntFruits\": [88, 1, 49, 4, 43],\n    \"MntMeatProducts\": [546, 6, 127, 20, 118],\n    \"MntFishProducts\": [172, 2, 111, 10, 46],\n    \"MntSweetProducts\": [88, 1, 21, 3, 27],\n    \"NumDealsPurchases\": [3, 2, 1, 2, 5],\n    \"NumWebPurchases\": [8, 1, 8, 0, 5],\n    \"NumCatalogPurchases\": [10, 1, 2, 4, 3],\n    \"NumStorePurchases\": [4, 2, 10, 6, 6],\n}\n\ndf = pd.DataFrame(data)\n\n# Visualization\nplt.figure(figsize=(12, 6))\nsns.barplot(data=df, x='Education', y='Income', hue='Marital_Status', palette='viridis')\nplt.title('Income by Education Level and Marital Status')\nplt.xlabel('Education Level')\nplt.ylabel('Income')\nplt.legend(title='Marital Status')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 58.62,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 1.0188,
+    "visual_entropy": 1.3958,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 8.325,
+    "cost_per_run": 0.000383,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

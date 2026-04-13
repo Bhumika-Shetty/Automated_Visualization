@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T04:14:05.781304",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for total spending\ndf['Total_Spending'] = (df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \n                        df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds'])\n\n# Plotting the distribution of Total Spending across different Education levels\nplt.figure(figsize=(12, 6))\nsns.boxplot(data=df, x='Education', y='Total_Spending', palette='Set3')\nplt.title('Distribution of Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Total Spending')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for total spending\ndf['Total_Spending'] = (df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \n                        df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds'])\n\n# Plotting the distribution of Total Spending across different Education levels\nplt.figure(figsize=(12, 6))\nsns.boxplot(data=df, x='Education', y='Total_Spending', palette='Set3')\nplt.title('Distribution of Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Total Spending')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp4ptwa9gx/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(data=df, x='Education', y='Total_Spending', palette='Set3')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 24.14,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.6981,
+    "visual_entropy": 1.2763,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.804,
+    "cost_per_run": 0.004053,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

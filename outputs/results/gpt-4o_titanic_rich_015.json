@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-08T03:59:17.774169",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the style of the visualization\nsns.set_style(\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing survival rate by passenger class and sex\nsns.barplot(data=titanic, x='pclass', y='survived', hue='sex', ci=None)\n\n# Set labels and title\nplt.xlabel('Passenger Class')\nplt.ylabel('Survival Rate')\nplt.title('Survival Rate by Passenger Class and Sex')\nplt.legend(title='Sex')\n\n# Save the plot as an image file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the style of the visualization\nsns.set_style(\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(10, 6))\n\n# Create a bar plot showing survival rate by passenger class and sex\nsns.barplot(data=titanic, x='pclass', y='survived', hue='sex', ci=None)\n\n# Set labels and title\nplt.xlabel('Passenger Class')\nplt.ylabel('Survival Rate')\nplt.title('Survival Rate by Passenger Class and Sex')\nplt.legend(title='Sex')\n\n# Save the plot as an image file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpe1s_hpay/viz_script.py:15: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(data=titanic, x='pclass', y='survived', hue='sex', ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 33.33,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.5981,
+    "visual_entropy": 1.4003,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.082,
+    "cost_per_run": 0.002798,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

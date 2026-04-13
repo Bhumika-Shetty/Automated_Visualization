@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-08T04:23:09.896618",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a figure and axis\nplt.figure(figsize=(12, 8))\n\n# Use seaborn to create a count plot of transaction_type colored by is_fraud\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', palette='coolwarm')\n\n# Add title and labels\nplt.title('Transaction Types and Fraud Detection', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Count', fontsize=12)\n\n# Add legend\nplt.legend(title='Is Fraud', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a figure and axis\nplt.figure(figsize=(12, 8))\n\n# Use seaborn to create a count plot of transaction_type colored by is_fraud\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', palette='coolwarm')\n\n# Add title and labels\nplt.title('Transaction Types and Fraud Detection', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Count', fontsize=12)\n\n# Add legend\nplt.legend(title='Is Fraud', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.8333,
+    "color_delta_e": 0.4506,
+    "visual_entropy": 1.3551,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.145,
+    "cost_per_run": 0.002547,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-08T16:19:47.358426",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between price and megapixels, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=cameras, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', palette='viridis', s=100, alpha=0.8)\n\n# Add title and labels\nscatter.set_title('Price vs Megapixels of Cameras by Sensor Type', fontsize=16)\nscatter.set_xlabel('Megapixels', fontsize=14)\nscatter.set_ylabel('Price in USD', fontsize=14)\n\n# Adjust legend\nscatter.legend(title='Sensor Type / Has 4K Video', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between price and megapixels, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=cameras, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', palette='viridis', s=100, alpha=0.8)\n\n# Add title and labels\nscatter.set_title('Price vs Megapixels of Cameras by Sensor Type', fontsize=16)\nscatter.set_xlabel('Megapixels', fontsize=14)\nscatter.set_ylabel('Price in USD', fontsize=14)\n\n# Adjust legend\nscatter.legend(title='Sensor Type / Has 4K Video', title_fontsize='13', fontsize='11', loc='upper left', bbox_to_anchor=(1, 1))\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 1.7341,
+    "visual_entropy": 1.7847,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 3.025,
+    "cost_per_run": 0.003482,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

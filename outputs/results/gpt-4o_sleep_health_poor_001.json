@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "poor",
+  "run_id": 1,
+  "timestamp": "2026-04-08T04:10:59.676916",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data preparation\ndata = {\n    \"Person ID\": [1, 2, 3, 4, 5],\n    \"Gender\": [\"Male\", \"Male\", \"Male\", \"Male\", \"Male\"],\n    \"Age\": [27, 28, 28, 28, 28],\n    \"Occupation\": [\"Software Engineer\", \"Doctor\", \"Doctor\", \"Sales Representative\", \"Sales Representative\"],\n    \"Sleep Duration\": [6.1, 6.2, 6.2, 5.9, 5.9],\n    \"Quality of Sleep\": [6, 6, 6, 4, 4],\n    \"Physical Activity Level\": [42, 60, 60, 30, 30],\n    \"Stress Level\": [6, 8, 8, 8, 8],\n    \"BMI Category\": [\"Overweight\", \"Normal\", \"Normal\", \"Obese\", \"Obese\"],\n    \"Blood Pressure\": [\"126/83\", \"125/80\", \"125/80\", \"140/90\", \"140/90\"],\n    \"Heart Rate\": [77, 75, 75, 85, 85],\n    \"Daily Steps\": [4200, 10000, 10000, 3000, 3000],\n    \"Sleep Disorder\": [None, None, None, \"Sleep Apnea\", \"Sleep Apnea\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the theme\nsns.set_theme(style=\"whitegrid\")\n\n# Create a subplot grid\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\n\n# Plot Sleep Duration vs Quality of Sleep\nsns.scatterplot(data=df, x=\"Sleep Duration\", y=\"Quality of Sleep\", hue=\"Occupation\", style=\"Sleep Disorder\", ax=axes[0, 0])\naxes[0, 0].set_title(\"Sleep Duration vs Quality of Sleep\")\n\n# Plot Physical Activity Level vs Stress Level\nsns.scatterplot(data=df, x=\"Physical Activity Level\", y=\"Stress Level\", hue=\"BMI Category\", style=\"Sleep Disorder\", ax=axes[0, 1])\naxes[0, 1].set_title(\"Physical Activity Level vs Stress Level\")\n\n# Plot Daily Steps vs Heart Rate\nsns.scatterplot(data=df, x=\"Daily Steps\", y=\"Heart Rate\", hue=\"Occupation\", style=\"Sleep Disorder\", ax=axes[1, 0])\naxes[1, 0].set_title(\"Daily Steps vs Heart Rate\")\n\n# Plot Age vs Sleep Duration\nsns.boxplot(data=df, x=\"Age\", y=\"Sleep Duration\", hue=\"Sleep Disorder\", ax=axes[1, 1])\naxes[1, 1].set_title(\"Age vs Sleep Duration\")\n\n# Adjust layout\nplt.tight_layout()\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data preparation\ndata = {\n    \"Person ID\": [1, 2, 3, 4, 5],\n    \"Gender\": [\"Male\", \"Male\", \"Male\", \"Male\", \"Male\"],\n    \"Age\": [27, 28, 28, 28, 28],\n    \"Occupation\": [\"Software Engineer\", \"Doctor\", \"Doctor\", \"Sales Representative\", \"Sales Representative\"],\n    \"Sleep Duration\": [6.1, 6.2, 6.2, 5.9, 5.9],\n    \"Quality of Sleep\": [6, 6, 6, 4, 4],\n    \"Physical Activity Level\": [42, 60, 60, 30, 30],\n    \"Stress Level\": [6, 8, 8, 8, 8],\n    \"BMI Category\": [\"Overweight\", \"Normal\", \"Normal\", \"Obese\", \"Obese\"],\n    \"Blood Pressure\": [\"126/83\", \"125/80\", \"125/80\", \"140/90\", \"140/90\"],\n    \"Heart Rate\": [77, 75, 75, 85, 85],\n    \"Daily Steps\": [4200, 10000, 10000, 3000, 3000],\n    \"Sleep Disorder\": [None, None, None, \"Sleep Apnea\", \"Sleep Apnea\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the theme\nsns.set_theme(style=\"whitegrid\")\n\n# Create a subplot grid\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\n\n# Plot Sleep Duration vs Quality of Sleep\nsns.scatterplot(data=df, x=\"Sleep Duration\", y=\"Quality of Sleep\", hue=\"Occupation\", style=\"Sleep Disorder\", ax=axes[0, 0])\naxes[0, 0].set_title(\"Sleep Duration vs Quality of Sleep\")\n\n# Plot Physical Activity Level vs Stress Level\nsns.scatterplot(data=df, x=\"Physical Activity Level\", y=\"Stress Level\", hue=\"BMI Category\", style=\"Sleep Disorder\", ax=axes[0, 1])\naxes[0, 1].set_title(\"Physical Activity Level vs Stress Level\")\n\n# Plot Daily Steps vs Heart Rate\nsns.scatterplot(data=df, x=\"Daily Steps\", y=\"Heart Rate\", hue=\"Occupation\", style=\"Sleep Disorder\", ax=axes[1, 0])\naxes[1, 0].set_title(\"Daily Steps vs Heart Rate\")\n\n# Plot Age vs Sleep Duration\nsns.boxplot(data=df, x=\"Age\", y=\"Sleep Duration\", hue=\"Sleep Disorder\", ax=axes[1, 1])\naxes[1, 1].set_title(\"Age vs Sleep Duration\")\n\n# Adjust layout\nplt.tight_layout()\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.44,
+    "color_delta_e": 1.1682,
+    "visual_entropy": 0.808,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 5.693,
+    "cost_per_run": 0.006775,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

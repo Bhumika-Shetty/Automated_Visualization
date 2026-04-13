@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-08T16:26:58.842931",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime format\ndf['date'] = pd.to_datetime(df['date'])\n\n# Aggregate data to find total sales by age group and product\nsales_by_age_product = df.groupby(['customer_age_group', 'product'])['total'].sum().unstack()\n\n# Create a bar plot\nplt.figure(figsize=(12, 8))\nsales_by_age_product.plot(kind='bar', stacked=True, ax=plt.gca())\n\n# Customize the plot\nplt.title('Total Sales by Customer Age Group and Product')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date column to datetime format\ndf['date'] = pd.to_datetime(df['date'])\n\n# Aggregate data to find total sales by age group and product\nsales_by_age_product = df.groupby(['customer_age_group', 'product'])['total'].sum().unstack()\n\n# Create a bar plot\nplt.figure(figsize=(12, 8))\nsales_by_age_product.plot(kind='bar', stacked=True, ax=plt.gca())\n\n# Customize the plot\nplt.title('Total Sales by Customer Age Group and Product')\nplt.xlabel('Customer Age Group')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.4,
+    "color_delta_e": 0.8844,
+    "visual_entropy": 2.3615,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.888,
+    "cost_per_run": 0.00296,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

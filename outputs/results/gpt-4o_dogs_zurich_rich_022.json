@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-08T16:14:21.418354",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Extract the top 10 most common breeds\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\n\n# Filter the data for these top breeds\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Count the number of dogs per year for each of the top breeds\nbreed_counts = filtered_data.groupby(['StichtagDatJahr', 'Rasse1Text']).size().reset_index(name='counts')\n\n# Plot the data\nplt.figure(figsize=(14, 7))\nsns.lineplot(data=breed_counts, x='StichtagDatJahr', y='counts', hue='Rasse1Text', marker='o')\n\n# Customize the plot\nplt.title('Number of Registered Dogs per Year in Zurich (Top 10 Breeds)')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Breed')\nplt.grid(True)\nplt.xticks(breed_counts['StichtagDatJahr'].unique())\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert 'StichtagDat' to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Extract the top 10 most common breeds\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\n\n# Filter the data for these top breeds\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Count the number of dogs per year for each of the top breeds\nbreed_counts = filtered_data.groupby(['StichtagDatJahr', 'Rasse1Text']).size().reset_index(name='counts')\n\n# Plot the data\nplt.figure(figsize=(14, 7))\nsns.lineplot(data=breed_counts, x='StichtagDatJahr', y='counts', hue='Rasse1Text', marker='o')\n\n# Customize the plot\nplt.title('Number of Registered Dogs per Year in Zurich (Top 10 Breeds)')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Breed')\nplt.grid(True)\nplt.xticks(breed_counts['StichtagDatJahr'].unique())\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.3529,
+    "color_delta_e": 1.3609,
+    "visual_entropy": 0.9549,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 3.895,
+    "cost_per_run": 0.005582,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

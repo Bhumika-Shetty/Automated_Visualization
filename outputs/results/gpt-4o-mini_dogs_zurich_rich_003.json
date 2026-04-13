@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-08T16:31:22.331144",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter data for top 10 breeds by number of registrations\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot of dog breeds\nplt.figure(figsize=(12, 8))\nsns.countplot(data=filtered_data, y='Rasse1Text', order=top_breeds, palette='viridis')\n\n# Add titles and labels\nplt.title('Top 10 Dog Breeds Registered in Zurich', fontsize=16)\nplt.xlabel('Number of Registrations', fontsize=14)\nplt.ylabel('Dog Breed', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter data for top 10 breeds by number of registrations\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot of dog breeds\nplt.figure(figsize=(12, 8))\nsns.countplot(data=filtered_data, y='Rasse1Text', order=top_breeds, palette='viridis')\n\n# Add titles and labels\nplt.title('Top 10 Dog Breeds Registered in Zurich', fontsize=16)\nplt.xlabel('Number of Registrations', fontsize=14)\nplt.ylabel('Dog Breed', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpjz2f_acj/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.countplot(data=filtered_data, y='Rasse1Text', order=top_breeds, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.7304,
+    "visual_entropy": 1.4635,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 4.426,
+    "cost_per_run": 0.000278,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

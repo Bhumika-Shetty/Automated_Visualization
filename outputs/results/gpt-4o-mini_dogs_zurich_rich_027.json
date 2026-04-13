@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-08T16:33:58.625972",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Set the style for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a count plot for dog breeds, limited to the top 10 breeds\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nbreed_counts = data[data['Rasse1Text'].isin(top_breeds)]\n\nplt.figure(figsize=(12, 6))\nsns.countplot(data=breed_counts, y='Rasse1Text', order=top_breeds, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\nplt.title('Top 10 Dog Breeds Registered in Zurich')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Set the style for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a count plot for dog breeds, limited to the top 10 breeds\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nbreed_counts = data[data['Rasse1Text'].isin(top_breeds)]\n\nplt.figure(figsize=(12, 6))\nsns.countplot(data=breed_counts, y='Rasse1Text', order=top_breeds, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\nplt.title('Top 10 Dog Breeds Registered in Zurich')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpekcbgx3y/viz_script.py:16: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.countplot(data=breed_counts, y='Rasse1Text', order=top_breeds, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.6875,
+    "visual_entropy": 1.548,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 5.51,
+    "cost_per_run": 0.000276,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

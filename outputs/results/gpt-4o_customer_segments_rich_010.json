@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-08T04:14:41.595544",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a new column for total spending\ndf['Total_Spending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Plot total spending against income, colored by education level\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Income', \n    y='Total_Spending',\n    hue='Education',\n    palette='viridis',\n    alpha=0.6\n)\n\n# Customize the plot\nscatter_plot.set_title('Total Spending vs. Income by Education Level', fontsize=16)\nscatter_plot.set_xlabel('Income', fontsize=14)\nscatter_plot.set_ylabel('Total Spending', fontsize=14)\nscatter_plot.legend(title='Education Level', fontsize=12)\nplt.xticks(fontsize=12)\nplt.yticks(fontsize=12)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a new column for total spending\ndf['Total_Spending'] = df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds']\n\n# Plot total spending against income, colored by education level\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df,\n    x='Income', \n    y='Total_Spending',\n    hue='Education',\n    palette='viridis',\n    alpha=0.6\n)\n\n# Customize the plot\nscatter_plot.set_title('Total Spending vs. Income by Education Level', fontsize=16)\nscatter_plot.set_xlabel('Income', fontsize=14)\nscatter_plot.set_ylabel('Total Spending', fontsize=14)\nscatter_plot.legend(title='Education Level', fontsize=12)\nplt.xticks(fontsize=12)\nplt.yticks(fontsize=12)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 1.0188,
+    "visual_entropy": 0.9542,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.124,
+    "cost_per_run": 0.004832,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

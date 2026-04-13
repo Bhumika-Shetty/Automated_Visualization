@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-08T04:05:25.142883",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris = pd.read_csv('data/iris.csv')\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create a pairplot to visualize the relationships between the features\npairplot = sns.pairplot(iris, hue='species', markers=[\"o\", \"s\", \"D\"],\n                        plot_kws={'alpha': 0.7, 's': 80, 'edgecolor': 'k'})\n\n# Add title and adjust layout\npairplot.fig.suptitle(\"Pairplot of Iris Dataset\", y=1.02)\npairplot.set(xlabel='Feature Value', ylabel='Feature Value')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris = pd.read_csv('data/iris.csv')\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create a pairplot to visualize the relationships between the features\npairplot = sns.pairplot(iris, hue='species', markers=[\"o\", \"s\", \"D\"],\n                        plot_kws={'alpha': 0.7, 's': 80, 'edgecolor': 'k'})\n\n# Add title and adjust layout\npairplot.fig.suptitle(\"Pairplot of Iris Dataset\", y=1.02)\npairplot.set(xlabel='Feature Value', ylabel='Feature Value')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": 2.0439,
+    "visual_entropy": 2.115,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.493,
+    "cost_per_run": 0.002527,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

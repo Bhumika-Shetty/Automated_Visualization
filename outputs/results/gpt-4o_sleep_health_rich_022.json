@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-08T04:10:30.245597",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a boxplot to visualize sleep duration by gender\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='Gender', y='Sleep Duration', data=data, palette='pastel')\n\n# Add title and labels\nplt.title('Distribution of Sleep Duration by Gender', fontsize=16)\nplt.xlabel('Gender', fontsize=12)\nplt.ylabel('Sleep Duration (hours)', fontsize=12)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a boxplot to visualize sleep duration by gender\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='Gender', y='Sleep Duration', data=data, palette='pastel')\n\n# Add title and labels\nplt.title('Distribution of Sleep Duration by Gender', fontsize=16)\nplt.xlabel('Gender', fontsize=12)\nplt.ylabel('Sleep Duration (hours)', fontsize=12)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpfl5494bg/viz_script.py:13: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='Gender', y='Sleep Duration', data=data, palette='pastel')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 15.38,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.4525,
+    "visual_entropy": 1.647,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 1.719,
+    "cost_per_run": 0.002672,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

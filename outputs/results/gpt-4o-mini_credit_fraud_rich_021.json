@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-08T05:08:53.000686",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between amount and hour_of_day, colored by is_fraud\nplt.figure(figsize=(12, 6))\nscatter = sns.scatterplot(data=data, x='hour_of_day', y='amount', hue='is_fraud', alpha=0.7, palette={0: 'blue', 1: 'red'})\n\n# Add titles and labels\nplt.title('Credit Card Transactions by Hour of Day and Fraud Status', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Transaction Amount ($)', fontsize=12)\nplt.legend(title='Fraud Status', loc='upper left', labels=['Not Fraud', 'Fraud'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between amount and hour_of_day, colored by is_fraud\nplt.figure(figsize=(12, 6))\nscatter = sns.scatterplot(data=data, x='hour_of_day', y='amount', hue='is_fraud', alpha=0.7, palette={0: 'blue', 1: 'red'})\n\n# Add titles and labels\nplt.title('Credit Card Transactions by Hour of Day and Fraud Status', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Transaction Amount ($)', fontsize=12)\nplt.legend(title='Fraud Status', loc='upper left', labels=['Not Fraud', 'Fraud'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.7692,
+    "color_delta_e": 0.8412,
+    "visual_entropy": 0.7101,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.006,
+    "cost_per_run": 0.000171,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

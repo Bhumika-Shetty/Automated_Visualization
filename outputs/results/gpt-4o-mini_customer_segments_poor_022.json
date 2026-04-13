@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "customer_segments",
+  "prompt_type": "poor",
+  "run_id": 22,
+  "timestamp": "2026-04-08T05:04:38.741388",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    \"ID\": [5524, 2174, 4141, 6182, 5324],\n    \"Year_Birth\": [1957, 1954, 1965, 1984, 1981],\n    \"Education\": [\"Graduation\", \"Graduation\", \"Graduation\", \"Graduation\", \"PhD\"],\n    \"Marital_Status\": [\"Single\", \"Single\", \"Together\", \"Together\", \"Married\"],\n    \"Income\": [58138.0, 46344.0, 71613.0, 26646.0, 58293.0],\n    \"Kidhome\": [0, 1, 0, 1, 1],\n    \"Teenhome\": [0, 1, 0, 0, 0],\n    \"Recency\": [58, 38, 26, 26, 94],\n    \"MntWines\": [635, 11, 426, 11, 173],\n    \"MntFruits\": [88, 1, 49, 4, 43],\n    \"MntMeatProducts\": [546, 6, 127, 20, 118],\n    \"MntFishProducts\": [172, 2, 111, 10, 46],\n    \"MntSweetProducts\": [88, 1, 21, 3, 27],\n    \"MntGoldProds\": [88, 6, 42, 5, 15],\n})\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of Income vs Recency colored by Education\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=data, x='Recency', y='Income', hue='Education', style='Marital_Status', s=100)\n\n# Customize the plot\nplt.title('Income vs Recency by Education and Marital Status')\nplt.xlabel('Recency (days since last purchase)')\nplt.ylabel('Income')\nplt.legend(title='Education and Marital Status')\n\n# Save the plot as output.png\nplt.savefig('output.png', dpi=300)\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    \"ID\": [5524, 2174, 4141, 6182, 5324],\n    \"Year_Birth\": [1957, 1954, 1965, 1984, 1981],\n    \"Education\": [\"Graduation\", \"Graduation\", \"Graduation\", \"Graduation\", \"PhD\"],\n    \"Marital_Status\": [\"Single\", \"Single\", \"Together\", \"Together\", \"Married\"],\n    \"Income\": [58138.0, 46344.0, 71613.0, 26646.0, 58293.0],\n    \"Kidhome\": [0, 1, 0, 1, 1],\n    \"Teenhome\": [0, 1, 0, 0, 0],\n    \"Recency\": [58, 38, 26, 26, 94],\n    \"MntWines\": [635, 11, 426, 11, 173],\n    \"MntFruits\": [88, 1, 49, 4, 43],\n    \"MntMeatProducts\": [546, 6, 127, 20, 118],\n    \"MntFishProducts\": [172, 2, 111, 10, 46],\n    \"MntSweetProducts\": [88, 1, 21, 3, 27],\n    \"MntGoldProds\": [88, 6, 42, 5, 15],\n})\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of Income vs Recency colored by Education\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=data, x='Recency', y='Income', hue='Education', style='Marital_Status', s=100)\n\n# Customize the plot\nplt.title('Income vs Recency by Education and Marital Status')\nplt.xlabel('Recency (days since last purchase)')\nplt.ylabel('Income')\nplt.legend(title='Education and Marital Status')\n\n# Save the plot as output.png\nplt.savefig('output.png', dpi=300)\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 48.28,
+    "hallucination_rate": 0.4062,
+    "color_delta_e": 0.3859,
+    "visual_entropy": 0.4569,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 10.926,
+    "cost_per_run": 0.000372,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

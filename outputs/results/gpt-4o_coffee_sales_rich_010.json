@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 10,
+  "timestamp": "2026-04-08T16:25:24.700810",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Plot: Total sales per product over time\nsales_over_time = data.groupby(['date', 'product'])['total'].sum().reset_index()\n\n# Line plot with hue for different products\nsns.lineplot(data=sales_over_time, x='date', y='total', hue='product', marker='o', ax=ax)\n\n# Set labels and title\nax.set_title('Total Sales per Product Over Time', fontsize=14)\nax.set_xlabel('Date', fontsize=12)\nax.set_ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Adjust the legend\nax.legend(title='Product')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Plot: Total sales per product over time\nsales_over_time = data.groupby(['date', 'product'])['total'].sum().reset_index()\n\n# Line plot with hue for different products\nsns.lineplot(data=sales_over_time, x='date', y='total', hue='product', marker='o', ax=ax)\n\n# Set labels and title\nax.set_title('Total Sales per Product Over Time', fontsize=14)\nax.set_xlabel('Date', fontsize=12)\nax.set_ylabel('Total Sales ($)', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Adjust the legend\nax.legend(title='Product')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.2,
+    "color_delta_e": 5.4534,
+    "visual_entropy": 2.6615,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 3.658,
+    "cost_per_run": 0.00349,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

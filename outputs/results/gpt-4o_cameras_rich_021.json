@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 21,
+  "timestamp": "2026-04-08T16:20:40.127755",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a new column to categorize the cameras by price range\nbins = [0, 500, 1000, 2000, 3000, 4000, 5000, 10000]\nlabels = ['<500', '500-1000', '1000-2000', '2000-3000', '3000-4000', '4000-5000', '5000+']\ndata['price_range'] = pd.cut(data['price_usd'], bins=bins, labels=labels)\n\n# Create a bar plot to visualize the count of cameras in each price range and sensor type\nplt.figure(figsize=(12, 6))\nsns.countplot(data=data, x='price_range', hue='sensor_type', palette=\"viridis\")\n\n# Add labels and title\nplt.title('Distribution of Camera Prices by Sensor Type', fontsize=16)\nplt.xlabel('Price Range (USD)', fontsize=12)\nplt.ylabel('Number of Cameras', fontsize=12)\nplt.legend(title='Sensor Type')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a new column to categorize the cameras by price range\nbins = [0, 500, 1000, 2000, 3000, 4000, 5000, 10000]\nlabels = ['<500', '500-1000', '1000-2000', '2000-3000', '3000-4000', '4000-5000', '5000+']\ndata['price_range'] = pd.cut(data['price_usd'], bins=bins, labels=labels)\n\n# Create a bar plot to visualize the count of cameras in each price range and sensor type\nplt.figure(figsize=(12, 6))\nsns.countplot(data=data, x='price_range', hue='sensor_type', palette=\"viridis\")\n\n# Add labels and title\nplt.title('Distribution of Camera Prices by Sensor Type', fontsize=16)\nplt.xlabel('Price Range (USD)', fontsize=12)\nplt.ylabel('Number of Cameras', fontsize=12)\nplt.legend(title='Sensor Type')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 2.0883,
+    "visual_entropy": 2.1871,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.125,
+    "cost_per_run": 0.003912,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

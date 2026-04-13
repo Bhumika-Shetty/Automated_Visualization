@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-08T16:20:00.211213",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the plot style\nsns.set(style='whitegrid')\n\n# Create a boxplot for camera prices by sensor type\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='sensor_type', y='price_usd', data=df, palette='muted')\n\n# Set plot title and labels\nplt.title('Camera Prices by Sensor Type', fontsize=16)\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the plot style\nsns.set(style='whitegrid')\n\n# Create a boxplot for camera prices by sensor type\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='sensor_type', y='price_usd', data=df, palette='muted')\n\n# Set plot title and labels\nplt.title('Camera Prices by Sensor Type', fontsize=16)\nplt.xlabel('Sensor Type', fontsize=12)\nplt.ylabel('Price (USD)', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```\n",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpj9bdtuer/viz_script.py:13: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='sensor_type', y='price_usd', data=df, palette='muted')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.7143,
+    "color_delta_e": 0.7205,
+    "visual_entropy": 1.8575,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 2.17,
+    "cost_per_run": 0.002782,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

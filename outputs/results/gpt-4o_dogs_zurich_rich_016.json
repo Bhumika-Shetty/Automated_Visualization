@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-08T16:13:55.436437",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert year and month to a datetime column for better plotting\ndata['Date'] = pd.to_datetime(data['StichtagDat'])\n\n# Group by year and breed to count the number of registrations\nbreed_counts = data.groupby(['StichtagDatJahr', 'Rasse1Text']).size().reset_index(name='Count')\n\n# Filter for the top 5 most common breeds\ntop_breeds = breed_counts.groupby('Rasse1Text')['Count'].sum().nlargest(5).index\nbreed_counts_top = breed_counts[breed_counts['Rasse1Text'].isin(top_breeds)]\n\n# Plotting\nplt.figure(figsize=(12, 8))\nsns.lineplot(data=breed_counts_top, x='StichtagDatJahr', y='Count', hue='Rasse1Text', marker='o')\n\n# Customizing the plot\nplt.title('Top 5 Dog Breeds Registration Over Time in Zurich', fontsize=16)\nplt.xlabel('Year', fontsize=12)\nplt.ylabel('Number of Registrations', fontsize=12)\nplt.legend(title='Dog Breed')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Convert year and month to a datetime column for better plotting\ndata['Date'] = pd.to_datetime(data['StichtagDat'])\n\n# Group by year and breed to count the number of registrations\nbreed_counts = data.groupby(['StichtagDatJahr', 'Rasse1Text']).size().reset_index(name='Count')\n\n# Filter for the top 5 most common breeds\ntop_breeds = breed_counts.groupby('Rasse1Text')['Count'].sum().nlargest(5).index\nbreed_counts_top = breed_counts[breed_counts['Rasse1Text'].isin(top_breeds)]\n\n# Plotting\nplt.figure(figsize=(12, 8))\nsns.lineplot(data=breed_counts_top, x='StichtagDatJahr', y='Count', hue='Rasse1Text', marker='o')\n\n# Customizing the plot\nplt.title('Top 5 Dog Breeds Registration Over Time in Zurich', fontsize=16)\nplt.xlabel('Year', fontsize=12)\nplt.ylabel('Number of Registrations', fontsize=12)\nplt.legend(title='Dog Breed')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.5294,
+    "color_delta_e": 0.8846,
+    "visual_entropy": 0.4794,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 4.379,
+    "cost_per_run": 0.005522,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

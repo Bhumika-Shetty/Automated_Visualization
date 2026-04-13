@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-08T16:13:23.118331",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a plot to show the distribution of dog breeds in Zurich\nplt.figure(figsize=(12, 8))\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10)\nsns.barplot(x=top_breeds.values, y=top_breeds.index, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\nplt.title('Top 10 Dog Breeds in Zurich')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Create a plot to show the distribution of dog breeds in Zurich\nplt.figure(figsize=(12, 8))\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10)\nsns.barplot(x=top_breeds.values, y=top_breeds.index, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\nplt.title('Top 10 Dog Breeds in Zurich')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpyzdpj7k5/viz_script.py:11: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=top_breeds.values, y=top_breeds.index, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.8333,
+    "color_delta_e": 0.6182,
+    "visual_entropy": 1.4474,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.217,
+    "cost_per_run": 0.004222,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

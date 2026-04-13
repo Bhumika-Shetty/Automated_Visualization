@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-08T04:09:57.628356",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the plot style\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot for Sleep Duration vs Daily Steps, colored by Quality of Sleep\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=df, x='Sleep Duration', y='Daily Steps', hue='Quality of Sleep', palette='viridis', size='Quality of Sleep', sizes=(20, 200), alpha=0.7)\n\n# Add title and labels\nplt.title('Sleep Duration vs Daily Steps colored by Quality of Sleep', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Daily Steps', fontsize=12)\n\n# Adjust legend\nplt.legend(title='Quality of Sleep', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the plot style\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot for Sleep Duration vs Daily Steps, colored by Quality of Sleep\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=df, x='Sleep Duration', y='Daily Steps', hue='Quality of Sleep', palette='viridis', size='Quality of Sleep', sizes=(20, 200), alpha=0.7)\n\n# Add title and labels\nplt.title('Sleep Duration vs Daily Steps colored by Quality of Sleep', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Daily Steps', fontsize=12)\n\n# Adjust legend\nplt.legend(title='Quality of Sleep', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 0.5669,
+    "visual_entropy": 0.6325,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.658,
+    "cost_per_run": 0.003322,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

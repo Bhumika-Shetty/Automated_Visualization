@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-08T16:14:34.913434",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate data to get count of dogs per district\ndogs_per_district = df.groupby('KreisLang').size().reset_index(name='Count')\n\n# Plot the data\nplt.figure(figsize=(12, 8))\nsns.barplot(data=dogs_per_district, x='Count', y='KreisLang', palette='viridis')\n\n# Add title and labels\nplt.title('Number of Registered Dogs per District in Zurich', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('District', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Aggregate data to get count of dogs per district\ndogs_per_district = df.groupby('KreisLang').size().reset_index(name='Count')\n\n# Plot the data\nplt.figure(figsize=(12, 8))\nsns.barplot(data=dogs_per_district, x='Count', y='KreisLang', palette='viridis')\n\n# Add title and labels\nplt.title('Number of Registered Dogs per District in Zurich', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('District', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp_glcle4r/viz_script.py:13: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=dogs_per_district, x='Count', y='KreisLang', palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.7778,
+    "color_delta_e": 0.6582,
+    "visual_entropy": 1.8207,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 3.271,
+    "cost_per_run": 0.004332,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 11,
+  "timestamp": "2026-04-08T04:14:45.898054",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for total spending\ndata['Total_Spending'] = data['MntWines'] + data['MntFruits'] + data['MntMeatProducts'] + \\\n                         data['MntFishProducts'] + data['MntSweetProducts'] + data['MntGoldProds']\n\n# Plot total spending by education level\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='Education', y='Total_Spending', data=data, palette='Set2')\n\n# Add title and labels\nplt.title('Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Total Spending ($)')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for total spending\ndata['Total_Spending'] = data['MntWines'] + data['MntFruits'] + data['MntMeatProducts'] + \\\n                         data['MntFishProducts'] + data['MntSweetProducts'] + data['MntGoldProds']\n\n# Plot total spending by education level\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='Education', y='Total_Spending', data=data, palette='Set2')\n\n# Add title and labels\nplt.title('Total Spending by Education Level')\nplt.xlabel('Education Level')\nplt.ylabel('Total Spending ($)')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpqq5dlr_t/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='Education', y='Total_Spending', data=data, palette='Set2')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 24.14,
+    "hallucination_rate": 0.4615,
+    "color_delta_e": 0.8782,
+    "visual_entropy": 1.3595,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 1.903,
+    "cost_per_run": 0.003993,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

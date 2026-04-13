@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-08T04:15:50.555235",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Group by Education and Marital_Status and calculate average total spending\nspending_by_education_marital = df.groupby(['Education', 'Marital_Status'])['Total_Spending'].mean().reset_index()\n\n# Create a pivot table for better plotting\npivot_table = spending_by_education_marital.pivot('Education', 'Marital_Status', 'Total_Spending')\n\n# Plot\nplt.figure(figsize=(12, 8))\nsns.heatmap(pivot_table, annot=True, fmt=\".0f\", cmap='YlGnBu', cbar_kws={'label': 'Average Total Spending'})\n\n# Add labels and title\nplt.title('Average Total Spending by Education and Marital Status')\nplt.xlabel('Marital Status')\nplt.ylabel('Education')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for total spending\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Group by Education and Marital_Status and calculate average total spending\nspending_by_education_marital = df.groupby(['Education', 'Marital_Status'])['Total_Spending'].mean().reset_index()\n\n# Create a pivot table for better plotting\npivot_table = spending_by_education_marital.pivot('Education', 'Marital_Status', 'Total_Spending')\n\n# Plot\nplt.figure(figsize=(12, 8))\nsns.heatmap(pivot_table, annot=True, fmt=\".0f\", cmap='YlGnBu', cbar_kws={'label': 'Average Total Spending'})\n\n# Add labels and title\nplt.title('Average Total Spending by Education and Marital Status')\nplt.xlabel('Marital Status')\nplt.ylabel('Education')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpokn09s7g/viz_script.py\", line 18, in <module>\n    pivot_table = spending_by_education_marital.pivot('Education', 'Marital_Status', 'Total_Spending')\nTypeError: DataFrame.pivot() takes 1 positional argument but 4 were given\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 31.03,
+    "hallucination_rate": 0.4091,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 3.28,
+    "cost_per_run": 0.005123,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

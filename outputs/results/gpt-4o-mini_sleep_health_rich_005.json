@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-08T04:44:59.664682",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize Sleep Duration vs Quality of Sleep colored by Gender\nplt.figure(figsize=(12, 6))\nscatter_plot = sns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', \n                                hue='Gender', style='BMI Category', \n                                palette='deep', s=100, alpha=0.8)\n\n# Add title and labels\nplt.title('Sleep Duration vs Quality of Sleep by Gender and BMI Category', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Add legend\nplt.legend(title='Gender and BMI Category', fontsize=10)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize Sleep Duration vs Quality of Sleep colored by Gender\nplt.figure(figsize=(12, 6))\nscatter_plot = sns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', \n                                hue='Gender', style='BMI Category', \n                                palette='deep', s=100, alpha=0.8)\n\n# Add title and labels\nplt.title('Sleep Duration vs Quality of Sleep by Gender and BMI Category', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\n\n# Add legend\nplt.legend(title='Gender and BMI Category', fontsize=10)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.8946,
+    "visual_entropy": 0.7603,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.594,
+    "cost_per_run": 0.000196,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

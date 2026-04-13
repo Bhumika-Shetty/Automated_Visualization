@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-08T04:10:11.194059",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', hue='BMI Category', style='Gender', size='Physical Activity Level', sizes=(20, 200), alpha=0.7)\n\n# Add axis labels and title\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Quality of Sleep')\nplt.title('Sleep Duration vs Quality of Sleep by BMI Category and Gender')\n\n# Add legend\nplt.legend(title='BMI Category', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', hue='BMI Category', style='Gender', size='Physical Activity Level', sizes=(20, 200), alpha=0.7)\n\n# Add axis labels and title\nplt.xlabel('Sleep Duration (hours)')\nplt.ylabel('Quality of Sleep')\nplt.title('Sleep Duration vs Quality of Sleep by BMI Category and Gender')\n\n# Add legend\nplt.legend(title='BMI Category', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 1.0339,
+    "visual_entropy": 0.4831,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 1.952,
+    "cost_per_run": 0.003053,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

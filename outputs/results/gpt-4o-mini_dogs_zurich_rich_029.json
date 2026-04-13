@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-08T16:34:11.734500",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter data for visualization\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot of the top 10 dog breeds\nplt.figure(figsize=(12, 6))\nsns.countplot(data=filtered_data, y='Rasse1Text', hue='SexLang', order=top_breeds, palette='Set2')\n\n# Add titles and labels\nplt.title('Top 10 Dog Breeds in Zurich by Gender', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\nplt.legend(title='Gender', fontsize=10)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter data for visualization\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot of the top 10 dog breeds\nplt.figure(figsize=(12, 6))\nsns.countplot(data=filtered_data, y='Rasse1Text', hue='SexLang', order=top_breeds, palette='Set2')\n\n# Add titles and labels\nplt.title('Top 10 Dog Breeds in Zurich by Gender', fontsize=16)\nplt.xlabel('Number of Dogs', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\nplt.legend(title='Gender', fontsize=10)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.8718,
+    "visual_entropy": 0.7572,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.09,
+    "cost_per_run": 0.000288,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

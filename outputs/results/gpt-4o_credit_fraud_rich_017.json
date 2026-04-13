@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-08T04:22:46.780086",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Initialize the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a count plot for transaction types with hue based on fraud\nsns.countplot(data=data, x='transaction_type', hue='is_fraud', palette='Set2')\n\n# Add axis labels and title\nplt.xlabel('Transaction Type', fontsize=14)\nplt.ylabel('Count', fontsize=14)\nplt.title('Distribution of Transaction Types with Fraud Indication', fontsize=16)\n\n# Add a legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Initialize the matplotlib figure\nplt.figure(figsize=(12, 8))\n\n# Create a count plot for transaction types with hue based on fraud\nsns.countplot(data=data, x='transaction_type', hue='is_fraud', palette='Set2')\n\n# Add axis labels and title\nplt.xlabel('Transaction Type', fontsize=14)\nplt.ylabel('Count', fontsize=14)\nplt.title('Distribution of Transaction Types with Fraud Indication', fontsize=16)\n\n# Add a legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.7778,
+    "color_delta_e": 0.7587,
+    "visual_entropy": 1.2271,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 1.833,
+    "cost_per_run": 0.002358,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

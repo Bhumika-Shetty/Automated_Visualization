@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 13,
+  "timestamp": "2026-04-08T16:16:38.930964",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data loading\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Setting the plot style\nsns.set(style=\"whitegrid\")\n\n# Create a count plot grouped by 'KreisLang' and 'Rasse1Text'\nplt.figure(figsize=(10, 6))\nax = sns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='viridis')\n\n# Adding title and labels\nax.set_title(\"Number of Dogs by District and Breed\", fontsize=16)\nax.set_xlabel(\"District\", fontsize=12)\nax.set_ylabel(\"Number of Dogs\", fontsize=12)\n\n# Adding legend\nax.legend(title='Breed', loc='upper right')\n\n# Save the plot\nplt.savefig(\"output.png\", bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data loading\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Setting the plot style\nsns.set(style=\"whitegrid\")\n\n# Create a count plot grouped by 'KreisLang' and 'Rasse1Text'\nplt.figure(figsize=(10, 6))\nax = sns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='viridis')\n\n# Adding title and labels\nax.set_title(\"Number of Dogs by District and Breed\", fontsize=16)\nax.set_xlabel(\"District\", fontsize=12)\nax.set_ylabel(\"Number of Dogs\", fontsize=12)\n\n# Adding legend\nax.legend(title='Breed', loc='upper right')\n\n# Save the plot\nplt.savefig(\"output.png\", bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.852,
+    "visual_entropy": 1.9701,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.173,
+    "cost_per_run": 0.005322,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

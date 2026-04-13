@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-08T16:26:23.137897",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime format\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Aggregate data for visualization\nsales_by_date = coffee_sales.groupby('date')['total'].sum().reset_index()\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create the plot\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_by_date, x='date', y='total', marker='o', color='b', label='Total Sales')\n\n# Customize the plot\nplt.title('Daily Total Sales in the Coffee Shop', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.legend(title='Legend', fontsize=10)\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime format\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Aggregate data for visualization\nsales_by_date = coffee_sales.groupby('date')['total'].sum().reset_index()\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create the plot\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_by_date, x='date', y='total', marker='o', color='b', label='Total Sales')\n\n# Customize the plot\nplt.title('Daily Total Sales in the Coffee Shop', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.legend(title='Legend', fontsize=10)\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```\n",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 1.9924,
+    "visual_entropy": 0.9883,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.081,
+    "cost_per_run": 0.00329,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

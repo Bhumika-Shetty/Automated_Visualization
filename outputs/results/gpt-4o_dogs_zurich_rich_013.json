@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-08T16:13:42.638420",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Group data by district and count number of dogs\ndistrict_data = df.groupby('KreisLang').agg({'AnzHunde': 'sum'}).reset_index()\n\n# Order the data by number of dogs\ndistrict_data = district_data.sort_values(by='AnzHunde', ascending=False)\n\n# Set the plot style\nsns.set(style='whitegrid')\n\n# Create a bar plot\nplt.figure(figsize=(12, 8))\nbarplot = sns.barplot(x='AnzHunde', y='KreisLang', data=district_data, palette='viridis')\n\n# Add labels and title\nbarplot.set_xlabel('Number of Dogs', fontsize=12)\nbarplot.set_ylabel('District', fontsize=12)\nbarplot.set_title('Number of Registered Dogs by District in Zurich', fontsize=16)\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Group data by district and count number of dogs\ndistrict_data = df.groupby('KreisLang').agg({'AnzHunde': 'sum'}).reset_index()\n\n# Order the data by number of dogs\ndistrict_data = district_data.sort_values(by='AnzHunde', ascending=False)\n\n# Set the plot style\nsns.set(style='whitegrid')\n\n# Create a bar plot\nplt.figure(figsize=(12, 8))\nbarplot = sns.barplot(x='AnzHunde', y='KreisLang', data=district_data, palette='viridis')\n\n# Add labels and title\nbarplot.set_xlabel('Number of Dogs', fontsize=12)\nbarplot.set_ylabel('District', fontsize=12)\nbarplot.set_title('Number of Registered Dogs by District in Zurich', fontsize=16)\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpkvcf55ss/viz_script.py:19: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  barplot = sns.barplot(x='AnzHunde', y='KreisLang', data=district_data, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.5833,
+    "color_delta_e": 0.561,
+    "visual_entropy": 1.914,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.68,
+    "cost_per_run": 0.004902,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-08T16:25:11.380356",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndf['date'] = pd.to_datetime(df['date'])\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a summary of total sales per product\nproduct_sales = df.groupby('product')['total'].sum().reset_index()\n\n# Plotting\nplt.figure(figsize=(10, 6))\nsns.barplot(data=product_sales, x='total', y='product', palette='viridis')\n\n# Title and labels\nplt.title('Total Sales by Product', fontsize=16)\nplt.xlabel('Total Sales ($)', fontsize=14)\nplt.ylabel('Product', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndf['date'] = pd.to_datetime(df['date'])\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a summary of total sales per product\nproduct_sales = df.groupby('product')['total'].sum().reset_index()\n\n# Plotting\nplt.figure(figsize=(10, 6))\nsns.barplot(data=product_sales, x='total', y='product', palette='viridis')\n\n# Title and labels\nplt.title('Total Sales by Product', fontsize=16)\nplt.xlabel('Total Sales ($)', fontsize=14)\nplt.ylabel('Product', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp0pt2eyho/viz_script.py:19: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=product_sales, x='total', y='product', palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 0.5469,
+    "visual_entropy": 2.8972,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.788,
+    "cost_per_run": 0.00288,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

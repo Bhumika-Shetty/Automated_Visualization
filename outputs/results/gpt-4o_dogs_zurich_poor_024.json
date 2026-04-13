@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 24,
+  "timestamp": "2026-04-08T16:18:08.581623",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data preparation\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"QuarLang\": [\"Hottingen\", \"Hottingen\", \"H\u00f6ngg\", \"H\u00f6ngg\", \"H\u00f6ngg\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AlterVHundNum\": [4.0, 5.0, 0.0, 1.0, 2.0],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Visualization\nplt.figure(figsize=(10, 6))\nsns.barplot(data=df, x='StichtagDatJahr', y='AlterVHundNum', hue='KreisLang')\n\nplt.title('Average Age of Dogs by Year and District')\nplt.xlabel('Year')\nplt.ylabel('Average Age of Dogs (Years)')\nplt.legend(title='District')\n\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Data preparation\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"QuarLang\": [\"Hottingen\", \"Hottingen\", \"H\u00f6ngg\", \"H\u00f6ngg\", \"H\u00f6ngg\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AlterVHundNum\": [4.0, 5.0, 0.0, 1.0, 2.0],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Visualization\nplt.figure(figsize=(10, 6))\nsns.barplot(data=df, x='StichtagDatJahr', y='AlterVHundNum', hue='KreisLang')\n\nplt.title('Average Age of Dogs by Year and District')\nplt.xlabel('Year')\nplt.ylabel('Average Age of Dogs (Years)')\nplt.legend(title='District')\n\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 25.71,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 1.0137,
+    "visual_entropy": 1.1887,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 9.508,
+    "cost_per_run": 0.005662,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

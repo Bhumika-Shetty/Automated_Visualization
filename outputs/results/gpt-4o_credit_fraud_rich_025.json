@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-08T04:23:13.117564",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set_style(\"whitegrid\")\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Create a bar plot to show the distribution of transaction types, separated by fraud status\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', ax=ax, palette='Set1')\n\n# Add annotations\nax.set_title('Distribution of Transaction Types by Fraud Status', fontsize=16)\nax.set_xlabel('Transaction Type', fontsize=12)\nax.set_ylabel('Count', fontsize=12)\nax.legend(title='Fraud Status', labels=['Not Fraud', 'Fraud'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style\nsns.set_style(\"whitegrid\")\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Create a bar plot to show the distribution of transaction types, separated by fraud status\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', ax=ax, palette='Set1')\n\n# Add annotations\nax.set_title('Distribution of Transaction Types by Fraud Status', fontsize=16)\nax.set_xlabel('Transaction Type', fontsize=12)\nax.set_ylabel('Count', fontsize=12)\nax.legend(title='Fraud Status', labels=['Not Fraud', 'Fraud'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.8182,
+    "color_delta_e": 0.8206,
+    "visual_entropy": 1.3289,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.471,
+    "cost_per_run": 0.002587,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

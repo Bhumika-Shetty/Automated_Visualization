@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 3,
+  "timestamp": "2026-04-08T16:15:20.087439",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data into a DataFrame\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"QuarLang\": [\"Hottingen\", \"Hottingen\", \"H\u00f6ngg\", \"H\u00f6ngg\", \"H\u00f6ngg\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AlterVHundLang\": [\"4-J\u00e4hrige\", \"5-J\u00e4hrige\", \"0-J\u00e4hrige\", \"1-J\u00e4hrige\", \"2-J\u00e4hrige\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set plot style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nbar_plot = sns.barplot(\n    x=\"StichtagDatJahr\", \n    y=\"AnzHunde\", \n    hue=\"Rasse1Text\", \n    data=df, \n    palette=\"muted\"\n)\n\n# Add title and labels\nbar_plot.set_title(\"Number of Dogs by Breed and Year\")\nbar_plot.set_xlabel(\"Year\")\nbar_plot.set_ylabel(\"Number of Dogs\")\n\n# Move the legend\nbar_plot.legend(title=\"Breed\", loc='upper left')\n\n# Save the plot to a file\nplt.savefig(\"output.png\", bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data into a DataFrame\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"QuarLang\": [\"Hottingen\", \"Hottingen\", \"H\u00f6ngg\", \"H\u00f6ngg\", \"H\u00f6ngg\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AlterVHundLang\": [\"4-J\u00e4hrige\", \"5-J\u00e4hrige\", \"0-J\u00e4hrige\", \"1-J\u00e4hrige\", \"2-J\u00e4hrige\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set plot style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nbar_plot = sns.barplot(\n    x=\"StichtagDatJahr\", \n    y=\"AnzHunde\", \n    hue=\"Rasse1Text\", \n    data=df, \n    palette=\"muted\"\n)\n\n# Add title and labels\nbar_plot.set_title(\"Number of Dogs by Breed and Year\")\nbar_plot.set_xlabel(\"Year\")\nbar_plot.set_ylabel(\"Number of Dogs\")\n\n# Move the legend\nbar_plot.legend(title=\"Breed\", loc='upper left')\n\n# Save the plot to a file\nplt.savefig(\"output.png\", bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 1.1596,
+    "visual_entropy": 2.0336,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.477,
+    "cost_per_run": 0.005992,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

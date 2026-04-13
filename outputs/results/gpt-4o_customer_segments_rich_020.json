@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 20,
+  "timestamp": "2026-04-08T04:15:21.215530",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending for each customer\ndf['Total_Spending'] = (df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \n                        df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds'])\n\n# Categorize income into bins\nincome_bins = [0, 30000, 60000, 90000, 120000, df['Income'].max()]\nincome_labels = ['<30k', '30k-60k', '60k-90k', '90k-120k', '>120k']\ndf['Income_Category'] = pd.cut(df['Income'], bins=income_bins, labels=income_labels, include_lowest=True)\n\n# Plot a boxplot of total spending by income category\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='Income_Category', y='Total_Spending', data=df, palette='Set3')\n\n# Set plot title and labels\nplt.title('Total Spending by Income Category', fontsize=14)\nplt.xlabel('Income Category', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending for each customer\ndf['Total_Spending'] = (df['MntWines'] + df['MntFruits'] + df['MntMeatProducts'] + \n                        df['MntFishProducts'] + df['MntSweetProducts'] + df['MntGoldProds'])\n\n# Categorize income into bins\nincome_bins = [0, 30000, 60000, 90000, 120000, df['Income'].max()]\nincome_labels = ['<30k', '30k-60k', '60k-90k', '90k-120k', '>120k']\ndf['Income_Category'] = pd.cut(df['Income'], bins=income_bins, labels=income_labels, include_lowest=True)\n\n# Plot a boxplot of total spending by income category\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='Income_Category', y='Total_Spending', data=df, palette='Set3')\n\n# Set plot title and labels\nplt.title('Total Spending by Income Category', fontsize=14)\nplt.xlabel('Income Category', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.xticks(fontsize=10)\nplt.yticks(fontsize=10)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpcjdm8r8s/viz_script.py:19: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='Income_Category', y='Total_Spending', data=df, palette='Set3')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 24.14,
+    "hallucination_rate": 0.5294,
+    "color_delta_e": 0.9884,
+    "visual_entropy": 1.2268,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 4.054,
+    "cost_per_run": 0.005262,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-08T04:14:48.870896",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate Total Spending by summing relevant columns\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', \n                           'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Create a scatter plot of Income vs Total Spending, colored by Marital Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='viridis', alpha=0.7)\n\n# Add labels and title\nplt.title('Income vs Total Spending by Marital Status', fontsize=16)\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Spending', fontsize=14)\nplt.legend(title='Marital Status')\nplt.grid(True)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate Total Spending by summing relevant columns\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', \n                           'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Create a scatter plot of Income vs Total Spending, colored by Marital Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='viridis', alpha=0.7)\n\n# Add labels and title\nplt.title('Income vs Total Spending by Marital Status', fontsize=16)\nplt.xlabel('Income', fontsize=14)\nplt.ylabel('Total Spending', fontsize=14)\nplt.legend(title='Marital Status')\nplt.grid(True)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 1.3511,
+    "visual_entropy": 0.8322,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.397,
+    "cost_per_run": 0.004412,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

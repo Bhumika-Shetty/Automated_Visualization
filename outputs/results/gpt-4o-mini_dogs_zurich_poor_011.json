@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 11,
+  "timestamp": "2026-04-08T16:35:33.811167",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Create a count plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='Set2')\n\n# Customize the plot\nplt.title('Number of Dogs by Breed and District')\nplt.xlabel('District')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Breed')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Create a count plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='Set2')\n\n# Customize the plot\nplt.title('Number of Dogs by Breed and District')\nplt.xlabel('District')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Breed')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.6818,
+    "color_delta_e": 0.9078,
+    "visual_entropy": 1.5841,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.461,
+    "cost_per_run": 0.000279,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

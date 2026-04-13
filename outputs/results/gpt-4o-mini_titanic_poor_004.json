@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 4,
+  "timestamp": "2026-04-08T04:34:14.167122",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv(pd.compat.StringIO(\"\"\"\nsurvived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"))\n\n# Set the aesthetics for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a count plot to visualize survival by class and gender\nplt.figure(figsize=(10, 6))\nsns.countplot(data=data, x='pclass', hue='sex', palette='pastel')\n\n# Add labels and title\nplt.title('Survival Count by Class and Gender')\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\nplt.legend(title='Gender')\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv(pd.compat.StringIO(\"\"\"\nsurvived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone\n0,3,male,22.0,1,0,7.25,S,Third,man,True,,Southampton,no,False\n1,1,female,38.0,1,0,71.2833,C,First,woman,False,C,Cherbourg,yes,False\n1,3,female,26.0,0,0,7.925,S,Third,woman,False,,Southampton,yes,True\n1,1,female,35.0,1,0,53.1,S,First,woman,False,C,Southampton,yes,False\n0,3,male,35.0,0,0,8.05,S,Third,man,True,,Southampton,no,True\n\"\"\"))\n\n# Set the aesthetics for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a count plot to visualize survival by class and gender\nplt.figure(figsize=(10, 6))\nsns.countplot(data=data, x='pclass', hue='sex', palette='pastel')\n\n# Add labels and title\nplt.title('Survival Count by Class and Gender')\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\nplt.legend(title='Gender')\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp78ua5_wx/viz_script.py\", line 6, in <module>\n    data = pd.read_csv(pd.compat.StringIO(\"\"\"\n                       ^^^^^^^^^^^^^^^^^^\nAttributeError: module 'pandas.compat' has no attribute 'StringIO'\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 8.219,
+    "cost_per_run": 0.000248,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

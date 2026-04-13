@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-08T04:41:18.548841",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Create a pairplot\nsns.set(style=\"whitegrid\")\npairplot = sns.pairplot(data, hue='species', markers=[\"o\", \"s\", \"D\"], palette='Set1')\n\n# Set the title\nplt.suptitle('Iris Flower Species Pairplot', y=1.02)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Create a pairplot\nsns.set(style=\"whitegrid\")\npairplot = sns.pairplot(data, hue='species', markers=[\"o\", \"s\", \"D\"], palette='Set1')\n\n# Set the title\nplt.suptitle('Iris Flower Species Pairplot', y=1.02)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.8021,
+    "visual_entropy": 1.5313,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 2.985,
+    "cost_per_run": 0.000119,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

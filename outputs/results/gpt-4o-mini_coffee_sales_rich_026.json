@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-08T16:51:22.731498",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Create a new column for total sales\ncoffee_sales['total'] = coffee_sales['price'] * coffee_sales['quantity']\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a bar plot for total sales by product\nplt.figure(figsize=(12, 6))\nsales_by_product = coffee_sales.groupby('product')['total'].sum().reset_index()\nsns.barplot(data=sales_by_product, x='total', y='product', palette='viridis')\n\n# Add labels and title\nplt.xlabel('Total Sales ($)')\nplt.ylabel('Product')\nplt.title('Total Sales by Product in Coffee Shop')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Create a new column for total sales\ncoffee_sales['total'] = coffee_sales['price'] * coffee_sales['quantity']\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a bar plot for total sales by product\nplt.figure(figsize=(12, 6))\nsales_by_product = coffee_sales.groupby('product')['total'].sum().reset_index()\nsns.barplot(data=sales_by_product, x='total', y='product', palette='viridis')\n\n# Add labels and title\nplt.xlabel('Total Sales ($)')\nplt.ylabel('Product')\nplt.title('Total Sales by Product in Coffee Shop')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8gf89ap6/viz_script.py:17: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=sales_by_product, x='total', y='product', palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 0.4569,
+    "visual_entropy": 2.9493,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 3.376,
+    "cost_per_run": 0.000174,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

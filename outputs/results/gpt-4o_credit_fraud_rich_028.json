@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-08T04:23:24.372304",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Plot a barplot for the average transaction amount by transaction type and fraud status\nsns.barplot(\n    data=data,\n    x='transaction_type',\n    y='amount',\n    hue='is_fraud',\n    estimator=sum,\n    ci=None,\n    palette='coolwarm',\n    ax=ax\n)\n\n# Set titles and labels\nax.set_title('Total Transaction Amount by Type and Fraud Status', fontsize=16)\nax.set_xlabel('Transaction Type', fontsize=12)\nax.set_ylabel('Total Transaction Amount', fontsize=12)\n\n# Add a legend\nax.legend(title='Is Fraud', loc='upper right')\n\n# Rotate x-ticks for better readability\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Plot a barplot for the average transaction amount by transaction type and fraud status\nsns.barplot(\n    data=data,\n    x='transaction_type',\n    y='amount',\n    hue='is_fraud',\n    estimator=sum,\n    ci=None,\n    palette='coolwarm',\n    ax=ax\n)\n\n# Set titles and labels\nax.set_title('Total Transaction Amount by Type and Fraud Status', fontsize=16)\nax.set_xlabel('Transaction Type', fontsize=12)\nax.set_ylabel('Total Transaction Amount', fontsize=12)\n\n# Add a legend\nax.legend(title='Is Fraud', loc='upper right')\n\n# Rotate x-ticks for better readability\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpcm1znpkt/viz_script.py:15: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.7273,
+    "color_delta_e": 0.5565,
+    "visual_entropy": 1.2531,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 2.269,
+    "cost_per_run": 0.003018,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 30,
+  "timestamp": "2026-04-08T16:31:03.775270",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'date': ['2024-01-01']*5,\n    'time': ['00:00', '02:00', '04:00', '06:00', '08:00'],\n    'product': ['Cappuccino', 'Cappuccino', 'Tea', 'Latte', 'Americano'],\n    'size': ['Large', 'Medium', 'Small', 'Large', 'Medium'],\n    'price': [4.18, 4.01, 5.22, 6.37, 7.07],\n    'quantity': [2, 3, 1, 2, 3],\n    'payment_method': ['Credit Card', 'Credit Card', 'Credit Card', 'Credit Card', 'Cash'],\n    'customer_age_group': ['55+', '35-44', '18-24', '45-54', '45-54'],\n    'is_takeaway': [1, 1, 1, 1, 1],\n    'total': [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert 'time' to datetime for better plotting\ndf['time'] = pd.to_datetime(df['time'], format='%H:%M').dt.time\n\n# Set up the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Create a scatter plot\nsns.scatterplot(data=df, x='time', y='total', hue='product', style='payment_method', size='quantity', sizes=(50, 200))\n\n# Add titles and labels\nplt.title('Total Sales Over Time by Product')\nplt.xlabel('Time of Day')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'date': ['2024-01-01']*5,\n    'time': ['00:00', '02:00', '04:00', '06:00', '08:00'],\n    'product': ['Cappuccino', 'Cappuccino', 'Tea', 'Latte', 'Americano'],\n    'size': ['Large', 'Medium', 'Small', 'Large', 'Medium'],\n    'price': [4.18, 4.01, 5.22, 6.37, 7.07],\n    'quantity': [2, 3, 1, 2, 3],\n    'payment_method': ['Credit Card', 'Credit Card', 'Credit Card', 'Credit Card', 'Cash'],\n    'customer_age_group': ['55+', '35-44', '18-24', '45-54', '45-54'],\n    'is_takeaway': [1, 1, 1, 1, 1],\n    'total': [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert 'time' to datetime for better plotting\ndf['time'] = pd.to_datetime(df['time'], format='%H:%M').dt.time\n\n# Set up the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Create a scatter plot\nsns.scatterplot(data=df, x='time', y='total', hue='product', style='payment_method', size='quantity', sizes=(50, 200))\n\n# Add titles and labels\nplt.title('Total Sales Over Time by Product')\nplt.xlabel('Time of Day')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"pandas/_libs/lib.pyx\", line 2478, in pandas._libs.lib.maybe_convert_numeric\nTypeError: Invalid object type\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp4dc4x9c6/viz_script.py\", line 28, in <module>\n    sns.scatterplot(data=df, x='time', y='total', hue='product', style='payment_method', size='quantity', sizes=(50, 200))\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/relational.py\", line 636, in scatterplot\n    p.plot(ax, kwargs)\n    ~~~~~~^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/relational.py\", line 404, in plot\n    data = self.comp_data.dropna()\n           ^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 1000, in comp_data\n    comp = pd.to_numeric(converter.convert_units(orig)).astype(float)\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/tools/numeric.py\", line 235, in to_numeric\n    values, new_mask = lib.maybe_convert_numeric(  # type: ignore[call-overload]\n                       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        values,\n        ^^^^^^^\n    ...<6 lines>...\n        ),\n        ^^\n    )\n    ^\n  File \"pandas/_libs/lib.pyx\", line 2521, in pandas._libs.lib.maybe_convert_numeric\nTypeError: Invalid object type at position 0\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4865,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 6.371,
+    "cost_per_run": 0.005052,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

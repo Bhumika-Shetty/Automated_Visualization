@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 30,
+  "timestamp": "2026-04-08T16:38:19.173321",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\"],\n    \"HundefarbeText\": [\"beige\", \"beige\", \"beige/schwarz\", \"beige/schwarz\", \"beige/schwarz\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\ndf = pd.DataFrame(data)\n\n# Create a count plot for the number of dogs by color\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='HundefarbeText', hue='AlterV10Lang', palette='pastel')\n\n# Customize the plot\nplt.title('Number of Dogs by Color and Age Group')\nplt.xlabel('Dog Color')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Age Group')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\", \"30- bis 39-J\u00e4hrige\"],\n    \"HundefarbeText\": [\"beige\", \"beige\", \"beige/schwarz\", \"beige/schwarz\", \"beige/schwarz\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\ndf = pd.DataFrame(data)\n\n# Create a count plot for the number of dogs by color\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='HundefarbeText', hue='AlterV10Lang', palette='pastel')\n\n# Customize the plot\nplt.title('Number of Dogs by Color and Age Group')\nplt.xlabel('Dog Color')\nplt.ylabel('Number of Dogs')\nplt.legend(title='Age Group')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.5385,
+    "color_delta_e": 0.8337,
+    "visual_entropy": 1.2512,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.508,
+    "cost_per_run": 0.000289,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

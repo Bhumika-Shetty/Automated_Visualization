@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 11,
+  "timestamp": "2026-04-08T04:35:21.324932",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided dataset\ndata = {\n    'survived': [0, 1, 1, 1, 0],\n    'pclass': [3, 1, 3, 1, 3],\n    'sex': ['male', 'female', 'female', 'female', 'male'],\n    'age': [22.0, 38.0, 26.0, 35.0, 35.0],\n    'sibsp': [1, 1, 0, 1, 0],\n    'parch': [0, 0, 0, 0, 0],\n    'fare': [7.25, 71.2833, 7.925, 53.1, 8.05],\n    'embarked': ['S', 'C', 'S', 'S', 'S'],\n    'class': ['Third', 'First', 'Third', 'First', 'Third'],\n    'who': ['man', 'woman', 'woman', 'woman', 'man'],\n    'adult_male': [True, False, False, False, True],\n    'deck': [None, 'C', None, 'C', None],\n    'embark_town': ['Southampton', 'Cherbourg', 'Southampton', 'Southampton', 'Southampton'],\n    'alive': ['no', 'yes', 'yes', 'yes', 'no'],\n    'alone': [False, False, True, False, True]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the visual style\nsns.set(style=\"whitegrid\")\n\n# Create a count plot of survival by class and sex\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='pclass', hue='sex', palette='pastel', dodge=True)\nplt.title('Survival Count by Class and Sex')\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\nplt.legend(title='Sex')\nplt.xticks(ticks=[0, 1, 2], labels=['Third', 'First', 'Second'])\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided dataset\ndata = {\n    'survived': [0, 1, 1, 1, 0],\n    'pclass': [3, 1, 3, 1, 3],\n    'sex': ['male', 'female', 'female', 'female', 'male'],\n    'age': [22.0, 38.0, 26.0, 35.0, 35.0],\n    'sibsp': [1, 1, 0, 1, 0],\n    'parch': [0, 0, 0, 0, 0],\n    'fare': [7.25, 71.2833, 7.925, 53.1, 8.05],\n    'embarked': ['S', 'C', 'S', 'S', 'S'],\n    'class': ['Third', 'First', 'Third', 'First', 'Third'],\n    'who': ['man', 'woman', 'woman', 'woman', 'man'],\n    'adult_male': [True, False, False, False, True],\n    'deck': [None, 'C', None, 'C', None],\n    'embark_town': ['Southampton', 'Cherbourg', 'Southampton', 'Southampton', 'Southampton'],\n    'alive': ['no', 'yes', 'yes', 'yes', 'no'],\n    'alone': [False, False, True, False, True]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the visual style\nsns.set(style=\"whitegrid\")\n\n# Create a count plot of survival by class and sex\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='pclass', hue='sex', palette='pastel', dodge=True)\nplt.title('Survival Count by Class and Sex')\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\nplt.legend(title='Sex')\nplt.xticks(ticks=[0, 1, 2], labels=['Third', 'First', 'Second'])\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.569,
+    "color_delta_e": 0.5485,
+    "visual_entropy": 1.373,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 9.071,
+    "cost_per_run": 0.000323,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

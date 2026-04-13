@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-08T16:25:20.099604",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time columns to datetime for better handling\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Set the datetime column as the index\ncoffee_sales.set_index('datetime', inplace=True)\n\n# Aggregate total sales by product and hour\nhourly_sales = coffee_sales.groupby([coffee_sales.index.hour, 'product'])['total'].sum().unstack()\n\n# Plotting\nplt.figure(figsize=(12, 8))\nsns.lineplot(data=hourly_sales, palette='tab10', linewidth=2.5)\n\n# Adding labels and title\nplt.title('Hourly Sales by Product', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(range(0, 24))\nplt.legend(title='Product', title_fontsize='13', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time columns to datetime for better handling\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Set the datetime column as the index\ncoffee_sales.set_index('datetime', inplace=True)\n\n# Aggregate total sales by product and hour\nhourly_sales = coffee_sales.groupby([coffee_sales.index.hour, 'product'])['total'].sum().unstack()\n\n# Plotting\nplt.figure(figsize=(12, 8))\nsns.lineplot(data=hourly_sales, palette='tab10', linewidth=2.5)\n\n# Adding labels and title\nplt.title('Hourly Sales by Product', fontsize=16)\nplt.xlabel('Hour of Day', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(range(0, 24))\nplt.legend(title='Product', title_fontsize='13', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5833,
+    "color_delta_e": 2.0986,
+    "visual_entropy": 1.0257,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.424,
+    "cost_per_run": 0.00348,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

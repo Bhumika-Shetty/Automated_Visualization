@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 5,
+  "timestamp": "2026-04-08T04:05:18.111034",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the iris dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot to visualize relationships between features, colored by species\npairplot = sns.pairplot(data, hue='species', palette='Set2', diag_kind='kde', markers=['o', 's', 'D'])\n\n# Add title and adjust layout\npairplot.fig.suptitle('Iris Species - Pairplot of Sepal and Petal Dimensions', y=1.02)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the iris dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot to visualize relationships between features, colored by species\npairplot = sns.pairplot(data, hue='species', palette='Set2', diag_kind='kde', markers=['o', 's', 'D'])\n\n# Add title and adjust layout\npairplot.fig.suptitle('Iris Species - Pairplot of Sepal and Petal Dimensions', y=1.02)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```\n",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.3709,
+    "visual_entropy": 1.5331,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 2.093,
+    "cost_per_run": 0.002347,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

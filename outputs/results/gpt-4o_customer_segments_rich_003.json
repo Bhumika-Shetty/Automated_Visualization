@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-08T04:14:13.564116",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Pre-processing\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', style='Education', palette='viridis', s=100, alpha=0.7)\n\n# Customization\nplt.title('Income vs Total Spending by Marital Status and Education', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.legend(title='Marital Status / Education', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Pre-processing\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Plot\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', style='Education', palette='viridis', s=100, alpha=0.7)\n\n# Customization\nplt.title('Income vs Total Spending by Marital Status and Education', fontsize=16)\nplt.xlabel('Income', fontsize=12)\nplt.ylabel('Total Spending', fontsize=12)\nplt.legend(title='Marital Status / Education', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 31.03,
+    "hallucination_rate": 0.4118,
+    "color_delta_e": 1.1662,
+    "visual_entropy": 0.7412,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.588,
+    "cost_per_run": 0.004412,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

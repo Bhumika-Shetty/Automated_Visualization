@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-08T04:06:10.880205",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the iris dataset\niris = pd.read_csv('data/iris.csv')\n\n# Create a pairplot with seaborn\nsns.set(style=\"whitegrid\")\npairplot = sns.pairplot(iris, hue='species', palette='Set2', markers=['o', 's', 'D'])\n\n# Set titles and labels\npairplot.fig.suptitle(\"Pairplot of Iris Dataset\", y=1.02)\nfor ax in pairplot.axes.flatten():\n    ax.set_xlabel(ax.get_xlabel(), fontsize=12)\n    ax.set_ylabel(ax.get_ylabel(), fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the iris dataset\niris = pd.read_csv('data/iris.csv')\n\n# Create a pairplot with seaborn\nsns.set(style=\"whitegrid\")\npairplot = sns.pairplot(iris, hue='species', palette='Set2', markers=['o', 's', 'D'])\n\n# Set titles and labels\npairplot.fig.suptitle(\"Pairplot of Iris Dataset\", y=1.02)\nfor ax in pairplot.axes.flatten():\n    ax.set_xlabel(ax.get_xlabel(), fontsize=12)\n    ax.set_ylabel(ax.get_ylabel(), fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.3286,
+    "visual_entropy": 1.519,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 1.824,
+    "cost_per_run": 0.002378,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

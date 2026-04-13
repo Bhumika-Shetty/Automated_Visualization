@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 26,
+  "timestamp": "2026-04-08T16:37:17.414583",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(data=df, x=\"StichtagDat\", y=\"AnzHunde\", hue=\"AlterV10Lang\", palette=\"muted\")\n\n# Title and labels\nplt.title(\"Number of Dogs by Date and Age Group\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Number of Dogs\")\nplt.xticks(rotation=45)\nplt.legend(title=\"Age Group\")\n\n# Save the figure\nplt.tight_layout()\nplt.savefig(\"output.png\")\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(data=df, x=\"StichtagDat\", y=\"AnzHunde\", hue=\"AlterV10Lang\", palette=\"muted\")\n\n# Title and labels\nplt.title(\"Number of Dogs by Date and Age Group\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Number of Dogs\")\nplt.xticks(rotation=45)\nplt.legend(title=\"Age Group\")\n\n# Save the figure\nplt.tight_layout()\nplt.savefig(\"output.png\")\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 8.57,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.9548,
+    "visual_entropy": 1.4222,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.859,
+    "cost_per_run": 0.000257,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

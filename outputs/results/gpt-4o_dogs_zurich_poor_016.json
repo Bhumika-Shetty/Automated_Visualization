@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 16,
+  "timestamp": "2026-04-08T16:16:57.077832",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a DataFrame\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"AlterV10Cd\": [30, 30, 30, 30, 30],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x=\"StichtagDatJahr\", y=\"AnzHunde\", hue=\"KreisLang\", data=df, palette=\"viridis\")\n\n# Add labels and title\nplt.title(\"Number of Dogs by Year and Kreis\")\nplt.xlabel(\"Year\")\nplt.ylabel(\"Number of Dogs\")\n\n# Save the plot as a PNG file\nplt.savefig(\"output.png\")\n\n# Show the plot\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a DataFrame\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"AlterV10Cd\": [30, 30, 30, 30, 30],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x=\"StichtagDatJahr\", y=\"AnzHunde\", hue=\"KreisLang\", data=df, palette=\"viridis\")\n\n# Add labels and title\nplt.title(\"Number of Dogs by Year and Kreis\")\nplt.xlabel(\"Year\")\nplt.ylabel(\"Number of Dogs\")\n\n# Save the plot as a PNG file\nplt.savefig(\"output.png\")\n\n# Show the plot\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 17.14,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.8696,
+    "visual_entropy": 1.7836,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 3.92,
+    "cost_per_run": 0.005293,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-08T16:25:15.293122",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a summary DataFrame for total sales per product\nsales_summary = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Create a barplot for total sales per product\nplt.figure(figsize=(10, 6))\nsns.barplot(x='total', y='product', data=sales_summary, palette='viridis')\nplt.title('Total Sales by Product')\nplt.xlabel('Total Sales ($)')\nplt.ylabel('Product')\nplt.grid(axis='x', linestyle='--', alpha=0.7)\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Create a summary DataFrame for total sales per product\nsales_summary = coffee_sales.groupby('product')['total'].sum().reset_index()\n\n# Create a barplot for total sales per product\nplt.figure(figsize=(10, 6))\nsns.barplot(x='total', y='product', data=sales_summary, palette='viridis')\nplt.title('Total Sales by Product')\nplt.xlabel('Total Sales ($)')\nplt.ylabel('Product')\nplt.grid(axis='x', linestyle='--', alpha=0.7)\n\n# Save the plot as a PNG file\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpydzizsei/viz_script.py:16: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='total', y='product', data=sales_summary, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.25,
+    "color_delta_e": 0.7806,
+    "visual_entropy": 2.8808,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 3.717,
+    "cost_per_run": 0.00293,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

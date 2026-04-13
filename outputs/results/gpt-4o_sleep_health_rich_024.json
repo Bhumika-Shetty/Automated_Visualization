@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-08T04:10:36.397833",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a categorical plot to visualize the average sleep duration and quality of sleep by BMI Category\nplt.figure(figsize=(12, 6))\nax = sns.barplot(x='BMI Category', y='Sleep Duration', hue='Quality of Sleep', data=data, ci=None, palette='muted', edgecolor='w')\n\n# Add axis labels and title\nax.set_xlabel('BMI Category', fontsize=12)\nax.set_ylabel('Average Sleep Duration (Hours)', fontsize=12)\nax.set_title('Average Sleep Duration and Quality by BMI Category', fontsize=14)\n\n# Add a legend\nax.legend(title='Quality of Sleep', loc='upper right')\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a categorical plot to visualize the average sleep duration and quality of sleep by BMI Category\nplt.figure(figsize=(12, 6))\nax = sns.barplot(x='BMI Category', y='Sleep Duration', hue='Quality of Sleep', data=data, ci=None, palette='muted', edgecolor='w')\n\n# Add axis labels and title\nax.set_xlabel('BMI Category', fontsize=12)\nax.set_ylabel('Average Sleep Duration (Hours)', fontsize=12)\nax.set_title('Average Sleep Duration and Quality by BMI Category', fontsize=14)\n\n# Add a legend\nax.legend(title='Quality of Sleep', loc='upper right')\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpufx_btbk/viz_script.py:13: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  ax = sns.barplot(x='BMI Category', y='Sleep Duration', hue='Quality of Sleep', data=data, ci=None, palette='muted', edgecolor='w')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.3207,
+    "visual_entropy": 2.2643,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.33,
+    "cost_per_run": 0.003333,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

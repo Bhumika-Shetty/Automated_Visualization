@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-08T04:06:25.134783",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris_data = pd.read_csv('data/iris.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot\nsns.pairplot(iris_data, hue=\"species\", palette=\"Set1\", markers=[\"o\", \"s\", \"D\"])\n\n# Add a title and adjust layout\nplt.suptitle('Iris Pairplot: Sepal and Petal Dimensions', y=1.02)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\niris_data = pd.read_csv('data/iris.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a pairplot\nsns.pairplot(iris_data, hue=\"species\", palette=\"Set1\", markers=[\"o\", \"s\", \"D\"])\n\n# Add a title and adjust layout\nplt.suptitle('Iris Pairplot: Sepal and Petal Dimensions', y=1.02)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.4286,
+    "color_delta_e": 1.8223,
+    "visual_entropy": 1.5378,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 2.222,
+    "cost_per_run": 0.002107,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

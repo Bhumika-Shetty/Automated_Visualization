@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 10,
+  "timestamp": "2026-04-08T16:35:27.409750",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided data\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the figure size\nplt.figure(figsize=(10, 6))\n\n# Create a count plot\nsns.countplot(data=df, x='KreisLang', hue='AlterV10Lang', palette='viridis')\n\n# Set the title and labels\nplt.title('Number of Dogs by District and Age Group', fontsize=16)\nplt.xlabel('District', fontsize=14)\nplt.ylabel('Number of Dogs', fontsize=14)\nplt.legend(title='Age Group')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided data\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the figure size\nplt.figure(figsize=(10, 6))\n\n# Create a count plot\nsns.countplot(data=df, x='KreisLang', hue='AlterV10Lang', palette='viridis')\n\n# Set the title and labels\nplt.title('Number of Dogs by District and Age Group', fontsize=16)\nplt.xlabel('District', fontsize=14)\nplt.ylabel('Number of Dogs', fontsize=14)\nplt.legend(title='Age Group')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.625,
+    "color_delta_e": 0.9812,
+    "visual_entropy": 1.229,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.408,
+    "cost_per_run": 0.000275,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-08T16:32:45.695455",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter data for the top 10 breeds by count\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot for the top 10 breeds\nplt.figure(figsize=(12, 8))\nsns.countplot(data=filtered_data, y='Rasse1Text', hue='SexLang', order=top_breeds, palette='muted')\nplt.title('Top 10 Dog Breeds in Zurich by Gender')\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\nplt.legend(title='Gender')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter data for the top 10 breeds by count\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot for the top 10 breeds\nplt.figure(figsize=(12, 8))\nsns.countplot(data=filtered_data, y='Rasse1Text', hue='SexLang', order=top_breeds, palette='muted')\nplt.title('Top 10 Dog Breeds in Zurich by Gender')\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\nplt.legend(title='Gender')\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.7161,
+    "visual_entropy": 0.7201,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 4.244,
+    "cost_per_run": 0.000272,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

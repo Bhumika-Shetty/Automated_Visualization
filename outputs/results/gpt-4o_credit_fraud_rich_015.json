@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 15,
+  "timestamp": "2026-04-08T04:22:39.480646",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a plot\nplt.figure(figsize=(12, 6))\n\n# Plot a count plot for transaction types with hue as is_fraud\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', palette='coolwarm')\n\n# Add labels and title\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.title('Transaction Type Count by Fraud Status')\n\n# Add a legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a plot\nplt.figure(figsize=(12, 6))\n\n# Plot a count plot for transaction types with hue as is_fraud\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', palette='coolwarm')\n\n# Add labels and title\nplt.xlabel('Transaction Type')\nplt.ylabel('Count')\nplt.title('Transaction Type Count by Fraud Status')\n\n# Add a legend\nplt.legend(title='Is Fraud', loc='upper right')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.8,
+    "color_delta_e": 0.4798,
+    "visual_entropy": 1.3638,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 1.809,
+    "cost_per_run": 0.002358,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

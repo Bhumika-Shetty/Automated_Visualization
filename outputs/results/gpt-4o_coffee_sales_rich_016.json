@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 16,
+  "timestamp": "2026-04-08T16:25:55.704094",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Aggregate data for visualization\nsales_over_time = coffee_sales.groupby(coffee_sales['date'].dt.to_period('M')).agg({'total': 'sum'}).reset_index()\nsales_over_time['date'] = sales_over_time['date'].dt.to_timestamp()\n\n# Create a line plot for total sales over time\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_over_time, x='date', y='total', marker='o', color='b')\n\n# Add labels and title\nplt.title('Total Coffee Sales Over Time', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.grid(True)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Aggregate data for visualization\nsales_over_time = coffee_sales.groupby(coffee_sales['date'].dt.to_period('M')).agg({'total': 'sum'}).reset_index()\nsales_over_time['date'] = sales_over_time['date'].dt.to_timestamp()\n\n# Create a line plot for total sales over time\nplt.figure(figsize=(12, 6))\nsns.lineplot(data=sales_over_time, x='date', y='total', marker='o', color='b')\n\n# Add labels and title\nplt.title('Total Coffee Sales Over Time', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.grid(True)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.1875,
+    "color_delta_e": 0.9103,
+    "visual_entropy": 0.4439,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 2.805,
+    "cost_per_run": 0.00332,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

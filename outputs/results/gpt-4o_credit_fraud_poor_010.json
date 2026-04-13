@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 10,
+  "timestamp": "2026-04-08T04:27:00.831152",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a DataFrame\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(12, 6))\n\n# Create a bar plot for transaction type vs amount\nsns.barplot(ax=axes[0], x='transaction_type', y='amount', data=data, ci=None)\naxes[0].set_title('Transaction Type vs Amount')\naxes[0].set_ylabel('Amount')\naxes[0].set_xlabel('Transaction Type')\n\n# Create a scatter plot for hour of day vs amount\nsns.scatterplot(ax=axes[1], x='hour_of_day', y='amount', data=data, hue='transaction_type', style='transaction_type', s=100)\naxes[1].set_title('Hour of Day vs Amount')\naxes[1].set_ylabel('Amount')\naxes[1].set_xlabel('Hour of Day')\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data into a DataFrame\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(12, 6))\n\n# Create a bar plot for transaction type vs amount\nsns.barplot(ax=axes[0], x='transaction_type', y='amount', data=data, ci=None)\naxes[0].set_title('Transaction Type vs Amount')\naxes[0].set_ylabel('Amount')\naxes[0].set_xlabel('Transaction Type')\n\n# Create a scatter plot for hour of day vs amount\nsns.scatterplot(ax=axes[1], x='hour_of_day', y='amount', data=data, hue='transaction_type', style='transaction_type', s=100)\naxes[1].set_title('Hour of Day vs Amount')\naxes[1].set_ylabel('Amount')\naxes[1].set_xlabel('Hour of Day')\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp6kzloao4/viz_script.py:20: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(ax=axes[0], x='transaction_type', y='amount', data=data, ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4545,
+    "color_delta_e": 1.0641,
+    "visual_entropy": 1.2936,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 2.98,
+    "cost_per_run": 0.003708,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

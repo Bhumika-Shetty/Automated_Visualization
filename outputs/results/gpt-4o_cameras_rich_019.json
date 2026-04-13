@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-08T16:20:31.290375",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of price vs. megapixels, colored by sensor_type\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df, \n    x='megapixels', \n    y='price_usd', \n    hue='sensor_type', \n    palette='muted', \n    style='has_video_4k', \n    markers={0: \"o\", 1: \"X\"},\n    alpha=0.7\n)\n\n# Set axis labels and title\nscatter_plot.set_xlabel('Megapixels', fontsize=12)\nscatter_plot.set_ylabel('Price (USD)', fontsize=12)\nscatter_plot.set_title('Camera Price vs. Megapixels by Sensor Type', fontsize=16)\n\n# Adjust legend\nplt.legend(title='Sensor Type / 4K Video', title_fontsize='13', loc='upper left', fontsize='11')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot of price vs. megapixels, colored by sensor_type\nplt.figure(figsize=(12, 8))\nscatter_plot = sns.scatterplot(\n    data=df, \n    x='megapixels', \n    y='price_usd', \n    hue='sensor_type', \n    palette='muted', \n    style='has_video_4k', \n    markers={0: \"o\", 1: \"X\"},\n    alpha=0.7\n)\n\n# Set axis labels and title\nscatter_plot.set_xlabel('Megapixels', fontsize=12)\nscatter_plot.set_ylabel('Price (USD)', fontsize=12)\nscatter_plot.set_title('Camera Price vs. Megapixels by Sensor Type', fontsize=16)\n\n# Adjust legend\nplt.legend(title='Sensor Type / 4K Video', title_fontsize='13', loc='upper left', fontsize='11')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.3636,
+    "color_delta_e": 1.3473,
+    "visual_entropy": 1.2973,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.024,
+    "cost_per_run": 0.003593,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

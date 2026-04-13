@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-08T03:58:27.481726",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Create a bar plot for survival count by class and sex\nsns.countplot(data=df, x='class', hue='sex', palette='pastel', ax=ax)\n\n# Add labels and title\nax.set_title('Survival Count by Class and Sex on the Titanic', fontsize=16)\nax.set_xlabel('Passenger Class', fontsize=12)\nax.set_ylabel('Count of Passengers', fontsize=12)\n\n# Add legend\nax.legend(title='Sex')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, ax = plt.subplots(figsize=(12, 6))\n\n# Create a bar plot for survival count by class and sex\nsns.countplot(data=df, x='class', hue='sex', palette='pastel', ax=ax)\n\n# Add labels and title\nax.set_title('Survival Count by Class and Sex on the Titanic', fontsize=16)\nax.set_xlabel('Passenger Class', fontsize=12)\nax.set_ylabel('Count of Passengers', fontsize=12)\n\n# Add legend\nax.legend(title='Sex')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 13.33,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.5134,
+    "visual_entropy": 1.4702,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.931,
+    "cost_per_run": 0.002988,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

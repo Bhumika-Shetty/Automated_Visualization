@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "poor",
+  "run_id": 5,
+  "timestamp": "2026-04-08T16:21:49.820477",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.DataFrame({\n    'brand': ['Leica', 'Fuji', 'Pentax', 'Olympus', 'Leica'],\n    'model_year': [2005, 2019, 2012, 2015, 2016],\n    'megapixels': [13.5, 46.4, 38.7, 22.5, 12.2],\n    'max_iso': [25600, 51200, 12800, 6400, 25600],\n    'weight_grams': [324, 1151, 598, 1095, 290],\n    'price_usd': [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    'sensor_type': ['Micro 4/3', 'APS-C', 'Full Frame', 'APS-C', 'Medium Format'],\n    'has_video_4k': [1, 0, 0, 0, 0],\n    'lens_mount': ['E', 'EF', 'MFT', 'Z', 'MFT'],\n    'body_type': ['Compact', 'Mirrorless', 'Mirrorless', 'Mirrorless', 'DSLR']\n})\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(12, 6))\nscatter = sns.scatterplot(\n    data=data,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(20, 200),\n    style='has_video_4k',\n    palette='viridis',\n    legend='full'\n)\n\n# Enhance the plot\nplt.title('Camera Features vs Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.legend(title='Sensor Type & 4K Video', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the data\ndata = pd.DataFrame({\n    'brand': ['Leica', 'Fuji', 'Pentax', 'Olympus', 'Leica'],\n    'model_year': [2005, 2019, 2012, 2015, 2016],\n    'megapixels': [13.5, 46.4, 38.7, 22.5, 12.2],\n    'max_iso': [25600, 51200, 12800, 6400, 25600],\n    'weight_grams': [324, 1151, 598, 1095, 290],\n    'price_usd': [811.8, 3596.41, 3357.2, 1555.7, 3899.09],\n    'sensor_type': ['Micro 4/3', 'APS-C', 'Full Frame', 'APS-C', 'Medium Format'],\n    'has_video_4k': [1, 0, 0, 0, 0],\n    'lens_mount': ['E', 'EF', 'MFT', 'Z', 'MFT'],\n    'body_type': ['Compact', 'Mirrorless', 'Mirrorless', 'Mirrorless', 'DSLR']\n})\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(12, 6))\nscatter = sns.scatterplot(\n    data=data,\n    x='megapixels',\n    y='price_usd',\n    hue='sensor_type',\n    size='weight_grams',\n    sizes=(20, 200),\n    style='has_video_4k',\n    palette='viridis',\n    legend='full'\n)\n\n# Enhance the plot\nplt.title('Camera Features vs Price')\nplt.xlabel('Megapixels')\nplt.ylabel('Price (USD)')\nplt.legend(title='Sensor Type & 4K Video', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5263,
+    "color_delta_e": 0.8279,
+    "visual_entropy": 0.5982,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.562,
+    "cost_per_run": 0.005255,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

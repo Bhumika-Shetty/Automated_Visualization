@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 11,
+  "timestamp": "2026-04-08T16:16:25.493949",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Define the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\n# Create a DataFrame\ndf = pd.DataFrame(data)\n\n# Convert StichtagDat to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Plot using seaborn\nplt.figure(figsize=(10, 6))\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nsns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='viridis')\n\n# Title and labels\nplt.title('Dog Breeds by District')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Define the dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\n# Create a DataFrame\ndf = pd.DataFrame(data)\n\n# Convert StichtagDat to datetime\ndf['StichtagDat'] = pd.to_datetime(df['StichtagDat'])\n\n# Plot using seaborn\nplt.figure(figsize=(10, 6))\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nsns.countplot(data=df, x='KreisLang', hue='Rasse1Text', palette='viridis')\n\n# Title and labels\nplt.title('Dog Breeds by District')\nplt.xlabel('District')\nplt.ylabel('Count')\nplt.xticks(rotation=45)\n\n# Save the plot\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 11.43,
+    "hallucination_rate": 0.6522,
+    "color_delta_e": 0.5578,
+    "visual_entropy": 1.7562,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 4.334,
+    "cost_per_run": 0.004932,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

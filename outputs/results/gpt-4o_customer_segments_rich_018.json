@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-08T04:15:11.751599",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert 'Dt_Customer' to datetime format\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for customer tenure in years\ndf['Customer_Tenure'] = (pd.Timestamp('now') - df['Dt_Customer']).dt.days / 365\n\n# Calculate average spending on different products\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', \n                           'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Create a scatter plot of Income vs Total Spending colored by Marital Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='viridis', alpha=0.7)\n\n# Add a regression line\nsns.regplot(data=df, x='Income', y='Total_Spending', scatter=False, color='red', line_kws={'linewidth':1.5})\n\n# Customize the plot\nplt.title('Income vs Total Spending by Marital Status')\nplt.xlabel('Income')\nplt.ylabel('Total Spending')\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.grid(True)\nplt.tight_layout()\n\n# Save the plot as 'output.png'\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Convert 'Dt_Customer' to datetime format\ndf['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'], format='%d-%m-%Y')\n\n# Create a new column for customer tenure in years\ndf['Customer_Tenure'] = (pd.Timestamp('now') - df['Dt_Customer']).dt.days / 365\n\n# Calculate average spending on different products\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', \n                           'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Create a scatter plot of Income vs Total Spending colored by Marital Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', palette='viridis', alpha=0.7)\n\n# Add a regression line\nsns.regplot(data=df, x='Income', y='Total_Spending', scatter=False, color='red', line_kws={'linewidth':1.5})\n\n# Customize the plot\nplt.title('Income vs Total Spending by Marital Status')\nplt.xlabel('Income')\nplt.ylabel('Total Spending')\nplt.legend(title='Marital Status', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.grid(True)\nplt.tight_layout()\n\n# Save the plot as 'output.png'\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 31.03,
+    "hallucination_rate": 0.4815,
+    "color_delta_e": 0.9156,
+    "visual_entropy": 1.0597,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.605,
+    "cost_per_run": 0.005612,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

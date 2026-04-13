@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-08T04:47:05.021987",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(12, 6))\nscatter_plot = sns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', hue='Gender', style='BMI Category', size='Daily Steps', sizes=(20, 200), alpha=0.7)\n\n# Adding titles and labels\nplt.title('Sleep Duration vs Quality of Sleep', fontsize=16)\nplt.xlabel('Sleep Duration (Hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\nplt.legend(title='Gender and BMI Category', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between Sleep Duration and Quality of Sleep\nplt.figure(figsize=(12, 6))\nscatter_plot = sns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', hue='Gender', style='BMI Category', size='Daily Steps', sizes=(20, 200), alpha=0.7)\n\n# Adding titles and labels\nplt.title('Sleep Duration vs Quality of Sleep', fontsize=16)\nplt.xlabel('Sleep Duration (Hours)', fontsize=12)\nplt.ylabel('Quality of Sleep (1-10)', fontsize=12)\nplt.legend(title='Gender and BMI Category', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 38.46,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.7394,
+    "visual_entropy": 0.6521,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 5.449,
+    "cost_per_run": 0.000199,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

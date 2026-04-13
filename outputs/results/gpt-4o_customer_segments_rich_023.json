@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 23,
+  "timestamp": "2026-04-08T04:15:33.933180",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending per customer\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Create an age column\ndf['Age'] = 2023 - df['Year_Birth']\n\n# Plotting\nplt.figure(figsize=(12, 6))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', style='Education', size='Age', sizes=(20, 200), alpha=0.6)\n\n# Customizing the plot\nplt.title('Customer Spending vs Income with Marital Status and Education Level')\nplt.xlabel('Income')\nplt.ylabel('Total Spending')\nplt.legend(title='Marital Status / Education / Age', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/customer_segments.csv')\n\n# Calculate total spending per customer\ndf['Total_Spending'] = df[['MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']].sum(axis=1)\n\n# Create an age column\ndf['Age'] = 2023 - df['Year_Birth']\n\n# Plotting\nplt.figure(figsize=(12, 6))\nsns.scatterplot(data=df, x='Income', y='Total_Spending', hue='Marital_Status', style='Education', size='Age', sizes=(20, 200), alpha=0.6)\n\n# Customizing the plot\nplt.title('Customer Spending vs Income with Marital Status and Education Level')\nplt.xlabel('Income')\nplt.ylabel('Total Spending')\nplt.legend(title='Marital Status / Education / Age', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 34.48,
+    "hallucination_rate": 0.4211,
+    "color_delta_e": 1.3903,
+    "visual_entropy": 0.7678,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.569,
+    "cost_per_run": 0.004613,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

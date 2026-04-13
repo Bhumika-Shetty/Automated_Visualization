@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 13,
+  "timestamp": "2026-04-08T03:59:09.120008",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\n# Plot 1: Count plot of survivors by class\nsns.countplot(ax=axes[0], data=titanic, x='class', hue='survived', palette='viridis')\naxes[0].set_title('Survival Count by Class')\naxes[0].set_xlabel('Passenger Class')\naxes[0].set_ylabel('Number of Passengers')\naxes[0].legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Plot 2: Age distribution of passengers who survived vs those who did not\nsns.histplot(ax=axes[1], data=titanic, x='age', hue='survived', multiple='stack', palette='viridis', bins=30)\naxes[1].set_title('Age Distribution by Survival')\naxes[1].set_xlabel('Age')\naxes[1].set_ylabel('Number of Passengers')\naxes[1].legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ntitanic = pd.read_csv('data/titanic.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and a set of subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\n# Plot 1: Count plot of survivors by class\nsns.countplot(ax=axes[0], data=titanic, x='class', hue='survived', palette='viridis')\naxes[0].set_title('Survival Count by Class')\naxes[0].set_xlabel('Passenger Class')\naxes[0].set_ylabel('Number of Passengers')\naxes[0].legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Plot 2: Age distribution of passengers who survived vs those who did not\nsns.histplot(ax=axes[1], data=titanic, x='age', hue='survived', multiple='stack', palette='viridis', bins=30)\naxes[1].set_title('Age Distribution by Survival')\naxes[1].set_xlabel('Age')\naxes[1].set_ylabel('Number of Passengers')\naxes[1].legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 26.67,
+    "hallucination_rate": 0.6957,
+    "color_delta_e": 0.9777,
+    "visual_entropy": 1.5732,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 3.667,
+    "cost_per_run": 0.004308,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

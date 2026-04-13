@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 29,
+  "timestamp": "2026-04-08T16:26:54.557594",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Create a new column for month-year\ndata['month_year'] = data['date'].dt.to_period('M')\n\n# Group by month-year and product to calculate total sales\nmonthly_sales = data.groupby(['month_year', 'product'])['total'].sum().reset_index()\n\n# Set style\nsns.set_style(\"whitegrid\")\n\n# Create a line plot\nplt.figure(figsize=(14, 8))\nsns.lineplot(data=monthly_sales, x='month_year', y='total', hue='product', marker='o')\n\n# Customize the plot\nplt.title('Monthly Coffee Sales by Product')\nplt.xlabel('Month-Year')\nplt.ylabel('Total Sales (in $)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Create a new column for month-year\ndata['month_year'] = data['date'].dt.to_period('M')\n\n# Group by month-year and product to calculate total sales\nmonthly_sales = data.groupby(['month_year', 'product'])['total'].sum().reset_index()\n\n# Set style\nsns.set_style(\"whitegrid\")\n\n# Create a line plot\nplt.figure(figsize=(14, 8))\nsns.lineplot(data=monthly_sales, x='month_year', y='total', hue='product', marker='o')\n\n# Customize the plot\nplt.title('Monthly Coffee Sales by Product')\nplt.xlabel('Month-Year')\nplt.ylabel('Total Sales (in $)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"pandas/_libs/lib.pyx\", line 2478, in pandas._libs.lib.maybe_convert_numeric\nTypeError: Invalid object type\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp4ow9tm_k/viz_script.py\", line 22, in <module>\n    sns.lineplot(data=monthly_sales, x='month_year', y='total', hue='product', marker='o')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/relational.py\", line 515, in lineplot\n    p.plot(ax, kwargs)\n    ~~~~~~^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/relational.py\", line 276, in plot\n    for sub_vars, sub_data in self.iter_data(grouping_vars, from_comp_data=True):\n                              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 902, in iter_data\n    data = self.comp_data\n           ^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/seaborn/_base.py\", line 1000, in comp_data\n    comp = pd.to_numeric(converter.convert_units(orig)).astype(float)\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/bhumikashetty/projects/Automated_Visualization/venv/lib/python3.13/site-packages/pandas/core/tools/numeric.py\", line 235, in to_numeric\n    values, new_mask = lib.maybe_convert_numeric(  # type: ignore[call-overload]\n                       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        values,\n        ^^^^^^^\n    ...<6 lines>...\n        ),\n        ^^\n    )\n    ^\n  File \"pandas/_libs/lib.pyx\", line 2521, in pandas._libs.lib.maybe_convert_numeric\nTypeError: Invalid object type at position 0\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.3529,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.329,
+    "cost_per_run": 0.00334,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

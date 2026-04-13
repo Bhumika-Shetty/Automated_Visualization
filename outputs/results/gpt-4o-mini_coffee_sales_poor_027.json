@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-08T16:55:36.122472",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'date': ['2024-01-01'] * 5,\n    'time': ['00:00', '02:00', '04:00', '06:00', '08:00'],\n    'product': ['Cappuccino', 'Cappuccino', 'Tea', 'Latte', 'Americano'],\n    'size': ['Large', 'Medium', 'Small', 'Large', 'Medium'],\n    'price': [4.18, 4.01, 5.22, 6.37, 7.07],\n    'quantity': [2, 3, 1, 2, 3],\n    'payment_method': ['Credit Card', 'Credit Card', 'Credit Card', 'Credit Card', 'Cash'],\n    'customer_age_group': ['55+', '35-44', '18-24', '45-54', '45-54'],\n    'is_takeaway': [1, 1, 1, 1, 1],\n    'total': [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Create a pivot table for visualization\npivot_table = df.pivot_table(values='total', index='time', columns='product', aggfunc='sum')\n\n# Plotting\nplt.figure(figsize=(10, 6))\nsns.lineplot(data=pivot_table, markers=True)\nplt.title('Total Sales per Product Over Time')\nplt.xlabel('Time')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = {\n    'date': ['2024-01-01'] * 5,\n    'time': ['00:00', '02:00', '04:00', '06:00', '08:00'],\n    'product': ['Cappuccino', 'Cappuccino', 'Tea', 'Latte', 'Americano'],\n    'size': ['Large', 'Medium', 'Small', 'Large', 'Medium'],\n    'price': [4.18, 4.01, 5.22, 6.37, 7.07],\n    'quantity': [2, 3, 1, 2, 3],\n    'payment_method': ['Credit Card', 'Credit Card', 'Credit Card', 'Credit Card', 'Cash'],\n    'customer_age_group': ['55+', '35-44', '18-24', '45-54', '45-54'],\n    'is_takeaway': [1, 1, 1, 1, 1],\n    'total': [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Create a pivot table for visualization\npivot_table = df.pivot_table(values='total', index='time', columns='product', aggfunc='sum')\n\n# Plotting\nplt.figure(figsize=(10, 6))\nsns.lineplot(data=pivot_table, markers=True)\nplt.title('Total Sales per Product Over Time')\nplt.xlabel('Time')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5312,
+    "color_delta_e": 0.8658,
+    "visual_entropy": 0.3221,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 7.977,
+    "cost_per_run": 0.000268,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

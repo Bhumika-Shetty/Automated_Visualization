@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 28,
+  "timestamp": "2026-04-08T16:26:50.212418",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Aggregate total sales by product and date\ndaily_sales = coffee_sales.groupby(['date', 'product'])['total'].sum().reset_index()\n\n# Create a line plot for daily sales for each product\nplt.figure(figsize=(14, 8))\nsns.lineplot(data=daily_sales, x='date', y='total', hue='product', marker='o')\n\n# Add titles and labels\nplt.title('Daily Sales by Product', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Product', title_fontsize='13', fontsize='10')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ncoffee_sales['date'] = pd.to_datetime(coffee_sales['date'])\n\n# Aggregate total sales by product and date\ndaily_sales = coffee_sales.groupby(['date', 'product'])['total'].sum().reset_index()\n\n# Create a line plot for daily sales for each product\nplt.figure(figsize=(14, 8))\nsns.lineplot(data=daily_sales, x='date', y='total', hue='product', marker='o')\n\n# Add titles and labels\nplt.title('Daily Sales by Product', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Product', title_fontsize='13', fontsize='10')\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.1429,
+    "color_delta_e": 7.5321,
+    "visual_entropy": 2.4084,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 3.094,
+    "cost_per_run": 0.00319,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

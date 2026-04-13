@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T05:07:10.501912",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a violin plot to show the distribution of transaction amounts by fraud status\nplt.figure(figsize=(12, 6))\nsns.violinplot(x='is_fraud', y='amount', data=data, palette='muted', scale='area')\n\n# Add titles and labels\nplt.title('Distribution of Transaction Amounts by Fraud Status', fontsize=16)\nplt.xlabel('Is Fraud (0 = No, 1 = Yes)', fontsize=14)\nplt.ylabel('Transaction Amount', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a violin plot to show the distribution of transaction amounts by fraud status\nplt.figure(figsize=(12, 6))\nsns.violinplot(x='is_fraud', y='amount', data=data, palette='muted', scale='area')\n\n# Add titles and labels\nplt.title('Distribution of Transaction Amounts by Fraud Status', fontsize=16)\nplt.xlabel('Is Fraud (0 = No, 1 = Yes)', fontsize=14)\nplt.ylabel('Transaction Amount', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpsyk_7vej/viz_script.py:13: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.violinplot(x='is_fraud', y='amount', data=data, palette='muted', scale='area')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpsyk_7vej/viz_script.py:13: FutureWarning: \n\nThe `scale` parameter has been renamed and will be removed in v0.15.0. Pass `density_norm='area'` for the same effect.\n  sns.violinplot(x='is_fraud', y='amount', data=data, palette='muted', scale='area')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.5097,
+    "visual_entropy": 0.6408,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 4.227,
+    "cost_per_run": 0.000146,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

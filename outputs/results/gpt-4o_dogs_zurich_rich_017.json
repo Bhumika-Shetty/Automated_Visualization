@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-08T16:14:01.143016",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter the data for the top 10 most common dog breeds\ntop_breeds = df['Rasse1Text'].value_counts().nlargest(10).index\ntop_breeds_df = df[df['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot for dog breeds\nplt.figure(figsize=(12, 8))\nsns.countplot(data=top_breeds_df, y='Rasse1Text', order=top_breeds)\nplt.title('Top 10 Most Common Dog Breeds in Zurich')\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter the data for the top 10 most common dog breeds\ntop_breeds = df['Rasse1Text'].value_counts().nlargest(10).index\ntop_breeds_df = df[df['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot for dog breeds\nplt.figure(figsize=(12, 8))\nsns.countplot(data=top_breeds_df, y='Rasse1Text', order=top_breeds)\nplt.title('Top 10 Most Common Dog Breeds in Zurich')\nplt.xlabel('Number of Dogs')\nplt.ylabel('Dog Breed')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.6807,
+    "visual_entropy": 0.8858,
+    "labeling_completeness": 0.75,
+    "code_complexity": 2,
+    "generation_latency": 2.053,
+    "cost_per_run": 0.004472,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

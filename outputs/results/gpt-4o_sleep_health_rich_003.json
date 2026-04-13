@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 3,
+  "timestamp": "2026-04-08T04:09:10.097595",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Calculate average sleep duration and quality of sleep by BMI Category\nbmi_sleep_data = data.groupby('BMI Category').agg({\n    'Sleep Duration': 'mean',\n    'Quality of Sleep': 'mean'\n}).reset_index()\n\n# Set style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for Sleep Duration and Quality of Sleep by BMI Category\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Bar plot for sleep duration\nsns.barplot(x='BMI Category', y='Sleep Duration', data=bmi_sleep_data, color='b', label='Sleep Duration', ax=ax)\n\n# Bar plot for quality of sleep\nsns.barplot(x='BMI Category', y='Quality of Sleep', data=bmi_sleep_data, color='r', alpha=0.5, label='Quality of Sleep', ax=ax)\n\n# Add labels and title\nax.set_xlabel('BMI Category')\nax.set_ylabel('Average Value')\nax.set_title('Average Sleep Duration and Quality by BMI Category')\nax.legend(title='Metrics')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Calculate average sleep duration and quality of sleep by BMI Category\nbmi_sleep_data = data.groupby('BMI Category').agg({\n    'Sleep Duration': 'mean',\n    'Quality of Sleep': 'mean'\n}).reset_index()\n\n# Set style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for Sleep Duration and Quality of Sleep by BMI Category\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Bar plot for sleep duration\nsns.barplot(x='BMI Category', y='Sleep Duration', data=bmi_sleep_data, color='b', label='Sleep Duration', ax=ax)\n\n# Bar plot for quality of sleep\nsns.barplot(x='BMI Category', y='Quality of Sleep', data=bmi_sleep_data, color='r', alpha=0.5, label='Quality of Sleep', ax=ax)\n\n# Add labels and title\nax.set_xlabel('BMI Category')\nax.set_ylabel('Average Value')\nax.set_title('Average Sleep Duration and Quality by BMI Category')\nax.legend(title='Metrics')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 23.08,
+    "hallucination_rate": 0.3684,
+    "color_delta_e": 0.8533,
+    "visual_entropy": 1.6156,
+    "labeling_completeness": 1.0,
+    "code_complexity": 3,
+    "generation_latency": 4.79,
+    "cost_per_run": 0.003812,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

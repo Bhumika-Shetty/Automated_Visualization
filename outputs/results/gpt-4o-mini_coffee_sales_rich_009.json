@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 9,
+  "timestamp": "2026-04-08T16:49:59.321675",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Group by product and customer age group, aggregating total sales\nsales_summary = coffee_sales.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Create a bar plot\nplt.figure(figsize=(12, 6))\nsns.barplot(data=sales_summary, x='customer_age_group', y='total', hue='product')\n\n# Customize the plot\nplt.title('Total Sales of Coffee Products by Customer Age Group', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Product', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Group by product and customer age group, aggregating total sales\nsales_summary = coffee_sales.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Create a bar plot\nplt.figure(figsize=(12, 6))\nsns.barplot(data=sales_summary, x='customer_age_group', y='total', hue='product')\n\n# Customize the plot\nplt.title('Total Sales of Coffee Products by Customer Age Group', fontsize=16)\nplt.xlabel('Customer Age Group', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.legend(title='Product', bbox_to_anchor=(1.05, 1), loc='upper left')\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.3571,
+    "color_delta_e": 1.9974,
+    "visual_entropy": 2.3664,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 3.784,
+    "cost_per_run": 0.000205,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

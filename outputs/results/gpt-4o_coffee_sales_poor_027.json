@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 27,
+  "timestamp": "2026-04-08T16:30:36.523905",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Data input\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\"\"\"\n\n# Read data\ndf = pd.read_csv(StringIO(data))\n\n# Set plot style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', hue='customer_age_group', data=df, palette='viridis')\n\n# Add title and labels\nplt.title('Total Sales by Product and Customer Age Group')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.legend(title='Age Group')\n\n# Save the plot\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom io import StringIO\n\n# Data input\ndata = \"\"\"date,time,product,size,price,quantity,payment_method,customer_age_group,is_takeaway,total\n2024-01-01,00:00,Cappuccino,Large,4.18,2,Credit Card,55+,1,8.36\n2024-01-01,02:00,Cappuccino,Medium,4.01,3,Credit Card,35-44,1,12.03\n2024-01-01,04:00,Tea,Small,5.22,1,Credit Card,18-24,1,5.22\n2024-01-01,06:00,Latte,Large,6.37,2,Credit Card,45-54,1,12.74\n2024-01-01,08:00,Americano,Medium,7.07,3,Cash,45-54,1,21.21\"\"\"\n\n# Read data\ndf = pd.read_csv(StringIO(data))\n\n# Set plot style\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='product', y='total', hue='customer_age_group', data=df, palette='viridis')\n\n# Add title and labels\nplt.title('Total Sales by Product and Customer Age Group')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.legend(title='Age Group')\n\n# Save the plot\nplt.savefig('output.png', dpi=300, bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.3779,
+    "visual_entropy": 1.0446,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.949,
+    "cost_per_run": 0.004152,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

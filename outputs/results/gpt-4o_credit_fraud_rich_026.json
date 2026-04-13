@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 26,
+  "timestamp": "2026-04-08T04:23:16.636364",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure with two subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\n# Plot 1: Count of fraud vs non-fraud transactions by transaction type\nsns.countplot(data=data, x='transaction_type', hue='is_fraud', ax=axes[0], palette='coolwarm')\naxes[0].set_title('Transaction Count by Type and Fraud Status')\naxes[0].set_xlabel('Transaction Type')\naxes[0].set_ylabel('Count')\naxes[0].legend(title='Is Fraud', loc='upper right')\n\n# Plot 2: Average transaction amount by hour of day, split by fraud status\nsns.lineplot(data=data, x='hour_of_day', y='amount', hue='is_fraud', ax=axes[1], palette='coolwarm', ci=None)\naxes[1].set_title('Average Transaction Amount by Hour and Fraud Status')\naxes[1].set_xlabel('Hour of Day')\naxes[1].set_ylabel('Average Amount')\naxes[1].legend(title='Is Fraud', loc='upper right')\n\n# Save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure with two subplots\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\n# Plot 1: Count of fraud vs non-fraud transactions by transaction type\nsns.countplot(data=data, x='transaction_type', hue='is_fraud', ax=axes[0], palette='coolwarm')\naxes[0].set_title('Transaction Count by Type and Fraud Status')\naxes[0].set_xlabel('Transaction Type')\naxes[0].set_ylabel('Count')\naxes[0].legend(title='Is Fraud', loc='upper right')\n\n# Plot 2: Average transaction amount by hour of day, split by fraud status\nsns.lineplot(data=data, x='hour_of_day', y='amount', hue='is_fraud', ax=axes[1], palette='coolwarm', ci=None)\naxes[1].set_title('Average Transaction Amount by Hour and Fraud Status')\naxes[1].set_xlabel('Hour of Day')\naxes[1].set_ylabel('Average Amount')\naxes[1].legend(title='Is Fraud', loc='upper right')\n\n# Save the figure\nplt.tight_layout()\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp6tme8xz7/viz_script.py:22: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.lineplot(data=data, x='hour_of_day', y='amount', hue='is_fraud', ax=axes[1], palette='coolwarm', ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.7368,
+    "color_delta_e": 0.8646,
+    "visual_entropy": 1.287,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.287,
+    "cost_per_run": 0.003728,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

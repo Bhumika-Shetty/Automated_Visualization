@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-08T04:10:14.252929",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and a grid of subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\n\n# Plot 1: Distribution of Sleep Duration by Gender\nsns.histplot(data=df, x='Sleep Duration', hue='Gender', multiple='stack', ax=axes[0, 0], palette='pastel')\naxes[0, 0].set_title('Distribution of Sleep Duration by Gender')\naxes[0, 0].set_xlabel('Sleep Duration (hours)')\naxes[0, 0].set_ylabel('Count')\n\n# Plot 2: Boxplot of Quality of Sleep by BMI Category\nsns.boxplot(data=df, x='BMI Category', y='Quality of Sleep', ax=axes[0, 1], palette='Set2')\naxes[0, 1].set_title('Quality of Sleep by BMI Category')\naxes[0, 1].set_xlabel('BMI Category')\naxes[0, 1].set_ylabel('Quality of Sleep')\n\n# Plot 3: Scatter plot of Physical Activity Level vs Daily Steps\nsns.scatterplot(data=df, x='Physical Activity Level', y='Daily Steps', hue='Sleep Disorder', ax=axes[1, 0], palette='Set1')\naxes[1, 0].set_title('Physical Activity Level vs Daily Steps')\naxes[1, 0].set_xlabel('Physical Activity Level')\naxes[1, 0].set_ylabel('Daily Steps')\n\n# Plot 4: Barplot of Average Stress Level by Occupation\navg_stress_by_occupation = df.groupby('Occupation')['Stress Level'].mean().reset_index()\nsns.barplot(data=avg_stress_by_occupation, x='Stress Level', y='Occupation', ax=axes[1, 1], palette='Blues_d')\naxes[1, 1].set_title('Average Stress Level by Occupation')\naxes[1, 1].set_xlabel('Average Stress Level')\naxes[1, 1].set_ylabel('Occupation')\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetic style of the plots\nsns.set_style(\"whitegrid\")\n\n# Create a figure and a grid of subplots\nfig, axes = plt.subplots(2, 2, figsize=(14, 10))\n\n# Plot 1: Distribution of Sleep Duration by Gender\nsns.histplot(data=df, x='Sleep Duration', hue='Gender', multiple='stack', ax=axes[0, 0], palette='pastel')\naxes[0, 0].set_title('Distribution of Sleep Duration by Gender')\naxes[0, 0].set_xlabel('Sleep Duration (hours)')\naxes[0, 0].set_ylabel('Count')\n\n# Plot 2: Boxplot of Quality of Sleep by BMI Category\nsns.boxplot(data=df, x='BMI Category', y='Quality of Sleep', ax=axes[0, 1], palette='Set2')\naxes[0, 1].set_title('Quality of Sleep by BMI Category')\naxes[0, 1].set_xlabel('BMI Category')\naxes[0, 1].set_ylabel('Quality of Sleep')\n\n# Plot 3: Scatter plot of Physical Activity Level vs Daily Steps\nsns.scatterplot(data=df, x='Physical Activity Level', y='Daily Steps', hue='Sleep Disorder', ax=axes[1, 0], palette='Set1')\naxes[1, 0].set_title('Physical Activity Level vs Daily Steps')\naxes[1, 0].set_xlabel('Physical Activity Level')\naxes[1, 0].set_ylabel('Daily Steps')\n\n# Plot 4: Barplot of Average Stress Level by Occupation\navg_stress_by_occupation = df.groupby('Occupation')['Stress Level'].mean().reset_index()\nsns.barplot(data=avg_stress_by_occupation, x='Stress Level', y='Occupation', ax=axes[1, 1], palette='Blues_d')\naxes[1, 1].set_title('Average Stress Level by Occupation')\naxes[1, 1].set_xlabel('Average Stress Level')\naxes[1, 1].set_ylabel('Occupation')\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpmyy868wr/viz_script.py:21: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(data=df, x='BMI Category', y='Quality of Sleep', ax=axes[0, 1], palette='Set2')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpmyy868wr/viz_script.py:34: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(data=avg_stress_by_occupation, x='Stress Level', y='Occupation', ax=axes[1, 1], palette='Blues_d')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 69.23,
+    "hallucination_rate": 0.4483,
+    "color_delta_e": 0.8641,
+    "visual_entropy": 1.9682,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 4.732,
+    "cost_per_run": 0.006123,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

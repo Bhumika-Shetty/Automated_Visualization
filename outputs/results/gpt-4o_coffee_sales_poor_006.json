@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "poor",
+  "run_id": 6,
+  "timestamp": "2026-04-08T16:27:29.476980",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create the dataset\ndata = {\n    'date': ['2024-01-01', '2024-01-01', '2024-01-01', '2024-01-01', '2024-01-01'],\n    'time': ['00:00', '02:00', '04:00', '06:00', '08:00'],\n    'product': ['Cappuccino', 'Cappuccino', 'Tea', 'Latte', 'Americano'],\n    'size': ['Large', 'Medium', 'Small', 'Large', 'Medium'],\n    'price': [4.18, 4.01, 5.22, 6.37, 7.07],\n    'quantity': [2, 3, 1, 2, 3],\n    'payment_method': ['Credit Card', 'Credit Card', 'Credit Card', 'Credit Card', 'Cash'],\n    'customer_age_group': ['55+', '35-44', '18-24', '45-54', '45-54'],\n    'is_takeaway': [1, 1, 1, 1, 1],\n    'total': [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert 'date' and 'time' into a single datetime column for better plotting\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Set up the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Plot the total sales over time\nsns.lineplot(data=df, x='datetime', y='total', hue='product', marker='o')\n\n# Customize the plot\nplt.title('Total Sales Over Time by Product')\nplt.xlabel('Time')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create the dataset\ndata = {\n    'date': ['2024-01-01', '2024-01-01', '2024-01-01', '2024-01-01', '2024-01-01'],\n    'time': ['00:00', '02:00', '04:00', '06:00', '08:00'],\n    'product': ['Cappuccino', 'Cappuccino', 'Tea', 'Latte', 'Americano'],\n    'size': ['Large', 'Medium', 'Small', 'Large', 'Medium'],\n    'price': [4.18, 4.01, 5.22, 6.37, 7.07],\n    'quantity': [2, 3, 1, 2, 3],\n    'payment_method': ['Credit Card', 'Credit Card', 'Credit Card', 'Credit Card', 'Cash'],\n    'customer_age_group': ['55+', '35-44', '18-24', '45-54', '45-54'],\n    'is_takeaway': [1, 1, 1, 1, 1],\n    'total': [8.36, 12.03, 5.22, 12.74, 21.21]\n}\n\ndf = pd.DataFrame(data)\n\n# Convert 'date' and 'time' into a single datetime column for better plotting\ndf['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])\n\n# Set up the matplotlib figure\nplt.figure(figsize=(10, 6))\n\n# Plot the total sales over time\nsns.lineplot(data=df, x='datetime', y='total', hue='product', marker='o')\n\n# Customize the plot\nplt.title('Total Sales Over Time by Product')\nplt.xlabel('Time')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Product')\nplt.tight_layout()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4865,
+    "color_delta_e": 0.9745,
+    "visual_entropy": 0.3802,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.404,
+    "cost_per_run": 0.005112,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

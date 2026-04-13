@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "poor",
+  "run_id": 20,
+  "timestamp": "2026-04-08T04:03:04.236398",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.DataFrame({\n    'survived': [0, 1, 1, 1, 0],\n    'pclass': [3, 1, 3, 1, 3],\n    'sex': ['male', 'female', 'female', 'female', 'male'],\n    'age': [22.0, 38.0, 26.0, 35.0, 35.0],\n    'sibsp': [1, 1, 0, 1, 0],\n    'parch': [0, 0, 0, 0, 0],\n    'fare': [7.25, 71.2833, 7.925, 53.1, 8.05],\n    'embarked': ['S', 'C', 'S', 'S', 'S'],\n    'class': ['Third', 'First', 'Third', 'First', 'Third'],\n    'who': ['man', 'woman', 'woman', 'woman', 'man'],\n    'adult_male': [True, False, False, False, True],\n    'deck': [None, 'C', None, 'C', None],\n    'embark_town': ['Southampton', 'Cherbourg', 'Southampton', 'Southampton', 'Southampton'],\n    'alive': ['no', 'yes', 'yes', 'yes', 'no'],\n    'alone': [False, False, True, False, True]\n})\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a FacetGrid bar plot of survival rate by class and sex\ng = sns.catplot(\n    data=data, kind=\"bar\",\n    x=\"class\", y=\"survived\", hue=\"sex\",\n    ci=None, palette=\"muted\", height=4, aspect=1\n)\n\ng.despine(left=True)\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.legend.set_title(\"Sex\")\n\n# Save the plot to a file\nplt.savefig('output.png')",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.DataFrame({\n    'survived': [0, 1, 1, 1, 0],\n    'pclass': [3, 1, 3, 1, 3],\n    'sex': ['male', 'female', 'female', 'female', 'male'],\n    'age': [22.0, 38.0, 26.0, 35.0, 35.0],\n    'sibsp': [1, 1, 0, 1, 0],\n    'parch': [0, 0, 0, 0, 0],\n    'fare': [7.25, 71.2833, 7.925, 53.1, 8.05],\n    'embarked': ['S', 'C', 'S', 'S', 'S'],\n    'class': ['Third', 'First', 'Third', 'First', 'Third'],\n    'who': ['man', 'woman', 'woman', 'woman', 'man'],\n    'adult_male': [True, False, False, False, True],\n    'deck': [None, 'C', None, 'C', None],\n    'embark_town': ['Southampton', 'Cherbourg', 'Southampton', 'Southampton', 'Southampton'],\n    'alive': ['no', 'yes', 'yes', 'yes', 'no'],\n    'alone': [False, False, True, False, True]\n})\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a FacetGrid bar plot of survival rate by class and sex\ng = sns.catplot(\n    data=data, kind=\"bar\",\n    x=\"class\", y=\"survived\", hue=\"sex\",\n    ci=None, palette=\"muted\", height=4, aspect=1\n)\n\ng.despine(left=True)\ng.set_axis_labels(\"Passenger Class\", \"Survival Rate\")\ng.legend.set_title(\"Sex\")\n\n# Save the plot to a file\nplt.savefig('output.png')\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmprlpsdwga/viz_script.py:28: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  g = sns.catplot(\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5357,
+    "color_delta_e": 0.9998,
+    "visual_entropy": 1.1037,
+    "labeling_completeness": 0.5,
+    "code_complexity": 0,
+    "generation_latency": 4.873,
+    "cost_per_run": 0.005313,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

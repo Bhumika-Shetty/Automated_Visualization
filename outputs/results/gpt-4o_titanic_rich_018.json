@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 18,
+  "timestamp": "2026-04-08T03:59:26.335175",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a countplot to show the survival count by passenger class and sex\nplt.figure(figsize=(10, 6))\nax = sns.countplot(data=df, x='pclass', hue='sex', palette='pastel')\n\n# Set labels and title\nax.set_xlabel('Passenger Class', fontsize=12)\nax.set_ylabel('Count', fontsize=12)\nax.set_title('Survival Count by Passenger Class and Sex', fontsize=14)\n\n# Add legend\nax.legend(title='Sex', title_fontsize='13', fontsize='11')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/titanic.csv')\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a countplot to show the survival count by passenger class and sex\nplt.figure(figsize=(10, 6))\nax = sns.countplot(data=df, x='pclass', hue='sex', palette='pastel')\n\n# Set labels and title\nax.set_xlabel('Passenger Class', fontsize=12)\nax.set_ylabel('Count', fontsize=12)\nax.set_title('Survival Count by Passenger Class and Sex', fontsize=14)\n\n# Add legend\nax.legend(title='Sex', title_fontsize='13', fontsize='11')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.5092,
+    "visual_entropy": 1.4576,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.411,
+    "cost_per_run": 0.002917,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

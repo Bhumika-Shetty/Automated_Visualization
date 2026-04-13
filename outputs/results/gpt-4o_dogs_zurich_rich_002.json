@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-08T16:12:51.575340",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndogs_zurich = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare data for visualization: Count of dogs by breed and district\nbreed_district_count = dogs_zurich.groupby(['Rasse1Text', 'KreisLang']).size().reset_index(name='Dog Count')\n\n# Create a pivot table for visualization\npivot_table = breed_district_count.pivot('Rasse1Text', 'KreisLang', 'Dog Count').fillna(0)\n\n# Plotting\nplt.figure(figsize=(15, 10))\nsns.heatmap(pivot_table, cmap='viridis', linecolor='white', linewidths=0.1, cbar_kws={'label': 'Number of Dogs'})\n\n# Add labels and title\nplt.title('Number of Registered Dogs by Breed and District in Zurich', fontsize=16)\nplt.xlabel('District', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45, ha='right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndogs_zurich = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare data for visualization: Count of dogs by breed and district\nbreed_district_count = dogs_zurich.groupby(['Rasse1Text', 'KreisLang']).size().reset_index(name='Dog Count')\n\n# Create a pivot table for visualization\npivot_table = breed_district_count.pivot('Rasse1Text', 'KreisLang', 'Dog Count').fillna(0)\n\n# Plotting\nplt.figure(figsize=(15, 10))\nsns.heatmap(pivot_table, cmap='viridis', linecolor='white', linewidths=0.1, cbar_kws={'label': 'Number of Dogs'})\n\n# Add labels and title\nplt.title('Number of Registered Dogs by Breed and District in Zurich', fontsize=16)\nplt.xlabel('District', fontsize=12)\nplt.ylabel('Dog Breed', fontsize=12)\n\n# Rotate x-axis labels for better readability\nplt.xticks(rotation=45, ha='right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpfchjicft/viz_script.py\", line 12, in <module>\n    pivot_table = breed_district_count.pivot('Rasse1Text', 'KreisLang', 'Dog Count').fillna(0)\n                  ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: DataFrame.pivot() takes 1 positional argument but 4 were given\n",
+  "metrics": {
+    "execution_success": false,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.7333,
+    "color_delta_e": null,
+    "visual_entropy": null,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 3.95,
+    "cost_per_run": 0.005193,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

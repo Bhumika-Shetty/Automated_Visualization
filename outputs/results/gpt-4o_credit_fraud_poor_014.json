@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 14,
+  "timestamp": "2026-04-08T04:27:15.635256",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Create a FacetGrid to visualize the distribution of transaction amounts by type and hour\ng = sns.FacetGrid(data, col=\"transaction_type\", height=4, aspect=1)\ng.map(plt.scatter, \"hour_of_day\", \"amount\", alpha=0.7)\ng.set_axis_labels(\"Hour of Day\", \"Transaction Amount\")\ng.set_titles(\"{col_name}\")\ng.add_legend()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n})\n\n# Create a FacetGrid to visualize the distribution of transaction amounts by type and hour\ng = sns.FacetGrid(data, col=\"transaction_type\", height=4, aspect=1)\ng.map(plt.scatter, \"hour_of_day\", \"amount\", alpha=0.7)\ng.set_axis_labels(\"Hour of Day\", \"Transaction Amount\")\ng.set_titles(\"{col_name}\")\ng.add_legend()\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 1.1518,
+    "visual_entropy": 0.3243,
+    "labeling_completeness": 0.5,
+    "code_complexity": 0,
+    "generation_latency": 3.855,
+    "cost_per_run": 0.002538,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

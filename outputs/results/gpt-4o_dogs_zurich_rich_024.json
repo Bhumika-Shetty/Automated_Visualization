@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-08T16:14:31.189043",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare data for visualization\n# Count the number of dogs by breed\nbreed_counts = data['Rasse1Text'].value_counts().head(10)\n\n# Create the plot\nplt.figure(figsize=(12, 8))\nsns.barplot(x=breed_counts.values, y=breed_counts.index, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Number of Registered Dogs')\nplt.ylabel('Dog Breed')\nplt.title('Top 10 Most Common Dog Breeds in Zurich')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Prepare data for visualization\n# Count the number of dogs by breed\nbreed_counts = data['Rasse1Text'].value_counts().head(10)\n\n# Create the plot\nplt.figure(figsize=(12, 8))\nsns.barplot(x=breed_counts.values, y=breed_counts.index, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Number of Registered Dogs')\nplt.ylabel('Dog Breed')\nplt.title('Top 10 Most Common Dog Breeds in Zurich')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp98eu_ptm/viz_script.py:14: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=breed_counts.values, y=breed_counts.index, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 2.86,
+    "hallucination_rate": 0.8333,
+    "color_delta_e": 0.7048,
+    "visual_entropy": 1.4649,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.384,
+    "cost_per_run": 0.004213,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

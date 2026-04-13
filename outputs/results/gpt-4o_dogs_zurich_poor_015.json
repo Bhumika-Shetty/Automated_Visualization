@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 15,
+  "timestamp": "2026-04-08T16:16:49.660960",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'StichtagDatJahr': [2024, 2025, 2019, 2020, 2021],\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'Rasse1Text': ['Deutsche Dogge', 'Deutsche Dogge', 'Continental Bulldog', 'Continental Bulldog', 'Continental Bulldog'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n})\n\n# Convert 'StichtagDat' to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='StichtagDatJahr', y='AnzHunde', hue='KreisLang', data=data, dodge=True)\n\n# Add labels and title\nplt.title('Number of Dogs per Year by Kreis')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.legend(title='Kreis')\n\n# Save the plot as a png file\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.DataFrame({\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'StichtagDatJahr': [2024, 2025, 2019, 2020, 2021],\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'Rasse1Text': ['Deutsche Dogge', 'Deutsche Dogge', 'Continental Bulldog', 'Continental Bulldog', 'Continental Bulldog'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n})\n\n# Convert 'StichtagDat' to datetime\ndata['StichtagDat'] = pd.to_datetime(data['StichtagDat'])\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.barplot(x='StichtagDatJahr', y='AnzHunde', hue='KreisLang', data=data, dodge=True)\n\n# Add labels and title\nplt.title('Number of Dogs per Year by Kreis')\nplt.xlabel('Year')\nplt.ylabel('Number of Dogs')\nplt.xticks(rotation=45)\nplt.legend(title='Kreis')\n\n# Save the plot as a png file\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.5769,
+    "color_delta_e": 0.8302,
+    "visual_entropy": 1.5256,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.33,
+    "cost_per_run": 0.005392,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

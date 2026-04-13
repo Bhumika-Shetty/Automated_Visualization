@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 1,
+  "timestamp": "2026-04-08T16:34:25.322283",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided data\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'SexLang': ['m\u00e4nnlich'] * 5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the figure size\nplt.figure(figsize=(10, 6))\n\n# Create a count plot for the number of dogs by year and Kreis\nsns.countplot(data=df, x='StichtagDat', hue='KreisLang', palette='Set2')\n\n# Add title and labels\nplt.title('Number of Dogs by Year and Kreis', fontsize=16)\nplt.xlabel('Year', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45)\nplt.legend(title='Kreis')\n\n# Save the plot to a file\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided data\ndata = {\n    'StichtagDat': ['2024-12-31', '2025-12-31', '2019-12-31', '2020-12-31', '2021-12-31'],\n    'AlterV10Lang': ['30- bis 39-J\u00e4hrige'] * 5,\n    'SexLang': ['m\u00e4nnlich'] * 5,\n    'KreisLang': ['Kreis 7', 'Kreis 7', 'Kreis 10', 'Kreis 10', 'Kreis 10'],\n    'AnzHunde': [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the figure size\nplt.figure(figsize=(10, 6))\n\n# Create a count plot for the number of dogs by year and Kreis\nsns.countplot(data=df, x='StichtagDat', hue='KreisLang', palette='Set2')\n\n# Add title and labels\nplt.title('Number of Dogs by Year and Kreis', fontsize=16)\nplt.xlabel('Year', fontsize=12)\nplt.ylabel('Number of Dogs', fontsize=12)\nplt.xticks(rotation=45)\nplt.legend(title='Kreis')\n\n# Save the plot to a file\nplt.tight_layout()\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 14.29,
+    "hallucination_rate": 0.5882,
+    "color_delta_e": 1.1741,
+    "visual_entropy": 1.8349,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 6.174,
+    "cost_per_run": 0.000296,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

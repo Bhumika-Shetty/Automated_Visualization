@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 22,
+  "timestamp": "2026-04-08T16:51:02.618048",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time into a datetime object for better handling\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for total sales by product\nplt.figure(figsize=(12, 6))\nsales_by_product = coffee_sales.groupby('product')['total'].sum().reset_index()\nsns.barplot(x='total', y='product', data=sales_by_product, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Total Sales ($)')\nplt.ylabel('Coffee Product')\nplt.title('Total Sales by Coffee Product')\nplt.legend(title='Product', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time into a datetime object for better handling\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for total sales by product\nplt.figure(figsize=(12, 6))\nsales_by_product = coffee_sales.groupby('product')['total'].sum().reset_index()\nsns.barplot(x='total', y='product', data=sales_by_product, palette='viridis')\n\n# Add labels and title\nplt.xlabel('Total Sales ($)')\nplt.ylabel('Coffee Product')\nplt.title('Total Sales by Coffee Product')\nplt.legend(title='Product', loc='upper right')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpmntunn5h/viz_script.py:17: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='total', y='product', data=sales_by_product, palette='viridis')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpmntunn5h/viz_script.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(title='Product', loc='upper right')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 50.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 0.498,
+    "visual_entropy": 2.9632,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 3.683,
+    "cost_per_run": 0.000186,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

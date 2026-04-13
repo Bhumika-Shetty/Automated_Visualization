@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 30,
+  "timestamp": "2026-04-08T16:21:20.377771",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Set the style for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between price and megapixels, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(\n    data=cameras, \n    x='megapixels', \n    y='price_usd', \n    hue='sensor_type', \n    style='has_video_4k', \n    palette='deep', \n    markers={0: \"X\", 1: \"o\"},\n    alpha=0.7\n)\n\n# Add labels and title\nscatter.set_title('Digital Cameras: Price vs Megapixels by Sensor Type and 4K Video Capability', fontsize=16)\nscatter.set_xlabel('Megapixels', fontsize=14)\nscatter.set_ylabel('Price (USD)', fontsize=14)\n\n# Customize legend\nhandles, labels = scatter.get_legend_handles_labels()\nscatter.legend(handles=handles[1:], labels=labels[1:], title='Sensor Type & 4K Video', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncameras = pd.read_csv('data/cameras.csv')\n\n# Set the style for the plot\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to visualize the relationship between price and megapixels, colored by sensor type\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(\n    data=cameras, \n    x='megapixels', \n    y='price_usd', \n    hue='sensor_type', \n    style='has_video_4k', \n    palette='deep', \n    markers={0: \"X\", 1: \"o\"},\n    alpha=0.7\n)\n\n# Add labels and title\nscatter.set_title('Digital Cameras: Price vs Megapixels by Sensor Type and 4K Video Capability', fontsize=16)\nscatter.set_xlabel('Megapixels', fontsize=14)\nscatter.set_ylabel('Price (USD)', fontsize=14)\n\n# Customize legend\nhandles, labels = scatter.get_legend_handles_labels()\nscatter.legend(handles=handles[1:], labels=labels[1:], title='Sensor Type & 4K Video', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.3,
+    "color_delta_e": 1.3493,
+    "visual_entropy": 1.3225,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 4.006,
+    "cost_per_run": 0.003773,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

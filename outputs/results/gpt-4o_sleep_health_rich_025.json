@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-08T04:10:39.837995",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a boxplot to show the distribution of sleep duration based on BMI Category\nsns.boxplot(x='BMI Category', y='Sleep Duration', data=df, ax=ax, palette='pastel')\n\n# Add a title and labels\nax.set_title('Distribution of Sleep Duration by BMI Category', fontsize=16)\nax.set_xlabel('BMI Category', fontsize=14)\nax.set_ylabel('Sleep Duration (hours)', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the style\nsns.set(style='whitegrid')\n\n# Create a figure and axis\nfig, ax = plt.subplots(figsize=(12, 8))\n\n# Create a boxplot to show the distribution of sleep duration based on BMI Category\nsns.boxplot(x='BMI Category', y='Sleep Duration', data=df, ax=ax, palette='pastel')\n\n# Add a title and labels\nax.set_title('Distribution of Sleep Duration by BMI Category', fontsize=16)\nax.set_xlabel('BMI Category', fontsize=14)\nax.set_ylabel('Sleep Duration (hours)', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp66b5cwhw/viz_script.py:15: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='BMI Category', y='Sleep Duration', data=df, ax=ax, palette='pastel')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 15.38,
+    "hallucination_rate": 0.5714,
+    "color_delta_e": 0.5955,
+    "visual_entropy": 1.5368,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.186,
+    "cost_per_run": 0.002902,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

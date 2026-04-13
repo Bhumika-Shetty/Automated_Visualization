@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 8,
+  "timestamp": "2026-04-08T16:49:52.654957",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Create a new column for total sales per product\ncoffee_sales['total_sales'] = coffee_sales['price'] * coffee_sales['quantity']\n\n# Aggregate total sales by product and age group\nsales_by_product_age = coffee_sales.groupby(['product', 'customer_age_group'])['total_sales'].sum().reset_index()\n\n# Set the order of the age groups\nage_order = ['18-24', '35-44', '55+']\n\n# Create a bar plot\nplt.figure(figsize=(12, 6))\nsns.barplot(data=sales_by_product_age, x='product', y='total_sales', hue='customer_age_group', order=sales_by_product_age['product'].unique())\nplt.title('Total Sales by Product and Customer Age Group')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Customer Age Group', loc='upper right')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Create a new column for total sales per product\ncoffee_sales['total_sales'] = coffee_sales['price'] * coffee_sales['quantity']\n\n# Aggregate total sales by product and age group\nsales_by_product_age = coffee_sales.groupby(['product', 'customer_age_group'])['total_sales'].sum().reset_index()\n\n# Set the order of the age groups\nage_order = ['18-24', '35-44', '55+']\n\n# Create a bar plot\nplt.figure(figsize=(12, 6))\nsns.barplot(data=sales_by_product_age, x='product', y='total_sales', hue='customer_age_group', order=sales_by_product_age['product'].unique())\nplt.title('Total Sales by Product and Customer Age Group')\nplt.xlabel('Product')\nplt.ylabel('Total Sales ($)')\nplt.xticks(rotation=45)\nplt.legend(title='Customer Age Group', loc='upper right')\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.4667,
+    "color_delta_e": 2.0652,
+    "visual_entropy": 2.1812,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.532,
+    "cost_per_run": 0.000209,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

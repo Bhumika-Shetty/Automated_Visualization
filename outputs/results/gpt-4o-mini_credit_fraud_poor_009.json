@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 9,
+  "timestamp": "2026-04-08T05:10:37.459451",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for transaction types by amount\nplt.figure(figsize=(10, 6))\nsns.barplot(x='transaction_type', y='amount', data=df, estimator=sum, ci=None)\n\n# Add title and labels\nplt.title('Total Amount by Transaction Type', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=14)\nplt.ylabel('Total Amount', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for transaction types by amount\nplt.figure(figsize=(10, 6))\nsns.barplot(x='transaction_type', y='amount', data=df, estimator=sum, ci=None)\n\n# Add title and labels\nplt.title('Total Amount by Transaction Type', fontsize=16)\nplt.xlabel('Transaction Type', fontsize=14)\nplt.ylabel('Total Amount', fontsize=14)\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpb9jyvhiz/viz_script.py:20: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x='transaction_type', y='amount', data=df, estimator=sum, ci=None)\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.5822,
+    "visual_entropy": 1.0998,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 5.076,
+    "cost_per_run": 0.000161,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

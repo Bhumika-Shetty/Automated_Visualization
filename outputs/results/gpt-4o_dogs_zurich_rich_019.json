@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-08T16:14:08.514436",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nfile_path = 'data/dogs_zurich.csv'\ndogs_df = pd.read_csv(file_path)\n\n# Prepare data for visualization\nbreed_counts = dogs_df['Rasse1Text'].value_counts().head(10)\ndistrict_counts = dogs_df['KreisLang'].value_counts().head(10)\n\n# Set up the matplotlib figure\nfig, ax = plt.subplots(2, 1, figsize=(10, 12))\n\n# Plot 1: Top 10 Dog Breeds\nsns.barplot(x=breed_counts.values, y=breed_counts.index, ax=ax[0], palette='viridis')\nax[0].set_title('Top 10 Dog Breeds in Zurich')\nax[0].set_xlabel('Number of Dogs')\nax[0].set_ylabel('Breed')\n\n# Plot 2: Top 10 Districts with Most Dogs\nsns.barplot(x=district_counts.values, y=district_counts.index, ax=ax[1], palette='magma')\nax[1].set_title('Top 10 Districts with Most Dogs in Zurich')\nax[1].set_xlabel('Number of Dogs')\nax[1].set_ylabel('District')\n\n# Adjust the layout\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\nfile_path = 'data/dogs_zurich.csv'\ndogs_df = pd.read_csv(file_path)\n\n# Prepare data for visualization\nbreed_counts = dogs_df['Rasse1Text'].value_counts().head(10)\ndistrict_counts = dogs_df['KreisLang'].value_counts().head(10)\n\n# Set up the matplotlib figure\nfig, ax = plt.subplots(2, 1, figsize=(10, 12))\n\n# Plot 1: Top 10 Dog Breeds\nsns.barplot(x=breed_counts.values, y=breed_counts.index, ax=ax[0], palette='viridis')\nax[0].set_title('Top 10 Dog Breeds in Zurich')\nax[0].set_xlabel('Number of Dogs')\nax[0].set_ylabel('Breed')\n\n# Plot 2: Top 10 Districts with Most Dogs\nsns.barplot(x=district_counts.values, y=district_counts.index, ax=ax[1], palette='magma')\nax[1].set_title('Top 10 Districts with Most Dogs in Zurich')\nax[1].set_xlabel('Number of Dogs')\nax[1].set_ylabel('District')\n\n# Adjust the layout\nplt.tight_layout()\n\n# Save the final figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpg3nai2z9/viz_script.py:17: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=breed_counts.values, y=breed_counts.index, ax=ax[0], palette='viridis')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmpg3nai2z9/viz_script.py:23: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x=district_counts.values, y=district_counts.index, ax=ax[1], palette='magma')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.8182,
+    "color_delta_e": 0.7922,
+    "visual_entropy": 1.8581,
+    "labeling_completeness": 0.75,
+    "code_complexity": 3,
+    "generation_latency": 3.59,
+    "cost_per_run": 0.005553,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

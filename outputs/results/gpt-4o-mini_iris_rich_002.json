@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "iris",
+  "prompt_type": "rich",
+  "run_id": 2,
+  "timestamp": "2026-04-08T04:38:58.267387",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between the features colored by species\nsns.pairplot(data, hue='species', markers=[\"o\", \"s\", \"D\"], palette='Set2')\n\n# Add title and adjust layout\nplt.suptitle('Iris Flower Dataset - Pairplot', y=1.02)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/iris.csv')\n\n# Create a pairplot to visualize relationships between the features colored by species\nsns.pairplot(data, hue='species', markers=[\"o\", \"s\", \"D\"], palette='Set2')\n\n# Add title and adjust layout\nplt.suptitle('Iris Flower Dataset - Pairplot', y=1.02)\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 20.0,
+    "hallucination_rate": 0.3333,
+    "color_delta_e": 1.4115,
+    "visual_entropy": 1.1055,
+    "labeling_completeness": 0.25,
+    "code_complexity": 0,
+    "generation_latency": 4.204,
+    "cost_per_run": 0.000117,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

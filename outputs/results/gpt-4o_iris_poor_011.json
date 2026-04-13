@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "iris",
+  "prompt_type": "poor",
+  "run_id": 11,
+  "timestamp": "2026-04-08T04:07:39.706853",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create the DataFrame\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\n# Plot using seaborn\nsns.set(style=\"whitegrid\")\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', palette='Set2', s=100)\n\n# Adjust the plot\nplt.title('Sepal Length vs. Sepal Width for Setosa Species')\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Sepal Width (cm)')\nplt.legend(title='Species')\nplt.xlim(4.5, 5.5)\nplt.ylim(2.5, 4.0)\n\n# Save the plot\nplt.savefig(\"output.png\")\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create the DataFrame\ndata = {\n    'sepal_length': [5.1, 4.9, 4.7, 4.6, 5.0],\n    'sepal_width': [3.5, 3.0, 3.2, 3.1, 3.6],\n    'petal_length': [1.4, 1.4, 1.3, 1.5, 1.4],\n    'petal_width': [0.2, 0.2, 0.2, 0.2, 0.2],\n    'species': ['setosa', 'setosa', 'setosa', 'setosa', 'setosa']\n}\ndf = pd.DataFrame(data)\n\n# Plot using seaborn\nsns.set(style=\"whitegrid\")\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', palette='Set2', s=100)\n\n# Adjust the plot\nplt.title('Sepal Length vs. Sepal Width for Setosa Species')\nplt.xlabel('Sepal Length (cm)')\nplt.ylabel('Sepal Width (cm)')\nplt.legend(title='Species')\nplt.xlim(4.5, 5.5)\nplt.ylim(2.5, 4.0)\n\n# Save the plot\nplt.savefig(\"output.png\")\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 0.7583,
+    "visual_entropy": 0.5907,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.728,
+    "cost_per_run": 0.00367,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

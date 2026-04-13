@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 4,
+  "timestamp": "2026-04-08T04:44:50.442743",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetics for the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot for Sleep Duration vs Quality of Sleep, colored by Gender\nplt.figure(figsize=(12, 6))\nsns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', hue='Gender', \n                 palette='deep', alpha=0.7, s=100, style='Sleep Disorder')\n\n# Add titles and labels\nplt.title('Sleep Duration vs Quality of Sleep by Gender and Sleep Disorder', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=14)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=14)\n\n# Add legend\nplt.legend(title='Gender / Sleep Disorder', loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/sleep_health.csv')\n\n# Set the aesthetics for the plots\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot for Sleep Duration vs Quality of Sleep, colored by Gender\nplt.figure(figsize=(12, 6))\nsns.scatterplot(data=data, x='Sleep Duration', y='Quality of Sleep', hue='Gender', \n                 palette='deep', alpha=0.7, s=100, style='Sleep Disorder')\n\n# Add titles and labels\nplt.title('Sleep Duration vs Quality of Sleep by Gender and Sleep Disorder', fontsize=16)\nplt.xlabel('Sleep Duration (hours)', fontsize=14)\nplt.ylabel('Quality of Sleep (1-10 scale)', fontsize=14)\n\n# Add legend\nplt.legend(title='Gender / Sleep Disorder', loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.8125,
+    "visual_entropy": 0.7131,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 8.189,
+    "cost_per_run": 0.000195,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

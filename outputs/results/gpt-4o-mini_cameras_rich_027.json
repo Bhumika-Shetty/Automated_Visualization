@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 27,
+  "timestamp": "2026-04-08T16:41:11.212841",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to analyze the relationship between price and megapixels\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=data, x='megapixels', y='price_usd', hue='sensor_type', \n                          size='weight_grams', sizes=(20, 200), alpha=0.6, palette='deep')\n\n# Add titles and labels\nplt.title('Price vs Megapixels of Digital Cameras', fontsize=16)\nplt.xlabel('Megapixels', fontsize=14)\nplt.ylabel('Price (USD)', fontsize=14)\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot to analyze the relationship between price and megapixels\nplt.figure(figsize=(12, 8))\nscatter = sns.scatterplot(data=data, x='megapixels', y='price_usd', hue='sensor_type', \n                          size='weight_grams', sizes=(20, 200), alpha=0.6, palette='deep')\n\n# Add titles and labels\nplt.title('Price vs Megapixels of Digital Cameras', fontsize=16)\nplt.xlabel('Megapixels', fontsize=14)\nplt.ylabel('Price (USD)', fontsize=14)\nplt.legend(title='Sensor Type', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5455,
+    "color_delta_e": 1.2271,
+    "visual_entropy": 1.8551,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.309,
+    "cost_per_run": 0.00019,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

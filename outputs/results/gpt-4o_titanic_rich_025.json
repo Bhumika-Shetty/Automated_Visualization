@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "titanic",
+  "prompt_type": "rich",
+  "run_id": 25,
+  "timestamp": "2026-04-08T03:59:49.735617",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the Titanic dataset\ntitanic_data = pd.read_csv('data/titanic.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a factor plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=titanic_data, x='class', hue='survived', palette='pastel')\n\n# Add labels and title\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\nplt.title('Survival Counts by Passenger Class')\n\n# Add legend\nplt.legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the Titanic dataset\ntitanic_data = pd.read_csv('data/titanic.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a factor plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=titanic_data, x='class', hue='survived', palette='pastel')\n\n# Add labels and title\nplt.xlabel('Passenger Class')\nplt.ylabel('Count')\nplt.title('Survival Counts by Passenger Class')\n\n# Add legend\nplt.legend(title='Survived', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 13.33,
+    "hallucination_rate": 0.75,
+    "color_delta_e": 0.4885,
+    "visual_entropy": 1.4094,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.088,
+    "cost_per_run": 0.002747,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

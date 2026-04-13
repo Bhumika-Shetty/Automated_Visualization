@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 13,
+  "timestamp": "2026-04-08T05:11:00.617697",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the visual style\nsns.set(style=\"whitegrid\")\n\n# Create a boxplot to visualize the transaction amounts by type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='transaction_type', y='amount', data=df)\n\n# Add title and labels\nplt.title('Transaction Amounts by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\n# Set the visual style\nsns.set(style=\"whitegrid\")\n\n# Create a boxplot to visualize the transaction amounts by type\nplt.figure(figsize=(10, 6))\nsns.boxplot(x='transaction_type', y='amount', data=df)\n\n# Add title and labels\nplt.title('Transaction Amounts by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Amount')\n\n# Save the plot\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5333,
+    "color_delta_e": 0.4688,
+    "visual_entropy": 0.7657,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 4.158,
+    "cost_per_run": 0.00015,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

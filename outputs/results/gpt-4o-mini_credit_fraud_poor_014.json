@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 14,
+  "timestamp": "2026-04-08T05:11:05.741344",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for transaction amounts by type\nplt.figure(figsize=(10, 6))\nsns.barplot(x='transaction_type', y='amount', data=df, estimator=sum, ci=None, palette='viridis')\n\n# Add titles and labels\nplt.title('Total Transaction Amounts by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Total Amount ($)')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create the dataset\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\ndf = pd.DataFrame(data)\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot for transaction amounts by type\nplt.figure(figsize=(10, 6))\nsns.barplot(x='transaction_type', y='amount', data=df, estimator=sum, ci=None, palette='viridis')\n\n# Add titles and labels\nplt.title('Total Transaction Amounts by Type')\nplt.xlabel('Transaction Type')\nplt.ylabel('Total Amount ($)')\n\n# Save the figure\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmppxfvwcub/viz_script.py:19: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(x='transaction_type', y='amount', data=df, estimator=sum, ci=None, palette='viridis')\n/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmppxfvwcub/viz_script.py:19: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(x='transaction_type', y='amount', data=df, estimator=sum, ci=None, palette='viridis')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.6,
+    "color_delta_e": 0.5295,
+    "visual_entropy": 1.3279,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 4.847,
+    "cost_per_run": 0.000159,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

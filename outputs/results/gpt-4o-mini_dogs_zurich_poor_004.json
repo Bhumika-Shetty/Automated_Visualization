@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 4,
+  "timestamp": "2026-04-08T16:34:47.349536",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"HundefarbeText\": [\"beige\", \"beige\", \"beige/schwarz\", \"beige/schwarz\", \"beige/schwarz\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Setting the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='KreisLang', hue='HundefarbeText', palette='Set2')\n\n# Adding titles and labels\nplt.title('Number of Dogs by Kreis and Color', fontsize=16)\nplt.xlabel('Kreis', fontsize=14)\nplt.ylabel('Number of Dogs', fontsize=14)\nplt.legend(title='Dog Color')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Create a DataFrame from the provided dataset\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"SexLang\": [\"m\u00e4nnlich\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"HundefarbeText\": [\"beige\", \"beige\", \"beige/schwarz\", \"beige/schwarz\", \"beige/schwarz\"],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Setting the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a bar plot\nplt.figure(figsize=(10, 6))\nsns.countplot(data=df, x='KreisLang', hue='HundefarbeText', palette='Set2')\n\n# Adding titles and labels\nplt.title('Number of Dogs by Kreis and Color', fontsize=16)\nplt.xlabel('Kreis', fontsize=14)\nplt.ylabel('Number of Dogs', fontsize=14)\nplt.legend(title='Dog Color')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 17.14,
+    "hallucination_rate": 0.6364,
+    "color_delta_e": 0.76,
+    "visual_entropy": 1.8705,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 6.103,
+    "cost_per_run": 0.000313,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

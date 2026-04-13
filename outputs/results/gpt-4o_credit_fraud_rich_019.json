@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 19,
+  "timestamp": "2026-04-08T04:22:52.919226",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure with subplots\nfig, ax = plt.subplots(1, 2, figsize=(14, 6))\n\n# Plot 1: Distribution of transaction amounts by fraud status\nsns.histplot(data=df, x='amount', hue='is_fraud', multiple='stack', bins=30, ax=ax[0], palette='coolwarm')\nax[0].set_title('Transaction Amount Distribution by Fraud Status')\nax[0].set_xlabel('Transaction Amount')\nax[0].set_ylabel('Count')\nax[0].legend(title='Fraud Status', labels=['Not Fraud', 'Fraud'])\n\n# Plot 2: Count of transactions by type and fraud status\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', ax=ax[1], palette='coolwarm')\nax[1].set_title('Transaction Type Count by Fraud Status')\nax[1].set_xlabel('Transaction Type')\nax[1].set_ylabel('Count')\nax[1].legend(title='Fraud Status', labels=['Not Fraud', 'Fraud'])\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure with subplots\nfig, ax = plt.subplots(1, 2, figsize=(14, 6))\n\n# Plot 1: Distribution of transaction amounts by fraud status\nsns.histplot(data=df, x='amount', hue='is_fraud', multiple='stack', bins=30, ax=ax[0], palette='coolwarm')\nax[0].set_title('Transaction Amount Distribution by Fraud Status')\nax[0].set_xlabel('Transaction Amount')\nax[0].set_ylabel('Count')\nax[0].legend(title='Fraud Status', labels=['Not Fraud', 'Fraud'])\n\n# Plot 2: Count of transactions by type and fraud status\nsns.countplot(data=df, x='transaction_type', hue='is_fraud', ax=ax[1], palette='coolwarm')\nax[1].set_title('Transaction Type Count by Fraud Status')\nax[1].set_xlabel('Transaction Type')\nax[1].set_ylabel('Count')\nax[1].legend(title='Fraud Status', labels=['Not Fraud', 'Fraud'])\n\n# Adjust layout\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.8095,
+    "color_delta_e": 0.8054,
+    "visual_entropy": 1.254,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 2.491,
+    "cost_per_run": 0.003698,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

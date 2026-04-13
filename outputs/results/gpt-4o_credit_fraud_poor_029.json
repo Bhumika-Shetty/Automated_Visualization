@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "poor",
+  "run_id": 29,
+  "timestamp": "2026-04-08T04:30:59.949803",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='hour_of_day', y='amount', hue='transaction_type', style='is_fraud', data=df, s=100)\nplt.title('Transaction Amount by Hour and Type')\nplt.xlabel('Hour of Day')\nplt.ylabel('Transaction Amount')\nplt.legend(title='Transaction Type')\nplt.grid(True)\nplt.savefig('output.png')\nplt.close()",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\ndata = {\n    'amount': [115.02, 44.37, 144.25, 536.22, 38.43],\n    'is_fraud': [0, 0, 0, 0, 0],\n    'transaction_type': ['refund', 'payment', 'transfer', 'payment', 'payment'],\n    'hour_of_day': [22, 5, 21, 17, 5]\n}\n\ndf = pd.DataFrame(data)\n\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='hour_of_day', y='amount', hue='transaction_type', style='is_fraud', data=df, s=100)\nplt.title('Transaction Amount by Hour and Type')\nplt.xlabel('Hour of Day')\nplt.ylabel('Transaction Amount')\nplt.legend(title='Transaction Type')\nplt.grid(True)\nplt.savefig('output.png')\nplt.close()\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 100.0,
+    "hallucination_rate": 0.5294,
+    "color_delta_e": 1.3123,
+    "visual_entropy": 0.6167,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 1.949,
+    "cost_per_run": 0.002377,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

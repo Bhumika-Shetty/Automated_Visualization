@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 7,
+  "timestamp": "2026-04-08T04:14:29.843417",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime type\ndata['Dt_Customer'] = pd.to_datetime(data['Dt_Customer'], format='%d-%m-%Y')\n\n# Calculate the total spending\ndata['Total_Spending'] = data['MntWines'] + data['MntFruits'] + data['MntMeatProducts'] + data['MntFishProducts'] + data['MntSweetProducts'] + data['MntGoldProds']\n\n# Create a segmented spending analysis plot\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='Marital_Status', y='Total_Spending', data=data, palette='pastel')\nplt.title('Customer Spending by Marital Status')\nplt.xlabel('Marital Status')\nplt.ylabel('Total Spending')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Convert Dt_Customer to datetime type\ndata['Dt_Customer'] = pd.to_datetime(data['Dt_Customer'], format='%d-%m-%Y')\n\n# Calculate the total spending\ndata['Total_Spending'] = data['MntWines'] + data['MntFruits'] + data['MntMeatProducts'] + data['MntFishProducts'] + data['MntSweetProducts'] + data['MntGoldProds']\n\n# Create a segmented spending analysis plot\nplt.figure(figsize=(12, 6))\nsns.boxplot(x='Marital_Status', y='Total_Spending', data=data, palette='pastel')\nplt.title('Customer Spending by Marital Status')\nplt.xlabel('Marital Status')\nplt.ylabel('Total Spending')\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp_hmplz9a/viz_script.py:16: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.boxplot(x='Marital_Status', y='Total_Spending', data=data, palette='pastel')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 27.59,
+    "hallucination_rate": 0.4375,
+    "color_delta_e": 0.9821,
+    "visual_entropy": 1.3373,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.514,
+    "cost_per_run": 0.004233,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

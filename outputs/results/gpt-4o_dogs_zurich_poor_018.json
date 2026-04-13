@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "dogs_zurich",
+  "prompt_type": "poor",
+  "run_id": 18,
+  "timestamp": "2026-04-08T16:17:08.272024",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Creating a DataFrame from the provided data\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"Rasse2Text\": [\"Labrador Retriever\", \"Labrador Retriever\", \"\", \"\", \"\"],\n    \"AlterVHundNum\": [4.0, 5.0, 0.0, 1.0, 2.0],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Setting up the visualization\nplt.figure(figsize=(10, 6))\nsns.set_theme(style=\"whitegrid\")\n\n# Creating a bar plot\nax = sns.barplot(\n    x=\"StichtagDatJahr\", \n    y=\"AnzHunde\", \n    hue=\"KreisLang\", \n    data=df,\n    palette=\"muted\"\n)\n\n# Adding labels and title\nax.set_title('Number of Dogs by Year and Kreis')\nax.set_xlabel('Year')\nax.set_ylabel('Number of Dogs')\nplt.legend(title='Kreis')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')\n\n# Show the plot\nplt.show()",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Creating a DataFrame from the provided data\ndata = {\n    \"StichtagDat\": [\"2024-12-31\", \"2025-12-31\", \"2019-12-31\", \"2020-12-31\", \"2021-12-31\"],\n    \"StichtagDatJahr\": [2024, 2025, 2019, 2020, 2021],\n    \"AlterV10Lang\": [\"30- bis 39-J\u00e4hrige\"] * 5,\n    \"KreisLang\": [\"Kreis 7\", \"Kreis 7\", \"Kreis 10\", \"Kreis 10\", \"Kreis 10\"],\n    \"Rasse1Text\": [\"Deutsche Dogge\", \"Deutsche Dogge\", \"Continental Bulldog\", \"Continental Bulldog\", \"Continental Bulldog\"],\n    \"Rasse2Text\": [\"Labrador Retriever\", \"Labrador Retriever\", \"\", \"\", \"\"],\n    \"AlterVHundNum\": [4.0, 5.0, 0.0, 1.0, 2.0],\n    \"AnzHunde\": [1, 1, 1, 1, 1]\n}\n\ndf = pd.DataFrame(data)\n\n# Setting up the visualization\nplt.figure(figsize=(10, 6))\nsns.set_theme(style=\"whitegrid\")\n\n# Creating a bar plot\nax = sns.barplot(\n    x=\"StichtagDatJahr\", \n    y=\"AnzHunde\", \n    hue=\"KreisLang\", \n    data=df,\n    palette=\"muted\"\n)\n\n# Adding labels and title\nax.set_title('Number of Dogs by Year and Kreis')\nax.set_xlabel('Year')\nax.set_ylabel('Number of Dogs')\nplt.legend(title='Kreis')\n\n# Save the plot to a file\nplt.savefig('output.png', bbox_inches='tight')\n\n# Show the plot\nplt.show()\n```",
+  "stdout": "",
+  "stderr": "2026-04-08 12:17:14.616 python3[48285:2273630] The class 'NSSavePanel' overrides the method identifier.  This method is implemented by class 'NSWindow'\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 22.86,
+    "hallucination_rate": 0.6333,
+    "color_delta_e": 1.0864,
+    "visual_entropy": 1.9725,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.984,
+    "cost_per_run": 0.006072,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

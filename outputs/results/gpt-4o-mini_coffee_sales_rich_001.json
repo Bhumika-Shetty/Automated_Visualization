@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T16:49:14.804601",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Group by product and customer age group to get total sales\nsales_summary = coffee_sales.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set the figure size\nplt.figure(figsize=(12, 6))\n\n# Create a bar plot\nsns.barplot(data=sales_summary, x='product', y='total', hue='customer_age_group')\n\n# Add labels and title\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\nplt.xticks(rotation=45)\nplt.legend(title='Customer Age Group')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ncoffee_sales = pd.read_csv('data/coffee_sales.csv')\n\n# Convert date and time to datetime\ncoffee_sales['datetime'] = pd.to_datetime(coffee_sales['date'] + ' ' + coffee_sales['time'])\n\n# Group by product and customer age group to get total sales\nsales_summary = coffee_sales.groupby(['product', 'customer_age_group'])['total'].sum().reset_index()\n\n# Set the figure size\nplt.figure(figsize=(12, 6))\n\n# Create a bar plot\nsns.barplot(data=sales_summary, x='product', y='total', hue='customer_age_group')\n\n# Add labels and title\nplt.title('Total Sales by Product and Customer Age Group', fontsize=16)\nplt.xlabel('Product', fontsize=14)\nplt.ylabel('Total Sales ($)', fontsize=14)\nplt.xticks(rotation=45)\nplt.legend(title='Customer Age Group')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 60.0,
+    "hallucination_rate": 0.3077,
+    "color_delta_e": 2.4697,
+    "visual_entropy": 2.1825,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.572,
+    "cost_per_run": 0.000196,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "customer_segments",
+  "prompt_type": "rich",
+  "run_id": 12,
+  "timestamp": "2026-04-08T04:58:10.645327",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for Age\ndata['Age'] = 2023 - data['Year_Birth']\n\n# Create a scatter plot of Income vs Age colored by Marital_Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=data, x='Age', y='Income', hue='Marital_Status', alpha=0.7, palette='Set1')\n\n# Adding titles and labels\nplt.title('Income vs Age by Marital Status', fontsize=16)\nplt.xlabel('Age', fontsize=14)\nplt.ylabel('Income', fontsize=14)\nplt.legend(title='Marital Status', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/customer_segments.csv')\n\n# Create a new column for Age\ndata['Age'] = 2023 - data['Year_Birth']\n\n# Create a scatter plot of Income vs Age colored by Marital_Status\nplt.figure(figsize=(12, 8))\nsns.scatterplot(data=data, x='Age', y='Income', hue='Marital_Status', alpha=0.7, palette='Set1')\n\n# Adding titles and labels\nplt.title('Income vs Age by Marital Status', fontsize=16)\nplt.xlabel('Age', fontsize=14)\nplt.ylabel('Income', fontsize=14)\nplt.legend(title='Marital Status', fontsize=12)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 10.34,
+    "hallucination_rate": 0.6364,
+    "color_delta_e": 1.1432,
+    "visual_entropy": 0.7085,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 5.211,
+    "cost_per_run": 0.000237,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

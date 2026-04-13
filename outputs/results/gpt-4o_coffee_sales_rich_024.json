@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-08T16:26:34.457800",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' to datetime\ndf['date'] = pd.to_datetime(df['date'])\n\n# Aggregate sales by date\ndaily_sales = df.groupby('date')['total'].sum().reset_index()\n\n# Create a plot\nplt.figure(figsize=(14, 7))\nsns.lineplot(data=daily_sales, x='date', y='total', marker='o', color='mediumseagreen')\n\n# Customize the plot\nplt.title('Daily Total Sales at Coffee Shop', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.grid(True, linestyle='--', alpha=0.5)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndf = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' to datetime\ndf['date'] = pd.to_datetime(df['date'])\n\n# Aggregate sales by date\ndaily_sales = df.groupby('date')['total'].sum().reset_index()\n\n# Create a plot\nplt.figure(figsize=(14, 7))\nsns.lineplot(data=daily_sales, x='date', y='total', marker='o', color='mediumseagreen')\n\n# Customize the plot\nplt.title('Daily Total Sales at Coffee Shop', fontsize=16)\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.xticks(rotation=45)\nplt.grid(True, linestyle='--', alpha=0.5)\n\n# Save the plot\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.25,
+    "color_delta_e": 2.1337,
+    "visual_entropy": 0.8347,
+    "labeling_completeness": 0.75,
+    "code_complexity": 0,
+    "generation_latency": 2.48,
+    "cost_per_run": 0.00301,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

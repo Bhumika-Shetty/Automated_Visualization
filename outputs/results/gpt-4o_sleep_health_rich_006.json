@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "sleep_health",
+  "prompt_type": "rich",
+  "run_id": 6,
+  "timestamp": "2026-04-08T04:09:24.397735",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to show the relationship between Sleep Duration and Quality of Sleep\n# Color the points by BMI Category\nscatter = sns.scatterplot(data=df, x='Sleep Duration', y='Quality of Sleep', hue='BMI Category', style='Gender', palette='Set2')\n\n# Set the axis labels and title\nscatter.set_xlabel('Sleep Duration (hours)', fontsize=12)\nscatter.set_ylabel('Quality of Sleep (1-10)', fontsize=12)\nscatter.set_title('Relationship between Sleep Duration and Quality of Sleep by BMI Category and Gender', fontsize=14)\n\n# Set the legend title\nplt.legend(title='BMI Category & Gender', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndf = pd.read_csv('data/sleep_health.csv')\n\n# Set the style of seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a figure\nplt.figure(figsize=(12, 8))\n\n# Create a scatter plot to show the relationship between Sleep Duration and Quality of Sleep\n# Color the points by BMI Category\nscatter = sns.scatterplot(data=df, x='Sleep Duration', y='Quality of Sleep', hue='BMI Category', style='Gender', palette='Set2')\n\n# Set the axis labels and title\nscatter.set_xlabel('Sleep Duration (hours)', fontsize=12)\nscatter.set_ylabel('Quality of Sleep (1-10)', fontsize=12)\nscatter.set_title('Relationship between Sleep Duration and Quality of Sleep by BMI Category and Gender', fontsize=14)\n\n# Set the legend title\nplt.legend(title='BMI Category & Gender', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 30.77,
+    "hallucination_rate": 0.5556,
+    "color_delta_e": 0.6121,
+    "visual_entropy": 0.4882,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 2.776,
+    "cost_per_run": 0.003472,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

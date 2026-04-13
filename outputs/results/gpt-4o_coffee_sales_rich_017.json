@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "coffee_sales",
+  "prompt_type": "rich",
+  "run_id": 17,
+  "timestamp": "2026-04-08T16:25:59.645231",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Calculate daily total sales\ndaily_sales = data.groupby('date')['total'].sum().reset_index()\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create the plot\nplt.figure(figsize=(14, 7))\nsns.lineplot(x='date', y='total', data=daily_sales, marker='o', linewidth=2.5)\n\n# Add labels and title\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.title('Daily Total Sales at Coffee Shop', fontsize=16)\n\n# Rotate the x-ticks for better readability\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/coffee_sales.csv')\n\n# Convert 'date' column to datetime\ndata['date'] = pd.to_datetime(data['date'])\n\n# Calculate daily total sales\ndaily_sales = data.groupby('date')['total'].sum().reset_index()\n\n# Set the style of the visualization\nsns.set(style=\"whitegrid\")\n\n# Create the plot\nplt.figure(figsize=(14, 7))\nsns.lineplot(x='date', y='total', data=daily_sales, marker='o', linewidth=2.5)\n\n# Add labels and title\nplt.xlabel('Date', fontsize=12)\nplt.ylabel('Total Sales ($)', fontsize=12)\nplt.title('Daily Total Sales at Coffee Shop', fontsize=16)\n\n# Rotate the x-ticks for better readability\nplt.xticks(rotation=45)\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.25,
+    "color_delta_e": 1.8458,
+    "visual_entropy": 1.0258,
+    "labeling_completeness": 0.75,
+    "code_complexity": 1,
+    "generation_latency": 2.907,
+    "cost_per_run": 0.00313,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

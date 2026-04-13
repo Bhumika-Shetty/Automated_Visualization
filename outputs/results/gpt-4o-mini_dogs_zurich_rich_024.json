@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "dogs_zurich",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-08T16:33:39.555198",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the top 10 dog breeds by count\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot for top dog breeds by gender\nplt.figure(figsize=(12, 6))\nsns.countplot(data=filtered_data, x='Rasse1Text', hue='SexLang', order=top_breeds, palette='pastel')\nplt.title('Top 10 Dog Breeds by Gender in Zurich')\nplt.xlabel('Dog Breed')\nplt.ylabel('Count')\nplt.legend(title='Gender', labels=['Male', 'Female'])\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/dogs_zurich.csv')\n\n# Filter for the top 10 dog breeds by count\ntop_breeds = data['Rasse1Text'].value_counts().nlargest(10).index\nfiltered_data = data[data['Rasse1Text'].isin(top_breeds)]\n\n# Create a count plot for top dog breeds by gender\nplt.figure(figsize=(12, 6))\nsns.countplot(data=filtered_data, x='Rasse1Text', hue='SexLang', order=top_breeds, palette='pastel')\nplt.title('Top 10 Dog Breeds by Gender in Zurich')\nplt.xlabel('Dog Breed')\nplt.ylabel('Count')\nplt.legend(title='Gender', labels=['Male', 'Female'])\nplt.xticks(rotation=45)\nplt.tight_layout()\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 5.71,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.8022,
+    "visual_entropy": 0.6986,
+    "labeling_completeness": 1.0,
+    "code_complexity": 2,
+    "generation_latency": 5.077,
+    "cost_per_run": 0.000285,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

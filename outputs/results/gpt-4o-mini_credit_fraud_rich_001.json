@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o-mini",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T05:06:53.207079",
+  "code": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(12, 6))\n\n# Create a bar plot showing the average transaction amount by transaction type and fraud status\nsns.barplot(data=data, x='transaction_type', y='amount', hue='is_fraud', ci=None, palette='muted')\n\n# Add labels and title\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Average Transaction Amount', fontsize=12)\nplt.title('Average Transaction Amount by Transaction Type and Fraud Status', fontsize=14)\nplt.legend(title='Is Fraud', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the aesthetic style of the plots\nsns.set(style=\"whitegrid\")\n\n# Create a figure and axis\nplt.figure(figsize=(12, 6))\n\n# Create a bar plot showing the average transaction amount by transaction type and fraud status\nsns.barplot(data=data, x='transaction_type', y='amount', hue='is_fraud', ci=None, palette='muted')\n\n# Add labels and title\nplt.xlabel('Transaction Type', fontsize=12)\nplt.ylabel('Average Transaction Amount', fontsize=12)\nplt.title('Average Transaction Amount by Transaction Type and Fraud Status', fontsize=14)\nplt.legend(title='Is Fraud', loc='upper right', labels=['No', 'Yes'])\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "/var/folders/m8/cn5_mdps3vddfxvxn2kxzg0m0000gn/T/tmp8yf9xgaq/viz_script.py:15: FutureWarning: \n\nThe `ci` parameter is deprecated. Use `errorbar=None` for the same effect.\n\n  sns.barplot(data=data, x='transaction_type', y='amount', hue='is_fraud', ci=None, palette='muted')\n",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.7692,
+    "color_delta_e": 0.852,
+    "visual_entropy": 1.7535,
+    "labeling_completeness": 1.0,
+    "code_complexity": 0,
+    "generation_latency": 4.458,
+    "cost_per_run": 0.00016,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

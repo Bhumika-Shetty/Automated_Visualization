@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "cameras",
+  "prompt_type": "rich",
+  "run_id": 24,
+  "timestamp": "2026-04-08T16:20:54.660627",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(10, 6))\nscatter = sns.scatterplot(data=data, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', palette='deep', s=100)\n\n# Add a title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and 4K Video Capability')\nplt.xlabel('Megapixels')\nplt.ylabel('Price in USD')\n\n# Add a legend\nplt.legend(title='Sensor Type / 4K Video', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/cameras.csv')\n\n# Set the style for seaborn\nsns.set(style=\"whitegrid\")\n\n# Create a scatter plot\nplt.figure(figsize=(10, 6))\nscatter = sns.scatterplot(data=data, x='megapixels', y='price_usd', hue='sensor_type', style='has_video_4k', palette='deep', s=100)\n\n# Add a title and labels\nplt.title('Camera Price vs. Megapixels by Sensor Type and 4K Video Capability')\nplt.xlabel('Megapixels')\nplt.ylabel('Price in USD')\n\n# Add a legend\nplt.legend(title='Sensor Type / 4K Video', bbox_to_anchor=(1.05, 1), loc='upper left')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 40.0,
+    "hallucination_rate": 0.5,
+    "color_delta_e": 2.6686,
+    "visual_entropy": 1.9414,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 3.04,
+    "cost_per_run": 0.003053,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}

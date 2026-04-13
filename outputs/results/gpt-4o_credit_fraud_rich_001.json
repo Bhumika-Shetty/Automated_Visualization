@@ -1,0 +1,26 @@
+{
+  "model": "gpt-4o",
+  "dataset": "credit_fraud",
+  "prompt_type": "rich",
+  "run_id": 1,
+  "timestamp": "2026-04-08T04:21:49.320852",
+  "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create a figure and axes\nplt.figure(figsize=(12, 8))\n\n# Plot boxplots for transaction amounts categorized by transaction type\nsns.boxplot(data=data, x='transaction_type', y='amount', hue='is_fraud')\n\n# Add title and labels\nplt.title('Transaction Amount Distribution by Type and Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Transaction Amount')\nplt.legend(title='Is Fraud')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)",
+  "raw_response": "```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ndata = pd.read_csv('data/credit_fraud.csv')\n\n# Set the style of seaborn\nsns.set(style='whitegrid')\n\n# Create a figure and axes\nplt.figure(figsize=(12, 8))\n\n# Plot boxplots for transaction amounts categorized by transaction type\nsns.boxplot(data=data, x='transaction_type', y='amount', hue='is_fraud')\n\n# Add title and labels\nplt.title('Transaction Amount Distribution by Type and Fraud Status')\nplt.xlabel('Transaction Type')\nplt.ylabel('Transaction Amount')\nplt.legend(title='Is Fraud')\n\n# Save the figure\nplt.savefig('output.png', bbox_inches='tight', dpi=150)\n```",
+  "stdout": "",
+  "stderr": "",
+  "metrics": {
+    "execution_success": true,
+    "fidelity_score": 75.0,
+    "hallucination_rate": 0.6667,
+    "color_delta_e": 0.4509,
+    "visual_entropy": 0.5224,
+    "labeling_completeness": 1.0,
+    "code_complexity": 1,
+    "generation_latency": 2.711,
+    "cost_per_run": 0.002267,
+    "cross_run_cv": null,
+    "prompt_sensitivity_index": null
+  },
+  "error": null,
+  "fix_applied": null
+}
